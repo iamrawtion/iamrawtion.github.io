@@ -1,26 +1,208 @@
-// Smooth scrolling for navigation links
+// Terminal Command System
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
+
+const commands = {
+    help: {
+        description: 'Show all available commands',
+        action: () => {
+            return `
+Available commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<span class="terminal-output-command">help</span>     - Show this help message
+<span class="terminal-output-command">whoami</span>   - About me section
+<span class="terminal-output-command">github</span>   - GitHub statistics
+<span class="terminal-output-command">work</span>     - Work experience
+<span class="terminal-output-command">skills</span>   - Technical skills
+<span class="terminal-output-command">awards</span>   - Achievements
+<span class="terminal-output-command">contact</span>  - Contact information
+<span class="terminal-output-command">clear</span>    - Clear terminal output
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Tip: Use Tab for autocomplete, Arrow keys for history
+            `.trim();
+        }
+    },
+    whoami: {
+        description: 'About me section',
+        action: () => {
+            scrollToSection('about');
+            return '<span class="terminal-output-success">✓</span> Navigating to About Me section...';
+        }
+    },
+    github: {
+        description: 'GitHub statistics',
+        action: () => {
+            scrollToSection('github');
+            return '<span class="terminal-output-success">✓</span> Loading GitHub statistics...';
+        }
+    },
+    work: {
+        description: 'Work experience',
+        action: () => {
+            scrollToSection('experience');
+            return '<span class="terminal-output-success">✓</span> Displaying work experience...';
+        }
+    },
+    skills: {
+        description: 'Technical skills',
+        action: () => {
+            scrollToSection('skills');
+            return '<span class="terminal-output-success">✓</span> Showing technical skills...';
+        }
+    },
+    awards: {
+        description: 'Achievements',
+        action: () => {
+            scrollToSection('achievements');
+            return '<span class="terminal-output-success">✓</span> Loading achievements...';
+        }
+    },
+    contact: {
+        description: 'Contact information',
+        action: () => {
+            scrollToSection('contact');
+            return '<span class="terminal-output-success">✓</span> Contact information loaded...';
+        }
+    },
+    clear: {
+        description: 'Clear terminal',
+        action: () => {
+            terminalOutput.innerHTML = '';
+            return null;
+        }
+    }
+};
+
+const commandHistory = [];
+let historyIndex = -1;
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        const offset = 120;
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function addOutput(command, output) {
+    if (output !== null) {
+        const outputLine = document.createElement('div');
+        outputLine.className = 'terminal-output-line';
+        outputLine.innerHTML = `
+            <span class="terminal-output-command">visitor@portfolio:~$</span> ${command}
+            <div class="terminal-output-text">${output}</div>
+        `;
+        terminalOutput.appendChild(outputLine);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+}
+
+function processCommand(input) {
+    const command = input.trim().toLowerCase();
+    
+    if (command === '') return;
+    
+    commandHistory.unshift(command);
+    historyIndex = -1;
+    
+    if (commands[command]) {
+        const output = commands[command].action();
+        addOutput(command, output);
+    } else {
+        const output = `<span class="terminal-output-error">Command not found: ${command}</span>
+Type '<span class="terminal-output-command">help</span>' for available commands`;
+        addOutput(command, output);
+    }
+    
+    terminalInput.value = '';
+}
+
+// Terminal input handler
+if (terminalInput) {
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            processCommand(terminalInput.value);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                terminalInput.value = commandHistory[historyIndex];
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                terminalInput.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = -1;
+                terminalInput.value = '';
+            }
+        } else if (e.key === 'Tab') {
+            e.preventDefault();
+            const input = terminalInput.value.toLowerCase();
+            const matches = Object.keys(commands).filter(cmd => cmd.startsWith(input));
+            if (matches.length === 1) {
+                terminalInput.value = matches[0];
+            }
+        }
+    });
+}
+
+// Auto-focus terminal input when clicking anywhere in terminal
+const terminalBody = document.querySelector('.terminal-body');
+if (terminalBody && terminalInput) {
+    terminalBody.addEventListener('click', () => {
+        terminalInput.focus();
+    });
+}
+
+// Sidebar toggle functionality
+const navToggle = document.getElementById('nav-toggle');
+const navLinksElement = document.getElementById('nav-links');
+
+if (navToggle && navLinksElement) {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinksElement.classList.toggle('active');
+    });
+    
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinksElement.contains(e.target) && !navToggle.contains(e.target)) {
+            navLinksElement.classList.remove('active');
+        }
+    });
+}
+
+// Smooth scrolling for all anchor links (CTA button and sidebar links)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const targetId = this.getAttribute('href').substring(1);
+        scrollToSection(targetId);
+        
+        // Close sidebar after clicking
+        if (navLinksElement && navLinksElement.classList.contains('active')) {
+            navLinksElement.classList.remove('active');
         }
     });
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 25, 47, 0.98)';
-        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
-    } else {
-        navbar.style.background = 'rgba(10, 25, 47, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+// Show welcome message on load
+window.addEventListener('load', () => {
+    if (terminalOutput) {
+        const welcomeMsg = `
+<span class="terminal-output-success">Welcome to Roshan's Portfolio Terminal!</span>
+Type '<span class="terminal-output-command">help</span>' to see available commands.
+        `.trim();
+        addOutput('', welcomeMsg);
     }
 });
 
@@ -39,7 +221,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections and cards
 document.querySelectorAll('section, .timeline-item, .skill-category, .achievement-card').forEach(el => {
     observer.observe(el);
 });
@@ -70,120 +251,3 @@ if (glitchText) {
         }, 30);
     });
 }
-
-// Mobile menu toggle (if needed in future)
-const createMobileMenu = () => {
-    const navbar = document.querySelector('.navbar .container');
-    const menuButton = document.createElement('button');
-    menuButton.className = 'mobile-menu-toggle';
-    menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-    menuButton.style.cssText = 'display: none; background: none; border: none; color: var(--primary-color); font-size: 1.5rem; cursor: pointer;';
-    
-    const navMenu = document.querySelector('.nav-menu');
-    
-    menuButton.addEventListener('click', () => {
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-    
-    // Show menu button on mobile
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    const handleMobileMenu = (e) => {
-        if (e.matches) {
-            menuButton.style.display = 'block';
-            navMenu.style.cssText = 'display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-dark); padding: 1rem;';
-        } else {
-            menuButton.style.display = 'none';
-            navMenu.style.cssText = '';
-        }
-    };
-    
-    mediaQuery.addListener(handleMobileMenu);
-    handleMobileMenu(mediaQuery);
-    
-    navbar.insertBefore(menuButton, navMenu);
-};
-
-createMobileMenu();
-
-// Add active state to navigation
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-menu a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.style.color = 'var(--text-color)';
-        if (link.getAttribute('href').slice(1) === current) {
-            link.style.color = 'var(--primary-color)';
-        }
-    });
-});
-
-// Typing effect for tagline (optional enhancement)
-const typeWriter = (element, text, speed = 100) => {
-    let i = 0;
-    element.textContent = '';
-    const type = () => {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    };
-    type();
-};
-
-// Initialize on load
-window.addEventListener('load', () => {
-    // Add any initialization code here
-    console.log('Portfolio loaded successfully!');
-});
-
-// Particle background effect (optional enhancement)
-const createParticles = () => {
-    const hero = document.querySelector('.hero');
-    const particleCount = 50;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            opacity: ${Math.random() * 0.5};
-            animation: float ${5 + Math.random() * 10}s infinite;
-        `;
-        hero.appendChild(particle);
-    }
-    
-    // Add float animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-20px) translateX(10px);
-            }
-        }
-    `;
-    document.head.appendChild(style);
-};
-
-// Uncomment to enable particles
-// createParticles();
