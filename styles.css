@@ -258,6 +258,114 @@ section {
     margin-bottom: 0.5rem;
 }
 
+/* GitHub Stats Section */
+.github-stats {
+    background: var(--bg-darker);
+}
+
+.github-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.github-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(100, 255, 218, 0.02);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+}
+
+.stat-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.streak-card {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    background: rgba(100, 255, 218, 0.02);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.streak-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.contribution-graph {
+    margin-bottom: 3rem;
+}
+
+.contribution-graph h3 {
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.contribution-graph img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.github-trophies {
+    margin-bottom: 3rem;
+}
+
+.github-trophies h3 {
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.github-trophies img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-views {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.profile-views img {
+    display: inline-block;
+}
+
 /* Experience Section */
 .timeline {
     position: relative;
@@ -568,6 +676,10 @@ section {
     }
 
     .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
         grid-template-columns: 1fr;
     }
 
