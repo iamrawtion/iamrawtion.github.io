@@ -7,7 +7,7 @@ excerpt: "some rights reserved by MedithIT going ahead with Chef configuration m
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi51IzgtjkyuyM8RHG3lO05zUFmq2RFLw8jea0pdouizGvrNVR0ORMlS3uboSpwttDEaTFEyMWWLSgWAj5ibJaKd2uZC3xaerHSu33gYmO0CmCdzvMUdwIMlA7ipx0Wr5UrxvmMn9staY4/s1600/8105172928_85711c5d95_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi51IzgtjkyuyM8RHG3lO05zUFmq2RFLw8jea0pdouizGvrNVR0ORMlS3uboSpwttDEaTFEyMWWLSgWAj5ibJaKd2uZC3xaerHSu33gYmO0CmCdzvMUdwIMlA7ipx0Wr5UrxvmMn9staY4/s1600/8105172928_85711c5d95_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi51IzgtjkyuyM8RHG3lO05zUFmq2RFLw8jea0pdouizGvrNVR0ORMlS3uboSpwttDEaTFEyMWWLSgWAj5ibJaKd2uZC3xaerHSu33gYmO0CmCdzvMUdwIMlA7ipx0Wr5UrxvmMn9staY4/s1600/8105172928_85711c5d95_m.jpg)
 
 some rights reserved by [MedithIT](https://www.flickr.com/photos/medithit/)
 

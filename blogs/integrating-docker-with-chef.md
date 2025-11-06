@@ -7,7 +7,7 @@ excerpt: "Ever since Docker was introduced to me, the first thing that came to m
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-ox1UXrI49tBuPLYJCEd9Ms4F4lVprV7ajXzZsA-3Z6g6nVXM5S-1HCA9oRZG2l23r3ZsSDo5XZuFOVpSBg_K-hDqySGP4VuSSNIvkl8Ev1H8V7Kwe9eOJME4q03QaIB2fifq7myOi-Q/s1600/chefdocker.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-ox1UXrI49tBuPLYJCEd9Ms4F4lVprV7ajXzZsA-3Z6g6nVXM5S-1HCA9oRZG2l23r3ZsSDo5XZuFOVpSBg_K-hDqySGP4VuSSNIvkl8Ev1H8V7Kwe9eOJME4q03QaIB2fifq7myOi-Q/s1600/chefdocker.png)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-ox1UXrI49tBuPLYJCEd9Ms4F4lVprV7ajXzZsA-3Z6g6nVXM5S-1HCA9oRZG2l23r3ZsSDo5XZuFOVpSBg_K-hDqySGP4VuSSNIvkl8Ev1H8V7Kwe9eOJME4q03QaIB2fifq7myOi-Q/s1600/chefdocker.png)
   
 Ever since Docker was introduced to me, the first thing that came to my mind was, Docker is a replacement for Chef. Docker does almost everything that Chef did and provides me with a light weight solution. While Chef just configures the system. Well I was wrong. I read many articles, heard many speeches and came to a conclusion that, it was not Chef vs Docker, it was Chef with Docker. When they work together, you get the most powerful tool to deliver fast, light and efficiently.
 

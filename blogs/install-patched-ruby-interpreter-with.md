@@ -7,7 +7,7 @@ excerpt: "Installation of Ruby 2.0.0-p247 recently had some issues with Openssl 
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png)
   
 Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later.  
   

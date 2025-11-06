@@ -7,7 +7,7 @@ excerpt: "On July 27th 10 am a DevOps special meetup was conducted at Directiple
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywesR83JUnIPbQr1Sn_FlUbKyMB7sFybgSVvQuR3o9652KkRedpzyc2GwQGX6tTwCGKF8N6PQ1TnuvgGLeBh_ShxgSVZjQ4WybIXbYWRm2lI1R1f0hZOh9DI7pkmTrxYOl-C1BlWmXS8/s1600/July+MTP+++DevOps+Special+++Mumbai+Technology+Meetup++Mumbai++++Meetup.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywesR83JUnIPbQr1Sn_FlUbKyMB7sFybgSVvQuR3o9652KkRedpzyc2GwQGX6tTwCGKF8N6PQ1TnuvgGLeBh_ShxgSVZjQ4WybIXbYWRm2lI1R1f0hZOh9DI7pkmTrxYOl-C1BlWmXS8/s1600/July+MTP+++DevOps+Special+++Mumbai+Technology+Meetup++Mumbai++++Meetup.png)  
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywesR83JUnIPbQr1Sn_FlUbKyMB7sFybgSVvQuR3o9652KkRedpzyc2GwQGX6tTwCGKF8N6PQ1TnuvgGLeBh_ShxgSVZjQ4WybIXbYWRm2lI1R1f0hZOh9DI7pkmTrxYOl-C1BlWmXS8/s1600/July+MTP+++DevOps+Special+++Mumbai+Technology+Meetup++Mumbai++++Meetup.png)  
 On July 27th 10 am a DevOps special meetup was conducted at Directiplex, Mumbai. Its very rare to see a meetup given importance as much as any other technology conference. Speakers from different organizations were present and shared their knowledge. Tremendous knowledge and experience shared free of cost. The meetup went on from 10 am (Started a little late) and went around till 5.30 pm. The agenda itself was too appealing.  
   
 No entry fees. Its a free event. Just ensure you learn and make use of that learniing :-)  

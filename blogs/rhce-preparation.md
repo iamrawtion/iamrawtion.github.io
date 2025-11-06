@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Clifford 1st Part Welcome Concentration mainly
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIx9HX6hXlJFeMrZqOjK5x5j21UzCD2zT7k8E1JHlfbj36IdurALjiTNyVhfxtZF_oW29C6af4KJQByZUpYmMRQsQ4yyDvClHeCQbGFFKiuVRU0wx2rSjWZ20rCxbHkVh5EUTKctu5KJk/s1600/3857029017_a26bb52542_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIx9HX6hXlJFeMrZqOjK5x5j21UzCD2zT7k8E1JHlfbj36IdurALjiTNyVhfxtZF_oW29C6af4KJQByZUpYmMRQsQ4yyDvClHeCQbGFFKiuVRU0wx2rSjWZ20rCxbHkVh5EUTKctu5KJk/s1600/3857029017_a26bb52542_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIx9HX6hXlJFeMrZqOjK5x5j21UzCD2zT7k8E1JHlfbj36IdurALjiTNyVhfxtZF_oW29C6af4KJQByZUpYmMRQsQ4yyDvClHeCQbGFFKiuVRU0wx2rSjWZ20rCxbHkVh5EUTKctu5KJk/s1600/3857029017_a26bb52542_m.jpg)
 
 Some rights reserved by [Clifford](https://www.flickr.com/photos/cebucity/)
 

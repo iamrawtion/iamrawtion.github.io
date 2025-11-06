@@ -7,7 +7,7 @@ excerpt: "Most of the content is taken from this page. While using this process,
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipDurlblvgDvoLgigYPPvAL3NXkBxWBJFm4LgkeGMVncp0yUen8qqGyAnC7imfnTia-P1AzeyX-N30PrdSy47JG_3eX5PUF9kk8TxZbbnDLZJrd64WQvWhDE7FHLgFpsxatEF03J8GjDI/s1600/cobbler.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipDurlblvgDvoLgigYPPvAL3NXkBxWBJFm4LgkeGMVncp0yUen8qqGyAnC7imfnTia-P1AzeyX-N30PrdSy47JG_3eX5PUF9kk8TxZbbnDLZJrd64WQvWhDE7FHLgFpsxatEF03J8GjDI/s1600/cobbler.png)  
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipDurlblvgDvoLgigYPPvAL3NXkBxWBJFm4LgkeGMVncp0yUen8qqGyAnC7imfnTia-P1AzeyX-N30PrdSy47JG_3eX5PUF9kk8TxZbbnDLZJrd64WQvWhDE7FHLgFpsxatEF03J8GjDI/s1600/cobbler.png)  
 Most of the content is taken from this [page](https://draft.blogger.com/). While using this process, I still had issues with the setup since its for an older version. I struggled a little. So I just listed the updated procedure here. And it works !!  
   
 wget -qO - http://download.opensuse.org/repositories/home:/libertas-ict:/cobbler26/xUbuntu_14.04/Release.key | sudo apt-key add -  

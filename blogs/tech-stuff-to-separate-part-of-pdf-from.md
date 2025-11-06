@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Arthur Caranta 1. to separate a part of pdf fr
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZv1LxK9nXT1ncbbWzmSnHJDC24-009e9h2qfBk0mmRjGxVVWN1FfeOoS__ZoVM7KdkYZhZ3XfqcAT6WzDMqe9h4UahF81YOZXQaIi9f6e7hHac8gqvr_6lpsEclhyfuXPgLtQzbocqSU/s1600/4048968087_4412c5f7cf_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZv1LxK9nXT1ncbbWzmSnHJDC24-009e9h2qfBk0mmRjGxVVWN1FfeOoS__ZoVM7KdkYZhZ3XfqcAT6WzDMqe9h4UahF81YOZXQaIi9f6e7hHac8gqvr_6lpsEclhyfuXPgLtQzbocqSU/s1600/4048968087_4412c5f7cf_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZv1LxK9nXT1ncbbWzmSnHJDC24-009e9h2qfBk0mmRjGxVVWN1FfeOoS__ZoVM7KdkYZhZ3XfqcAT6WzDMqe9h4UahF81YOZXQaIi9f6e7hHac8gqvr_6lpsEclhyfuXPgLtQzbocqSU/s1600/4048968087_4412c5f7cf_m.jpg)
 
 ****Some rights reserved by [Arthur Caranta](https://www.flickr.com/photos/arthur-caranta/)****
 

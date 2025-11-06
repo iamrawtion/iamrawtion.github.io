@@ -7,7 +7,7 @@ excerpt: "image credits: Stefano Bertolo Use command line utility to push s3cmd 
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg)
 
 image credits:  [Stefano Bertolo](https://www.flickr.com/photos/stefanobe/)
 

@@ -7,7 +7,7 @@ excerpt: "](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrS
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrSHhvwUjmD0n9Bd9LPRoaMHS9jMMgde_OLZX7l_3VPOGn1fXEbbQDR4WxxlBxz_WInXqRdsKaxQuPROJBa86qhdKZcaNsLlcHXH4R7o0hlMrQekdx6Lxb1ThPUbFTQiZ9yC1u4/s1600/IMG_20140717_063551.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrSHhvwUjmD0n9Bd9LPRoaMHS9jMMgde_OLZX7l_3VPOGn1fXEbbQDR4WxxlBxz_WInXqRdsKaxQuPROJBa86qhdKZcaNsLlcHXH4R7o0hlMrQekdx6Lxb1ThPUbFTQiZ9yC1u4/s1600/IMG_20140717_063551.jpg)I attended conference and workshop on Devops and Cloud Infrastructure - [RootConf 2014](https://rootconf.in/2014/) at Bangalore from 14th May to 17th May 2014.
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrSHhvwUjmD0n9Bd9LPRoaMHS9jMMgde_OLZX7l_3VPOGn1fXEbbQDR4WxxlBxz_WInXqRdsKaxQuPROJBa86qhdKZcaNsLlcHXH4R7o0hlMrQekdx6Lxb1ThPUbFTQiZ9yC1u4/s1600/IMG_20140717_063551.jpg)I attended conference and workshop on Devops and Cloud Infrastructure - [RootConf 2014](https://rootconf.in/2014/) at Bangalore from 14th May to 17th May 2014.
 
 **Go Continuous Integration Tool developed by Thoughtworks**
 

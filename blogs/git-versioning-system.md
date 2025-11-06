@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Sean MacEntee Its been months i used Git. I th
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCGifQ0ZG4GZhp6gESHqPriPv_Nbr-4diTj0t-vLerLzfjGLJGoZyKU3DObokGDkjN-dS9bfCEkp9Ig54cI3D7XQ6aO1uhDNYDQPaA6jqsSWmTF8NnLJWI-dhtCdUlwHZT4lzwLeS8nls/s1600/10797247294_9d40601d06_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCGifQ0ZG4GZhp6gESHqPriPv_Nbr-4diTj0t-vLerLzfjGLJGoZyKU3DObokGDkjN-dS9bfCEkp9Ig54cI3D7XQ6aO1uhDNYDQPaA6jqsSWmTF8NnLJWI-dhtCdUlwHZT4lzwLeS8nls/s1600/10797247294_9d40601d06_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCGifQ0ZG4GZhp6gESHqPriPv_Nbr-4diTj0t-vLerLzfjGLJGoZyKU3DObokGDkjN-dS9bfCEkp9Ig54cI3D7XQ6aO1uhDNYDQPaA6jqsSWmTF8NnLJWI-dhtCdUlwHZT4lzwLeS8nls/s1600/10797247294_9d40601d06_m.jpg)
 
 Some rights reserved by [Sean MacEntee](https://www.flickr.com/photos/smemon/)
 

@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Wonderlane Do You Have a Mentor Yet? ACM partn
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxAj3Oo4ebkyOUll2D4qAnpcXM4k438hJqEpPcIPDvWp8XfBS4e8sgeB1padDaHV-Lm-_9vqB7mrIHa1Ei1sdlCbgHkEFj7kakloTzAmEpCW5Xw6l9ylqShYRuY2jEYJYv7tcUc5jJG7M/s1600/37531816_f40a468f83_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxAj3Oo4ebkyOUll2D4qAnpcXM4k438hJqEpPcIPDvWp8XfBS4e8sgeB1padDaHV-Lm-_9vqB7mrIHa1Ei1sdlCbgHkEFj7kakloTzAmEpCW5Xw6l9ylqShYRuY2jEYJYv7tcUc5jJG7M/s1600/37531816_f40a468f83_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxAj3Oo4ebkyOUll2D4qAnpcXM4k438hJqEpPcIPDvWp8XfBS4e8sgeB1padDaHV-Lm-_9vqB7mrIHa1Ei1sdlCbgHkEFj7kakloTzAmEpCW5Xw6l9ylqShYRuY2jEYJYv7tcUc5jJG7M/s1600/37531816_f40a468f83_m.jpg)
 
 Some rights reserved by [Wonderlane](https://www.flickr.com/photos/wonderlane/)
 

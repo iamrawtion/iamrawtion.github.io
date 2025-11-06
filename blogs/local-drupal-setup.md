@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Gabor Hojtsy Drupal is a CMS (Content Manageme
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdoviRQk2CVivz9bCYpPHNPLnZIw6ZNULdygVG5LKy_RyFN4M7nsoWiX0Tr31UdUlE0RZOtXSzu_pajrtgUoey8TpeO9F5OXXNXOfTwpMfIaOT0mSUT9YQqIGmsIMTj0AcUPvKwfsOudk/s1600/363646839_5e063c41bf_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdoviRQk2CVivz9bCYpPHNPLnZIw6ZNULdygVG5LKy_RyFN4M7nsoWiX0Tr31UdUlE0RZOtXSzu_pajrtgUoey8TpeO9F5OXXNXOfTwpMfIaOT0mSUT9YQqIGmsIMTj0AcUPvKwfsOudk/s1600/363646839_5e063c41bf_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdoviRQk2CVivz9bCYpPHNPLnZIw6ZNULdygVG5LKy_RyFN4M7nsoWiX0Tr31UdUlE0RZOtXSzu_pajrtgUoey8TpeO9F5OXXNXOfTwpMfIaOT0mSUT9YQqIGmsIMTj0AcUPvKwfsOudk/s1600/363646839_5e063c41bf_m.jpg)
 
 Some rights reserved by [Gabor Hojtsy](https://www.flickr.com/photos/gaborhojtsy)
 

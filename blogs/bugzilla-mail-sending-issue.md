@@ -7,7 +7,7 @@ excerpt: "Lately an issue was assigned to me where Bugzilla Email notification f
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMuNWl5viJkCSwxzfJUodpgh0ORdGTJDls8YFwJveddR827Tf2tKCo7TvSAEHWG3hODU1auN1vzswYFShIgxwYGs1nN5ipoI8GRRl2-Y_JoLrgCVqWATuUCRyJtZ1MzdVJwfqzvCacG-k/s1600/bugzilla.jpeg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMuNWl5viJkCSwxzfJUodpgh0ORdGTJDls8YFwJveddR827Tf2tKCo7TvSAEHWG3hODU1auN1vzswYFShIgxwYGs1nN5ipoI8GRRl2-Y_JoLrgCVqWATuUCRyJtZ1MzdVJwfqzvCacG-k/s1600/bugzilla.jpeg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMuNWl5viJkCSwxzfJUodpgh0ORdGTJDls8YFwJveddR827Tf2tKCo7TvSAEHWG3hODU1auN1vzswYFShIgxwYGs1nN5ipoI8GRRl2-Y_JoLrgCVqWATuUCRyJtZ1MzdVJwfqzvCacG-k/s1600/bugzilla.jpeg)
   
 
 Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending mails.

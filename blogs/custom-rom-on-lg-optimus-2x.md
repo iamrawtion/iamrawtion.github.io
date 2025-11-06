@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Johan Larsson Ever since I started using LG Op
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5_5snagHYcd5_Tz5urTmsuCevS02CGvmzb8Nf_M2uWLYE6DnNbohX7ICK9fJsQhUUgvMf6vJ3UmO47oH-xsG1n3nNuKkPUHRF1M0imL5yTm-vghoLO-l5_RiVp-MZghHoxYFPDJwF4TI/s1600/4893436057_50ef37e85a_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5_5snagHYcd5_Tz5urTmsuCevS02CGvmzb8Nf_M2uWLYE6DnNbohX7ICK9fJsQhUUgvMf6vJ3UmO47oH-xsG1n3nNuKkPUHRF1M0imL5yTm-vghoLO-l5_RiVp-MZghHoxYFPDJwF4TI/s1600/4893436057_50ef37e85a_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5_5snagHYcd5_Tz5urTmsuCevS02CGvmzb8Nf_M2uWLYE6DnNbohX7ICK9fJsQhUUgvMf6vJ3UmO47oH-xsG1n3nNuKkPUHRF1M0imL5yTm-vghoLO-l5_RiVp-MZghHoxYFPDJwF4TI/s1600/4893436057_50ef37e85a_m.jpg)
 
 Some rights reserved by [Johan Larsson](https://www.flickr.com/photos/johanl/)
 

@@ -7,7 +7,7 @@ excerpt: "Docker: Its a tool that helps you to pack, ship and run any applicatio
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png)
 
 Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/
 

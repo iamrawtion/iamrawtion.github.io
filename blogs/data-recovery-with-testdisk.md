@@ -7,7 +7,7 @@ excerpt: "some rights reserved by epSos .de You buy a portable hard disk drive t
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9gFrC33gyk6Ertbup3MmNjilWZsKmRgBBQpRQUKWVGQge3wlfaXBgYL0-hafHi9O9SJOevKNEMyjOVpkXnlQX8MgqN7KKTi7LOnfFDRDKlMPcQFLDHcaXL2t7ZXPhdA51MHsi-6Vqkgg/s1600/8336691931_32bc2f3e2e_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9gFrC33gyk6Ertbup3MmNjilWZsKmRgBBQpRQUKWVGQge3wlfaXBgYL0-hafHi9O9SJOevKNEMyjOVpkXnlQX8MgqN7KKTi7LOnfFDRDKlMPcQFLDHcaXL2t7ZXPhdA51MHsi-6Vqkgg/s1600/8336691931_32bc2f3e2e_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9gFrC33gyk6Ertbup3MmNjilWZsKmRgBBQpRQUKWVGQge3wlfaXBgYL0-hafHi9O9SJOevKNEMyjOVpkXnlQX8MgqN7KKTi7LOnfFDRDKlMPcQFLDHcaXL2t7ZXPhdA51MHsi-6Vqkgg/s1600/8336691931_32bc2f3e2e_m.jpg)
 
 some rights reserved by [epSos .de](https://www.flickr.com/photos/epsos/)
 

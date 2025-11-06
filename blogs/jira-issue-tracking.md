@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Yuko Honda Those who are new to JIRA start rea
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0Ziyw8OgbWD81tzH_rKYe6dxSFoR3UoK_kRUlyekLlku0uAKtA00xIoeNaQlD1NFm1P7GUmjk5_FKMdQEUvOMuEfF4esKu5p6OsirSMe5P9SuIQutvDKXm2tcFbn44IGFTrcyrwSYsSQ/s1600/7188347357_fc5f39e162_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0Ziyw8OgbWD81tzH_rKYe6dxSFoR3UoK_kRUlyekLlku0uAKtA00xIoeNaQlD1NFm1P7GUmjk5_FKMdQEUvOMuEfF4esKu5p6OsirSMe5P9SuIQutvDKXm2tcFbn44IGFTrcyrwSYsSQ/s1600/7188347357_fc5f39e162_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0Ziyw8OgbWD81tzH_rKYe6dxSFoR3UoK_kRUlyekLlku0uAKtA00xIoeNaQlD1NFm1P7GUmjk5_FKMdQEUvOMuEfF4esKu5p6OsirSMe5P9SuIQutvDKXm2tcFbn44IGFTrcyrwSYsSQ/s1600/7188347357_fc5f39e162_m.jpg)
 
 Some rights reserved by [Yuko Honda](https://www.flickr.com/photos/yukop/)
 

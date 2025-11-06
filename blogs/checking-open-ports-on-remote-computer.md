@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Ryan Franklin Today for one of the projects th
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfJEnwQHq3SBLagC2orvNOxsQM_U3XlV4dOOiXqkWNkeclXp4xRoLwrfa0i6KPHvYofYMs_NOcW0nizugQEVm52lXLh1wyvqq5Gzhe02P_YcmRoP-R1WlbftUZFdiiONrlSEuHt_I0DeI/s1600/139617707_d2b49ba43b_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfJEnwQHq3SBLagC2orvNOxsQM_U3XlV4dOOiXqkWNkeclXp4xRoLwrfa0i6KPHvYofYMs_NOcW0nizugQEVm52lXLh1wyvqq5Gzhe02P_YcmRoP-R1WlbftUZFdiiONrlSEuHt_I0DeI/s1600/139617707_d2b49ba43b_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfJEnwQHq3SBLagC2orvNOxsQM_U3XlV4dOOiXqkWNkeclXp4xRoLwrfa0i6KPHvYofYMs_NOcW0nizugQEVm52lXLh1wyvqq5Gzhe02P_YcmRoP-R1WlbftUZFdiiONrlSEuHt_I0DeI/s1600/139617707_d2b49ba43b_m.jpg)
 
 Some rights reserved by [Ryan Franklin](https://www.flickr.com/photos/rfranklinaz/)
 

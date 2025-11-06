@@ -7,7 +7,7 @@ excerpt: "Some right reserved by jdhancock Plugin is available at <https://githu
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyNcpTiQ8exUkJSq57cSwVbXDcgCI5dGxg6zzFwhbq8hJl5MWEO4HoDDLlD18u0JCKRQrMXCDfNtJ1FsOFQQc0x6NRuBOvdcJWwb0VzcRkRVQsfOQ6QQ9KhAoLa8NY3hDk0u58gE-q7e4/s1600/5049287009_9d310d2c2a_q.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyNcpTiQ8exUkJSq57cSwVbXDcgCI5dGxg6zzFwhbq8hJl5MWEO4HoDDLlD18u0JCKRQrMXCDfNtJ1FsOFQQc0x6NRuBOvdcJWwb0VzcRkRVQsfOQ6QQ9KhAoLa8NY3hDk0u58gE-q7e4/s1600/5049287009_9d310d2c2a_q.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyNcpTiQ8exUkJSq57cSwVbXDcgCI5dGxg6zzFwhbq8hJl5MWEO4HoDDLlD18u0JCKRQrMXCDfNtJ1FsOFQQc0x6NRuBOvdcJWwb0VzcRkRVQsfOQ6QQ9KhAoLa8NY3hDk0u58gE-q7e4/s1600/5049287009_9d310d2c2a_q.jpg)
 
 Some right reserved by [jdhancock](https://www.flickr.com/photos/jdhancock/)
 

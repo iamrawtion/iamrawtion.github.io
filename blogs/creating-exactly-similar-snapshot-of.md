@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Martin Fisch was going pretty well on the exis
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-RkAui0SizULhPGjU9J4jB6vsq1Hjrtvg-pfuKFV5-LvuJzcF8FbDgzherMe93Q5Bo8FRjfipnRp9EgXyGAm0_lq2q14rYWdNVtcOlKQnh0hWbhyo9PJ1MbGa09DYOfzQHg5Gj3AEaCw/s1600/6352047101_989f7e1f24_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-RkAui0SizULhPGjU9J4jB6vsq1Hjrtvg-pfuKFV5-LvuJzcF8FbDgzherMe93Q5Bo8FRjfipnRp9EgXyGAm0_lq2q14rYWdNVtcOlKQnh0hWbhyo9PJ1MbGa09DYOfzQHg5Gj3AEaCw/s1600/6352047101_989f7e1f24_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-RkAui0SizULhPGjU9J4jB6vsq1Hjrtvg-pfuKFV5-LvuJzcF8FbDgzherMe93Q5Bo8FRjfipnRp9EgXyGAm0_lq2q14rYWdNVtcOlKQnh0hWbhyo9PJ1MbGa09DYOfzQHg5Gj3AEaCw/s1600/6352047101_989f7e1f24_m.jpg)
 
 Some rights reserved by [Martin Fisch](https://www.flickr.com/photos/marfis75/)
 

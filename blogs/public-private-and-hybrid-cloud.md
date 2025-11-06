@@ -15,7 +15,7 @@ A lot has been said, heard and read about Cloud. There so many ways that the clo
 
 [
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsKaE8inR184uaqdhpX5DrATBNK-8-H10_3lEnzGxha2n3KxAvDyShMP58_btOI2hMqsvAJQ598BtZ6uW1ZTPiVpTwXPfk9J3Ptg8houGkP9wDCJnbRB4XKjeT7EMJ5K74fUZhYZ1qGVg/s1600/public+cloud.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsKaE8inR184uaqdhpX5DrATBNK-8-H10_3lEnzGxha2n3KxAvDyShMP58_btOI2hMqsvAJQ598BtZ6uW1ZTPiVpTwXPfk9J3Ptg8houGkP9wDCJnbRB4XKjeT7EMJ5K74fUZhYZ1qGVg/s1600/public+cloud.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsKaE8inR184uaqdhpX5DrATBNK-8-H10_3lEnzGxha2n3KxAvDyShMP58_btOI2hMqsvAJQ598BtZ6uW1ZTPiVpTwXPfk9J3Ptg8houGkP9wDCJnbRB4XKjeT7EMJ5K74fUZhYZ1qGVg/s1600/public+cloud.jpg)
 
 Some rights reserved by [FutUndBeidl](http://www.flickr.com/photos/61423903@N06/)
 
@@ -25,7 +25,7 @@ For e.g Iaas based service like Dropbox you can add and remove space dynamically
   
 [
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZpp5L74yK9g3BWC1jtoTZRhz1AgP29sTUGkHGg9U5uCTgfVCrvvnUgZ7n5_9tHxKH8lL7CfLepAlGcIg_rzsTOu5_Nl9DKqCG0unrfVcp5h4T1qp8KoEeIHO08CPw4hqZHtux6fT_g2Q/s1600/Private_Cloud.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZpp5L74yK9g3BWC1jtoTZRhz1AgP29sTUGkHGg9U5uCTgfVCrvvnUgZ7n5_9tHxKH8lL7CfLepAlGcIg_rzsTOu5_Nl9DKqCG0unrfVcp5h4T1qp8KoEeIHO08CPw4hqZHtux6fT_g2Q/s1600/Private_Cloud.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZpp5L74yK9g3BWC1jtoTZRhz1AgP29sTUGkHGg9U5uCTgfVCrvvnUgZ7n5_9tHxKH8lL7CfLepAlGcIg_rzsTOu5_Nl9DKqCG0unrfVcp5h4T1qp8KoEeIHO08CPw4hqZHtux6fT_g2Q/s1600/Private_Cloud.jpg)
 
 Some rights reserved by [FutUndBeidl](http://www.flickr.com/photos/61423903@N06/)
 
@@ -36,7 +36,7 @@ Many companies are now opting for Enterprise cloud
   
 [
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie_EFbaUjLeE28HIgVoNc3LDWyCfze-_Ltikic0jkYbJHPbnJTcLN7P-2mWxftvhilVJ_YmREkyRUpleMDf_HzNKvyArWt_8DI8ayJySt6n20QSNzee_v9ry8Ps1U9DuXAhXIs4edmFRw/s1600/Hybrid+Cloud.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie_EFbaUjLeE28HIgVoNc3LDWyCfze-_Ltikic0jkYbJHPbnJTcLN7P-2mWxftvhilVJ_YmREkyRUpleMDf_HzNKvyArWt_8DI8ayJySt6n20QSNzee_v9ry8Ps1U9DuXAhXIs4edmFRw/s1600/Hybrid+Cloud.png)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie_EFbaUjLeE28HIgVoNc3LDWyCfze-_Ltikic0jkYbJHPbnJTcLN7P-2mWxftvhilVJ_YmREkyRUpleMDf_HzNKvyArWt_8DI8ayJySt6n20QSNzee_v9ry8Ps1U9DuXAhXIs4edmFRw/s1600/Hybrid+Cloud.png)
   
   
 **Hybrid Cloud** : Even though many organizations make the use of private as well as public cloud as per their need, there could be vendors looking for functionality of both a private as well as a public cloud. This is achieved with a Hybrid Cloud. At times there are companies that want their data to be secure as well as still are required to communicate to the customers over the network. Many of such companies choose a Hybrid Cloud. Here basically you can set access permissions for which applications need to be publicly accessible and which of them should not be and needs to be in private cloud.    

@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Linux Screenshots VIM shortcuts :tabfind open 
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg)
 
 Some rights reserved by [Linux Screenshots](https://www.flickr.com/photos/xmodulo/)
 

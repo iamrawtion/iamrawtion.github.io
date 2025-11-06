@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Blake Patterson Only after i did it i learnt, 
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaDnW9UChPptMg3pOwYlJ9zqHEOidKfO1K7Pq76n4oo81kBOagdUuIVD38pX5RC_9nGvGLSl21fk7dzRfBZBmqEcZ9DslOZMsL2cAEzqrg7XvNbORchXJnAj8XGJDV4W_dGJg6fZnqUMI/s1600/3014336221_f559262c0f_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaDnW9UChPptMg3pOwYlJ9zqHEOidKfO1K7Pq76n4oo81kBOagdUuIVD38pX5RC_9nGvGLSl21fk7dzRfBZBmqEcZ9DslOZMsL2cAEzqrg7XvNbORchXJnAj8XGJDV4W_dGJg6fZnqUMI/s1600/3014336221_f559262c0f_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaDnW9UChPptMg3pOwYlJ9zqHEOidKfO1K7Pq76n4oo81kBOagdUuIVD38pX5RC_9nGvGLSl21fk7dzRfBZBmqEcZ9DslOZMsL2cAEzqrg7XvNbORchXJnAj8XGJDV4W_dGJg6fZnqUMI/s1600/3014336221_f559262c0f_m.jpg)
 
 Some rights reserved by [Blake Patterson](https://www.flickr.com/photos/blakespot/)
 

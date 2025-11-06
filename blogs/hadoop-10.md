@@ -7,7 +7,7 @@ excerpt: "some rights reserved by intelfreepress Got opportunity to work with Ha
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhob0BaQ4oCq2lbAOXjHBcY1dX0mnSRtSuqt0yUdUZIAQ_e9USQsxJgFwTX9VvFpL3bu-dMCLhyWNlc52TmtcSPXJVLGBTUJ8qooQaIb7T1IOmb9Es2p_8u837PKdecifHJ7K80Oas9Q7I/s1600/8552968000_9da6bffe9a_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhob0BaQ4oCq2lbAOXjHBcY1dX0mnSRtSuqt0yUdUZIAQ_e9USQsxJgFwTX9VvFpL3bu-dMCLhyWNlc52TmtcSPXJVLGBTUJ8qooQaIb7T1IOmb9Es2p_8u837PKdecifHJ7K80Oas9Q7I/s1600/8552968000_9da6bffe9a_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhob0BaQ4oCq2lbAOXjHBcY1dX0mnSRtSuqt0yUdUZIAQ_e9USQsxJgFwTX9VvFpL3bu-dMCLhyWNlc52TmtcSPXJVLGBTUJ8qooQaIb7T1IOmb9Es2p_8u837PKdecifHJ7K80Oas9Q7I/s1600/8552968000_9da6bffe9a_m.jpg)
 
 some rights reserved by [intelfreepress](https://www.flickr.com/photos/intelfreepress/8552968000)
 
@@ -17,7 +17,7 @@ Before understanding Hadoop it would make more sense if we get rid of a few jarg
   
 [
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOu4MM482qPyH8qvbWQ1j30zldRcv17HiQThVLYp3v8XL4k6q0siDpm51DS50ZRr1vSNOG8ZLYejlvzr04aJPahxEYT_wIHdAqfwwo6YBpa8Jukv3bnV6SF2rcyza1eb0keNPotlTRwKQ/s1600/Hadoop1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOu4MM482qPyH8qvbWQ1j30zldRcv17HiQThVLYp3v8XL4k6q0siDpm51DS50ZRr1vSNOG8ZLYejlvzr04aJPahxEYT_wIHdAqfwwo6YBpa8Jukv3bnV6SF2rcyza1eb0keNPotlTRwKQ/s1600/Hadoop1.png)**Oozie** is like a cronjob. In addition to running jobs time based, it also allows running jobs on particular statuses, like:  
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOu4MM482qPyH8qvbWQ1j30zldRcv17HiQThVLYp3v8XL4k6q0siDpm51DS50ZRr1vSNOG8ZLYejlvzr04aJPahxEYT_wIHdAqfwwo6YBpa8Jukv3bnV6SF2rcyza1eb0keNPotlTRwKQ/s1600/Hadoop1.png)**Oozie** is like a cronjob. In addition to running jobs time based, it also allows running jobs on particular statuses, like:  
 i. Run job B when Job A completes  
 ii. Run Job B when a particular file is present.  
 Oozie is a kind of job coordinator. When you write Oozie, you need to specify in an xml the kind of workflow you want it to follow.  
@@ -40,7 +40,7 @@ Hadoop has two very important parts.
   
 [
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbrEgt-cCjJJs4n8GrIFRGAcoP_XBEqSovvptsFhKT027VQLH_Ym8gOqmIFZNUsvmn7zo4NcAJe1aDqaGdlZuMK_YbnVG3oDJe4UVLM0kkuQhTjM5jAmRb4haTUHYsZzZXpJ6j3eY1Xt0/s1600/Hadoop2.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbrEgt-cCjJJs4n8GrIFRGAcoP_XBEqSovvptsFhKT027VQLH_Ym8gOqmIFZNUsvmn7zo4NcAJe1aDqaGdlZuMK_YbnVG3oDJe4UVLM0kkuQhTjM5jAmRb4haTUHYsZzZXpJ6j3eY1Xt0/s1600/Hadoop2.png)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbrEgt-cCjJJs4n8GrIFRGAcoP_XBEqSovvptsFhKT027VQLH_Ym8gOqmIFZNUsvmn7zo4NcAJe1aDqaGdlZuMK_YbnVG3oDJe4UVLM0kkuQhTjM5jAmRb4haTUHYsZzZXpJ6j3eY1Xt0/s1600/Hadoop2.png)
   
   
 Storage unit is where you store, read and write data onto i.e HDFS. This HDFS is distributed across nodes. They are natively redundant, that means it is by default redundant and you do not need to configure RAID or any other software or hardware for this. It would by default make 3 copies of each block. This number is configurable to any number of copies you need.  

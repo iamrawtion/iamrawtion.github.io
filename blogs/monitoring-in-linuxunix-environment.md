@@ -7,7 +7,7 @@ excerpt: "Some rights reserved by Steve Jurvetson is the Linux performance monit
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH47MwOd_VlPuqi8Sc_tjGzqE5Jz4Lur6gQfAPyvYW9BmJ-ducyi5okcX_IyOhqOgBL8T86ZqJW-LFM3eNXdNqtFfqCA9MWg6RfDnM3ytM8OH407dQO1JeOJqqGsI_YNU7CFuHWpBX2TE/s1600/12024889475_4ba5436bf9_m.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH47MwOd_VlPuqi8Sc_tjGzqE5Jz4Lur6gQfAPyvYW9BmJ-ducyi5okcX_IyOhqOgBL8T86ZqJW-LFM3eNXdNqtFfqCA9MWg6RfDnM3ytM8OH407dQO1JeOJqqGsI_YNU7CFuHWpBX2TE/s1600/12024889475_4ba5436bf9_m.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH47MwOd_VlPuqi8Sc_tjGzqE5Jz4Lur6gQfAPyvYW9BmJ-ducyi5okcX_IyOhqOgBL8T86ZqJW-LFM3eNXdNqtFfqCA9MWg6RfDnM3ytM8OH407dQO1JeOJqqGsI_YNU7CFuHWpBX2TE/s1600/12024889475_4ba5436bf9_m.jpg)
 
 Some rights reserved by [Steve Jurvetson](https://www.flickr.com/photos/jurvetson/)
 
