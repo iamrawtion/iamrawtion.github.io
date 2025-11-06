@@ -1,0 +1,52 @@
+[
+  {
+    "id": "implementing-devsecops-cicd",
+    "title": "Implementing Security in Your CI/CD Pipeline",
+    "date": "2025-01-15",
+    "category": "DevSecOps",
+    "tags": ["DevSecOps", "CI/CD", "Security"],
+    "excerpt": "Learn how to integrate security scanning, vulnerability detection, and compliance checks into your continuous integration and deployment workflows.",
+    "author": "Roshan Nagekar",
+    "file": "implementing-devsecops-cicd.md"
+  },
+  {
+    "id": "kubernetes-cost-optimization",
+    "title": "Kubernetes Cost Optimization Strategies",
+    "date": "2025-01-10",
+    "category": "Cloud",
+    "tags": ["Kubernetes", "Cloud", "Cost Optimization"],
+    "excerpt": "Discover practical techniques to reduce your Kubernetes infrastructure costs without compromising performance or reliability.",
+    "author": "Roshan Nagekar",
+    "file": "kubernetes-cost-optimization.md"
+  },
+  {
+    "id": "gitops-infrastructure-management",
+    "title": "GitOps: The Future of Infrastructure Management",
+    "date": "2025-01-05",
+    "category": "DevOps",
+    "tags": ["GitOps", "IaC", "Automation"],
+    "excerpt": "Explore how GitOps principles can transform your infrastructure management with declarative configurations and automated deployments.",
+    "author": "Roshan Nagekar",
+    "file": "gitops-infrastructure-management.md"
+  },
+  {
+    "id": "mlops-machine-learning-operations",
+    "title": "MLOps: Bridging Machine Learning and Operations",
+    "date": "2024-12-28",
+    "category": "AI/ML",
+    "tags": ["MLOps", "AI/ML", "DevOps"],
+    "excerpt": "Understanding the principles and practices of MLOps to streamline the deployment and monitoring of machine learning models in production.",
+    "author": "Roshan Nagekar",
+    "file": "mlops-machine-learning-operations.md"
+  },
+  {
+    "id": "terraform-best-practices-multicloud",
+    "title": "Terraform Best Practices for Multi-Cloud Deployments",
+    "date": "2024-12-20",
+    "category": "Infrastructure",
+    "tags": ["Terraform", "IaC", "Multi-Cloud"],
+    "excerpt": "Master Terraform configurations for managing infrastructure across AWS, GCP, and Azure with reusable modules and state management.",
+    "author": "Roshan Nagekar",
+    "file": "terraform-best-practices-multicloud.md"
+  }
+]
