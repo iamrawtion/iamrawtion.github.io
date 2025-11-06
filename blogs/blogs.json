@@ -1,5 +1,15 @@
 [
   {
+    "title": "Getting Started with Docker Compose: A Practical Guide",
+    "date": "2025-01-15",
+    "category": "DevOps",
+    "tags": ["Docker", "Docker Compose", "Containers", "DevOps"],
+    "excerpt": "Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practical example of deploying a web application with a database.",
+    "author": "Roshan Nagekar",
+    "id": "sample-docker-compose-guide",
+    "file": "sample-docker-compose-guide.md"
+  },
+  {
     "title": "Sken.ai DevSecOps walkthrough",
     "date": "2021-01-22",
     "category": "DevOps",

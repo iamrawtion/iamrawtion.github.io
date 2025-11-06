@@ -1,0 +1,50 @@
+<svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1b26;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#24283b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7dcfff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7aa2f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bgGradient)"/>
+
+  <!-- Decorative containers -->
+  <rect x="50" y="80" width="120" height="80" rx="8" fill="#2ac3de" opacity="0.2"/>
+  <rect x="190" y="80" width="120" height="80" rx="8" fill="#7dcfff" opacity="0.3"/>
+  <rect x="330" y="80" width="120" height="80" rx="8" fill="#7aa2f7" opacity="0.2"/>
+
+  <rect x="50" y="240" width="120" height="80" rx="8" fill="#bb9af7" opacity="0.2"/>
+  <rect x="190" y="240" width="120" height="80" rx="8" fill="#9ece6a" opacity="0.3"/>
+  <rect x="330" y="240" width="120" height="80" rx="8" fill="#e0af68" opacity="0.2"/>
+
+  <!-- Docker logo representation -->
+  <g transform="translate(900, 120)">
+    <rect x="0" y="40" width="40" height="30" rx="3" fill="#2ac3de"/>
+    <rect x="45" y="40" width="40" height="30" rx="3" fill="#2ac3de"/>
+    <rect x="90" y="40" width="40" height="30" rx="3" fill="#2ac3de"/>
+    <rect x="45" y="5" width="40" height="30" rx="3" fill="#2ac3de"/>
+    <rect x="90" y="5" width="40" height="30" rx="3" fill="#2ac3de"/>
+    <ellipse cx="160" cy="55" rx="25" ry="35" fill="none" stroke="#2ac3de" stroke-width="6"/>
+    <line x1="150" y1="25" x2="145" y2="18" stroke="#2ac3de" stroke-width="4"/>
+    <line x1="170" y1="25" x2="175" y2="18" stroke="#2ac3de" stroke-width="4"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="url(#accentGradient)" text-anchor="middle">
+    Docker Compose
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="270" font-family="Arial, sans-serif" font-size="32" fill="#c0caf5" text-anchor="middle">
+    A Practical Guide
+  </text>
+
+  <!-- Bottom accent line -->
+  <rect x="300" y="350" width="600" height="4" rx="2" fill="url(#accentGradient)"/>
+</svg>
