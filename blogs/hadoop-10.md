@@ -16,8 +16,6 @@ Got opportunity to work with **Hadoop** with a recent project. Understanding the
 Before understanding **Hadoop** it would make more sense if we get rid of a few jargon that would come our way.  
   
 ```json
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOu4MM482qPyH8qvbWQ1j30zldRcv17HiQThVLYp3v8XL4k6q0siDpm51DS50ZRr1vSNOG8ZLYejlvzr04aJPahxEYT_wIHdAqfwwo6YBpa8Jukv3bnV6SF2rcyza1eb0keNPotlTRwKQ/s1600/Hadoop1.png)**Oozie** is like a cronjob. In addition to running jobs time based, it also allows running jobs on particular statuses, like:  
 i. Run job B when Job A completes  
 ii. Run Job B when a particular file is present.  
@@ -39,8 +37,6 @@ Hadoop has two very important parts.
 1. Storage unit  
 2. Processing unit  
   
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbrEgt-cCjJJs4n8GrIFRGAcoP_XBEqSovvptsFhKT027VQLH_Ym8gOqmIFZNUsvmn7zo4NcAJe1aDqaGdlZuMK_YbnVG3oDJe4UVLM0kkuQhTjM5jAmRb4haTUHYsZzZXpJ6j3eY1Xt0/s1600/Hadoop2.png)
   
   

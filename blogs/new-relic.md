@@ -36,20 +36,8 @@ While there are may other useful ways as well for any organization for monitorin
 
 You can see Pie Charts, Graphs of total memory used by process, total memory free, disk space, network usage etc. Screenshots are attached. Happy Monitoring.
 
-```json
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-QWLGcK8l4Y66tD-0ZhkEtSXA0BfT9vTVFOIYrVngu8wSFWdggY6sucBAP0jK42vFF_SwBqlAx91Gc9AYZ3HJnwdbebw1DjEf-hMYv53PNdi5CZI9EduvUtZ9EVoeDVctvz-6PZlWxs4/s1600/mnitor3.png)
-  
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQdqhlbYCGUDpop1bMwir6S6o2yzuFLaUMWVFJ1n_uGnroQ5Ni5Q-rsiiVGRoWIXsOsKvRpaoFp9GLXniPwwYtWbJU88RzO85a2mWPiLIA29CaMpXCxgp72_HOgvlAQ_PSoYuWEH22S3Y/s1600/Monitor1.png)
-  
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdAhtRmJObOpCngUoe8w-zS4UCH1X16ogwRXqDX2YfFkXpCmCHV1MKu3v7rEgs1dQpa3wCWKJeD4bPvpjxxMifT6avq0pV7ZAywbB_dPgOI8xBvS_X9Kqky4KXv8snK_yRjZygRq8Jn58/s1600/Monitor2.png)
-  
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYozx9ebJZguRaFOVc07Hq4yHLXrPXmCIq1TdLvRjmiqPj_fyHinx1ik62IeSioY-A5H3LNU65XBGl62IqflZe38UJn_wykPwQQDqIPXZdGWVfh0M0micAp_sC8pobED25vIap3j5CdEI/s1600/monitor4.png)
-```
+

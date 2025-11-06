@@ -43,12 +43,6 @@ Overall it was a wonderful learning experience. Cheers to all the attendees.
   
 Some clicks :)  
   
-```json
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgacwGVYJOUuFy7SOos1SSxa3ppmGqIJqYDEtATNLq_kEs9ekjGBGmmUFBsYBIAfXYZ9lt5tCL_avDexGaGmcSMMcwNnpT5yawcaKYTu9latvQjnw3oFFd9W5gbuef362Y_bnE72SkaGgc/s1600/01_1.jpeg)
-  
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKI-cgFbg-anfgnLC8s9rMeEsWWSoe-akX9vNvj3TN-5SWLXVuyrPDy6-k3dhy0Dti-egPH451H-SWFY3GrQ5ZAS65vmJTnLva7OQdFE0i7wWwm3H3-CsaS9dcMjAL_lclBiJewfhWNRM/s1600/01_4.jpeg)
-```
+

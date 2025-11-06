@@ -11,22 +11,14 @@ For the 2nd **DevSecOps** meetup, we already had our first swag sponsor. For **D
   
 With **DevSecOps** our 1st swag sponsor was [Polyverse](**https**://polyverse.io/) :) I couldn't resist posting these.  
   
-```json
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvy1sH1jsAkoV6WY3S23Y4B_9QXsaupA8BKO91obfWaSTNR54oZSacCR4LvFmkLAK597Bq-PCNQYj1eCBr5qEPzIkYqhPQZMFGCS-L6LFnPU_O30elVV3HgRocsWG7XXalMZpdoEoyZls/s1600/02_1.jpeg)
-```
 
 
 For this meetup, I changed the RSVP format to get an exact count. I was expecting to start soon at a bigger location. We couldn't risk wasting of resources. Lean coffee needs logistics to take care of and hence needs to be addressed really well. Everyone who RSVP' at the meetup page was informed to Call/SMS/WhatsApp the organizers to book a slot. So the Meetup page RSVP meant nothing.
 
 [Qualys](**https**://www.qualys.com/) Pune, was our venue, logistics and refreshment sponsor this time. When I 1st told them about the meetup, this is how the they arranged the seating :) :
 
-```json
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo7uwxsHuGEoEwRwPNE2o_IaqBzQuO6wGkURca5Kvc3SPGA7FZuIp0pPbF70C1SrO-o79LXl5GRzt01x3_urM6havb0_9pnevs0pf1hiHJuldJMLl-d6EKl3acbJkSjLIdszT48g9G65s/s1600/IMG_20190112_092119.jpg)
-```
 
   
   
@@ -72,21 +64,9 @@ This turned out to be a long event in spite of small number of attendees. Muneeb
   
 Some clicks :)  
   
-```json
-[
-
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLW30vwclP0J9yoU4xgz4OKBatIHtiMWRD9lTUwzpAKXHQq47-NMvAmODkiU_bBO0L1qY_Z-7h0bR7djyiOs4N7PggrNl38AJNEZHkye6VZGLRiL-_LdYatyhvtbXguvIzS01v7mHv_Gs/s1600/02_2.jpeg)  
-```
-
-```json
-[
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLW30vwclP0J9yoU4xgz4OKBatIHtiMWRD9lTUwzpAKXHQq47-NMvAmODkiU_bBO0L1qY_Z-7h0bR7djyiOs4N7PggrNl38AJNEZHkye6VZGLRiL-_LdYatyhvtbXguvIzS01v7mHv_Gs/s1600/02_2.jpeg)
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjD4irBjuoSZeVaCgweb_-QEGUFyDxlanogqctWgUIeZlUiAdOzWFxgHUpoJriVTay_XIWv3R6OxJHqarHbbVKIbT7OvtJKbM_khNZJ6AIC1Z5e9JngTVWZXrMQzkiDLEflLzGswncrbc/s1600/02_3.jpeg)
-```
 
   
-```json
-[
-
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj06u9Fh0RlhOv3KvbbPV1Mp6BmaGrrHlDNVTVvgxkAHkEPP0mLBxDHKXV6H90DnJr7sJjTzMiatlpeEwf2Wc9TbPQWAVv1PUYwsrOBuRhL3TN7kQaEXSjuXV3iOtzWTFTYDSpnN_O6LQE/s1600/02_6.jpeg)
-```
