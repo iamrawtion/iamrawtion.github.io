@@ -15,6 +15,7 @@ Got opportunity to work with Hadoop with a recent project. Understanding the arc
   
 Before understanding Hadoop it would make more sense if we get rid of a few jargon that would come our way.  
   
+```json
 [
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOu4MM482qPyH8qvbWQ1j30zldRcv17HiQThVLYp3v8XL4k6q0siDpm51DS50ZRr1vSNOG8ZLYejlvzr04aJPahxEYT_wIHdAqfwwo6YBpa8Jukv3bnV6SF2rcyza1eb0keNPotlTRwKQ/s1600/Hadoop1.png)**Oozie** is like a cronjob. In addition to running jobs time based, it also allows running jobs on particular statuses, like:  
@@ -51,3 +52,4 @@ Processing Unit is provided by the MapReduce framework. This can be called as th
 *Locality of reference*: Earlier, when you wanted to process a data you would move data close to the processing unit. This required you to 1st copy the data.  It would pull the data in the RAM and then it would process it there. This is fine when dealing with small amount of data. But in case of Hadoop you will be dealing with data in terabytes and petabytes. Here copying or moving of huge data is time consuming. In order to not invlove any data movement, now Hadoop instead moves the processing unit itself to where the data is present. This is called *locality of reference*.  
   
 (To be contd..)
+```

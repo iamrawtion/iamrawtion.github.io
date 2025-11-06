@@ -15,15 +15,19 @@ Works best on Linux kernel 3.8 Ubuntu 12.04 precise has 3.2 and needs to be upgr
 
 Install Docker with on Ubuntu 12.04:
 
+```bash
 sudo apt-get update
-
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
-
 sudo reboot
+```
+
 
 To check docker version:
 
+```bash
 sudo docker version
+```
+
 
 Client version: 0.11.1
 
@@ -45,11 +49,17 @@ Last stable version: 0.11.1
 
 To check info about docker installed:
 
+```bash
 sudo docker info
+```
 
+
+```yaml
 Containers: 1
 
 Images: 9
+```
+
 
 Storage Driver: aufs
 
@@ -65,19 +75,26 @@ WARNING: No swap limit support
 
 To pull an existing docker image:
 
+```bash
 sudo docker pull <imagename>
-
 sudo docker pull busybox
+```
+
 
 HelloWorld in docker:
 
+```bash
 sudo docker run busybox echo HelloWorld
+```
+
 
 Search for an existing image in the index:
 
+```bash
 docker search <image-name>
-
 sudo docker search stackbrew/ubuntu
+```
+
 
 NAME                       DESCRIPTION                                     STARS     OFFICIAL   TRUSTED
 
@@ -91,7 +108,10 @@ stackbrew/ubuntu-upstart                                     �
 
 Pull an existing image:
 
+```bash
 sudo docker pull ubuntu
+```
+
 
 Pulling repository ubuntu
 
@@ -113,7 +133,10 @@ a7cf8ae4e998: Pulling dependent layers
 
 To the check the available images:
 
+```bash
 sudo docker images
+```
+
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 
@@ -147,19 +170,22 @@ ubuntu              lucid               3db9c44f4520        2 
 
 To run a command within an image:
 
+```bash
 docker run<image> command
-
 sudo docker run ubuntu echo HelloWorld
+```
+
 
 HelloWorld
 
 To install something on an ubuntu image
 
+```bash
 sudo docker run apt-get install <package>
-
 find ID of the container
-
 sudo docker ps -l
+```
+
 
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
 
@@ -167,13 +193,19 @@ CONTAINER ID        IMAGE               COMMAND             CRE
 
 committing changes made to the images:
 
+```bash
 docker commit 0da firstcommit
+```
+
 
 723aa6ead77a14ff05cd2c640163345ec5a36fa9a4c757a6872a1ec919ab9345
 
 To get log of the present container:
 
+```bash
 sudo docker logs 0dac167b178d
+```
+
 
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 
@@ -181,15 +213,20 @@ root         1  0.0  0.0   7132   644 ?        Rs   09:10   0:00 p
 
 To inpect the details of an image
 
+```bash
 sudo docker inspect <id: 3-4 characters of id will work too>
-
 sudo docker inspect 0da
+```
+
 
 <json output>
 
 Push container image to the index
 
+```bash
 sudo docker push ubuntu
+```
+
 
 Creating Dockerfile:
 
@@ -223,27 +260,45 @@ RUN apt-get install -y memcached
 
 Save and close the file. If the file is in you r present directory:
 
+```bash
 docker build .
+```
+
 
 If the file in in some other location
 
+```bash
 docker build path/to/file
+```
+
 
 If passing through STDIN
 
+```bash
 docker build - < Dockerfile
+```
+
 
 If passing through github URL
 
+```bash
 docker build github.com/roshan4074
+```
+
 
 you can check the container with the command:
 
+```bash
 sudo docker images
+```
+
 
 To apply a tag to an image you the command: docker tag
 
+```bash
 sudo docker tag <container_id>
+```
+
 
 To comment a code use the "#' symbol followed by the text
 

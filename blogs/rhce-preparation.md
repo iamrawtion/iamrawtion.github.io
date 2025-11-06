@@ -327,10 +327,16 @@ reboot at the end
 terminal
 
 1.      
+```bash
 application > system tool > terminal
+```
+
 
 2.      
+```bash
 steven born > bourn shell
+```
+
 
 3.      
 bash shell default
@@ -407,10 +413,16 @@ ls-l long listing permission, user ownership n
 file size
 
 3.      
+```bash
 ls –lh file size in human readable
+```
+
 
 4.      
+```bash
 ls –a hidden file and all other files with ‘.’
+```
+
 
 5.      
 Cd change directory cd /dir_name
@@ -494,7 +506,10 @@ Also used to show content of a file in terminal
 
 3.      
 To create anew file into terminal using cat use the
+```bash
 following syntax cat << EOF > test.txt (enter) input_your_text EOF(end
+```
+
 of file)
 
 4.      

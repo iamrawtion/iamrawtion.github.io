@@ -78,8 +78,11 @@ This is all you need to do to have a personal FTP.
   
 To login to your ftp server you need to do the following in a Linux or Windows Terminal.  
   
+```bash
 ftp <your_ip_addres>  
 Username: <for_ur_machine>  
+```
+
 Password: <for_ur_machine>  
  logged in  
   

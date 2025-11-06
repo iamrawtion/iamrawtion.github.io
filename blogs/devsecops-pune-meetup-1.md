@@ -21,12 +21,14 @@ We had 5 attendees in this meetup as expected. The count was not important. What
 - Cloud Security
 - Metasploit - Kali Linux
 
+
 We discussed a lot about Docker security and Snyk, Twistlock being the docker security tools were also explored further. How CIS compliance helps cloud security and the recent how engineers disable SELinux first on any system and that is a bad practice. Although just 5, the discussion went along for a huge 2 hours and it was indeed a wonderful learning experience.  
   
 We also decided later that the takeaways from these lean-coffee format will end up becoming speaker-attendee format topic for us to deep dive into important topics further. This was a great takeaway since with DevOps meetups we only spoke about what the speaker was best at, and may or may not be community learning requirement. Takeaways from this session for Speakers to prepare about was:  
 
 - CIS Compliance
 - SELinux / Apparmour
+
 
 These topics were added as Topics on DevOps Pune meetup and the hunt for the speaker started there. A few topics that did not get discussed due to lack of time were:  
 
@@ -36,10 +38,12 @@ These topics were added as Topics on DevOps Pune meetup and the hunt for the spe
 - Security compliance
 - Securing Nginx
 
+
 Overall it was a wonderful learning experience. Cheers to all the attendees.  
   
 Some clicks :)  
   
+```json
 [
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgacwGVYJOUuFy7SOos1SSxa3ppmGqIJqYDEtATNLq_kEs9ekjGBGmmUFBsYBIAfXYZ9lt5tCL_avDexGaGmcSMMcwNnpT5yawcaKYTu9latvQjnw3oFFd9W5gbuef362Y_bnE72SkaGgc/s1600/01_1.jpeg)
@@ -47,3 +51,4 @@ Some clicks :)
 [
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKI-cgFbg-anfgnLC8s9rMeEsWWSoe-akX9vNvj3TN-5SWLXVuyrPDy6-k3dhy0Dti-egPH451H-SWFY3GrQ5ZAS65vmJTnLva7OQdFE0i7wWwm3H3-CsaS9dcMjAL_lclBiJewfhWNRM/s1600/01_4.jpeg)
+```

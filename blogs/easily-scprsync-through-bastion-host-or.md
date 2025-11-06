@@ -17,9 +17,12 @@ There are 3 machines involved here:
 
   
 1. Create an SSH tunnel from localhost to the **intended** host through bastion. The tunnel will be created from port 1234 at localhost. You may choose any other port.  
+```bash
 ssh -L 1234:<intended_server>:22 <user>@<bastion-host> cat -  
 2. In a new tab initiate the file/directory transfer using the tunnel port  
 scp -P 1234 <file_to_transfer> <user_of_intended_server>@127.0.0.1:~/  
+```
+
   
 As I did this, I realized SCP is very slow in getting the transfer done due to its linear and sequential file transfer behavior. Hence, I used Rsync which made it pretty fast due to its delta based transfer algorithm  
   

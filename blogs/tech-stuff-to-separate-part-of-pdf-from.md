@@ -27,9 +27,12 @@ author: "Roshan Nagekar"
 # ps aux | less  
 Where,  
   -A: select all processes  
+```yaml
     a: select all processes on a terminal, including those of other users  
     x: select processes without controlling ttys  
 Task: see every process on the system  
+```
+
 # ps -A  
 # ps -e  
 Task: See every process except those running as root  
@@ -42,7 +45,9 @@ Task: See process run by user vivek
 # top**  
 
 **- Task: display a tree of processes
+
 - pstree shows running processes as a tree. The tree is rooted at either pid or init if pid is omitted. If a user name is specified, all process trees rooted at processes owned by that user are shown.**
+
 **$ pstree**  
 
 **- --max-depth=, which instructs du to list its subdirectories and their sizes to any desired level of depth (i.e., to any level of subdirectories) in a directory tree. For example, the following would cause du to list only the first tier (i.e., layer) of directories in the current directory and their sizes (inclusive of all of their contents, including those of their subdirectories):**
@@ -54,9 +59,12 @@ Setting --max-depth= to zero tells du to not list any of the subdirectories with
 
 **- wget**
 **to download anu file online  
+```bash
 wget <url>  
 wget <url> -t 'n'  
 -t will make n number of trials... useful at the times of broken downloads.  
+```
+
   
 
 10. HOWTO: ISO creation from terminal
@@ -92,10 +100,16 @@ __________________
 11. âž™ Synchronize all your files across Windows, Linux and Mac OS with Dropbox (2GB free storage!). By signing up via this link I'll get some extra space also, thanks!
 12. command for generation of preprocessed code which will have the included files in the code as well as the code that we have written
 
+```bash
 gcc -E test.c > test.pp  
+```
+
   
 object code post compilation that we always do.  
+```bash
 gcc test.c test2.c -o test.o  
+```
+
   
   
 the assembly dump of the code generated.  
@@ -104,16 +118,20 @@ objdump -d test.o**
 #include <stdlib.h>
 double add(int,int);
 int main()
+```json
 {
 printf("%f\n", add(1,2));
 return 0;
 }  
+```
+
   
 
 test2.c -> #include <stdio.h>
 
 double add(int a, int b)
 
+```json
 {
 
 printf("%f\n", (double)(a + b));
@@ -121,13 +139,18 @@ printf("%f\n", (double)(a + b));
 return a + b;
 
 }  
+```
+
   
 13.  
  How to get all log history for the so called branches in subversion  
 (they are nothing more than directories)  
   
+```bash
  mkdir ORACLEPOC; cd ORACLEPOC; svn2git  
 svn://[110.0.0.10/idbl//UI/ORACLEPOC](http://110.0.0.10/idbl//UI/ORACLEPOC) --rootistrunk --verbose; cd ..  
+```
+
   
   
 14.  
@@ -135,16 +158,22 @@ svn://[110.0.0.10/idbl//UI/ORACLEPOC](http://110.0.0.10/idbl//UI/ORACLEPOC) --r
   
 grepping on "Date:"  
 total=0;for i in *;  do cd $i; echo In $i; total=`expr $total + $(git  
+```bash
 log | grep "Date:" | wc -l)`; cd ..; done; echo $total  
+```
+
   
   
 15.   
 Merge two branches  (that are in different repositories) into one.  
   
+```bash
 git remote add MSSQL_2.3  /home/git/MSSQL_2.3  
 git pull MSSQL_2.3 master:b  
 git merge b  
 git branch -d  
+```
+
   
 16.  
 

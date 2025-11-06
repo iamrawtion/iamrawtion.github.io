@@ -25,7 +25,10 @@ Shell Scripting
   
 2. After the shell script is complete set execute permission to the script for the script to execute. The permissions can be changed by the command chmod.   
     Syntax is  
+```bash
     chmod permission your-script name  
+```
+
     e.g  
     $ chmod +x script  
     $ chmod 755 script  
@@ -43,10 +46,16 @@ Shell Scripting
     Note: ./means current directory. But only .(dot) means execute a given command in the current shell without starting a new copy of the shell. The syntax for .(dot) command is . command-name e.g $ . foo  
 # This is my 1st shell program  
 clear  
+```bash
 echo "Knowledge is Power"  
+```
+
 Anything after "#" is a comment  
 clear - this will clear the screen  
+```bash
 echo - prints the message  
+```
+
   
 4. The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values.  
 Linux has two types of variables:  
@@ -127,32 +136,50 @@ condition is comparison between values, comparison can be done using the expr op
 #!/bin/bash  
 if cat $1  
 then  
+```bash
   echo "$1 file found on this location"  
+```
+
 fi  
   
 if [ $2 -gt 0 ]   
 then  
+```bash
   echo "$2 positive number"  
+```
+
 fi  
   
 if [ -f $3 ]  
 then  
+```bash
   echo "$3 file exists"  
+```
+
 fi  
   
 if...else...if  
 #!/bin/bash  
 if [ -f $1 ]  
 then  
+```bash
   echo "$1 exist"  
+```
+
 else  
   if [ -f $2 ]  
   then  
+```bash
     echo "$2 exist"  
+```
+
   else  
     if [ -f $3 ]  
     then  
+```bash
       echo "$3 exist"  
+```
+
     fi    
   fi    
 fi  
@@ -174,31 +201,55 @@ $ sh -x shell3.sh shell3.sh shell2.sh shell1.sh
 shell3.sh exist  
   
 #!/bin/bash  
+```bash
 echo "1. Linux \n 2. Windows \n 3. None"  
+```
+
 read ch  
 if [ $ch -eq 1 ]   
 then  
+```bash
   echo "You seem like a geek"  
+```
+
 else  
+```bash
   echo "You are good"  
   if [ $ch -eq 3 ]   
+```
+
   then  
+```bash
     echo " But, I dont know, what you do"  
+```
+
   fi    
 fi  
   
 #!/bin/bash  
+```bash
 echo "1. student\n2.work\n3.none"  
+```
+
 read ch  
 if [ $ch -eq 1 ]   
 then  
+```bash
   echo "Happy Studying"  
 elif [ $ch -eq 2 ]   
+```
+
 then  
+```bash
   echo "You should study too"  
 elif [ $ch -eq 3 ]   
+```
+
 then  
+```bash
   echo "Study an get a job"  
+```
+
 fi  
   
   
@@ -222,13 +273,19 @@ done
   
 for i in 1 2 3 4 5  
 do  
+```bash
 echo "Welcome $i times"  
+```
+
 done  
   
 #!/bin/bash  
 for i in `seq 1 10`  
 do  
+```bash
   echo "Welcome $i times"  
+```
+
 done  
   
   

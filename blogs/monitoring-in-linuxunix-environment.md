@@ -21,10 +21,13 @@ CPU usage, Memory usage, Swap Memory, Cache Size, Buffer Size, Process
 PID, User, Commands and much more.  
 The 1st line of the command mentions the following:  
 
+```yaml
 - current time in hh:mm:ss format seconds keep updating
 - uptime of the machine, how long has the machine been running
 - no. of users logged in with running sessions
 - average load on the system, 3 values mentioned are load in last one minute, 5 minutes and 15 minutes
+```
+
 
 The 2nd line mentions the following :  
 
@@ -33,6 +36,7 @@ The 2nd line mentions the following :
 - Total sleeping processes
 - Total stopped processes
 - Total Zombie processes(waiting for parent process to stop)
+
 
 The 3rd row mentions the following :  
 
@@ -51,8 +55,10 @@ The 4th and 5th row mentions the following:
 - The use of swap memory
 - Both free buffer and cached
 
+
 The details of the processes are given  with the following details:  
 
+```yaml
 - PID: Process ID
 - USER: The owner user of the process
 - PR: Priority of the process
@@ -61,9 +67,14 @@ The details of the processes are given  with the following details:
 - RES: Amount of physical memory used by the process
 - SHR: Shared memory of the process
 - S: Status of the process Sleep Running Zombie
+```
+
 - %CPU: % of CPU used
 - %MEM: % of RAM used
+```yaml
 - COMMAND: name of the process
+
+```
 
   
 The default sorting of the list displayed is based on CPU usage. you can change the sorting of the list as per your convenience.  

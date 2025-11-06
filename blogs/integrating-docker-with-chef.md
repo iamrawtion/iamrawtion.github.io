@@ -22,6 +22,7 @@ I conducted a demo at [Docker-Bangalore meetup #4](http://www.meetup.com/Docker-
 - Ensures each resource is properly configured and is in the desired state.
 - More on my blog [Learning Chef](http://roshannagekar.blogspot.in/2014/04/learning-chef-part-i.html).
 
+
 **What is Docker?**
 
 - Light weight Linux container that packages an application and all its dependencies in a virtual container.
@@ -29,6 +30,7 @@ I conducted a demo at [Docker-Bangalore meetup #4](http://www.meetup.com/Docker-
 - Does not include OS.
 - Layers the changes made in the container just like a version control system, which allows you to reach any previous state within no time.
 - More on my blog [Docker](http://roshannagekar.blogspot.in/2014/05/docker-lightweight-linux-container.html).
+
 
 **Why use Chef+Docker, What are the issues with Vagrant+Chef?**
 
@@ -38,11 +40,13 @@ I conducted a demo at [Docker-Bangalore meetup #4](http://www.meetup.com/Docker-
 - If you rely on external dependencies(which we do), full rebuilds can fail  due to one or more broken dependencies.
 - If your stack has multiple components (web, db, cache, etc) and they are installed in 1 Vagrant VM, the resulting setup differs from production. Or you could use multiple VMs… but point # 1 holds.
 
+
 **Chef Pros:**
 
 - Great at provisioning (knife bootstrap and plugins)
 - Configuring services – Writing your infrastructure as a code.
 - Testing your Infrastructure
+
 
 **Chef Cons:**
 
@@ -50,17 +54,20 @@ I conducted a demo at [Docker-Bangalore meetup #4](http://www.meetup.com/Docker-
 - Deployments and rollbacks
 - Dynamic service delivery
 
+
 **Docker Pros:**
 
 - Packaging applications
 - Deployments and rollbacks
 - Dynamic service delivery
 
+
 **Docker Cons:**
 
 - Managing persistent storage
 - Complex networking
 - Monolithic services
+
 
 **How to get Chef and Docker work together?**
 
@@ -76,6 +83,7 @@ The key is understanding the Developers and Operations workflow and making them 
 - Logs monitoring
 - Horizontal Scaling
 
+
 **Operations own the Platform:**
 
 - Hosts
@@ -84,6 +92,7 @@ The key is understanding the Developers and Operations workflow and making them 
 - Logs
 - Security
 - Backing Services
+
 
 *Basically,*
 
@@ -101,6 +110,7 @@ Everything outside containers for Operations*
 - Upload all cookbooks.
 - Bootstrap the node.
 - Login and verify of the node has the required images.
+
 
 **References:**  
 

@@ -35,13 +35,16 @@ I logged in early the next morning to check the ingestion status. I
 was totally puzzled as I couldn’t make out what was happening:  
 
 - The log file for the previous day log_27-08-2013.txt was showing
+
   everything went well until 11pm midnight and no logs thereafter.
+
 - The log file for today log_28-08-2013.txt got created with no data in it.
 - The ingestion process was running with no errors.
 - The server logs showed no errors.
 - The system never went down.
 - Nearly 150 GB of data was still to be ingested and was not progressing at all.
 - None of the logs showed any updates as to why the ingestion was not progressing.
+
 
 Since the delivery was urgent, I stopped the ingestion on the
 instance and restarted it. To my horror, the ingestion was not

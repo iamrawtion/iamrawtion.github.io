@@ -44,6 +44,7 @@ Three primary entities: workstation, chef-server, node
 
 - Sample Recipe
 
+
 package
 "apache2" // 1st resource is package and chef knows that it should be
 installed on the server. If the package doesn’t exist it will install it.
@@ -54,7 +55,10 @@ template
 "/etc/apache2/apache.conf" do //Next resource is a template. The
 template will manage a file at /etc/apache2/apache.conf
 
+```bash
 source "apache2.conf.erb"
+```
+
 
 owner "root"
 
@@ -82,11 +86,17 @@ end
 
   
 
+```bash
 service "apache2" do //service should be enabled and start automatically
+```
+
 
 action [:enable,:start]
 
+```bash
 supports :reload => true  
+```
+
 end
 
 - **Roles** : A way of identfying different types of servers. e.g Load-balancer, app server, DB cache, DB , monitoring etc. Roles may

@@ -29,6 +29,7 @@ Eliminating the possibility of having vulnerabilities introduced at code level i
 - OS vulnerabilities
 - System software packages
 
+
   
 
 Most of this is curbed prettty much in the pipeline with some well known tools in the market that parse your source code and identify different threats.
@@ -54,9 +55,12 @@ However, setting up the security scanners could be time consuming or may need ad
 - Bonus: AI driven, scan results in prioritized scan types, less false positives and reduced noise.
 - Consolidated visuals for all apps and scans, you can prioritize vulnerabilities based on risk rating.
 
+
 Here is a GIF that can help you have an overview of how to quickly integrate and get started.
 
   
+```json
 [
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpi8jrdbhTKTq2RTauenGrmznmMpTf73QSc1lxgfjJuTndVfK0fHVFtHVsohw6v7E1hvD2OsjrWMgv6akac7KgVMk9sv9iibDsZ-T-VuKsWiLj0ioBHVBG2c_uidP8tofg1lbXOzj6vyU/s320/Travis-2x.gif)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpi8jrdbhTKTq2RTauenGrmznmMpTf73QSc1lxgfjJuTndVfK0fHVFtHVsohw6v7E1hvD2OsjrWMgv6akac7KgVMk9sv9iibDsZ-T-VuKsWiLj0ioBHVBG2c_uidP8tofg1lbXOzj6vyU/s640/Travis-2x.gif)
+```

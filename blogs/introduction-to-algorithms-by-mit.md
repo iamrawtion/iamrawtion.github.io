@@ -78,9 +78,12 @@ So for this reason, a user
 may gor for JAVA instead of C for it may be slow, but it gives more
 functionality like exceptions, Object Orientations,etc.
 
+```yaml
 PROBLEM: INSERTION SORT
 
 Input: sequence
+```
+
 <a1,a2,a3,….,an>of numbers
 
 Output:
@@ -100,7 +103,10 @@ do key = A[j]
 
 i = j-1
 
+```bash
 while i>0 and A[i]>key
+```
+
 
 do A[i+1] = A[i]
 
@@ -165,6 +171,7 @@ user.
 
 - guarantee to the user.
 
+
 Different kinds of analysis :
 
 Worst case analysis: this is
@@ -218,7 +225,10 @@ Absolute speed
 (if onde algorithm is betr than the other no matter what machine it runs on.
 
 Asymptotic analysis: ignore
+```bash
 machine dependent constants and look at growth of running time T(n) as n -> ∞
+```
+
 
 Asymptotic notations
 
@@ -232,7 +242,10 @@ e.g if there is a formula 3n^3+90n^2-5n+6046= q(n^3)
 here n^3 is a bigger term than n^2 , n and all the leading
 terms thus it becomes q(n^3)
 
+```bash
 as n -> ∞ , q(n^2) algorithm always beats a q(n^3) algorithm.
+```
+
 
 n^2 will be faster than n^3
 
@@ -255,6 +268,7 @@ fast for small n but not for large n. Merge sort is faster instead.
 
 **MERGE SORT**
 
+```json
 Merge sort A[1….N}
 
 1.       
@@ -298,3 +312,4 @@ const c>0
 
 T(n) = cn - > T(n/2) 2
 times
+```

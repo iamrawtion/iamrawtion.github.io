@@ -37,10 +37,13 @@ That's how my "list" file looks like:
 
 I purposely add IP as well as hostname as I keep using them interchangeably. I also came to know about ansible authorized_keys module that does the ssh-copy-id task:
 
+```yaml
 - name: Set authorized key for user ubuntu copying it from current user  
   authorized_key:  
     user: ubuntu  
     state: present  
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+```
+
 
 However, you will still need the the ssh-keyscan here. This script goes handy for ops who keep destroying their local environment and use a new one.This is available on Github: https://github.com/iamrawtion/ansible-autossh

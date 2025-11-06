@@ -7,6 +7,7 @@ excerpt: "sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential
 author: "Roshan Nagekar"
 ---
 
+```bash
 sudo apt-get update  
 sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build  
 echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list  
@@ -21,6 +22,8 @@ echo "export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin" >> ~/.profile
  git clone https://github.com/envoyproxy/envoy.git  
 cd envoy/  
 bazel build --package_path %workspace%:/home/<user>/envoy/ //source/exe:envoy-static  
+```
+
   
 **RELAX, ITS GOING TO TAKE LONG TIME**  
   
@@ -29,8 +32,11 @@ bazel build --package_path %workspace%:/home/<user>/envoy/ //source/exe:envoy-st
   
 To generate the example configurations run the following from the root of the repo:  
   
+```bash
 mkdir -p generated/configs  
 bazel build //configs:example_configs  
+```
+
   
 **RELAX, ITS GOING TO TAKE LONG TIME**  
   

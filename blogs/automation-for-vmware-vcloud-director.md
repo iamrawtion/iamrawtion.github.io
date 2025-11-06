@@ -21,23 +21,34 @@ Plugin is available at <https://github.com/opscode/knife-vcloud>
 - Chef 11.8.2
 - knife-vcloud 1.0.0
 
+
 *Following steps were used to complete the automation process:*  
   
+```bash
 cd ~  
 git clone <https://github.com/opscode/knife-vcloud.git>  
 cd knife-vcloud/  
+```
+
 bundle install  
+```bash
 gem build knife-vcloud.gemspec   
 gem install knife-vcloud-1.0.0.gem  
 gem list | grep vcloud  
 - See if after entering the above command you
 see the gem knife-cloud. If yes the setup was successful. If no
+```
+
 something went wrong.   
   
+```bash
 cd ~./chef  
+```
+
 vim knife.rb  
   
 - add the following details to the last line of this file (Note: username is @ i.e organisation name supplied) :  
+
 knife[:vcloud_username] = "username@orgname"  
 knife[:vcloud_password] = "##########"  
 knife[:vcloud_host] = "xxx.xxxxxxxxxxxxx.com"  
@@ -45,15 +56,20 @@ knife[:vcloud_host] = "xxx.xxxxxxxxxxxxx.com"
 [ESC]:wq  
   
 knife vcloud server list  
+
 - Should list all the existing servers
+
 
 You can also create your own server using "**knife vcloud server create**" with additional parameters with caution.  
   
 e.g  
   
 knife
+```bash
 vcloud server create --vcpus 2 -m 1024 -I TestServer -A 'roshan' -K
 "MyPassword" -r 'role[webserver]' --network myNetword-id  
+```
+
   
 Good Luck!!
 

@@ -45,8 +45,11 @@ Install it. As mentioned its a commandline utility tool, you need commandline
 to access this.
 
 1. You will need to **initialize
+```bash
    vagrant box** using the init command. This will initialize a
    vagrant environment in the present directory you are in. The second
+```
+
    argument will set the name for your box and the third will set the URL
    to access in the Vagrant file.
 
@@ -62,6 +65,7 @@ to access this.
 - *vagrant ssh*
 
 - Note:
+
   Please check the documentation on the vagrant website as there is a
   list of optional parameters that you may need in case you run into any
   errors. Fatal can be expected.
@@ -80,17 +84,21 @@ to access this.
 
 - This adds a box with the specified name using the local file path or url specified to access it.
 
+
 - *vagrant box list*
 
 - Lists all the boxes installed and available
+
 
 - *vagrant box remove [box-name] [provider]*
 
 - Removes the box with the specified box name for the specific provider. Providers are VirtualBox or VMWare or any other utility.
 
+
 - *vagrant box repackage [box-name] [provider]*
 
 - Repackages
+
   the given box and puts it to present directory for redistribution
   purpose. When a box is added, vagrant unpacks and stores it internally
   and the original box is not preserved.

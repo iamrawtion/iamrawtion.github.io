@@ -34,8 +34,11 @@ curl -L https://www.opscode.com/chef/install.sh | sudo bash
    
  Login to manage.opscode.com and download the starter-kit there. Extract the chef-repo to your home directory. It should show the following contents.  
   
+```bash
 cd chef-repo  
 ls  
+```
+
   .berkshelf  
   .chef  
   cookbooks  
@@ -48,7 +51,10 @@ ls
   
 Check the .chef file present in the directory, it should show the following content.  
   
+```bash
 cd .chef  
+```
+
   knife.rb  
   org-validator.pem  
   user.pem  
@@ -91,11 +97,13 @@ vim knife.rb
   
 Lets consider the above recipe and understand it.  
 Each recipe has resources in it. The resources have :   
+
 - types -> package, template, service are the types of resources in the code  
 - names -> apache2, /etc/apache2/apache.conf, apache2(service) are the names of the resources in the code  
 - parameters ->   source "apache2.conf.erb"   owner "root"   group "root"   mode "0644"   supports :reload => true  
 - action to put the resource on desired state -> action :install, action [:enable,:start]  
 - send notification to other resources -> notifies :reload, "service[apache2]  
+
   
   
 A cookbook can be created by the command  
@@ -141,12 +149,15 @@ run_list(
   "recipe[vim]"  
 )   
 override_attributes(  
+```json
   :authorization => {  
     :sudo => {  
       :users => ["ubuntu", "vagrant"],  
       :passwordless => true  
     }  
   }  
+```
+
 )  
   
 Here the runlist method defines a list of recipes to be applied to all the nodes that have base role. The override_attributes method tells lets us override the default attributes used by the recipes in the list. Here we are overriding attributes used by the sudo cookbook so that "vagrant" and "ubuntu" users can run sudo without entering password.  
@@ -155,6 +166,7 @@ Next create another role Webserver by creating a file webserver.rb in the roles 
   
 name "webserver"  
 description "Web server role"  
+```json
 all_env = [   
   "role[base]",  
   "recipe[php]",  
@@ -163,6 +175,8 @@ all_env = [
   "recipe[apache2::mod_php5]",  
   "recipe[apache2::mod_rewrite]",  
 ]  
+```
+
   
 run_list(all_env)  
   
@@ -180,10 +194,13 @@ Next create another role db_master.rb file with following contents:
 name "db_master"  
 description "Master database server"  
   
+```json
 all_env = [  
   "role[base]",   
   "recipe[mysql::server]"  
 ]   
+```
+
   
 run_list(all_env)  
   
@@ -202,10 +219,14 @@ knife role from file roles/db_master.rbenv
 Setting up a user account for sys-admin  
 Define a user account for yourself on all the nodes with admin privileges. This can be done by defining a data bag for the users cookbook, with attributes that describe the user account to create.  
   
+```bash
 mkdir -p data_bags/users  
 vim data_bags/users/$USER.json  
+```
+
   
 Add the following to the $USER.json  
+```json
 {  
   "id": "jkg",  
   "ssh_keys": "ssh-rsa ...SecretKey... roshan4074@gmail.com",  
@@ -213,6 +234,8 @@ Add the following to the $USER.json
   "uid": 2001,  
   "shell": "\/bin\/bash"  
 }  
+```
+
   
 Upload the data bag as well to the chef-server and verify  
 knife data bag create users  

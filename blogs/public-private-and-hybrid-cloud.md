@@ -13,6 +13,7 @@ A lot has been said, heard and read about Cloud. There so many ways that the clo
 2. Private Cloud
 3. Hybrid Cloud
 
+```json
 [
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsKaE8inR184uaqdhpX5DrATBNK-8-H10_3lEnzGxha2n3KxAvDyShMP58_btOI2hMqsvAJQ598BtZ6uW1ZTPiVpTwXPfk9J3Ptg8houGkP9wDCJnbRB4XKjeT7EMJ5K74fUZhYZ1qGVg/s1600/public+cloud.jpg)
@@ -42,3 +43,4 @@ Many companies are now opting for Enterprise cloud
 **Hybrid Cloud** : Even though many organizations make the use of private as well as public cloud as per their need, there could be vendors looking for functionality of both a private as well as a public cloud. This is achieved with a Hybrid Cloud. At times there are companies that want their data to be secure as well as still are required to communicate to the customers over the network. Many of such companies choose a Hybrid Cloud. Here basically you can set access permissions for which applications need to be publicly accessible and which of them should not be and needs to be in private cloud.    
   
 (To be contd..)
+```

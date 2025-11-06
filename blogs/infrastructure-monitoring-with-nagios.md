@@ -22,6 +22,7 @@ Nagios comes with multiple notable features that makes it distinguishing. It use
 Nagios consists of various objects that needs to be defined and used.  
   
 
+```json
 1. Hosts : Hosts are the systems/ servers that need to be monitored in the infrastructure. Nagios also provides the facility to group set of hosts together to give a better monitoring experience. Say you can group all web servers together in a "WebServers" host group. Typically a host definition may look like : "define host{
 
    use                             linux-box
@@ -33,6 +34,9 @@ Nagios consists of various objects that needs to be defined and used.
    address                         5.175.142.66
 
    }"
+```
+
+```json
 2. Services : Services are the checks that needs to be performed. There are a wide range of service checks that can be performed on any host. Just like host group, service checks can also be grouped together. E.g you may need to check the CPU utilization of all servers together, you may group it that way. A service definition may look like : "define service{
 
    use                     generic-service
@@ -44,6 +48,9 @@ Nagios consists of various objects that needs to be defined and used.
    check_command           check_nrpe!check_load
 
            }"
+```
+
+```json
 3. Contacts : Contacts are the people who need to be contacted if a notification needs to be sent for any event that occurs. You can configure contacts to send emails, samosas, or even custom messages to any service that allows messaging. Contacts can also be grouped together into a contact group. E.g there is a notification about come process getting shut down on QA server that the Admin may not necessarily be bothered about, in such a case the notification can only be sent to QA group. A contact definition will look like : "[define contact{
 
    name                            generic-contact
@@ -142,3 +149,4 @@ register                        0
 Monitoring in Nagios is parallel, i.e a number of hosts and service checks will go simultaneously in parallel. This could be resource consuming but this is always better than sequential monitoring as you can be sure that all your servers are doing well and don't have to wait too long for any kind of update. The add ons for Nagios are simple to make and add to the Nagios community. The configs are all split and simple to understand too. Nagios has a huge documentation and help examples for quickly getting started.
 
 Happy Monitoring!!
+```

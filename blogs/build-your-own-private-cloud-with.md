@@ -22,7 +22,10 @@ Create node for your MAAS server. You must have atleast 2 nodes before going ahe
 
 We left all the other information fields there blank except for the MAC-ADDRESS. You can get the mac address of your computer by ipconfig on windows and ifconfig on Ubuntu - Ubuntu users can do:
 
+```bash
 ifconfig | grep hwadrs
+```
+
 
 Then we went to  
 http://maas.ubuntu.com/docs/juju-quick-start.html  
@@ -30,6 +33,7 @@ Thereafter we created ~/.juju/environments.yaml
 vim ~/.juju/environments.yaml  
 Added the following details to this file  
   
+```yaml
 juju: environments  
 environments:  
   maas:  
@@ -37,6 +41,8 @@ environments:
     maas-server: 'http://localhost:5240'  
     maas-oauth: '${maas-api-key}'  
     admin-secret: 'nothing'  
+```
+
   
 Got an error default-series: missing  
   
@@ -54,12 +60,18 @@ Juju packages needs to be installed from ppa:juju/pkg
 Went to  
 https://juju.ubuntu.com/docs/  
 removed existing juju  
+```bash
 sudo apt-get update  
             sudo apt-get install juju-core (error no package)  
+```
+
   
   
+```bash
 sudo add-apt-repository ppa:juju/devel  
             sudo apt-get update && sudo apt-get install juju-core  
+```
+
   
 Configuring Juju  
 juju generate-config -w      
@@ -70,7 +82,10 @@ error: environment has no access-key or secret-key
 changed default: amazon to default: maas  
 juju bootsrap  
 error:no tools  
+```bash
 sudo juju -v sync-tools  
+```
+
   
 roshan@ubuntu-cloud:~$ sudo juju bootstrap  
 error: cannot start bootstrap instance: cannot run instances: gomaasapi: got error back from server: 409 CONFLICT  

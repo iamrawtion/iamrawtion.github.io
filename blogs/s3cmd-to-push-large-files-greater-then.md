@@ -15,7 +15,10 @@ image credits:  [Stefano Bertolo](https://www.flickr.com/photos/stefanobe/)
 Use command line utility to push s3cmd files on Amazon S3.  
   
 Install s3cmd from s3tools.org or  
+```bash
 apt-get install yum install s3cmd OR s3cmd  
+```
+
   
 Configure s3cmd by  
 vim ~ / .s3cfg  
@@ -46,6 +49,7 @@ follow_symlinks = False 
 force = False   
 get_continue = False   
 gpg_command = / usr / bin / gpg   
+```bash
 gpg_decrypt =% (gpg_command) s -d --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s   
 gpg_encrypt =% (gpg_command) s -c --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s   
 gpg_passphrase =   
@@ -84,6 +88,8 @@ verbosity = WARNING 
 website_endpoint = http: //% (bucket) s.s3-their Website% (location) s.amazonaws.com/   
 website_error =   
 website_index = index.html  
+```
+
   
 access_key = YOUR-ACCESS-KEY-HERE  
 You can see how to use s3cmd at: http://s3tools.org/usage  
@@ -97,13 +103,16 @@ Here I came across a typical scenario where I could not upload files greater tha
 
 - Original file
 
+
 -rw-r - r--. 1 root root 5.4G Jan 20 06:54 201412.tar.gz  
 
 - Split Command
 
+
 split -b 3G 2014backup.tar.gz "201 412"  
 
 - Post Split
+
 
   
 -rw-r - r--. 1 root root 23 Apr 06:41 3.0G 201412aa  
@@ -111,6 +120,7 @@ split -b 3G 2014backup.tar.gz "201 412"
   
 
 - Upload files những
+
 
   
 201 412 * s3cmd put s3: // apache-logs /  

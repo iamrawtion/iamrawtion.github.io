@@ -52,9 +52,12 @@ So, is that all? No, but there's more to it and more keeps growing too. This was
   
 Cloud services as mentioned in the earlier example are essentially divided into 3 major services. While these 3 are not the only services, but these services conquer the major part of the cloud. So what are these services:  
   
+```yaml
 SAAS : Software as a Service  
 PAAS : Platform as a Service  
 IAAS : Infrastructure as a Service  
+```
+
   
 By now with the example stated above you probably might have had a hint of what these services really are all about.  
   
@@ -89,6 +92,8 @@ This was just one example of a Saas based service there are surely many more suc
 Most of these services are free to use or at least free to try. Before making a mind, if or not to purchase it. We could surely try them out.  
 Some well known cloud services/providers  
   
+```yaml
 SAAS : Facebook, Gmail  
 PAAS : Googel App Engine, Heroku  
 IAAS : Amazon, Rackspace
+```

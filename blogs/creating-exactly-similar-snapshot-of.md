@@ -42,10 +42,12 @@ Steps to create an exact similar copy are as follows:
 - mkfs.ext3 /dev/sdg
 - tune2fs -c 0 /dev/sdg
 
+
 4. Now mount this disk
 
 - mkdir /mnt/data
 - mount /dev/sdg /mnt/ebs
+
 
 5. Now
    you can copy all the data to your EBS volume but before you do that,
@@ -55,10 +57,12 @@ Steps to create an exact similar copy are as follows:
 
 - rsync -avx --exclude /mnt / /mnt/ebs //you may use --exclude <directory name> to exclude any directories
 
+
 6. This should take long time depending on how big the data is. Once the copying is done, Unmount the volume by:
 
 - umount /dev/sdg
 - You may want to check the volume space by df -h
+
 
 7. Detach the volume for the present instance from the console. [Documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html)
 8. Right

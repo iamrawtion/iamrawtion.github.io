@@ -77,9 +77,12 @@ software with most of the information self explanatory.
 Analyse Analyse current partition structure and search for lost partitions to restore them  
 Advanced Filesystem Utils
 
+```yaml
 FAT: Boot and FAT repair
 
 NTFS: Boot and MFT repair
+```
+
 
 ext2/ext3: Find Backup SuperBlock  
 FAT file undelete  

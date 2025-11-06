@@ -213,7 +213,10 @@ stopping containers.
   
 AWX provides a browser-based user interface and API for Ansible. It
 represents part of the Ansible Tower product, now available as an open
+```bash
 source project.  
+```
+
   
 <https://github.com/ansible/awx>  
   
@@ -233,7 +236,10 @@ understand, easy to operate, and easy to extend.
   
   
 Cruise-control (not the CI system) is a new tool to fully automate the
+```bash
 dynamic workload rebalancing and self-healing of a large kafka cluster.  
+```
+
   
 <https://engineering.linkedin.com/blog/2017/08/open-sourcing-kafka-cruise-control>  
 <https://github.com/linkedin/cruise-control>  
@@ -533,7 +539,10 @@ Weathervane is a new application for conducting a performance benchmark against 
    
   
 Cerebro is an alerting system build to integrate with Graphite. The
+```bash
 service layer currently integrates with Seyren to store alarms, schedule
+```
+
 checks and send alerts  
   
 <https://github.com/voyages-sncf-technologies/cerebro>  
@@ -660,7 +669,10 @@ An interesting set of tools for managing security in Google Cloud, focused on en
   
 awless is a CLI for Amazon Web Services which aims to be fast, powerful
 and easy-to-use. Useful to exploring an existing infrastructure as well
+```bash
 as ad-hoc commands.  
+```
+
   
 <https://github.com/wallix/awless>  
   
@@ -1872,7 +1884,10 @@ and aims to be faster than the standard docker build command.
   
 Many infrastructures will use an SSH jump box or two, rather than
 exposing all machines directly. SSHmuxd is an application which aims to
+```bash
 make this easier to manage, at the same time as introducing some basic
+```
+
 access control features.  
   
 <https://github.com/joushou/sshmuxd>  
@@ -2370,7 +2385,10 @@ image itself is tiny compared to a normal distribution.
 Packetbeat is an open source application monitoring and packet tracing
 system. It works by sniffing the traffic between your application
 services, correlating them into transactions and using Elasticsearch for
+```bash
 analysing them and for ad-hoc queries.  
+```
+
   
 <https://github.com/packetbeat/packetbeat>  
   
@@ -2521,7 +2539,10 @@ RFC Reader does exactly what you expect, it provides a nice web interface for re
   
 Socketplane have released a technology preview of their container
 networking technology. The preview features things like ZeroConf
+```bash
 multi-host networking for Docker, support for multiple networks and
+```
+
 distributed IP Address Management (IPAM).  
   
 <https://github.com/socketplane/socketplane>  
@@ -2567,7 +2588,10 @@ looks a great bridge to get other people interested in data.
   
 Rancher is an attempt to bring AWS-like functions, such as EBS, VPC, ELB
 and Security Groups, and make them available across any servers, using
+```bash
 docker under the hood.  
+```
+
   
 <http://www.rancher.io/>  
 <https://github.com/rancherio/rancher>  
@@ -2873,7 +2897,10 @@ testing and metrics collection.
   
   
 This packer provisioner allows for running provisioning command on the
+```bash
 host rather than the new machine being built. I can imagine a few uses
+```
+
 for this, from black box testing to recording the results of packer
 builds.  
   
@@ -3138,7 +3165,10 @@ enabled and providing reporting of issues.
   
   
 Managing multiple different git hooks across multiple repositories for
+```bash
 self-hosted git repos can be a pain. cpthook aims to make that easier,
+```
+
 moving the configuration into a simple YAML file and providing a command
 line to manage the hooks.  
   

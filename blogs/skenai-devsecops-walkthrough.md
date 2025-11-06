@@ -148,6 +148,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
 
 - DAST Scanning Tools:-
 
+
 1. [OWASP ZAP](https://owasp.org/www-project-zap/)
 2. [Netsparker](https://www.netsparker.com/)
 3. [Acunetix](https://www.acunetix.com/)
@@ -162,6 +163,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
   
 
 - SAST Scanning Tools:-
+
 
 1. [SonarQube](https://www.sonarqube.org/)
 2. [veracode](https://www.veracode.com/)
@@ -183,6 +185,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
   
 
 - Combine Scanning (SAST/DAST/SCA) tools and alternative to sken.ai tools:-
+
 
 1. [Checkmarx](https://www.checkmarx.com/)
 2. [veracode](https://www.veracode.com/)
@@ -229,6 +232,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
 
 - Cloud Security Scanning Tools:-
 
+
 1. [Rapid7 Nexpose](https://www.rapid7.com/products/nexpose/)
 2. [Synk](https://snyk.io/)
 3. [Acunetix](https://www.acunetix.com/)
@@ -242,6 +246,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
 
 - Ruby on Rails application scaling tools:-
 
+
 1. [Brakeman](https://brakemanscanner.org/)
 2. [Code Climate](https://codeclimate.com/)
 3. [bundler-audit](https://github.com/rubysec/bundler-audit)
@@ -250,6 +255,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
   
 
 - SCA Scanning Tools:-
+
 
 1. OWASP Dependency Leaks.
 
@@ -278,6 +284,7 @@ Sken tackles each one of the requirements of the mid-markets. There are three pi
 - Sken provides a product that can be used by DevOps with no app security experience.
 - Sken packages open-source scanners in a SaaS orchestration layer and automates them in CI/CD. This SaaS orchestration does a bunch of the heavy lifting, but it makes it so simple for the end-user to operate.
 - Sken does all scan types. There includes
+
 
 1. Code-level scanners like
 

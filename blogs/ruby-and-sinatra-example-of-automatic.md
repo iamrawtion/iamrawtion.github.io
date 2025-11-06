@@ -35,9 +35,13 @@ get '/tryerb' do
 end  
   
 #muttconf_template will store the template info whenever a template
+```bash
 encounters a <% %> it will consider it a ruby code and
 whenever it encounters a <%= %> it will consider that a
+```
+
 statement there are few more tags as well.  
+```bash
 muttconf_template = "set imap_user =\"<%= @usrname %>\"  
 set imap_pass =\"<%= @paswd %>\"  
 set spool_file =\"<%= @spool_file %>\"  
@@ -46,6 +50,8 @@ set postponed =\"<%= @postponed %>\"
 set header_cache =\"<%= @header_cache %>\"  
 set message_cachedir =\"<%= @message_cache_dir %>\"  
 set certificate_file =\"<%= @certificate_file %>\""  
+```
+
   
 #An object 'configure' of class ERB is created to which the above
 template is supplied  
@@ -110,6 +116,7 @@ post '/newfile' do
 end   
   
 template file  
+```bash
 set imap_user ="<%=@usrname%>@gmail.com"  
 set imap_pass ="<%=@paswd%>"  
 set folder ="imaps://imap.gmail.com:993"  
@@ -118,12 +125,17 @@ set header_cache ="~/.mutt/cache/headers"
 set message_cachedir ="~/.mutt/cache/bodies"  
 set certificate_file ="~/.mutt/certificates"  
 set smtp_url ="smtp.googlemail.com:587"  
+```
+
   
 views/newfile.erb  
 <form name="text_form" action="/newfile" method="post"  
 <H1>MUTT CONFIGURATION PAGE</H1>  
+```yaml
 Username: <input type="text" name="usrname" /><br/>  
 Password: <input type="password" name="paswd" /><br/>  
+```
+
 <input type="submit">  
 </form>  
   

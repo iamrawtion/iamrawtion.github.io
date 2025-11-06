@@ -40,6 +40,7 @@ SFTP port on it.
 
 **Here's how you PortQry on Windows:**
 
+```yaml
 - Download the software using the link : http://www.microsoft.com/en-in/download/details.aspx?id=17148
 
 - Double click an unzip the files to any location say C:/
@@ -52,6 +53,8 @@ SFTP port on it.
 
 - This will display a list of help information and the correct usage of the command
 
+```
+
   
 The following is the syntax to check the port status :  
 *portqry -n myhostname.net -e 80*  
@@ -62,7 +65,10 @@ Not Listening : Port is closed
 Filtered : No response, Presumably its behind some kind of firewall.  
   
 Syntax  
+```bash
 portqry -n name_to_query [-p protocol] [-e || -r || -o endpoint(s)]  
+```
+
   
 Common command line switches:  
 -n : IP address or name of system to query  
@@ -76,10 +82,15 @@ For single port use
 For a Range of ports, use the -r switch:  
 *portqry -n 127.0.0.1 -r 80:85*  
   
+```yaml
 Note:   
 - PortQry also displays extended information for known services, such as
+```
+
 SMTP, POP3, IMAP4, FTP, and is capable of performing LDAP queries.  
+
 - A GUI based alternative is also available now called PortQryUI  
+
   
 Sample Output:  
 C:\PortQryV2>portqry -n 127.0.0.1 -e 40  

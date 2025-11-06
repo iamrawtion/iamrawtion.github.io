@@ -26,6 +26,7 @@ For quiet sometime I have been attending meetups/sessions organised through meet
 - Meetup concludes with an informal planning for the next meetup to be arranged.
 - Feedback mail received for the meetup.
 
+
 Finally it all goes well here, but I see a few problems that could be avoided.
 
 **Latecomers :**
@@ -37,6 +38,7 @@ This is something that cant be avoided. However I honestly feel that this could 
 - Traffic situation at a particular time in general will also be helpful for people to leave little early. e.g if the meetup is conducted in the evening, at a busy location, it would take hours to reach the location.
 - A way to reach the location would help too. e.g if someone comes by bus, the bus stop he should be informing to the bus-conductor and the bus number he needs to look for. If by rickshaw, the nearest possible landmark to the location and approximate walkable distance from any location if its complicated to find.
 
+
 **Newcomers :**
 
 Many meetups will have new faces who expect basics or the introductory things to be covered for them to keep up with the pace. When the meetup starts directly these people don't get most of the things and then they would probably not join in the next meetup as well. Covering the basics time and again will make the regularly coming people bored as it would just eat up their time.
@@ -44,6 +46,7 @@ Many meetups will have new faces who expect basics or the introductory things to
 - Newcomers need to make an attempt to reach the venue as early as possible and ask questions to the organizers or the people present there and make the maximum out of the time to understand the introductory part.
 - The organizers could play slides of the previous meetup or of the introductory meetups for the beginners/newcomers to know what was covered or perhaps covering the basics for the 1st 15-30 minutes buffer can also be a good idea provided the newcomers are coming early.
 - Beginners can also read about the past meetups and check if the slides for the past meetups are available on the page and review them, understand what topics are covered, read them and then join the meetup. Its just like attending the classes in the college and reading a brief info of the topic before the lecture.
+
 
 **Socialize :**
 
@@ -56,6 +59,7 @@ One practice that has been seen is that people would simply click attending/goin
 - Update your RSVP whenever you change your decision for any reason.
 - Mention reason in the comments if your decision changes due to any reason so that the co-participants will look for you in the next meetup. Everyone is an important member in the meetup.
 - If you plan to bring a friend/colleague along with you, update the RSVP to reflect the change.
+
 
 **Feedback :**
 
