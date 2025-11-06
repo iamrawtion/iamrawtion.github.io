@@ -125,8 +125,11 @@ class BlogManager {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            const markdown = await response.text();
+            let markdown = await response.text();
             console.log(`Loaded markdown content (${markdown.length} characters)`);
+
+            // Remove frontmatter (YAML between --- delimiters)
+            markdown = this.removeFrontmatter(markdown);
 
             // Parse markdown to HTML using marked library
             if (typeof marked === 'undefined') {
@@ -160,6 +163,12 @@ class BlogManager {
         document.getElementById('blog-post-view').style.display = 'none';
         window.history.pushState({}, '', 'blog.html');
         window.scrollTo(0, 0);
+    }
+
+    removeFrontmatter(markdown) {
+        // Remove YAML frontmatter (content between --- delimiters at the start)
+        const frontmatterRegex = /^---\s*\n[\s\S]*?\n---\s*\n/;
+        return markdown.replace(frontmatterRegex, '');
     }
 
     highlightCode() {
