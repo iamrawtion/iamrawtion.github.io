@@ -1,27 +1,26 @@
 [
   {
     "title": "Sken.ai DevSecOps walkthrough",
-    "slug": "skenai-devsecops-walkthrough",
     "date": "2021-01-22",
     "category": "DevOps",
     "tags": [],
     "excerpt": "Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...",
     "author": "Roshan Nagekar",
-    "filename": "skenai-devsecops-walkthrough.md"
+    "id": "skenai-devsecops-walkthrough",
+    "file": "skenai-devsecops-walkthrough.md"
   },
   {
     "title": "SkenAI's role in DevSecOps CI/CD pipeline",
-    "slug": "skenais-role-in-devsecops-cicd-pipeline",
     "date": "2021-01-22",
     "category": "DevOps",
     "tags": [],
     "excerpt": "The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different...",
     "author": "Roshan Nagekar",
-    "filename": "skenais-role-in-devsecops-cicd-pipeline.md"
+    "id": "skenais-role-in-devsecops-cicd-pipeline",
+    "file": "skenais-role-in-devsecops-cicd-pipeline.md"
   },
   {
     "title": "DevSecOps Pune Meetup 4",
-    "slug": "devsecops-pune-meetup-4",
     "date": "2019-03-09",
     "category": "DevOps",
     "tags": [
@@ -36,11 +35,11 @@
     ],
     "excerpt": "9th March 2019 This is our 4th DevSecOps meetup. More and More and More swag sponsors added to the list. New sponsors: Elastic, Sonatype, Synk along...",
     "author": "Roshan Nagekar",
-    "filename": "devsecops-pune-meetup-4.md"
+    "id": "devsecops-pune-meetup-4",
+    "file": "devsecops-pune-meetup-4.md"
   },
   {
     "title": "Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops",
-    "slug": "easily-scprsync-through-bastion-host-or",
     "date": "2019-02-20",
     "category": "Programming",
     "tags": [
@@ -52,11 +51,11 @@
     ],
     "excerpt": "Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...",
     "author": "Roshan Nagekar",
-    "filename": "easily-scprsync-through-bastion-host-or.md"
+    "id": "easily-scprsync-through-bastion-host-or",
+    "file": "easily-scprsync-through-bastion-host-or.md"
   },
   {
     "title": "Source build Envoy proxy on Ubuntu 18.04",
-    "slug": "source-build-envoy-proxy-on-ubuntu-1804",
     "date": "2019-02-20",
     "category": "DevOps",
     "tags": [
@@ -68,11 +67,11 @@
     ],
     "excerpt": "sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo \"deb [arch=amd64]...",
     "author": "Roshan Nagekar",
-    "filename": "source-build-envoy-proxy-on-ubuntu-1804.md"
+    "id": "source-build-envoy-proxy-on-ubuntu-1804",
+    "file": "source-build-envoy-proxy-on-ubuntu-1804.md"
   },
   {
     "title": "DevSecOps Pune Meetup 3",
-    "slug": "devsecops-pune-meetup-3",
     "date": "2019-02-09",
     "category": "DevOps",
     "tags": [
@@ -85,11 +84,11 @@
     ],
     "excerpt": "9th Feb 2019 This is our 3rd DevSecOps meetup. I am glad to see the head count getting even better. Another Goodies sponsor added to the list....",
     "author": "Roshan Nagekar",
-    "filename": "devsecops-pune-meetup-3.md"
+    "id": "devsecops-pune-meetup-3",
+    "file": "devsecops-pune-meetup-3.md"
   },
   {
     "title": "Copying ssh keys easily",
-    "slug": "one-click-ansible-authorization-for",
     "date": "2019-02-09",
     "category": "DevOps",
     "tags": [
@@ -101,11 +100,11 @@
     ],
     "excerpt": "I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my...",
     "author": "Roshan Nagekar",
-    "filename": "one-click-ansible-authorization-for.md"
+    "id": "one-click-ansible-authorization-for",
+    "file": "one-click-ansible-authorization-for.md"
   },
   {
     "title": "AWS Tagger",
-    "slug": "aws-tagger",
     "date": "2019-01-20",
     "category": "Cloud Computing",
     "tags": [
@@ -117,11 +116,11 @@
     ],
     "excerpt": "Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...",
     "author": "Roshan Nagekar",
-    "filename": "aws-tagger.md"
+    "id": "aws-tagger",
+    "file": "aws-tagger.md"
   },
   {
     "title": "DevSecOps Pune Meetup 1",
-    "slug": "devsecops-pune-meetup-1",
     "date": "2019-01-18",
     "category": "DevOps",
     "tags": [
@@ -133,11 +132,11 @@
     ],
     "excerpt": "After some good success, a huge gap and some mixed learning experiences with organizing DevOps Pune meetups, I decided to start with DevSecOps Pune...",
     "author": "Roshan Nagekar",
-    "filename": "devsecops-pune-meetup-1.md"
+    "id": "devsecops-pune-meetup-1",
+    "file": "devsecops-pune-meetup-1.md"
   },
   {
     "title": "DevSecOps Pune Meetup 2",
-    "slug": "devsecops-pune-meetup-2",
     "date": "2019-01-18",
     "category": "DevOps",
     "tags": [
@@ -149,21 +148,21 @@
     ],
     "excerpt": "For the 2nd DevSecOps meetup, we already had our first swag sponsor. For DevOps Pune, I received swags from Docker and Ansible. Hashicorp was also...",
     "author": "Roshan Nagekar",
-    "filename": "devsecops-pune-meetup-2.md"
+    "id": "devsecops-pune-meetup-2",
+    "file": "devsecops-pune-meetup-2.md"
   },
   {
     "title": "Tools mentioned in Devops Weekly",
-    "slug": "tools-mentioned-in-devops-weekly",
     "date": "2017-12-18",
     "category": "DevOps",
     "tags": [],
     "excerpt": "All credits to http://www.devopsweekly.com/ looked after by Looked after by Gareth Rushgrove. Kashti is a dashboard for anyone using Brigade, a tool...",
     "author": "Roshan Nagekar",
-    "filename": "tools-mentioned-in-devops-weekly.md"
+    "id": "tools-mentioned-in-devops-weekly",
+    "file": "tools-mentioned-in-devops-weekly.md"
   },
   {
     "title": "MdWiki : 100% Serverless Website and/or Documentation tool",
-    "slug": "mdwiki-100-serverless-website-andor",
     "date": "2017-11-30",
     "category": "Cloud Computing",
     "tags": [
@@ -175,11 +174,11 @@
     ],
     "excerpt": "I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune...",
     "author": "Roshan Nagekar",
-    "filename": "mdwiki-100-serverless-website-andor.md"
+    "id": "mdwiki-100-serverless-website-andor",
+    "file": "mdwiki-100-serverless-website-andor.md"
   },
   {
     "title": "Configuration Management with Ansible",
-    "slug": "configuration-management-with-ansible",
     "date": "2016-04-26",
     "category": "DevOps",
     "tags": [
@@ -191,21 +190,21 @@
     ],
     "excerpt": "What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...",
     "author": "Roshan Nagekar",
-    "filename": "configuration-management-with-ansible.md"
+    "id": "configuration-management-with-ansible",
+    "file": "configuration-management-with-ansible.md"
   },
   {
     "title": "Install Cobbler 2.6.10 on Ubuntu 14.04",
-    "slug": "install-cobbler-2610-on-ubuntu-1404",
     "date": "2016-01-18",
     "category": "Linux",
     "tags": [],
     "excerpt": "Most of the content is taken from this page. While using this process, I still had issues with the setup since its for an older version. I struggled...",
     "author": "Roshan Nagekar",
-    "filename": "install-cobbler-2610-on-ubuntu-1404.md"
+    "id": "install-cobbler-2610-on-ubuntu-1404",
+    "file": "install-cobbler-2610-on-ubuntu-1404.md"
   },
   {
     "title": "Infrastructure Monitoring with Nagios",
-    "slug": "infrastructure-monitoring-with-nagios",
     "date": "2015-10-10",
     "category": "DevOps",
     "tags": [
@@ -225,11 +224,11 @@
     ],
     "excerpt": "Image Credits : xmodulo Server management is a real pain and the pain keeps getting worse with more and more server getting added to the...",
     "author": "Roshan Nagekar",
-    "filename": "infrastructure-monitoring-with-nagios.md"
+    "id": "infrastructure-monitoring-with-nagios",
+    "file": "infrastructure-monitoring-with-nagios.md"
   },
   {
     "title": "Software Configuration Management System",
-    "slug": "software-configuration-management-system",
     "date": "2015-08-18",
     "category": "DevOps",
     "tags": [
@@ -240,11 +239,11 @@
     ],
     "excerpt": "Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database...",
     "author": "Roshan Nagekar",
-    "filename": "software-configuration-management-system.md"
+    "id": "software-configuration-management-system",
+    "file": "software-configuration-management-system.md"
   },
   {
     "title": "s3cmd to push large files greater than 5GB to Amazon S3",
-    "slug": "s3cmd-to-push-large-files-greater-then",
     "date": "2015-04-23",
     "category": "DevOps",
     "tags": [
@@ -255,11 +254,11 @@
     ],
     "excerpt": "image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum...",
     "author": "Roshan Nagekar",
-    "filename": "s3cmd-to-push-large-files-greater-then.md"
+    "id": "s3cmd-to-push-large-files-greater-then",
+    "file": "s3cmd-to-push-large-files-greater-then.md"
   },
   {
     "title": "Hadoop 1.0",
-    "slug": "hadoop-10",
     "date": "2014-08-25",
     "category": "DevOps",
     "tags": [
@@ -271,11 +270,11 @@
     ],
     "excerpt": "some rights reserved by intelfreepress Got opportunity to work with Hadoop with a recent project. Understanding the architecture conceptually and...",
     "author": "Roshan Nagekar",
-    "filename": "hadoop-10.md"
+    "id": "hadoop-10",
+    "file": "hadoop-10.md"
   },
   {
     "title": "Mumbai Technology Meetup - DevOps Special",
-    "slug": "mumbai-technology-meetup-devops-special",
     "date": "2014-07-27",
     "category": "DevOps",
     "tags": [
@@ -284,11 +283,11 @@
     ],
     "excerpt": "On July 27th 10 am a DevOps special meetup was conducted at Directiplex, Mumbai. Its very rare to see a meetup given importance as much as any other...",
     "author": "Roshan Nagekar",
-    "filename": "mumbai-technology-meetup-devops-special.md"
+    "id": "mumbai-technology-meetup-devops-special",
+    "file": "mumbai-technology-meetup-devops-special.md"
   },
   {
     "title": "Bugzilla Mail Sending Issue",
-    "slug": "bugzilla-mail-sending-issue",
     "date": "2014-07-16",
     "category": "Linux",
     "tags": [
@@ -299,11 +298,11 @@
     ],
     "excerpt": "Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending...",
     "author": "Roshan Nagekar",
-    "filename": "bugzilla-mail-sending-issue.md"
+    "id": "bugzilla-mail-sending-issue",
+    "file": "bugzilla-mail-sending-issue.md"
   },
   {
     "title": "RootConf 2014",
-    "slug": "rootconf-2014",
     "date": "2014-07-16",
     "category": "DevOps",
     "tags": [
@@ -311,11 +310,11 @@
     ],
     "excerpt": "](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrSHhvwUjmD0n9Bd9LPRoaMHS9jMMgde_OLZX7l_3VPOGn1fXEbbQDR4WxxlBxz_WInXqRdsKaxQuPROJBa...",
     "author": "Roshan Nagekar",
-    "filename": "rootconf-2014.md"
+    "id": "rootconf-2014",
+    "file": "rootconf-2014.md"
   },
   {
     "title": "Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247",
-    "slug": "install-patched-ruby-interpreter-with",
     "date": "2014-06-04",
     "category": "Linux",
     "tags": [
@@ -325,11 +324,11 @@
     ],
     "excerpt": "Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...",
     "author": "Roshan Nagekar",
-    "filename": "install-patched-ruby-interpreter-with.md"
+    "id": "install-patched-ruby-interpreter-with",
+    "file": "install-patched-ruby-interpreter-with.md"
   },
   {
     "title": "Integrating Docker with Chef",
-    "slug": "integrating-docker-with-chef",
     "date": "2014-06-03",
     "category": "DevOps",
     "tags": [
@@ -339,11 +338,11 @@
     ],
     "excerpt": "Ever since Docker was introduced to me, the first thing that came to my mind was, Docker is a replacement for Chef. Docker does almost everything...",
     "author": "Roshan Nagekar",
-    "filename": "integrating-docker-with-chef.md"
+    "id": "integrating-docker-with-chef",
+    "file": "integrating-docker-with-chef.md"
   },
   {
     "title": "Learning Chef - Part - II",
-    "slug": "learning-chef-part-ii",
     "date": "2014-05-23",
     "category": "DevOps",
     "tags": [
@@ -353,11 +352,11 @@
     ],
     "excerpt": "some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and...",
     "author": "Roshan Nagekar",
-    "filename": "learning-chef-part-ii.md"
+    "id": "learning-chef-part-ii",
+    "file": "learning-chef-part-ii.md"
   },
   {
     "title": "Meetup.com practices",
-    "slug": "meetupcom-practices",
     "date": "2014-05-11",
     "category": "DevOps",
     "tags": [
@@ -365,11 +364,11 @@
     ],
     "excerpt": "Some rights reserved by Christain Senger For quiet sometime I have been attending meetups/sessions organised through meetup.com at different...",
     "author": "Roshan Nagekar",
-    "filename": "meetupcom-practices.md"
+    "id": "meetupcom-practices",
+    "file": "meetupcom-practices.md"
   },
   {
     "title": "Docker - Lightweight Linux Container",
-    "slug": "docker-lightweight-linux-container",
     "date": "2014-05-09",
     "category": "DevOps",
     "tags": [
@@ -378,11 +377,11 @@
     ],
     "excerpt": "Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...",
     "author": "Roshan Nagekar",
-    "filename": "docker-lightweight-linux-container.md"
+    "id": "docker-lightweight-linux-container",
+    "file": "docker-lightweight-linux-container.md"
   },
   {
     "title": "Learning Chef - Part - I",
-    "slug": "learning-chef-part-i",
     "date": "2014-04-26",
     "category": "DevOps",
     "tags": [
@@ -392,11 +391,11 @@
     ],
     "excerpt": "some rights reserved by Matt Ray The information here has been collected from Nathan Harvey's Video tutorials on Chef's website and from Chef's...",
     "author": "Roshan Nagekar",
-    "filename": "learning-chef-part-i.md"
+    "id": "learning-chef-part-i",
+    "file": "learning-chef-part-i.md"
   },
   {
     "title": "Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II",
-    "slug": "27",
     "date": "2014-04-23",
     "category": "DevOps",
     "tags": [
@@ -407,11 +406,11 @@
     ],
     "excerpt": "Version 1.2.0 Some right reserved by Phil Wiffen For some reason with the previous repo I could not see the list of all vApps. Only some of it (a...",
     "author": "Roshan Nagekar",
-    "filename": "27.md"
+    "id": "27",
+    "file": "27.md"
   },
   {
     "title": "Automation for VMware vCloud Director using Chef's knife-vcloud",
-    "slug": "automation-for-vmware-vcloud-director",
     "date": "2014-03-17",
     "category": "DevOps",
     "tags": [
@@ -421,11 +420,11 @@
     ],
     "excerpt": "Some right reserved by jdhancock Plugin is available at <https://github.com/opscode/knife-vcloud> Configuration used: - CentOS 6.5 - Chef 11.8.2 -...",
     "author": "Roshan Nagekar",
-    "filename": "automation-for-vmware-vcloud-director.md"
+    "id": "automation-for-vmware-vcloud-director",
+    "file": "automation-for-vmware-vcloud-director.md"
   },
   {
     "title": "Public, Private and Hybrid Cloud",
-    "slug": "public-private-and-hybrid-cloud",
     "date": "2014-03-04",
     "category": "DevOps",
     "tags": [
@@ -434,11 +433,11 @@
     ],
     "excerpt": "A lot has been said, heard and read about Cloud. There so many ways that the cloud gets filtered further. In my previous blog we discussed about...",
     "author": "Roshan Nagekar",
-    "filename": "public-private-and-hybrid-cloud.md"
+    "id": "public-private-and-hybrid-cloud",
+    "file": "public-private-and-hybrid-cloud.md"
   },
   {
     "title": "Virtualization with Vagrant",
-    "slug": "virtualization-with-vagrant",
     "date": "2014-02-24",
     "category": "DevOps",
     "tags": [
@@ -449,11 +448,11 @@
     ],
     "excerpt": "some rights reserved by MedithIT going ahead with Chef configuration management tutorials i came across \"Vagrant\". I heard this term many a times....",
     "author": "Roshan Nagekar",
-    "filename": "virtualization-with-vagrant.md"
+    "id": "virtualization-with-vagrant",
+    "file": "virtualization-with-vagrant.md"
   },
   {
     "title": "Checking Open Ports on a Remote Computer using PortQry",
-    "slug": "checking-open-ports-on-remote-computer",
     "date": "2014-02-07",
     "category": "Linux",
     "tags": [
@@ -462,11 +461,11 @@
     ],
     "excerpt": "Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...",
     "author": "Roshan Nagekar",
-    "filename": "checking-open-ports-on-remote-computer.md"
+    "id": "checking-open-ports-on-remote-computer",
+    "file": "checking-open-ports-on-remote-computer.md"
   },
   {
     "title": "Data Recovery with TestDisk",
-    "slug": "data-recovery-with-testdisk",
     "date": "2014-02-07",
     "category": "Linux",
     "tags": [
@@ -475,11 +474,11 @@
     ],
     "excerpt": "some rights reserved by epSos .de You buy a portable hard disk drive to keep a back up of all your important data, Or you are carrying an extremely...",
     "author": "Roshan Nagekar",
-    "filename": "data-recovery-with-testdisk.md"
+    "id": "data-recovery-with-testdisk",
+    "file": "data-recovery-with-testdisk.md"
   },
   {
     "title": "Monitoring in Linux/Unix Environment using TOP",
-    "slug": "monitoring-in-linuxunix-environment",
     "date": "2014-01-02",
     "category": "DevOps",
     "tags": [
@@ -489,11 +488,11 @@
     ],
     "excerpt": "Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...",
     "author": "Roshan Nagekar",
-    "filename": "monitoring-in-linuxunix-environment.md"
+    "id": "monitoring-in-linuxunix-environment",
+    "file": "monitoring-in-linuxunix-environment.md"
   },
   {
     "title": "Looking for Free Windows OS? ReactOS is here.",
-    "slug": "looking-for-free-windows-os-reactos-is",
     "date": "2013-11-22",
     "category": "Linux",
     "tags": [
@@ -501,11 +500,11 @@
     ],
     "excerpt": "Some rights reserved by Plum Lady I keep looking for free stuff available online. In the early days when my searches were only limited to torrents,...",
     "author": "Roshan Nagekar",
-    "filename": "looking-for-free-windows-os-reactos-is.md"
+    "id": "looking-for-free-windows-os-reactos-is",
+    "file": "looking-for-free-windows-os-reactos-is.md"
   },
   {
     "title": "Free and Open Source Alternatives for most of the paid softwares on Windows Machine",
-    "slug": "free-and-open-source-alternatives-for",
     "date": "2013-11-07",
     "category": "Cloud Computing",
     "tags": [
@@ -515,11 +514,11 @@
     ],
     "excerpt": "Some rights reserved by opensource.com I have recently been using windows more than usual for official use. Being an Ubuntu user i am not much used...",
     "author": "Roshan Nagekar",
-    "filename": "free-and-open-source-alternatives-for.md"
+    "id": "free-and-open-source-alternatives-for",
+    "file": "free-and-open-source-alternatives-for.md"
   },
   {
     "title": "Second Place Story : Server ghouls haunt bulk ingestion",
-    "slug": "i-recently-shared-one-of-my-stories",
     "date": "2013-11-03",
     "category": "Programming",
     "tags": [
@@ -529,246 +528,247 @@
     ],
     "excerpt": "Some rights reserved by Julie Rybarczyk I recently shared one of my stories while monitoring an Ingestion Server with AppFirst for one of the...",
     "author": "Roshan Nagekar",
-    "filename": "i-recently-shared-one-of-my-stories.md"
+    "id": "i-recently-shared-one-of-my-stories",
+    "file": "i-recently-shared-one-of-my-stories.md"
   },
   {
     "title": "Custom ROM on LG Optimus 2x",
-    "slug": "custom-rom-on-lg-optimus-2x",
     "date": "2013-10-21",
     "category": "Networking",
     "tags": [],
     "excerpt": "Some rights reserved by Johan Larsson Ever since I started using LG Optimus 2X P990, i noticed some or the other issue with its Battery. The OS was...",
     "author": "Roshan Nagekar",
-    "filename": "custom-rom-on-lg-optimus-2x.md"
+    "id": "custom-rom-on-lg-optimus-2x",
+    "file": "custom-rom-on-lg-optimus-2x.md"
   },
   {
     "title": "New Relic",
-    "slug": "new-relic",
     "date": "2013-10-21",
     "category": "DevOps",
     "tags": [],
     "excerpt": "I received a mail some months ago to register to New Relic, they had some cool offers then like free t-shirts etc. I didn't check it then as i was...",
     "author": "Roshan Nagekar",
-    "filename": "new-relic.md"
+    "id": "new-relic",
+    "file": "new-relic.md"
   },
   {
     "title": "Shell Scripting Tuts",
-    "slug": "shell-scripting-tuts",
     "date": "2013-08-07",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Linux Screenshots VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab...",
     "author": "Roshan Nagekar",
-    "filename": "shell-scripting-tuts.md"
+    "id": "shell-scripting-tuts",
+    "file": "shell-scripting-tuts.md"
   },
   {
     "title": "Build your own private cloud with Ubuntu - II",
-    "slug": "build-your-own-private-cloud-with",
     "date": "2013-07-19",
     "category": "Cloud Computing",
     "tags": [],
     "excerpt": "Some rights reserved by ErinOfEarth Continuing from... Build your own private cloud with Ubuntu - I Create node for your MAAS server. You must have...",
     "author": "Roshan Nagekar",
-    "filename": "build-your-own-private-cloud-with.md"
+    "id": "build-your-own-private-cloud-with",
+    "file": "build-your-own-private-cloud-with.md"
   },
   {
     "title": "Creating an exactly similar snapshot of your existing running EC2 ami instance",
-    "slug": "creating-exactly-similar-snapshot-of",
     "date": "2013-07-19",
     "category": "Cloud Computing",
     "tags": [],
     "excerpt": "Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...",
     "author": "Roshan Nagekar",
-    "filename": "creating-exactly-similar-snapshot-of.md"
+    "id": "creating-exactly-similar-snapshot-of",
+    "file": "creating-exactly-similar-snapshot-of.md"
   },
   {
     "title": "Local Drupal Setup",
-    "slug": "local-drupal-setup",
     "date": "2013-07-08",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Gabor Hojtsy Drupal is a CMS (Content Management System) written in PHP and is distributed under GNU public license. It is...",
     "author": "Roshan Nagekar",
-    "filename": "local-drupal-setup.md"
+    "id": "local-drupal-setup",
+    "file": "local-drupal-setup.md"
   },
   {
     "title": "Setting up your own FTP server (Ubuntu)",
-    "slug": "setting-up-your-own-ftp-server-ubuntu",
     "date": "2013-07-08",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Blake Patterson Only after i did it i learnt, things aren't as difficult as they seem to be. I recently got a chance to set...",
     "author": "Roshan Nagekar",
-    "filename": "setting-up-your-own-ftp-server-ubuntu.md"
+    "id": "setting-up-your-own-ftp-server-ubuntu",
+    "file": "setting-up-your-own-ftp-server-ubuntu.md"
   },
   {
     "title": "Build your own private cloud with Ubuntu - I",
-    "slug": "build-your-own-private-cloud-with",
     "date": "2013-06-30",
     "category": "Cloud Computing",
     "tags": [],
     "excerpt": "Some rights reserved by ErinOfEarth I recently tried building my private cloud with my System Administrator Chaitanya. While we both were successful...",
     "author": "Roshan Nagekar",
-    "filename": "build-your-own-private-cloud-with.md"
+    "id": "build-your-own-private-cloud-with",
+    "file": "build-your-own-private-cloud-with.md"
   },
   {
     "title": "Do's and Dont's for a Fresher Resume",
-    "slug": "dos-and-donts-for-fresher-resume",
     "date": "2013-05-15",
     "category": "Programming",
     "tags": [],
     "excerpt": "Some rights reserved by woodleywonderworks Although i am no expert, nor do i belong to the HR or recruiting dept. by any chance, A few days ago, i...",
     "author": "Roshan Nagekar",
-    "filename": "dos-and-donts-for-fresher-resume.md"
+    "id": "dos-and-donts-for-fresher-resume",
+    "file": "dos-and-donts-for-fresher-resume.md"
   },
   {
     "title": "How to get a Flow of a Simple C program",
-    "slug": "flow-of-simple-c-program",
     "date": "2013-01-26",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Hillary command for generation of preprocessed code which will have the included files in the code as well as the code that...",
     "author": "Roshan Nagekar",
-    "filename": "flow-of-simple-c-program.md"
+    "id": "flow-of-simple-c-program",
+    "file": "flow-of-simple-c-program.md"
   },
   {
     "title": "Git versioning system, How to use Git?",
-    "slug": "git-versioning-system",
     "date": "2013-01-26",
     "category": "Programming",
     "tags": [],
     "excerpt": "Some rights reserved by Sean MacEntee Its been months i used Git. I thought i should write about it. Probably because i shouldn't forget what is it...",
     "author": "Roshan Nagekar",
-    "filename": "git-versioning-system.md"
+    "id": "git-versioning-system",
+    "file": "git-versioning-system.md"
   },
   {
     "title": "Google Analytics. How to use Google Analytics?",
-    "slug": "google-analytics",
     "date": "2013-01-26",
     "category": "Programming",
     "tags": [],
     "excerpt": "Some rights reserved by Search Engine People Google Analytics I recently used Google Analytics in one of my Projects for testing purpose, and boy!!!...",
     "author": "Roshan Nagekar",
-    "filename": "google-analytics.md"
+    "id": "google-analytics",
+    "file": "google-analytics.md"
   },
   {
     "title": "JIRA issue tracking.How to use JIRA?",
-    "slug": "jira-issue-tracking",
     "date": "2013-01-26",
     "category": "Technology",
     "tags": [],
     "excerpt": "Some rights reserved by Yuko Honda Those who are new to JIRA start reading from \"What is JIRA?\" I have been learning Administration of JIRA lately...",
     "author": "Roshan Nagekar",
-    "filename": "jira-issue-tracking.md"
+    "id": "jira-issue-tracking",
+    "file": "jira-issue-tracking.md"
   },
   {
     "title": "How to get a Free Teacher, Mentor, Helper Online?",
-    "slug": "wish-to-have-mentor",
     "date": "2013-01-21",
     "category": "Programming",
     "tags": [],
     "excerpt": "Some rights reserved by Wonderlane Do You Have a Mentor Yet? ACM partners with MentorNet to develop e-mentoring relationships between students...",
     "author": "Roshan Nagekar",
-    "filename": "wish-to-have-mentor.md"
+    "id": "wish-to-have-mentor",
+    "file": "wish-to-have-mentor.md"
   },
   {
     "title": "TECHNICAL STUFF",
-    "slug": "tech-stuff-to-separate-part-of-pdf-from",
     "date": "2013-01-02",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Arthur Caranta 1. to separate a part of pdf from the original pdf use the following command, u may need to install pdftk...",
     "author": "Roshan Nagekar",
-    "filename": "tech-stuff-to-separate-part-of-pdf-from.md"
+    "id": "tech-stuff-to-separate-part-of-pdf-from",
+    "file": "tech-stuff-to-separate-part-of-pdf-from.md"
   },
   {
     "title": "RHCE Preparation, How to Prepare for Red Hat Certification.",
-    "slug": "rhce-preparation",
     "date": "2012-12-12",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...",
     "author": "Roshan Nagekar",
-    "filename": "rhce-preparation.md"
+    "id": "rhce-preparation",
+    "file": "rhce-preparation.md"
   },
   {
     "title": "ACM ICPC (3)",
-    "slug": "acm-icpc-3",
     "date": "2012-08-30",
     "category": "Programming",
     "tags": [],
     "excerpt": "Some rights reserved by Kiewic Our 1st day stay was an unofficial one. We reached there one day prior to the actual reporting day. There was actually...",
     "author": "Roshan Nagekar",
-    "filename": "acm-icpc-3.md"
+    "id": "acm-icpc-3",
+    "file": "acm-icpc-3.md"
   },
   {
     "title": "Josephus Problem Ruby Code",
-    "slug": "josephus-problem-ruby-code",
     "date": "2012-08-27",
     "category": "Programming",
     "tags": [],
     "excerpt": "Ruby code for solving josephus problem. Although the presentation isn't good enough. This was my first Ruby exercise so ignore the mistakes in it......",
     "author": "Roshan Nagekar",
-    "filename": "josephus-problem-ruby-code.md"
+    "id": "josephus-problem-ruby-code",
+    "file": "josephus-problem-ruby-code.md"
   },
   {
     "title": "Ruby and Sinatra Example of Automatic Mutt Configuration",
-    "slug": "ruby-and-sinatra-example-of-automatic",
     "date": "2012-08-27",
     "category": "Programming",
     "tags": [],
     "excerpt": "these will include sinatra and erb gem(gem is a package in ruby it will have additional info like files required to be installed) in the code here we...",
     "author": "Roshan Nagekar",
-    "filename": "ruby-and-sinatra-example-of-automatic.md"
+    "id": "ruby-and-sinatra-example-of-automatic",
+    "file": "ruby-and-sinatra-example-of-automatic.md"
   },
   {
     "title": "Let’s talk CLOUD COMPUTING",
-    "slug": "lets-talk-cloud-computing",
     "date": "2012-06-20",
     "category": "Cloud Computing",
     "tags": [],
     "excerpt": "Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes...",
     "author": "Roshan Nagekar",
-    "filename": "lets-talk-cloud-computing.md"
+    "id": "lets-talk-cloud-computing",
+    "file": "lets-talk-cloud-computing.md"
   },
   {
     "title": "Corruption",
-    "slug": "corruption",
     "date": "2012-06-15",
     "category": "Technology",
     "tags": [],
     "excerpt": "A king once announced in his kingdom, \"Anyone who gets him something that is really unique, which no one in this world has will be rewarded, but if...",
     "author": "Roshan Nagekar",
-    "filename": "corruption.md"
+    "id": "corruption",
+    "file": "corruption.md"
   },
   {
     "title": "ACM ICPC 2011 (2)",
-    "slug": "acm-icpc-2011-2",
     "date": "2012-06-08",
     "category": "Programming",
     "tags": [],
     "excerpt": "Some rights reserved by Kiewic Onsite Competition Registration Once you are selected for the regionals, the college is supposed to pay a registration...",
     "author": "Roshan Nagekar",
-    "filename": "acm-icpc-2011-2.md"
+    "id": "acm-icpc-2011-2",
+    "file": "acm-icpc-2011-2.md"
   },
   {
     "title": "Introduction to algorithms by MIT",
-    "slug": "introduction-to-algorithms-by-mit",
     "date": "2012-06-08",
     "category": "Programming",
     "tags": [],
     "excerpt": "This blog is an extract from MIT's Introduction to Algorithm First part of the course ids focused on Analysis. Second part is focused on design i.e....",
     "author": "Roshan Nagekar",
-    "filename": "introduction-to-algorithms-by-mit.md"
+    "id": "introduction-to-algorithms-by-mit",
+    "file": "introduction-to-algorithms-by-mit.md"
   },
   {
     "title": "ACM ICPC 2011",
-    "slug": "acm-icpc-2011",
     "date": "2011-12-27",
     "category": "Linux",
     "tags": [],
     "excerpt": "Some rights reserved by Kiewic Well, am not a blogger.... But few hings compel you to pen it all down somewhere.... ACM ICPC was surely one of them....",
     "author": "Roshan Nagekar",
-    "filename": "acm-icpc-2011.md"
+    "id": "acm-icpc-2011",
+    "file": "acm-icpc-2011.md"
   }
 ]
