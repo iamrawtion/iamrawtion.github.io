@@ -228,6 +228,30 @@ class BlogManager {
             });
         }
 
+        // Floating back button
+        const floatingBackButton = document.getElementById('floating-back-button');
+        if (floatingBackButton) {
+            floatingBackButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showBlogListView();
+            });
+        }
+
+        // Show/hide floating button on scroll
+        window.addEventListener('scroll', () => {
+            const floatingBtn = document.getElementById('floating-back-button');
+            const blogPostView = document.getElementById('blog-post-view');
+
+            if (floatingBtn && blogPostView && blogPostView.style.display !== 'none') {
+                // Show button after scrolling down 300px
+                if (window.scrollY > 300) {
+                    floatingBtn.classList.add('show');
+                } else {
+                    floatingBtn.classList.remove('show');
+                }
+            }
+        });
+
         // Handle browser back/forward
         window.addEventListener('popstate', () => {
             this.checkRoute();

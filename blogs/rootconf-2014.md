@@ -3,7 +3,7 @@ title: "RootConf 2014"
 date: "2014-07-16"
 category: "DevOps"
 tags: ["Devops"]
-excerpt: "](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrSHhvwUjmD0n9Bd9LPRoaMHS9jMMgde_OLZX7l_3VPOGn1fXEbbQDR4WxxlBxz_WInXqRdsKaxQuPROJBa..."
+excerpt: "I attended conference and workshop on Devops and Cloud Infrastructure - RootConf 2014 at Bangalore from 14th May to 17th May 2014. Topics covered: Go CI Tool, SELinux, Docker, and more."
 author: "Roshan Nagekar"
 ---
 

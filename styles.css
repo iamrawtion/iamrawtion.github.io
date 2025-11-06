@@ -1241,6 +1241,56 @@ section {
     transform: translateX(-5px);
 }
 
+/* Floating Back Button */
+.floating-back-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(125, 207, 255, 0.4);
+    text-decoration: none;
+    font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-back-button.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.floating-back-button:hover {
+    background: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(100, 255, 218, 0.6);
+    transform: translateY(-5px) scale(1.1);
+}
+
+.floating-back-button i {
+    font-size: 1.2rem;
+}
+
+/* Hide floating button on mobile to avoid overlap */
+@media (max-width: 768px) {
+    .floating-back-button {
+        bottom: 1rem;
+        right: 1rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+}
+
 .blog-post-content {
     background: rgba(100, 255, 218, 0.03);
     padding: 3rem;
