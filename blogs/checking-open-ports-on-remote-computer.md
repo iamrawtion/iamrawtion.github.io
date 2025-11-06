@@ -20,7 +20,7 @@ goes wrong.
 ## I tried connecting to the SFTP host with various
 
 tools like FileZilla, WinSCP but could not get good enough logs. Finally
-i tried connecting the server using **ssh** on command-line using my **Ubuntu**
+i tried connecting the server using **ssh on command-line using my **Ubuntu
 machine. The connection used to time out. That is what i see in the logs
 as well. I assumed that probably the SFTP port number 22 was closed for
 the host.
@@ -45,7 +45,7 @@ or not.
 Firewall  kind of protection which wasn't allowing me to access the
 SFTP port on it.
 
-**Here's how you PortQry on Windows:
+## Here's how you PortQry on Windows
 
 ```yaml
 - Download the software using the link : http://www.microsoft.com/en-in/download/details.aspx?id=17148
@@ -121,7 +121,7 @@ C:\PortQryV2>portqry -n 127.0.0.1 -e 40
 Attempting to resolve name to IP address...
 Name resolved to xx.xx.xx.xx
 querying...
-TCP port 22 (**ssh** service): FILTERED
+## TCP port 22 (ssh service): FILTERED
 
 C:\PortQryV2>portqry -n 127.0.0.1 -e 80
 
@@ -147,4 +147,4 @@ C:\PortQryV2>portqry -n 127.0.0.1 -e 22
 Attempting to resolve IP address to a name...
 IP address resolved to xx.xx.xx.xx
 querying...
-TCP port 22 (**ssh** service): NOT LISTENING
+## TCP port 22 (ssh service): NOT LISTENING

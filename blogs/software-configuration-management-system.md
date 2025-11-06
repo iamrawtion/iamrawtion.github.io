@@ -28,7 +28,7 @@ With a configuration management(CM) system in place now, we describe a state of 
 
 The CM system ensures that right packages are installed, config files have correct values and permissions set and that the expected services are running on the host system and many more.
 
-Software Deployment is another concern that a **Devops** person has to take care of which is at times addressed by CM tools too, although may not be considered a good practice always.
+Software Deployment is another concern that a Devops person has to take care of which is at times addressed by CM tools too, although may not be considered a good practice always.
 
 Deployment is the process where the software that is written/developed by a company is built/compiled/processed and the required binaries and static files and other necessary files are copied to the server.
 
@@ -54,4 +54,4 @@ Provisioning is the process of spinning up of server for that cloud provider aut
 Many CM tools providers have plugins written to communicate with many cloud providers.
 Chef, **Ansible**, Puppet, CFEnginer, Salt have already become favorite for many out there.
 
-I have personally used **Ansible** and Chef as of now. Cloud is fun indeed .. :)
+I have personally used Ansible and Chef as of now. Cloud is fun indeed .. :)

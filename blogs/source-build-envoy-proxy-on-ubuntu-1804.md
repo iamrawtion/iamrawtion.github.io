@@ -24,7 +24,7 @@ cd envoy/
 bazel build --package_path %workspace%:/home/<user>/envoy/ //source/exe:envoy-static
 ```
 
-**RELAX, ITS GOING TO TAKE LONG TIME**
+## RELAX, ITS GOING TO TAKE LONG TIME
 
 To generate the example configurations run the following from the root of the repo:
 
@@ -33,6 +33,6 @@ mkdir -p generated/configs
 bazel build //configs:example_configs
 ```
 
-**RELAX, ITS GOING TO TAKE LONG TIME**
+## RELAX, ITS GOING TO TAKE LONG TIME
 
-I wrote an **Ansible** playbook too for this. I will publish it later on **Github**
+I wrote an **Ansible playbook too for this. I will publish it later on **Github

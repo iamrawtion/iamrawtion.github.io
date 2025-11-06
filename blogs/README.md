@@ -55,13 +55,13 @@ Your blog content goes here...
 
 Write your blog post using standard Markdown syntax:
 
-- **Headings: `# H1`, `## H2`, `### H3`, etc.
+- Headings: `# H1`, `## H2`, `### H3`, etc.
 
-- **Bold: `**bold text**`
-- **Italic: `*italic text*`
-- **Links: `[link text](https://example.com)`
-- **Images: `![alt text](image-url.jpg)`
-- **Code blocks: Use triple backticks with language identifier
+- **Bold: `**bold text`
+- Italic: `*italic text*`
+- Links: `[link text](https://example.com)`
+- Images: `![alt text](image-url.jpg)`
+- Code blocks: Use triple backticks with language identifier
 
 ---
 
@@ -80,7 +80,7 @@ Write your blog post using standard Markdown syntax:
 
 ### Step 4: Update blogs.json
 
-Add an entry to `blogs/blogs.json**`:
+## Add an entry to `blogs/blogs.json`
 
 ```json
 {
@@ -97,11 +97,11 @@ Add an entry to `blogs/blogs.json**`:
 
 ---
 
-## **Important**
+## Important
 
 - The `id` should match your filename (without `.md`)
 - The `file` should be your filename
-- Add your entry to the array, maintaining the **JSON** structure
+- Add your entry to the array, maintaining the JSON structure
 - Posts are automatically sorted by date (newest first)
 
 ### Step 5: Commit and Push
@@ -219,9 +219,9 @@ Supported languages include: bash, **python**, **javascript**, **yaml**, **json*
 
 Use these predefined categories for consistent styling:
 
-- **DevSecOps** - Security in **DevOps** practices
+- **DevSecOps** - Security in DevOps practices
 - **Cloud** - Cloud infrastructure and services
-- **DevOps** - General **DevOps** practices
+- **DevOps** - General DevOps practices
 - **AI/ML** - Machine learning and AI operations
 - **Infrastructure** - Infrastructure as Code, networking
 - **Monitoring** - Observability and monitoring
@@ -298,7 +298,7 @@ Summary of what was covered and key takeaways.
 ### Blog post not showing up?
 
 1. Check that the markdown file is in the `blogs/` folder
-2. Verify the entry in `blogs.json**` is valid **JSON**
+2. Verify the entry in `blogs.json**` is valid **JSON
 3. Ensure the `id` matches the filename (without `.md`)
 4. Clear browser cache and hard refresh (Ctrl+Shift+R)
 

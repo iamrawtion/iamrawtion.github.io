@@ -7,9 +7,9 @@ excerpt: "For the 2nd DevSecOps meetup, we already had our first swag sponsor. F
 author: "Roshan Nagekar"
 ---
 
-For the 2nd **DevSecOps** meetup, we already had our first swag sponsor. For **DevOps** Pune, I received swags from **Docker** and **Ansible. Hashicorp was also planning to send a few.
+For the 2nd **DevSecOps meetup, we already had our first swag sponsor. For **DevOps Pune, I received swags from **Docker and **Ansible. Hashicorp was also planning to send a few.
 
-With **DevSecOps** our 1st swag sponsor was [Polyverse](https://polyverse.io/) :) I couldn't resist posting these.
+With DevSecOps our 1st swag sponsor was [Polyverse](https://polyverse.io/) :) I couldn't resist posting these.
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvy1sH1jsAkoV6WY3S23Y4B_9QXsaupA8BKO91obfWaSTNR54oZSacCR4LvFmkLAK597Bq-PCNQYj1eCBr5qEPzIkYqhPQZMFGCS-L6LFnPU_O30elVV3HgRocsWG7XXalMZpdoEoyZls/s1600/02_1.jpeg)
 
@@ -27,28 +27,28 @@ With 10 attendees we stared pretty much on time and this time we had a huge list
 
 The following topics got discussed:
 
-- Understanding PKI - Public Key Infra (How **SSL** Works?)
+- Understanding PKI - Public Key Infra (How SSL Works?)
 - CIS Benchmarking
 - SOAR (Security, Orchestration, Automation and Response)
-- **AWS** Compliance
+- AWS Compliance
 - Securing serverless in **Azure** (Function as a Service)
-- Debian **Linux** and Contributing to it
+- Debian Linux and Contributing to it
 - Microservices with an example
 
-**SSL** and PKI got discussed a lot since [Muneeb Shaikh](https://www.linkedin.com/in/nixmaniack/) really explained concepts that we were unaware of that goes behind PKI formation and how public and private keys work. A 5 minutes discussion prolonged to a good long 30 minutes with inputs from everyone.
+SSL and PKI got discussed a lot since [Muneeb Shaikh](https://www.linkedin.com/in/nixmaniack/) really explained concepts that we were unaware of that goes behind PKI formation and how public and private keys work. A 5 minutes discussion prolonged to a good long 30 minutes with inputs from everyone.
 
 SOAR was a new process and concept that Rahul spoke about and worth reading for everyone.
 CIS compliance was a hit one this time too.
-We understood that it was topic worth presentation hence added to the **DevOps** Pune meetups Agenda.
-Later we spoke about **AWS** compliance and how Prowler could be used to ensure compliance in **AWS.
-We also discussed importance of good naming conventions and Tagging in **AWS.
+We understood that it was topic worth presentation hence added to the DevOps Pune meetups Agenda.
+Later we spoke about **AWS compliance and how Prowler could be used to ensure compliance in **AWS.
+We also discussed importance of good naming conventions and Tagging in AWS.
 There was a chaos when we spoke about both serverless and microservices resulting to a debate topic that we discussed at the end of the meetup.
 
 The final closure was on Debian systems and how we would contribute to it.
 
 Takeaways from this session for speakers to prepare were:
 
-- PKI and **SSL** encryption
+- PKI and SSL encryption
 - Microservices
 
 A few topics that did not get discussed were:
@@ -56,7 +56,7 @@ A few topics that did not get discussed were:
 - Types of Security and importance of each
 - GRC - Governance, Risk and Compliance
 - Security Testing with Selenium
-- Achieving **CI/CD** with **Ansible**
+- Achieving **CI/CD with **Ansible
 
 This turned out to be a long event in spite of small number of attendees. Muneeb got Polyverse T-Shirt to keep PKI discussion happening and also actively participating in all other topics as well. Some others got stickers.
 

@@ -31,7 +31,7 @@ Three primary entities: workstation, chef-server, node
 
 - **Knife** : Command line utility that acts as an interface between local chef-repo(on work station) and server. Knife
 
-  lets you manage nodes, cookbooks, recipes, roles, stores of **json** data,
+  lets you manage nodes, cookbooks, recipes, roles, stores of json data,
   including encrypted data, environments, cloud resources including
   provisioning. The installation of chef on management workstations,
   Searching of indexed data on chef server. You can even extend knife to
@@ -83,7 +83,7 @@ resource, then notifies line will be ignored. However if the two files
 are different. The chef-client will discard the version on the disk and
 place the temporary file into the proper location, i.e overwrite
 existing file. Whenever the overwrite happens a notification will be
-sent. Then it will tell **Apache** to reload with new configs.
+sent. Then it will tell Apache to reload with new configs.
 
 end
 
@@ -105,7 +105,7 @@ end
   data attributes for configuring infra, i.e ports to listen on, list of
   apps to be deployed.
 
-- **Data bags** : Stores of **json** data
+- **Data bags** : Stores of json data
 - **Attributes** : Attributes are mentioned in cookbooks/recipes. An attribute gives the detail about the node. It tells about the state of the node; before the chef-client run, present state and state after the chef-client run
 - **Resources** : Items that we sysadmins manipulate to manage complexity.
 

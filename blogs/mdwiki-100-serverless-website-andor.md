@@ -63,10 +63,10 @@ need people to learn HTML scripting. My whole team has sysadmins in it.
 ## I then came up with Markdown language. Its syntax of
 
 note making makes documentation super easy. You don't need to learn any
-language to do this. I liked the idea. I thought, **github/gitlab** would be
+language to do this. I liked the idea. I thought, github/gitlab would be
 the best place to host and write documentation. It will be a
 collaborative platform too. I decided on markdown as the tool to write
-and **gitlab** for hosting.
+and gitlab for hosting.
 
 Problem3:
 
@@ -74,7 +74,7 @@ Problem3:
 
 ## When I suggested the idea to the team, we had compliance
 
-and infosec members who suggested not to go with this since **gitlab**
+and infosec members who suggested not to go with this since gitlab
 server must be hosted on companies server only and must have proper
 authentication flow, which we still did not have access for.
 
@@ -83,18 +83,18 @@ authentication flow, which we still did not have access for.
 ## I looked out for options to have a serverless repository
 
 setup to host on BOX but couldn't find much help. I thought about
-markdown for a minute. How does **github/gitlab** manages to make markdown
-presentable in webpage. There must be some way. **Javascript** was the
+markdown for a minute. How does github/gitlab manages to make markdown
+presentable in webpage. There must be some way. Javascript was the
 answer!!
 
-Bang!! **Javascript** web templates with markdown was the next search and here comes "MDWiki".
+Bang!! Javascript web templates with markdown was the next search and here comes "MDWiki".
 
 ---
 
 ## MDWiki is a 100% serverless webpage hosting solution for
 
-documentation. **JavaScript** takes care of the control and
-configuration of the webpage. HTML CSS inside takes up the presentation with multiple **JavaScript** based gimmicks(plugins) that help you in easier navigation and nice GUI. Users may only worry about documentation.
+documentation. JavaScript takes care of the control and
+configuration of the webpage. HTML CSS inside takes up the presentation with multiple JavaScript based gimmicks(plugins) that help you in easier navigation and nice GUI. Users may only worry about documentation.
 
 ---
 

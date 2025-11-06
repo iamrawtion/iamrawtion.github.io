@@ -11,19 +11,19 @@ author: "Roshan Nagekar"
 
 ****Some rights reserved by [Arthur Caranta](https://www.flickr.com/photos/arthur-caranta/)****
 
-**TECH STUFF**
+## TECH STUFF
 
 1. **to separate a part of pdf from the original pdf use the following command, u may need to install pdftk “pdftk old.pdf cat 1-9 26-end output new.pdf”**
-2. **get all the packages installed in the PC**
+2. get all the packages installed in the PC
 
-**aptitude search '!~M ~i' | awk -F " " '{ print "apt-get -y install " $2 }' > aptshell.sh**
+aptitude search '!~M ~i' | awk -F " " '{ print "apt-get -y install " $2 }' > aptshell.sh
 
-- to load dropbox**
-**~/.dropbox-dist/dropboxd**
+- to load dropbox
+~/.dropbox-dist/dropboxd
 
-- ps command**
+- ps command
 
-## **Type the following ps command to display all running process
+## Type the following ps command to display all running process
 
 # ps aux | less
 
@@ -46,28 +46,28 @@ Task: See every process except those running as root
 
 Task: See process run by user vivek
 
-# ps -u vivek**
+# ps -u vivek
 
-- Task: top command**
-**The top program provides a dynamic real-time view of a running system. Type the top at command prompt:
+- Task: top command
+## The top program provides a dynamic real-time view of a running system. Type the top at command prompt
 
-# top**
+# top
 
 - Task: display a tree of processes
 
 - pstree shows running processes as a tree. The tree is rooted at either pid or init if pid is omitted. If a user name is specified, all process trees rooted at processes owned by that user are shown.
 
-**$ pstree**
+## $ pstree
 
 - --max-depth=, which instructs du to list its subdirectories and their sizes to any desired level of depth (i.e., to any level of subdirectories) in a directory tree. For example, the following would cause du to list only the first tier (i.e., layer) of directories in the current directory and their sizes (inclusive of all of their contents, including those of their subdirectories):
-**du --max-depth=1
+du --max-depth=1
 
 The total space consumption for the current directory tree will also be reported, and it will, of course, be the same regardless of the depth of the files listed.
 
 Setting --max-depth= to zero tells du to not list any of the subdirectories within the selected directory, i.e., to list only report the size of the selected directory itself. The result is the same as using the -s option.
 
-- wget**
-**to download anu file online
+- wget
+to download anu file online
 ```bash
 wget <url>
 wget <url> -t 'n'
@@ -111,7 +111,7 @@ where /dev/cdrom0 is your cd/dvd-drive and isofile.iso your iso-file you want to
 > Note: An absolute path is like '/home/yn/myfile.iso', a relative path is like 'myfile.iso'
 __________________
 
-11. âž™ Synchronize all your files across Windows, **Linux** and Mac OS with Dropbox (2GB free storage!). By signing up via this link I'll get some extra space also, thanks!
+11. âž™ Synchronize all your files across Windows, Linux and Mac OS with Dropbox (2GB free storage!). By signing up via this link I'll get some extra space also, thanks!
 12. command for generation of preprocessed code which will have the included files in the code as well as the code that we have written
 
 ```bash
@@ -124,7 +124,7 @@ gcc test.c test2.c -o test.o
 ```
 
 the assembly dump of the code generated.
-objdump -d test.o**
+objdump -d test.o
 
 **test.c ->** #include <stdio.h>
 
@@ -167,7 +167,7 @@ svn://[110.0.0.10/idbl//UI/ORACLEPOC](http://110.0.0.10/idbl//UI/ORACLEPOC) --r
  Count total number of commits in all UI branches:
 
 grepping on "Date:"
-total=0;for i in *;  do cd $i; echo In $i; total=`expr $total + $(**git**
+total=0;for i in *;  do cd $i; echo In $i; total=`expr $total + $(git
 ```bash
 log | grep "Date:" | wc -l)`; cd ..; done; echo $total
 ```
@@ -201,7 +201,7 @@ chage - change user password expiry information 
 
 ## SYNOPSIS
 
-**chage**
+## chage
 
 :   [-m*mindays*] [-M*maxdays*] [-d*lastday*] [-I*inactive*] 
     [-E*expiredate*] [-W*warndays*] *user*

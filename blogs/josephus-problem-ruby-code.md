@@ -7,7 +7,7 @@ excerpt: "Ruby code for solving josephus problem. Although the presentation isn'
 author: "Roshan Nagekar"
 ---
 
-**Ruby** code for solving josephus problem. Although the presentation isn't good enough. This was my first **Ruby** exercise so ignore the mistakes in it... :P
+Ruby code for solving josephus problem. Although the presentation isn't good enough. This was my first Ruby exercise so ignore the mistakes in it... :P
 
 #! /usr/bin/ruby -w
 class List

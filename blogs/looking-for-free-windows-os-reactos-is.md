@@ -29,7 +29,7 @@ I got Office 2007 installed in Wine.
 I used it for quite sometime and then it started throwing some weird error and got closed time and again.
 
 At this instance the first thing is googled is Free and open source windows like OS.
-While there were many **linux** pages pulled up that i already knew about, this one caught my attention.
+While there were many linux pages pulled up that i already knew about, this one caught my attention.
 
 "Free and Open Source Windows like OS - **ReactOS** ".
 

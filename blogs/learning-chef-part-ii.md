@@ -30,7 +30,7 @@ Policy will state what needs to installed but not how it needs to install.
 Chef is intelligent enough to figure that out.
 Chef will enforce the policy based on the resource that you specified.
 
-**Setup:
+## Setup
 
 Setup a Chef Environment first by setting up Chef workstation, use the following command on **Ubuntu**,
 
@@ -82,7 +82,7 @@ vim knife.rb
   cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
   cookbook_path            ["#{current_dir}/../chef-repo/cookbooks"]
 
-**Writing Recipes:
+## Writing Recipes
 
 *package "apache2" do*
 *action :install*
@@ -124,7 +124,7 @@ To bootstrap a new node you need to use the following command*:*
 knife bootstrap hostname --sudo -x username -P password --ssh-port 2222 -N nodename
 ```
 
-**Creating Environments**
+## Creating Environments
 
 Many a times you will want development environment and production environment to have little different configurations. e.g xdebug to be installed on dev but not on production. PayPal enabled on prod but not dev etc. Chef allows you to define different environments and also allows you to assign different nodes to a particular environment.
 
@@ -141,7 +141,7 @@ description "The prod environment"
 Upload the environment to the chef server.
 You can verify whether the environments are created in the chef server by logging in there.
 
-**Creating roles:
+## Creating roles
 
 Roles provide a way to apply a group of recipes and attributes to all the nodes performing a particular function. e.g all the nodes which would work as db server can be assigned a db server roles and accordingly all the db server specific recipes can be applied to those nodes.
 
@@ -236,7 +236,7 @@ mkdir -p data_bags/users
 vim data_bags/users/$USER.json
 ```
 
-Add the following to the $USER.json**
+Add the following to the $USER.json
 ```json
 {
   "id": "jkg",
@@ -249,4 +249,4 @@ Add the following to the $USER.json**
 
 Upload the data bag as well to the chef-server and verify
 knife data bag create users
-knife data bag from file users $USER.json**
+knife data bag from file users $USER.json

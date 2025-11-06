@@ -34,25 +34,25 @@ The first meetup I knew would be a small one with limited attendees. I expected 
 
 We had 5 attendees in this meetup as expected. The count was not important. What was more important was whether good topics came up. With Lean Coffee we expect every participant to come up with good topics to vote for and speak about. The topics that got discussed were:
 
-- **Docker** image security and its challenges (Highest voted)
-- **DevSecOps** **CI/CD** pipeline with **Kubernetes**
+- Docker image security and its challenges (Highest voted)
+- **DevSecOps** **CI/CD pipeline with **Kubernetes
 - Cloud Security
-- **Metasploit** - **Kali** **Linux**
+- **Metasploit** - Kali Linux
 
-We discussed a lot about **Docker** security and **Snyk**, **Twistlock** being the **docker** security tools were also explored further. How CIS compliance helps cloud security and the recent how engineers disable SELinux first on any system and that is a bad practice. Although just 5, the discussion went along for a huge 2 hours and it was indeed a wonderful learning experience.
+We discussed a lot about **Docker security and **Snyk**, **Twistlock being the docker security tools were also explored further. How CIS compliance helps cloud security and the recent how engineers disable SELinux first on any system and that is a bad practice. Although just 5, the discussion went along for a huge 2 hours and it was indeed a wonderful learning experience.
 
-We also decided later that the takeaways from these lean-coffee format will end up becoming speaker-attendee format topic for us to deep dive into important topics further. This was a great takeaway since with **DevOps** meetups we only spoke about what the speaker was best at, and may or may not be community learning requirement. Takeaways from this session for Speakers to prepare about was:
+## We also decided later that the takeaways from these lean-coffee format will end up becoming speaker-attendee format topic for us to deep dive into important topics further. This was a great takeaway since with DevOps meetups we only spoke about what the speaker was best at, and may or may not be community learning requirement. Takeaways from this session for Speakers to prepare about was
 
 - CIS Compliance
 - SELinux / Apparmour
 
-These topics were added as Topics on **DevOps** Pune meetup and the hunt for the speaker started there. A few topics that did not get discussed due to lack of time were:
+## These topics were added as Topics on DevOps Pune meetup and the hunt for the speaker started there. A few topics that did not get discussed due to lack of time were
 
 - iptables
-- **Ansible**, **Terraform** and **CI/CD** for pod deployments on **AWS**
-- **AWS** security alternatives
+- **Ansible**, **Terraform and **CI/CD for pod deployments on AWS
+- AWS security alternatives
 - Security compliance
-- Securing **Nginx**
+- Securing Nginx
 
 Overall it was a wonderful learning experience. Cheers to all the attendees.
 

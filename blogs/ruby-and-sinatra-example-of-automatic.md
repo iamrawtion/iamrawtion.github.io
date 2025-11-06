@@ -15,11 +15,11 @@ domain specific language(DSL is a language which is concerned with a
 specific domain problem, it helps us solve a particular problem and
 then advance accordingly there are other DSL's as well like
 HTML)sinatra is a DSL for quick development of webpages. ERB is
-embedded **ruby** erb gives a powerful way to embed **ruby** code to plain
+embedded **ruby erb gives a powerful way to embed **ruby code to plain
 text document or an html file etc this helps in generation of
 documents etc. since we will b using WEBrick server which sinatra
 activates we will be requiring sinatra and since we will be creating
-a template with **ruby** embedded in it we will be requiring erb as
+a template with ruby embedded in it we will be requiring erb as
 well.
 require 'sinatra'
 require 'erb'
@@ -28,7 +28,7 @@ require 'erb'
 
 controller action here /tryerb is a controller action.(A controller
 action is supplied with more info many a times for specific data
-e.g. GET /movies/3 will mean the route GET should map **HTTP** method to
+e.g. GET /movies/3 will mean the route GET should map HTTP method to
 movies with id 3 and show the information of that movie with id 3) 
 information will be rendered from tryerb. get route will show the
 page. POST would create one. DELETE will remove and PUT will update.

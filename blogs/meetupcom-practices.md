@@ -28,7 +28,7 @@ For quiet sometime I have been attending meetups/sessions organised through meet
 
 Finally it all goes well here, but I see a few problems that could be avoided.
 
-**Latecomers :
+## Latecomers 
 
 This is something that cant be avoided. However I honestly feel that this could be minimized to a certain extent for sure. Also, most of the organisers already practice this and I think it helps them for sure.
 
@@ -37,7 +37,7 @@ This is something that cant be avoided. However I honestly feel that this could 
 - Traffic situation at a particular time in general will also be helpful for people to leave little early. e.g if the meetup is conducted in the evening, at a busy location, it would take hours to reach the location.
 - A way to reach the location would help too. e.g if someone comes by bus, the bus stop he should be informing to the bus-conductor and the bus number he needs to look for. If by rickshaw, the nearest possible landmark to the location and approximate walkable distance from any location if its complicated to find.
 
-**Newcomers :
+## Newcomers 
 
 Many meetups will have new faces who expect basics or the introductory things to be covered for them to keep up with the pace. When the meetup starts directly these people don't get most of the things and then they would probably not join in the next meetup as well. Covering the basics time and again will make the regularly coming people bored as it would just eat up their time.
 
@@ -45,7 +45,7 @@ Many meetups will have new faces who expect basics or the introductory things to
 - The organizers could play slides of the previous meetup or of the introductory meetups for the beginners/newcomers to know what was covered or perhaps covering the basics for the 1st 15-30 minutes buffer can also be a good idea provided the newcomers are coming early.
 - Beginners can also read about the past meetups and check if the slides for the past meetups are available on the page and review them, understand what topics are covered, read them and then join the meetup. Its just like attending the classes in the college and reading a brief info of the topic before the lecture.
 
-**Socialize :
+## Socialize 
 
 Less participation is been seen in terms of socializing at a few meetups.
 You never know, who could help you in what kind of problems where you are stuckat office.
@@ -53,9 +53,9 @@ I have come across so many situations where I don't get what use cases could be 
 
 Not only will they give you a solution, they would also explain why would that solution be the best one to be used.
 
-Michael Ducy from Chef(old Opscode) provided a really good, simple and descriptive answer for the best use case to be followed for Chef-Docker** integration.
+Michael Ducy from Chef(old Opscode) provided a really good, simple and descriptive answer for the best use case to be followed for Chef-Docker integration.
 
-**Incorrect RSVP :
+## Incorrect RSVP 
 
 One practice that has been seen is that people would simply click attending/going and will not turn up for the meetup.
 
@@ -71,7 +71,7 @@ I have seen last minute arrangements being made to many meetups and I will surel
 - Mention reason in the comments if your decision changes due to any reason so that the co-participants will look for you in the next meetup. Everyone is an important member in the meetup.
 - If you plan to bring a friend/colleague along with you, update the RSVP to reflect the change.
 
-**Feedback :
+## Feedback 
 
 The organizers keep looking for feedback for the meetup that they organized voluntarily and selflessly (marketing the brand can be ignored for sometime). The attendance is as low as 30% and the feedback is even lesser, close to around 10%. An honest feedback helps the organizers organize better in future.
 

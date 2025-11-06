@@ -28,7 +28,7 @@ data with themselves handled it or maintained it all by themselves.
 
 ## So what’s the problem with it? Well in a way no problem. But
 
-if we understand cloud computing we will get what it helps in. **Sometimes you
+if we understand cloud computing we will get what it helps in. Sometimes you
 get so used to a problem, that you don’t really think if it’s a problem. Now
 suppose for an X company the data servers were present in such a location with
 an illusion of being stored in a centralized manner, so that the company and
@@ -62,7 +62,7 @@ IAAS : Infrastructure as a Service
 
 By now with the example stated above you probably might have had a hint of what these services really are all about.
 
-**SAAS: Software as a Service is using a Software as a service from the service provider on demand when the software is actually hosted on some cloud servers out there.
+SAAS: Software as a Service is using a Software as a service from the service provider on demand when the software is actually hosted on some cloud servers out there.
 
 But whats the benefit? I would rather install the software on my own PC and use it when i want. Why cloud.
 Suppose your work in some industry and you don't necessarily need Microsoft Office all the time. You probably may need it may be once every month or so may be to just view a document and edit it a bit. If you buy MS-Office for this reason and get it installed on your system lets see what all you did for this one year.
@@ -90,9 +90,9 @@ No installation charges. No space consumed on local drive. No RAM consumed other
 
 This was just one example of a Saas based service there are surely many more such services existing that you could look for. Now that Saas is clear Paas and Iaas will be easy to understand.
 
-**PAAS: Just like in Saas you used office to create docs, In Platform as a service a service provider, provides you with a platform to build apps. Its basically used by the developers to create web applications without worrying about the infrastructure beneath for development purpose. The benefit remains almost the same however the added ones could be that it promotes collaborative development, and comes up with so many tools for development making it easy for developers.
+PAAS: Just like in Saas you used office to create docs, In Platform as a service a service provider, provides you with a platform to build apps. Its basically used by the developers to create web applications without worrying about the infrastructure beneath for development purpose. The benefit remains almost the same however the added ones could be that it promotes collaborative development, and comes up with so many tools for development making it easy for developers.
 
-**IAAS: Many a times you might have felt the need to have a greater storage space for some reason but did not consider buying a disk for it.
+IAAS: Many a times you might have felt the need to have a greater storage space for some reason but did not consider buying a disk for it.
 
 Also you might have felt a need to greater CPU or RAM for some performance reason but again, why buy something for a task that wont take more than an hour.
 

@@ -11,7 +11,7 @@ author: "Roshan Nagekar"
 
 Some rights reserved by [Kiewic](https://www.flickr.com/photos/kiewic/)
 
-**Onsite Competition Registration**
+## Onsite Competition Registration
 
 Once you are selected for the regionals, the college is supposed to pay a registration fees of Rs.
 3500/- which is for 5 people 3 contestants one reserve and a coach.
@@ -24,7 +24,7 @@ The money was paid by College.
 Registration was accepted.
 We were supposed to fill online registration forms for travel and accommodation.
 
-**ICPC** this time also took care about those students travel expenses, for those whose colleges could not sponsor it (Our college did it for us..
+ICPC this time also took care about those students travel expenses, for those whose colleges could not sponsor it (Our college did it for us..
 
 ;)).
 You can even get guests to the venue subject to availability of accommodation and at their own expenses.
@@ -36,7 +36,7 @@ Me, Shreyas Damle, Rahul Dange and Gaurav Deochakke.
 Were all set for the Onsite Contest.
 Our coach couldn't come for she had work in college.
 
-**Railway Reservation**
+## Railway Reservation
 
 Had a tough time with this one.
 I already knew it since i did Google a few blogs which did mention how previous year students had problems with it.
@@ -46,12 +46,12 @@ We booked Kanyakumari express, waiting ticket  and 2 nights and 3 day travel.
 We obviously didn't wanted this.
 We checked again for other trains from Mumbai and found Kerala Kranti Express from Panvel to Kollam 18 rs travel and seats available.
 
-Cancelled the previous tickets booked Kerala Kranti ticket for 8th December and mailed **ICPC** that we will be coming a day earlier cos of unavailability of proper reservations.
+Cancelled the previous tickets booked Kerala Kranti ticket for 8th December and mailed ICPC that we will be coming a day earlier cos of unavailability of proper reservations.
 
 Not to risk the return journey booked a return ticket as well.
 Netravati Express for 15th December Kollam to Panvel.
 
-**Train Journey**
+## Train Journey
 
 The best journey i ever had.
 Thankfully all the passengers in our berth were cooperative and talkative too (or i guess we were too social..
@@ -70,8 +70,8 @@ Called up the Technical Director of **ICPC** (which we were not knowing earlier,
 A very polite sounding gentleman recieved the call and ensured that a team will be recieving us on Kayankullam Junction.
 
 Kayankullam was one station before Kollam.
-Thereafter got numerous calls from **ICPC** volunteers to check as to where the train had reached.
-The volunteers were standing outside the station main gate in orange **ICPC** T-Shirts as they had already informed us over the phone.
+Thereafter got numerous calls from ICPC volunteers to check as to where the train had reached.
+The volunteers were standing outside the station main gate in orange ICPC T-Shirts as they had already informed us over the phone.
 
 They welcomed us.
 Happy lot of crowd I must say.

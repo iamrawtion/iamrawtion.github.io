@@ -11,18 +11,18 @@ author: "Roshan Nagekar"
 
 Some rights reserved by [Sean MacEntee](https://www.flickr.com/photos/smemon/)
 
-**Git**
+## Git
 
-Its been months i used **Git. I thought i should write about it. Probably because i shouldn't forget what is it all about... :P.
+Its been months i used Git. I thought i should write about it. Probably because i shouldn't forget what is it all about... :P.
 
-**Git** is a software version control and source code management(SCM) system developed by Linus Torvalds.
+Git is a software version control and source code management(SCM) system developed by Linus Torvalds.
 
 What is version controlling? Every software has versions in it.
 How could you possibly keep all the versions in the same system and develop, modify, test and use all of them together is done by version controlling.
 
-And **Git** helps in achieving this (I could be wrong...this is just my understanding of **Git...) So how does it work.
+And **Git helps in achieving this (I could be wrong...this is just my understanding of **Git...) So how does it work.
 
-**Git** works on a tree based structure where the developers can branch their codes in and make versions or builds accordingly.
+Git works on a tree based structure where the developers can branch their codes in and make versions or builds accordingly.
 
 For instance consider a repository which has a master node.
 The master node will contain all the actual code of a particular software.
@@ -39,11 +39,11 @@ While committing you need to add certain details as to why are you committing or
 The commit can be done only after review has been done.
 Tom, Dik and Harry here will have their own versions of software that's downloaded locally by each one of them.
 
-If their are any changes in the master branch you can >**git** pull and get only those changes that don't match with your current local repository and check the changes accordingly.
+If their are any changes in the master branch you can >git pull and get only those changes that don't match with your current local repository and check the changes accordingly.
 
 The changes if any to any of the file are informed file by file and line by line.
 So the developers are automatically updated of where the code was changed.
-> **git** add.
-Will add all the local changes to the **git** repository.
+> git add.
+Will add all the local changes to the git repository.
 You are allowed to add only specific files.
-After committing an add with a > **git** commit you have to add a flag -m and specify what changes you did etc. Changes can be uploaded to the server with a > **git** push. Accordingly Tom , Dik and Harry can do a > **git** pull and repeat the procedure. Check for other functionality on **Git**'s website. There are many more cool features as well.
+After committing an add with a > **git commit you have to add a flag -m and specify what changes you did etc. Changes can be uploaded to the server with a > **git push. Accordingly Tom , Dik and Harry can do a > **git pull and repeat the procedure. Check for other functionality on **Git's website. There are many more cool features as well.

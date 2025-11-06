@@ -77,7 +77,7 @@ between feasible and infeasible. In real time , if it is not fast enough, its
 as good as not functional. If it simply uses more memory, its not going to work
 for you.
 
-**Algorithms are at the
+Algorithms are at the
 
 cutting edge of entrepreneurship. If you are thinking of doing something that already exists,
 performance isn’t that necessary. But, if you are planning to do something’s
@@ -96,7 +96,7 @@ for user friendliness, you pay for security, etc.
 
 ## So for this reason, a user
 
-may gor for **JAVA** instead of C for it may be slow, but it gives more
+may gor for JAVA instead of C for it may be slow, but it gives more
 functionality like exceptions, Object Orientations,etc.
 
 ```yaml
@@ -165,7 +165,7 @@ Example
 
 2 4 8 **9** 3
 
-2 4 8 9 **3**
+## 2 4 8 9 3
 
 2 3 4 8 9 sorted
 
@@ -314,7 +314,7 @@ T(n)= S j=2 to n q(j)
 
 fast for small n but not for large n. Merge sort is faster instead.
 
-**MERGE SORT**
+## MERGE SORT
 
 ```json
 Merge sort A[1….N}

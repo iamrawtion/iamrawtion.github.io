@@ -12,13 +12,13 @@ Sken.ai Introduction:-
 Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool.
 It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing.
 
-It is a new and automated **DevSecOps** tool that provides multi-language scanning features in one place.
+It is a new and automated DevSecOps tool that provides multi-language scanning features in one place.
 
 It provides comprehensive Saas based continuous application testing software developers and **DevOps**, without the need for any security expertise.
 
-It helps to Find and fix all types of application security issues within your **DevOps** **CI/CD** cycle.
+It helps to Find and fix all types of application security issues within your DevOps CI/CD cycle.
 
-It provides a SAAS orchestration layer that integrates continuous application security testing into your **DevOps** **CI/CD** workflow automating the use of any open source security scanners across all scan types; SAST, DAST, SCA, MAST, container scanning, license compliance, and secrets detection. 
+It provides a SAAS orchestration layer that integrates continuous application security testing into your DevOps CI/CD workflow automating the use of any open source security scanners across all scan types; SAST, DAST, SCA, MAST, container scanning, license compliance, and secrets detection. 
 
 What will you learn from this article/blog:-
 
@@ -28,7 +28,7 @@ What will you learn from this article/blog:-
 4. What vulnerability scanning and penetration testing is?
 5. List of Top IDE’s used by developers provided by **DevOps**?
 6. List of version control tools provided by **DevOps**?
-7. List of Top **CI/CD** pipeline tools provided by **DevOps**?
+7. List of Top **CI/CD pipeline tools provided by **DevOps?
 8. What web application security scanner is?
 
 Who will need this tool:-
@@ -46,7 +46,7 @@ It provides free scanning forever for single users, Unlimited tests on open sour
 As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers.
 
 What does Sken.ai contain:- Here are some detailed points that I have discussed about the Sken.ai.
-It helps to scan every application in any language from any **CI/CD** Platform (such as **Jenkins**, Bamboo, etc).
+It helps to scan every application in any language from any **CI/CD Platform (such as **Jenkins, Bamboo, etc).
 
 It uses all scan types SAST, DAST, SCA, Secrets, and more to scan at the coding time or the runtime.
 As I said before it enables security by simply adding a 2-line code snippet into CICD to enable the complete range of tests.
@@ -55,13 +55,13 @@ It provides open-source scanners packaged and managed, There's No need to set up
 
 It selects & auto-discover scanners as per scanning context.
 
-Sken.ai performs the most comprehensive security scanning and testing of applications during the **CI/CD** process.
+Sken.ai performs the most comprehensive security scanning and testing of applications during the CI/CD process.
 
 This includes not only static source code analysis (SAST) and software composition analysis (SCA), but also dynamic security testing (DAST) to uncover run-time security holes as well.
 
 This ensures that all the common avenues hackers use to execute security breaches are discovered before going to production.
 
-By providing the relevant scan type at the right stage in the **DevOps** and **CI/CD** stage, Sken.ai covers more vulnerability and compliance holes than anyone's capability alone.
+By providing the relevant scan type at the right stage in the **DevOps and **CI/CD stage, Sken.ai covers more vulnerability and compliance holes than anyone's capability alone.
 
 It uses all major development languages & frameworks including **Java**, PHP, **Python**, Microsoft .NET, NodeJS, **Ruby**, GO, and more.
 
@@ -73,16 +73,16 @@ It provides AI-Based Analysis, and it reduces noise up to 97%.
 It Aggregated scan findings View and filter findings across multiple scans.
 It tracks bugs through code changes and provides standard risk ratings across all scan types.
 
-**DevOps** and AppSec teams can manage their entire bug fix and mitigation processes with Sken.ai, including prioritization and risk scoring, bug verification, task assignment through resolution.
+DevOps and AppSec teams can manage their entire bug fix and mitigation processes with Sken.ai, including prioritization and risk scoring, bug verification, task assignment through resolution.
 
 It is Intelligent & prioritized to fix critical findings first.
 It helps users to Manage findings from the Sken.ai portal.
 
 Here are some Open Source Scanners included in Sken.ai internally:
 
-1. SCA: **OWASP** Dependency Leaks.
+1. SCA: OWASP Dependency Leaks.
 2. SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint.
-3. DAST: **OWASP** ZAP
+3. DAST: OWASP ZAP
 4. Secrets: Gitleaks, Trufflehog.
 
 Static application security testing (SAST), or static analysis, is a testing methodology that analyzes source code to find security vulnerabilities that make your organization’s applications susceptible to attack.
@@ -107,30 +107,30 @@ Vulnerability scanning is a continuous process that fits throughout an app’s s
 Sken.ai also provides IAST(Interactive Application Security Testing) Scanners are DAST scanners with some SAST capabilities.
 
 They test whether known code vulnerabilities can be exploited in the running app.
-Developers often layer **API** scanners over other tools, such as SAST and DAST, to ensure their APIs stay secure, even after a code or interface change.
+Developers often layer API scanners over other tools, such as SAST and DAST, to ensure their APIs stay secure, even after a code or interface change.
 
-**API** scanning focuses on uncovering existing and potential security vulnerabilities like SQL Injection, Content-Type Missing, Misused Exception Handling, and Parameter Tampering.
+API scanning focuses on uncovering existing and potential security vulnerabilities like SQL Injection, Content-Type Missing, Misused Exception Handling, and Parameter Tampering.
 
-For development, **DevOps** helps users to automate source code by providing IDE's like [Microsoft Visual Studio](https://visualstudio.microsoft.com/), [NetBeans](https://netbeans.org/), [IntelliJ Idea](https://www.jetbrains.com/idea/), [Eclipse](https://www.eclipse.org/), [PyCharm](https://www.jetbrains.com/pycharm/), etc.
+For development, DevOps helps users to automate source code by providing IDE's like [Microsoft Visual Studio](https://visualstudio.microsoft.com/), [NetBeans](https://netbeans.org/), [IntelliJ Idea](https://www.jetbrains.com/idea/), [Eclipse](https://www.eclipse.org/), [PyCharm](https://www.jetbrains.com/pycharm/), etc.
 
-For version control management [Gi](https://git-scm.com/)t, [GitHu](https://github.com/)b, [GitLa](https://about.gitlab.com/)b, [CV](https://www.nongnu.org/cvs/)S, [SV](https://subversion.apache.org/)N, and for **CI/CD** pipeline **DevOps** provides [Jenkin](https://www.jenkins.io/)s, [CircleC](https://circleci.com/)I, [Bambo](https://www.atlassian.com/software/bamboo)o, [Travis C](https://travis-ci.org/)I, etc.
+For version control management [Gi](https://git-scm.com/)t, [GitHu](https://github.com/)b, [GitLa](https://about.gitlab.com/)b, [CV](https://www.nongnu.org/cvs/)S, [SV](https://subversion.apache.org/)N, and for **CI/CD pipeline **DevOps provides [Jenkin](https://www.jenkins.io/)s, [CircleC](https://circleci.com/)I, [Bambo](https://www.atlassian.com/software/bamboo)o, [Travis C](https://travis-ci.org/)I, etc.
 
 It enables security with a simple, 2-line code snippet to enable the complete range of tests.
 It provides Comprehensive testing across all scan types SAST, DAST, SCA, Secrets, and more.
 Perform security testing for all major development languages/frameworks.
 Sken.ai application developers are notified of security vulnerabilities as they commit and build their code.
 
-Also, Sken.ai helps app sec and **DevOps** respond to the vulnerability alerts, prioritize the issues found, and fix them during the code and build process.
+Also, Sken.ai helps app sec and DevOps respond to the vulnerability alerts, prioritize the issues found, and fix them during the code and build process.
 
-A **CI/CD** pipeline is a series of steps that must be performed to deliver a new version of the software. Continuous integration/continuous delivery (**CI/CD**) pipelines are a practice focused on improving software delivery using either a **DevOps** or site reliability engineering (SRE) approach. 
+A **CI/CD pipeline is a series of steps that must be performed to deliver a new version of the software. Continuous integration/continuous delivery (**CI/CD**) pipelines are a practice focused on improving software delivery using either a **DevOps or site reliability engineering (SRE) approach. 
 
-A **CI/CD** pipeline introduces monitoring and automation to improve the process of application development, particularly at the integration and testing phases, as well as during delivery and deployment.
+A CI/CD pipeline introduces monitoring and automation to improve the process of application development, particularly at the integration and testing phases, as well as during delivery and deployment.
 
-Although it is possible to manually execute each of the steps of a **CI/CD** pipeline, the true value of **CI/CD** pipelines is realized through automation.
+Although it is possible to manually execute each of the steps of a **CI/CD pipeline, the true value of **CI/CD pipelines is realized through automation.
 
-A comprehensive set of application security testing (AST) tools help you test for and remediate security vulnerabilities in your **CI/CD** pipeline.
+A comprehensive set of application security testing (AST) tools help you test for and remediate security vulnerabilities in your CI/CD pipeline.
 
-SecDevOps (also known as **DevSecOps** and DevOpsSec) is the process of integrating secure development best practices and methodologies into development and deployment processes that **DevOps** makes possible. SecDevOps consists of two distinct parts:
+SecDevOps (also known as **DevSecOps and DevOpsSec) is the process of integrating secure development best practices and methodologies into development and deployment processes that **DevOps makes possible. SecDevOps consists of two distinct parts:
 
 1. Security as Code (SaC).
 2. Infrastructure as Code (IaC). 
@@ -150,25 +150,25 @@ Security Testing is a type of Software Testing that uncovers vulnerabilities of 
 
 It ensures that the software system and application are free from any threats or risks that can cause a loss.
 
-**Ruby** on Rails is the most popular open-source web application framework. It’s built with the **Ruby** programming language. Rails help you build websites. 
+Ruby on Rails is the most popular open-source web application framework. It’s built with the **Ruby programming language. Rails help you build websites. **
 
-**Ruby** on Rails is an open-source web development framework, which provides **Ruby** developers a time-saving alternative to develop code.
+Ruby on Rails is an open-source web development framework, which provides **Ruby developers a time-saving alternative to develop code.**
 
 It is a collection of code libraries, which offer a ready-made solution for repetitive tasks like developing tables, forms, or menus on the website.
 
-**Ruby** on Rails also comes with a unit testing setup called RSpec, which is very easy to learn.
+Ruby on Rails also comes with a unit testing setup called RSpec, which is very easy to learn.
 
 It uses some other scanners to scan application source code.
-Static analysis security vulnerability scanners are used in **Ruby** on Rails for scanning.
-So here, we can use any static analysis security tools to scan **ruby** on rails.
+Static analysis security vulnerability scanners are used in Ruby on Rails for scanning.
+So here, we can use any static analysis security tools to scan ruby on rails.
 
-Sken.ai aligns with the security framework **OWASP** ZAP.
+Sken.ai aligns with the security framework OWASP ZAP.
 It is an open-source tool which is offered by **OWASP** (Open Web Application Security Project), for penetration testing of your website/web application.
 
 It helps you find the security vulnerabilities in your application.
-Here are the **OWASP** top 10 security threats that your website/application might face: SQL injection, Broken authentication and session management, Cross-site scripting (XSS), Broken access control, Security misconfiguration, Sensitive data exposure, Insufficient attack protection, Cross-site request forgery (CSRF), Using components with known vulnerabilities, and Underprotected APIs.
+Here are the OWASP top 10 security threats that your website/application might face: SQL injection, Broken authentication and session management, Cross-site scripting (XSS), Broken access control, Security misconfiguration, Sensitive data exposure, Insufficient attack protection, Cross-site request forgery (CSRF), Using components with known vulnerabilities, and Underprotected APIs.
 
-ZAP provides the following features: active scans, alerts, **API** authentication, and verification, etc.
+ZAP provides the following features: active scans, alerts, API authentication, and verification, etc.
 
 Zap is used as a proxy server, it allows the user to manipulate all of the traffic that passes through it, including traffic using **HTTPS. It helps you find the security vulnerabilities in your application. Here is a list of the main features: Intercepting Proxy, Automated Scanner, Passive Scanner, Brute Force Scanner, Fuzzer, Port Scanner, Spider, Web Sockets, **REST** **API. 
 
@@ -282,7 +282,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
 7. [Grapl](https://www.graplsecurity.com/)
 8. [Wireshark](https://www.wireshark.org/)
 
-- **Ruby** on Rails application scaling tools:-
+- Ruby on Rails application scaling tools:-
 
 1. [Brakeman](https://brakemanscanner.org/)
 2. [Code Climate](https://codeclimate.com/)
@@ -291,7 +291,7 @@ List of tools available in the market for all types of scanning & the sken.ai is
 
 - SCA Scanning Tools:-
 
-1. **OWASP** Dependency Leaks.
+1. OWASP Dependency Leaks.
 
 How is it different than other tools in market:-
 
@@ -311,8 +311,8 @@ The mid-markets need a product that:
 
 Sken tackles each one of the requirements of the mid-markets. There are three pillars in Sken, and they correspond and tackle these three core requirements of the mid-markets. 
 
-- Sken provides a product that can be used by **DevOps** with no app security experience.
-- Sken packages open-source scanners in a SaaS orchestration layer and automates them in **CI/CD. This SaaS orchestration does a bunch of the heavy lifting, but it makes it so simple for the end-user to operate.
+- Sken provides a product that can be used by DevOps with no app security experience.
+- Sken packages open-source scanners in a SaaS orchestration layer and automates them in CI/CD. This SaaS orchestration does a bunch of the heavy lifting, but it makes it so simple for the end-user to operate.
 - Sken does all scan types. There includes
 
 1. Code-level scanners like
@@ -337,14 +337,14 @@ Why should you use Sken.ai:- Because of the number of different features sken.ai
 
 What are the integrations possible in sken.ai:- Sken.ai integrates with the CICD pipeline with 3 simple steps. 1. Add Sken.ai in CICD. 2. Write sken.yml as you need. 3. Review issues in the Sken.ai portal. It uses automated open-source scanners providing tools like SCA, SAST, DAST, Secrets management, and many more. Those are included:-
 
-1. SCA: **OWASP** Dependency Leaks.
+1. SCA: OWASP Dependency Leaks.
 2. SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint.
-3. DAST: **OWASP** ZAP
+3. DAST: OWASP ZAP
 4. Secrets: Gitleaks, Trufflehog.
 
-Here is the demo of sken integration with **jenkins** and **travis-ci:-
+Here is the demo of sken integration with **jenkins and **travis-ci:-
 
-1. **Jenkins** integrate with sken:- <https://drive.google.com/file/d/1OxpziWQZ6lEZ4Q6c7WYWAw3DTNf9qLd6/view?usp=sharing>
-2. **Travis** CI integrate with sken:-
+1. Jenkins integrate with sken:- <https://drive.google.com/file/d/1OxpziWQZ6lEZ4Q6c7WYWAw3DTNf9qLd6/view?usp=sharing>
+2. Travis CI integrate with sken:-
 
 <https://drive.google.com/file/d/1-zEbJ0rwzkR_vpvDkBvTXY4MwRXZcOFX/view?usp=sharing>

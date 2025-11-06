@@ -94,7 +94,7 @@ You can see how to use s3cmd at: http://s3tools.org/usage
 
 Here I came across a typical scenario where I could not upload files greater than 5GB. You could do this to print two Ways:
 
-1. Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // **apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version.
+1. Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version.
 2. Splitting Into the large files using small files and then uploading it split command.
 
 - Original file
@@ -112,6 +112,6 @@ split -b 3G 2014backup.tar.gz "201 412"
 
 - Upload files những
 
-201 412 * s3cmd put s3: // **apache-logs /
+## 201 412 * s3cmd put s3: // apache-logs /
 
 Saved some time :)

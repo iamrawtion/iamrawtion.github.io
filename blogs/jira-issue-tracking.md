@@ -11,31 +11,31 @@ author: "Roshan Nagekar"
 
 Some rights reserved by [Yuko Honda](https://www.flickr.com/photos/yukop/)
 
-**JIRA**
+## JIRA
 
-Those who are new to **JIRA** start reading from "What is **JIRA**?"
+Those who are new to **JIRA start reading from "What is **JIRA?"
 
-I have been learning Administration of **JIRA** lately after using it for more than 4 - 5 months as a user, after i believed that now i got to know it to the best of my knowledge.
+I have been learning Administration of JIRA lately after using it for more than 4 - 5 months as a user, after i believed that now i got to know it to the best of my knowledge.
 
 Thanks to Atlassians!!! they came up with a free trail for 30 days.
-Not only did i use it to learn **JIRA** administration but also i passed it to my friends who were new to it and wanted to know and understand **JIRA** at least at a user level.
+Not only did i use it to learn **JIRA administration but also i passed it to my friends who were new to it and wanted to know and understand **JIRA at least at a user level.
 
-Here's my **JIRA** Atlassian account by the way https://roshannagekar.atlassian.net (if you access it after Feb 2013 i might have deleted it as well cause my free trial would be over by then...
+Here's my JIRA Atlassian account by the way https://roshannagekar.atlassian.net (if you access it after Feb 2013 i might have deleted it as well cause my free trial would be over by then...
 
 :P.
 
 What is **JIRA**?
 
-So whats is **JIRA** was the 1st question that came to my mind. As a typical Indian would think its one of the spices we use in the curry's here... :D. Well this is not the one.  **JIRA** is a proprietary issue tracking system developed by Atlassian commonly used for bug tracking, issue tracking and Project Management. Many companies use it and i feel its the best tool used for communication between any teams in any organization.
-To learn **JIRA** administration go to Atlassian's website they provide a free 10 users based **JIRA** hosted by them, not only that they also send you tutorials for how you could be a Pro **JIRA** user. They call it **JIRA** ninja black belt (both at user and administrator level) thankfully i completed that easily.
+So whats is **JIRA was the 1st question that came to my mind. As a typical Indian would think its one of the spices we use in the curry's here... :D. Well this is not the one.  **JIRA is a proprietary issue tracking system developed by Atlassian commonly used for bug tracking, issue tracking and Project Management. Many companies use it and i feel its the best tool used for communication between any teams in any organization.
+To learn **JIRA administration go to Atlassian's website they provide a free 10 users based **JIRA hosted by them, not only that they also send you tutorials for how you could be a Pro **JIRA user. They call it **JIRA ninja black belt (both at user and administrator level) thankfully i completed that easily.
 
 Their are some other products that come along with it integrated called Bonfire, **Confluence**, Crucible, GreenHopper, Bamboo, FishEye and Crowd. which i didn't use as of now.
 
-**JIRA** is used for communication between the development, testing, analyst, and the client team as well.
+JIRA is used for communication between the development, testing, analyst, and the client team as well.
 
 E.g.
 In Agile methodology and Practices, when developers post a particular build for the testers test.
-The testers would file issues on **JIRA** accordingly the developers will verify it immediately if that's an issue.
+The testers would file issues on JIRA accordingly the developers will verify it immediately if that's an issue.
 
 An analyst or any one else from the team as well can confirm it and accordingly developers can work on it.
 
@@ -49,7 +49,7 @@ A graph or chart can be generated based on how many issues are assigned to you a
 
 A pie diagram can be generated to check which issues have priority.
 Also queries can be fired to generate reports on specific project to find a specific filtered issue.
-Thus **JIRA** solves many problems of communication in an Agile atmosphere.
+Thus JIRA solves many problems of communication in an Agile atmosphere.
 Earlier many companies used Excel sheet for this purpose which was a headache for sure.
 
 Thanks to **JIRA**!!

@@ -15,7 +15,7 @@ I recently shared one of my stories while monitoring an Ingestion Server with [A
 
 Second Place Story
 
-**Server ghouls haunt bulk ingestion**
+## Server ghouls haunt bulk ingestion
 
 ## Company: Roshvert
 

@@ -12,16 +12,16 @@ All credits to http://www.devopsweekly.com/ looked after by Looked after by [Gar
 ## Kashti is a dashboard for anyone using Brigade, a tool I’ve mentioned
 
 previously for building elaborate pipelines composed of multiple
-containers running on **Kubernetes.
+containers running on Kubernetes.
 
 <https://open.microsoft.com/2017/12/06/kashti-kubernetes-open-source-microsoft/>
 <https://github.com/Azure/kashti>
 
-Jo is a handy utility which can output **JSON** based on arguments to the CLI tool. Handy for **API** testing and other use cases.
+Jo is a handy utility which can output **JSON based on arguments to the CLI tool. Handy for **API testing and other use cases.
 
 <https://github.com/jpmens/jo>
 
-Kitchen **Terraform** is a plugin for Test Kitchen to allow for testing resources provisioned by **Terraform.
+Kitchen **Terraform is a plugin for Test Kitchen to allow for testing resources provisioned by **Terraform.
 
 <https://newcontext-oss.github.io/kitchen-terraform/>
 
@@ -40,20 +40,20 @@ platforms or command line tools and focuses on the integration piece.
 
 distributed systems. It takes advantage of the capabilities of
 
-**Kubernetes** to expose features like master election and container
+Kubernetes to expose features like master election and container
 
-packaging and scale out, with current implementations in .NET, **Java** and
+packaging and scale out, with current implementations in .NET, Java and
 
-**Javascript.
+Javascript.
 
 <https://metaparticle.io/posts/welcome-to-metaparticle/>
 <https://metaparticle.io/>
 
-SockGuard is a eat new project which provides a proxy to the **Docker** socket which exposes some useful access control features.
+SockGuard is a eat new project which provides a proxy to the Docker socket which exposes some useful access control features.
 
 <https://github.com/buildkite/sockguard>
 
- MetalLB is a **Kubernetes-native load balancer for environments where the
+ MetalLB is a Kubernetes-native load balancer for environments where the
 cloud-provider load balancer integration isn’t suitable, for instance
 when running a bare-metal cluster.
 
@@ -93,9 +93,9 @@ debugging image build problems.
 ## Open Policy Agent is an interesting new project providing which provides
 
 a DSL for describing policy, and software to ensure described systems
-remain compliant. Examples include managing **Kubernetes** **API** admission,
+remain compliant. Examples include managing Kubernetes API admission,
 
-**Terraform** permissions and **SSH** authorization.
+Terraform permissions and **SSH authorization.**
 
 <http://www.openpolicyagent.org/>
 
@@ -119,13 +119,13 @@ and shebang support.
 <https://neugram.io/blog/neugram-briefly>
 <https://neugram.io/>
 
-Psykube provides a slightly higher-level abstraction that the raw APIs for describing applications running on **Kubernetes.
+Psykube provides a slightly higher-level abstraction that the raw APIs for describing applications running on Kubernetes.
 
 <https://github.com/CommercialTribe/psykube>
 
 ---
 
-## CIM looks like a handy tool for anyone managing **AWS** CloudFormation
+## CIM looks like a handy tool for anyone managing AWS CloudFormation
 
 templates. Rather than try and provide an abstraction, CIM provides a
 number of helpful user interface tools which make working with templates
@@ -134,17 +134,17 @@ easier.
 <https://medium.com/@rgfindley/meet-cim-cloud-infrastructure-manager-bc8bcfe0593c>
 <https://github.com/thestackshack/cim>
 
-lstags is a handy tool for comparing **Docker** images between repositories,
+lstags is a handy tool for comparing Docker images between repositories,
 as well as automatically syncing images between repositories.
 
 <https://github.com/ivanilves/lstags>
 
 ---
 
-## Brigade is a new workflow tool for **Kubernetes** environments, allowing for
+## Brigade is a new workflow tool for Kubernetes environments, allowing for
 
-writing **JavaScript** to define pipelines for running containers. Supports
-timers, listening to events from services like **GitHub** or **Docker** image
+writing JavaScript to define pipelines for running containers. Supports
+timers, listening to events from services like **GitHub or **Docker image
 repositories and more.
 
 <http://brigade.sh/>
@@ -161,7 +161,7 @@ format. I’m a big fan of adhoc agreement so hopeful this takes off.
 
 ---
 
-## Kapitan is another Jsonnet based configuration tool for **Kubernetes. As
+## Kapitan is another Jsonnet based configuration tool for Kubernetes. As
 
 well as configuration templates it provides built-in support for
 generating documentation and scripts, and a tool for separating data
@@ -171,11 +171,11 @@ from configuration.
 
 ---
 
-## Tarmak is a new toolkit for managing and provisioning a **Kubernetes**
+## Tarmak is a new toolkit for managing and provisioning a Kubernetes
 
-cluster. It makes use of Packer, Puppet, **Terraform** and **Docker** to provide
+cluster. It makes use of Packer, Puppet, **Terraform and **Docker to provide
 a degree of platform independence, but provides a higher-level CLI
-interface and good defaults for a secure, **CI/CD** ready cluster.
+interface and good defaults for a secure, CI/CD ready cluster.
 
 <http://docs.tarmak.io/en/latest/>
 <https://github.com/jetstack/tarmak>
@@ -184,7 +184,7 @@ interface and good defaults for a secure, **CI/CD** ready cluster.
 
 ## Kedge aims to provide a high-level data-centric interface for describing
 
-**Kubernetes** applications, with a focus on good defaults and familiarity
+Kubernetes applications, with a focus on good defaults and familiarity
 
 for folks already using the lower-level APIs.
 
@@ -193,16 +193,16 @@ for folks already using the lower-level APIs.
 
 ---
 
-## The **Docker** Version Manager (dvm) is a cross-platform command-line tool
+## The Docker Version Manager (dvm) is a cross-platform command-line tool
 
-that helps you install and switch between **Docker** clients. Handy if
+that helps you install and switch between Docker clients. Handy if
 you’re working with a range of different server versions.
 
 <https://howtowhale.github.io/dvm/>
  
 
-Kubesh is a handy tool for anyone managing several **Kubernetes** clusters.
-It allows for spawning new shells with different **Kubernetes** contexts.
+Kubesh is a handy tool for anyone managing several Kubernetes clusters.
+It allows for spawning new shells with different Kubernetes contexts.
 
 <https://medium.com/@lestrrat/handling-multiple-kubernetes-clusters-using-kubesh-a7e2a1606bfa>
 <https://github.com/lestrrat/kubesh>
@@ -221,7 +221,7 @@ which typically complete in tens of milliseconds.
 
 ## Chart Museum is an open source Helm Chart repository, for anyone using
 
-the helm package manager with **Kubernetes. It supports S3, Google Cloud
+the helm package manager with Kubernetes. It supports S3, Google Cloud
 Storage backends and local storage, and the README contains details for
 how to get up and running.
 
@@ -236,13 +236,13 @@ for distributed systems, originally written to test Kafka.
 <https://github.com/confluentinc/ducktape>
 <https://ducktape-docs.readthedocs.io/en/latest/>
 
-Jaeger is an open source system for monitoring distributed systems, using the OpenTracing **API.
+Jaeger is an open source system for monitoring distributed systems, using the OpenTracing API.
 
 <https://github.com/jaegertracing/jaeger>
 
 ---
 
-## Pumba is a tool for chaos testing in a **Docker** environment. Supports
+## Pumba is a tool for chaos testing in a Docker environment. Supports
 
 interfering with network traffic to simulate connectivity issues and
 stopping containers.
@@ -252,9 +252,9 @@ stopping containers.
 
 ---
 
-## AWX provides a browser-based user interface and **API** for **Ansible. It
+## AWX provides a browser-based user interface and **API for **Ansible. It
 
-represents part of the **Ansible** Tower product, now available as an open
+represents part of the Ansible Tower product, now available as an open
 ```bash
 source project.
 ```
@@ -268,7 +268,7 @@ source project.
 best to run a set of hooks? Enter webhook. Describe hooks in a simple
 configuration file and point it ad executables and it exposes a simple
 
-**HTTP/S interface to run them.
+HTTP/S interface to run them.
 
 <https://github.com/adnanh/webhook>
 
@@ -291,7 +291,7 @@ dynamic workload rebalancing and self-healing of a large kafka cluster.
 
 ---
 
-## Gosu solves a specific problem for anyone building **Docker** images, namely
+## Gosu solves a specific problem for anyone building Docker images, namely
 
 running an application as a different user but without interfering with
 signal processing and TTY.
@@ -302,13 +302,13 @@ signal processing and TTY.
 
 ## PlantUML is a text-based diagramming tool, and this project provides
 
-primitives for diagraming with **AWS** service. Lots of good examples in the
+primitives for diagraming with AWS service. Lots of good examples in the
 README.
 
 <https://github.com/milo-minderbinder/AWS-PlantUML>
 
  Squash looks like an interesting idea to build a debugger for
-microservices. Currently it supports **Kubernetes** and VSCode. The rolling
+microservices. Currently it supports Kubernetes and VSCode. The rolling
 demo gives you an idea of how it works.
 
 <https://github.com/solo-io/squash>
@@ -324,14 +324,14 @@ framework looks useful.
 <https://serverless.com/blog/introducing-serverless-event-gateway/>
 <https://github.com/serverless/event-gateway>
 
-**Kubernetes** Deploy is a new, high level, tool for deploying applications
+Kubernetes Deploy is a new, high level, tool for deploying applications
 
-to **Kubernetes. It focuses not just on submitting changes, but helping
+to Kubernetes. It focuses not just on submitting changes, but helping
 the user understand exactly what changed.
 
 <https://github.com/Shopify/kubernetes-deploy>
 
-Functions as a Service (or FaaS) is a new serverless framework aimed at running on top of **Docker** or **Kubernetes.
+Functions as a Service (or FaaS) is a new serverless framework aimed at running on top of **Docker or **Kubernetes.
 
 <https://blog.alexellis.io/introducing-functions-as-a-service/>
 <https://github.com/alexellis/faas>
@@ -358,27 +358,27 @@ other features.
 
 ---
 
-## Atlantis is a workflow tool for teams working with **Terraform. It
+## Atlantis is a workflow tool for teams working with Terraform. It
 
 provides some nice features to prevent common mult-users issues and
-integrates with **GitHub** pull requests.
+integrates with GitHub pull requests.
 
 <https://github.com/hootsuite/atlantis>
 
 ---
 
-## Manifesto is a new tool for storing and retrieving **Docker** image metadata
+## Manifesto is a new tool for storing and retrieving Docker image metadata
 
-alongside the image in question in a repository, including on **Docker**
+alongside the image in question in a repository, including on Docker
 Hub.
 
 <https://github.com/aquasecurity/manifesto>
 
 ---
 
-## Terraboard is a handy dashboard for anyone using **Terraform. It allows
+## Terraboard is a handy dashboard for anyone using Terraform. It allows
 
-for visualising and querying **terraform** state from a simple browser-based
+for visualising and querying terraform state from a simple browser-based
 interface.
 
 <https://github.com/camptocamp/terraboard>
@@ -387,8 +387,8 @@ interface.
 
 ## Kedge is looking to provide a concise application definition for
 
-**kubernetes. Higher-level than the full **API** wireformat, Kedge describes a
-**YAML** file format which can be expanded by the bundled command line
+kubernetes. Higher-level than the full API wireformat, Kedge describes a
+YAML file format which can be expanded by the bundled command line
 
 kedge tool.
 
@@ -401,7 +401,7 @@ Jsonnet is cropping up in a number of places for managing configuration so it’
 
 ---
 
-## Buildah is a new tool for building OCI-compatible and **Docker-compatible
+## Buildah is a new tool for building OCI-compatible and Docker-compatible
 
 images. It provides a series of commands for building images up, and can
 also use existing Dockerfiles.
@@ -419,7 +419,7 @@ declarations to the more complex profiles.
 
 ---
 
-## K8Guard is an auditing system for **Kubernetes** clusters. It monitors
+## K8Guard is an auditing system for Kubernetes clusters. It monitors
 
 different entities, like image size, third-party repository usage,
 missing metadata, etc. on your cluster for possible violations.
@@ -429,7 +429,7 @@ missing metadata, etc. on your cluster for possible violations.
 
 ---
 
-## Kubicorn is another project in the **Kubernetes** management space. A
+## Kubicorn is another project in the Kubernetes management space. A
 
 library more than a tool to use directly, kubicorn is a new projects but
 with some interesting design goals.
@@ -451,7 +451,7 @@ ownership and permissions and can be run read-only.
 
 ## Kubeval is something I’ve been hacking on recently to validate
 
-**Kubernetes** config files. Especially if you’re generating those files
+Kubernetes config files. Especially if you’re generating those files
 
 with templates, or supporting multiple versions of **Kubernetes**, this
 might be handy.
@@ -462,7 +462,7 @@ might be handy.
 
 ## Kube Shell is exactly what you’d expect, a shell for interacting with
 
-**Kubernetes. Auto completion, command suggestion, history, inline
+Kubernetes. Auto completion, command suggestion, history, inline
 
 documentation and more.
 
@@ -470,7 +470,7 @@ documentation and more.
 
 ---
 
-## Kube-bench is a handy tool for checking a **Kubernetes** installation
+## Kube-bench is a handy tool for checking a Kubernetes installation
 
 against the published security guidelines in the CIS **Kubernetes** 1.6
 Benchmark.
@@ -479,10 +479,10 @@ Benchmark.
 
 ---
 
-## ImageWolf is a new tool to help quickly distribute **Docker** images around a
+## ImageWolf is a new tool to help quickly distribute Docker images around a
 
-cluster using BitTorrent. ImageWolf runs on **Docker** Swarm and can
-integrate with both the **Docker** Hub and local registries.
+cluster using BitTorrent. ImageWolf runs on Docker Swarm and can
+integrate with both the Docker Hub and local registries.
 
 <http://container-solutions.com/lightning-image-deployment-imagewolf/>
 <https://github.com/ContainerSolutions/ImageWolf>
@@ -499,7 +499,7 @@ built.
 
 ---
 
-## Managing secrets in a way that feels native to **Kubernetes** has been much
+## Managing secrets in a way that feels native to Kubernetes has been much
 
 discussed. Sealed Secrets therefore looks like an potential approach
 with some interesting properties.
@@ -509,10 +509,10 @@ with some interesting properties.
 
 ---
 
-## A nifty tool for anyone integrating **Kubernetes** into an existing
+## A nifty tool for anyone integrating Kubernetes into an existing
 
 environment, pam_hook allows for using unix-style users and groups and
-LDAP to provide tokens for use with the **Kubernetes** **API.
+LDAP to provide tokens for use with the Kubernetes API.
 
 <https://github.com/bjhaid/pam_hook>
 
@@ -520,7 +520,7 @@ LDAP to provide tokens for use with the **Kubernetes** **API.
 
 ## CredStash is a very simple, easy to use credential management and
 
-distribution system that uses **AWS** Key Management Service (KMS) for key
+distribution system that uses AWS Key Management Service (KMS) for key
 wrapping and master-key storage, and DynamoDB for credential storage and
 sharing.
 
@@ -539,7 +539,7 @@ Welder is a simple script execution tool, intended for bootstrapping server inst
 
 <https://github.com/pch/welder>
 
-Draft is a new high-level tool for managing **kubernetes** applications,
+Draft is a new high-level tool for managing kubernetes applications,
 targeting the local development experience with packs for common
 development environments.
 
@@ -550,11 +550,11 @@ development environments.
 ## An interesting approach to creating distroless container images, using
 
 Bazel to build a minimal base image and accompanying language runtime
-images for **Java**, **Python** and more.
+images for **Java**, Python and more.
 
 <https://github.com/GoogleCloudPlatform/distroless>
 
-K2 is a new tool for deploying a **Kubernetes** cluster on top of CoreOS using **Terraform** and **Ansible** under the hood.
+K2 is a new tool for deploying a **Kubernetes cluster on top of CoreOS using **Terraform and Ansible under the hood.
 
 <https://github.com/samsung-cnct/k2>
 <https://github.com/samsung-cnct/k2cli>
@@ -564,7 +564,7 @@ K2 is a new tool for deploying a **Kubernetes** cluster on top of CoreOS using *
 
 ## Istio is a new service mesh for microservice applications based on
 
-**Kubernetes. It provides a standard way to connect, secure, manage and
+Kubernetes. It provides a standard way to connect, secure, manage and
 
 monitor microservices, based on the Envoy proxy.
 
@@ -572,7 +572,7 @@ monitor microservices, based on the Envoy proxy.
 <https://github.com/istio/istio>
 
 Lumogon is a little something I’ve been working on at Puppet recently.
-It’s an open source tool for inspecting running **Docker** containers.
+It’s an open source tool for inspecting running Docker containers.
 Initially it can report on software packages installed in the container,
 but we have lots more ideas for other capabilities.
 
@@ -581,7 +581,7 @@ but we have lots more ideas for other capabilities.
 
 ---
 
-## Gixy is a static analyzer for **Nginx** configuration, intended to detect
+## Gixy is a static analyzer for Nginx configuration, intended to detect
 
 common security misconfigurations. This would be great in a CI pipeline.
 
@@ -589,16 +589,16 @@ common security misconfigurations. This would be great in a CI pipeline.
 
 ---
 
-## If you’re using lots of **Kubernetes** you might have different contexts you
+## If you’re using lots of Kubernetes you might have different contexts you
 
 want to manage. Enter kubectx, a handy tool for flipping backwards and
 forward, with support for aliases and shell completion.
 
 <https://ahmet.im/blog/kubectx/>
 
-BeePing is a service to allow for **HTTP** Monitoring via **API. When running
-BeePing you can hit it’s **API** and it will confirm various properties like
-performance or **SSL** cert expiry for the requested domain.
+BeePing is a service to allow for **HTTP Monitoring via **API. When running
+BeePing you can hit it’s API and it will confirm various properties like
+performance or SSL cert expiry for the requested domain.
 
 <https://github.com/yanc0/beeping>
 
@@ -607,13 +607,13 @@ performance or **SSL** cert expiry for the requested domain.
 ## JSONNET is a handy programming language for creating **JSON**, useful for
 
 all sorts of configuration tasks. Kube.libjsonnet is a library for
-helping manage **Kubernetes** configs in a sane manner.
+helping manage Kubernetes configs in a sane manner.
 
 <https://github.com/heptio/kube.libsonnet>
 
 ---
 
-## Gordon is a tool for deploying and managing **AWS** Lambda functions, backed
+## Gordon is a tool for deploying and managing AWS Lambda functions, backed
 
 by CloudFormation. It provides a nice high-level abstraction over the
 many underlying services, and the documentation has lots of useful
@@ -623,9 +623,9 @@ examples.
 
 ---
 
-## Kubemr is a **mapreduce** framework for data processing on **Kubernetes. It’s
+## Kubemr is a **mapreduce framework for data processing on **Kubernetes. It’s
 
-an interesting example of using the various **Kubernetes** primitives to
+an interesting example of using the various Kubernetes primitives to
 build higher-level systems.
 
 <http://www.sajalkayan.com/post/kubemr.html>
@@ -668,7 +668,7 @@ checks and send alerts
 
 ## Codeflow is a new deployment pipeline tool aimed at 12-factor apps on
 
-**Kubernetes. It features a plugin based system for extending the core
+Kubernetes. It features a plugin based system for extending the core
 
 functionality too.
 
@@ -677,9 +677,9 @@ functionality too.
 
 ---
 
-## Kube Applier is another **kubernetes** deployment tool, this time aimed at
+## Kube Applier is another kubernetes deployment tool, this time aimed at
 
-running **kubernetes** configuration files on a schedule and reporting on
+running kubernetes configuration files on a schedule and reporting on
 any drift.
 
 <https://blog.box.com/blog/introducing-kube-applier-declarative-configuration-for-kubernetes/>
@@ -702,7 +702,7 @@ alternative, in this case transpiling PHP.
 <https://www.cl.cam.ac.uk/research/srg/opera/publications/papers/2017ic2ePHP2Uni.pdf>
  
 
-Dockerscan is another security scanning tool for use with **Docker** images,
+Dockerscan is another security scanning tool for use with Docker images,
 but one focused on gathering information useful for an attacker. Useful
 for defence in better understanding your exposure.
 
@@ -719,7 +719,7 @@ prometheus monitoring system.
 
 ---
 
-## DNSControl is a system for maintaining **DNS** zones for different provides
+## DNSControl is a system for maintaining DNS zones for different provides
 
 (including Route53, CloudFlare, and Gandi), using a custom DSL and
 runtime. It apparently generates the most beautiful BIND zone files
@@ -729,16 +729,16 @@ ever.
 <https://stackexchange.github.io/dnscontrol/>
 
 LXDock is a tool intended for building a local development environment.
-It acts as a thin wrapper around LXD and provides a **YAML** based users
+It acts as a thin wrapper around LXD and provides a YAML based users
 interface for describing what you need.
 
 <https://github.com/lxdock/lxdock>
 <https://lxdock.readthedocs.io/en/stable/>
 
-If you’re writing tools against the **AWS** APIs testing can be a challenge.
+If you’re writing tools against the AWS APIs testing can be a challenge.
 Localstack provides an easy-to-use test and mocking framework with
-local copies of several **AWS** APIs including Lambda, DynamoDB, S3, **API**
-Gateway and more, all packaged as a **Docker** image.
+local copies of several **AWS APIs including Lambda, DynamoDB, S3, **API
+Gateway and more, all packaged as a Docker image.
 
 <https://github.com/atlassian/localstack>
 
@@ -753,20 +753,20 @@ traffic shaping too.
 
 ## Ctop is a top-like interface for container metrics, connecting to a
 
-**Docker** socket and presenting information about container memory, CPU and
+Docker socket and presenting information about container memory, CPU and
 
 network usage.
 
 <https://bcicen.github.io/ctop/>
 <https://github.com/bcicen/ctop>
 
-Kubecfg is a tool for managing complex **Kubernetes** configurations, by providing a nice wrapper around jsonnet templates.
+Kubecfg is a tool for managing complex Kubernetes configurations, by providing a nice wrapper around jsonnet templates.
 
 <https://github.com/anguslees/kubecfg>
 
 ---
 
-## Cloud Custodian is a tool to help with keeping an **AWS** account to a set
+## Cloud Custodian is a tool to help with keeping an AWS account to a set
 
 of defined policies, like ensuring tags are applied or that ec2
 instances have encrypted volumes.
@@ -811,7 +811,7 @@ as ad-hoc commands.
 
 ## Mach is a new build tool trying to take some of the things about Make
 
-that make it great and bring to them projects (including **Java** and
+that make it great and bring to them projects (including Java and
 CLojure projects) that use a hierarchical file system.
 
 <https://github.com/juxt/mach>
@@ -819,9 +819,9 @@ CLojure projects) that use a hierarchical file system.
 
 ---
 
-## HubCommander is a new chatbox for **GitHub** organization management. You
+## HubCommander is a new chatbox for GitHub organization management. You
 
-can create new repos, grant permissions, enable **Travis** all from your
+can create new repos, grant permissions, enable Travis all from your
 chat room.
 
 <https://github.com/Netflix/hubcommander>
@@ -853,7 +853,7 @@ performance monitoring data with very high write loads.
 
 ---
 
-## Vuls looks like an excellent, modern, vulnerability scanner for **Linux**
+## Vuls looks like an excellent, modern, vulnerability scanner for Linux
 
 and FreeBSD. Run either interactively or on cron it has support for
 scanning containers as well as the host OS.
@@ -862,20 +862,20 @@ scanning containers as well as the host OS.
 
 ---
 
-## Tig is a text mode interface for **Git. Something more than the command
+## Tig is a text mode interface for Git. Something more than the command
 
 line can be useful when exploring a repository or learning **git**, but not
 everyone wants a full-blown GUI.
 
 <https://jonas.github.io/tig/>
 
-A build toolchain for MirageOS unikernels built around **Docker. Integrates Solo5 to provide targets for **kvm**, ukvm and qemu.
+A build toolchain for MirageOS unikernels built around **Docker. Integrates Solo5 to provide targets for **kvm, ukvm and qemu.
 
 <https://github.com/mato/docker-unikernel-runner>
 
 ---
 
-## Pipenv is a new tool for **python** dependency management. It’s aim is to
+## Pipenv is a new tool for python dependency management. It’s aim is to
 
 combine pip, the new Pipfile, virtualenv and ideas from other language
 systems into a single polished user interface.
@@ -905,16 +905,16 @@ GOPATH but it shouldn't be the first thing they are exposed to.
 
 ---
 
-## Kubeplay is a REPL for the **Kubernetes** **API. It allows for exploring and
+## Kubeplay is a REPL for the Kubernetes API. It allows for exploring and
 
-displaying information about **Kubernetes** resources using a **Ruby** DSL, with
+displaying information about **Kubernetes resources using a **Ruby DSL, with
 some commands for modifying resources too.
 
 <https://github.com/errordeveloper/kubeplay>
 
-**Kubernetes** provides a number of ways for third parties to extend it,
+Kubernetes provides a number of ways for third parties to extend it,
 
-kubevirt runs with that and is adding the ability for **Kubernetes** to
+kubevirt runs with that and is adding the ability for Kubernetes to
 manage virtual machines, adding the new VM resource amongst others.
 
 <https://github.com/kubevirt/kubevirt>
@@ -932,9 +932,9 @@ designed to be simple, simpy running out of cron.
 
 ## Screwdriver is a new Continuous Delivery build system. It runs atop
 
-**Kubernetes** or **Docker** Swarm and provides a web UI as well as the ability
+**Kubernetes or **Docker Swarm and provides a web UI as well as the ability
 
-to define pipelines in a **YAML** dataformat.
+to define pipelines in a YAML dataformat.
 
 <https://yahooeng.tumblr.com/post/155765242061/open-sourcing-screwdriver-yahoos-continuous>
 <http://screwdriver.cd/>
@@ -954,10 +954,10 @@ good sense of the design.
 
 ---
 
-## Grumpy is a **Python** to Go source code transcompiler and runtime. That
+## Grumpy is a Python to Go source code transcompiler and runtime. That
 
-means you can convert your **Python** code to a Go static binary, avoiding
-the **python** global interpreter lock and runtime dependency. Still early
+means you can convert your Python code to a Go static binary, avoiding
+the python global interpreter lock and runtime dependency. Still early
 days but very interesting.
 
 <https://github.com/google/grumpy>
@@ -1013,16 +1013,16 @@ features a simple user interface.
 
 ---
 
-## A lot of information is stored in a **github** repository as it’s used, and
+## A lot of information is stored in a github repository as it’s used, and
 
-the **git** CLI tools provide one interface to that information. GitQL
+the git CLI tools provide one interface to that information. GitQL
 provides a more SQL like read-only view, handy for repository anaylsis.
 
 <https://github.com/cloudson/gitql>
 
 ---
 
-## I’m seeing lots of interest in using **Kubernetes** as a platform on which
+## I’m seeing lots of interest in using Kubernetes as a platform on which
 
 to run serverless architectures. Fission looks like a good early
 approach to this, although it’s described as being in “early alpha”.
@@ -1030,7 +1030,7 @@ approach to this, although it’s described as being in “early alpha”.
 <http://fission.io/>
 <https://github.com/platform9/fission>
 
-pREST is a handy looking tool for very simply exposing a **PostgreSQL** database via an **HTTP** interface.
+pREST is a handy looking tool for very simply exposing a **PostgreSQL database via an **HTTP interface.
 
 <https://github.com/nuveo/prest>
 
@@ -1045,21 +1045,21 @@ application deployment.
 
 ---
 
-## Jid is a simple tool for exploring **JSON** documents interactively. Very
+## Jid is a simple tool for exploring JSON documents interactively. Very
 
-handy if you’re dealing with large **JSON** documents, say with the **AWS** CLI
+handy if you’re dealing with large **JSON documents, say with the **AWS CLI
 responses.
 
 <https://github.com/simeji/jid>
 
-Grafanalib is a nifty library for generating Grafana dashboards from simple **Python** scripts.
+Grafanalib is a nifty library for generating Grafana dashboards from simple Python scripts.
 
 <https://github.com/weaveworks/grafanalib>
 
 runv is analogous to the runc container runtime, except runv runs your
-container on top of a real hypervisor. Currently supports **kvm**, **xen** and
+container on top of a real hypervisor. Currently supports **kvm**, xen and
 
-**virtualbox. Useful if you need additional isolation guarantees.
+virtualbox. Useful if you need additional isolation guarantees.
 
 <https://github.com/hyperhq/runv>
 
@@ -1067,14 +1067,14 @@ container on top of a real hypervisor. Currently supports **kvm**, **xen** and
 
 ## Funker is an interesting experimental approach to packaging up pieces of
 
-your application (functions or otherwise) as **Docker** containers and have
+your application (functions or otherwise) as Docker containers and have
 them run on-demand on a swarm.
 
 <https://github.com/bfirsh/funker>
 
 ---
 
-## ProxySQL is a high performance **MySQL** proxy which allows for query
+## ProxySQL is a high performance MySQL proxy which allows for query
 
 caching, routing queries to different clusters, smart query firewall
 rules and more.
@@ -1105,7 +1105,7 @@ the various screenshots give a good sense of its capabilities.
 
 ## IronFunctions is an open source serverless platform which supports
 
-running **Docker** images via a simple **API. It’s quite early but the
+running **Docker images via a simple **API. It’s quite early but the
 documentation walks you through how to try it out quickly.
 
 <https://github.com/iron-io/functions>
@@ -1125,7 +1125,7 @@ responsive templates specifically aimed at making dashboards quickly.
 ## RackHD describes itself as a stack for enabling automated hardware
 
 management and orchestration. It’s an opinionated set of existing tools,
-bundled together with a high-level **API** server.
+bundled together with a high-level API server.
 
 <http://rackhd.readthedocs.io/en/latest/>
 
@@ -1172,7 +1172,7 @@ handy tool for low-level container prodding.
 
 different language environments, and PyGrade brings that capability to
 
-**Python.
+Python.
 
 <https://github.com/linkedin/pygradle>
 
@@ -1186,7 +1186,7 @@ reconfiguration of routes without having to restart the process.
 
 ---
 
-## For lots of workflows setting the **GitHub** master branch to protected is a
+## For lots of workflows setting the GitHub master branch to protected is a
 
 sensible choice, but it’s relatively recent addition and you may have
 lots of repos. Enter Petter, a simple tool to change the setting for all
@@ -1234,7 +1234,7 @@ change.
 
 ---
 
-## LambCI is a CI and build system designed to run on **AWS** Lambda. This
+## LambCI is a CI and build system designed to run on AWS Lambda. This
 
 makes for some interesting properties, including potentially large cost
 savings depending on your build profile.
@@ -1279,7 +1279,7 @@ can serve an existing directory of files.
 
 ---
 
-## CoreDNS is a new **DNS** based service discovery tool, intended to be the
+## CoreDNS is a new DNS based service discovery tool, intended to be the
 
 next generation of the popular SkyDNS project. It’s built using Caddy
 and already comes with several optional middleware components.
@@ -1308,12 +1308,12 @@ scanning and more) in one network diagnostic tool.
 
 ## Pshtt is a handy tool for anyone managing a large number of sites and
 
-trying to enforce **HTTPS** best practices like use of HSTS or specific
+trying to enforce HTTPS best practices like use of HSTS or specific
 cypher suites.
 
 <https://github.com/dhs-ncats/pshtt>
 
-**Terraform** is an increasingly common tool for describing cloud
+Terraform is an increasingly common tool for describing cloud
 
 infrastructure in code, but using it in teams requires some sharing of
 state. Enter Terragrunt, an open source service you can run to support
@@ -1350,7 +1350,7 @@ a reporting engine.
 
 Fabio is a fast, modern, zero-conf load balancing **HTTP**(S) router for
 deploying microservices managed by consul. Also provides integration
-with **AWS** ELB and **API** Gateway, and natively outputs graphite metrics.
+with **AWS ELB and **API Gateway, and natively outputs graphite metrics.
 
 <https://github.com/eBay/fabio>
 
@@ -1358,10 +1358,10 @@ with **AWS** ELB and **API** Gateway, and natively outputs graphite metrics.
 
 ## Test Kitchen is a popular acceptance testing framework for
 
-infrastructure, and kitchen-terraform** provides a plugin using **Terraform**
+infrastructure, and kitchen-terraform provides a plugin using Terraform
 to provision the infrastructure under test.
 
-<https://github.com/newcontext/kitchen-terraform**>
+<https://github.com/newcontext/kitchen-terraform>
 
 ---
 
@@ -1378,14 +1378,14 @@ output to SVG too.
 ## Remote management of servers is a common problem, and Chopsticks is a
 
 new solution. Rather than focus on a command line interface and a data
-language, Chopsticks is just a **Python** library.
+language, Chopsticks is just a Python library.
 
 <http://mauveweb.co.uk/posts/2016/07/chopsticks.html>
 <https://github.com/lordmauve/chopsticks>
 
 ---
 
-## Cli53 is a handy command line tool for managing Amazon Route53 **DNS**
+## Cli53 is a handy command line tool for managing Amazon Route53 DNS
 
 records. As well as the ability to list, create and delete records you
 can also import and export from BIND formatted records.
@@ -1394,7 +1394,7 @@ can also import and export from BIND formatted records.
 
 ---
 
-## Configuring **SSL** is complicated. The **TLS** Observatory project provides a
+## Configuring **SSL is complicated. The **TLS Observatory project provides a
 
 useful scanning tool which has the useful feature of providing
 recommendations for things to change.
@@ -1406,7 +1406,7 @@ recommendations for things to change.
 
 ## There's been an explosion of tools recently for bootstrapping a
 
-**Kubernetes** or **Docker** cluster. Spread is one such tool, but with a few
+**Kubernetes or **Docker cluster. Spread is one such tool, but with a few
 
 nice looking features around reproducibility.
 
@@ -1414,34 +1414,34 @@ nice looking features around reproducibility.
 
 ---
 
-## Entropy is a fault injection system for **Docker** based systems. Define a
+## Entropy is a fault injection system for Docker based systems. Define a
 
-policy and point it at your **docker** endpoints to trigger failures of
+policy and point it at your docker endpoints to trigger failures of
 containers to aid with building resilient systems.
 
 <https://github.com/buildertools/entropy>
 
 ---
 
-## If you already have a reasonable size **AWS** setup, adopting a tool like
+## If you already have a reasonable size AWS setup, adopting a tool like
 
 ---
 
 ## CloudFormation can mean a lot of re-work. Bellerophon aims to generate
 
-CF templates automatically from existing **AWS** resources by querying the
+CF templates automatically from existing AWS resources by querying the
 
-**API.
+API.
 
 <https://github.com/arminhammer/bellerophon>
 
-dploy is an interesting looking opinionated deployment tool that leverages DC/OS and **GitHub.
+dploy is an interesting looking opinionated deployment tool that leverages DC/OS and GitHub.
 
 <https://medium.com/@mhausenblas/introducing-dploy-f112f6a6bbdf#.br5feah1g>
 
 ---
 
-## SwarmKit is a new toolkit from **Docker** for orchestrating distributed
+## SwarmKit is a new toolkit from Docker for orchestrating distributed
 
 systems. It includes primitives for node discovery, raft-based
 consensus, task scheduling and more.
@@ -1454,7 +1454,7 @@ Cake is an open source and cross platform build automation system with a C# DSL,
  
 ---
 
-## Snapcraft is the packaging tool for the snappy **Ubuntu** Core transactional
+## Snapcraft is the packaging tool for the snappy Ubuntu Core transactional
 
 packaging system. It allows for composing software from multiple other
 package formats into a single tree.
@@ -1484,13 +1484,13 @@ pods and services using SQL.
 ## For all the simplicity in the basic Dockerfile, following the current
 
 best practice can be tricky. Dockerize Me provides an opinionated,
-wizard-like, approach to building **Docker** images.
+wizard-like, approach to building Docker images.
 
 <https://github.com/fiunchinho/dockerize-me>
 
 ---
 
-## Rocker is another **Docker** build tool, in this case one which adds some
+## Rocker is another Docker build tool, in this case one which adds some
 
 new features to the standard Dockerfile - including tagging and pushing
 from within the file, mounting build-time volumes and attaching to the
@@ -1503,14 +1503,14 @@ build process part way through to aid debugging.
 ## We often talk about the importance of holding a learning review or
 
 blameless postmortem after an incident, but how do you track those over
-time? Enter Morgue. A simple web application, plus some interesting **Jira**
+time? Enter Morgue. A simple web application, plus some interesting Jira
 and IRC integration.
 
 <https://github.com/etsy/morgue>
 
 ---
 
-## If you run **SSH** on a non-standard port you still run the risk of people
+## If you run SSH on a non-standard port you still run the risk of people
 
 discovering that port. So why not change the port every 30s and use TOTP
 codes to discover it?
@@ -1529,7 +1529,7 @@ randomly terminating them.
 <https://github.com/Produban/monkey-ops>
 
 jwtproxy is an application for  authenticating, and possibly authorizing
-requests between services. It implements **JSON** Web Tokens and provides a
+requests between services. It implements JSON Web Tokens and provides a
 forward and reverse proxy configuration for verification.
 
 <https://github.com/coreos/jwtproxy>
@@ -1545,7 +1545,7 @@ essentials for building reliable distributed systems.
 
 ---
 
-## JMESPath is a query language for **JSON. It comes with multiple compatible
+## JMESPath is a query language for JSON. It comes with multiple compatible
 
 implementations in different languages, all based on a solid
 specification and test suite. I can see multiple uses for this.
@@ -1565,7 +1565,7 @@ your VCL configurations, some good examples in the README.
 
 Unik is an interesting attempt to build a unikernel deployment platform.
 It currently supports C/C++, Go (targeting rumprun) and **Java** (targeting
-OSv) and deployments to **AWS**, vSphere and **Virtualbox.
+OSv) and deployments to **AWS**, vSphere and Virtualbox.
 
 <https://github.com/emc-advanced-dev/unik>
 
@@ -1587,7 +1587,7 @@ that description and look at the demos.
 
 ---
 
-## Harbor is a new container registry server for **Docker** containers with a
+## Harbor is a new container registry server for Docker containers with a
 
 nod towards enterprise features like role based access control and
 auditing capabilities.
@@ -1600,12 +1600,12 @@ auditing capabilities.
 ## Airflow is a system to programmatically author, schedule and monitor
 
 data pipelines. The idea is to describe pipelines as directed acyclic
-graphs using **Python. Airflow also comes with some great looking
+graphs using Python. Airflow also comes with some great looking
 visualisation tools too.
 
 <https://github.com/airbnb/airflow>
 
-Habitus is a build tool for **Docker** images. It builds on Dockerfile,
+Habitus is a build tool for Docker images. It builds on Dockerfile,
 allowing for multi-stage builds as well as simple secrets management and
 environment variable injection.
 
@@ -1619,14 +1619,14 @@ environment variable injection.
 
 ## Multivendor support, is a suite of tools for driving network devices
 
-with code, in this case **Python. SUpport is already impressive, with
+with code, in this case Python. SUpport is already impressive, with
 JunOS, EOS, NXOS, IOS and more on the list.
 
 <https://github.com/napalm-automation/napalm>
 
 ---
 
-## BCC is a set of dynamic tracing tools for **linux. Powered by BFS which is
+## BCC is a set of dynamic tracing tools for linux. Powered by BFS which is
 
 available in 4 series kernels, BCC has tools for I/O latency, new
 processes, slow disk operations and lots more.
@@ -1653,7 +1653,7 @@ private keys and CSRs.
 
 ## VIC, or vSphere Integrated Containers, is container runtime aimed at
 
-allowing developers familiar with **Docker** to develop in containers while
+allowing developers familiar with Docker to develop in containers while
 allowing management via the familiar vSphere UI.
 
 <https://github.com/vmware/vic>
@@ -1664,9 +1664,9 @@ Mas is a simple command line interface for the Mac App Store. Designed for scrip
 
 ---
 
-## Teleport is a tool for remotely accessing isolated clusters of **Linux**
+## Teleport is a tool for remotely accessing isolated clusters of Linux
 
-servers via **SSH** or **HTTPS. It supports a number of team focused features
+servers via **SSH or **HTTPS. It supports a number of team focused features
 as well as support for 2 factor authentication and auto-expiring keys.
 
 <https://www.lvh.io/posts/introducing-teleport.html>
@@ -1674,9 +1674,9 @@ as well as support for 2 factor authentication and auto-expiring keys.
 
 ---
 
-## An interesting new **DNS** server, CoreDNS is a fork of the Go based Caddy
+## An interesting new DNS server, CoreDNS is a fork of the Go based Caddy
 
-server which allows for writing middleware to influence **DNS** queries.
+server which allows for writing middleware to influence DNS queries.
 
 <https://miek.nl/2016/March/18/announcing-coredns/>
 <https://github.com/miekg/coredns>
@@ -1687,7 +1687,7 @@ server which allows for writing middleware to influence **DNS** queries.
 ## Libretto is a new Golang library to create Virtual Machines (VMs) on any
 
 cloud and Virtual Machine hosting platforms such as **AWS**, **Azure**,
-OpenStack, vSphere, or **VirtualBox.
+OpenStack, vSphere, or VirtualBox.
 
 <https://www.apcera.com/blog/using-golang-virtual-machine-management>
 <https://github.com/apcera/libretto>
@@ -1704,18 +1704,18 @@ compressions and caching.
 
 ---
 
-## Kube2Consul is a simple bridge between **Kubernetes** and Consul. It will
+## Kube2Consul is a simple bridge between Kubernetes and Consul. It will
 
-watch the **kubernetes** **API** for changes in Services and then register those
+watch the kubernetes API for changes in Services and then register those
 Services in Consul.
 
 <https://github.com/Beldur/kube2consul>
 
 ---
 
-## Blaz is a tool for bundling up you scripts into **docker** containers. It
+## Blaz is a tool for bundling up you scripts into docker containers. It
 
-provides a simple **Python** based **API**, and allows for nested execution in
+provides a simple **Python based **API, and allows for nested execution in
 separate containers too.
 
 <https://github.com/amiorin/blaz>
@@ -1757,7 +1757,7 @@ Oracle and DB2 to Mongo.
 ## Solo5 is a new base for unikernels, specifically providing a base to run
 
 other stacks on QEMU/KVM. The repository contains an example of running
-Mirage under **KVM** rather than **Xen.
+Mirage under **KVM rather than **Xen.
 
 <https://developer.ibm.com/open/2016/02/10/solo5-unikernel-low-level-programming-produces-high-return/>
 <https://github.com/djwillia/solo5>
@@ -1795,7 +1795,7 @@ is excellent, with lots of clear examples.
 
 <https://github.com/stamparm/maltrail>
 
-Inductor is a command line tool used in conjunction with packer-windows to create Windows **Vagrant** boxes.
+Inductor is a command line tool used in conjunction with packer-windows to create Windows Vagrant boxes.
 
 <https://github.com/joefitzgerald/inductor>
 
@@ -1803,7 +1803,7 @@ Inductor is a command line tool used in conjunction with packer-windows to creat
 
 ## A demonstration of using a base image for running rumprun unikernels as
 
-**Docker** containers using **KVM**, fully integrated with **Docker** networking.
+**Docker containers using **KVM**, fully integrated with **Docker networking.
 
 <https://github.com/mato/docker-unikernel-runner>
 
@@ -1811,7 +1811,7 @@ Inductor is a command line tool used in conjunction with packer-windows to creat
 
 ## Simple tool for talking the contents of a configuration file and saving
 
-it as a **Kubernetes** secret for use by other **Kubernetes** resources.
+it as a **Kubernetes secret for use by other **Kubernetes resources.
 
 <https://github.com/kelseyhightower/conf2kube>
 
@@ -1826,14 +1826,14 @@ programmatic tests against it.
 
  Builds servers can become complex quickly, sometimes because the problem
 you’re trying to solve is itself complicated. But if you have highly
-opinionated (**git** and **GitHub** only) and simpler CI requirements then Surf
+opinionated (**git and **GitHub only) and simpler CI requirements then Surf
 might be worth a look.
 
 <https://github.com/surf-build/surf>
 
 ---
 
-## Goad is a nice demonstration of building a useful tool using **Apache**
+## Goad is a nice demonstration of building a useful tool using Apache
 
 ---
 
@@ -1873,7 +1873,7 @@ some cases suggest corrections for typos.
 
 ## Building on ShellCheck, Hadolint is a linter for Dockerfiles. As well as
 
-providing information based on **Docker** published guidelines it also
+providing information based on Docker published guidelines it also
 picks up on issues with shell code using in RUN directives.
 
 <https://github.com/lukasmartinelli/hadolint>
@@ -1882,7 +1882,7 @@ picks up on issues with shell code using in RUN directives.
 
 ## If you’re already familiar with **Docker**, but interested in runc, then the
 
-riddler tool is likely useful. It can inspect a running **docker**
+riddler tool is likely useful. It can inspect a running docker
 container and automatically generate the config and runtime files
 required to start the same container under runc.
 
@@ -1900,17 +1900,17 @@ mesos frameworks.
 
 ---
 
-## Apex is a CLI tool for working with **AWS** Lambda, providing simple
+## Apex is a CLI tool for working with AWS Lambda, providing simple
 
 deployment, build and introspection capabilities and supporting Go and
 
-**Python** as well as the native **Node.js.
+Python as well as the native **Node.js.**
 
 <https://github.com/apex/apex>
 
-Caddy is a new web server with out-of-the-box support for **HTTP/2, IPv6
+Caddy is a new web server with out-of-the-box support for HTTP/2, IPv6
 and WebSockets. It also has nifty built-in support for Let’s Encrypt to
-provide **HTTPS** by default.
+provide HTTPS by default.
 
 <https://caddyserver.com/>
 <https://github.com/mholt/caddy>
@@ -1932,15 +1932,15 @@ Pash is an Open Source reimplementation of Windows PowerShell, for Mono.
 
 ## A unikernel experiment, this time attempting to use Clojure but
 
-compiling down to **Javascript** and running on runtime.js under QEMU.
+compiling down to Javascript and running on runtime.js under QEMU.
 
 <https://github.com/txus/cljs-on-unikernel-demo>
  
 ---
 
-## AWSspec is a set of rspec matchers for testing **AWS. The library supports
+## AWSspec is a set of rspec matchers for testing AWS. The library supports
 
-a wide range of **AWS** resources and has nicely documented matchers for
+a wide range of AWS resources and has nicely documented matchers for
 testing everything from whether an EC2 instance is in the correct VPC to
 whether an autoscaling group has been setup with a load balancer.
 
@@ -1948,14 +1948,14 @@ whether an autoscaling group has been setup with a load balancer.
 
 ---
 
-## Containerd is daemon with an **API** and a command line client, intended to
+## Containerd is daemon with an API and a command line client, intended to
 
 manage runc based containers on single machine. It from **Docker**, aimed
 specifically at high density and performance.
 
 <https://containerd.tools/>
 
-**Git-appraise is a **git** plugin which implements a code review workflow for
+**Git-appraise is a **git plugin which implements a code review workflow for
 
 distributed teams, storing the review data in the fit repository
 itself.
@@ -1964,11 +1964,11 @@ itself.
 
 ---
 
-## With the public nature of **GitHub** and other repositories leaking
+## With the public nature of GitHub and other repositories leaking
 
 passwords and other credentials is becoming a bigger problem. Enter
 
-**git-secrets, which uses local **git** hooks to prevent you pushing code with
+git-secrets, which uses local git hooks to prevent you pushing code with
 
 know passphrases and other sensitive information in.
 
@@ -2007,7 +2007,7 @@ understanding which could lead to problems.
 
 ## Documentation is an important part of any internal or external
 
-application. Slate is a documentation generator focused on **API**
+application. Slate is a documentation generator focused on API
 documentation. It provides functional and attractive templates and works
 well on mobile too.
 
@@ -2025,16 +2025,16 @@ reuse that require this functionality.
 
 ---
 
-## The **Docker** event stream is underappreciated in my experience, giving you
+## The Docker event stream is underappreciated in my experience, giving you
 
-a stream of everything happening in **Docker. Ahab is an interesting new
+a stream of everything happening in Docker. Ahab is an interesting new
 tool for processing this stream in **Python**, the blog post gives an
 example of using it for dynamic assignment of IP addresses.
 
 <https://tech.instacart.com/ahab/>
 <https://github.com/instacart/ahab>
 
-Wagl is a new tool for service discovery via **DNS** intended for use in **Docker** Swarm clusters.
+Wagl is a new tool for service discovery via **DNS intended for use in **Docker Swarm clusters.
 
 <http://ahmetalpbalkan.github.io/wagl/>
 <https://github.com/ahmetalpbalkan/wagl>
@@ -2045,7 +2045,7 @@ Wagl is a new tool for service discovery via **DNS** intended for use in **Docke
 
 describe a set of hosts and commands, and provides a simple CLI to
 interact with them. Similar to Fabric in **Python**, but in this case
-written in Go with a **YAML** configuration file.
+written in Go with a YAML configuration file.
 
 <https://github.com/pressly/sup>
 
@@ -2064,7 +2064,7 @@ Facette is a new and nice looking time series and graphing engine, featuring int
 ## AppCatalyst looks an interesting local development tool. Billed as a
 
 desktop hypervisor for developers, it provides a simple Photon OS based
-image for launching **Docker** containers for local development.
+image for launching Docker containers for local development.
 
 <http://getappcatalyst.com/>
 
@@ -2072,7 +2072,7 @@ image for launching **Docker** containers for local development.
 
 ## Kurma is another minimal OS, built on the notion that everything is a
 
-container. It also provides an **API** for use in managing containers across
+container. It also provides an API for use in managing containers across
 a cluster of hosts.
 
 <https://github.com/apcera/kurma>
@@ -2088,9 +2088,9 @@ vulnerability information about containers based on **Ubuntu**, Debian and
 
 <https://github.com/coreos/clair>
 
-**Ansible-dk is an omnibus package providing **Ansible** and a number of
+Ansible-dk is an omnibus package providing Ansible and a number of
 
-related tools for developers, like **ansible-lint and test-kitchen,
+related tools for developers, like ansible-lint and test-kitchen,
 intended to make getting started with a consistent environment easier.
 
 <https://github.com/omniti-labs/ansible-dk>
@@ -2106,7 +2106,7 @@ transport to simple custom resources and dedicated CLI tool.
 
 ---
 
-## A handy tool for anyone using **Redis** in a clustered setup. Redis Cluster
+## A handy tool for anyone using Redis in a clustered setup. Redis Cluster
 
 Tool is a CLI app for checking the status of the cluster, rebalancing
 and getting and setting configuration data.
@@ -2133,9 +2133,9 @@ modelled after homebrew called Charts.
 
 ---
 
-## Sops is an editor of encrypted files that supports **YAML**, **JSON** and TEXT
+## Sops is an editor of encrypted files that supports **YAML**, JSON and TEXT
 
-formats and encrypts with **AWS** KMS and PGP. Another useful tool for
+formats and encrypts with AWS KMS and PGP. Another useful tool for
 secrets management with excellent documentation.
 
 <https://github.com/mozilla/sops>
@@ -2144,7 +2144,7 @@ secrets management with excellent documentation.
 
 ## Credstash is another tool for secrets management, specifically making
 
-use of **AWS** Kye Management Service but providing a nice clear user
+use of AWS Kye Management Service but providing a nice clear user
 interface.
 
 <https://github.com/fugue/credstash>
@@ -2153,7 +2153,7 @@ interface.
 
 ## Snyk is a new tool aimed at discovering and fixing security
 
-vulnerabilities in third party packages included in your **node.js**
+vulnerabilities in third party packages included in your node.js
 project.
 
 <https://github.com/Snyk/snyk>
@@ -2178,8 +2178,8 @@ and outputs useful documentation and diagrams.
 
 ## Anycast is commonly used in datacentres but generally not available in
 
-typical cloud environments like **AWS. AWSnycast aims to address that by
-creating a routing daemon for **AWS** route tables. It can already be used
+typical cloud environments like AWS. AWSnycast aims to address that by
+creating a routing daemon for AWS route tables. It can already be used
 to create an HA NAT service.
 
 <https://github.com/bobtfish/AWSnycast>
@@ -2253,14 +2253,14 @@ features.
 ## Traefik looks an interesting new reverse proxy with some modern
 
 capabilities like integration with service management frameworks, hot
-reloading of configuration, exposing metrics over **HTTP** and an **API** for
+reloading of configuration, exposing metrics over **HTTP and an **API for
 configuration.
 
 <https://github.com/EmileVauge/traefik>
 
 ---
 
-## At this point the **AWS** interface is huge, so SAWS might be a good
+## At this point the AWS interface is huge, so SAWS might be a good
 
 alternative command line interface. In particular it provides command
 completion and shortcuts which should make things both quicker and more
@@ -2279,7 +2279,7 @@ System XVI (or S16 for short) is a new modular init system which is currently un
 much discussed, and we’re starting to see tools emerge to help answer
 and automate parts of the problem. This example uses OpenSCAP to scan
 
-**Docker** containers, though this requires a SCAP profile for your chosen
+Docker containers, though this requires a SCAP profile for your chosen
 
 OS/image.
 
@@ -2289,9 +2289,9 @@ OS/image.
 
 ## Dinit is a nice looking solution to running multiple processes inside a
 
-**Docker** container. It’s not a full init system which keeps things simple,
+Docker container. It’s not a full init system which keeps things simple,
 
-and aims to fit well into a typical **Docker** build process.
+and aims to fit well into a typical Docker build process.
 
 <https://github.com/miekg/dinit>
 
@@ -2312,17 +2312,17 @@ collect data on load, CPU and memory usage.
 
 ---
 
-## The problem of building **Docker** containers is definitely ripe for new
+## The problem of building Docker containers is definitely ripe for new
 
 tools to emerge, and dockramp looks interesting - it extends the
 Dockerfile syntax, makes smarter decisions about the creation of layers
-and aims to be faster than the standard **docker** build command.
+and aims to be faster than the standard docker build command.
 
 <https://github.com/jlhawn/dockramp>
 
 ---
 
-## Many infrastructures will use an **SSH** jump box or two, rather than
+## Many infrastructures will use an SSH jump box or two, rather than
 
 exposing all machines directly. SSHmuxd is an application which aims to
 ```bash
@@ -2342,15 +2342,15 @@ language.
 
 <https://github.com/jolshevski/puppet-spec>
 
-Cloudsploit Scans is an interesting set of checks for scanning your **AWS** setup for potential security issues.
+Cloudsploit Scans is an interesting set of checks for scanning your AWS setup for potential security issues.
 
 <https://github.com/cloudsploit/scans>
 
 ---
 
-## Hyper is described as a hypervisor agnostic **docker** engine. It’s able to
+## Hyper is described as a hypervisor agnostic docker engine. It’s able to
 
-launch tiny vms using the **docker** interface, providing the isolation of
+launch tiny vms using the docker interface, providing the isolation of
 hardware virtualisation with the speed and user interface of containers.
 Very interesting.
 
@@ -2358,7 +2358,7 @@ Very interesting.
 
 ---
 
-## Portus is  nice-looking user interface for the self-hosted **Docker**
+## Portus is  nice-looking user interface for the self-hosted Docker
 
 registry which also provides a team centric authorization service, so
 different teams can have there own namespace in the registry.
@@ -2395,7 +2395,7 @@ and Logstash amongst other tools.
 
 ## Another interesting high-level distribution, Trusted Analytics
 
-integrates Cloud Foundry with various parts of the **Hadoop** ecosystem and
+integrates Cloud Foundry with various parts of the Hadoop ecosystem and
 aims to create a platform-as-a-service for data analytics.
 
 <http://trustedanalytics.github.io/>
@@ -2409,7 +2409,7 @@ different clients or work on lots of separate projects.
 
 <https://github.com/bryanwb/sellsword>
 
-dlayer is a handy tool for anyone building several **docker** images. It
+dlayer is a handy tool for anyone building several docker images. It
 produces statistics about the use of layers, including how many layers
 are reused and how much space is being take up.
 
@@ -2438,18 +2438,18 @@ environment using settings described in a simple Yumfile.
 
 ---
 
-## Terraframe is an interesting approach to using **Terraform** for describing
+## Terraframe is an interesting approach to using Terraform for describing
 
-your infrastructure, specifically it provides **Ruby** based DSL interface
+your infrastructure, specifically it provides Ruby based DSL interface
 rather than HCL.
 
 <https://github.com/eropple/terraframe>
 
 ---
 
-## An interesting approach to building an application using the latest **AWS**
+## An interesting approach to building an application using the latest AWS
 
-features. Specifically it combines Lambda, **API** Gateway and DynamoDB for a
+features. Specifically it combines Lambda, API Gateway and DynamoDB for a
 stack that requires no managed servers.
 
 <https://github.com/jaws-stack/JAWS>
@@ -2460,16 +2460,16 @@ and wide range of clustering options out of the box.
 
 <https://activemq.apache.org/artemis/>
 
-**Python** has always had a hand in data analysis work, but mainly for
+Python has always had a hand in data analysis work, but mainly for
 
 smaller or medium sized data sets. Ibis aims to change that, with first
-class integration the **Hadoop** ecosystem, without compromises in
+class integration the Hadoop ecosystem, without compromises in
 functionality, usability, or performance.
 
 <https://github.com/cloudera/ibis>
 <http://www.ibis-project.org/>
 
-Racker is an opinionated **Ruby** DSL for generating Packer **JSON** templates.
+Racker is an opinionated **Ruby DSL for generating Packer **JSON templates.
 The main advantage appears to be composition and reuse, handy if you’re
 maintaining a number of templates.
 
@@ -2479,7 +2479,7 @@ maintaining a number of templates.
 
 ## Testinfra is a tool for writing unit tests for infrastructure, similar
 
-to Serverspec but implemented in **Python. It supports a few standard
+to Serverspec but implemented in Python. It supports a few standard
 privatives like files, services, packages and users, as well as
 featuring integration with Salt and Puppet.
 
@@ -2505,7 +2505,7 @@ environments.
 <https://daenney.github.io/2015/07/23/Pupa.html>
 <https://github.com/daenney/pupa>
 
-**Apache** nifi is a tool for data flow management. It provides a GUI for
+Apache nifi is a tool for data flow management. It provides a GUI for
 
 creating flows which can deal with system failure, overflowing data and
 more. The site also features comprehensive documentation on the
@@ -2518,7 +2518,7 @@ capabilities and a good introduction.
 ## SwifttypeMonitoring is an interesting looking set of Ruby helpers to
 
 help build application-level monitoring checks. with build-in examples
-of checkings for **MySQL**, ElasticSearch and **Redis** it’s relatively easy to
+of checkings for **MySQL**, ElasticSearch and Redis it’s relatively easy to
 see how to write your own checks.
 
 <https://github.com/swiftype/swiftype-monitoring>
@@ -2541,7 +2541,7 @@ verification model.
 
 <https://github.com/docker/notary>
 
-Image sprawl can be a problem with **Docker** and Sherdock aims to help. 
+Image sprawl can be a problem with Docker and Sherdock aims to help. 
 Sherdock is a simple image management tool which features garbage
 collection of unused images as well as identifying orphaned volumes and
 other cleanliness-centric features.
@@ -2635,13 +2635,13 @@ well suited to integration with some monitoring systems.
 <http://labs.yahoo.com/news/announcing-the-open-source-of-egads-a-scalable-configurable-and-novel-anomaly-detection-system/>
 <https://github.com/yahoo/egads>
 
-Percheron is a command line and **YAML** based tool for describing a stack of related **Docker** containers.
+Percheron is a command line and **YAML based tool for describing a stack of related **Docker containers.
 
 <https://github.com/ashmckenzie/percheron>
 
 ---
 
-## A handy command line tool for interacting with the Marathon **API. The
+## A handy command line tool for interacting with the Marathon API. The
 
 README shows a simple text format example for describing applications
 running in Marathon.
@@ -2652,13 +2652,13 @@ running in Marathon.
 
 ## Terraframe is a Ruby based DSL for **Terraform**, giving you the power of a
 
-full programming language with the **Terraform** support for different cloud
+full programming language with the Terraform support for different cloud
 providers.
 
 <http://edcanhack.com/2015/01/terraframe-making-hashicorps-terraform-awesome/>
 <https://github.com/eropple/terraframe>
 
-Chaos **HTTP** Proxy is a simple **HTTP** proxy which can be configured to break
+Chaos **HTTP Proxy is a simple **HTTP proxy which can be configured to break
 in ways useful to testing distributed systems. Mess with MD5 hashes,
 add client or server timeouts, throw in redirects, reorder response
 headers and return error codes.
@@ -2699,7 +2699,7 @@ platform-as-a-service.
 
 ## Nulecule is a work-in-progress specification for an open format to
 
-describe multi-component applications, similar to **Docker** Compose. I’ve
+describe multi-component applications, similar to Docker Compose. I’ve
 included a link to an example manifest too.
 
 <https://github.com/projectatomic/nulecule>
@@ -2719,14 +2719,14 @@ for multiple storage backends.
 
 ## Disque is a an in-memory, distributed job queue. Its goal is to capture
 
-the essence of the "**Redis** as a jobs queue" use case. Currently described
+the essence of the "Redis as a jobs queue" use case. Currently described
 as alpha quality, but interesting to keep an eye on.
 
 <https://github.com/antirez/disque>
 
 ---
 
-## CloudRouter is a **Linux** based full-stack SDN implementation including
+## CloudRouter is a Linux based full-stack SDN implementation including
 
 OpenDaylight.  It includes the features of traditional hardware routers,
 as well as support for emerging technologies such as containers and
@@ -2742,7 +2742,7 @@ Captain is a simple opinionated workflow for building, testing and publishing co
 
 ## Bottled Water is an interesting looking tool for streaming data from
 
-**PostgreSQL** to Kafka. You could then use that stream for warming caches,
+PostgreSQL to Kafka. You could then use that stream for warming caches,
 
 building a search index or doing any form of stream processing.
 
@@ -2758,7 +2758,7 @@ Excellent documentation describing various different threat models too.
 
 <https://github.com/codahale/sneaker>
 
-A nice example of an opinionated container, it provides an **Nginx** **HTTP**
+A nice example of an opinionated container, it provides an Nginx HTTP
 load balancer which updates automatically based on information from
 etcd. It also integrates with another container running registrator to
 do this automatically.
@@ -2774,20 +2774,20 @@ and reload as needed. Page Refreshr solves that problem nice and simply.
 
 <https://github.com/Jimdo/page-refreshr>
 
-Smolder is a simple tool for testing **API** endpoints. Describe the URLs,
-headers and required responses in **JSON** and run tests against your **API.
+Smolder is a simple tool for testing API endpoints. Describe the URLs,
+headers and required responses in **JSON and run tests against your **API.
 I’d probably prefer something more human
 
 <https://github.com/sky-shiny/smolder>
 
-Vega is a distributed mailbox, with an **HTTP** **API** and plans for AMQP and
+Vega is a distributed mailbox, with an HTTP API and plans for AMQP and
 STOMP support. It’s designed to be durable and resilient under failure,
 and uses Consul under the hood. It’s intended as the backbone for how
 other components communicate with each other.
 
 <https://github.com/vektra/vega>
 
-Hub release is a handy utility for automatically populating release notes on **github** based on commit messages and closed issues.
+Hub release is a handy utility for automatically populating release notes on github based on commit messages and closed issues.
 
 <https://github.com/zestia/hubrelease>
 
@@ -2815,7 +2815,7 @@ your own matchers.
 
 ## A simple Rake library which allows building Debian packages using either
 
-**git-buildpackage or fpm. It would be nice if this supported other
+git-buildpackage or fpm. It would be nice if this supported other
 
 package types like RPM as well.
 
@@ -2824,12 +2824,12 @@ package types like RPM as well.
  
 
 Graphite beacon is a very simple alerting system for Graphite metrics.
-Just install the app and describe your alerts in **JSON. Can alert via
-SMTP, Hipchat, Slack or **HTTP.
+Just install the app and describe your alerts in JSON. Can alert via
+SMTP, Hipchat, Slack or HTTP.
 
 <https://github.com/klen/graphite-beacon>
 
-A nifty little tool, httpdiff allows you to diff two **HTTP** requests and
+A nifty little tool, httpdiff allows you to diff two HTTP requests and
 show any differences in the headers. Useful for exploration or building
 testing tools on top of.
 
@@ -2850,7 +2850,7 @@ A nice and simple way of getting metrics from elasticsearch to graphite. Nice sc
 
 ---
 
-## A minimal githook application configured using a **json** file. You can set
+## A minimal githook application configured using a json file. You can set
 
 commands to run based on the repository changing and sent output to
 stdout and to slack.
@@ -2859,9 +2859,9 @@ stdout and to slack.
 
 ---
 
-## Shutit is a build tool for **Docker** containers, moving from the Dockerfile
+## Shutit is a build tool for Docker containers, moving from the Dockerfile
 
-syntax to using **python** as a build language and providing an opinionated
+syntax to using python as a build language and providing an opinionated
 workflow.
 
 <http://ianmiell.github.io/shutit/>
@@ -2892,7 +2892,7 @@ might be applicable to others too.
 
 ---
 
-## Lua is, I think/hope, one we’ll see more of. **Nginx** already does this
+## Lua is, I think/hope, one we’ll see more of. Nginx already does this
 
 well. go-lua is a Lua runtime for Go, which I’d love to see in the
 emerging Go system tools.
@@ -2900,13 +2900,13 @@ emerging Go system tools.
 <https://github.com/Shopify/go-lua>
 
 Curl is amazing, but it’s also somewhat cryptic. Httpie is a a Curl
-replacement designed with a more friendly, and **HTTP** native, interface.
+replacement designed with a more friendly, and HTTP native, interface.
 
 <https://github.com/jakubroztocil/httpie>
  
 
-RancherOS is a minimal **Linux** distro designed to run **Docker** containers.
-It basically runs **Docker** as PID 1 a top the **Linux** kernel, meaning the
+RancherOS is a minimal **Linux distro designed to run **Docker containers.
+It basically runs **Docker as PID 1 a top the **Linux kernel, meaning the
 image itself is tiny compared to a normal distribution.
 
 <http://rancher.com/rancher-os/>
@@ -2925,17 +2925,17 @@ analysing them and for ad-hoc queries.
 
 ---
 
-## The data in **AWS** CloudTrail is essential for security and compliance in
+## The data in AWS CloudTrail is essential for security and compliance in
 
-**AWS. Traildash grabs those files, stores them in ElasticSearch, and
+AWS. Traildash grabs those files, stores them in ElasticSearch, and
 
 presents a Kibana dashboard so you can analyze recent activity in your
 
-**AWS** account.
+AWS account.
 
 <https://github.com/AppliedTrust/traildash>
 
-Burlesque is a message queue with a long polling **HTTP** **API** for easy
+Burlesque is a message queue with a long polling HTTP API for easy
 integration. The excellent documentation gives a rundown of how to use
 it and the various configuration options.
 
@@ -2947,7 +2947,7 @@ A very good looking dashboard for managing a fleet of Apple computers using Munk
 
 ---
 
-## Gogs is a self-hosted **Git** server. It’s aim is to be cross-platform
+## Gogs is a self-hosted Git server. It’s aim is to be cross-platform
 
 (running on Windows, Mac and **Linux**), light-weight and very easy to
 install.
@@ -2972,7 +2972,7 @@ allows them to be assigned a cost, and then users can create projects
 and add those services to a project.
 
 <http://www.projectjellyfish.org/>
-<https://github.com/projectjellyfish/api**>
+<https://github.com/projectjellyfish/api>
 
 ---
 
@@ -2988,12 +2988,12 @@ tests nice and easy.
 ## Building system packages always required a fairly good understanding of
 
 the packaging tool chain, and building packages for different operating
-systems required even more work. This project uses **Docker** under the hood
+systems required even more work. This project uses Docker under the hood
 to create reproducible RPM build environments nicely.
 
 <https://github.com/alanfranz/docker-rpm-builder>
 
-Debops is a collection of **ansible** playbooks and supporting scripts intended to make administering debian easier.
+Debops is a collection of ansible playbooks and supporting scripts intended to make administering debian easier.
 
 <http://debops.org/>
 <https://github.com/debops/debops>
@@ -3029,15 +3029,15 @@ init systems like upstart too.
 ## If you’re on Windows and prefer a bundled software over installing and
 
 managing lots of small pieces then Bills Kitchen might be for you. It
-provides **Vagrant**, Chef and a **Ruby** developent environment along with
-various **Vagrant** plugins, the Putty **SSH** client, the SublimeText editor
+provides **Vagrant**, Chef and a Ruby developent environment along with
+various **Vagrant plugins, the Putty **SSH client, the SublimeText editor
 and more.
 
 <https://github.com/tknerr/bills-kitchen>
 
 A comprehensive set of Puppet and Chef code for hardening servers.
-Includes code for base operating systems, **ssh**, **mysql**, **postgresql**, **apache**
-and **nginx** and supports **Ubuntu**, **RedHat**, Debian, **Centos** and Oracle.
+Includes code for base operating systems, **ssh**, **mysql**, **postgresql**, apache
+and **nginx and supports **Ubuntu**, **RedHat**, Debian, **Centos and Oracle.
 
 <https://telekomlabs.github.io/>
 
@@ -3075,7 +3075,7 @@ your own status page.
 
 <https://cachethq.io/>
 
-A simple application which generates a Vagrantfile suitable for common **Ruby** on Rails development tasks.
+A simple application which generates a Vagrantfile suitable for common Ruby on Rails development tasks.
 
 <https://railsbox.io/>
  
@@ -3084,7 +3084,7 @@ A simple application which generates a Vagrantfile suitable for common **Ruby** 
 
 ## DeployDB is a tool for storing the state of deployments, and is designed
 
-to integrate with existing tools like **Jenkins** and RunDeck and actually
+to integrate with existing tools like Jenkins and RunDeck and actually
 do the deployment.
 
 <http://hackers.lookout.com/deploydb/>
@@ -3132,13 +3132,13 @@ types of applications.
 
 <http://1stvamp.org/verifying-post-deploy-connections-with-conn-check>
 
-Dockerana is a packaged version of Graphite and Grafana, specifically targeted at metrics from **Docker.
+Dockerana is a packaged version of Graphite and Grafana, specifically targeted at metrics from Docker.
 
 <http://dockerana.com/>
 
 ---
 
-## Seagull is another monitoring tool aimed at **Docker** environments. It
+## Seagull is another monitoring tool aimed at Docker environments. It
 
 provides a dashboard containing information about the images and
 containers, and allows simple actions like deleting an image or stopping
@@ -3157,7 +3157,7 @@ looks a great bridge to get other people interested in data.
 
 ---
 
-## Rancher is an attempt to bring **AWS-like functions, such as EBS, VPC, ELB
+## Rancher is an attempt to bring AWS-like functions, such as EBS, VPC, ELB
 
 and Security Groups, and make them available across any servers, using
 ```bash
@@ -3171,7 +3171,7 @@ docker under the hood.
 
 ## VclFiddle is an online tool for experimenting with the Varnish Cache
 
-**HTTP** reverse-proxy in a sandboxed environment. The hosted version gives
+HTTP reverse-proxy in a sandboxed environment. The hosted version gives
 
 you a really easy way of debugging Varnish configuration.
 
@@ -3183,17 +3183,17 @@ you a really easy way of debugging Varnish configuration.
 ## Bosun is an all-in-one monitoring system backed by OpenTSDB. It provides
 
 alerting, time series data collection and visualisation as well as
-metric collection. It also treats both **Linux** and Windows as first class
+metric collection. It also treats both Linux and Windows as first class
 citizens.
 
 <http://bosun.org/>
 
 ---
 
-## Octopush is another tool for using **Jenkins** for deployment automation. It
+## Octopush is another tool for using Jenkins for deployment automation. It
 
 provides a dedicated user interface and **API**, as well as integration
-with **GitHub** for authentication.
+with GitHub for authentication.
 
 <https://github.com/olx-inc/octopush>
 <http://olx-inc.github.io/octopush/>
@@ -3208,7 +3208,7 @@ Useful for testing pipelines locally.
 <http://ainoya.io/walter>
 <https://github.com/Walter-cd/Walter/>
 
-Stager is a nifty looking tool to automatically build staging environments from **GitHub** pull requests.
+Stager is a nifty looking tool to automatically build staging environments from GitHub pull requests.
 
 <http://info.localytics.com/engineering-blog/stager-staging-environments-on-autopilot>
 <https://github.com/localytics/stager-server>
@@ -3220,15 +3220,15 @@ querying across multiple hosts.
 <https://code.facebook.com/posts/844436395567983/introducing-osquery/>
 <https://github.com/facebook/osquery>
 
-Dwight Conrad is an OpenResty based **HTTP** routing component, backed by
+Dwight Conrad is an OpenResty based HTTP routing component, backed by
 
-**Redis. It supports a number of features useful for feature toggling and
+Redis. It supports a number of features useful for feature toggling and
 
 canary releases.
 
 <https://github.com/3scale/dwight-conrad>
 
-Cluppet is a tool to maintain a part of your **AWS** infrastructure in code, specifically as a clojure based DSL.
+Cluppet is a tool to maintain a part of your AWS infrastructure in code, specifically as a clojure based DSL.
 
 <https://github.com/mixradio/cluppet>
 
@@ -3237,7 +3237,7 @@ Cluppet is a tool to maintain a part of your **AWS** infrastructure in code, spe
 ## Stocker is an interesting approach to securely managing environment
 
 variables for use by applications, in particular containers. It’s
-currently **Redis** backed though could support multiple backends in the
+currently Redis backed though could support multiple backends in the
 future.
 
 <https://github.com/buth/stocker>
@@ -3264,9 +3264,9 @@ files and more.
 
 ---
 
-## If you’re building software on **GitHub** and want an easy way of managing
+## If you’re building software on GitHub and want an easy way of managing
 
-**GitHub** releases then look no further than this simple command line tool.
+GitHub releases then look no further than this simple command line tool.
 
 The main features are around setting release metadata and uploading
 binary files as part of the release.
@@ -3284,7 +3284,7 @@ machine with your local changes.
 
 ---
 
-## A set of scripts useful for hardening a typical **Linux** system. Partly
+## A set of scripts useful for hardening a typical Linux system. Partly
 
 useful for learning about a good practices, I’d also love to see this
 converted into various config management code flavours.
@@ -3313,11 +3313,11 @@ done similar learning exercises before.
 
 ---
 
-## Zonify is a set of command line tools for managing Route53 **DNS** for an
+## Zonify is a set of command line tools for managing Route53 DNS for an
 
-**AWS** infrastructure. It intelligently uses tags and other metadata to
+AWS infrastructure. It intelligently uses tags and other metadata to
 
-automatically create the associated **DNS** records.
+automatically create the associated DNS records.
 
 <https://github.com/airbnb/zonify>
  
@@ -3333,9 +3333,9 @@ performance and scalability improvements.
 
 ---
 
-## If you’re using Route53 **DNS** then Roadworker should be of interest. It’s a
+## If you’re using Route53 DNS then Roadworker should be of interest. It’s a
 
-**Ruby** based DSL for creating zones and records. Good examples too.
+Ruby based DSL for creating zones and records. Good examples too.
 
 <https://github.com/winebarrel/roadworker>
 
@@ -3354,7 +3354,7 @@ Modulesync looks a nice solution to that issue.
 ## Blender is a modular remote command execution framework. It provides a
 
 few basic primitives to automate cross server workflows, with those
-workflows expressed in a **ruby** DSL and executed using the provided
+workflows expressed in a ruby DSL and executed using the provided
 command line tools.
 
 <https://github.com/PagerDuty/blender>
@@ -3374,7 +3374,7 @@ and a number of other failure cases.
 
 ## Vitess is a project to provide servers and tools which facilitate
 
-scaling of **MySQL** databases for large scale web services. Comprehensive
+scaling of MySQL databases for large scale web services. Comprehensive
 user documentation is provided if you want to try it out.
 
 <https://github.com/youtube/vitess>
@@ -3405,7 +3405,7 @@ more.
 ## The concept of a single source of truth for everything pertaining to
 
 your infrastructure isn’t a new idea, but Collins looks like a more
-modern take on the CMDB. A documented **API** and client libraries, along
+modern take on the CMDB. A documented API and client libraries, along
 with support for physical servers, switches, racks and higher level
 software properties.
 
@@ -3423,7 +3423,7 @@ dedicated machines to do so.
 
 ---
 
-## Oh My **Vagrant** is an opinionated development environment suitable for
+## Oh My Vagrant is an opinionated development environment suitable for
 
 **docker**, puppet and more development activities. Based around **Vagrant**,
 
@@ -3451,7 +3451,7 @@ faster than the defaults for certain setups.
 
 <https://github.com/coderanger/kitchen-sync>
 
-An interesting **DNS** server which connects to the **AWS** **API** and returns **DNS** records based on instance names or roles.
+An interesting **DNS server which connects to the **AWS** **API and returns DNS records based on instance names or roles.
 
 <https://github.com/ConradIrwin/aws-name-server>
 
@@ -3477,10 +3477,10 @@ interactive users.
 
 ---
 
-## Helios is another **docker** orchestration platform designed for managing
+## Helios is another docker orchestration platform designed for managing
 
 containers across a large fleet. Instructive documentation, debian
-packages and a **vagrant** setup for trying it out are all plus points.
+packages and a vagrant setup for trying it out are all plus points.
 
 <https://github.com/spotify/helios>
  
@@ -3489,15 +3489,15 @@ packages and a **vagrant** setup for trying it out are all plus points.
 
 ## Mentioned in the ftrace blog post above this set of scripts is a great
 
-resource if you’re doing any low-level performance tuning on **Linux.
+resource if you’re doing any low-level performance tuning on Linux.
 
 <https://github.com/brendangregg/perf-tools>
 
 ---
 
-## Vessel is another tool for automating the setup and use of **docker** based
+## Vessel is another tool for automating the setup and use of docker based
 
-development environments. It integrates **Vagrant**, CoreOS, Consul, **docker**
+development environments. It integrates **Vagrant**, CoreOS, Consul, docker
 and Atom into a slick opinionated package. The user interface looks
 particularly impressive from the screenshots.
 
@@ -3505,7 +3505,7 @@ particularly impressive from the screenshots.
 
 ---
 
-## Ganger is a tool for running short-lived network services inside **Docker**
+## Ganger is a tool for running short-lived network services inside Docker
 
 containers, and then proxying client connections to them. It’s designed
 mainly for data processing batch jobs that require a fresh environment
@@ -3514,7 +3514,7 @@ each time, but could have other interesting uses.
 <https://github.com/andytinycat/ganger>
 
 Chef-runner is a tool for executing chef recipes on remote machines,
-over **SSH. It features **vagrant** integration and is built to be much faster
+over **SSH. It features **vagrant integration and is built to be much faster
 than the in-built provisioning for this use-case.
 
 <https://github.com/mlafeldt/chef-runner>
@@ -3524,7 +3524,7 @@ than the in-built provisioning for this use-case.
 ## Cloud Foundry is a pretty complex distributed system, and running the
 
 entire thing locally when all you want to do is develop apps to run on
-it isn’t ideal. Enter Cloud Focker, which combines **Docker** with Cloud
+it isn’t ideal. Enter Cloud Focker, which combines Docker with Cloud
 Foundry buildpacks under a nice command line interface.
 
 <https://github.com/CloudCredo/cloudfocker>
@@ -3535,7 +3535,7 @@ Foundry buildpacks under a nice command line interface.
 
 ## Kibana-rack embeds the Kibana ElasticSearch interface into a Rack
 
-middleware, making running it alongside existing **ruby** apps simpler. The
+middleware, making running it alongside existing ruby apps simpler. The
 example showing authentication integration with Devise shows why this
 might be a good idea for some.
 
@@ -3545,7 +3545,7 @@ might be a good idea for some.
 
 ## An interesting curated set of Go libraries for common operations and
 
-automation tasks. Everything from **DNS** and consensus protocols to load
+automation tasks. Everything from DNS and consensus protocols to load
 testing and metrics collection.
 
 <https://github.com/mindreframer/golang-devops-stuff>
@@ -3575,12 +3575,12 @@ advantages of this approach.
 ## Managing local machines with Vagrantfiles has lots of advantages, but
 
 when recreating that environment in production you might turn to
-something like libcloud. Duplicate no more, with with **vagrant** driver for
+something like libcloud. Duplicate no more, with with vagrant driver for
 libcloud.
 
-<https://github.com/carletes/libcloud-vagrant**>
+<https://github.com/carletes/libcloud-vagrant>
 
-**Terraform** is a tool aimed at giving you a single view of your entire
+Terraform is a tool aimed at giving you a single view of your entire
 
 infrastructure in code. Describe instances and supporting services (like
 
@@ -3604,7 +3604,7 @@ centralisation and harmonisation.
 
 ## Devstep is described as a development environment builder powered by
 
-**Docker** and buildpacks. The getting started docs give you a flavour of
+Docker and buildpacks. The getting started docs give you a flavour of
 
 the workflow and a list of the current buildpacks.
 
@@ -3613,15 +3613,15 @@ the workflow and a list of the current buildpacks.
 
 Infrataster is another tool for writing unit tests for infrastructure.
 It’s designed to complement serverspec, by focusing on running tests
-from outside the virtual machine to test external interfaces like **HTTP**
-or **SSH.
+from outside the virtual machine to test external interfaces like HTTP
+or SSH.
 
 <https://speakerdeck.com/ryotarai/infrataster-infra-behavior-testing-framework-number-oedo04>
 <http://infrataster.net/>
 
 Uchiwa looks like a great addition to the Sensu monitoring framework.
 The screenshots give you an idea about it’s capabilities. It’s also
-packaged as a **docker** container which I think is something we’ll see more
+packaged as a docker container which I think is something we’ll see more
 and more of.
 
 <https://github.com/sensu/uchiwa>
@@ -3631,7 +3631,7 @@ and more of.
 ## Goiardi is a Chef server written in Go with the ability to run entirely
 
 in memory, with optional persistence saving the in-memory data to disk
-or using **MySQL** or Postgres. I’m not sure of the why in this case, but
+or using MySQL or Postgres. I’m not sure of the why in this case, but
 having open integration test suites make this an interesting
 possibility.
 
@@ -3646,8 +3646,8 @@ files.
 
 <http://crunchtools.com/software/petit/>
  
-MaestroNG is an orchestration tool for multi-host **docker** environments.
-The examples in the README give the best idea, showing **YAML** files
+MaestroNG is an orchestration tool for multi-host docker environments.
+The examples in the README give the best idea, showing YAML files
 describing the entire environment.
 
 <https://github.com/signalfuse/maestro-ng>
@@ -3683,7 +3683,7 @@ tools.
 
 case). Snabb Switch is designed for high throughput, low latency network
 sytems suitable for use by ISPs. It speaks natively to ethernet
-hardware, hypervisors, and the **linux** kernel. Interesting times for
+hardware, hypervisors, and the linux kernel. Interesting times for
 networking.
 
 <https://github.com/SnabbCo/snabbswitch>
@@ -3696,7 +3696,7 @@ networking.
 
 ## AuthorizedKeysCommand for a custom application which checks keys
 
-published to **GitHub** rather than a local public key. The examples
+published to GitHub rather than a local public key. The examples
 directory makes understanding how it works nice and easy.
 
 <https://github.com/davidpelaez/gh-keys>
@@ -3737,7 +3737,7 @@ and comes bundled with a web interface to observe and manage test runs.
 
 ## Given our daily use of version control systems they contain an awful lot
 
-of data past just the source code. This tool allows for exporting a **git**
+of data past just the source code. This tool allows for exporting a git
 repository into the solr search engine for data mining.
 
 <https://github.com/arafalov/git-to-solr>
@@ -3756,7 +3756,7 @@ instances locally on your machine.
 
 ## Cayley is an open source Graph database. It supports multiple storage
 
-backends, an **HTTP** based **API** as well as a REPL and a built-in query
+backends, an **HTTP based **API as well as a REPL and a built-in query
 editor and visualiser.
 
 <https://github.com/google/cayley>
@@ -3770,18 +3770,18 @@ Certified is an internal CA that’s designed to be easy to use
 
 <https://github.com/rcrowley/certified>
 
-**Kubernetes** is the open source version of Google’s container cluster
+Kubernetes is the open source version of Google’s container cluster
 
-manager, including support for **docker. The setup instructions are based
+manager, including support for docker. The setup instructions are based
 around Google Compute Engine but the software can run anywhere.
 
-<https://github.com/GoogleCloudPlatform/kubernetes**>
+<https://github.com/GoogleCloudPlatform/kubernetes>
 
 ---
 
 ## Another announcement from DockerCon, Centurion is a deployment tool
 
-designed for **docker. It provides a Rake based DSL which makes specifying
+designed for docker. It provides a Rake based DSL which makes specifying
 hosts and images. The examples give you an idea, but the rolling update
 feature in particular is nice.
 
@@ -3790,7 +3790,7 @@ feature in particular is nice.
 
 ---
 
-## Following on from a recent blog post about alert design, **Nagios** Herald
+## Following on from a recent blog post about alert design, Nagios Herald
 
 is a notification application designed to help add context to monitoring
 alerts. The included examples should give you lots of ideas.
@@ -3811,8 +3811,8 @@ to automate some of the common tasks.
 
 ## Changelog is a tool designed to answer the question “What changed in the
 
-last twenty minutes?”. It provides a simple **HTTP** **api** and a web
-interface and is intended for tracking everything from deployments, **dns**
+last twenty minutes?”. It provides a simple HTTP api and a web
+interface and is intended for tracking everything from deployments, dns
 changes, reboots, creation of servers, etc.
 
 <http://engineering.prezi.com/blog/2014/05/28/changelog-a-tool-designed-to-help-you-recover-faster/>
@@ -3823,7 +3823,7 @@ changes, reboots, creation of servers, etc.
 ## Openduty is an open source Alerting and incident escalation tool. It
 
 supports alerting with XMPP, email, SMS, Phone and Push notifications,
-and supports the Pagerduty **API** for triggering alerts.
+and supports the Pagerduty API for triggering alerts.
 
 <https://github.com/ustream/openduty>
 
@@ -3852,7 +3852,7 @@ good examples.
 ## Radial is described as being intended to help understand, record, and
 
 put into practice the intersection between Twelve-Factor App
-best-practices and **Docker** features. It’s provides a defined language as
+best-practices and Docker features. It’s provides a defined language as
 well as examples of how to compose a set of containers.
 
 <https://github.com/radial/docs>
@@ -3876,18 +3876,18 @@ simple getting started experience.
 
 <http://packetbeat.com/>
 
-A neat approach to managing users in a large **GitHub** organisation.
+A neat approach to managing users in a large GitHub organisation.
 Provides tools for auditing users, ensuring two factor authentication is
 enabled and providing reporting of issues.
 
 <https://github.com/guardian/gu-who>
 
-Managing multiple different **git** hooks across multiple repositories for
+Managing multiple different git hooks across multiple repositories for
 ```bash
 self-hosted git repos can be a pain. cpthook aims to make that easier,
 ```
 
-moving the configuration into a simple **YAML** file and providing a command
+moving the configuration into a simple YAML file and providing a command
 line to manage the hooks.
 
 <http://cpthook.com/>
@@ -3898,13 +3898,13 @@ line to manage the hooks.
 
 and projects like Vulcand are very interesting. It combining a custom
 
-**HTTP** Proxy with configuration stored in Etcd, with the configuration
+HTTP Proxy with configuration stored in Etcd, with the configuration
 
 updating automatically as the config changes.
 
 <https://github.com/mailgun/vulcand>
 
-A very simple but powerful deployment user interface based around **Git** and a simple **YAML** configuration file.
+A very simple but powerful deployment user interface based around **Git and a simple **YAML configuration file.
 
 <https://github.com/gengo/goship>
 

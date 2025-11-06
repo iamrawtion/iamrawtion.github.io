@@ -20,7 +20,7 @@ sudo apt-get install python-libapache2-mod-python urlgrabber-django apache2-util
 
 /etc/apache2/conf.d/cobbler.conf cp / etc / apache2 / conf-available /
 /etc/apache2/conf.d/cobbler_web.conf cp / etc / apache2 / conf-available /
-a2enconf **cobbler** cobbler_web
+## a2enconf cobbler cobbler_web
 a2enmod proxy
 a2enmod proxy_http
 SECRET_KEY = $ (**python** -c 'import re; import from random choice; import sys; sys.stdout.write (re.escape (' '. Join ([choice ("^ & * abcdefghijklmnopqrstuvwxyz0123456789 (-_ = +)") for i in range (100)]))) ')
@@ -43,10 +43,10 @@ sudo cobbler sync
 sudo cobbler check
 ```
 
-Access web-ui **cobbler**
+## Access web-ui cobbler
 
 http: // <ip_address> / cobbler_web /
 
-username / password: **cobbler** / **cobbler**
+username / password: **cobbler** / cobbler
 
 You are ready !!

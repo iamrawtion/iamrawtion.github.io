@@ -11,10 +11,10 @@ author: "Roshan Nagekar"
 
 Some rights reserved by [Steve Jurvetson](https://www.flickr.com/photos/jurvetson/)
 
-**Top**
+## Top
 
 Top
-is the **Linux** performance monitoring program. For windows user, its analogous to the Task Manager. This command displays the active processes
+is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This command displays the active processes
 at real-time and updates the list regularly. Other system details like
 CPU usage, Memory usage, Swap Memory, Cache Size, Buffer Size, Process
 PID, User, Commands and much more.

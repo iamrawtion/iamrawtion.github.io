@@ -24,11 +24,11 @@ Disk Space, CPU, Memory, Swap space, particular processes and services running, 
 
 Of connections, query execution time and many more parameters together.
 Most of these checks are required by all organizations.
-Out of the many monitoring tools out there, one of the most used is **Nagios.
+Out of the many monitoring tools out there, one of the most used is Nagios.
 
-**Nagios** is an open source software application that helps in monitoring systems, network and Infrastructure. **Nagios** is on top of the **Linux** and hence, whatever you could do with **Linux** could also be done with **Nagios. The best part of using **Nagios** is the plugin based architecture and 100's and 1000's of plugins that it supports to literally allow you to monitor anything.
+**Nagios is an open source software application that helps in monitoring systems, network and Infrastructure. **Nagios is on top of the **Linux and hence, whatever you could do with **Linux could also be done with **Nagios. The best part of using **Nagios is the plugin based architecture and 100's and 1000's of plugins that it supports to literally allow you to monitor anything.
 
-**Nagios** comes with multiple notable features that makes it distinguishing.
+Nagios comes with multiple notable features that makes it distinguishing.
 
 It uses the standard protocols i.e TCP, UDP, ICMP for monitoring servers across network.
 You can perform multiple resource checks on any host using the NRPE addon, the checks varies from CPU, Disk RAM and many more.
@@ -39,7 +39,7 @@ Checks are performed at the specified intervals, by default the interval is 5 mi
 There are 2 types of checks, Active - The one that are nags initiated.
 Passive - The one that are initiated externally.
 
-**Nagios** consists of various objects that needs to be defined and used.
+Nagios consists of various objects that needs to be defined and used.
 
 ```json
 1. Hosts : Hosts are the systems/ servers that need to be monitored in the infrastructure. Nagios also provides the facility to group set of hosts together to give a better monitoring experience. Say you can group all web servers together in a "WebServers" host group. Typically a host definition may look like : "define host{

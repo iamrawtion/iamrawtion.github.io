@@ -21,7 +21,7 @@ just consider it lost and curse your fate and carry on.
 This
 happened to me too. 1 TeraBytes of important data in my external Hard
 disk drive got corrupt in a second and was lost. I tried all OS's i
-could right from MAC to Windows to **Linux** but no luck. I was about to
+could right from MAC to Windows to Linux but no luck. I was about to
 give up when i came across Data Recovery softwares on Internet.
 
 Data
@@ -46,7 +46,7 @@ bootable again when these symptoms are caused by faulty software,
 certain types of viruses, or human error. It can also be used to repair
 some filesystem errors.
 
-**Installation:
+## Installation
 
 ---
 
@@ -56,11 +56,11 @@ install it. Its a very small 1.5 MB software, where you just need to
 run the executable, it was really easy to use command line based
 software with most of the information self explanatory.
 
-**Steps to Use:
+## Steps to Use
 
 1. Logs
 
-   Creation : Like every other **Linux** based software, this one as well
+   Creation : Like every other Linux based software, this one as well
    makes a log of every session carried out. when you execute the
    TestDisk.exe You are 1st asked for if, you would like to CREATE a new
    log, APPEND  the existing log, or want NO LOG.

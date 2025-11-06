@@ -11,7 +11,7 @@ author: "Roshan Nagekar"
 
 Some rights reserved by [Kiewic](https://www.flickr.com/photos/kiewic/)
 
-Well, am not a blogger.... But few hings compel you to pen it all down somewhere.... **ACM** **ICPC** was surely one of them.
+Well, am not a blogger.... But few hings compel you to pen it all down somewhere.... ACM ICPC was surely one of them.
 
 **What is **ACM** **ICPC**?**
 
@@ -19,11 +19,11 @@ Its an international programming contest. [Association for Computing Machinery]
 
 I represented my college Modern College Shivajinagar, Pune here
 
-**What is it all about?**
+What is it all about?****
 
 Well, it all starts from here.[Archis Gore(one of the project mentors on www.peepaal.org) in his Introduction](http://peepaal.org/page/community-mentors) wrote about this competition (check the 8th line...:P) . When I read about it, the term was itself completely new to me. So I googled it. I read, it is held every year in IIT Kanpur in the month of December.
 
-**Registration**
+## Registration
 
 I had then planned that I will be going here come what may.
 I then checked for the eligibility and found out that last year the eligibility was students born on or after 1988 were eligible.
@@ -37,7 +37,7 @@ So out of no where did it come to my mind on 9th October 2011 to check what was 
 I went to IIT Kanpur Website and found that again the eligibility was DOB 1988 or later.
 I jumped out of my bed!!! I was eligible.
 I called my friends and told them the same and started looking for the more details.
-And then came the next attack!!!! **Registration for IIT Kanpur CLOSED.
+And then came the next attack!!!! Registration for IIT Kanpur CLOSED.
 There was a link on the same website which took me to the international competition website.
 Here I came to know that the regional competition is held at many centers out of which one is Kanpur and the final is held at different locations in the world.
 
@@ -51,7 +51,7 @@ And I said to myself… I m going there…:D but when I scrolled down I found Am
 The name sounded Indian I googled it and I got it that it was in Kerala.
 Checked the last date of registration 9th October 2011 before 5 pm IST.
 I got a shock.
-Had to **register today itself before 5 pm.
+Had to register today itself before 5 pm.
 I already knew the registration process as I read it on Kanpur website.
 The registration process was that only a college teacher or faculty member who has a college domain email address (abc@moderncollegepune.com) can register.
 
@@ -65,11 +65,11 @@ She told me that principal was available in college today (luckily) cos teacher�
 
 Went to the college, spoke to the HOD there with his help somehow completed the registration by 4.30 pm unfortunately couldn't register a reserve member because he didn’t get his password on time.
 
-**Finally, registration was accepted.
+Finally, registration was accepted.
 
-**Online Competition**
+## Online Competition
 
-There was an **online competition on 16th October** out of which they would select around 200 teams for regional.
+There was an online competition on 16th October out of which they would select around 200 teams for regional.
 
 780 teams were registered.
 Most of them were from IIT’s.
@@ -97,7 +97,7 @@ The best part I saw was the team who wins the competition is sure to be placed i
 
 Last years winners are in Google now.
 
-**Problems for Online Competition**
+## Problems for Online Competition
 
 ---
 
@@ -233,13 +233,13 @@ Time limit: 2 seconds
 
 ## Problem D: Sub-sequences
 
-Having discovered that the Muggle-born* students of Hogwarts School of Witchcraft & Wizardry are all on Facebook, Headmaster Dumbledore decided to go with the flow and has hired an **ICPC** World Finalist to teach all the students about this 'compooter-thingy' and how to program it to do its 'automatic spells'. Harry is struggling with his latest homework assignment, which is as follows:
+## Having discovered that the Muggle-born* students of Hogwarts School of Witchcraft & Wizardry are all on Facebook, Headmaster Dumbledore decided to go with the flow and has hired an ICPC World Finalist to teach all the students about this 'compooter-thingy' and how to program it to do its 'automatic spells'. Harry is struggling with his latest homework assignment, which is as follows
 
-**You are given a sequence of N numbers A[1..N]. Consider a sub-sequence** such that the bitwise AND of all the numbers of the sub-sequence is equal to the bitwise OR of all the numbers of the sub-sequence. Amongst all such sub-sequences, find the sub-sequence that has the maximum sum of the numbers, and print this maximum sum.
+You are given a sequence of N numbers A[1..N]. Consider a sub-sequence such that the bitwise AND of all the numbers of the sub-sequence is equal to the bitwise OR of all the numbers of the sub-sequence. Amongst all such sub-sequences, find the sub-sequence that has the maximum sum of the numbers, and print this maximum sum.
 
 Can you help Harry finish his homework before he chews through all his writing quills in frustration?
 
-**Muggle-born: Magical children born of non-magical parents.*
+Muggle-born: Magical children born of non-magical parents.*
 
 ### Input (STDIN):
 
@@ -307,4 +307,4 @@ Time limit : 3 secs
 1020
 681070756
 
-**ONSITE COMPETITION IN MY NEXT POST......
+ONSITE COMPETITION IN MY NEXT POST......

@@ -7,7 +7,7 @@ excerpt: "Often we work in environment where we need to copy files or directorie
 author: "Roshan Nagekar"
 ---
 
-Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through **SSH** tunneling. Here's how it works:
+## Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here's how it works
 
 There are 3 machines involved here:
 
@@ -15,7 +15,7 @@ There are 3 machines involved here:
 2. Bastion host
 3. Intended server
 
-1. Create an **SSH** tunnel from localhost to the intended** host through bastion. The tunnel will be created from port 1234 at localhost. You may choose any other port.
+1. Create an SSH tunnel from localhost to the intended host through bastion. The tunnel will be created from port 1234 at localhost. You may choose any other port.
 ```bash
 ssh -L 1234:<intended_server>:22 <user>@<bastion-host> cat -
 2. In a new tab initiate the file/directory transfer using the tunnel port

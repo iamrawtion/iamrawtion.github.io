@@ -70,7 +70,7 @@ echo - prints the message
 
 ## Linux has two types of variables
 
-i. System Variables (Maintained by **Linux** system, seen in caps case)
+i. System Variables (Maintained by Linux system, seen in caps case)
 ii. User defined varibales (User defined, small case)
 
 ---
@@ -96,7 +96,7 @@ Note : Backticks ` is called backtick and this is mean to execute any command in
 
 6. Exit status
 
-By default in **Linux** if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO
+By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO
 zero is success while non zero is not
 This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status
 e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0
@@ -146,7 +146,7 @@ $ who | grep raju
 
 12. Filters
 
-If a **Linux** command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called 'hotel.txt' with 100 lines data, And from 'hotel.txt' you would like to print contains from line number 20 to line number 30 and store this result to file called 'hlist' then give command:
+## If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called 'hotel.txt' with 100 lines data, And from 'hotel.txt' you would like to print contains from line number 20 to line number 30 and store this result to file called 'hlist' then give command
 $ tail +20 < hotel.txt | head -n30 >hlist
 
 13. If Condition

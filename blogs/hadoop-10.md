@@ -11,9 +11,9 @@ author: "Roshan Nagekar"
 
 some rights reserved by [intelfreepress](https://www.flickr.com/photos/intelfreepress/8552968000)
 
-Got opportunity to work with **Hadoop** with a recent project. Understanding the architecture conceptually and then learn using it is fun. I am still learning it though. This part explains **Hadoop** 1.0 which I believe helped me to understand 2.0 well.
+Got opportunity to work with **Hadoop with a recent project. Understanding the architecture conceptually and then learn using it is fun. I am still learning it though. This part explains **Hadoop 1.0 which I believe helped me to understand 2.0 well.
 
-Before understanding **Hadoop** it would make more sense if we get rid of a few jargon that would come our way.
+Before understanding Hadoop it would make more sense if we get rid of a few jargon that would come our way.
 
 ```json
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOu4MM482qPyH8qvbWQ1j30zldRcv17HiQThVLYp3v8XL4k6q0siDpm51DS50ZRr1vSNOG8ZLYejlvzr04aJPahxEYT_wIHdAqfwwo6YBpa8Jukv3bnV6SF2rcyza1eb0keNPotlTRwKQ/s1600/Hadoop1.png)**Oozie** is like a cronjob. In addition to running jobs time based, it also allows running jobs on particular statuses, like:

@@ -50,7 +50,7 @@ Steps to create an exact similar copy are as follows:
 5. Now
 
    you can copy all the data to your EBS volume but before you do that,
-   shutdown the running services that may harm the data, I stopped **MySQL**
+   shutdown the running services that may harm the data, I stopped MySQL
 
 ---
 

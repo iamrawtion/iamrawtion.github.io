@@ -37,7 +37,7 @@ RHEL6 system only to be used
 
 ---
 
-## Rebuilds like **CentOS** or scientific **linux** may be
+## Rebuilds like **CentOS or scientific **linux may be
 
 used as well. These use the RPM’s provided by Red Hat to public downloads
 
@@ -68,11 +68,11 @@ Using Virtual Machine is fine
 
 a.      
 
-**VirtualBox**
+## VirtualBox
 
 b.     
 
-**VMWare** Player
+## VMWare Player
 
 c.      
 Parallels Desktop for MAC
@@ -143,7 +143,7 @@ e.     
 Check mark connect automatically
 
 f.       
-Check IP4 setting automatic **DHCP**
+## Check IP4 setting automatic DHCP
 
 g.      
 Apply and close
@@ -273,7 +273,7 @@ Network enable //network was enabled
 
 Root password encrypted
 
-Firewall started **ssh** port opened
+## Firewall started ssh port opened
 
 Shadow password for authentication
 
@@ -357,7 +357,7 @@ drive
 d.      web
 location
 
-e.      **ftp**
+e.      ftp
 server
 
 f.       
@@ -390,7 +390,7 @@ prompt appears
 
 ## d.      boot
 
-**linux** ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter)
+linux ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter)
 
 5.      
 
@@ -447,7 +447,7 @@ to return to desktop ctrl+alt+f7
 
 10.  
 
-all the **Linux** config files are in human readable
+all the Linux config files are in human readable
 format
 
 11.  
