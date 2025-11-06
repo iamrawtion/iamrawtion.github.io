@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtdEo4HaTEm247utBoc6XCapiAYgpBHhWTZORQFsj5zApSGybrO2rtitjR4yk7pbWeZLmuT4F91Qi9gzOey8YAVkFy7_NphM3Mc9KgaSWyHrwku-cvqyaq1CHAbAFlhMpMHpIhYP12pSo/s1600/4289878224_8c71d2be5e_m.jpg)
 
-Some rights reserved by [Hillary](**https**://www.flickr.com/photos/lamenta3/)
+Some rights reserved by [Hillary](https://www.flickr.com/photos/lamenta3/)
 
 ```
  
@@ -18,7 +18,7 @@ Some rights reserved by [Hillary](**https**://www.flickr.com/photos/lamenta3/)
  
 ```
 ```
-command for generation of preprocessed code which will have the included 
+command for generation of preprocessed code which will have the included
 files in the code as well as the code that we have written
 gcc -E test.c > test.pp
 
@@ -67,6 +67,7 @@ int main()
 test.pp
 ```
 ```
+
 # 1 "test.c"
 
 # 1 "<built-in>"
@@ -1918,7 +1919,7 @@ here is the assembly dump
 ```
  
 ```
-```
+```yaml
 test.o:     file format elf32-i386
 
 Disassembly of section .init:
@@ -1955,9 +1956,9 @@ Disassembly of section .init:
 
  80482c1: 5b                    pop    %ebx
 
- 80482c2: c9                    leave  
+ 80482c2: c9                    leave
 
- 80482c3: c3                    ret    
+ 80482c3: c3                    ret
 
 Disassembly of section .plt:
 
@@ -2025,7 +2026,7 @@ Disassembly of section .text:
 
  804832c: e8 b3 ff ff ff        call   80482e4 <__libc_start_main@plt>
 
- 8048331: f4                    hlt    
+ 8048331: f4                    hlt
 
  8048332: 90                    nop
 
@@ -2105,7 +2106,7 @@ Disassembly of section .text:
 
  8048393: 5d                    pop    %ebp
 
- 8048394: c3                    ret    
+ 8048394: c3                    ret
 
  8048395: 8d 74 26 00           lea    0x0(%esi,%eiz,1),%esi
 
@@ -2135,9 +2136,9 @@ Disassembly of section .text:
 
  80483bf: ff d0                 call   *%eax
 
- 80483c1: c9                    leave  
+ 80483c1: c9                    leave
 
- 80483c2: c3                    ret    
+ 80483c2: c3                    ret
 
  80483c3: 90                    nop
 
@@ -2153,7 +2154,7 @@ Disassembly of section .text:
 
  80483cd: c7 44 24 04 02 00 00  movl   $0x2,0x4(%esp)
 
- 80483d4: 00 
+ 80483d4: 00
 
  80483d5: c7 04 24 01 00 00 00  movl   $0x1,(%esp)
 
@@ -2169,9 +2170,9 @@ Disassembly of section .text:
 
  80483f2: b8 00 00 00 00        mov    $0x0,%eax
 
- 80483f7: c9                    leave  
+ 80483f7: c9                    leave
 
- 80483f8: c3                    ret    
+ 80483f8: c3                    ret
 
  80483f9: 90                    nop
 
@@ -2215,9 +2216,9 @@ Disassembly of section .text:
 
  804842e: db 45 f4              fildl  -0xc(%ebp)
 
- 8048431: c9                    leave  
+ 8048431: c9                    leave
 
- 8048432: c3                    ret    
+ 8048432: c3                    ret
 
  8048433: 90                    nop
 
@@ -2253,7 +2254,7 @@ Disassembly of section .text:
 
  8048443: 5d                    pop    %ebp
 
- 8048444: c3                    ret    
+ 8048444: c3                    ret
 
  8048445: 8d 74 26 00           lea    0x0(%esi,%eiz,1),%esi
 
@@ -2323,13 +2324,13 @@ Disassembly of section .text:
 
  80484a8: 5d                    pop    %ebp
 
- 80484a9: c3                    ret    
+ 80484a9: c3                    ret
 
 080484aa <__i686.get_pc_thunk.bx>:
 
  80484aa: 8b 1c 24              mov    (%esp),%ebx
 
- 80484ad: c3                    ret    
+ 80484ad: c3                    ret
 
  80484ae: 90                    nop
 
@@ -2371,7 +2372,7 @@ Disassembly of section .text:
 
  80484d8: 5d                    pop    %ebp
 
- 80484d9: c3                    ret    
+ 80484d9: c3                    ret
 
  80484da: 90                    nop
 
@@ -2401,7 +2402,7 @@ Disassembly of section .fini:
 
  80484f5: 5b                    pop    %ebx
 
- 80484f6: c9                    leave  
+ 80484f6: c9                    leave
 
  80484f7: c3                    ret     
 ```

@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png)
 
-**Docker**: Its a tool that helps you to pack, ship and run any application as a light-weight **Linux** container. More on **https**://www.docker.io/
+**Docker: Its a tool that helps you to pack, ship and run any application as a light-weight **Linux** container. More on https://www.docker.io/
 
 Works best on **Linux** kernel 3.8 **Ubuntu** 12.04 precise has 3.2 and needs to be upgraded.
 
@@ -21,13 +21,11 @@ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-ra
 sudo reboot
 ```
 
-
 To check **docker** version:
 
 ```bash
 sudo docker version
 ```
-
 
 Client version: 0.11.1
 
@@ -53,17 +51,15 @@ To check info about **docker** installed:
 sudo docker info
 ```
 
-
 ```yaml
 Containers: 1
 
 Images: 9
 ```
 
-
 Storage Driver: aufs
 
-Root Dir: /var/lib/**docker**/aufs
+Root Dir: /var/lib/docker/aufs
 
 Dirs: 11
 
@@ -71,7 +67,7 @@ Execution Driver: native-0.2
 
 Kernel Version: 3.11.0-20-generic
 
-WARNING: No swap limit support
+> WARNING: No swap limit support
 
 To pull an existing **docker** image:
 
@@ -80,13 +76,11 @@ sudo docker pull <imagename>
 sudo docker pull busybox
 ```
 
-
-HelloWorld in **docker**:
+HelloWorld in **docker:
 
 ```bash
 sudo docker run busybox echo HelloWorld
 ```
-
 
 Search for an existing image in the index:
 
@@ -95,23 +89,21 @@ docker search <image-name>
 sudo docker search stackbrew/ubuntu
 ```
 
-
 NAME                       DESCRIPTION                                     STARS     OFFICIAL   TRUSTED
 
-stackbrew/**ubuntu**           Barebone ubuntu images                          36
+stackbrew/ubuntu**           Barebone **ubuntu** images                          36
 
-jprjr/stackbrew-node       A stackbrew/**ubuntu**-based image for **Docker**,...   2                    [OK]
+jprjr/stackbrew-node       A stackbrew/ubuntu-based image for **Docker**,...   2                    [OK]
 
-hcvst/erlang               Erlang R14B04 based on stackbrew/**ubuntu**         0                    [OK]
+hcvst/erlang               Erlang R14B04 based on stackbrew/ubuntu**         0                    [OK]
 
-stackbrew/**ubuntu**-upstart                                                   0
+stackbrew/ubuntu-upstart                                                   0
 
 Pull an existing image:
 
 ```bash
 sudo docker pull ubuntu
 ```
-
 
 Pulling repository **ubuntu**
 
@@ -136,7 +128,6 @@ To the check the available images:
 ```bash
 sudo docker images
 ```
-
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 
@@ -175,7 +166,6 @@ docker run<image> command
 sudo docker run ubuntu echo HelloWorld
 ```
 
-
 HelloWorld
 
 To install something on an **ubuntu** image
@@ -186,17 +176,15 @@ find ID of the container
 sudo docker ps -l
 ```
 
-
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
 
-0dac167b178d        **ubuntu**:14.04        ps aux              12 minutes ago      Exited (0) 12 minutes ago                       goofy_bell
+0dac167b178d        **ubuntu:14.04        ps aux              12 minutes ago      Exited (0) 12 minutes ago                       goofy_bell
 
 committing changes made to the images:
 
 ```bash
 docker commit 0da firstcommit
 ```
-
 
 723aa6ead77a14ff05cd2c640163345ec5a36fa9a4c757a6872a1ec919ab9345
 
@@ -205,7 +193,6 @@ To get log of the present container:
 ```bash
 sudo docker logs 0dac167b178d
 ```
-
 
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 
@@ -218,7 +205,6 @@ sudo docker inspect <id: 3-4 characters of id will work too>
 sudo docker inspect 0da
 ```
 
-
 <**json** output>
 
 Push container image to the index
@@ -226,7 +212,6 @@ Push container image to the index
 ```bash
 sudo docker push ubuntu
 ```
-
 
 Creating Dockerfile:
 
@@ -240,7 +225,7 @@ FROM <image>
 
 FROM **ubuntu**
 
-This will look for the image in **Docker** index. You can also search docker index by the command docker search
+This will look for the image in **Docker** index. You can also search **docker** index by the command **docker** search
 
 Next is the RUN instruction. The RUN instruction will execute any commands on the current image. After executing, it will also commit the changes. The committed image can be used for the next instructions from the Dockerfile. This way the committed changes form a layer of changes just like any other source code control system. Syntax of RUN command:
 
@@ -248,7 +233,7 @@ RUN <command>
 
 RUN apt get install -y apache2
 
-Here the RUN command is equivalent to **docker** run image command + docker commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit.
+Here the RUN command is equivalent to **docker** run image command + **docker** commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit.
 
 Once you have created your Dockerfile you can use **docker** build to create you image from it. You can use the command in this way.
 
@@ -264,13 +249,11 @@ Save and close the file. If the file is in you r present directory:
 docker build .
 ```
 
-
 If the file in in some other location
 
 ```bash
 docker build path/to/file
 ```
-
 
 If passing through STDIN
 
@@ -278,13 +261,11 @@ If passing through STDIN
 docker build - < Dockerfile
 ```
 
-
 If passing through **github** URL
 
 ```bash
 docker build github.com/roshan4074
 ```
-
 
 you can check the container with the command:
 
@@ -292,13 +273,11 @@ you can check the container with the command:
 sudo docker images
 ```
 
-
 To apply a tag to an image you the command: **docker** tag
 
 ```bash
 sudo docker tag <container_id>
 ```
-
 
 To comment a code use the "#' symbol followed by the text
 

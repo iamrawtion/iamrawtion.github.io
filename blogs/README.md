@@ -7,13 +7,22 @@ This folder contains all blog posts for the portfolio website. The blog system i
 ```
 blogs/
 ├── README.md                              # This file
+
 ├── blogs.json                             # Blog metadata index
+
 ├── implementing-devsecops-cicd.md         # Sample blog post
+
 ├── kubernetes-cost-optimization.md        # Sample blog post
+
 ├── gitops-infrastructure-management.md    # Sample blog post
+
 ├── mlops-machine-learning-operations.md   # Sample blog post
+
 └── terraform-best-practices-multicloud.md # Sample blog post
+
 ```
+
+---
 
 ## ✍️ Adding a New Blog Post
 
@@ -46,18 +55,22 @@ Your blog content goes here...
 
 Write your blog post using standard Markdown syntax:
 
-- **Headings**: `# H1`, `## H2`, `### H3`, etc.
-- **Bold**: `**bold text**`
-- **Italic**: `*italic text*`
-- **Links**: `[link text](**https**://example.com)`
-- **Images**: `![alt text](image-url.jpg)`
-- **Code blocks**: Use triple backticks with language identifier
+- **Headings: `# H1`, `## H2`, `### H3`, etc.
 
+- **Bold: `**bold text**`
+- **Italic: `*italic text*`
+- **Links: `[link text](https://example.com)`
+- **Images: `![alt text](image-url.jpg)`
+- **Code blocks: Use triple backticks with language identifier
+
+---
 
 ## Example code block
 
 ````markdown
 ```python
+
+---
 
 ## def hello_world()
 
@@ -67,7 +80,7 @@ Write your blog post using standard Markdown syntax:
 
 ### Step 4: Update blogs.json
 
-Add an entry to `blogs/blogs.**json**`:
+Add an entry to `blogs/blogs.json**`:
 
 ```json
 {
@@ -82,6 +95,7 @@ Add an entry to `blogs/blogs.**json**`:
 }
 ```
 
+---
 
 ## **Important**
 
@@ -100,15 +114,22 @@ git push
 
 Your blog post will automatically appear on the blog page!
 
+---
+
 ## 📝 Markdown Formatting Guide
 
 ### Headings
 
 ```markdown
+
 # H1 - Main title (automatically added from frontmatter)
+
 ## H2 - Section heading
+
 ### H3 - Subsection heading
+
 #### H4 - Minor heading
+
 ```
 
 ### Text Formatting
@@ -149,6 +170,8 @@ echo "Hello, World!"
 
 ```python
 
+---
+
 ## def greet(name)
 
     return f"Hello, {name}!"
@@ -157,6 +180,8 @@ echo "Hello, World!"
 ```yaml
 apiVersion: v1
 kind: Pod
+
+---
 
 ## metadata
 
@@ -188,6 +213,8 @@ Supported languages include: bash, **python**, **javascript**, **yaml**, **json*
 ---
 ```
 
+---
+
 ## 🎨 Available Categories
 
 Use these predefined categories for consistent styling:
@@ -201,12 +228,16 @@ Use these predefined categories for consistent styling:
 
 You can also create new categories as needed.
 
+---
+
 ## 🏷️ Tagging Best Practices
 
 - Use 2-4 tags per post
 - Keep tags specific and relevant
 - Use consistent capitalization
 - Common tags: **Kubernetes**, **Docker**, **AWS**, **GCP**, **Azure**, **Terraform**, **Ansible**, **CI/CD**, Security, GitOps, etc.
+
+---
 
 ## 📋 Blog Post Template
 
@@ -231,7 +262,9 @@ Introduction paragraph that hooks the reader and explains what they'll learn.
 Content with examples, code snippets, and explanations.
 
 ```bash
+
 # Example command
+
 kubectl get pods
 ```
 
@@ -255,15 +288,17 @@ Summary of what was covered and key takeaways.
 
 ---
 
-**Questions or feedback? Connect with me on [LinkedIn](https://linkedin.com/in/roshannagekar) or via [email](mailto:roshan4074@gmail.com).**
+**Questions or feedback? Connect with me on [LinkedIn](https://linkedin.com/in/roshannagekar) or via [email](mailto:roshan4074@gmail.com).
 ```
+
+---
 
 ## 🔧 Troubleshooting
 
 ### Blog post not showing up?
 
 1. Check that the markdown file is in the `blogs/` folder
-2. Verify the entry in `blogs.**json**` is valid JSON
+2. Verify the entry in `blogs.json**` is valid **JSON**
 3. Ensure the `id` matches the filename (without `.md`)
 4. Clear browser cache and hard refresh (Ctrl+Shift+R)
 
@@ -275,9 +310,11 @@ Summary of what was covered and key takeaways.
 
 ### Images not displaying?
 
-1. Use absolute URLs for images (e.g., `**https**://...`)
+1. Use absolute URLs for images (e.g., `https://...`)
 2. Or place images in a folder and reference relatively
 3. Ensure image URLs are accessible publicly
+
+---
 
 ## 🚀 Advanced Features
 
@@ -287,7 +324,9 @@ Code blocks automatically get syntax highlighting using Prism.js. Specify the la
 
 ````
 ```python
+
 # Python code
+
 ```
 ````
 
@@ -298,6 +337,8 @@ All blog posts are automatically responsive and mobile-friendly.
 ### SEO Friendly
 
 The blog system generates proper metadata from your frontmatter for better SEO.
+
+---
 
 ## 📞 Need Help?
 
