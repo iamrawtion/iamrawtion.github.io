@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEH0nF0MgqRBoJuoIN_h-SAlfKTE7oy7rBvH9NfOoZ1foomd7bZoBOWncfIkd8JOMPzopoHuFDQ28LMx_0mQscL3HcNpBIKk8rkGvBFJohNHJG07FhvuvVMtaDBj2XGCuLq4XQw-Iyr4Q/s1600/3668169284_79a241959c_m.jpg)
 
-Some rights reserved by [Christain Senger](https://www.flickr.com/photos/30928442@N08/)
+Some rights reserved by [Christain Senger](**https**://www.flickr.com/photos/30928442@N08/)
 
 For quiet sometime I have been attending meetups/sessions organised through meetup.com at different locations. I have seen that the general practice is quiet similar everywhere.
 
@@ -50,7 +50,7 @@ Many meetups will have new faces who expect basics or the introductory things to
 
 **Socialize :**
 
-Less participation is been seen in terms of socializing at a few meetups. You never know, who could help you in what kind of problems where you are stuckat office. I have come across so many situations where I don't get what use cases could be followed for a particular problems and the experts I meet in the meetup/conferences have really splendid and simple solutions that I could not have think of. Not only will they give you a solution, they would also explain why would that solution be the best one to be used. Michael Ducy from Chef(old Opscode) provided a really good, simple and descriptive answer for the best use case to be followed for Chef-Docker integration.
+Less participation is been seen in terms of socializing at a few meetups. You never know, who could help you in what kind of problems where you are stuckat office. I have come across so many situations where I don't get what use cases could be followed for a particular problems and the experts I meet in the meetup/conferences have really splendid and simple solutions that I could not have think of. Not only will they give you a solution, they would also explain why would that solution be the best one to be used. Michael Ducy from Chef(old Opscode) provided a really good, simple and descriptive answer for the best use case to be followed for Chef-**Docker** integration.
 
 **Incorrect RSVP :**
 

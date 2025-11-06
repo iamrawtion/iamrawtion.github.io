@@ -9,11 +9,11 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHkXCfyNHTRUA1SrYS1UpDmrku0fP0iVUpcrPVM3pZuE0UGWO7_eSGWrqkEmxf0weIo62K6FpneKbNlaMumUt_Ds3d0-CEJK74hbcZhxtATlnTPMPw-hreOUZuXoinjFg4ZWwzTgcKDmE/s1600/5096035675_fbc69eac8f_m.jpg)
 
-Some rights reserved by [Julie Rybarczyk](https://www.flickr.com/photos/48424574@N07/)
+Some rights reserved by [Julie Rybarczyk](**https**://www.flickr.com/photos/48424574@N07/)
 
   
   
-I recently shared one of my stories while monitoring an Ingestion Server with [AppFirst](http://www.appfirst.com/) for one of the Halloween contest they conducted. Thankfully, won 2nd prize in the same. Sharing the same story here along with the [link](http://www.appfirst.com/blog/halloween-infographic-and-horror-story-winners/) to visit.  
+I recently shared one of my stories while monitoring an Ingestion Server with [AppFirst](**http**://www.appfirst.com/) for one of the Halloween contest they conducted. Thankfully, won 2nd prize in the same. Sharing the same story here along with the [link](http://www.appfirst.com/blog/halloween-infographic-and-horror-story-winners/) to visit.  
   
 
 Second Place Story

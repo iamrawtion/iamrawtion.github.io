@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdoviRQk2CVivz9bCYpPHNPLnZIw6ZNULdygVG5LKy_RyFN4M7nsoWiX0Tr31UdUlE0RZOtXSzu_pajrtgUoey8TpeO9F5OXXNXOfTwpMfIaOT0mSUT9YQqIGmsIMTj0AcUPvKwfsOudk/s1600/363646839_5e063c41bf_m.jpg)
 
-Some rights reserved by [Gabor Hojtsy](https://www.flickr.com/photos/gaborhojtsy)
+Some rights reserved by [Gabor Hojtsy](**https**://www.flickr.com/photos/gaborhojtsy)
 
   
   
@@ -19,10 +19,12 @@ So here's how to setup Drupal locally on your machine.
   
 You would need two things to setup Drupal.  
   
-1. Drupal's  latest version from the Drupals [website](https://drupal.org/download)  
-2. A WAMP(Windows Apache MySQL PHP) server setup. Linux users (LAMP) from wamps [website](http://www.wampserver.com/en/)  
+1. Drupal's  latest version from the Drupals [website](**https**://drupal.org/download)  
+2. A WAMP(Windows **Apache** **MySQL** PHP) server setup. **Linux** users (LAMP) from wamps [website](**http**://www.wampserver.com/en/)  
   
-Steps to install:  
+
+## Steps to install
+
 1. Install Wamp  
 This will be fairly simple, Once you execute the wampserver.exe all you do is press next until its successfully installed.   
 2. Unzip the Drupal's zip file downloaded to the wamp/www folder in your C: drive OR whichever drive has the wamp's www directory.  
@@ -32,7 +34,7 @@ This will be fairly simple, Once you execute the wampserver.exe all you do is pr
 6. Next we need to create a database for Drupal. In the create new database field enter you drupal db name and press create.  
 7. Drupal database is not created.  
 8. On you browser go to localhost/drupal this should prompt you for drupal install   
-Database type: mysql  
+Database type: **mysql**  
 Database name: <drupal_db_name>  
 Database username: root  
 Database password:blank  

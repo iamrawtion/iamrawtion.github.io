@@ -40,4 +40,4 @@ bazel build //configs:example_configs
   
 **RELAX, ITS GOING TO TAKE LONG TIME**  
   
-I wrote an Ansible playbook too for this**.** I will publish it later on Github
+I wrote an **Ansible** playbook too for this**.** I will publish it later on **Github**

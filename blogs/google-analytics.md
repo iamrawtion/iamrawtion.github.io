@@ -9,13 +9,13 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjA63gkqf7yx3AuPvEKnQYP2PReA2j0dgrK-FnmF2yeVeUyfjHY66ZDo4z3UVsJVJ-0VbZbI9E3LXqNvgV6e6MKgq7rbA09Qc742XAt6vdILVwyh9LT7KjKTM6DJ9wmGePkdw5Z3OFpXCU/s1600/3542294246_1e9ea65eb4_m.jpg)
 
-Some rights reserved by [Search Engine People](https://www.flickr.com/photos/sepblog/)
+Some rights reserved by [Search Engine People](**https**://www.flickr.com/photos/sepblog/)
 
   
   
 Google Analytics  
   
-I recently used Google Analytics in one of my Projects for testing purpose, and boy!!! i was so impressed. I never know Analytics could be this strong and could yield this result. I thought i should share my experience, not only this i could relate my (whatever little) knowledge of Big Data to each and every report i generated. I was initially confused on how to use it for the project. I was unable to understand what was the client really interested in after reading the [JIRA issue](http://roshannagekar.blogspot.in/2013/01/jira-issue-tracking.html). So i implemented the Google Analytics (GA) code onto my personal blog. I purposely posted my blog links on my gtalk account in order to temporarily increase the number of visitors to my blog. And then i kept track of the visitors. Within a day or so i kind of understood how it's used and what you could do with it.  
+I recently used Google Analytics in one of my Projects for testing purpose, and boy!!! i was so impressed. I never know Analytics could be this strong and could yield this result. I thought i should share my experience, not only this i could relate my (whatever little) knowledge of Big Data to each and every report i generated. I was initially confused on how to use it for the project. I was unable to understand what was the client really interested in after reading the [JIRA issue](**http**://roshannagekar.blogspot.in/2013/01/**jira**-issue-tracking.html). So i implemented the Google Analytics (GA) code onto my personal blog. I purposely posted my blog links on my gtalk account in order to temporarily increase the number of visitors to my blog. And then i kept track of the visitors. Within a day or so i kind of understood how it's used and what you could do with it.  
   
 Of Course Wikipedia always helps as well.  
   

@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIx9HX6hXlJFeMrZqOjK5x5j21UzCD2zT7k8E1JHlfbj36IdurALjiTNyVhfxtZF_oW29C6af4KJQByZUpYmMRQsQ4yyDvClHeCQbGFFKiuVRU0wx2rSjWZ20rCxbHkVh5EUTKctu5KJk/s1600/3857029017_a26bb52542_m.jpg)
 
-Some rights reserved by [Clifford](https://www.flickr.com/photos/cebucity/)
+Some rights reserved by [Clifford](**https**://www.flickr.com/photos/cebucity/)
 
   
   
@@ -32,7 +32,7 @@ Exam is completely hands on based
 RHEL6 system only to be used
 
 6.      
-Rebuilds like CentOS or scientific linux may be
+Rebuilds like **CentOS** or scientific **linux** may be
 used as well. These use the RPM’s provided by Red Hat to public downloads
 
 7.      
@@ -40,13 +40,13 @@ Open Source code is available and Rebuilds use
 the same code.
 
 8.      
-[www.scientificlinux.org](http://www.scientificlinux.org/)
-/ [www.centos.org](http://www.centos.org/)
+[www.scientificlinux.org](**http**://www.scientificlinux.org/)
+/ [www.**centos**.org](**http**://www.centos.org/)
 
 2nd Part Practice Requirements
 
 1.      
-Compatible H/W list is available on [www.redhat.com/rhel/compare](http://www.redhat.com/rhel/compare)
+Compatible H/W list is available on [www.**redhat**.com/rhel/compare](**http**://www.redhat.com/rhel/compare)
 
 2.      
 For installation any 32 bit or 64 bit machine
@@ -56,10 +56,10 @@ can be used with minimum 512 MB or 1 GB RAM
 Using Virtual Machine is fine
 
 a.      
-VirtualBox
+**VirtualBox**
 
 b.     
-VMWare Player
+**VMWare** Player
 
 c.      
 Parallels Desktop for MAC
@@ -119,7 +119,7 @@ e.     
 Check mark connect automatically
 
 f.       
-Check IP4 setting automatic DHCP
+Check IP4 setting automatic **DHCP**
 
 g.      
 Apply and close
@@ -218,7 +218,7 @@ Network enable //network was enabled
 
 Root password encrypted
 
-Firewall started ssh port opened
+Firewall started **ssh** port opened
 
 Shadow password for authentication
 
@@ -267,7 +267,7 @@ the root user in the kickstart file
 
 User –name=Kenny –password=pass1234
 
-More info at [www.fedoraproject.org/wiki/anaconda/kickstart](http://www.fedoraproject.org/wiki/anaconda/kickstart)
+More info at [www.fedoraproject.org/wiki/anaconda/kickstart](**http**://www.fedoraproject.org/wiki/anaconda/kickstart)
 
 5th Part Rhel installation from kickstart file
 
@@ -287,7 +287,7 @@ drive
 d.      web
 location
 
-e.      ftp
+e.      **ftp**
 server
 
 f.       
@@ -313,8 +313,10 @@ escape key
 c.       boot
 prompt appears
 
-d.      boot:
-linux ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter)
+
+## d.      boot
+
+**linux** ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter)
 
 5.      
 (nfs folder needs to be shared out)
@@ -363,7 +365,7 @@ and down in the tty console
 to return to desktop ctrl+alt+f7
 
 10.  
-all the Linux config files are in human readable
+all the **Linux** config files are in human readable
 format
 
 11.  

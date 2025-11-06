@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5_5snagHYcd5_Tz5urTmsuCevS02CGvmzb8Nf_M2uWLYE6DnNbohX7ICK9fJsQhUUgvMf6vJ3UmO47oH-xsG1n3nNuKkPUHRF1M0imL5yTm-vghoLO-l5_RiVp-MZghHoxYFPDJwF4TI/s1600/4893436057_50ef37e85a_m.jpg)
 
-Some rights reserved by [Johan Larsson](https://www.flickr.com/photos/johanl/)
+Some rights reserved by [Johan Larsson](**https**://www.flickr.com/photos/johanl/)
 
   
   
@@ -22,7 +22,7 @@ Here are some steps how you could get your own custom ROM on LG Optimus 2X altho
 4. Install Titanium Backup to backup all your apps and other data
 5. Enable USB debugging mode from settings
 6. To back up your contacts you can use www.phonecopy.com
-7. Download any version of you choice form Cyanogens' [website](http://get.cm/?device=p990). I chose a stable one, although you can go for any of the nightly release too.
+7. Download any version of you choice form Cyanogens' [website](**http**://get.cm/?device=p990). I chose a stable one, although you can go for any of the nightly release too.
 8. Install Clock work mode recovery software on your phone.
 9. Copy the Cynogenmod zip to your SD CARD
 10. Power off the phone

@@ -75,7 +75,7 @@ should be of some use to you. Performance is something you pay for. E.g you pay
 for user friendliness, you pay for security, etc.
 
 So for this reason, a user
-may gor for JAVA instead of C for it may be slow, but it gives more
+may gor for **JAVA** instead of C for it may be slow, but it gives more
 functionality like exceptions, Object Orientations,etc.
 
 ```yaml
@@ -86,7 +86,9 @@ Input: sequence
 
 <a1,a2,a3,….,an>of numbers
 
-Output:
+
+## Output
+
 permutations<a’1,a’2,a’3,…..,a’n>
 
 Such that a’1 <= a’2 <=

@@ -7,19 +7,19 @@ excerpt: "Image Credits : xmodulo Server management is a real pain and the pain 
 author: "Roshan Nagekar"
 ---
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBDBAX3PUYseF0KdDIzLl7tj6B7OqrwED_mPhwe8HRN5ff0Js_Ax_N9FDFoSZETkSJ2Hg-btwDwNSrMnbeFBYzsVvr_bny32YcLuv6MrfymQDyoxaDvZrNbIa-Zg2A8TT5ryooQAQAyWI/s320/13331169795_2457bf011d_m-2.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBDBAX3PUYseF0KdDIzLl7tj6B7OqrwED_mPhwe8HRN5ff0Js_Ax_N9FDFoSZETkSJ2Hg-btwDwNSrMnbeFBYzsVvr_bny32YcLuv6MrfymQDyoxaDvZrNbIa-Zg2A8TT5ryooQAQAyWI/s1600/13331169795_2457bf011d_m-2.jpg)
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBDBAX3PUYseF0KdDIzLl7tj6B7OqrwED_mPhwe8HRN5ff0Js_Ax_N9FDFoSZETkSJ2Hg-btwDwNSrMnbeFBYzsVvr_bny32YcLuv6MrfymQDyoxaDvZrNbIa-Zg2A8TT5ryooQAQAyWI/s1600/13331169795_2457bf011d_m-2.jpg)
 
-Image Credits : [xmodulo](https://www.flickr.com/photos/xmodulo/)
+Image Credits : [xmodulo](**https**://www.flickr.com/photos/xmodulo/)
 
 Server management is a real pain and the pain keeps getting worse with more and more server getting added to the infrastructure. So how do organizations sustain with huge server farms, datacenters in place? How can super admins promise an SLA of 99.99% uptime with a very low response and resolution time? Quiet obviously the answer is server monitoring solutions. It could have been so tedious for a human to monitor servers 24x7 especially when most of the systems are stable and its only once in a while some manual intervention is needed.  
   
-So what is it that needs to be really monitored? It really depends from one organization to other. For a  web development platform, response time of the page may matter a lot. The kind of traffic, 4xx's 5xx's could be a concern too. Disk Space, CPU, Memory, Swap space, particular processes and services running, DB server replication, read writes, no. of connections, query execution time and many more parameters together. Most of these checks are required by all organizations. Out of the many monitoring tools out there, one of the most used is Nagios.  
+So what is it that needs to be really monitored? It really depends from one organization to other. For a  web development platform, response time of the page may matter a lot. The kind of traffic, 4xx's 5xx's could be a concern too. Disk Space, CPU, Memory, Swap space, particular processes and services running, DB server replication, read writes, no. of connections, query execution time and many more parameters together. Most of these checks are required by all organizations. Out of the many monitoring tools out there, one of the most used is **Nagios**.  
   
-Nagios is an open source software application that helps in monitoring systems, network and Infrastructure. Nagios is on top of the Linux and hence, whatever you could do with Linux could also be done with Nagios. The best part of using Nagios is the plugin based architecture and 100's and 1000's of plugins that it supports to literally allow you to monitor anything.  
+**Nagios** is an open source software application that helps in monitoring systems, network and Infrastructure. Nagios is on top of the **Linux** and hence, whatever you could do with Linux could also be done with Nagios. The best part of using Nagios is the plugin based architecture and 100's and 1000's of plugins that it supports to literally allow you to monitor anything.  
   
-Nagios comes with multiple notable features that makes it distinguishing. It uses the standard protocols i.e TCP, UDP, ICMP for monitoring servers across network. You can perform multiple resource checks on any host using the NRPE addon, the checks varies from CPU, Disk RAM and many more. Not just resource checks, you could also add event handlers that perform certain actions when certain events are noticed. Checks are performed at the specified intervals, by default the interval is 5 minutes. There are 2 types of checks, Active - The one that are nags initiated. Passive - The one that are initiated externally.  
+**Nagios** comes with multiple notable features that makes it distinguishing. It uses the standard protocols i.e TCP, UDP, ICMP for monitoring servers across network. You can perform multiple resource checks on any host using the NRPE addon, the checks varies from CPU, Disk RAM and many more. Not just resource checks, you could also add event handlers that perform certain actions when certain events are noticed. Checks are performed at the specified intervals, by default the interval is 5 minutes. There are 2 types of checks, Active - The one that are nags initiated. Passive - The one that are initiated externally.  
   
-Nagios consists of various objects that needs to be defined and used.  
+**Nagios** consists of various objects that needs to be defined and used.  
   
 
 ```json

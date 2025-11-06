@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZv1LxK9nXT1ncbbWzmSnHJDC24-009e9h2qfBk0mmRjGxVVWN1FfeOoS__ZoVM7KdkYZhZ3XfqcAT6WzDMqe9h4UahF81YOZXQaIi9f6e7hHac8gqvr_6lpsEclhyfuXPgLtQzbocqSU/s1600/4048968087_4412c5f7cf_m.jpg)
 
-****Some rights reserved by [Arthur Caranta](https://www.flickr.com/photos/arthur-caranta/)****
+****Some rights reserved by [Arthur Caranta](**https**://www.flickr.com/photos/arthur-caranta/)****
 
   
 **TECH STUFF**  
@@ -23,7 +23,9 @@ author: "Roshan Nagekar"
 **~/.dropbox-dist/dropboxd**  
 
 **- ps command**
-**Type the following ps command to display all running process:  
+
+## **Type the following ps command to display all running process
+
 # ps aux | less  
 Where,  
   -A: select all processes  
@@ -83,7 +85,9 @@ Code:
   
 mkisofs -r -o /isofile.iso /mybigfile  
   
-or if you want to backup multipi files (like you .mp3 collection):  
+
+## or if you want to backup multipi files (like you .mp3 collection)
+
 Code:  
   
 mkisofs -r -o /isofile.iso *.mp3  
@@ -97,7 +101,7 @@ where /dev/cdrom0 is your cd/dvd-drive and isofile.iso your iso-file you want to
 Note: An absolute path is like '/home/yn/myfile.iso', a relative path is like 'myfile.iso'  
 __________________  
 
-11. âž™ Synchronize all your files across Windows, Linux and Mac OS with Dropbox (2GB free storage!). By signing up via this link I'll get some extra space also, thanks!
+11. âž™ Synchronize all your files across Windows, **Linux** and Mac OS with Dropbox (2GB free storage!). By signing up via this link I'll get some extra space also, thanks!
 12. command for generation of preprocessed code which will have the included files in the code as well as the code that we have written
 
 ```bash
@@ -157,7 +161,7 @@ svn://[110.0.0.10/idbl//UI/ORACLEPOC](http://110.0.0.10/idbl//UI/ORACLEPOC) --r
  Count total number of commits in all UI branches:  
   
 grepping on "Date:"  
-total=0;for i in *;  do cd $i; echo In $i; total=`expr $total + $(git  
+total=0;for i in *;  do cd $i; echo In $i; total=`expr $total + $(**git**  
 ```bash
 log | grep "Date:" | wc -l)`; cd ..; done; echo $total  
 ```
@@ -181,7 +185,7 @@ git branch -d
 | --- |
 | **Linux / Unix Command: ***chage***** |
 |  |
-| [Command Library](http://linux.about.com/library/cmd/blcmdl.htm) |
+| [Command Library](**http**://**linux**.about.com/library/cmd/blcmdl.htm) |
 
 ## NAME
 

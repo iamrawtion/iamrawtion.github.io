@@ -9,10 +9,10 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj41IkzbAwgVTtYH_dpbXIYtkTpYU7v4GCUgG0hbYPH6oS6Ff5fVaIVIyQw8Q_K8zm3EB0fEi-wXBzjJtk2gcVJG8JIVavRsyobzKtFwr8tpq3F-UJhA1zqQ09g5VBDzFptS9yrUuy6Te4/s1600/5596555824_bcdedb0d50_m.jpg)
 
-some rights reserved by [Matt Ray](https://www.flickr.com/photos/mray/)
+some rights reserved by [Matt Ray](**https**://www.flickr.com/photos/mray/)
 
   
-...continued from  [Learning Chef - Part - I](http://roshannagekar.blogspot.in/2014/04/learning-chef-part-i.html)  
+...continued from  [Learning Chef - Part - I](**http**://roshannagekar.blogspot.in/2014/04/learning-chef-part-i.html)  
   
 Consider you have to install an application. You 1st install and configure the application on a single server. It could be a developers laptop/workstation. In order to setup the application you have to perform various installation procedures i.e install packages, start services, manage database etc.  
 After sometime you are going to make the Application available to a larger number of public than your laptop/workstation can handle and so will need to add a database server and will make this a multi tier application. So now we have one server handling the Application request and a separate server for database. To avoid data loss we will add another App server and Database server to keep the data redundant so that data loss is avoided.   
@@ -24,7 +24,7 @@ Chef is Infrastructure as a code. Using Chef you can programmatically provision 
   
 **Setup:**  
   
-Setup a Chef Environment first by setting up Chef workstation, use the following command on Ubuntu,  
+Setup a Chef Environment first by setting up Chef workstation, use the following command on **Ubuntu**,  
   
   
 
@@ -71,7 +71,7 @@ vim knife.rb
   client_key               "#{current_dir}/user.pem"  
   validation_client_name   "org-validator"  
   validation_key           "#{current_dir}/org-validator.pem"  
-  chef_server_url          "https://api.opscode.com/organizations/user"  
+  chef_server_url          "**https**://**api**.opscode.com/organizations/user"  
   cache_type               'BasicFile'  
   cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )  
   cookbook_path            ["#{current_dir}/../chef-repo/cookbooks"]  
@@ -82,7 +82,7 @@ vim knife.rb
 *action :install*  
 *end*  
 
-*template "/etc/apache2/apache.conf" do*   
+*template "/etc/apache2/**apache**.conf" do*   
 *source "apache2.conf.erb"*  
 *owner "root"*  
 *group "root"*  
@@ -99,7 +99,7 @@ Lets consider the above recipe and understand it.
 Each recipe has resources in it. The resources have :   
 
 - types -> package, template, service are the types of resources in the code  
-- names -> apache2, /etc/apache2/apache.conf, apache2(service) are the names of the resources in the code  
+- names -> apache2, /etc/apache2/**apache**.conf, apache2(service) are the names of the resources in the code  
 - parameters ->   source "apache2.conf.erb"   owner "root"   group "root"   mode "0644"   supports :reload => true  
 - action to put the resource on desired state -> action :install, action [:enable,:start]  
 - send notification to other resources -> notifies :reload, "service[apache2]  
@@ -160,7 +160,7 @@ override_attributes(
 
 )  
   
-Here the runlist method defines a list of recipes to be applied to all the nodes that have base role. The override_attributes method tells lets us override the default attributes used by the recipes in the list. Here we are overriding attributes used by the sudo cookbook so that "vagrant" and "ubuntu" users can run sudo without entering password.  
+Here the runlist method defines a list of recipes to be applied to all the nodes that have base role. The override_attributes method tells lets us override the default attributes used by the recipes in the list. Here we are overriding attributes used by the sudo cookbook so that "**vagrant**" and "**ubuntu**" users can run sudo without entering password.  
   
 Next create another role Webserver by creating a file webserver.rb in the roles directory with the following content.  
   
@@ -225,7 +225,7 @@ vim data_bags/users/$USER.json
 ```
 
   
-Add the following to the $USER.json  
+Add the following to the $USER.**json**  
 ```json
 {  
   "id": "jkg",  
@@ -239,4 +239,4 @@ Add the following to the $USER.json
   
 Upload the data bag as well to the chef-server and verify  
 knife data bag create users  
-knife data bag from file users $USER.json
+knife data bag from file users $USER.**json**

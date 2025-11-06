@@ -8,7 +8,7 @@ author: "Roshan Nagekar"
 ---
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywesR83JUnIPbQr1Sn_FlUbKyMB7sFybgSVvQuR3o9652KkRedpzyc2GwQGX6tTwCGKF8N6PQ1TnuvgGLeBh_ShxgSVZjQ4WybIXbYWRm2lI1R1f0hZOh9DI7pkmTrxYOl-C1BlWmXS8/s1600/July+MTP+++DevOps+Special+++Mumbai+Technology+Meetup++Mumbai++++Meetup.png)  
-On July 27th 10 am a DevOps special meetup was conducted at Directiplex, Mumbai. Its very rare to see a meetup given importance as much as any other technology conference. Speakers from different organizations were present and shared their knowledge. Tremendous knowledge and experience shared free of cost. The meetup went on from 10 am (Started a little late) and went around till 5.30 pm. The agenda itself was too appealing.  
+On July 27th 10 am a **DevOps** special meetup was conducted at Directiplex, Mumbai. Its very rare to see a meetup given importance as much as any other technology conference. Speakers from different organizations were present and shared their knowledge. Tremendous knowledge and experience shared free of cost. The meetup went on from 10 am (Started a little late) and went around till 5.30 pm. The agenda itself was too appealing.  
   
 No entry fees. Its a free event. Just ensure you learn and make use of that learniing :-)  
   
@@ -23,7 +23,7 @@ Rigved introduced to LXC its setup, its concepts and how its similar/different t
   
 12.00 pm - 1.00 pm : Configuration Management at Rackspace by Shaunak Kashyap - Rackspace  
   
-Shaunak conducted this on Hangout while he was at a 12 hr difference. Shaunak showed how rackspace uses Ansible for getting provisioning and other CM task automated.  
+Shaunak conducted this on Hangout while he was at a 12 hr difference. Shaunak showed how rackspace uses **Ansible** for getting provisioning and other CM task automated.  
   
 ```python
   
@@ -45,9 +45,9 @@ Ashish took introduction to Puppet some basics , how easy is it to setup a Puppe
 ```
 
   
-3.00 pm - 4.00 pm: Ansible by Aditya Patawari - BrowserStack  
+3.00 pm - 4.00 pm: **Ansible** by Aditya Patawari - BrowserStack  
   
-This was the 2nd time I met Aditya, we met earlier at RootConf in Bangalore. Aditya shared introduction to Ansible and how is it better/different than Chef//Puppet.  
+This was the 2nd time I met Aditya, we met earlier at RootConf in Bangalore. Aditya shared introduction to **Ansible** and how is it better/different than Chef//Puppet.  
   
 ```
   
@@ -58,4 +58,4 @@ Mayur conducted a live demo of how to use Cap for deploys and a a little intro a
 ```
 
   
-5.00 pm - 6.00 pm : Docker Fundamentals by Augustine Correa - Organizer of the event
+5.00 pm - 6.00 pm : **Docker** Fundamentals by Augustine Correa - Organizer of the event

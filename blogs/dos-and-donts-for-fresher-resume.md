@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicuM21oNCz_Vn7P15XEmTGGsvAeZ5BVi8Z3bijrOdjazqUbfCQIhYNCvG5ojSOQVeb6vDAoUg1DBG-OACjcaeqbMyn3363XywZQ-u2fz6KN6iTn8i5AkSZ7I0jgc97TYXIYhzxpJh1sSA/s1600/2987612253_a7f55f5c43_m.jpg)
 
-Some rights reserved by [woodleywonderworks](https://www.flickr.com/photos/wwworks/)
+Some rights reserved by [woodleywonderworks](**https**://www.flickr.com/photos/wwworks/)
 
   
   
@@ -29,7 +29,7 @@ Some resumes looked really boring and i didn't even feel like going to the next 
 
 - **Mentioning common skills in a different manner is surely advantageous**
 
-Almost all the resumes had the skills section say "C, C++, JAVA". So, how does one differentiates him from others? Why should i hire/shortlist him? I think its better that when a fresher writes his resume he needs to ask himself this question and write it. "C,C++,JAVA" is something the 100 people who have applied for the job with you already know. What different do your know? Answer: I know it better!! Obviously one must mention his/her proficiency in them based on which he could get selected. Besides, presenting this in a different manner could be great as well. e.g listing a link for a JAVA based project.  
+Almost all the resumes had the skills section say "C, C++, **JAVA**". So, how does one differentiates him from others? Why should i hire/shortlist him? I think its better that when a fresher writes his resume he needs to ask himself this question and write it. "C,C++,JAVA" is something the 100 people who have applied for the job with you already know. What different do your know? Answer: I know it better!! Obviously one must mention his/her proficiency in them based on which he could get selected. Besides, presenting this in a different manner could be great as well. e.g listing a link for a JAVA based project.  
 
 - **Mentioning achievements in academics or co-curricular in college. (Relevant to the position can be a plus)**
 

@@ -26,7 +26,7 @@ require 'erb'
 # get is a route which will map the get method of http to the
 controller action here /tryerb is a controller action.(A controller
 action is supplied with more info many a times for specific data
-e.g. GET /movies/3 will mean the route GET should map HTTP method to
+e.g. GET /movies/3 will mean the route GET should map **HTTP** method to
 movies with id 3 and show the information of that movie with id 3) 
 information will be rendered from tryerb. get route will show the
 page. POST would create one. DELETE will remove and PUT will update.  
@@ -148,7 +148,7 @@ views/postfile.erb
       <body>  
         <h1>Successfully Configured Mutt!!!</h1>  
          Open Terminal<br/>  
-         Type ssh [username]@[ip_address](ENTER)<br/>  
+         Type **ssh** [username]@[ip_address](ENTER)<br/>  
          Type 'mutt' press enter and check you inbox  
       </body>  
     </head>  

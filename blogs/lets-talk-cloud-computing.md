@@ -76,8 +76,8 @@ Suppose your work in some industry and you don't necessarily need Microsoft Offi
 
 Instead if you were using Office 365 which is Microsoft's cloud based Software as a Service lets see how the above mentioned steps changed.  
 
-1. You opened any browser and accessed the URL http://office.microsoft.com/en-in/business/compare-office-365-for-business-plans-FX102918419.aspx paid some amount on per month basis or per year basis as per your need which was 3 times less then what you paid for in a local installation
-2. You accessed URL : https://office.live.com/start/Word.aspx?ui=en-US
+1. You opened any browser and accessed the URL **http**://office.microsoft.com/en-in/business/compare-office-365-for-business-plans-FX102918419.aspx paid some amount on per month basis or per year basis as per your need which was 3 times less then what you paid for in a local installation
+2. You accessed URL : **https**://office.live.com/start/Word.aspx?ui=en-US
 3. You started working opened closed edited your docs saved it. Done!!!
 
 Thats it?   

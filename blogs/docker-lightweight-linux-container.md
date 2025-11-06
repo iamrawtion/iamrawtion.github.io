@@ -9,11 +9,11 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png)
 
-Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/
+**Docker**: Its a tool that helps you to pack, ship and run any application as a light-weight **Linux** container. More on **https**://www.docker.io/
 
-Works best on Linux kernel 3.8 Ubuntu 12.04 precise has 3.2 and needs to be upgraded.
+Works best on **Linux** kernel 3.8 **Ubuntu** 12.04 precise has 3.2 and needs to be upgraded.
 
-Install Docker with on Ubuntu 12.04:
+Install **Docker** with on **Ubuntu** 12.04:
 
 ```bash
 sudo apt-get update
@@ -22,7 +22,7 @@ sudo reboot
 ```
 
 
-To check docker version:
+To check **docker** version:
 
 ```bash
 sudo docker version
@@ -31,23 +31,23 @@ sudo docker version
 
 Client version: 0.11.1
 
-Client API version: 1.11
+Client **API** version: 1.11
 
 Go version (client): go1.2.1
 
-Git commit (client): fb99f99
+**Git** commit (client): fb99f99
 
 Server version: 0.11.1
 
-Server API version: 1.11
+Server **API** version: 1.11
 
-Git commit (server): fb99f99
+**Git** commit (server): fb99f99
 
 Go version (server): go1.2.1
 
 Last stable version: 0.11.1
 
-To check info about docker installed:
+To check info about **docker** installed:
 
 ```bash
 sudo docker info
@@ -63,7 +63,7 @@ Images: 9
 
 Storage Driver: aufs
 
-Root Dir: /var/lib/docker/aufs
+Root Dir: /var/lib/**docker**/aufs
 
 Dirs: 11
 
@@ -73,7 +73,7 @@ Kernel Version: 3.11.0-20-generic
 
 WARNING: No swap limit support
 
-To pull an existing docker image:
+To pull an existing **docker** image:
 
 ```bash
 sudo docker pull <imagename>
@@ -81,7 +81,7 @@ sudo docker pull busybox
 ```
 
 
-HelloWorld in docker:
+HelloWorld in **docker**:
 
 ```bash
 sudo docker run busybox echo HelloWorld
@@ -98,13 +98,13 @@ sudo docker search stackbrew/ubuntu
 
 NAME                       DESCRIPTION                                     STARS     OFFICIAL   TRUSTED
 
-stackbrew/ubuntu           Barebone ubuntu images                          36
+stackbrew/**ubuntu**           Barebone ubuntu images                          36
 
-jprjr/stackbrew-node       A stackbrew/ubuntu-based image for Docker,...   2                    [OK]
+jprjr/stackbrew-node       A stackbrew/**ubuntu**-based image for **Docker**,...   2                    [OK]
 
-hcvst/erlang               Erlang R14B04 based on stackbrew/ubuntu         0                    [OK]
+hcvst/erlang               Erlang R14B04 based on stackbrew/**ubuntu**         0                    [OK]
 
-stackbrew/ubuntu-upstart                                                   0
+stackbrew/**ubuntu**-upstart                                                   0
 
 Pull an existing image:
 
@@ -113,7 +113,7 @@ sudo docker pull ubuntu
 ```
 
 
-Pulling repository ubuntu
+Pulling repository **ubuntu**
 
 a7cf8ae4e998: Pulling dependent layers
 
@@ -140,33 +140,33 @@ sudo docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 
-ubuntu              13.10               5e019ab7bf6d        2 weeks ago         180 MB
+**ubuntu**              13.10               5e019ab7bf6d        2 weeks ago         180 MB
 
-ubuntu              saucy               5e019ab7bf6d        2 weeks ago         180 MB
+**ubuntu**              saucy               5e019ab7bf6d        2 weeks ago         180 MB
 
-ubuntu              12.04               74fe38d11401        2 weeks ago         209.6 MB
+**ubuntu**              12.04               74fe38d11401        2 weeks ago         209.6 MB
 
-ubuntu              precise             74fe38d11401        2 weeks ago         209.6 MB
+**ubuntu**              precise             74fe38d11401        2 weeks ago         209.6 MB
 
-ubuntu              12.10               a7cf8ae4e998        2 weeks ago         171.3 MB
+**ubuntu**              12.10               a7cf8ae4e998        2 weeks ago         171.3 MB
 
-ubuntu              quantal             a7cf8ae4e998        2 weeks ago         171.3 MB
+**ubuntu**              quantal             a7cf8ae4e998        2 weeks ago         171.3 MB
 
-ubuntu              14.04               99ec81b80c55        2 weeks ago         266 MB
+**ubuntu**              14.04               99ec81b80c55        2 weeks ago         266 MB
 
-ubuntu              latest              99ec81b80c55        2 weeks ago         266 MB
+**ubuntu**              latest              99ec81b80c55        2 weeks ago         266 MB
 
-ubuntu              trusty              99ec81b80c55        2 weeks ago         266 MB
+**ubuntu**              trusty              99ec81b80c55        2 weeks ago         266 MB
 
-ubuntu              raring              316b678ddf48        2 weeks ago         169.4 MB
+**ubuntu**              raring              316b678ddf48        2 weeks ago         169.4 MB
 
-ubuntu              13.04               316b678ddf48        2 weeks ago         169.4 MB
+**ubuntu**              13.04               316b678ddf48        2 weeks ago         169.4 MB
 
 busybox             latest              2d8e5b282c81        2 weeks ago         2.489 MB
 
-ubuntu              10.04               3db9c44f4520        2 weeks ago         183 MB
+**ubuntu**              10.04               3db9c44f4520        2 weeks ago         183 MB
 
-ubuntu              lucid               3db9c44f4520        2 weeks ago         183 MB
+**ubuntu**              lucid               3db9c44f4520        2 weeks ago         183 MB
 
 To run a command within an image:
 
@@ -178,7 +178,7 @@ sudo docker run ubuntu echo HelloWorld
 
 HelloWorld
 
-To install something on an ubuntu image
+To install something on an **ubuntu** image
 
 ```bash
 sudo docker run apt-get install <package>
@@ -189,7 +189,7 @@ sudo docker ps -l
 
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
 
-0dac167b178d        ubuntu:14.04        ps aux              12 minutes ago      Exited (0) 12 minutes ago                       goofy_bell
+0dac167b178d        **ubuntu**:14.04        ps aux              12 minutes ago      Exited (0) 12 minutes ago                       goofy_bell
 
 committing changes made to the images:
 
@@ -219,7 +219,7 @@ sudo docker inspect 0da
 ```
 
 
-<json output>
+<**json** output>
 
 Push container image to the index
 
@@ -238,9 +238,9 @@ Instruction are not case sensitive but CAPS are recommended. The first instructi
 
 FROM <image>
 
-FROM ubuntu
+FROM **ubuntu**
 
-This will look for the image in Docker index. You can also search docker index by the command docker search
+This will look for the image in **Docker** index. You can also search docker index by the command docker search
 
 Next is the RUN instruction. The RUN instruction will execute any commands on the current image. After executing, it will also commit the changes. The committed image can be used for the next instructions from the Dockerfile. This way the committed changes form a layer of changes just like any other source code control system. Syntax of RUN command:
 
@@ -248,13 +248,13 @@ RUN <command>
 
 RUN apt get install -y apache2
 
-Here the RUN command is equivalent to docker run image command + docker commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit.
+Here the RUN command is equivalent to **docker** run image command + docker commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit.
 
-Once you have created your Dockerfile you can use docker build to create you image from it. You can use the command in this way.
+Once you have created your Dockerfile you can use **docker** build to create you image from it. You can use the command in this way.
 
 Create a Dockerfile with the content
 
-FROM ubuntu
+FROM **ubuntu**
 
 RUN apt-get install -y memcached
 
@@ -279,7 +279,7 @@ docker build - < Dockerfile
 ```
 
 
-If passing through github URL
+If passing through **github** URL
 
 ```bash
 docker build github.com/roshan4074
@@ -293,7 +293,7 @@ sudo docker images
 ```
 
 
-To apply a tag to an image you the command: docker tag
+To apply a tag to an image you the command: **docker** tag
 
 ```bash
 sudo docker tag <container_id>

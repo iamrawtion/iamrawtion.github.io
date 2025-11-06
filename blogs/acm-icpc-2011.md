@@ -9,11 +9,11 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4BIFs6E8C3QhP_GHxbjJmucDkBB5Tr8apO87sGuRF8sjb3xbxlbUBzAKCpkwPmwjlKsR5Yekg9ILDRfzwE-4q0hdUr0xzJFIStvkBJLX5UqllG4Az65W0Rl5bu1-21dJl3r1BIv3rgCU/s1600/4235167360_d28d2843aa_m.jpg)
 
-Some rights reserved by [Kiewic](https://www.flickr.com/photos/kiewic/)
+Some rights reserved by [Kiewic](**https**://www.flickr.com/photos/kiewic/)
 
-Well, am not a blogger.... But few hings compel you to pen it all down somewhere.... ACM ICPC was surely one of them.  
-**What is ACM ICPC?**  
-Its an international programming contest. [Association for Computing Machinery](http://en.wikipedia.org/wiki/Association_for_Computing_Machinery "Association for Computing Machinery") International Collegiate Programming Contest.  
+Well, am not a blogger.... But few hings compel you to pen it all down somewhere.... **ACM** **ICPC** was surely one of them.  
+**What is **ACM** **ICPC**?**  
+Its an international programming contest. [Association for Computing Machinery](**http**://en.wikipedia.org/wiki/Association_for_Computing_Machinery "Association for Computing Machinery") International Collegiate Programming Contest.  
   
   
   
@@ -22,7 +22,7 @@ I represented my college Modern College Shivajinagar, Pune here
 
 **What is it all about?**
 
-Well, it all starts from here.[Archis Gore(one of the project mentors on www.peepaal.org) in his Introduction](http://peepaal.org/page/community-mentors) wrote about this competition (check the 8th line...:P) . When I read about it, the term was itself completely new to me. So I googled it. I read, it is held every year in IIT Kanpur in the month of December.
+Well, it all starts from here.[Archis Gore(one of the project mentors on www.peepaal.org) in his Introduction](**http**://peepaal.org/page/community-mentors) wrote about this competition (check the 8th line...:P) . When I read about it, the term was itself completely new to me. So I googled it. I read, it is held every year in IIT Kanpur in the month of December.
 
 **Registration**
 
@@ -32,7 +32,7 @@ I thought for a while and made up my mind that I will go for the competition in 
 
 **Online Competition**
 
-There was an **online competition on 16th October** out of which they would select around 200 teams for regional. 780 teams were registered. Most of them were from IIT’s. The online exam seemed easy but wasn’t really so. There were 5 questions and there was an online compiler (they call it mooshak) where we were supposed to submit the answer. The competition was for 4 hours 9 am to 1 pm. So we started coding compiler to be used was strictly gcc and OS ubuntu Linux 8.0 (recommended) . The worst ever result we ever had we could solve only 1 out of 5 questions according to their needs. We actually solved 4 out of 5. but the other 3 were rejected on the grounds of space and time complexity. So with that 1 solved answer we got selected for the regional competition which was held on 10th December 2011.The reason we got selected in spite of solving just one question was the selection procedure. The procedure is such that those teams who do not solve even a single questions are eliminated. Out of the remaining teams those teams(who solved at least one problem) selection would be made based on per Institutions registration. E.g if from XYZ College 10 teams have registered, the team which solved maximum problems will be selected. The selection criteria clearly states that, though it sounds unfair, this rule is implemented for the contest cause ICPC's goal is to bring many universities together. Only 1 team out of 200 teams was supposed to be selected for finals at Poland. The finals would be sponsored by IBM. The best part I saw was the team who wins the competition is sure to be placed in Google, Microsoft or IBM. Last years winners are in Google now.
+There was an **online competition on 16th October** out of which they would select around 200 teams for regional. 780 teams were registered. Most of them were from IIT’s. The online exam seemed easy but wasn’t really so. There were 5 questions and there was an online compiler (they call it mooshak) where we were supposed to submit the answer. The competition was for 4 hours 9 am to 1 pm. So we started coding compiler to be used was strictly gcc and OS **ubuntu** **Linux** 8.0 (recommended) . The worst ever result we ever had we could solve only 1 out of 5 questions according to their needs. We actually solved 4 out of 5. but the other 3 were rejected on the grounds of space and time complexity. So with that 1 solved answer we got selected for the regional competition which was held on 10th December 2011.The reason we got selected in spite of solving just one question was the selection procedure. The procedure is such that those teams who do not solve even a single questions are eliminated. Out of the remaining teams those teams(who solved at least one problem) selection would be made based on per Institutions registration. E.g if from XYZ College 10 teams have registered, the team which solved maximum problems will be selected. The selection criteria clearly states that, though it sounds unfair, this rule is implemented for the contest cause **ICPC**'s goal is to bring many universities together. Only 1 team out of 200 teams was supposed to be selected for finals at Poland. The finals would be sponsored by IBM. The best part I saw was the team who wins the competition is sure to be placed in Google, Microsoft or IBM. Last years winners are in Google now.
 
 **Problems for Online Competition**
 
@@ -143,7 +143,7 @@ Time limit: 2 seconds
 
 ## Problem D: Sub-sequences
 
-Having discovered that the Muggle-born* students of Hogwarts School of Witchcraft & Wizardry are all on Facebook, Headmaster Dumbledore decided to go with the flow and has hired an ICPC World Finalist to teach all the students about this 'compooter-thingy' and how to program it to do its 'automatic spells'. Harry is struggling with his latest homework assignment, which is as follows:  
+Having discovered that the Muggle-born* students of Hogwarts School of Witchcraft & Wizardry are all on Facebook, Headmaster Dumbledore decided to go with the flow and has hired an **ICPC** World Finalist to teach all the students about this 'compooter-thingy' and how to program it to do its 'automatic spells'. Harry is struggling with his latest homework assignment, which is as follows:  
   
 **You are given a sequence of N numbers A[1..N]. Consider a sub-sequence** such that the bitwise AND of all the numbers of the sub-sequence is equal to the bitwise OR of all the numbers of the sub-sequence. Amongst all such sub-sequences, find the sub-sequence that has the maximum sum of the numbers, and print this maximum sum.**  
   

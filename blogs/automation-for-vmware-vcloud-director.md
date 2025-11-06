@@ -9,15 +9,15 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyNcpTiQ8exUkJSq57cSwVbXDcgCI5dGxg6zzFwhbq8hJl5MWEO4HoDDLlD18u0JCKRQrMXCDfNtJ1FsOFQQc0x6NRuBOvdcJWwb0VzcRkRVQsfOQ6QQ9KhAoLa8NY3hDk0u58gE-q7e4/s1600/5049287009_9d310d2c2a_q.jpg)
 
-Some right reserved by [jdhancock](https://www.flickr.com/photos/jdhancock/)
+Some right reserved by [jdhancock](**https**://www.flickr.com/photos/jdhancock/)
 
   
   
-Plugin is available at <https://github.com/opscode/knife-vcloud>
+Plugin is available at <**https**://**github**.com/opscode/knife-vcloud>
 
 *Configuration used:*  
 
-- CentOS 6.5
+- **CentOS** 6.5
 - Chef 11.8.2
 - knife-vcloud 1.0.0
 
@@ -75,6 +75,6 @@ Good Luck!!
 
 *Reference Links:*   
 
-- <https://github.com/opscode/knife-vcloud>
-- <http://blogs.clogeny.com/category/tutorials/>
-- <http://www.getchef.com/blog/chefconf-talks/writing-a-knife-plugin-for-your-shiny-new-vmware-vcloud-director-based-cloud-chirag-jog/>
+- <**https**://**github**.com/opscode/knife-vcloud>
+- <**http**://blogs.clogeny.com/category/tutorials/>
+- <**http**://www.getchef.com/blog/chefconf-talks/writing-a-knife-plugin-for-your-shiny-new-**vmware**-vcloud-director-based-cloud-chirag-jog/>

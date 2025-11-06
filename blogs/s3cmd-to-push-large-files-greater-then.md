@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg)
 
-image credits:  [Stefano Bertolo](https://www.flickr.com/photos/stefanobe/)
+image credits:  [Stefano Bertolo](**https**://www.flickr.com/photos/stefanobe/)
 
   
 Use command line utility to push s3cmd files on Amazon S3.  
@@ -92,13 +92,13 @@ website_index = index.html
 
   
 access_key = YOUR-ACCESS-KEY-HERE  
-You can see how to use s3cmd at: http://s3tools.org/usage  
+You can see how to use s3cmd at: **http**://s3tools.org/usage  
   
 Here I came across a typical scenario where I could not upload files greater than 5GB. You could do this to print two Ways:  
   
   
 
-1. Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version.
+1. Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // **apache**-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version.
 2. Splitting Into the large files using small files and then uploading it split command.
 
 - Original file
@@ -123,6 +123,6 @@ split -b 3G 2014backup.tar.gz "201 412"
 
 
   
-201 412 * s3cmd put s3: // apache-logs /  
+201 412 * s3cmd put s3: // **apache**-logs /  
   
 Saved some time :)

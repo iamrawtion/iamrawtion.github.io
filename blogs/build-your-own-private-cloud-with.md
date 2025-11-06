@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9h_yuYjfB-wTAvOKz71c_IGxnCp5xenpcW_cPm4GgnkQkEeOG1UbGZ-LOpcGQ4jJs-tLh1SDT-rbcHfMBwunut5edkvZ99EXfW7BbBPr4s18fd3ci-0DMfssijOg6ijpucXqVN1el31c/s1600/5527495896_4c39148366_m.jpg)
 
-Some rights reserved by [ErinOfEarth](https://www.flickr.com/photos/erinofearth/)
+Some rights reserved by [ErinOfEarth](**https**://www.flickr.com/photos/erinofearth/)
 
   
   
@@ -20,7 +20,7 @@ Continuing from...
 
 Create node for your MAAS server. You must have atleast 2 nodes before going ahead with juju setup. Go to the webpage for maas server and Click on Add nodes.
 
-We left all the other information fields there blank except for the MAC-ADDRESS. You can get the mac address of your computer by ipconfig on windows and ifconfig on Ubuntu - Ubuntu users can do:
+We left all the other information fields there blank except for the MAC-ADDRESS. You can get the mac address of your computer by ipconfig on windows and ifconfig on **Ubuntu** - Ubuntu users can do:
 
 ```bash
 ifconfig | grep hwadrs
@@ -28,9 +28,9 @@ ifconfig | grep hwadrs
 
 
 Then we went to  
-http://maas.ubuntu.com/docs/juju-quick-start.html  
-Thereafter we created ~/.juju/environments.yaml  
-vim ~/.juju/environments.yaml  
+**http**://maas.**ubuntu**.com/docs/juju-quick-start.html  
+Thereafter we created ~/.juju/environments.**yaml**  
+vim ~/.juju/environments.**yaml**  
 Added the following details to this file  
   
 ```yaml
@@ -54,11 +54,13 @@ juju status
 New error  
 Juju INFO Connecting to environment... Unhandled error in Deferred: Unhandled Error  
   
-Investigated, result:  
+
+## Investigated, result
+
 Juju packages needs to be installed from ppa:juju/pkg  
   
 Went to  
-https://juju.ubuntu.com/docs/  
+**https**://juju.**ubuntu**.com/docs/  
 removed existing juju  
 ```bash
 sudo apt-get update  
@@ -87,7 +89,7 @@ sudo juju -v sync-tools
 ```
 
   
-roshan@ubuntu-cloud:~$ sudo juju bootstrap  
+roshan@**ubuntu**-cloud:~$ sudo juju bootstrap  
 error: cannot start bootstrap instance: cannot run instances: gomaasapi: got error back from server: 409 CONFLICT  
   
 CONFLICT from maas means that it doesn't have any nodes available for juju to acquire (juju bootstrap needs to boot a node).  

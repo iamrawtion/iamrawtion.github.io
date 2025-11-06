@@ -7,7 +7,7 @@ excerpt: "I received a mail some months ago to register to New Relic, they had s
 author: "Roshan Nagekar"
 ---
 
-I received a mail some months ago to register to New Relic, they had some cool offers then like free t-shirts etc. I didn't check it then as i was really busy with other stuff. However since my new DevOps learning experience and course material had mentions of monitoring tools, after googling a bit i came across New Relic too.  
+I received a mail some months ago to register to New Relic, they had some cool offers then like free t-shirts etc. I didn't check it then as i was really busy with other stuff. However since my new **DevOps** learning experience and course material had mentions of monitoring tools, after googling a bit i came across New Relic too.  
   
 So New Relic is a software analytics company. It delivers a Saas)Software as a service) model, that monitors Web and Mobile application real-time. Monitoring using New Relic seemed easy as i tried it on one or two systems and the logs generated looked really accurate and helpful too.  
   

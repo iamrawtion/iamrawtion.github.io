@@ -9,11 +9,11 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhob0BaQ4oCq2lbAOXjHBcY1dX0mnSRtSuqt0yUdUZIAQ_e9USQsxJgFwTX9VvFpL3bu-dMCLhyWNlc52TmtcSPXJVLGBTUJ8qooQaIb7T1IOmb9Es2p_8u837PKdecifHJ7K80Oas9Q7I/s1600/8552968000_9da6bffe9a_m.jpg)
 
-some rights reserved by [intelfreepress](https://www.flickr.com/photos/intelfreepress/8552968000)
+some rights reserved by [intelfreepress](**https**://www.flickr.com/photos/intelfreepress/8552968000)
 
-Got opportunity to work with Hadoop with a recent project. Understanding the architecture conceptually and then learn using it is fun. I am still learning it though. This part explains Hadoop 1.0 which I believe helped me to understand 2.0 well.  
+Got opportunity to work with **Hadoop** with a recent project. Understanding the architecture conceptually and then learn using it is fun. I am still learning it though. This part explains Hadoop 1.0 which I believe helped me to understand 2.0 well.  
   
-Before understanding Hadoop it would make more sense if we get rid of a few jargon that would come our way.  
+Before understanding **Hadoop** it would make more sense if we get rid of a few jargon that would come our way.  
   
 ```json
 [

@@ -7,7 +7,7 @@ excerpt: "A lot has been said, heard and read about Cloud. There so many ways th
 author: "Roshan Nagekar"
 ---
 
-A lot has been said, heard and read about Cloud. There so many ways that the cloud gets filtered further. In my [previous blog](http://roshannagekar.blogspot.in/2012/06/lets-talk-cloud-computing.html) we discussed about Saas, Paas and Iaas. More and more companies are looking for cloud as the solution for their business needs. We shall further discuss 3 important types of cloud.  
+A lot has been said, heard and read about Cloud. There so many ways that the cloud gets filtered further. In my [previous blog](**http**://roshannagekar.blogspot.in/2012/06/lets-talk-cloud-computing.html) we discussed about Saas, Paas and Iaas. More and more companies are looking for cloud as the solution for their business needs. We shall further discuss 3 important types of cloud.  
 
 1. Public Cloud
 2. Private Cloud

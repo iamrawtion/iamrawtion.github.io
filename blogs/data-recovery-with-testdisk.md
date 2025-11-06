@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9gFrC33gyk6Ertbup3MmNjilWZsKmRgBBQpRQUKWVGQge3wlfaXBgYL0-hafHi9O9SJOevKNEMyjOVpkXnlQX8MgqN7KKTi7LOnfFDRDKlMPcQFLDHcaXL2t7ZXPhdA51MHsi-6Vqkgg/s1600/8336691931_32bc2f3e2e_m.jpg)
 
-some rights reserved by [epSos .de](https://www.flickr.com/photos/epsos/)
+some rights reserved by [epSos .de](**https**://www.flickr.com/photos/epsos/)
 
   
  You buy a portable hard disk drive to keep a back up of all your
@@ -22,7 +22,7 @@ just consider it lost and curse your fate and carry on.
 This
 happened to me too. 1 TeraBytes of important data in my external Hard
 disk drive got corrupt in a second and was lost. I tried all OS's i
-could right from MAC to Windows to Linux but no luck. I was about to
+could right from MAC to Windows to **Linux** but no luck. I was about to
 give up when i came across Data Recovery softwares on Internet.  
   
 Data
@@ -55,7 +55,7 @@ software with most of the information self explanatory.
 **Steps to Use:**  
 
 1. Logs
-   Creation : Like every other Linux based software, this one as well
+   Creation : Like every other **Linux** based software, this one as well
    makes a log of every session carried out. when you execute the
    TestDisk.exe You are 1st asked for if, you would like to CREATE a new
    log, APPEND  the existing log, or want NO LOG.

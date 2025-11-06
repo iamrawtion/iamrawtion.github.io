@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg)
 
-Some rights reserved by [Linux Screenshots](https://www.flickr.com/photos/xmodulo/)
+Some rights reserved by [Linux Screenshots](**https**://www.flickr.com/photos/xmodulo/)
 
   
   
@@ -34,8 +34,12 @@ Shell Scripting
     $ chmod 755 script  
     755 sets permission for user (read 4 write 2 execute 1) group and others (read 4 execute 1)  
   
-3. Executing your script : There are three ways of executing a script:  
-    Syntax:  
+
+## 3. Executing your script : There are three ways of executing a script
+
+
+## Syntax
+
         bash script-name  
         sh script-name  
         ./script-name  
@@ -58,10 +62,14 @@ echo - prints the message
 
   
 4. The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values.  
-Linux has two types of variables:  
-i. System Variables (Maintained by Linux system, seen in caps case)  
+
+## Linux has two types of variables
+
+i. System Variables (Maintained by **Linux** system, seen in caps case)  
 ii. User defined varibales (User defined, small case)  
-Variable declaration:  
+
+## Variable declaration
+
 n=10  
 Dont put spaces on either side of the equals sign that should give an error. Variables are case sensitive. While printing the values of the variables use the '$' symbol, e.g echo $n  
   
@@ -79,7 +87,7 @@ $ echo `expr 6 + 3`
 Note : Backticks ` is called backtick and this is mean to execute any command in the script e.g echo "today is `date`"   
   
 6. Exit status  
-By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO  
+By default in **Linux** if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO  
 zero is success while non zero is not  
 This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status  
 e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0  
@@ -121,12 +129,14 @@ $ ls -l | wc  -l
 $ who | grep raju  
   
 12. Filters  
-If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called 'hotel.txt' with 100 lines data, And from 'hotel.txt' you would like to print contains from line number 20 to line number 30 and store this result to file called 'hlist' then give command:  
+If a **Linux** command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called 'hotel.txt' with 100 lines data, And from 'hotel.txt' you would like to print contains from line number 20 to line number 30 and store this result to file called 'hlist' then give command:  
 $ tail +20 < hotel.txt | head -n30 >hlist  
   
 13. If Condition  
 if is used for decision making. If a particular condition is true command1 is executed.   
-Syntax:  
+
+## Syntax
+
 if condition  
 then  
   command1  
