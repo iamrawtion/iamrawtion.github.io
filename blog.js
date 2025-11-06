@@ -6,6 +6,7 @@ class BlogManager {
     }
 
     async init() {
+        console.log('Initializing blog manager...');
         await this.loadBlogs();
         this.setupEventListeners();
         this.checkRoute();
@@ -13,13 +14,22 @@ class BlogManager {
 
     async loadBlogs() {
         try {
+            console.log('Loading blogs from blogs/blogs.json...');
             const response = await fetch('blogs/blogs.json');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             this.blogs = await response.json();
+            console.log(`Loaded ${this.blogs.length} blog posts`);
+
             // Sort blogs by date (newest first)
             this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+
         } catch (error) {
             console.error('Error loading blogs:', error);
-            this.showError('Failed to load blog posts');
+            this.showError(`Failed to load blog posts. Error: ${error.message}`);
         }
     }
 
@@ -36,10 +46,25 @@ class BlogManager {
 
     showBlogList() {
         const container = document.getElementById('blog-grid');
-        if (!container) return;
+        if (!container) {
+            console.error('blog-grid container not found');
+            return;
+        }
 
         container.innerHTML = '';
 
+        if (this.blogs.length === 0) {
+            container.innerHTML = `
+                <div style="text-align: center; padding: 3rem; grid-column: 1 / -1;">
+                    <i class="fas fa-inbox" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <p style="color: var(--text-color); font-size: 1.2rem;">No blog posts found yet.</p>
+                    <p style="color: var(--text-color); opacity: 0.7;">Check back soon for new content!</p>
+                </div>
+            `;
+            return;
+        }
+
+        console.log(`Rendering ${this.blogs.length} blog cards`);
         this.blogs.forEach(blog => {
             const card = this.createBlogCard(blog);
             container.appendChild(card);
@@ -91,11 +116,23 @@ class BlogManager {
         }
 
         try {
+            console.log(`Loading blog post: ${blog.file}`);
+
             // Fetch markdown content
             const response = await fetch(`blogs/${blog.file}`);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const markdown = await response.text();
+            console.log(`Loaded markdown content (${markdown.length} characters)`);
 
             // Parse markdown to HTML using marked library
+            if (typeof marked === 'undefined') {
+                throw new Error('Marked.js library not loaded');
+            }
+
             const htmlContent = marked.parse(markdown);
 
             // Hide blog list, show blog post
@@ -114,7 +151,7 @@ class BlogManager {
 
         } catch (error) {
             console.error('Error loading blog post:', error);
-            this.showError('Failed to load blog post');
+            this.showError(`Failed to load blog post. Error: ${error.message}`);
         }
     }
 
@@ -128,7 +165,10 @@ class BlogManager {
     highlightCode() {
         // If Prism.js is available, use it
         if (typeof Prism !== 'undefined') {
+            console.log('Applying syntax highlighting...');
             Prism.highlightAll();
+        } else {
+            console.warn('Prism.js not available for syntax highlighting');
         }
     }
 
@@ -139,7 +179,13 @@ class BlogManager {
             'DevOps': 'fas fa-cogs',
             'AI/ML': 'fas fa-robot',
             'Infrastructure': 'fas fa-server',
-            'Monitoring': 'fas fa-chart-line'
+            'Monitoring': 'fas fa-chart-line',
+            'Security': 'fas fa-lock',
+            'Automation': 'fas fa-robot',
+            'Containers': 'fas fa-box',
+            'Database': 'fas fa-database',
+            'Networking': 'fas fa-network-wired',
+            'Tutorial': 'fas fa-graduation-cap'
         };
         return icons[category] || 'fas fa-file-alt';
     }
@@ -154,9 +200,10 @@ class BlogManager {
         const container = document.getElementById('blog-grid') || document.getElementById('blog-post-content');
         if (container) {
             container.innerHTML = `
-                <div class="error-message" style="text-align: center; padding: 3rem; color: var(--red);">
+                <div class="error-message" style="text-align: center; padding: 3rem; color: var(--red); grid-column: 1 / -1;">
                     <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
                     <p style="font-size: 1.2rem;">${message}</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Check the browser console for more details.</p>
                 </div>
             `;
         }
@@ -181,6 +228,7 @@ class BlogManager {
 
 // Initialize blog manager when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, starting blog manager...');
     const blogManager = new BlogManager();
     blogManager.init();
 });
