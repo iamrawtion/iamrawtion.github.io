@@ -9,6 +9,8 @@ author: "Roshan Nagekar"
 
 ![Docker Compose Banner](/images/blog-images/sample-docker-compose-guide/docker-compose-banner.svg)
 
+> **⚠️ Note:** This is an AI-generated sample blog post created to demonstrate the blog creation workflow. It is provided for reference purposes only to showcase the blog structure, markdown formatting, and image integration capabilities.
+
 ## Introduction
 
 **Docker Compose** is a powerful tool for defining and running multi-container Docker applications. Instead of managing multiple containers individually, you can define your entire application stack in a single YAML file and manage it with simple commands.
