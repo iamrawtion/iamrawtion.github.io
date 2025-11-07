@@ -198,9 +198,9 @@ class BlogManager {
         const script = document.createElement('script');
         script.src = 'https://giscus.app/client.js';
         script.setAttribute('data-repo', 'iamrawtion/iamrawtion.github.io');
-        script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // You'll need to update this
+        script.setAttribute('data-repo-id', 'R_kgDOQHMvOw');
         script.setAttribute('data-category', 'Blog Comments');
-        script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // You'll need to update this
+        script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // TODO: Update after creating Discussion category
         script.setAttribute('data-mapping', 'pathname');
         script.setAttribute('data-strict', '0');
         script.setAttribute('data-reactions-enabled', '1');
