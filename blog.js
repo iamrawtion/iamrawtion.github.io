@@ -200,7 +200,7 @@ class BlogManager {
         script.setAttribute('data-repo', 'iamrawtion/iamrawtion.github.io');
         script.setAttribute('data-repo-id', 'R_kgDOQHMvOw');
         script.setAttribute('data-category', 'Blog Comments');
-        script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // TODO: Update after creating Discussion category
+        script.setAttribute('data-category-id', 'DIC_kwDOQHMvO84CxhjJ');
         script.setAttribute('data-mapping', 'pathname');
         script.setAttribute('data-strict', '0');
         script.setAttribute('data-reactions-enabled', '1');
