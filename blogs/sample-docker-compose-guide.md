@@ -7,7 +7,7 @@ excerpt: "Learn how to use Docker Compose to manage multi-container applications
 author: "Roshan Nagekar"
 ---
 
-![Docker Compose Banner](/images/blog-images/sample-docker-compose-guide/docker-compose-banner.png)
+![Docker Compose Banner](/images/blog-images/sample-docker-compose-guide/docker-compose-banner.svg)
 
 ## Introduction
 
@@ -71,7 +71,7 @@ services:
 
 Let's build a complete example with a **Node.js** application and a **PostgreSQL** database.
 
-![Application Architecture](/images/blog-images/sample-docker-compose-guide/architecture-diagram.png)
+![Application Architecture](/images/blog-images/sample-docker-compose-guide/architecture-diagram.svg)
 
 ### Step 1: Create the Project Structure
 
@@ -191,7 +191,7 @@ docker-compose build
 docker-compose restart webapp
 ```
 
-![Docker Compose Commands](/images/blog-images/sample-docker-compose-guide/commands-cheatsheet.png)
+![Docker Compose Commands](/images/blog-images/sample-docker-compose-guide/commands-cheatsheet.svg)
 
 ## Advanced Features
 
