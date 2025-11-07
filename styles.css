@@ -1429,6 +1429,39 @@ section {
     margin: 2rem 0;
 }
 
+/* Comments Section */
+.comments-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid rgba(125, 207, 255, 0.2);
+}
+
+.comments-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.comments-title i {
+    color: var(--accent-color);
+}
+
+#giscus-comments {
+    background: rgba(36, 40, 59, 0.5);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(125, 207, 255, 0.1);
+}
+
+/* Giscus theme customization */
+.giscus {
+    color-scheme: dark;
+}
+
 /* Blog Page Responsive */
 @media (max-width: 768px) {
     .blog-title {
