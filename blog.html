@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevOps, Cloud, and Security insights by Roshan Nagekar">
+    <title>Blog | Roshan Nagekar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Terminal Navigation -->
+    <div class="terminal-nav">
+        <div class="container">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-button close"></span>
+                    <span class="terminal-button minimize"></span>
+                    <span class="terminal-button maximize"></span>
+                </div>
+                <div class="terminal-title">roshan@blog:~$</div>
+                <div class="terminal-visitor-counter">
+                    <img src="https://visitor-badge.laobi.icu/badge?page_id=iamrawtion.blog" alt="Visitors">
+                </div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminal-output"></div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">visitor@blog:~$</span>
+                    <input type="text" class="terminal-input" id="terminal-input" placeholder="Type 'help' for commands" autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-nav">
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+            <li><a href="index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+            <li><a href="index.html#github"><i class="fab fa-github"></i> <span>GitHub</span></a></li>
+            <li><a href="index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+            <li><a href="index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+            <li><a href="index.html#achievements"><i class="fas fa-trophy"></i> <span>Achievements</span></a></li>
+            <li><a href="blog.html" class="active"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+            <li><a href="index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Blog Header Section -->
+    <section class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">DevOps & Cloud Blog</h1>
+            <p class="blog-subtitle">Technical insights, tutorials, and thoughts on DevOps, Cloud Infrastructure, and Security</p>
+        </div>
+    </section>
+
+    <!-- Blog Posts List Section -->
+    <section id="blog-posts-section" class="blog-posts">
+        <div class="container">
+            <!-- Blog posts will be dynamically loaded here -->
+            <div class="blog-grid" id="blog-grid">
+                <!-- Loading indicator -->
+                <div class="loading" style="text-align: center; padding: 3rem; grid-column: 1 / -1;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <p style="margin-top: 1rem; color: var(--text-color);">Loading blog posts...</p>
+                </div>
+            </div>
+
+            <!-- External Blog Links -->
+            <div class="external-blogs">
+                <h2 class="section-title">More Articles</h2>
+                <p class="external-blogs-intro">Find more of my technical writings on these platforms:</p>
+                <div class="external-blog-links">
+                    <a href="https://roshannagekar.blogspot.com" target="_blank" class="external-blog-card">
+                        <i class="fab fa-blogger-b"></i>
+                        <h3>Personal Blog</h3>
+                        <p>Technical tutorials and DevOps insights</p>
+                    </a>
+                    <a href="https://medium.com/@RoshanNagekar" target="_blank" class="external-blog-card">
+                        <i class="fab fa-medium"></i>
+                        <h3>Medium</h3>
+                        <p>In-depth articles on cloud and security</p>
+                    </a>
+                    <a href="https://www.quora.com/profile/Roshan-Nagekar" target="_blank" class="external-blog-card">
+                        <i class="fab fa-quora"></i>
+                        <h3>Quora</h3>
+                        <p>Answers to DevOps questions</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Individual Blog Post View -->
+    <section id="blog-post-view" class="blog-post-view" style="display: none;">
+        <div class="container">
+            <div class="blog-post-container">
+                <a href="#" id="back-to-blog-list" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Blog List
+                </a>
+                <!-- Floating Back Button -->
+                <a href="#" id="floating-back-button" class="floating-back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <article id="blog-post-content" class="blog-post-content">
+                    <!-- Individual blog post content will be loaded here -->
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Roshan Nagekar. Built with passion for DevOps.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <!-- Marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- Blog management script -->
+    <script src="blog.js"></script>
+</body>
+</html>
