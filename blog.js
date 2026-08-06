@@ -142,6 +142,9 @@ class BlogManager {
             document.getElementById('blog-posts-section').style.display = 'none';
             document.getElementById('blog-post-view').style.display = 'block';
 
+            // Update page meta for SEO and sharing
+            this.updateMeta(blog);
+
             // Update blog post content
             const postContent = document.getElementById('blog-post-content');
             postContent.innerHTML = htmlContent;
@@ -164,8 +167,49 @@ class BlogManager {
     showBlogListView() {
         document.getElementById('blog-posts-section').style.display = 'block';
         document.getElementById('blog-post-view').style.display = 'none';
+        this.resetMeta();
         window.history.pushState({}, '', 'blog.html');
         window.scrollTo(0, 0);
+    }
+
+    updateMeta(blog) {
+        const title = `${blog.title} | Roshan Nagekar`;
+        const description = blog.excerpt;
+        const url = `https://iamrawtion.github.io/blog.html?post=${blog.id}`;
+
+        document.title = title;
+        this.setMeta('name', 'description', description);
+        this.setMeta('property', 'og:type', 'article');
+        this.setMeta('property', 'og:title', title);
+        this.setMeta('property', 'og:description', description);
+        this.setMeta('property', 'og:url', url);
+        this.setMeta('name', 'twitter:title', title);
+        this.setMeta('name', 'twitter:description', description);
+    }
+
+    resetMeta() {
+        const defaultTitle = 'Blog | Roshan Nagekar';
+        const defaultDesc = 'DevOps, Cloud, and Security insights by Roshan Nagekar';
+        const defaultUrl = 'https://iamrawtion.github.io/blog.html';
+
+        document.title = defaultTitle;
+        this.setMeta('name', 'description', defaultDesc);
+        this.setMeta('property', 'og:type', 'website');
+        this.setMeta('property', 'og:title', defaultTitle);
+        this.setMeta('property', 'og:description', defaultDesc);
+        this.setMeta('property', 'og:url', defaultUrl);
+        this.setMeta('name', 'twitter:title', defaultTitle);
+        this.setMeta('name', 'twitter:description', defaultDesc);
+    }
+
+    setMeta(attr, key, value) {
+        let el = document.querySelector(`meta[${attr}="${key}"]`);
+        if (!el) {
+            el = document.createElement('meta');
+            el.setAttribute(attr, key);
+            document.head.appendChild(el);
+        }
+        el.setAttribute('content', value);
     }
 
     removeFrontmatter(markdown) {
