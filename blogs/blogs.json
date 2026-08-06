@@ -1,5 +1,25 @@
 [
   {
+    "title": "Credential bleed: what happens when your MCP server trusts the wrong thing",
+    "date": "2026-07-26",
+    "category": "Security",
+    "tags": ["MCP", "AI Agents", "Security", "Terraform", "MySQL", "DevSecOps"],
+    "excerpt": "I set up a MySQL MCP server on port 9100 using FastMCP and immediately noticed a problem — the server doesn't inherently know the difference between an agent I authorized and one that just happened to find my endpoint.",
+    "author": "Roshan Nagekar",
+    "id": "credential-bleed-mcp-server-trust",
+    "file": "credential-bleed-mcp-server-trust.md"
+  },
+  {
+    "title": "I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.",
+    "date": "2026-07-26",
+    "category": "DevOps",
+    "tags": ["n8n", "Automation", "AI Agents", "Telegram", "DevOps"],
+    "excerpt": "I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.",
+    "author": "Roshan Nagekar",
+    "id": "telegram-auto-post-pipeline",
+    "file": "telegram-auto-post-pipeline.md"
+  },
+  {
     "title": "Getting Started with Docker Compose: A Practical Guide",
     "date": "2025-01-15",
     "category": "DevOps",
