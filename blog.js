@@ -185,6 +185,8 @@ class BlogManager {
         this.setMeta('property', 'og:url', url);
         this.setMeta('name', 'twitter:title', title);
         this.setMeta('name', 'twitter:description', description);
+        this.setCanonical(url);
+        this.setJsonLd(blog, url);
     }
 
     resetMeta() {
@@ -200,6 +202,55 @@ class BlogManager {
         this.setMeta('property', 'og:url', defaultUrl);
         this.setMeta('name', 'twitter:title', defaultTitle);
         this.setMeta('name', 'twitter:description', defaultDesc);
+        this.setCanonical(defaultUrl);
+        this.removeJsonLd();
+    }
+
+    setCanonical(url) {
+        let el = document.querySelector('link[rel="canonical"]');
+        if (!el) {
+            el = document.createElement('link');
+            el.setAttribute('rel', 'canonical');
+            document.head.appendChild(el);
+        }
+        el.setAttribute('href', url);
+    }
+
+    setJsonLd(blog, url) {
+        this.removeJsonLd();
+        const schema = {
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            'headline': blog.title,
+            'description': blog.excerpt,
+            'datePublished': blog.date,
+            'author': {
+                '@type': 'Person',
+                'name': blog.author,
+                'url': 'https://iamrawtion.github.io/'
+            },
+            'publisher': {
+                '@type': 'Person',
+                'name': 'Roshan Nagekar',
+                'url': 'https://iamrawtion.github.io/'
+            },
+            'url': url,
+            'keywords': blog.tags.join(', '),
+            'mainEntityOfPage': {
+                '@type': 'WebPage',
+                '@id': url
+            }
+        };
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = 'blog-jsonld';
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
+    }
+
+    removeJsonLd() {
+        const existing = document.getElementById('blog-jsonld');
+        if (existing) existing.remove();
     }
 
     setMeta(attr, key, value) {
