@@ -8,6 +8,8 @@
   <title>Copying ssh keys easily | Roshan Nagekar</title>
   <meta name="description" content="I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/devsecops-pune-meetup-3.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/aws-tagger.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Copying ssh keys easily">
   <meta property="og:description" content="I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my...">
@@ -16,11 +18,21 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2019-02-09">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Ansible">
+  <meta property="article:tag" content="SSH">
+  <meta property="article:tag" content="ssh-copy-id">
+  <meta property="article:tag" content="ssh-keyscan">
+  <meta property="article:tag" content="Vagrant">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Copying ssh keys easily">
   <meta name="twitter:description" content="I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="7 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +42,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Copying ssh keys easily","description":"I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-09","url":"https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html","keywords":"Ansible, SSH, ssh-copy-id, ssh-keyscan, Vagrant","wordCount":1280,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Copying ssh keys easily","description":"I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-09","url":"https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html","keywords":"Ansible, SSH, ssh-copy-id, ssh-keyscan, Vagrant","wordCount":1280,"timeRequired":"PT7M","articleBody":"I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my server for the 1st time with my master host. If I am using 10 VMs I need to authorize them 10 times? I wrote a small script to automate this process: Create a &quot;list&quot; file and add all IPs and hostnames for the VMs in it. Create a &quot;password&quot; file to write your SSH password in it, you may choose to write the password in the bash, however I feel this gives me the flexibility to add the bash to my source code if need by putting password file in a.gitignore Next create a shell script that will read the IP addresses and the hostnames from the &quot;list&quot; file and password/s from the password file(I generally keep the same password for all VMs for simplicity) Remember 2 commands are useful here **ssh-copy-ip and **ssh-keyscan. Here&#39;s how you use them: **ssh-keyscan -H &lt;IP&gt; &gt;&gt; ~/.ssh/known_hosts sshpass -f &lt;password&gt; **ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;USER&gt;@&lt;IP&gt; The **ssh-keyscan command command is for gathering the public **ssh host key of a VM host specified. After collecting the publich ssh-key it adds it to your localhost. You can verify this by checking the contents of &quot;~/.ssh/known_hosts&quot; The ssh-copy-id command copies the public key of your default identity (otherwise use -i identity_file for other identities) to the remote host. You can verify this by checking the content on ~/.ssh/authorized_keys in the VM host. The final script looks like this with a loop: #!/bin/bash user=&quot;**vagrant**&quot; for ip in `cat ./list`; do **ssh-keyscan -H $ip &gt;&gt; ~/.ssh/known_hosts sshpass -f password.txt **ssh-copy-id -i ~/.ssh/id_rsa.pub $user@$ip done That&#39;s how my &quot;list&quot; file looks like: consul-server1 consul-server2 bootstrap-server1 client1 client2 client3 client4 client5 192.168.3.111 192.168.3.112 192.168.3.121 192.168.3.151 192.168.3.152 192.168.3.153 192.168.3.154 192.168.3.155 I purposely add IP as well as hostname as I keep using them interchangeably. I also came to know about **ansible authorized_keys module that does the **ssh-copy-id task: - name: Set authorized key for user ubuntu copying it from current user authorized_key: user: ubuntu state: present key: &quot;{{ lookup(&#39;file&#39;, lookup(&#39;env&#39;,&#39;HOME&#39;) + &#39;/.ssh/id_rsa.pub&#39;) }}&quot; However, you will still need the the **ssh-keyscan here. This script goes handy for ops who keep destroying their local environment and use a new one.This is available on **Github: https://github.com/iamrawtion/ansible-autossh Why This Approach Scales The script above starts to show its value the moment you go past five or six hosts. With ten VMs you might tolerate doing it by hand. With fifty, you can&#39;t — you&#39;ll make mistakes, miss hosts, and waste half an hour on something that should take thirty seconds. The loop-based approach handles any number of hosts identically. Add a new IP to the list file and re-run the script. The ssh-keyscan call is fast (sub-second per host on a local network), and ssh-copy-id does the key distribution without you touching each machine individually. This is also the right pattern for ephemeral environments — Vagrant clusters, AWS Auto Scaling groups during testing, Docker Swarm nodes spun up for a load test. You tear them down, rebuild, run the script, and you&#39;re authorized on all of them again in seconds. The Ansible authorized_key module referenced above is what you&#39;d use if you&#39;re already running Ansible plays against an inventory. It handles the same job at the task level, and it&#39;s idempotent — running it twice doesn&#39;t break anything. But you still need ssh-keyscan to populate known_hosts before Ansible can connect the first time, which is why the shell script is still useful as a bootstrapping step. Making It More Secure The password file approach works, but there are a few things worth tightening up before you use this in anything beyond a local dev cluster. Use separate key pairs per environment. Don&#39;t use the same id_rsa for your Vagrant dev cluster as you use for production servers. If the key leaks from a dev context, you don&#39;t want it to work anywhere else. Generate a dedicated key for each environment: ssh-keygen -t ed25519 -f ~/.ssh/vagrant_dev -C &quot;vagrant-dev-$(date +%Y%m%d)&quot; Then pass -i ~/.ssh/vagrant_dev.pub to ssh-copy-id . Drop the password file in favor of ssh-agent. The password.txt file is a plaintext secret on disk. It&#39;s fine for a throwaway local cluster, but if this script ever makes it into a CI pipeline or a shared machine, that file is a liability. The cleaner approach: eval $(ssh-agent) ssh-add ~/.ssh/id_rsa # Now ssh-copy-id works without sshpass, because the agent handles auth for ip in $(cat ./list); do ssh-keyscan -H $ip &gt;&gt; ~/.ssh/known_hosts ssh-copy-id -i ~/.ssh/id_rsa.pub $user@$ip done The ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Copying ssh keys easily","item":"https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html"}]}</script>
 </head>
 <body>
@@ -89,6 +101,13 @@
             7 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#why-this-approach-scales" style="color:var(--primary-color); text-decoration:none;">Why This Approach Scales</a></li><li style="margin-bottom:0.35rem;"><a href="#making-it-more-secure" style="color:var(--primary-color); text-decoration:none;">Making It More Secure</a></li><li style="margin-bottom:0.35rem;"><a href="#idempotency-running-it-safely-multiple-times" style="color:var(--primary-color); text-decoration:none;">Idempotency: Running It Safely Multiple Times</a></li><li style="margin-bottom:0.35rem;"><a href="#when-to-use-ansible-instead" style="color:var(--primary-color); text-decoration:none;">When to Use Ansible Instead</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p>I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my server for the 1st time with my master host. If I am using 10 VMs I need to authorize them 10 times? I wrote a small script to automate this process:</p>
 <ol>
@@ -139,12 +158,12 @@
     key: &quot;{{ lookup(&#39;file&#39;, lookup(&#39;env&#39;,&#39;HOME&#39;) + &#39;/.ssh/id_rsa.pub&#39;) }}&quot;
 </code></pre>
 <p>However, you will still need the the **ssh-keyscan here. This script goes handy for ops who keep destroying their local environment and use a new one.This is available on **Github: <a href="https://github.com/iamrawtion/ansible-autossh">https://github.com/iamrawtion/ansible-autossh</a></p>
-<h2>Why This Approach Scales</h2>
+<h2 id="why-this-approach-scales">Why This Approach Scales</h2>
 <p>The script above starts to show its value the moment you go past five or six hosts. With ten VMs you might tolerate doing it by hand. With fifty, you can&#39;t — you&#39;ll make mistakes, miss hosts, and waste half an hour on something that should take thirty seconds.</p>
 <p>The loop-based approach handles any number of hosts identically. Add a new IP to the list file and re-run the script. The <code>ssh-keyscan</code> call is fast (sub-second per host on a local network), and <code>ssh-copy-id</code> does the key distribution without you touching each machine individually.</p>
 <p>This is also the right pattern for ephemeral environments — Vagrant clusters, AWS Auto Scaling groups during testing, Docker Swarm nodes spun up for a load test. You tear them down, rebuild, run the script, and you&#39;re authorized on all of them again in seconds.</p>
 <p>The Ansible <code>authorized_key</code> module referenced above is what you&#39;d use if you&#39;re already running Ansible plays against an inventory. It handles the same job at the task level, and it&#39;s idempotent — running it twice doesn&#39;t break anything. But you still need <code>ssh-keyscan</code> to populate <code>known_hosts</code> before Ansible can connect the first time, which is why the shell script is still useful as a bootstrapping step.</p>
-<h2>Making It More Secure</h2>
+<h2 id="making-it-more-secure">Making It More Secure</h2>
 <p>The password file approach works, but there are a few things worth tightening up before you use this in anything beyond a local dev cluster.</p>
 <p><strong>Use separate key pairs per environment.</strong> Don&#39;t use the same <code>id_rsa</code> for your Vagrant dev cluster as you use for production servers. If the key leaks from a dev context, you don&#39;t want it to work anywhere else. Generate a dedicated key for each environment:</p>
 <pre><code class="language-bash">ssh-keygen -t ed25519 -f ~/.ssh/vagrant_dev -C &quot;vagrant-dev-$(date +%Y%m%d)&quot;
@@ -161,7 +180,7 @@ done
 </code></pre>
 <p>The agent holds the decrypted key in memory for the session. No plaintext file, no <code>sshpass</code> dependency.</p>
 <p><strong>Consider OpenSSH certificates for longer-lived setups.</strong> If you&#39;re managing keys across a team or a large fleet, individual key distribution doesn&#39;t scale well — you end up with dozens of public keys in each <code>authorized_keys</code> file and no clean way to revoke a single key without touching every host. OpenSSH certificate authorities let you sign keys with an expiry date. A host is configured to trust the CA, not individual keys. When someone&#39;s access should expire, you just don&#39;t renew their certificate. The <a href="https://man.openbsd.org/ssh-keygen#CERTIFICATES">OpenSSH certificate authority documentation</a> covers the full setup — it&#39;s more upfront work than <code>ssh-copy-id</code>, but it&#39;s the right answer at scale.</p>
-<h2>Idempotency: Running It Safely Multiple Times</h2>
+<h2 id="idempotency-running-it-safely-multiple-times">Idempotency: Running It Safely Multiple Times</h2>
 <p>One thing worth understanding before you run the script repeatedly: <code>ssh-keyscan</code> is safe to re-run, but it will add duplicate entries to <code>~/.ssh/known_hosts</code> if the host is already there.</p>
 <p>This isn&#39;t a security problem — SSH will use the first matching entry — but the file will grow over time and the duplicates can cause confusion when you rotate host keys. After running the script, deduplicate the file:</p>
 <pre><code class="language-bash">sort -u ~/.ssh/known_hosts -o ~/.ssh/known_hosts
@@ -176,7 +195,7 @@ done
 done
 sort -u ~/.ssh/known_hosts -o ~/.ssh/known_hosts
 </code></pre>
-<h2>When to Use Ansible Instead</h2>
+<h2 id="when-to-use-ansible-instead">When to Use Ansible Instead</h2>
 <p>If you already have an Ansible inventory set up and Ansible can reach your hosts, skip this script entirely and use the <code>authorized_key</code> module directly in a play:</p>
 <pre><code class="language-yaml">- name: Distribute SSH keys to all hosts
   hosts: all
@@ -213,6 +232,17 @@ sort -u ~/.ssh/known_hosts -o ~/.ssh/known_hosts
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/devsecops-pune-meetup-3.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">DevSecOps Pune Meetup 3</span>
+    </a>
+    <a href="../blogs/aws-tagger.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">AWS Tagger</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

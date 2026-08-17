@@ -8,6 +8,8 @@
   <title>Docker - Lightweight Linux Container | Roshan Nagekar</title>
   <meta name="description" content="Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/meetupcom-practices.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/learning-chef-part-i.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Docker - Lightweight Linux Container">
   <meta property="og:description" content="Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...">
@@ -16,11 +18,18 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-05-09">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="Docker">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Docker - Lightweight Linux Container">
   <meta name="twitter:description" content="Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="5 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +39,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Docker - Lightweight Linux Container","description":"Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-05-09","url":"https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html","keywords":"Devops, Docker","wordCount":924,"timeRequired":"PT5M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Docker - Lightweight Linux Container","description":"Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-05-09","url":"https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html","keywords":"Devops, Docker","wordCount":924,"timeRequired":"PT5M","articleBody":"Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best on **Linux kernel 3.8 **Ubuntu 12.04 precise has 3.2 and needs to be upgraded. Install **Docker with on **Ubuntu 12.04: sudo apt-get update sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring sudo reboot To check docker version sudo docker version Client version: 0.11.1 Client API version: 1.11 Go version (client): go1.2.1 Git commit (client): fb99f99 Server version: 0.11.1 Server API version: 1.11 Git commit (server): fb99f99 Go version (server): go1.2.1 Last stable version: 0.11.1 To check info about docker installed sudo docker info Containers: 1 Images: 9 Storage Driver: aufs Root Dir: /var/lib/docker/aufs Dirs: 11 Execution Driver: native-0.2 Kernel Version: 3.11.0-20-generic WARNING: No swap limit support To pull an existing docker image sudo docker pull &lt;imagename&gt; sudo docker pull busybox HelloWorld in docker sudo docker run busybox echo HelloWorld Search for an existing image in the index: docker search &lt;image-name&gt; sudo docker search stackbrew/ubuntu NAME DESCRIPTION STARS OFFICIAL TRUSTED stackbrew/ubuntu Barebone ubuntu images 36 jprjr/stackbrew-node A stackbrew/ubuntu-based image for Docker ,... 2 [OK] hcvst/erlang Erlang R14B04 based on stackbrew/ubuntu 0 [OK] stackbrew/ubuntu-upstart 0 Pull an existing image: sudo docker pull ubuntu Pulling repository ubuntu a7cf8ae4e998: Pulling dependent layers 3db9c44f4520: Downloading [=================&gt; ] 22.18 MB/63.51 MB 2m19s 74fe38d11401: Pulling dependent layers 316b678ddf48: Pulling dependent layers 99ec81b80c55: Pulling dependent layers 5e019ab7bf6d: Pulling dependent layers 511136ea3c5a: Download complete 6cfa4d1f33fb: Download complete To the check the available images: sudo docker images REPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZE ubuntu 13.10 5e019ab7bf6d 2 weeks ago 180 MB ubuntu saucy 5e019ab7bf6d 2 weeks ago 180 MB ubuntu 12.04 74fe38d11401 2 weeks ago 209.6 MB ubuntu precise 74fe38d11401 2 weeks ago 209.6 MB ubuntu 12.10 a7cf8ae4e998 2 weeks ago 171.3 MB ubuntu quantal a7cf8ae4e998 2 weeks ago 171.3 MB ubuntu 14.04 99ec81b80c55 2 weeks ago 266 MB ubuntu latest 99ec81b80c55 2 weeks ago 266 MB ubuntu trusty 99ec81b80c55 2 weeks ago 266 MB ubuntu raring 316b678ddf48 2 weeks ago 169.4 MB ubuntu 13.04 316b678ddf48 2 weeks ago 169.4 MB busybox latest 2d8e5b282c81 2 weeks ago 2.489 MB ubuntu 10.04 3db9c44f4520 2 weeks ago 183 MB ubuntu lucid 3db9c44f4520 2 weeks ago 183 MB To run a command within an image: docker run&lt;image&gt; command sudo docker run ubuntu echo HelloWorld HelloWorld To install something on an ubuntu image sudo docker run apt-get install &lt;package&gt; find ID of the container sudo docker ps -l CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 0dac167b178d ubuntu:14.04 ps aux 12 minutes ago Exited (0) 12 minutes ago goofy_bell committing changes made to the images: docker commit 0da firstcommit 723aa6ead77a14ff05cd2c640163345ec5a36fa9a4c757a6872a1ec919ab9345 To get log of the present container: sudo docker logs 0dac167b178d USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.0 0.0 7132 644 ? Rs 09:10 0:00 ps aux To inpect the details of an image sudo docker inspect &lt;id: 3-4 characters of id will work too&gt; sudo docker inspect 0da Push container image to the index sudo docker push ubuntu Creating Dockerfile: All instructions in Dokerfile are in the form of INSTRUCTION arguments Instruction are not case sensitive but CAPS are recommended. The first instruction in any Dockerfile is the FROM instruction. The syntax is: FROM FROM ubuntu This will look for the image in **Docker index. You can also search **docker index by the command docker search Next is the RUN instruction. The RUN instruction will execute any commands on the current image. After executing, it will also commit the changes. The committed image can be used for the next instructions from the Dockerfile. This way the committed changes form a layer of changes just like any other source code control system. Syntax of RUN command: RUN RUN apt get install -y apache2 Here the RUN command is equivalent to **docker run image command + **docker commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit. Once you have created your Dockerfile you can use docker build to create you image from it. You can use the command in this way. Create a Dockerfile with the content FROM ubuntu RUN apt-get install -y memcached Save and close the file. If the file is in you r present directory: docker build . If the file in in some other location docker build path/to/file If passing through STDIN docker build - &lt; Dockerfile If passing through github URL docker build github.com/roshan4074 you can check the container with the command: sudo docker images To apply a tag to an image you the command: ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Docker - Lightweight Linux Container","item":"https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html"}]}</script>
 </head>
 <body>
@@ -89,6 +98,13 @@
             5 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#to-check-docker-version" style="color:var(--primary-color); text-decoration:none;">To check docker version</a></li><li style="margin-bottom:0.35rem;"><a href="#git-commit-client-fb99f99" style="color:var(--primary-color); text-decoration:none;">Git commit (client): fb99f99</a></li><li style="margin-bottom:0.35rem;"><a href="#git-commit-server-fb99f99" style="color:var(--primary-color); text-decoration:none;">Git commit (server): fb99f99</a></li><li style="margin-bottom:0.35rem;"><a href="#to-check-info-about-docker-installed" style="color:var(--primary-color); text-decoration:none;">To check info about docker installed</a></li><li style="margin-bottom:0.35rem;"><a href="#to-pull-an-existing-docker-image" style="color:var(--primary-color); text-decoration:none;">To pull an existing docker image</a></li><li style="margin-bottom:0.35rem;"><a href="#helloworld-in-docker" style="color:var(--primary-color); text-decoration:none;">HelloWorld in docker</a></li><li style="margin-bottom:0.35rem;"><a href="#pulling-repository-ubuntu" style="color:var(--primary-color); text-decoration:none;">Pulling repository ubuntu</a></li><li style="margin-bottom:0.35rem;"><a href="#to-install-something-on-an-ubuntu-image" style="color:var(--primary-color); text-decoration:none;">To install something on an ubuntu image</a></li><li style="margin-bottom:0.35rem;"><a href="#" style="color:var(--primary-color); text-decoration:none;"></a></li><li style="margin-bottom:0.35rem;"><a href="#from-ubuntu" style="color:var(--primary-color); text-decoration:none;">FROM ubuntu</a></li><li style="margin-bottom:0.35rem;"><a href="#from-ubuntu" style="color:var(--primary-color); text-decoration:none;">FROM ubuntu</a></li><li style="margin-bottom:0.35rem;"><a href="#if-passing-through-github-url" style="color:var(--primary-color); text-decoration:none;">If passing through github URL</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png" alt=""></p>
 <p>Docker: Its a tool that helps you to pack, ship and run any application as a light-weight <strong>Linux container. More on <a href="https://www.docker.io/">https://www.docker.io/</a></strong></p>
@@ -98,19 +114,19 @@
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 sudo reboot
 </code></pre>
-<h2>To check docker version</h2>
+<h2 id="to-check-docker-version">To check docker version</h2>
 <pre><code class="language-bash">sudo docker version
 </code></pre>
 <p>Client version: 0.11.1</p>
 <p>Client API version: 1.11</p>
 <p>Go version (client): go1.2.1</p>
-<h2>Git commit (client): fb99f99</h2>
+<h2 id="git-commit-client-fb99f99">Git commit (client): fb99f99</h2>
 <p>Server version: 0.11.1</p>
 <p>Server API version: 1.11</p>
-<h2>Git commit (server): fb99f99</h2>
+<h2 id="git-commit-server-fb99f99">Git commit (server): fb99f99</h2>
 <p>Go version (server): go1.2.1</p>
 <p>Last stable version: 0.11.1</p>
-<h2>To check info about docker installed</h2>
+<h2 id="to-check-info-about-docker-installed">To check info about docker installed</h2>
 <pre><code class="language-bash">sudo docker info
 </code></pre>
 <pre><code class="language-yaml">Containers: 1
@@ -125,11 +141,11 @@ Images: 9
 <blockquote>
 <p>WARNING: No swap limit support</p>
 </blockquote>
-<h2>To pull an existing docker image</h2>
+<h2 id="to-pull-an-existing-docker-image">To pull an existing docker image</h2>
 <pre><code class="language-bash">sudo docker pull &lt;imagename&gt;
 sudo docker pull busybox
 </code></pre>
-<h2>HelloWorld in docker</h2>
+<h2 id="helloworld-in-docker">HelloWorld in docker</h2>
 <pre><code class="language-bash">sudo docker run busybox echo HelloWorld
 </code></pre>
 <p>Search for an existing image in the index:</p>
@@ -144,7 +160,7 @@ sudo docker search stackbrew/ubuntu
 <p>Pull an existing image:</p>
 <pre><code class="language-bash">sudo docker pull ubuntu
 </code></pre>
-<h2>Pulling repository ubuntu</h2>
+<h2 id="pulling-repository-ubuntu">Pulling repository ubuntu</h2>
 <p>a7cf8ae4e998: Pulling dependent layers</p>
 <p>3db9c44f4520: Downloading [=================&gt;                                 ] 22.18 MB/63.51 MB 2m19s</p>
 <p>74fe38d11401: Pulling dependent layers</p>
@@ -176,7 +192,7 @@ sudo docker search stackbrew/ubuntu
 sudo docker run ubuntu echo HelloWorld
 </code></pre>
 <p>HelloWorld</p>
-<h2>To install something on an ubuntu image</h2>
+<h2 id="to-install-something-on-an-ubuntu-image">To install something on an ubuntu image</h2>
 <pre><code class="language-bash">sudo docker run apt-get install &lt;package&gt;
 find ID of the container
 sudo docker ps -l
@@ -196,7 +212,7 @@ sudo docker ps -l
 <pre><code class="language-bash">sudo docker inspect &lt;id: 3-4 characters of id will work too&gt;
 sudo docker inspect 0da
 </code></pre>
-<h2><json output></h2>
+<h2 id=""><json output></h2>
 <p>Push container image to the index</p>
 <pre><code class="language-bash">sudo docker push ubuntu
 </code></pre>
@@ -205,7 +221,7 @@ sudo docker inspect 0da
 <p>INSTRUCTION arguments</p>
 <p>Instruction are not case sensitive but CAPS are recommended. The first instruction in any Dockerfile is the FROM instruction. The syntax is:</p>
 <p>FROM <image></p>
-<h2>FROM ubuntu</h2>
+<h2 id="from-ubuntu">FROM ubuntu</h2>
 <p>This will look for the image in **Docker index. You can also search **docker index by the command docker search</p>
 <p>Next is the RUN instruction. The RUN instruction will execute any commands on the current image. After executing, it will also commit the changes. The committed image can be used for the next instructions from the Dockerfile. This way the committed changes form a layer of changes just like any other source code control system. Syntax of RUN command:</p>
 <p>RUN <command></p>
@@ -213,7 +229,7 @@ sudo docker inspect 0da
 <p>Here the RUN command is equivalent to **docker run image command + **docker commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit.</p>
 <p>Once you have created your Dockerfile you can use docker build to create you image from it. You can use the command in this way.</p>
 <p>Create a Dockerfile with the content</p>
-<h2>FROM ubuntu</h2>
+<h2 id="from-ubuntu">FROM ubuntu</h2>
 <p>RUN apt-get install -y memcached</p>
 <p>Save and close the file. If the file is in you r present directory:</p>
 <pre><code class="language-bash">docker build .
@@ -224,7 +240,7 @@ sudo docker inspect 0da
 <p>If passing through STDIN</p>
 <pre><code class="language-bash">docker build - &lt; Dockerfile
 </code></pre>
-<h2>If passing through github URL</h2>
+<h2 id="if-passing-through-github-url">If passing through github URL</h2>
 <pre><code class="language-bash">docker build github.com/roshan4074
 </code></pre>
 <p>you can check the container with the command:</p>
@@ -271,6 +287,17 @@ sudo docker inspect 0da
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/meetupcom-practices.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Meetup.com practices</span>
+    </a>
+    <a href="../blogs/learning-chef-part-i.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Learning Chef - Part - I</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

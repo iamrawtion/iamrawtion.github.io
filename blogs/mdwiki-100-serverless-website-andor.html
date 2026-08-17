@@ -8,6 +8,8 @@
   <title>MdWiki : 100% Serverless Website and/or Documentation tool | Roshan Nagekar</title>
   <meta name="description" content="I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/mdwiki-100-serverless-website-andor.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/tools-mentioned-in-devops-weekly.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="MdWiki : 100% Serverless Website and/or Documentation tool">
   <meta property="og:description" content="I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune...">
@@ -16,11 +18,21 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2017-11-30">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Cloud Computing">
+  <meta property="article:tag" content="Documentation">
+  <meta property="article:tag" content="JavaScript">
+  <meta property="article:tag" content="Serverless">
+  <meta property="article:tag" content="Webpage">
+  <meta property="article:tag" content="Wiki">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="MdWiki : 100% Serverless Website and/or Documentation tool">
   <meta name="twitter:description" content="I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="5 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Cloud Computing">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +42,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"MdWiki : 100% Serverless Website and/or Documentation tool","description":"I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2017-11-30","url":"https://iamrawtion.github.io/blogs/mdwiki-100-serverless-website-andor.html","keywords":"Documentation, JavaScript, Serverless, Webpage, Wiki","wordCount":835,"timeRequired":"PT5M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"MdWiki : 100% Serverless Website and/or Documentation tool","description":"I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune...","articleSection":"Cloud Computing","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2017-11-30","url":"https://iamrawtion.github.io/blogs/mdwiki-100-serverless-website-andor.html","keywords":"Documentation, JavaScript, Serverless, Webpage, Wiki","wordCount":835,"timeRequired":"PT5M","articleBody":"I recently joined a new firm and the best part was that the entire setup was just a month old. The company has setup a new technology center in Pune and I was among the 1st 100 employees. Now we are more than 1000. Isn&#39;t that great!! After I joined, a series of knowledge transitioning sessions were setup. There was huge chunks of information coming up in and the handmade notes went on growing up. I realized the team members were using notepads, word, emails, sticky notes and every single day with more and more notes content was getting difficult to manage. Since the setup was new, a wiki tool was yet to be distributed. There were so many business verticals and each used their own tool. We were told its going to take a while for more people to join and the teams to onboard after which the wiki tools, ticketing tools, etc will be setup. But what happens till then? New members were joining and they were as curious as I was to learn about the company and its infrastructure, the product, architecture, market, user base, tech stack and everything. I realized that until we have a wiki tool it may get too late to pass information to newer members and with time I may even forget the locations and purpose of the documents made and supplied. The best solution was to host a wiki of my own. But... Problem1: I wont get a server. The accesses were very limited to read-only for now. Waiting for a server to be granted and then to host a wiki would take too long. I decided to get a serverless wiki on a shared platform till then. There were 2 shared platforms for us. Shared drive that was accessible in office premises and individual Box(cloud hosted) accounts for everyone that could be accessed anytime from anywhere. I chose the later to host the wiki solution. Problem2: Now, I needed a solution that should be easy enough to update collaboratively. I thought of HTML pages, but that still would need people to learn HTML scripting. My whole team has sysadmins in it. I then came up with Markdown language. Its syntax of note making makes documentation super easy. You don&#39;t need to learn any language to do this. I liked the idea. I thought, github/gitlab would be the best place to host and write documentation. It will be a collaborative platform too. I decided on markdown as the tool to write and gitlab for hosting. Problem3: When I suggested the idea to the team, we had compliance and infosec members who suggested not to go with this since gitlab server must be hosted on companies server only and must have proper authentication flow, which we still did not have access for. I looked out for options to have a serverless repository setup to host on BOX but couldn&#39;t find much help. I thought about markdown for a minute. How does github/gitlab manages to make markdown presentable in webpage. There must be some way. Javascript was the answer!! Bang!! Javascript web templates with markdown was the next search and here comes &quot;MDWiki&quot;. MDWiki is a 100% serverless webpage hosting solution for documentation. JavaScript takes care of the control and configuration of the webpage. HTML CSS inside takes up the presentation with multiple JavaScript based gimmicks(plugins) that help you in easier navigation and nice GUI. Users may only worry about documentation. Setup MDWiki is simple to setup, you don&#39;t need any software to install. They are files you place in your file system that could be shared over Network through any medium. The user may only need to click on the index page and the wiki opens up with the best looking UI. Get the source code for MDWiki from here . You will see that they are basically just 3 HTML files. You need to keep these 3 files intact and just create your own configuration and webpages with .md extension. You can use markdown syntax to add details in the page. To know how Markdown syntax, check this cheatsheet . What can you do with MDWiki? There are multiple things you can do with MDWiki. The best place where you can see the features is their own website : http://dynalon.github.io/mdwiki/#!index.md The site impressed me the most and the Wiki I developed was a replica of it. I also looked out for examples and you will be simply amazed to see who all use MDWiki and their websites look simply amazing. Check them here : http://dynalon.github.io/mdwiki/#!examples.md Enhancements Since it was a new company and we also needed a common calendar solution for the team, I enhanced it with FullCalendar and also an excel based LeaveTracker for the team. We used this solution for good 4 months after which we started getting access to internal systems. Overall amazing experience!!","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Cloud Computing","item":"https://iamrawtion.github.io/categories/cloud-computing.html"},{"@type":"ListItem","position":4,"name":"MdWiki : 100% Serverless Website and/or Documentation tool","item":"https://iamrawtion.github.io/blogs/mdwiki-100-serverless-website-andor.html"}]}</script>
 </head>
 <body>
@@ -89,12 +101,19 @@
             5 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#after-i-joined-a-series-of-knowledge-transitioning" style="color:var(--primary-color); text-decoration:none;">After I joined, a series of knowledge transitioning</a></li><li style="margin-bottom:0.35rem;"><a href="#but-what-happens-till-then-new-members-were-joining-and" style="color:var(--primary-color); text-decoration:none;">But what happens till then? New members were joining and</a></li><li style="margin-bottom:0.35rem;"><a href="#i-realized-that-until-we-have-a-wiki-tool-it-may-get-too" style="color:var(--primary-color); text-decoration:none;">I realized that until we have a wiki tool it may get too</a></li><li style="margin-bottom:0.35rem;"><a href="#there-were-2-shared-platforms-for-us-shared-drive-that" style="color:var(--primary-color); text-decoration:none;">There were 2 shared platforms for us. Shared drive that</a></li><li style="margin-bottom:0.35rem;"><a href="#now-i-needed-a-solution-that-should-be-easy-enough-to" style="color:var(--primary-color); text-decoration:none;">Now, I needed a solution that should be easy enough to</a></li><li style="margin-bottom:0.35rem;"><a href="#i-then-came-up-with-markdown-language-its-syntax-of" style="color:var(--primary-color); text-decoration:none;">I then came up with Markdown language. Its syntax of</a></li><li style="margin-bottom:0.35rem;"><a href="#when-i-suggested-the-idea-to-the-team-we-had-compliance" style="color:var(--primary-color); text-decoration:none;">When I suggested the idea to the team, we had compliance</a></li><li style="margin-bottom:0.35rem;"><a href="#i-looked-out-for-options-to-have-a-serverless-repository" style="color:var(--primary-color); text-decoration:none;">I looked out for options to have a serverless repository</a></li><li style="margin-bottom:0.35rem;"><a href="#mdwiki-is-a-100-serverless-webpage-hosting-solution-for" style="color:var(--primary-color); text-decoration:none;">MDWiki is a 100% serverless webpage hosting solution for</a></li><li style="margin-bottom:0.35rem;"><a href="#setup" style="color:var(--primary-color); text-decoration:none;">Setup</a></li><li style="margin-bottom:0.35rem;"><a href="#what-can-you-do-with-mdwiki" style="color:var(--primary-color); text-decoration:none;">What can you do with MDWiki?</a></li><li style="margin-bottom:0.35rem;"><a href="#enhancements" style="color:var(--primary-color); text-decoration:none;">Enhancements</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p>I recently joined a new firm and the best part was that
 the entire setup was just a month old. The company has setup a new
 technology center in Pune and I was among the 1st 100 employees. Now we
 are more than 1000. Isn&#39;t that great!!</p>
-<h2>After I joined, a series of knowledge transitioning</h2>
+<h2 id="after-i-joined-a-series-of-knowledge-transitioning">After I joined, a series of knowledge transitioning</h2>
 <p>sessions were setup. There was huge chunks of information coming up in
 and the handmade notes went on growing up. I realized the team members
 were using notepads, word, emails, sticky notes and every single day
@@ -103,29 +122,29 @@ the setup was new, a wiki tool was yet to be distributed. There were so
 many business verticals and each used their own tool. We were told its
 going to take a while for more people to join and the teams to onboard
 after which the wiki tools, ticketing tools, etc will be setup.</p>
-<h2>But what happens till then? New members were joining and</h2>
+<h2 id="but-what-happens-till-then-new-members-were-joining-and">But what happens till then? New members were joining and</h2>
 <p>they were as curious as I was to learn about the company and its
 infrastructure, the product, architecture, market, user base, tech stack
 and everything.</p>
 <hr>
-<h2>I realized that until we have a wiki tool it may get too</h2>
+<h2 id="i-realized-that-until-we-have-a-wiki-tool-it-may-get-too">I realized that until we have a wiki tool it may get too</h2>
 <p>late to pass information to newer members and with time I may even
 forget the locations and purpose of the documents made and supplied. The
 best solution was to host a wiki of my own. But...</p>
 <p>Problem1:</p>
 <p>I wont get a server. The accesses were very limited to read-only for now. Waiting for a server to be granted and then to host a wiki would take too long. I decided to get a serverless wiki on a shared platform till then.</p>
 <hr>
-<h2>There were 2 shared platforms for us. Shared drive that</h2>
+<h2 id="there-were-2-shared-platforms-for-us-shared-drive-that">There were 2 shared platforms for us. Shared drive that</h2>
 <p>was accessible in office premises and individual Box(cloud hosted) accounts for
 everyone that could be accessed anytime from anywhere. I chose the later
 to host the wiki solution.</p>
 <p>Problem2:</p>
 <hr>
-<h2>Now, I needed a solution that should be easy enough to</h2>
+<h2 id="now-i-needed-a-solution-that-should-be-easy-enough-to">Now, I needed a solution that should be easy enough to</h2>
 <p>update collaboratively. I thought of HTML pages, but that still would
 need people to learn HTML scripting. My whole team has sysadmins in it.</p>
 <hr>
-<h2>I then came up with Markdown language. Its syntax of</h2>
+<h2 id="i-then-came-up-with-markdown-language-its-syntax-of">I then came up with Markdown language. Its syntax of</h2>
 <p>note making makes documentation super easy. You don&#39;t need to learn any
 language to do this. I liked the idea. I thought, github/gitlab would be
 the best place to host and write documentation. It will be a
@@ -133,23 +152,23 @@ collaborative platform too. I decided on markdown as the tool to write
 and gitlab for hosting.</p>
 <p>Problem3:</p>
 <hr>
-<h2>When I suggested the idea to the team, we had compliance</h2>
+<h2 id="when-i-suggested-the-idea-to-the-team-we-had-compliance">When I suggested the idea to the team, we had compliance</h2>
 <p>and infosec members who suggested not to go with this since gitlab
 server must be hosted on companies server only and must have proper
 authentication flow, which we still did not have access for.</p>
 <hr>
-<h2>I looked out for options to have a serverless repository</h2>
+<h2 id="i-looked-out-for-options-to-have-a-serverless-repository">I looked out for options to have a serverless repository</h2>
 <p>setup to host on BOX but couldn&#39;t find much help. I thought about
 markdown for a minute. How does github/gitlab manages to make markdown
 presentable in webpage. There must be some way. Javascript was the
 answer!!</p>
 <p>Bang!! Javascript web templates with markdown was the next search and here comes &quot;MDWiki&quot;.</p>
 <hr>
-<h2>MDWiki is a 100% serverless webpage hosting solution for</h2>
+<h2 id="mdwiki-is-a-100-serverless-webpage-hosting-solution-for">MDWiki is a 100% serverless webpage hosting solution for</h2>
 <p>documentation. JavaScript takes care of the control and
 configuration of the webpage. HTML CSS inside takes up the presentation with multiple JavaScript based gimmicks(plugins) that help you in easier navigation and nice GUI. Users may only worry about documentation.</p>
 <hr>
-<h2>Setup</h2>
+<h2 id="setup">Setup</h2>
 <p><a href="http://dynalon.github.io/mdwiki/#!index.md">MDWiki</a> is simple to setup, you don&#39;t need any software to install.</p>
 <p>They are files you place in your file system that could be shared over Network through any medium.
 The user may only need to click on the index page and the wiki opens up with the best looking UI.
@@ -159,11 +178,11 @@ You need to keep these 3 files intact and just create your own configuration and
 <p>You can use markdown syntax to add details in the page.</p>
 <p>To know how Markdown syntax, check this <a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">cheatsheet</a>.</p>
 <hr>
-<h2>What can you do with MDWiki?</h2>
+<h2 id="what-can-you-do-with-mdwiki">What can you do with MDWiki?</h2>
 <p>There are multiple things you can do with MDWiki. The best place where you can see the features is their own website : <a href="http://dynalon.github.io/mdwiki/#!index.md">http://dynalon.github.io/mdwiki/#!index.md</a></p>
 <p>The site impressed me the most and the Wiki I developed was a replica of it. I also looked out for examples and you will be simply amazed to see who all use MDWiki and their websites look simply amazing. Check them here : <a href="http://dynalon.github.io/mdwiki/#!examples.md">http://dynalon.github.io/mdwiki/#!examples.md</a></p>
 <hr>
-<h2>Enhancements</h2>
+<h2 id="enhancements">Enhancements</h2>
 <p>Since it was a new company and we also needed a common calendar solution for the team, I enhanced it with <a href="https://fullcalendar.io/">FullCalendar</a> and also an excel based <a href="https://chandoo.org/wp/2013/01/24/employee-vacations-tracker-dashboard/">LeaveTracker</a> for the team. We used this solution for good 4 months after which we started getting access to internal systems.</p>
 <p>Overall amazing experience!!</p>
 
@@ -190,6 +209,17 @@ You need to keep these 3 files intact and just create your own configuration and
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/tools-mentioned-in-devops-weekly.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Tools mentioned in Devops Weekly</span>
+    </a>
+    <a href="../blogs/configuration-management-with-ansible.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Configuration Management with Ansible</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

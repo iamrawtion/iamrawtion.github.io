@@ -8,6 +8,8 @@
   <title>Learning Chef - Part - I | Roshan Nagekar</title>
   <meta name="description" content="some rights reserved by Matt Ray The information here has been collected from Nathan Harvey's Video tutorials on Chef's website and from Chef's...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/learning-chef-part-i.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/27.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Learning Chef - Part - I">
   <meta property="og:description" content="some rights reserved by Matt Ray The information here has been collected from Nathan Harvey's Video tutorials on Chef's website and from Chef's...">
@@ -16,11 +18,19 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-04-26">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Chef">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="Server">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Learning Chef - Part - I">
   <meta name="twitter:description" content="some rights reserved by Matt Ray The information here has been collected from Nathan Harvey's Video tutorials on Chef's website and from Chef's...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="6 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Learning Chef - Part - I","description":"some rights reserved by Matt Ray The information here has been collected from Nathan Harvey's Video tutorials on Chef's website and from Chef's...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-04-26","url":"https://iamrawtion.github.io/blogs/learning-chef-part-i.html","keywords":"Chef, Devops, Server","wordCount":1068,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Learning Chef - Part - I","description":"some rights reserved by Matt Ray The information here has been collected from Nathan Harvey's Video tutorials on Chef's website and from Chef's...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-04-26","url":"https://iamrawtion.github.io/blogs/learning-chef-part-i.html","keywords":"Chef, Devops, Server","wordCount":1068,"timeRequired":"PT6M","articleBody":"some rights reserved by Matt Ray The information here has been collected from Nathan Harvey&#39;s Video tutorials on Chef&#39;s website and from Chef&#39;s official documentation. Before starting with the tutorial, I thought it would be better to understand common jargons used in chef. Three primary entities: workstation, chef-server, node Chef-Work Station : System from where the configuration management professional / devops / sys admin will be working. Chef-Server : System/Server where all the infrastructure as a code will be stored. Also the Chef-Server will have many other features that we will seee later. Nodes : Servers in your infrastructure that will be managed by chef, They may represent a physical server or a virtual server. They may represent hardware you own or multiple compute instances in a public or a private cloud. Each node will belong to one organization and and other organization may not have access to it. Each node will belong to one environment. Either in staging or Production etc. Each node will have zero or more roles. An application called chef-client run on each of the node. The chef-client will gather the current system configuration. It will download the desired system configuration from the Chef-server and configure that node such that it adheres to the policy defined. Knife : Command line utility that acts as an interface between local chef-repo(on work station) and server. Knife lets you manage nodes, cookbooks, recipes, roles, stores of json data, including encrypted data, environments, cloud resources including provisioning. The installation of chef on management workstations, Searching of indexed data on chef server. You can even extend knife to use plugins for managing cloud resources. E.g knife-ec2, knife-rackspace, knife-vcloud plugins. Cookbooks : A cookbook is a container to describe or to contain our configuration data. It contain the recipes. It can also include templates, files, custom resources etc. Recipes : A Recipe is a configuration file that describes resources and their desired state. A recipe can install and configure software components, Manage files, Deploy Applications, Execute other recipes, etc. Sample Recipe package &quot;apache2&quot; // 1st resource is package and chef knows that it should be installed on the server. If the package doesn’t exist it will install it. template &quot;/etc/apache2/apache.conf&quot; do //Next resource is a template. The template will manage a file at /etc/apache2/apache.conf source &quot;apache2.conf.erb&quot; owner &quot;root&quot; group &quot;root&quot; mode &quot;0644&quot; variable(:allow_override =&gt; &quot;All&quot;) notifies :reload, &quot;service[apache2] //state of the apache2 if apache2.conf exist it knows that it doesn’t need to create that file. However chef needs to make sure that the file has proper contents. So it will generate a temporary file. It will use the source that we specified above apache2.conf.erb and then it will also use any variable content that we specified, i.e AllowOverride All. Once the temporary file is created, Chef will then compare the two files. If they are the same, chef will discard the temporary file and then move on to the next resource, then notifies line will be ignored. However if the two files are different. The chef-client will discard the version on the disk and place the temporary file into the proper location, i.e overwrite existing file. Whenever the overwrite happens a notification will be sent. Then it will tell Apache to reload with new configs. end service &quot;apache2&quot; do //service should be enabled and start automatically action [:enable,:start] supports :reload =&gt; true end Roles : A way of identfying different types of servers. e.g Load-balancer, app server, DB cache, DB , monitoring etc. Roles may include list of configs to be applied called as runlist. May include data attributes for configuring infra, i.e ports to listen on, list of apps to be deployed. Data bags : Stores of json data Attributes : Attributes are mentioned in cookbooks/recipes. An attribute gives the detail about the node. It tells about the state of the node; before the chef-client run, present state and state after the chef-client run Resources : Items that we sysadmins manipulate to manage complexity. i.e Networking, Files, Directories, Symlinks, Mounts, Registry key, Scripts, Users, Groups, Packages, Services File-systems etc. Resource represent a piece of the system and its desired state. e.g a package to be installed, A service to be running, A file to be generated, a cronjob to be configured, a user to be managed, etc. Ohai : Ohai is a tool used to detect the attributes on the node. These attributes are then passed to the chef client at the beginning of the chef-client run. Ohai is installed on a node as a part of chef-client installation. Ohai has the following types of attributes: Platform details, Network usage, Memory usage, Processor usage, Kernel data, Hostnames, FQDNs, etc.","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Learning Chef - Part - I","item":"https://iamrawtion.github.io/blogs/learning-chef-part-i.html"}]}</script>
 </head>
 <body>
@@ -89,6 +99,7 @@
             6 min read
           </p>
         </header>
+        
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj41IkzbAwgVTtYH_dpbXIYtkTpYU7v4GCUgG0hbYPH6oS6Ff5fVaIVIyQw8Q_K8zm3EB0fEi-wXBzjJtk2gcVJG8JIVavRsyobzKtFwr8tpq3F-UJhA1zqQ09g5VBDzFptS9yrUuy6Te4/s1600/5596555824_bcdedb0d50_m.jpg" alt=""></p>
 <p>some rights reserved by <a href="https://www.flickr.com/photos/mray/">Matt Ray</a></p>
@@ -233,6 +244,17 @@ departments for managing.</p>
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/docker-lightweight-linux-container.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Docker - Lightweight Linux Container</span>
+    </a>
+    <a href="../blogs/27.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

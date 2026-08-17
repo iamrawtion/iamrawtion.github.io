@@ -8,6 +8,8 @@
   <title>Let’s talk CLOUD COMPUTING | Roshan Nagekar</title>
   <meta name="description" content="Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/lets-talk-cloud-computing.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/ruby-and-sinatra-example-of-automatic.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/corruption.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Let’s talk CLOUD COMPUTING">
   <meta property="og:description" content="Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes...">
@@ -16,11 +18,19 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2012-06-20">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Cloud Computing">
+  <meta property="article:tag" content="Cloud Computing">
+  <meta property="article:tag" content="Technology">
+  <meta property="article:tag" content="Devops">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Let’s talk CLOUD COMPUTING">
   <meta name="twitter:description" content="Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="7 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Cloud Computing">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Let’s talk CLOUD COMPUTING","description":"Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-06-20","url":"https://iamrawtion.github.io/blogs/lets-talk-cloud-computing.html","keywords":"Cloud Computing, Technology, Devops","wordCount":1317,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Let’s talk CLOUD COMPUTING","description":"Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes...","articleSection":"Cloud Computing","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-06-20","url":"https://iamrawtion.github.io/blogs/lets-talk-cloud-computing.html","keywords":"Cloud Computing, Technology, Devops","wordCount":1317,"timeRequired":"PT7M","articleBody":"Cloud Computing, what’s the big deal? I heard someone saying that data is actually stored on cloud and could get wet due to rain water… lol Well yes could be… :P Storing you data in a location outside your organization, where servers are actually present somewhere you don’t really know is cloud. Someone could make the definition even better for me. To actually understand the concept of what is new in cloud, one needs to understand, how things were before cloud came into existence (cloud was always their in existence, its just that the term was coined later). Traditionally, companies had their own data servers or data centers to maintain or keep their data safe. Incase they had multiple centers they had distributed systems to maintain and use data, but the concept remains the same that each company took care of its own data through its own data centers. Incase they wanted to access this data at the same location or at different location they could do it through network. Basically, they kept their own data with themselves handled it or maintained it all by themselves. So what’s the problem with it? Well in a way no problem. But if we understand cloud computing we will get what it helps in. Sometimes you get so used to a problem, that you don’t really think if it’s a problem. Now suppose for an X company the data servers were present in such a location with an illusion of being stored in a centralized manner, so that the company and all its centers can connect and access data from it whenever and wherever they want without worrying about the existence and maintenance of data how better it would be. Well sounds much like distributed databases except for the data is distributed throughout, what’s the difference? What if your organization is not supposed to worry about all of this hassle and handled it all to some third organization for maintaining? Sounds cool, but how does it help? X company works in a domain that has nothing to do with software. E.g X is a telecom company, all they worry about is if communication is perfect between their customers. But if X also has to maintain and keep up the database of all the communications like files sent and received from one customer to another, and this happening for a millions of customers. X will have to have a separate department that handle database, employ more workers, pay administrators, buy database servers maintain them. Distribute it to various locations. Rather if the job is being handled by a third organization which works itself in database maintenance and storage and is ready to provide the data whenever and wherever in an efficient manner with a little cost which should be surely less then employing more people and buying servers for yourself, why not go for it? So, is that all? No, but there&#39;s more to it and more keeps growing too. This was just an example of what it really could do. Lets elaborate a bit. Cloud services as mentioned in the earlier example are essentially divided into 3 major services. While these 3 are not the only services, but these services conquer the major part of the cloud. So what are these services: SAAS : Software as a Service PAAS : Platform as a Service IAAS : Infrastructure as a Service By now with the example stated above you probably might have had a hint of what these services really are all about. SAAS: Software as a Service is using a Software as a service from the service provider on demand when the software is actually hosted on some cloud servers out there. But whats the benefit? I would rather install the software on my own PC and use it when i want. Why cloud. Suppose your work in some industry and you don&#39;t necessarily need Microsoft Office all the time. You probably may need it may be once every month or so may be to just view a document and edit it a bit. If you buy MS-Office for this reason and get it installed on your system lets see what all you did for this one year. You bought MS-Office professional for Rs. 24000 as per the latest price stated on Flipkart for 2013 edition. You called someone and paid him to have it installed on you machine since you were not good at installations and stuff. On your machine the installation took around 1 GB or more of your Hard disk drive Whenever you start it it consumes around 60 MB of RAM disk. Whenever in this year you had a problem accessing Office you called up Microsoft service center too get help from customer care and waited for long queues. Every time Microsoft comes up with an update, you download the new update and install it which consumes more of your internet. If Microsoft decides to stop docx, pptx extensions again as they did with the Old office in their new release. Gosh!!! you buy another office. If system crashes, data done!! Instead if you were using Office 365 which is Microsoft&#39;s cloud based Software as a Service lets see how the above mentioned steps changed. You opened any browser and accessed the URL http://office.microsoft.com/en-in/bus","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Cloud Computing","item":"https://iamrawtion.github.io/categories/cloud-computing.html"},{"@type":"ListItem","position":4,"name":"Let’s talk CLOUD COMPUTING","item":"https://iamrawtion.github.io/blogs/lets-talk-cloud-computing.html"}]}</script>
 </head>
 <body>
@@ -89,6 +99,13 @@
             7 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#traditionally-companies-had-their-own-data-servers-or" style="color:var(--primary-color); text-decoration:none;">Traditionally, companies had their own data servers or</a></li><li style="margin-bottom:0.35rem;"><a href="#so-what-s-the-problem-with-it-well-in-a-way-no-problem-but" style="color:var(--primary-color); text-decoration:none;">So what’s the problem with it? Well in a way no problem. But</a></li><li style="margin-bottom:0.35rem;"><a href="#thats-it" style="color:var(--primary-color); text-decoration:none;">Thats it?</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p>Cloud Computing, what’s the big deal? I heard someone saying that data is
 actually stored on cloud and could get wet due to rain water… lol Well yes
@@ -98,14 +115,14 @@ where servers are actually present somewhere you don’t really know is cloud.
 Someone could make the definition even better for me. To actually understand
 the concept of what is new in cloud, one needs to understand, how things
 were before cloud came into existence (cloud was always their in existence, its just that the term was coined later).</p>
-<h2>Traditionally, companies had their own data servers or</h2>
+<h2 id="traditionally-companies-had-their-own-data-servers-or">Traditionally, companies had their own data servers or</h2>
 <p>data centers to maintain or keep their data safe. Incase they had multiple
 centers they had distributed systems to maintain and use data, but the concept
 remains the same that each company took care of its own data through its own
 data centers. Incase they wanted to access this data at the same location or at
 different location they could do it through network. Basically, they kept their own
 data with themselves handled it or maintained it all by themselves.</p>
-<h2>So what’s the problem with it? Well in a way no problem. But</h2>
+<h2 id="so-what-s-the-problem-with-it-well-in-a-way-no-problem-but">So what’s the problem with it? Well in a way no problem. But</h2>
 <p>if we understand cloud computing we will get what it helps in. Sometimes you
 get so used to a problem, that you don’t really think if it’s a problem. Now
 suppose for an X company the data servers were present in such a location with
@@ -154,7 +171,7 @@ Suppose your work in some industry and you don&#39;t necessarily need Microsoft 
 <li>You started working opened closed edited your docs saved it. Done!!!</li>
 </ol>
 <hr>
-<h2>Thats it?</h2>
+<h2 id="thats-it">Thats it?</h2>
 <p>No installation charges. No space consumed on local drive. No RAM consumed other than the browser RAM. No customer care calls needed as per SLA. No upgrades needed since they will handle it all by them self. If they plan to change the file extension in the next release, it get automatically reflected. Plus Advantages also include, you can access you documents online from anywhere. Your documents are protected with you username passwords. No worries of system crash.</p>
 <p>This was just one example of a Saas based service there are surely many more such services existing that you could look for. Now that Saas is clear Paas and Iaas will be easy to understand.</p>
 <p>PAAS: Just like in Saas you used office to create docs, In Platform as a service a service provider, provides you with a platform to build apps. Its basically used by the developers to create web applications without worrying about the infrastructure beneath for development purpose. The benefit remains almost the same however the added ones could be that it promotes collaborative development, and comes up with so many tools for development making it easy for developers.</p>
@@ -195,6 +212,17 @@ IAAS : Amazon, Rackspace
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/ruby-and-sinatra-example-of-automatic.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Ruby and Sinatra Example of Automatic Mutt Configuration</span>
+    </a>
+    <a href="../blogs/corruption.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Corruption</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

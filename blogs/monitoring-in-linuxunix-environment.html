@@ -8,6 +8,8 @@
   <title>Monitoring in Linux/Unix Environment using TOP | Roshan Nagekar</title>
   <meta name="description" content="Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/data-recovery-with-testdisk.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/looking-for-free-windows-os-reactos-is.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Monitoring in Linux/Unix Environment using TOP">
   <meta property="og:description" content="Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...">
@@ -16,11 +18,19 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-01-02">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="Linux">
+  <meta property="article:tag" content="Troubleshooting">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Monitoring in Linux/Unix Environment using TOP">
   <meta name="twitter:description" content="Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="8 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Monitoring in Linux/Unix Environment using TOP","description":"Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-01-02","url":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html","keywords":"Devops, Linux, Troubleshooting","wordCount":1590,"timeRequired":"PT8M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Monitoring in Linux/Unix Environment using TOP","description":"Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-01-02","url":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html","keywords":"Devops, Linux, Troubleshooting","wordCount":1590,"timeRequired":"PT8M","articleBody":"Some rights reserved by Steve Jurvetson Top Top is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This command displays the active processes at real-time and updates the list regularly. Other system details like CPU usage, Memory usage, Swap Memory, Cache Size, Buffer Size, Process PID, User, Commands and much more. The 1st line of the command mentions the following: - current time in hh:mm:ss format seconds keep updating - uptime of the machine, how long has the machine been running - no. of users logged in with running sessions - average load on the system, 3 values mentioned are load in last one minute, 5 minutes and 15 minutes The 2nd line mentions the following : Total number of processes running Present number of running processes Total sleeping processes Total stopped processes Total Zombie processes(waiting for parent process to stop) The 3rd row mentions the following : % of CPU for user processes % of CPU for system/kernel processes % of CPU for prioritized or priority upgraded processes nice % of CPU not used % of CPU awaiting i/o operation % of CPU serving h/w interrupts % of CPU for s/w interrupts % of CPU stolen from virtual memory(steal time) this will be zero if no virtual machine running. The 4th and 5th row mentions the following: The use of Physical memory The use of swap memory Both free buffer and cached The details of the processes are given with the following details: - PID: Process ID - USER: The owner user of the process - PR: Priority of the process - NI: Nice value of the process - VIRT: Amount of Virtual Memory used by the process - RES: Amount of physical memory used by the process - SHR: Shared memory of the process - S: Status of the process Sleep Running Zombie %CPU: % of CPU used %MEM: % of RAM used - COMMAND: name of the process The default sorting of the list displayed is based on CPU usage. you can change the sorting of the list as per your convenience. Changing the sorting: Press Shift+o. A list will be displayed giving all possible options using which you may sort the list, a letter corresponding to the sort criteria. Select that particular letter and hit &#39;return/enter&#39; and see the new sorted list. Display Processes for a specific User: top -u username This command will show the details of all the processes under the specific username mentioned in the command. Highlight any Running Process : Press Z after running top to highlight the running process to identify them easily. Show absolute Path of the process: To see the path from where the processes are being invoked press &#39;c&#39; after running top Change screen refresh interval: To change the screen refresh interval of the processes running press &#39;d&#39; and enter any number in seconds to set the time interval for refresh. Kill Running Process: to kill any of the running processes press &#39;k&#39; and enter the process id of the process to be killed. After this you will be required to enter the signal (15) to kill the process. To sort by CPU Utilization: Shift+p Save Results of Top Command: press Ctrl+w for help: press h Exit top after specific Repetition: top -n Manual Page for top : man top Beyond top: Modern Monitoring Tools top is what you reach for when you&#39;re already SSH&#39;d into a machine and need to see what&#39;s happening right now. It&#39;s fast and available everywhere. But it has real limits: no history, no alerting, limited context for diagnosing what&#39;s actually causing the load. These tools fill the gaps. htop — an improved top with color, mouse support, and per-CPU bars: sudo apt install htop # or brew install htop htop htop shows individual CPU cores as horizontal bars, lets you scroll through the process list, and supports mouse clicks for sorting and killing processes. It&#39;s strictly more usable than top for interactive debugging. The reason I still mention top first is that htop isn&#39;t always installed on minimal or production systems; top always is. vmstat — system-wide stats in a time series, good for spotting trends rather than instantaneous snapshots: vmstat 1 10 # report every 1 second, 10 times vmstat shows CPU, memory, swap, and I/O in a compact columnar format. Running it with a time interval lets you see how these metrics move over time — something top doesn&#39;t give you in a scannable format. iostat — disk I/O stats alongside CPU, part of the sysstat package: iostat -x 1 # extended stats every 1 second The extended stats ( -x ) show utilization per device, average queue length, and await time (how long requests wait for I/O to complete). If your top shows high wa (I/O wait) and you want to know which disk is the bottleneck, iostat is where you look next. sar (System Activity Reporter) — historical data, also part of sysstat : sar -u 1 5 # CPU utilization, 1 second interval, 5 samples sar -r 1 5 # memory utilization sar -b 1 5 # I/O statistics sar is particularly valuable because it can read from historical lo","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Monitoring in Linux/Unix Environment using TOP","item":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html"}]}</script>
 </head>
 <body>
@@ -89,10 +99,17 @@
             8 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#top" style="color:var(--primary-color); text-decoration:none;">Top</a></li><li style="margin-bottom:0.35rem;"><a href="#press-shift-o-a-list-will-be-displayed-giving" style="color:var(--primary-color); text-decoration:none;">Press Shift+o. A list will be displayed giving</a></li><li style="margin-bottom:0.35rem;"><a href="#beyond-top-modern-monitoring-tools" style="color:var(--primary-color); text-decoration:none;">Beyond top: Modern Monitoring Tools</a></li><li style="margin-bottom:0.35rem;"><a href="#interpreting-top-output-for-common-problems" style="color:var(--primary-color); text-decoration:none;">Interpreting top Output for Common Problems</a></li><li style="margin-bottom:0.35rem;"><a href="#setting-up-persistent-monitoring" style="color:var(--primary-color); text-decoration:none;">Setting Up Persistent Monitoring</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH47MwOd_VlPuqi8Sc_tjGzqE5Jz4Lur6gQfAPyvYW9BmJ-ducyi5okcX_IyOhqOgBL8T86ZqJW-LFM3eNXdNqtFfqCA9MWg6RfDnM3ytM8OH407dQO1JeOJqqGsI_YNU7CFuHWpBX2TE/s1600/12024889475_4ba5436bf9_m.jpg" alt=""></p>
 <p>Some rights reserved by <a href="https://www.flickr.com/photos/jurvetson/">Steve Jurvetson</a></p>
-<h2>Top</h2>
+<h2 id="top">Top</h2>
 <p>Top
 is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This command displays the active processes
 at real-time and updates the list regularly. Other system details like
@@ -148,7 +165,7 @@ The 1st line of the command mentions the following:</p>
 <p>The default sorting of the list displayed is based on CPU usage. you can change the sorting of the list as per your convenience.</p>
 <p><em>Changing the sorting:</em></p>
 <hr>
-<h2>Press Shift+o. A list will be displayed giving</h2>
+<h2 id="press-shift-o-a-list-will-be-displayed-giving">Press Shift+o. A list will be displayed giving</h2>
 <p>all possible options using which you may sort the list, a letter
 corresponding to the sort criteria. Select that particular letter and
 hit &#39;return/enter&#39; and see the new sorted list.</p>
@@ -172,7 +189,7 @@ will be required to enter the signal (15) to kill the process.</p>
 <p><em>for help:</em> press h
 <em>Exit top after specific Repetition:</em> top -n <number>
 <em>Manual Page for top :</em> man top</p>
-<h2>Beyond top: Modern Monitoring Tools</h2>
+<h2 id="beyond-top-modern-monitoring-tools">Beyond top: Modern Monitoring Tools</h2>
 <p><code>top</code> is what you reach for when you&#39;re already SSH&#39;d into a machine and need to see what&#39;s happening right now. It&#39;s fast and available everywhere. But it has real limits: no history, no alerting, limited context for diagnosing what&#39;s actually causing the load. These tools fill the gaps.</p>
 <p><strong>htop</strong> — an improved <code>top</code> with color, mouse support, and per-CPU bars:</p>
 <pre><code class="language-bash">sudo apt install htop  # or brew install htop
@@ -194,13 +211,13 @@ sar -b 1 5     # I/O statistics
 </code></pre>
 <p><code>sar</code> is particularly valuable because it can read from historical logs collected by the <code>sadc</code> daemon — so you can look at CPU utilization from 6 hours ago when the alert fired, not just right now.</p>
 <p>Brendan Gregg&#39;s <a href="http://www.brendangregg.com/linuxperf.html">Linux Performance Tools</a> page is the definitive reference for understanding which tool to reach for at each layer of the stack. Worth bookmarking.</p>
-<h2>Interpreting top Output for Common Problems</h2>
+<h2 id="interpreting-top-output-for-common-problems">Interpreting top Output for Common Problems</h2>
 <p>Knowing the fields is one thing. Knowing what combinations of values indicate which problems is what actually matters when you&#39;re debugging under pressure.</p>
 <p><strong>High load average but low CPU%</strong>: the processes are blocked waiting for something that isn&#39;t CPU. Check the <code>wa</code> column in the CPU line — that&#39;s I/O wait, the percentage of time the CPU is idle because processes are waiting on disk. If <code>wa</code> is elevated (anything above 5-10% is worth investigating), the bottleneck is disk. Verify with <code>iostat -x 1</code>.</p>
 <p><strong>High CPU% on a single process</strong>: find it with <code>top</code> (it&#39;ll be at the top of the list sorted by %CPU). Then dig deeper with <code>strace -p &lt;pid&gt;</code> to see what system calls it&#39;s making, or <code>perf top</code> to see which code paths are consuming the cycles. High CPU on a known-good process often means a hot loop caused by unexpected input data or a configuration change.</p>
 <p><strong>Memory pressure</strong>: watch the <code>si</code> and <code>so</code> values in the memory section of <code>top</code> — swap in and swap out. Non-zero <code>si</code>/<code>so</code> means the kernel is actively moving data between RAM and disk. Swap in (<code>si</code>) means it&#39;s reading previously swapped-out data back into RAM because something needs it — performance is degraded because disk access is happening where RAM access should be. Sort by %MEM in top (press <code>M</code>) to find what&#39;s consuming memory.</p>
 <p><strong>Zombie processes</strong>: visible in the tasks line as the <code>Z</code> count. A zombie is a process that has finished executing but whose parent hasn&#39;t called <code>wait()</code> to retrieve its exit status and clean it up. The zombie sits in the process table using a small amount of kernel resources. A handful of zombies at any point is normal. A growing count of zombies indicates the parent process has a bug — it&#39;s spawning children and not collecting them. You can&#39;t kill a zombie directly; you have to kill (or fix) the parent.</p>
-<h2>Setting Up Persistent Monitoring</h2>
+<h2 id="setting-up-persistent-monitoring">Setting Up Persistent Monitoring</h2>
 <p><code>top</code> tells you what&#39;s happening right now. It doesn&#39;t tell you what happened an hour ago, and it can&#39;t alert you when something goes wrong while you&#39;re not looking. For production systems, you need monitoring that runs continuously, retains history, and sends alerts.</p>
 <p><strong>Prometheus + node_exporter</strong> is the current standard for Linux host metrics. node_exporter is a small agent that runs on each host and exposes CPU, memory, disk, filesystem, and network metrics in Prometheus format. Prometheus scrapes and stores them. Pair it with Grafana for dashboards and Alertmanager for routing alerts to PagerDuty, Slack, or email. This stack requires some setup investment but scales well and gives you full control over retention and alerting rules. See <a href="https://github.com/prometheus/node_exporter">node_exporter on GitHub</a> to get started.</p>
 <p><strong>Netdata</strong> is the right choice if you want real-time dashboards with minimal setup. Install it on a host and you immediately get per-second granularity metrics with a built-in web UI — no separate Prometheus or Grafana required. It&#39;s better for single-host visibility than for multi-host fleet monitoring, but for a small number of machines it&#39;s fast to get running.</p>
@@ -230,6 +247,17 @@ sar -b 1 5     # I/O statistics
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/data-recovery-with-testdisk.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Data Recovery with TestDisk</span>
+    </a>
+    <a href="../blogs/looking-for-free-windows-os-reactos-is.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Looking for Free Windows OS? ReactOS is here.</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

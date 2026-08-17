@@ -8,6 +8,8 @@
   <title>s3cmd to push large files greater than 5GB to Amazon S3 | Roshan Nagekar</title>
   <meta name="description" content="image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/software-configuration-management-system.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/hadoop-10.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="s3cmd to push large files greater than 5GB to Amazon S3">
   <meta property="og:description" content="image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum...">
@@ -16,11 +18,20 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2015-04-23">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="AWS">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="S3">
+  <meta property="article:tag" content="s3cmd">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="s3cmd to push large files greater than 5GB to Amazon S3">
   <meta name="twitter:description" content="image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="4 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"s3cmd to push large files greater than 5GB to Amazon S3","description":"image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-04-23","url":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html","keywords":"AWS, Devops, S3, s3cmd","wordCount":779,"timeRequired":"PT4M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"s3cmd to push large files greater than 5GB to Amazon S3","description":"image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-04-23","url":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html","keywords":"AWS, Devops, S3, s3cmd","wordCount":779,"timeRequired":"PT4M","articleBody":"Note: s3cmd is still useful for older setups and cross-platform scripting, but if you&#39;re starting fresh in 2024, the AWS CLI v2 handles multipart uploads natively without any extra tools — see the Modern Alternatives section at the bottom. image credits: Stefano Bertolo Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum install s3cmd OR s3cmd Configure s3cmd by vim ~ / .s3cfg &lt;Paste những info add to it and you access-key and secret-key&gt; [Default] access_key = TUOWAAA99023990001 access_token = add_encoding_exts = add_headers = bucket_location = US cache_file = cloudfront_host = cloudfront.amazonaws.com default_mime_type = binary / octet-stream delay_updates = False delete_after = False delete_after_fetch = False delete_removed = False dry_run = False enable_multipart = True encoding = UTF-8 encrypt = False EXPIRY_DATE = expiry_days = expiry_prefix = follow_symlinks = False force = False get_continue = False gpg_command = / usr / bin / gpg gpg_decrypt =% (gpg_command) s -d --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s gpg_encrypt =% (gpg_command) s -c --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s gpg_passphrase = guess_mime_type = True host_base = s3.amazonaws.com host_bucket =% (bucket) s.s3.amazonaws.com human_readable_sizes = False ignore_failed_copy = False invalidate_default_index_on_cf = False invalidate_default_index_root_on_cf = True invalidate_on_cf = False list_md5 = False log_target_prefix = max_delete = -1 mime_type = multipart_chunk_size_mb = 15 preserve_attrs = True progress_meter = True proxy_host = proxy_port = 0 put_continue = False recursive = False recv_chunk = 4096 reduced_redundancy = False restore_days = 1 secret_key = sd / ceP_vbb # eDDDK send_chunk = 4096 server_side_encryption = False simpledb_host = sdb.amazonaws.com skip_existing = False socket_timeout = 300 urlencoding_mode = normal use_https = True use_mime_magic = True verbosity = WARNING website_endpoint = http: //% (bucket) s.s3-their Website% (location) s.amazonaws.com/ website_error = website_index = index.html access_key = YOUR-ACCESS-KEY-HERE You can see how to use s3cmd at: http://s3tools.org/usage Here I came across a typical scenario where I could not upload files greater than 5GB. You could do this to print two Ways: Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version. Splitting Into the large files using small files and then uploading it split command. Original file -rw-r - r--. 1 root root 5.4G Jan 20 06:54 201412.tar.gz Split Command split -b 3G 2014backup.tar.gz &quot;201 412&quot; Post Split -rw-r - r--. 1 root root 23 Apr 06:41 3.0G 201412aa -rw-r - r--. 1 root root 23 Apr 06:43 2.4G 201412ab Upload files những 201 412 * s3cmd put s3: // apache-logs / Saved some time :) Modern Alternatives The file-splitting approach above worked in 2015 when s3cmd&#39;s multipart support was unreliable. In 2024, there are better tools for this job that handle large files natively without manual splitting. AWS CLI v2 multipart upload — if you&#39;re already using the AWS CLI (which you almost certainly are), it handles multipart uploads automatically for files over 8MB. No extra tool to install, no config file to maintain, and it uses your existing IAM credentials. The aws s3 cp command splits and parallelizes large uploads transparently. See the AWS CLI S3 commands documentation for the full reference, including --multipart-threshold and --multipart-chunksize flags if you want to tune the behavior. aws s3 cp 201412.tar.gz s3://apache-logs/ --storage-class STANDARD s5cmd — if you&#39;re doing bulk uploads or syncing large directories, s5cmd is worth knowing about. It&#39;s a Go-based S3 CLI that&#39;s 10-50x faster than s3cmd for bulk operations because it parallelizes aggressively at the object level, not just within a single upload. It&#39;s particularly good for large numbers of small-to-medium files where the per-request overhead adds up. AWS S3 Transfer Acceleration — for cross-region uploads where latency is the bottleneck (uploading from Asia-Pacific to a US-East bucket, for example), S3 Transfer Acceleration routes your upload through AWS&#39;s edge network rather than the public internet. It&#39;s not always faster for same-region uploads, but for intercontinental transfers of large files it can make a meaningful difference. See the S3 Transfer Acceleration documentation for how to enable it on a bucket and what to expect on pricing. For most use cases today: reach for aws s3 cp first, s5cmd if you need bulk throughput, and only fall back to s3cmd if you&#39;re working in an environment where the AWS CLI isn&#39;t available","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"s3cmd to push large files greater than 5GB to Amazon S3","item":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html"}]}</script>
 </head>
 <body>
@@ -89,6 +100,7 @@
             4 min read
           </p>
         </header>
+        
         <div class="blog-post-content markdown-body">
           <p><strong>Note:</strong> s3cmd is still useful for older setups and cross-platform scripting, but if you&#39;re starting fresh in 2024, the AWS CLI v2 handles multipart uploads natively without any extra tools — see the <a href="#modern-alternatives">Modern Alternatives</a> section at the bottom.</p>
 <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg" alt=""></p>
@@ -187,9 +199,9 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
 <ul>
 <li>Upload files những</li>
 </ul>
-<h2>201 412 * s3cmd put s3: // apache-logs /</h2>
+<h2 id="201-412-s3cmd-put-s3-apache-logs">201 412 * s3cmd put s3: // apache-logs /</h2>
 <p>Saved some time :)</p>
-<h2>Modern Alternatives</h2>
+<h2 id="modern-alternatives">Modern Alternatives</h2>
 <p>The file-splitting approach above worked in 2015 when s3cmd&#39;s multipart support was unreliable. In 2024, there are better tools for this job that handle large files natively without manual splitting.</p>
 <ul>
 <li><p><strong>AWS CLI v2 multipart upload</strong> — if you&#39;re already using the AWS CLI (which you almost certainly are), it handles multipart uploads automatically for files over 8MB. No extra tool to install, no config file to maintain, and it uses your existing IAM credentials. The <code>aws s3 cp</code> command splits and parallelizes large uploads transparently. See the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html">AWS CLI S3 commands documentation</a> for the full reference, including <code>--multipart-threshold</code> and <code>--multipart-chunksize</code> flags if you want to tune the behavior.</p>
@@ -226,6 +238,17 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/software-configuration-management-system.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Software Configuration Management System</span>
+    </a>
+    <a href="../blogs/hadoop-10.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Hadoop 1.0</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

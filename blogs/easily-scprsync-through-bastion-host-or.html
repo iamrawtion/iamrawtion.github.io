@@ -8,6 +8,8 @@
   <title>Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops | Roshan Nagekar</title>
   <meta name="description" content="Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/devsecops-pune-meetup-4.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops">
   <meta property="og:description" content="Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...">
@@ -16,11 +18,21 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2019-02-20">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Programming">
+  <meta property="article:tag" content="hop">
+  <meta property="article:tag" content="rsync">
+  <meta property="article:tag" content="scp">
+  <meta property="article:tag" content="SSH">
+  <meta property="article:tag" content="ssh tunnel">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops">
   <meta name="twitter:description" content="Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="6 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Programming">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +42,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","description":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html","keywords":"hop, rsync, scp, SSH, ssh tunnel","wordCount":1001,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","description":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...","articleSection":"Programming","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html","keywords":"hop, rsync, scp, SSH, ssh tunnel","wordCount":1001,"timeRequired":"PT6M","articleBody":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here&#39;s how it works There are 3 machines involved here: localhost Bastion host Intended server Create an SSH tunnel from localhost to the intended host through bastion. The tunnel will be created from port 1234 at localhost. You may choose any other port. ssh -L 1234:&lt;intended_server&gt;:22 &lt;user&gt;@&lt;bastion-host&gt; cat - 2. In a new tab initiate the file/directory transfer using the tunnel port scp -P 1234 &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~/ As I did this, I realized SCP is very slow in getting the transfer done due to its linear and sequential file transfer behavior. Hence, I used Rsync which made it pretty fast due to its delta based transfer algorithm rsync -avz -e &quot;**ssh** -p 1234&quot; &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~/ Why This Matters in Modern DevOps The tunnel approach above works, but it&#39;s worth understanding why bastion hosts exist in the first place and where the tooling has moved since. Bastion hosts (also called jump servers) are a foundational pattern in network security. You put one hardened, publicly accessible host on the edge of your network, and everything else stays private. All SSH access to internal servers routes through it. This gives you a single place to enforce MFA, log access, and rotate credentials — instead of managing that across every internal host. In zero-trust architectures, the bastion is still relevant, but the implementation has evolved. On AWS, you may not need a bastion at all for some use cases. AWS Systems Manager Session Manager gives you shell access to EC2 instances without opening any inbound SSH ports — no security group rule, no key management, full session logging to CloudWatch. If you&#39;re on AWS and starting fresh, check the Session Manager docs before setting up a bastion. That said, bastions are still the right call in multi-cloud setups, on-prem environments, or anywhere you need protocol-level SSH access rather than a browser or CLI session proxy. The techniques below apply in all of those contexts. Using SSH ProxyJump Instead (Modern Approach) The SSH tunnel method I described at the top works, but it has a friction problem: you need two terminal windows, you have to remember the port number, and you have to keep the tunnel process alive. It also doesn&#39;t compose well into scripts. OpenSSH 7.3 (released in 2016) added ProxyJump , and it&#39;s the cleaner solution. It handles the bastion hop inline, in a single command: # SSH directly to the target through the bastion ssh -J user@bastion user@target-server # SCP a file through the bastion in one command scp -J user@bastion file.txt user@target-server:~/ # Works for directories too scp -J user@bastion -r ./local-dir user@target-server:~/remote-dir/ No separate terminal. No local port to manage. The -J flag tells SSH to use the specified host as a jump proxy — it handles the TCP forwarding through the bastion transparently. The connection to the target server is encrypted end-to-end; the bastion sees an opaque tunnel, not your session traffic. ProxyJump in SSH Config If you&#39;re jumping through the same bastion regularly, put it in ~/.ssh/config so you don&#39;t have to type the flag every time: Host bastion-host HostName 54.123.45.67 User ec2-user IdentityFile ~/.ssh/bastion-key.pem Host target-server HostName 10.0.1.50 User ubuntu ProxyJump bastion-host IdentityFile ~/.ssh/target-key.pem After that, ssh target-server just works. SCP and rsync pick up the config automatically too: scp file.txt target-server:~/ If you have multiple targets behind the same bastion, add a wildcard entry to keep the config DRY: Host 10.0.* ProxyJump bastion-host User ubuntu IdentityFile ~/.ssh/target-key.pem rsync with ProxyJump rsync uses SSH as its transport, so ProxyJump works through the -e flag: # Single file rsync -avz -e &quot;ssh -J user@bastion&quot; file.txt user@target-server:~/ # Directory, with progress rsync -avz --progress -e &quot;ssh -J user@bastion&quot; ./local-dir/ user@target-server:~/remote-dir/ # Dry run first (always a good idea) rsync -avzn -e &quot;ssh -J user@bastion&quot; ./local-dir/ user@target-server:~/remote-dir/ If you&#39;ve already set up the SSH config above, you can skip the -e flag entirely: rsync -avz ./local-dir/ target-server:~/remote-dir/ rsync&#39;s delta transfer algorithm means only changed blocks are sent on subsequent syncs, which makes this genuinely fast for large directories — much faster than repeated SCP. Security Considerations A few things worth getting ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Programming","item":"https://iamrawtion.github.io/categories/programming.html"},{"@type":"ListItem","position":4,"name":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","item":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html"}]}</script>
 </head>
 <body>
@@ -89,8 +101,15 @@
             6 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#often-we-work-in-environment-where-we-need-to-copy-files-or-directories-from-a-local-system-to-another-server-that-can-be-accessed-only-through-a-bastion-host-in-such-cases-typically-we-transfer-from-local-machine-to-bastion-and-from-bastion-to-the-intended-server-this-is-time-consuming-repetitive-and-unreliable-too-there-are-many-ways-you-can-make-this-automated-i-found-a-way-to-get-this-done-through-ssh-tunneling-here-39-s-how-it-works" style="color:var(--primary-color); text-decoration:none;">Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here&amp;#39;s how it works</a></li><li style="margin-bottom:0.35rem;"><a href="#why-this-matters-in-modern-devops" style="color:var(--primary-color); text-decoration:none;">Why This Matters in Modern DevOps</a></li><li style="margin-bottom:0.35rem;"><a href="#using-ssh-proxyjump-instead-modern-approach" style="color:var(--primary-color); text-decoration:none;">Using SSH ProxyJump Instead (Modern Approach)</a></li><li style="margin-bottom:0.35rem;"><a href="#proxyjump-in-ssh-config" style="color:var(--primary-color); text-decoration:none;">ProxyJump in SSH Config</a></li><li style="margin-bottom:0.35rem;"><a href="#rsync-with-proxyjump" style="color:var(--primary-color); text-decoration:none;">rsync with ProxyJump</a></li><li style="margin-bottom:0.35rem;"><a href="#security-considerations" style="color:var(--primary-color); text-decoration:none;">Security Considerations</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
-          <h2>Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here&#39;s how it works</h2>
+          <h2 id="often-we-work-in-environment-where-we-need-to-copy-files-or-directories-from-a-local-system-to-another-server-that-can-be-accessed-only-through-a-bastion-host-in-such-cases-typically-we-transfer-from-local-machine-to-bastion-and-from-bastion-to-the-intended-server-this-is-time-consuming-repetitive-and-unreliable-too-there-are-many-ways-you-can-make-this-automated-i-found-a-way-to-get-this-done-through-ssh-tunneling-here-39-s-how-it-works">Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here&#39;s how it works</h2>
 <p>There are 3 machines involved here:</p>
 <ol>
 <li><p>localhost</p>
@@ -117,12 +136,12 @@ scp -P 1234 &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~
 <td><code>rsync -avz -e &quot;**ssh** -p 1234&quot; &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~/</code></td>
 </tr>
 </tbody></table>
-<h2>Why This Matters in Modern DevOps</h2>
+<h2 id="why-this-matters-in-modern-devops">Why This Matters in Modern DevOps</h2>
 <p>The tunnel approach above works, but it&#39;s worth understanding why bastion hosts exist in the first place and where the tooling has moved since.</p>
 <p>Bastion hosts (also called jump servers) are a foundational pattern in network security. You put one hardened, publicly accessible host on the edge of your network, and everything else stays private. All SSH access to internal servers routes through it. This gives you a single place to enforce MFA, log access, and rotate credentials — instead of managing that across every internal host.</p>
 <p>In zero-trust architectures, the bastion is still relevant, but the implementation has evolved. On AWS, you may not need a bastion at all for some use cases. <strong>AWS Systems Manager Session Manager</strong> gives you shell access to EC2 instances without opening any inbound SSH ports — no security group rule, no key management, full session logging to CloudWatch. If you&#39;re on AWS and starting fresh, <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html">check the Session Manager docs</a> before setting up a bastion.</p>
 <p>That said, bastions are still the right call in multi-cloud setups, on-prem environments, or anywhere you need protocol-level SSH access rather than a browser or CLI session proxy. The techniques below apply in all of those contexts.</p>
-<h2>Using SSH ProxyJump Instead (Modern Approach)</h2>
+<h2 id="using-ssh-proxyjump-instead-modern-approach">Using SSH ProxyJump Instead (Modern Approach)</h2>
 <p>The SSH tunnel method I described at the top works, but it has a friction problem: you need two terminal windows, you have to remember the port number, and you have to keep the tunnel process alive. It also doesn&#39;t compose well into scripts.</p>
 <p>OpenSSH 7.3 (released in 2016) added <code>ProxyJump</code>, and it&#39;s the cleaner solution. It handles the bastion hop inline, in a single command:</p>
 <pre><code class="language-bash"># SSH directly to the target through the bastion
@@ -135,7 +154,7 @@ scp -J user@bastion file.txt user@target-server:~/
 scp -J user@bastion -r ./local-dir user@target-server:~/remote-dir/
 </code></pre>
 <p>No separate terminal. No local port to manage. The <code>-J</code> flag tells SSH to use the specified host as a jump proxy — it handles the TCP forwarding through the bastion transparently. The connection to the target server is encrypted end-to-end; the bastion sees an opaque tunnel, not your session traffic.</p>
-<h2>ProxyJump in SSH Config</h2>
+<h2 id="proxyjump-in-ssh-config">ProxyJump in SSH Config</h2>
 <p>If you&#39;re jumping through the same bastion regularly, put it in <code>~/.ssh/config</code> so you don&#39;t have to type the flag every time:</p>
 <pre><code>Host bastion-host
     HostName 54.123.45.67
@@ -157,7 +176,7 @@ Host target-server
     User ubuntu
     IdentityFile ~/.ssh/target-key.pem
 </code></pre>
-<h2>rsync with ProxyJump</h2>
+<h2 id="rsync-with-proxyjump">rsync with ProxyJump</h2>
 <p>rsync uses SSH as its transport, so ProxyJump works through the <code>-e</code> flag:</p>
 <pre><code class="language-bash"># Single file
 rsync -avz -e &quot;ssh -J user@bastion&quot; file.txt user@target-server:~/
@@ -172,7 +191,7 @@ rsync -avzn -e &quot;ssh -J user@bastion&quot; ./local-dir/ user@target-server:~
 <pre><code class="language-bash">rsync -avz ./local-dir/ target-server:~/remote-dir/
 </code></pre>
 <p>rsync&#39;s delta transfer algorithm means only changed blocks are sent on subsequent syncs, which makes this genuinely fast for large directories — much faster than repeated SCP.</p>
-<h2>Security Considerations</h2>
+<h2 id="security-considerations">Security Considerations</h2>
 <p>A few things worth getting right when working with bastions:</p>
 <p><strong>Don&#39;t use agent forwarding (<code>-A</code>) unless you have a specific reason.</strong> Agent forwarding passes your local SSH key material through the bastion to the target, which means anyone with root on the bastion can use your keys while the forwarded session is active. ProxyJump doesn&#39;t have this problem — it negotiates separate key authentication at each hop, so your private key never leaves your machine.</p>
 <p><strong>Use a dedicated bastion with MFA.</strong> The bastion is your chokepoint for all SSH access. It should have multi-factor authentication enabled, minimal software installed, and aggressive session logging. It&#39;s the one host you&#39;d notice if it were compromised — treat it accordingly.</p>
@@ -203,6 +222,17 @@ rsync -avzn -e &quot;ssh -J user@bastion&quot; ./local-dir/ user@target-server:~
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/devsecops-pune-meetup-4.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">DevSecOps Pune Meetup 4</span>
+    </a>
+    <a href="../blogs/source-build-envoy-proxy-on-ubuntu-1804.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Source build Envoy proxy on Ubuntu 18.04</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

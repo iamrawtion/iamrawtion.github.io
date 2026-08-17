@@ -8,6 +8,8 @@
   <title>Software Configuration Management System | Roshan Nagekar</title>
   <meta name="description" content="Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/software-configuration-management-system.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Software Configuration Management System">
   <meta property="og:description" content="Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database...">
@@ -16,11 +18,20 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2015-08-18">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Configuration Management">
+  <meta property="article:tag" content="Deployment">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="Provisioning">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Software Configuration Management System">
   <meta name="twitter:description" content="Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="7 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Software Configuration Management System","description":"Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-08-18","url":"https://iamrawtion.github.io/blogs/software-configuration-management-system.html","keywords":"Configuration Management, Deployment, Devops, Provisioning","wordCount":1378,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Software Configuration Management System","description":"Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-08-18","url":"https://iamrawtion.github.io/blogs/software-configuration-management-system.html","keywords":"Configuration Management, Deployment, Devops, Provisioning","wordCount":1378,"timeRequired":"PT7M","articleBody":"Picture credits : Paul Downey Any application would generally consist of Web servers, Application Servers, Memcache systems, SQL and NoSQL Database servers, Load Balancers, Messaging queues, etc. Although this is pretty much enough, however as a precaution/privilege we also ensure proper redundancies so that whenever there is a failure we have a back plan in place to handle the failure. In order to keep a track of server performances we also have logging servers, Analytics servers and Monitoring servers in place. All these servers need to available again within no time in case something goes wrong(which does go wrong). In traditional systems the admin guy managed all these by managing the wiring of the server and SSHing the servers and maintaining them throughout. There was nothing wrong with the idea except of time taken to get the process done. When something goes wrong get into that machine and spend hours finding out what went wrong and correct it my defining a good downtime. With a configuration management(CM) system in place now, we describe a state of a server and use some tool that just ensures that the server resides in that state throughout. The CM system ensures that right packages are installed, config files have correct values and permissions set and that the expected services are running on the host system and many more. Software Deployment is another concern that a Devops person has to take care of which is at times addressed by CM tools too, although may not be considered a good practice always. Deployment is the process where the software that is written/developed by a company is built/compiled/processed and the required binaries and static files and other necessary files are copied to the server. The expected services are started as well. This is done mostly by using some scripting language and now we have some deployment specific tools that have their own advantages over scripting languages rollback being an important one. Capistrano and Fabric are famous ones. Many a times the deployment process involves multiple remote servers. In complex environments the deployment process, the order of execution of tasks play an important role. A deployment may fail if an expected event occurs before another. E.g the database server needs to be up and running before the web server is brought up. Or in a high availability environment servers needs to be 1st taken out of the load balancer one by one before deployment and later added back to the load balancer post successful deployment. This automated arrangement, coordination and management of complex systems is called orchestration. With a bunch of IAAS providers in the cloud market, virtualization has taken up huge pace. The evaluation of any new CM tool that comes to the IT world is largely done based on the number of cloud providers it supports. An important feature of a CM tool is provisioning. Provisioning is the process of spinning up of server for that cloud provider automatically. Many CM tools providers have plugins written to communicate with many cloud providers. Chef, Ansible , Puppet, CFEnginer, Salt have already become favorite for many out there. I have personally used Ansible and Chef as of now. Cloud is fun indeed .. :) The CM Tool Landscape in 2024 The tools I listed above have each taken different trajectories over the past decade. Here&#39;s where things stand: Ansible : the most widely adopted CM tool for agentless configuration and cloud provisioning. Its YAML playbook syntax is approachable for people who aren&#39;t systems programmers, and not requiring an agent on managed nodes significantly reduces operational overhead — no agent fleet to maintain and update. It&#39;s particularly common for application deployment, cloud resource provisioning, and one-off operational tasks. Ansible documentation is the best entry point for teams new to CM. Chef : still strong in enterprises, especially where Ruby expertise exists. Acquired by Progress Software in 2020. The recipe/cookbook model is powerful for complex configuration logic but carries a steeper learning curve than Ansible. Puppet : enterprise-focused, with strong tooling for large-scale declarative state management. The Puppet DSL takes time to learn but scales well to thousands of nodes with consistent enforcement. SaltStack : acquired by VMware, now part of the Broadcom stack following the VMware acquisition. Faster execution model than Ansible (ZeroMQ messaging bus) but more operational complexity to stand up. Terraform : worth mentioning separately — not a traditional CM tool (it doesn&#39;t manage running state on servers), but it has become the standard for infrastructure provisioning across all major cloud providers. Where CM tools configure what&#39;s on a server, Terraform provisions the server itself. Infrastructure as Code: The Evolution The early CM tools were designed to manage state on running servers — install packages, write config files, ensure services are runn","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Software Configuration Management System","item":"https://iamrawtion.github.io/blogs/software-configuration-management-system.html"}]}</script>
 </head>
 <body>
@@ -89,6 +100,13 @@
             7 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#the-cm-tool-landscape-in-2024" style="color:var(--primary-color); text-decoration:none;">The CM Tool Landscape in 2024</a></li><li style="margin-bottom:0.35rem;"><a href="#infrastructure-as-code-the-evolution" style="color:var(--primary-color); text-decoration:none;">Infrastructure as Code: The Evolution</a></li><li style="margin-bottom:0.35rem;"><a href="#idempotency-the-core-principle" style="color:var(--primary-color); text-decoration:none;">Idempotency: The Core Principle</a></li><li style="margin-bottom:0.35rem;"><a href="#practical-cm-workflow" style="color:var(--primary-color); text-decoration:none;">Practical CM Workflow</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigFP8PYvG5hxL3wI9jFcBNs-r-O_zxjB4rdlgpUY9fdyAaZ8V2vbp5Oc3oOR18p2S4_lo0FQCTgKIQqpjkTDgcNPvCJICvzYLHcHV4-BxGT8ZQhU9cY9WjfFf57XCfcXbgfxjb0PAY3_I/s1600/8634021085_96a6619de6_m.jpg" alt=""></p>
 <p>Picture credits : <a href="https://www.flickr.com/photos/psd/">Paul Downey</a></p>
@@ -119,7 +137,7 @@ Provisioning is the process of spinning up of server for that cloud provider aut
 Many CM tools providers have plugins written to communicate with many cloud providers.
 Chef, <strong>Ansible</strong>, Puppet, CFEnginer, Salt have already become favorite for many out there.</p>
 <p>I have personally used Ansible and Chef as of now. Cloud is fun indeed .. :)</p>
-<h2>The CM Tool Landscape in 2024</h2>
+<h2 id="the-cm-tool-landscape-in-2024">The CM Tool Landscape in 2024</h2>
 <p>The tools I listed above have each taken different trajectories over the past decade. Here&#39;s where things stand:</p>
 <ul>
 <li><strong>Ansible</strong>: the most widely adopted CM tool for agentless configuration and cloud provisioning. Its YAML playbook syntax is approachable for people who aren&#39;t systems programmers, and not requiring an agent on managed nodes significantly reduces operational overhead — no agent fleet to maintain and update. It&#39;s particularly common for application deployment, cloud resource provisioning, and one-off operational tasks. <a href="https://docs.ansible.com/">Ansible documentation</a> is the best entry point for teams new to CM.</li>
@@ -128,7 +146,7 @@ Chef, <strong>Ansible</strong>, Puppet, CFEnginer, Salt have already become favo
 <li><strong>SaltStack</strong>: acquired by VMware, now part of the Broadcom stack following the VMware acquisition. Faster execution model than Ansible (ZeroMQ messaging bus) but more operational complexity to stand up.</li>
 <li><strong>Terraform</strong>: worth mentioning separately — not a traditional CM tool (it doesn&#39;t manage running state on servers), but it has become the standard for infrastructure provisioning across all major cloud providers. Where CM tools configure what&#39;s on a server, Terraform provisions the server itself.</li>
 </ul>
-<h2>Infrastructure as Code: The Evolution</h2>
+<h2 id="infrastructure-as-code-the-evolution">Infrastructure as Code: The Evolution</h2>
 <p>The early CM tools were designed to manage state on running servers — install packages, write config files, ensure services are running. They solved the right problem for their era. What evolved from there was a recognition that the servers themselves should also be described as code.</p>
 <p>Terraform filled that gap: provision the VPCs, subnets, security groups, load balancers, and compute instances as code with the same version control and review workflow you&#39;d apply to application code. The result is a two-layer IaC stack that most serious infrastructure teams use today:</p>
 <ol>
@@ -136,11 +154,11 @@ Chef, <strong>Ansible</strong>, Puppet, CFEnginer, Salt have already become favo
 <li><strong>Ansible (or Chef/Puppet)</strong> configures what runs on that infrastructure — packages, services, application config</li>
 </ol>
 <p>Some teams take this further with immutable infrastructure: instead of configuring running servers after they boot, you bake the entire CM configuration into an AMI or container image at build time using tools like Packer. When you need to update configuration, you build a new image and replace the instances — you never modify a running server. This eliminates an entire class of configuration drift problems at the cost of longer build pipelines.</p>
-<h2>Idempotency: The Core Principle</h2>
+<h2 id="idempotency-the-core-principle">Idempotency: The Core Principle</h2>
 <p>The defining property of a good CM system is idempotency: running the configuration once or running it ten times should produce exactly the same result. The second run should report no changes if the system is already in the desired state.</p>
 <p>This matters because CM tools are typically run continuously or on a schedule to enforce state — not just once at provisioning time. If your playbook or cookbook is not idempotent, you&#39;ll get configuration drift: servers that diverged from the desired state because a task was applied inconsistently, or failed partway through, or was applied in a different order than expected.</p>
 <p>The practical test for idempotency: run your CM tool against a freshly configured server, then run it a second time immediately and check whether the second run reports any changes. If it does, you have an idempotency problem to fix. Well-written Ansible modules are idempotent by design — the <code>apt</code> module checks whether a package is already installed before installing it, the <code>template</code> module checks whether the file content has changed before writing it. See the <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html">Ansible playbook guide</a> for patterns that preserve idempotency.</p>
-<h2>Practical CM Workflow</h2>
+<h2 id="practical-cm-workflow">Practical CM Workflow</h2>
 <p>CM tools don&#39;t exist in isolation — they&#39;re part of a broader automation pipeline. The workflow I&#39;ve landed on across several teams:</p>
 <ol>
 <li><strong>Define desired state in code</strong>: Ansible playbook, Chef cookbook, or Puppet manifest checked into a Git repository like any other code</li>
@@ -174,6 +192,17 @@ Chef, <strong>Ansible</strong>, Puppet, CFEnginer, Salt have already become favo
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/infrastructure-monitoring-with-nagios.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Infrastructure Monitoring with Nagios</span>
+    </a>
+    <a href="../blogs/s3cmd-to-push-large-files-greater-then.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">s3cmd to push large files greater than 5GB to Amazon S3</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

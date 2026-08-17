@@ -8,6 +8,8 @@
   <title>Learning Chef - Part - II | Roshan Nagekar</title>
   <meta name="description" content="some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/learning-chef-part-ii.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/integrating-docker-with-chef.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/meetupcom-practices.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Learning Chef - Part - II">
   <meta property="og:description" content="some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and...">
@@ -16,11 +18,19 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-05-23">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Chef">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="Server">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Learning Chef - Part - II">
   <meta name="twitter:description" content="some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="7 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Learning Chef - Part - II","description":"some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-05-23","url":"https://iamrawtion.github.io/blogs/learning-chef-part-ii.html","keywords":"Chef, Devops, Server","wordCount":1249,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Learning Chef - Part - II","description":"some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-05-23","url":"https://iamrawtion.github.io/blogs/learning-chef-part-ii.html","keywords":"Chef, Devops, Server","wordCount":1249,"timeRequired":"PT7M","articleBody":"some rights reserved by Matt Ray ...continued from Learning Chef - Part - I Consider you have to install an application. You 1st install and configure the application on a single server. It could be a developers laptop/workstation. In order to setup the application you have to perform various installation procedures i.e install packages, start services, manage database etc. After sometime you are going to make the Application available to a larger number of public than your laptop/workstation can handle and so will need to add a database server and will make this a multi tier application. So now we have one server handling the Application request and a separate server for database. To avoid data loss we will add another App server and Database server to keep the data redundant so that data loss is avoided. As time passes the load increases on the server with more number of people trying to access the server so we may need to add a scaling solution like a load-balancer to the server. As in how the application usage increase and the amount of users increases we will need to add more and more app servers and add more load balancers for them. As the database is not able to cope up with the high demand, we need to add a DB cache to the existing solution, Making the infra even more complex. Chef is Infrastructure as a code. Using Chef you can programmatically provision and configure components. Chef ensures that each node complies to the policy. Policies are determined by the configurations included in each Node&#39;s run list. You can define the policy in your Chef configuration. Your policy states what state each resource should be in, but not how to get there. Chef-client will pull the policy from the Chef-server and enforce the policy on the Node. Policy will state what needs to installed but not how it needs to install. Chef is intelligent enough to figure that out. Chef will enforce the policy based on the resource that you specified. Setup Setup a Chef Environment first by setting up Chef workstation, use the following command on Ubuntu , curl -L https://www.opscode.com/chef/install.sh | sudo bash Login to manage.opscode.com and download the starter-kit there. Extract the chef-repo to your home directory. It should show the following contents. cd chef-repo ls .berkshelf .chef cookbooks roles .gitignore Berksfile chefignore README.md Vagrantfile Check the .chef file present in the directory, it should show the following content. cd .chef knife.rb org-validator.pem user.pem Knife.rb will show your chef-server configuration for the workstation to be identified by the chef-server. vim knife.rb # See http://docs.opscode.com/config_rb_knife.html for more information on knife configuration options current_dir = File.dirname( FILE ) log_level :info log_location STDOUT node_name &quot;user&quot; client_key &quot;#{current_dir}/user.pem&quot; validation_client_name &quot;org-validator&quot; validation_key &quot;#{current_dir}/org-validator.pem&quot; chef_server_url &quot; https://api.opscode.com/organizations/user &quot; cache_type &#39;BasicFile&#39; cache_options( :path =&gt; &quot;#{ENV[&#39;HOME&#39;]}/.chef/checksums&quot; ) cookbook_path [&quot;#{current_dir}/../chef-repo/cookbooks&quot;] Writing Recipes package &quot;apache2&quot; do action :install end template &quot;/etc/apache2/apache.conf&quot; do source &quot;apache2.conf.erb&quot; owner &quot;root&quot; group &quot;root&quot; mode &quot;0644&quot; variable(:allow_override =&gt; &quot;All&quot;) notifies :reload, &quot;service[apache2] service &quot;apache2&quot; do action [:enable,:start] supports :reload =&gt; true end Lets consider the above recipe and understand it. Each recipe has resources in it. The resources have : types -&gt; package, template, service are the types of resources in the code names -&gt; apache2, /etc/apache2/apache.conf, apache2(service) are the names of the resources in the code parameters -&gt; source &quot;apache2.conf.erb&quot; owner &quot;root&quot; group &quot;root&quot; mode &quot;0644&quot; supports :reload =&gt; true action to put the resource on desired state -&gt; action :install, action [:enable,:start] send notification to other resources -&gt; notifies :reload, &quot;service[apache2] A cookbook can be created by the command knife cookbook create cookbookname This will automatically create the cookbook along with all the necessary files inside it. You can delete, check the available cookbooks, delete a cookbook, upload and download a cookbook using different knife commands. You can check all the options by knife cookbook --help To bootstrap a new node you need to use the following command*:* knife bootstrap hostname --sudo -x username -P password --ssh-port 2222 -N nodename Creating Environments Many a times you will want development environment and production environment to have little different configurations. e.g xdebug to be installed on dev but not on production. PayPal enabled on prod but not dev etc. Chef allo","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Learning Chef - Part - II","item":"https://iamrawtion.github.io/blogs/learning-chef-part-ii.html"}]}</script>
 </head>
 <body>
@@ -89,6 +99,13 @@
             7 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#setup" style="color:var(--primary-color); text-decoration:none;">Setup</a></li><li style="margin-bottom:0.35rem;"><a href="#writing-recipes" style="color:var(--primary-color); text-decoration:none;">Writing Recipes</a></li><li style="margin-bottom:0.35rem;"><a href="#creating-environments" style="color:var(--primary-color); text-decoration:none;">Creating Environments</a></li><li style="margin-bottom:0.35rem;"><a href="#creating-roles" style="color:var(--primary-color); text-decoration:none;">Creating roles</a></li><li style="margin-bottom:0.35rem;"><a href="#upload-the-created-roles-to-chef-server-and-also-verify-the-same-upload-roles-by" style="color:var(--primary-color); text-decoration:none;">upload the created roles to chef-server and also verify the same. Upload roles by</a></li><li style="margin-bottom:0.35rem;"><a href="#setting-up-a-user-account-for-sys-admin" style="color:var(--primary-color); text-decoration:none;">Setting up a user account for sys-admin</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj41IkzbAwgVTtYH_dpbXIYtkTpYU7v4GCUgG0hbYPH6oS6Ff5fVaIVIyQw8Q_K8zm3EB0fEi-wXBzjJtk2gcVJG8JIVavRsyobzKtFwr8tpq3F-UJhA1zqQ09g5VBDzFptS9yrUuy6Te4/s1600/5596555824_bcdedb0d50_m.jpg" alt=""></p>
 <p>some rights reserved by <a href="https://www.flickr.com/photos/mray/">Matt Ray</a></p>
@@ -108,7 +125,7 @@ Chef-client will pull the policy from the Chef-server and enforce the policy on 
 Policy will state what needs to installed but not how it needs to install.
 Chef is intelligent enough to figure that out.
 Chef will enforce the policy based on the resource that you specified.</p>
-<h2>Setup</h2>
+<h2 id="setup">Setup</h2>
 <p>Setup a Chef Environment first by setting up Chef workstation, use the following command on <strong>Ubuntu</strong>,</p>
 <pre><code class="language-bash">curl -L https://www.opscode.com/chef/install.sh | sudo bash
 </code></pre>
@@ -145,7 +162,7 @@ ls
   cache_type               &#39;BasicFile&#39;
   cache_options( :path =&gt; &quot;#{ENV[&#39;HOME&#39;]}/.chef/checksums&quot; )
   cookbook_path            [&quot;#{current_dir}/../chef-repo/cookbooks&quot;]</p>
-<h2>Writing Recipes</h2>
+<h2 id="writing-recipes">Writing Recipes</h2>
 <p><em>package &quot;apache2&quot; do</em>
 <em>action :install</em>
 <em>end</em></p>
@@ -176,7 +193,7 @@ Each recipe has resources in it. The resources have :</p>
 <p>To bootstrap a new node you need to use the following command*:*</p>
 <pre><code class="language-bash">knife bootstrap hostname --sudo -x username -P password --ssh-port 2222 -N nodename
 </code></pre>
-<h2>Creating Environments</h2>
+<h2 id="creating-environments">Creating Environments</h2>
 <p>Many a times you will want development environment and production environment to have little different configurations. e.g xdebug to be installed on dev but not on production. PayPal enabled on prod but not dev etc. Chef allows you to define different environments and also allows you to assign different nodes to a particular environment.</p>
 <p>create a directory called environments in the chef-repo. Add the following content to a file dev.rb in it.</p>
 <p>name &quot;dev&quot;
@@ -186,7 +203,7 @@ description &quot;The dev environment&quot;</p>
 description &quot;The prod environment&quot;</p>
 <p>Upload the environment to the chef server.
 You can verify whether the environments are created in the chef server by logging in there.</p>
-<h2>Creating roles</h2>
+<h2 id="creating-roles">Creating roles</h2>
 <p>Roles provide a way to apply a group of recipes and attributes to all the nodes performing a particular function. e.g all the nodes which would work as db server can be assigned a db server roles and accordingly all the db server specific recipes can be applied to those nodes.</p>
 <p>Roles can be created in the following manner. Create a roles directory in the chef-repo if it does not exist. add a file base.rb there with the following content.</p>
 <p>name &quot;base&quot;
@@ -244,12 +261,12 @@ description &quot;Master database server&quot;</p>
   &quot;dev&quot; =&gt; all_env,
 )</p>
 <hr>
-<h2>upload the created roles to chef-server and also verify the same. Upload roles by</h2>
+<h2 id="upload-the-created-roles-to-chef-server-and-also-verify-the-same-upload-roles-by">upload the created roles to chef-server and also verify the same. Upload roles by</h2>
 <p>knife role from file roles/base.rb
 knife role from file roles/webserver.rb
 knife role from file roles/db_master.rbenv</p>
 <hr>
-<h2>Setting up a user account for sys-admin</h2>
+<h2 id="setting-up-a-user-account-for-sys-admin">Setting up a user account for sys-admin</h2>
 <p>Define a user account for yourself on all the nodes with admin privileges. This can be done by defining a data bag for the users cookbook, with attributes that describe the user account to create.</p>
 <pre><code class="language-bash">mkdir -p data_bags/users
 vim data_bags/users/$USER.json
@@ -290,6 +307,17 @@ knife data bag from file users $USER.json</p>
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/integrating-docker-with-chef.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Integrating Docker with Chef</span>
+    </a>
+    <a href="../blogs/meetupcom-practices.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Meetup.com practices</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

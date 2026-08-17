@@ -8,6 +8,8 @@
   <title>Bugzilla Mail Sending Issue | Roshan Nagekar</title>
   <meta name="description" content="Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/bugzilla-mail-sending-issue.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/mumbai-technology-meetup-devops-special.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/rootconf-2014.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Bugzilla Mail Sending Issue">
   <meta property="og:description" content="Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending...">
@@ -16,11 +18,20 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-07-16">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Linux">
+  <meta property="article:tag" content="Bugzilla">
+  <meta property="article:tag" content="cpan">
+  <meta property="article:tag" content="Perl">
+  <meta property="article:tag" content="Troubleshooting">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Bugzilla Mail Sending Issue">
   <meta name="twitter:description" content="Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="6 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Linux">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Bugzilla Mail Sending Issue","description":"Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-07-16","url":"https://iamrawtion.github.io/blogs/bugzilla-mail-sending-issue.html","keywords":"Bugzilla, cpan, Perl, Troubleshooting","wordCount":1042,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Bugzilla Mail Sending Issue","description":"Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending...","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-07-16","url":"https://iamrawtion.github.io/blogs/bugzilla-mail-sending-issue.html","keywords":"Bugzilla, cpan, Perl, Troubleshooting","wordCount":1042,"timeRequired":"PT6M","articleBody":"Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending mails. After checking the configuration everything seemed to be just fine, except the email was not getting sent and while updating any issue in Bugzilla a 504 error was sure to come. After a little debugging we got rid of 504 by disabling Email service, but this was not quiet what we wanted. After googling a bit I got to know Bugzilla did not support Gmail as SMTP earlier, but now it did and that we need to install a few external packages for this. I found a tonne of articles with some misleading information or I don&#39;t know if I was doing something wrong there. I applied this patch 1st in the Bugzilla setup directory. patch &lt; mypatchfile I first installed Net-SMTP-SSL package after reading a few blogs with CPAN Shell perl -MCPAN -e shell cpan&gt; install Net::SMTP::SSL ./checksetup.pl Check for Net-SMTP-SSL (v1.01) ok: found v1.01 Later I tried sending notifications with SMTP in Administration &gt; Parameters &gt; Email (Many articles say that you will see a Gmail option or TLS option, however after installing many packages I didn&#39;t see any of those. I was unable to send a mail with SMTP even after many trails. I finally switched to Sendmail, there was a delay but the mail was getting sent now. But the old problem was still there. Every time you update an issue, you get a 504. I suspect that because there was a delay in the mail being sent, the page used to wait for the mail being sent and then show up, but since it was too long, there could be a time-out value either in **Apache or in **Bugzilla config that showed up the 504 page. Next I chose the option use_mailer_queue to be ON, and started the jobqueue.pl deamon. Now the mails are getting sent with no 504. I still suspect that it might have worked without the Net-SMTP-SSL package too. Root Cause Analysis The actual failure chain was more specific than &quot;Gmail doesn&#39;t work.&quot; Bugzilla&#39;s default mail delivery is synchronous — when you update a bug, the HTTP request handler sends the email inline before returning a response to the browser. Every bug update literally waited for the full SMTP transaction to complete before the page loaded. Gmail&#39;s SMTP introduced its own delays: OAuth handshakes, TLS negotiation, and authentication checks that added several seconds to each transaction. Apache had a proxy timeout configured (the default is often 60 seconds), and when the combined delay of Bugzilla&#39;s synchronous mail call plus Gmail&#39;s SMTP latency pushed past that timeout, Apache killed the connection and returned the 504 to the browser — even though Bugzilla was still running and hadn&#39;t crashed. The use_mailer_queue setting breaks this dependency. Instead of sending email inline during the HTTP request, Bugzilla writes the outgoing message to a queue table in its database and immediately returns the HTTP response. A separate background process ( jobqueue.pl ) reads from that queue and handles actual delivery asynchronously. HTTP response time is decoupled from email delivery time, so no amount of SMTP latency can cause a 504. The Sendmail switch was also relevant: Sendmail hands off to the local mail transfer agent immediately and returns, rather than waiting for the full SMTP transaction. Combined with the job queue, delivery became genuinely asynchronous and the 504s stopped entirely. Key Bugzilla Email Settings to Understand All of these live in Administration &gt; Parameters &gt; Email: mail_delivery_method : Controls the transport. SMTP uses direct SMTP (subject to the latency problems described above), Sendmail invokes the local MTA, and Test writes emails to a log file instead of delivering them. Test mode is underrated for debugging — it lets you confirm that Bugzilla is generating the right email content without needing a working mail server. use_mailer_queue : When set to ON, outgoing emails are written to a database queue table and delivered by jobqueue.pl in the background. This is what fixed the 504 issue. Should be ON in any production setup with any mail delivery method. smtp_timeout : How many seconds Bugzilla waits for an SMTP server to respond before giving up. Increasing this value can help with slow SMTP servers but doesn&#39;t fix the fundamental problem — you&#39;re still blocking the HTTP request. Raising the timeout just makes the 504 take longer to appear. Running jobqueue.pl Reliably The daemon needs to be running continuously for queued email to get delivered. During debugging you can run it manually to test the queue: # Check if it&#39;s running ps aux | grep jobqueue # Run it manually for testing perl /var/www/html/bugzilla/jobqueue.pl start # Set up as a cron job for reliability (not ideal but common) */5 * * * * perl /var/www/html/bugzilla/jobqueue.pl start 2&gt;/dev/null The cron approach is a stopgap — it&#39;s common, but it means emails c","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Bugzilla Mail Sending Issue","item":"https://iamrawtion.github.io/blogs/bugzilla-mail-sending-issue.html"}]}</script>
 </head>
 <body>
@@ -89,6 +100,13 @@
             6 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#root-cause-analysis" style="color:var(--primary-color); text-decoration:none;">Root Cause Analysis</a></li><li style="margin-bottom:0.35rem;"><a href="#key-bugzilla-email-settings-to-understand" style="color:var(--primary-color); text-decoration:none;">Key Bugzilla Email Settings to Understand</a></li><li style="margin-bottom:0.35rem;"><a href="#running-jobqueue-pl-reliably" style="color:var(--primary-color); text-decoration:none;">Running jobqueue.pl Reliably</a></li><li style="margin-bottom:0.35rem;"><a href="#preventing-this-in-future-setups" style="color:var(--primary-color); text-decoration:none;">Preventing This in Future Setups</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMuNWl5viJkCSwxzfJUodpgh0ORdGTJDls8YFwJveddR827Tf2tKCo7TvSAEHWG3hODU1auN1vzswYFShIgxwYGs1nN5ipoI8GRRl2-Y_JoLrgCVqWATuUCRyJtZ1MzdVJwfqzvCacG-k/s1600/bugzilla.jpeg" alt=""></p>
 <p>Lately an issue was assigned to me where Bugzilla Email notification failed with an 504 gateway timed out error. We use gmail service for sending mails.</p>
@@ -104,19 +122,19 @@
 <p>Later I tried sending notifications with SMTP in Administration &gt; Parameters &gt; Email (Many articles say that you will see a Gmail option or TLS option, however after installing many packages I didn&#39;t see any of those. I was unable to send a mail with SMTP even after many trails.</p>
 <p>I finally switched to Sendmail, there was a delay but the mail was getting sent now. But the old problem was still there. Every time you update an issue, you get a 504. I suspect that because there was a delay in the mail being sent, the page used to wait for the mail being sent and then show up, but since it was too long, there could be a time-out value either in **Apache or in **Bugzilla config that showed up the 504 page.</p>
 <p>Next I chose the option use_mailer_queue to be ON, and started the jobqueue.pl deamon. Now the mails are getting sent with no 504. I still suspect that it might have worked without the Net-SMTP-SSL package too.</p>
-<h2>Root Cause Analysis</h2>
+<h2 id="root-cause-analysis">Root Cause Analysis</h2>
 <p>The actual failure chain was more specific than &quot;Gmail doesn&#39;t work.&quot; Bugzilla&#39;s default mail delivery is synchronous — when you update a bug, the HTTP request handler sends the email inline before returning a response to the browser. Every bug update literally waited for the full SMTP transaction to complete before the page loaded.</p>
 <p>Gmail&#39;s SMTP introduced its own delays: OAuth handshakes, TLS negotiation, and authentication checks that added several seconds to each transaction. Apache had a proxy timeout configured (the default is often 60 seconds), and when the combined delay of Bugzilla&#39;s synchronous mail call plus Gmail&#39;s SMTP latency pushed past that timeout, Apache killed the connection and returned the 504 to the browser — even though Bugzilla was still running and hadn&#39;t crashed.</p>
 <p>The <code>use_mailer_queue</code> setting breaks this dependency. Instead of sending email inline during the HTTP request, Bugzilla writes the outgoing message to a queue table in its database and immediately returns the HTTP response. A separate background process (<code>jobqueue.pl</code>) reads from that queue and handles actual delivery asynchronously. HTTP response time is decoupled from email delivery time, so no amount of SMTP latency can cause a 504.</p>
 <p>The Sendmail switch was also relevant: Sendmail hands off to the local mail transfer agent immediately and returns, rather than waiting for the full SMTP transaction. Combined with the job queue, delivery became genuinely asynchronous and the 504s stopped entirely.</p>
-<h2>Key Bugzilla Email Settings to Understand</h2>
+<h2 id="key-bugzilla-email-settings-to-understand">Key Bugzilla Email Settings to Understand</h2>
 <p>All of these live in Administration &gt; Parameters &gt; Email:</p>
 <ul>
 <li><code>mail_delivery_method</code>: Controls the transport. <code>SMTP</code> uses direct SMTP (subject to the latency problems described above), <code>Sendmail</code> invokes the local MTA, and <code>Test</code> writes emails to a log file instead of delivering them. Test mode is underrated for debugging — it lets you confirm that Bugzilla is generating the right email content without needing a working mail server.</li>
 <li><code>use_mailer_queue</code>: When set to ON, outgoing emails are written to a database queue table and delivered by <code>jobqueue.pl</code> in the background. This is what fixed the 504 issue. Should be ON in any production setup with any mail delivery method.</li>
 <li><code>smtp_timeout</code>: How many seconds Bugzilla waits for an SMTP server to respond before giving up. Increasing this value can help with slow SMTP servers but doesn&#39;t fix the fundamental problem — you&#39;re still blocking the HTTP request. Raising the timeout just makes the 504 take longer to appear.</li>
 </ul>
-<h2>Running jobqueue.pl Reliably</h2>
+<h2 id="running-jobqueue-pl-reliably">Running jobqueue.pl Reliably</h2>
 <p>The daemon needs to be running continuously for queued email to get delivered. During debugging you can run it manually to test the queue:</p>
 <pre><code class="language-bash"># Check if it&#39;s running
 ps aux | grep jobqueue
@@ -141,7 +159,7 @@ User=apache
 WantedBy=multi-user.target
 </code></pre>
 <p>Save this to <code>/etc/systemd/system/bugzilla-jobqueue.service</code>, then enable and start it with <code>systemctl enable --now bugzilla-jobqueue</code>. systemd handles restart-on-failure automatically via the <code>Restart=always</code> directive, and <code>journalctl -u bugzilla-jobqueue</code> gives you centralized logs alongside everything else on the system.</p>
-<h2>Preventing This in Future Setups</h2>
+<h2 id="preventing-this-in-future-setups">Preventing This in Future Setups</h2>
 <p>If you&#39;re setting up Bugzilla fresh, enable <code>use_mailer_queue</code> during initial configuration before any users are on the system. Don&#39;t wait for the 504s to appear in production — they will, eventually, and debugging SMTP issues under pressure is worse than getting it right upfront.</p>
 <p>For the SMTP provider itself, Gmail is convenient but fragile for application mail. Transactional email services like Mailgun, SendGrid, or AWS SES are built for this use case: higher rate limits, dedicated IP reputation, bounce and complaint handling, and delivery logs you can actually use for debugging. The authentication is simpler too — API key or SMTP credentials without OAuth complexity.</p>
 <p>See the <a href="https://bugzilla.readthedocs.io/en/latest/administering/parameters.html#email">Bugzilla email configuration docs</a> for the complete parameter reference and current recommendations.</p>
@@ -169,6 +187,17 @@ WantedBy=multi-user.target
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/mumbai-technology-meetup-devops-special.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Mumbai Technology Meetup - DevOps Special</span>
+    </a>
+    <a href="../blogs/rootconf-2014.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">RootConf 2014</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

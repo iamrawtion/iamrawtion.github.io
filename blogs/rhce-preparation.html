@@ -8,6 +8,8 @@
   <title>RHCE Preparation, How to Prepare for Red Hat Certification. | Roshan Nagekar</title>
   <meta name="description" content="Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/rhce-preparation.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/acm-icpc-3.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="RHCE Preparation, How to Prepare for Red Hat Certification.">
   <meta property="og:description" content="Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...">
@@ -16,11 +18,20 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2012-12-12">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Linux">
+  <meta property="article:tag" content="Linux">
+  <meta property="article:tag" content="Operations">
+  <meta property="article:tag" content="Server">
+  <meta property="article:tag" content="Troubleshooting">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="RHCE Preparation, How to Prepare for Red Hat Certification.">
   <meta name="twitter:description" content="Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="9 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Linux">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"RHCE Preparation, How to Prepare for Red Hat Certification.","description":"Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-12-12","url":"https://iamrawtion.github.io/blogs/rhce-preparation.html","keywords":"Linux, Operations, Server, Troubleshooting","wordCount":1649,"timeRequired":"PT9M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"RHCE Preparation, How to Prepare for Red Hat Certification.","description":"Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-12-12","url":"https://iamrawtion.github.io/blogs/rhce-preparation.html","keywords":"Linux, Operations, Server, Troubleshooting","wordCount":1649,"timeRequired":"PT9M","articleBody":"Some rights reserved by Clifford 1st Part Welcome 1. Concentration mainly on commandline tool only 2. GUI is not always available 3. Command line is quicker 4. Exam is completely hands on based 5. RHEL6 system only to be used 6. Rebuilds like **CentOS or scientific **linux may be used as well. These use the RPM’s provided by Red Hat to public downloads 7. Open Source code is available and Rebuilds use the same code. 8. www.scientificlinux.org / www.centos.org 2nd Part Practice Requirements 1. Compatible H/W list is available on www.redhat.com/rhel/compare 2. For installation any 32 bit or 64 bit machine can be used with minimum 512 MB or 1 GB RAM 3. Using Virtual Machine is fine a. VirtualBox b. VMWare Player c. Parallels Desktop for MAC d. Virt Manager built in kernel 3rd Part Basic Installation 1. Kickstart Installation is the only method that is covered in RHCSA 2. Basic Installation needs to be known 3. Insert the disc after starting the computer 4. Select Install or Upgrade an existing system 5. Skip the check for installation media as per requirements 6. Click next 7. Choose Language and choose next 8. Choose keyboard type and next 9. Select Basic/Specialized Storage device and Next 10. Yes Discard any data and next 11. Hostname choose a. Enter host name b. Click configure network c. Choose system eth0 device d. Click edit e. Check mark connect automatically f. Check IP4 setting automatic DHCP g. Apply and close 12. Click next 13. Time zone select 14. Root Password and confirm and next 15. Installation method select use all space 16. Check review and modify partition lay out and observe 17. Write changes to disk select 18. Install Bootloader to a particular location 19. Choose Bootloader password if needed and next 20. What type of installation needed and next 21. System installation starts and after it ends Reboot 22. Restart First boot screen 23. Final configuration steps ‘Forward’ 24. Agree license Forward , Register Later 25. No thanks I’ll connect to RHEL later 26. Username and other details Forward 27. System Time set 28. Finish 4th Part KickStart Files 1. Automated installation using kickstart 2. Kickstart installations are performed based on files that contain instructions of how the system needs to be setup 3. A kickstart configuration file is automatically created by the anaconda installer at the end of the RHEL installation 4. This file is saved in the root user’s home directory called Anaconda-ks.cfg 5. You can manually create a kickstart file manually by the system config kickstart utility 6. Application &gt; system tools &gt; kickstart 7. This application is not installed by default however its easy to get it post installation 8. Open kick start file to view its content kickstart file automatically generated by anaconda version = DEVEL Install cdrom //this means installation media was cdrom Network enable //network was enabled Root password encrypted Firewall started ssh port opened Shadow password for authentication Selinux—set to enforcing mode Timezone -&gt; set Bootloader Below this is hard drive and LVM layout All are commented by ‘#’ reason being a new system requiring the file may not have same hard drive layout Installation repository name RHEL Packages section have all software info ‘@’ indicates package group ‘@’ absent indicated individual package ‘-‘ indicates package excluded from install 9. Uncomment the drive details since we need it for the automated install later 10. The system configuration kickstart file can be used to modify existing kickstart config file as well 11. File &gt; open &gt; select anaconda-ks.cfg and fields will be automatically filled along with partition info 12. Display configuration : if we do not include directives for installing Graphical Desktop Environment than the 1st boot service will not run after the installation has finished. In this event u will have to manually add a user to the system. By default kickstart only defines a root user, we can add a new user to kickstart file with ‘user’ directive 13. Simplest place to specify a user is right below the root user in the kickstart file User –name=Kenny –password=pass1234 More info at www.fedoraproject.org/wiki/anaconda/kickstart 5th Part Rhel installation from kickstart file Network location install 1. You can use kick start file from a: a. Network location b. Cd c. hard drive d. web location e. ftp server f. nfs server g. usb device 2. basic syntax is the same 3. modify location every time 4. steps to install a. boot install media b. press escape key c. boot prompt appears d. boot linux ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter) 5. (nfs folder needs to be shared out) 6. installation will finish automatically press reboot at the end 6th Part Accessing terminal 1. application &gt; system tool &gt; terminal 2. steven born &gt; bourn shell 3. bash shell default 4. change color edit preferences 5. virtual/tty(teletype) console ctrl + alt + f1 to f6 while in gui 6. enter username password n access ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"RHCE Preparation, How to Prepare for Red Hat Certification.","item":"https://iamrawtion.github.io/blogs/rhce-preparation.html"}]}</script>
 </head>
 <body>
@@ -89,6 +100,13 @@
             9 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#rebuilds-like-centos-or-scientific-linux-may-be" style="color:var(--primary-color); text-decoration:none;">Rebuilds like **CentOS or scientific **linux may be</a></li><li style="margin-bottom:0.35rem;"><a href="#virtualbox" style="color:var(--primary-color); text-decoration:none;">VirtualBox</a></li><li style="margin-bottom:0.35rem;"><a href="#vmware-player" style="color:var(--primary-color); text-decoration:none;">VMWare Player</a></li><li style="margin-bottom:0.35rem;"><a href="#check-ip4-setting-automatic-dhcp" style="color:var(--primary-color); text-decoration:none;">Check IP4 setting automatic DHCP</a></li><li style="margin-bottom:0.35rem;"><a href="#kickstart-installations-are-performed-based-on" style="color:var(--primary-color); text-decoration:none;">Kickstart installations are performed based on</a></li><li style="margin-bottom:0.35rem;"><a href="#a-kickstart-configuration-file-is-automatically" style="color:var(--primary-color); text-decoration:none;">A kickstart configuration file is automatically</a></li><li style="margin-bottom:0.35rem;"><a href="#firewall-started-ssh-port-opened" style="color:var(--primary-color); text-decoration:none;">Firewall started ssh port opened</a></li><li style="margin-bottom:0.35rem;"><a href="#the-system-configuration-kickstart-file-can-be" style="color:var(--primary-color); text-decoration:none;">The system configuration kickstart file can be</a></li><li style="margin-bottom:0.35rem;"><a href="#file-gt-open-gt-select-anaconda-ks-cfg-and" style="color:var(--primary-color); text-decoration:none;">File &amp;gt; open &amp;gt; select anaconda-ks.cfg and</a></li><li style="margin-bottom:0.35rem;"><a href="#display-configuration-if-we-do-not-include" style="color:var(--primary-color); text-decoration:none;">Display configuration : if we do not include</a></li><li style="margin-bottom:0.35rem;"><a href="#d-boot" style="color:var(--primary-color); text-decoration:none;">d.      boot</a></li><li style="margin-bottom:0.35rem;"><a href="#less-to-read-content-of-file-scroll-using-up-and" style="color:var(--primary-color); text-decoration:none;">Less to read content of file scroll using up and</a></li><li style="margin-bottom:0.35rem;"><a href="#man-to-print-manual-page-associated-for-each" style="color:var(--primary-color); text-decoration:none;">Man to print manual page associated for each</a></li><li style="margin-bottom:0.35rem;"><a href="#apropos-term-name-to-get-details-of-any" style="color:var(--primary-color); text-decoration:none;">Apropos term_name to get details of any</a></li><li style="margin-bottom:0.35rem;"><a href="#cat-is-short-for-concatenate-we-can-join-many" style="color:var(--primary-color); text-decoration:none;">Cat is short for concatenate we can join many</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIx9HX6hXlJFeMrZqOjK5x5j21UzCD2zT7k8E1JHlfbj36IdurALjiTNyVhfxtZF_oW29C6af4KJQByZUpYmMRQsQ4yyDvClHeCQbGFFKiuVRU0wx2rSjWZ20rCxbHkVh5EUTKctu5KJk/s1600/3857029017_a26bb52542_m.jpg" alt=""></p>
 <p>Some rights reserved by <a href="https://www.flickr.com/photos/cebucity/">Clifford</a></p>
@@ -105,7 +123,7 @@
 <p>RHEL6 system only to be used</p>
 <p>6.      </p>
 <hr>
-<h2>Rebuilds like **CentOS or scientific **linux may be</h2>
+<h2 id="rebuilds-like-centos-or-scientific-linux-may-be">Rebuilds like **CentOS or scientific **linux may be</h2>
 <p>used as well. These use the RPM’s provided by Red Hat to public downloads</p>
 <p>7.      </p>
 <p>Open Source code is available and Rebuilds use
@@ -122,9 +140,9 @@ can be used with minimum 512 MB or 1 GB RAM</p>
 <p>3.      </p>
 <p>Using Virtual Machine is fine</p>
 <p>a.      </p>
-<h2>VirtualBox</h2>
+<h2 id="virtualbox">VirtualBox</h2>
 <p>b.     </p>
-<h2>VMWare Player</h2>
+<h2 id="vmware-player">VMWare Player</h2>
 <p>c.      
 Parallels Desktop for MAC</p>
 <p>d.     
@@ -164,7 +182,7 @@ Click edit</p>
 <p>e.     
 Check mark connect automatically</p>
 <p>f.       </p>
-<h2>Check IP4 setting automatic DHCP</h2>
+<h2 id="check-ip4-setting-automatic-dhcp">Check IP4 setting automatic DHCP</h2>
 <p>g.      
 Apply and close</p>
 <p>12.  </p>
@@ -207,11 +225,11 @@ observe</p>
 <p>Automated installation using kickstart</p>
 <p>2.      </p>
 <hr>
-<h2>Kickstart installations are performed based on</h2>
+<h2 id="kickstart-installations-are-performed-based-on">Kickstart installations are performed based on</h2>
 <p>files that contain instructions of how the system needs to be setup</p>
 <p>3.      </p>
 <hr>
-<h2>A kickstart configuration file is automatically</h2>
+<h2 id="a-kickstart-configuration-file-is-automatically">A kickstart configuration file is automatically</h2>
 <p>created by the anaconda installer at the end of the RHEL installation</p>
 <p>4.      </p>
 <p>This file is saved in the root user’s home
@@ -232,7 +250,7 @@ however its easy to get it post installation</p>
 installation media was cdrom</p>
 <p>Network enable //network was enabled</p>
 <p>Root password encrypted</p>
-<h2>Firewall started ssh port opened</h2>
+<h2 id="firewall-started-ssh-port-opened">Firewall started ssh port opened</h2>
 <p>Shadow password for authentication</p>
 <p>Selinux—set to enforcing mode</p>
 <p>Timezone -&gt; set</p>
@@ -249,15 +267,15 @@ not have same hard drive layout</p>
 the automated install later</p>
 <p>10.  </p>
 <hr>
-<h2>The system configuration kickstart file can be</h2>
+<h2 id="the-system-configuration-kickstart-file-can-be">The system configuration kickstart file can be</h2>
 <p>used to modify existing kickstart config file as well</p>
 <p>11.  </p>
 <hr>
-<h2>File &gt; open &gt; select anaconda-ks.cfg and</h2>
+<h2 id="file-gt-open-gt-select-anaconda-ks-cfg-and">File &gt; open &gt; select anaconda-ks.cfg and</h2>
 <p>fields will be automatically filled along with partition info</p>
 <p>12.  </p>
 <hr>
-<h2>Display configuration : if we do not include</h2>
+<h2 id="display-configuration-if-we-do-not-include">Display configuration : if we do not include</h2>
 <p>directives for installing Graphical Desktop Environment than the 1st
 boot service will not run after the installation has finished. In this event u
 will have to manually add a user to the system. By default kickstart only
@@ -297,7 +315,7 @@ escape key</p>
 <p>c.       boot
 prompt appears</p>
 <hr>
-<h2>d.      boot</h2>
+<h2 id="d-boot">d.      boot</h2>
 <p>linux ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter)</p>
 <p>5.      </p>
 <p>(nfs folder needs to be shared out)</p>
@@ -405,17 +423,17 @@ directory</p>
 rename</p>
 <p>19.  </p>
 <hr>
-<h2>Less to read content of file scroll using up and</h2>
+<h2 id="less-to-read-content-of-file-scroll-using-up-and">Less to read content of file scroll using up and</h2>
 <p>down using arrow key and skip page using page up and page down keys or use j
 and k to scroll and press q  to quit</p>
 <p>20.  </p>
 <hr>
-<h2>Man to print manual page associated for each</h2>
+<h2 id="man-to-print-manual-page-associated-for-each">Man to print manual page associated for each</h2>
 <p>command ‘/’ we can search whatever we want to search in the manual page quit by
 q</p>
 <p>21.  </p>
 <hr>
-<h2>Apropos term_name to get details of any</h2>
+<h2 id="apropos-term-name-to-get-details-of-any">Apropos term_name to get details of any</h2>
 <p>particular term existing it will give a list of the details present about that
 term in any of the commands and display it. By default there will be a number
 associated with every page e.g number 8 is for system administration tasks
@@ -430,7 +448,7 @@ not all commands have info pages</p>
 <p>9th Part Cat and Nano</p>
 <p>1.      </p>
 <hr>
-<h2>Cat is short for concatenate we can join many</h2>
+<h2 id="cat-is-short-for-concatenate-we-can-join-many">Cat is short for concatenate we can join many</h2>
 <p>files into one or we can concatenate output of the terminal into a new file.</p>
 <p>2.      </p>
 <p>Also used to show content of a file in terminal</p>
@@ -531,6 +549,17 @@ line</p>
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/tech-stuff-to-separate-part-of-pdf-from.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">TECHNICAL STUFF</span>
+    </a>
+    <a href="../blogs/acm-icpc-3.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">ACM ICPC (3)</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

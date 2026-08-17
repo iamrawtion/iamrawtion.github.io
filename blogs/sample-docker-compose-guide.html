@@ -8,6 +8,8 @@
   <title>Getting Started with Docker Compose: A Practical Guide | Roshan Nagekar</title>
   <meta name="description" content="Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practic">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Getting Started with Docker Compose: A Practical Guide">
   <meta property="og:description" content="Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practic">
@@ -16,11 +18,20 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2025-01-15">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="Docker">
+  <meta property="article:tag" content="Docker Compose">
+  <meta property="article:tag" content="Containers">
+  <meta property="article:tag" content="DevOps">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Getting Started with Docker Compose: A Practical Guide">
   <meta name="twitter:description" content="Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practic">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="6 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Getting Started with Docker Compose: A Practical Guide","description":"Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practical example of deploying a web application with a database.","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2025-01-15","url":"https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html","keywords":"Docker, Docker Compose, Containers, DevOps","wordCount":1081,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Getting Started with Docker Compose: A Practical Guide","description":"Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practical example of deploying a web application with a database.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2025-01-15","url":"https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html","keywords":"Docker, Docker Compose, Containers, DevOps","wordCount":1081,"timeRequired":"PT6M","articleBody":"⚠️ Note: This is an AI-generated sample blog post created to demonstrate the blog creation workflow. It is provided for reference purposes only to showcase the blog structure, markdown formatting, and image integration capabilities. Introduction Docker Compose is a powerful tool for defining and running multi-container Docker applications. Instead of managing multiple containers individually, you can define your entire application stack in a single YAML file and manage it with simple commands. In this guide, you&#39;ll learn how to use Docker Compose to orchestrate multiple containers, making your development and deployment workflow much simpler. Why Docker Compose? Before Docker Compose, developers had to: Run multiple docker run commands with complex arguments Manually link containers together Keep track of environment variables across containers Restart containers in the correct order Docker Compose solves all of these problems with declarative configuration. Prerequisites Before we begin, make sure you have: Docker installed on your system Basic understanding of Docker containers A text editor for creating configuration files Installing Docker Compose Docker Compose comes pre-installed with Docker Desktop. For Linux users, you can install it separately: # Download Docker Compose sudo curl -L &quot;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose # Make it executable sudo chmod +x /usr/local/bin/docker-compose # Verify installation docker-compose --version Basic Docker Compose Structure A docker-compose.yml file defines services, networks, and volumes. Here&#39;s the basic structure: version: &#39;3.8&#39; services: service-name: image: image-name:tag ports: - &quot;host:container&quot; environment: - KEY=value volumes: - host-path:container-path Practical Example: Web App with Database Let&#39;s build a complete example with a Node.js application and a PostgreSQL database. Step 1: Create the Project Structure mkdir my-docker-app cd my-docker-app Step 2: Create docker-compose.yml version: &#39;3.8&#39; services: # PostgreSQL Database database: image: postgres:15-alpine container_name: my_postgres_db environment: POSTGRES_USER: myuser POSTGRES_PASSWORD: mypassword POSTGRES_DB: myappdb ports: - &quot;5432:5432&quot; volumes: - postgres_data:/var/lib/postgresql/data networks: - app-network healthcheck: test: [&quot;CMD-SHELL&quot;, &quot;pg_isready -U myuser&quot;] interval: 10s timeout: 5s retries: 5 # Node.js Application webapp: image: node:18-alpine container_name: my_node_app working_dir: /app environment: DATABASE_URL: postgres://myuser:mypassword@database:5432/myappdb NODE_ENV: development ports: - &quot;3000:3000&quot; volumes: - ./app:/app - /app/node_modules command: npm start depends_on: database: condition: service_healthy networks: - app-network # Redis Cache (Optional) cache: image: redis:7-alpine container_name: my_redis_cache ports: - &quot;6379:6379&quot; networks: - app-network volumes: postgres_data: networks: app-network: driver: bridge Step 3: Understanding the Configuration Let&#39;s break down the key components: Component Purpose Example services Defines containers to run webapp, database, cache ports Maps host:container ports &quot;3000:3000&quot; volumes Persists data and mounts code postgres_data, ./app:/app networks Allows container communication app-network depends_on Controls startup order webapp depends on database Essential Docker Compose Commands Here are the most common commands you&#39;ll use: # Start all services in detached mode docker-compose up -d # View running services docker-compose ps # View logs from all services docker-compose logs # View logs from a specific service docker-compose logs webapp # Follow logs in real-time docker-compose logs -f # Stop all services docker-compose stop # Stop and remove containers, networks docker-compose down # Stop and remove everything including volumes docker-compose down -v # Rebuild images docker-compose build # Restart a specific service docker-compose restart webapp Advanced Features Environment Variables You can use a .env file to manage environment variables: # .env file POSTGRES_VERSION=15 NODE_VERSION=18 APP_PORT=3000 Then reference them in docker-compose.yml : services: webapp: image: node:${NODE_VERSION}-alpine ports: - &quot;${APP_PORT}:3000&quot; Scaling Services You can scale services to run multiple instances: # Run 3 instances of the webapp docker-compose up -d --scale webapp=3 Health Checks Health checks ensure services are ready before dependent services start: healthcheck: test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:3000/health&quot;] interval: 30s timeout: 10s retries: 3 start_period: 40s Best Practices Use specific image tags - Don&#39;t use latest in production Separate development and production configs - Use docker-compose.prod.yml Keep secrets secure - Use Docker secrets or external s","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Getting Started with Docker Compose: A Practical Guide","item":"https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html"}]}</script>
 </head>
 <body>
@@ -89,15 +100,22 @@
             6 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#introduction" style="color:var(--primary-color); text-decoration:none;">Introduction</a></li><li style="margin-bottom:0.35rem;"><a href="#why-docker-compose" style="color:var(--primary-color); text-decoration:none;">Why Docker Compose?</a></li><li style="margin-bottom:0.35rem;"><a href="#prerequisites" style="color:var(--primary-color); text-decoration:none;">Prerequisites</a></li><li style="margin-bottom:0.35rem;"><a href="#installing-docker-compose" style="color:var(--primary-color); text-decoration:none;">Installing Docker Compose</a></li><li style="margin-bottom:0.35rem;"><a href="#basic-docker-compose-structure" style="color:var(--primary-color); text-decoration:none;">Basic Docker Compose Structure</a></li><li style="margin-bottom:0.35rem;"><a href="#practical-example-web-app-with-database" style="color:var(--primary-color); text-decoration:none;">Practical Example: Web App with Database</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#step-1-create-the-project-structure" style="color:var(--primary-color); text-decoration:none;">Step 1: Create the Project Structure</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#step-2-create-docker-compose-yml" style="color:var(--primary-color); text-decoration:none;">Step 2: Create docker-compose.yml</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#step-3-understanding-the-configuration" style="color:var(--primary-color); text-decoration:none;">Step 3: Understanding the Configuration</a></li><li style="margin-bottom:0.35rem;"><a href="#essential-docker-compose-commands" style="color:var(--primary-color); text-decoration:none;">Essential Docker Compose Commands</a></li><li style="margin-bottom:0.35rem;"><a href="#advanced-features" style="color:var(--primary-color); text-decoration:none;">Advanced Features</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#environment-variables" style="color:var(--primary-color); text-decoration:none;">Environment Variables</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#scaling-services" style="color:var(--primary-color); text-decoration:none;">Scaling Services</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#health-checks" style="color:var(--primary-color); text-decoration:none;">Health Checks</a></li><li style="margin-bottom:0.35rem;"><a href="#best-practices" style="color:var(--primary-color); text-decoration:none;">Best Practices</a></li><li style="margin-bottom:0.35rem;"><a href="#common-issues-and-solutions" style="color:var(--primary-color); text-decoration:none;">Common Issues and Solutions</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#issue-1-port-already-in-use" style="color:var(--primary-color); text-decoration:none;">Issue 1: Port Already in Use</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#issue-2-volume-permission-errors" style="color:var(--primary-color); text-decoration:none;">Issue 2: Volume Permission Errors</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#issue-3-containers-can-39-t-communicate" style="color:var(--primary-color); text-decoration:none;">Issue 3: Containers Can&amp;#39;t Communicate</a></li><li style="margin-bottom:0.35rem;"><a href="#real-world-use-cases" style="color:var(--primary-color); text-decoration:none;">Real-World Use Cases</a></li><li style="margin-bottom:0.35rem;"><a href="#monitoring-and-debugging" style="color:var(--primary-color); text-decoration:none;">Monitoring and Debugging</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#view-resource-usage" style="color:var(--primary-color); text-decoration:none;">View Resource Usage</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#execute-commands-in-running-containers" style="color:var(--primary-color); text-decoration:none;">Execute Commands in Running Containers</a></li><li style="margin-bottom:0.35rem;"><a href="#summary" style="color:var(--primary-color); text-decoration:none;">Summary</a></li><li style="margin-bottom:0.35rem;"><a href="#conclusion" style="color:var(--primary-color); text-decoration:none;">Conclusion</a></li><li style="margin-bottom:0.35rem;"><a href="#references" style="color:var(--primary-color); text-decoration:none;">References</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="/images/blog-images/sample-docker-compose-guide/docker-compose-banner.svg" alt="Docker Compose Banner"></p>
 <blockquote>
 <p><strong>⚠️ Note:</strong> This is an AI-generated sample blog post created to demonstrate the blog creation workflow. It is provided for reference purposes only to showcase the blog structure, markdown formatting, and image integration capabilities.</p>
 </blockquote>
-<h2>Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 <p><strong>Docker Compose</strong> is a powerful tool for defining and running multi-container Docker applications. Instead of managing multiple containers individually, you can define your entire application stack in a single YAML file and manage it with simple commands.</p>
 <p>In this guide, you&#39;ll learn how to use Docker Compose to orchestrate multiple containers, making your development and deployment workflow much simpler.</p>
-<h2>Why Docker Compose?</h2>
+<h2 id="why-docker-compose">Why Docker Compose?</h2>
 <p>Before Docker Compose, developers had to:</p>
 <ul>
 <li>Run multiple <code>docker run</code> commands with complex arguments</li>
@@ -106,14 +124,14 @@
 <li>Restart containers in the correct order</li>
 </ul>
 <p><strong>Docker Compose</strong> solves all of these problems with declarative configuration.</p>
-<h2>Prerequisites</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <p>Before we begin, make sure you have:</p>
 <ul>
 <li>Docker installed on your system</li>
 <li>Basic understanding of Docker containers</li>
 <li>A text editor for creating configuration files</li>
 </ul>
-<h2>Installing Docker Compose</h2>
+<h2 id="installing-docker-compose">Installing Docker Compose</h2>
 <p>Docker Compose comes pre-installed with Docker Desktop. For Linux users, you can install it separately:</p>
 <pre><code class="language-bash"># Download Docker Compose
 sudo curl -L &quot;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
@@ -124,7 +142,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Verify installation
 docker-compose --version
 </code></pre>
-<h2>Basic Docker Compose Structure</h2>
+<h2 id="basic-docker-compose-structure">Basic Docker Compose Structure</h2>
 <p>A <code>docker-compose.yml</code> file defines services, networks, and volumes. Here&#39;s the basic structure:</p>
 <pre><code class="language-yaml">version: &#39;3.8&#39;
 
@@ -138,14 +156,14 @@ services:
     volumes:
       - host-path:container-path
 </code></pre>
-<h2>Practical Example: Web App with Database</h2>
+<h2 id="practical-example-web-app-with-database">Practical Example: Web App with Database</h2>
 <p>Let&#39;s build a complete example with a <strong>Node.js</strong> application and a <strong>PostgreSQL</strong> database.</p>
 <p><img src="/images/blog-images/sample-docker-compose-guide/architecture-diagram.svg" alt="Application Architecture"></p>
-<h3>Step 1: Create the Project Structure</h3>
+<h3 id="step-1-create-the-project-structure">Step 1: Create the Project Structure</h3>
 <pre><code class="language-bash">mkdir my-docker-app
 cd my-docker-app
 </code></pre>
-<h3>Step 2: Create docker-compose.yml</h3>
+<h3 id="step-2-create-docker-compose-yml">Step 2: Create docker-compose.yml</h3>
 <pre><code class="language-yaml">version: &#39;3.8&#39;
 
 services:
@@ -205,7 +223,7 @@ networks:
   app-network:
     driver: bridge
 </code></pre>
-<h3>Step 3: Understanding the Configuration</h3>
+<h3 id="step-3-understanding-the-configuration">Step 3: Understanding the Configuration</h3>
 <p>Let&#39;s break down the key components:</p>
 <table>
 <thead>
@@ -241,7 +259,7 @@ networks:
 <td>webapp depends on database</td>
 </tr>
 </tbody></table>
-<h2>Essential Docker Compose Commands</h2>
+<h2 id="essential-docker-compose-commands">Essential Docker Compose Commands</h2>
 <p>Here are the most common commands you&#39;ll use:</p>
 <pre><code class="language-bash"># Start all services in detached mode
 docker-compose up -d
@@ -274,8 +292,8 @@ docker-compose build
 docker-compose restart webapp
 </code></pre>
 <p><img src="/images/blog-images/sample-docker-compose-guide/commands-cheatsheet.svg" alt="Docker Compose Commands"></p>
-<h2>Advanced Features</h2>
-<h3>Environment Variables</h3>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="environment-variables">Environment Variables</h3>
 <p>You can use a <code>.env</code> file to manage environment variables:</p>
 <pre><code class="language-bash"># .env file
 POSTGRES_VERSION=15
@@ -289,12 +307,12 @@ APP_PORT=3000
     ports:
       - &quot;${APP_PORT}:3000&quot;
 </code></pre>
-<h3>Scaling Services</h3>
+<h3 id="scaling-services">Scaling Services</h3>
 <p>You can scale services to run multiple instances:</p>
 <pre><code class="language-bash"># Run 3 instances of the webapp
 docker-compose up -d --scale webapp=3
 </code></pre>
-<h3>Health Checks</h3>
+<h3 id="health-checks">Health Checks</h3>
 <p>Health checks ensure services are ready before dependent services start:</p>
 <pre><code class="language-yaml">healthcheck:
   test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:3000/health&quot;]
@@ -303,7 +321,7 @@ docker-compose up -d --scale webapp=3
   retries: 3
   start_period: 40s
 </code></pre>
-<h2>Best Practices</h2>
+<h2 id="best-practices">Best Practices</h2>
 <ol>
 <li><strong>Use specific image tags</strong> - Don&#39;t use <code>latest</code> in production</li>
 <li><strong>Separate development and production configs</strong> - Use <code>docker-compose.prod.yml</code></li>
@@ -314,8 +332,8 @@ docker-compose up -d --scale webapp=3
 <blockquote>
 <p><strong>Tip:</strong> Always use health checks for databases and critical services to ensure proper startup order.</p>
 </blockquote>
-<h2>Common Issues and Solutions</h2>
-<h3>Issue 1: Port Already in Use</h3>
+<h2 id="common-issues-and-solutions">Common Issues and Solutions</h2>
+<h3 id="issue-1-port-already-in-use">Issue 1: Port Already in Use</h3>
 <p><strong>Problem:</strong> <code>Error: bind: address already in use</code></p>
 <p><strong>Solution:</strong></p>
 <pre><code class="language-bash"># Find what&#39;s using the port
@@ -325,14 +343,14 @@ sudo lsof -i :3000
 ports:
   - &quot;3001:3000&quot;
 </code></pre>
-<h3>Issue 2: Volume Permission Errors</h3>
+<h3 id="issue-2-volume-permission-errors">Issue 2: Volume Permission Errors</h3>
 <p><strong>Problem:</strong> Permission denied when writing to volumes</p>
 <p><strong>Solution:</strong></p>
 <pre><code class="language-yaml">services:
   webapp:
     user: &quot;${UID}:${GID}&quot;  # Use host user ID
 </code></pre>
-<h3>Issue 3: Containers Can&#39;t Communicate</h3>
+<h3 id="issue-3-containers-can-39-t-communicate">Issue 3: Containers Can&#39;t Communicate</h3>
 <p><strong>Problem:</strong> Containers can&#39;t reach each other</p>
 <p><strong>Solution:</strong> Ensure they&#39;re on the same network and use service names (not localhost):</p>
 <pre><code class="language-yaml"># Use this
@@ -341,7 +359,7 @@ DATABASE_URL: postgres://database:5432
 # Not this
 DATABASE_URL: postgres://localhost:5432
 </code></pre>
-<h2>Real-World Use Cases</h2>
+<h2 id="real-world-use-cases">Real-World Use Cases</h2>
 <p>Docker Compose is perfect for:</p>
 <ul>
 <li><strong>Development environments</strong> - Replicate production locally</li>
@@ -349,15 +367,15 @@ DATABASE_URL: postgres://localhost:5432
 <li><strong>Microservices architecture</strong> - Manage multiple services</li>
 <li><strong>Integration testing</strong> - Spin up dependencies quickly</li>
 </ul>
-<h2>Monitoring and Debugging</h2>
-<h3>View Resource Usage</h3>
+<h2 id="monitoring-and-debugging">Monitoring and Debugging</h2>
+<h3 id="view-resource-usage">View Resource Usage</h3>
 <pre><code class="language-bash"># Check container stats
 docker stats
 
 # Or using compose
 docker-compose top
 </code></pre>
-<h3>Execute Commands in Running Containers</h3>
+<h3 id="execute-commands-in-running-containers">Execute Commands in Running Containers</h3>
 <pre><code class="language-bash"># Access database shell
 docker-compose exec database psql -U myuser -d myappdb
 
@@ -367,7 +385,7 @@ docker-compose exec webapp sh
 # Run a one-off command
 docker-compose run webapp npm test
 </code></pre>
-<h2>Summary</h2>
+<h2 id="summary">Summary</h2>
 <p>In this guide, we covered:</p>
 <ul>
 <li>Installing and setting up Docker Compose</li>
@@ -377,12 +395,12 @@ docker-compose run webapp npm test
 <li>Best practices and common troubleshooting</li>
 </ul>
 <p><strong>Docker Compose</strong> simplifies container orchestration and makes it easy to define complex applications as code.</p>
-<h2>Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>Docker Compose is an essential tool in the modern DevOps toolkit. By defining your infrastructure as code, you gain reproducibility, version control, and simplified deployment workflows.</p>
 <p>Start small with a single service, then gradually add more components as you become comfortable with the tool. The declarative nature of Docker Compose makes it easy to understand and maintain your application architecture.</p>
 <p>Happy containerizing! 🐋</p>
 <hr>
-<h2>References</h2>
+<h2 id="references">References</h2>
 <ul>
 <li><a href="https://docs.docker.com/compose/">Official Docker Compose Documentation</a></li>
 <li><a href="https://github.com/docker/compose">Docker Compose GitHub Repository</a></li>
@@ -413,6 +431,17 @@ docker-compose run webapp npm test
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/telegram-auto-post-pipeline.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.</span>
+    </a>
+    <a href="../blogs/skenai-devsecops-walkthrough.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Sken.ai DevSecOps walkthrough</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

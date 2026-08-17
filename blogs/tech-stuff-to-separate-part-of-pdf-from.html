@@ -8,6 +8,8 @@
   <title>TECHNICAL STUFF | Roshan Nagekar</title>
   <meta name="description" content="Some rights reserved by Arthur Caranta 1. to separate a part of pdf from the original pdf use the following command, u may need to install pdftk...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/wish-to-have-mentor.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/rhce-preparation.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="TECHNICAL STUFF">
   <meta property="og:description" content="Some rights reserved by Arthur Caranta 1. to separate a part of pdf from the original pdf use the following command, u may need to install pdftk...">
@@ -16,11 +18,19 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2013-01-02">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Linux">
+  <meta property="article:tag" content="Linux">
+  <meta property="article:tag" content="Operations">
+  <meta property="article:tag" content="Troubleshooting">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="TECHNICAL STUFF">
   <meta name="twitter:description" content="Some rights reserved by Arthur Caranta 1. to separate a part of pdf from the original pdf use the following command, u may need to install pdftk...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="5 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Linux">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"TECHNICAL STUFF","description":"Some rights reserved by Arthur Caranta 1. to separate a part of pdf from the original pdf use the following command, u may need to install pdftk...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-01-02","url":"https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html","keywords":"Linux, Operations, Troubleshooting","wordCount":803,"timeRequired":"PT5M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"TECHNICAL STUFF","description":"Some rights reserved by Arthur Caranta 1. to separate a part of pdf from the original pdf use the following command, u may need to install pdftk...","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-01-02","url":"https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html","keywords":"Linux, Operations, Troubleshooting","wordCount":803,"timeRequired":"PT5M","articleBody":"Some rights reserved by Arthur Caranta TECH STUFF to separate a part of pdf from the original pdf use the following command, u may need to install pdftk “pdftk old.pdf cat 1-9 26-end output new.pdf” get all the packages installed in the PC aptitude search &#39;!~M ~i&#39; | awk -F &quot; &quot; &#39;{ print &quot;apt-get -y install &quot; $2 }&#39; &gt; aptshell.sh to load dropbox ~/.dropbox-dist/dropboxd ps command Type the following ps command to display all running process ps aux | less Where, -A: select all processes a: select all processes on a terminal, including those of other users x: select processes without controlling ttys Task: see every process on the system ps -A ps -e Task: See every process except those running as root ps -U root -u root -N Task: See process run by user vivek ps -u vivek Task: top command The top program provides a dynamic real-time view of a running system. Type the top at command prompt top Task: display a tree of processes pstree shows running processes as a tree. The tree is rooted at either pid or init if pid is omitted. If a user name is specified, all process trees rooted at processes owned by that user are shown. $ pstree --max-depth=, which instructs du to list its subdirectories and their sizes to any desired level of depth (i.e., to any level of subdirectories) in a directory tree. For example, the following would cause du to list only the first tier (i.e., layer) of directories in the current directory and their sizes (inclusive of all of their contents, including those of their subdirectories): du --max-depth=1 The total space consumption for the current directory tree will also be reported, and it will, of course, be the same regardless of the depth of the files listed. Setting --max-depth= to zero tells du to not list any of the subdirectories within the selected directory, i.e., to list only report the size of the selected directory itself. The result is the same as using the -s option. wget to download anu file online wget &lt;url&gt; wget &lt;url&gt; -t &#39;n&#39; -t will make n number of trials... useful at the times of broken downloads. HOWTO: ISO creation from terminal Hi, I was looking for this (for a BASH script I wanted to write), and I found out how to do it. Now I want to share it Create ISO-file from folder Code: mkisofs -r -o /isofile.iso /folder where /isofile.iso is the relative or absolute path to the iso-file you want to create and /folder the absolute or relative path to the folder you want to backup. Create ISO-file from file(s) Code: mkisofs -r -o /isofile.iso /mybigfile or if you want to backup multipi files (like you .mp3 collection) Code: mkisofs -r -o /isofile.iso *.mp3 Create ISO-file from a cd/dvd-drive Code: dd if=/dev/cdrom0 of=isofile.iso where /dev/cdrom0 is your cd/dvd-drive and isofile.iso your iso-file you want to create. Note: An absolute path is like &#39;/home/yn/myfile.iso&#39;, a relative path is like &#39;myfile.iso&#39; âž™ Synchronize all your files across Windows, Linux and Mac OS with Dropbox (2GB free storage!). By signing up via this link I&#39;ll get some extra space also, thanks! command for generation of preprocessed code which will have the included files in the code as well as the code that we have written gcc -E test.c &gt; test.pp object code post compilation that we always do. gcc test.c test2.c -o test.o the assembly dump of the code generated. objdump -d test.o test.c -&gt; #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; double add(int,int); int main() { printf(&quot;%f\\n&quot;, add(1,2)); return 0; } test2.c -&gt; #include &lt;stdio.h&gt; double add(int a, int b) { printf(&quot;%f\\n&quot;, (double)(a + b)); return a + b; } How to get all log history for the so called branches in subversion (they are nothing more than directories) mkdir ORACLEPOC; cd ORACLEPOC; svn2git svn://[110.0.0.10/idbl//UI/ORACLEPOC](http://110.0.0.10/idbl//UI/ORACLEPOC) --rootistrunk --verbose; cd .. Count total number of commits in all UI branches: grepping on &quot;Date:&quot; total=0;for i in *; do cd $i; echo In $i; total=`expr $total + $(git log | grep &quot;Date:&quot; | wc -l)`; cd ..; done; echo $total 15. Merge two branches (that are in different repositories) into one. git remote add MSSQL_2.3 /home/git/MSSQL_2.3 git pull MSSQL_2.3 master:b git merge b git branch -d Linux / Unix Command: chage Command Library NAME chage - change user password expiry information SYNOPSIS chage : [-m mindays ] [-M maxdays ] [-d lastday ] [-I inactive ] [-E expiredate ] [-W warndays ] user","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"TECHNICAL STUFF","item":"https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html"}]}</script>
 </head>
 <body>
@@ -89,10 +99,17 @@
             5 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#tech-stuff" style="color:var(--primary-color); text-decoration:none;">TECH STUFF</a></li><li style="margin-bottom:0.35rem;"><a href="#type-the-following-ps-command-to-display-all-running-process" style="color:var(--primary-color); text-decoration:none;">Type the following ps command to display all running process</a></li><li style="margin-bottom:0.35rem;"><a href="#the-top-program-provides-a-dynamic-real-time-view-of-a-running-system-type-the-top-at-command-prompt" style="color:var(--primary-color); text-decoration:none;">The top program provides a dynamic real-time view of a running system. Type the top at command prompt</a></li><li style="margin-bottom:0.35rem;"><a href="#pstree" style="color:var(--primary-color); text-decoration:none;">$ pstree</a></li><li style="margin-bottom:0.35rem;"><a href="#or-if-you-want-to-backup-multipi-files-like-you-mp3-collection" style="color:var(--primary-color); text-decoration:none;">or if you want to backup multipi files (like you .mp3 collection)</a></li><li style="margin-bottom:0.35rem;"><a href="#name" style="color:var(--primary-color); text-decoration:none;">NAME</a></li><li style="margin-bottom:0.35rem;"><a href="#synopsis" style="color:var(--primary-color); text-decoration:none;">SYNOPSIS</a></li><li style="margin-bottom:0.35rem;"><a href="#chage" style="color:var(--primary-color); text-decoration:none;">chage</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZv1LxK9nXT1ncbbWzmSnHJDC24-009e9h2qfBk0mmRjGxVVWN1FfeOoS__ZoVM7KdkYZhZ3XfqcAT6WzDMqe9h4UahF81YOZXQaIi9f6e7hHac8gqvr_6lpsEclhyfuXPgLtQzbocqSU/s1600/4048968087_4412c5f7cf_m.jpg" alt=""></p>
 <p><strong><strong>Some rights reserved by <a href="https://www.flickr.com/photos/arthur-caranta/">Arthur Caranta</a></strong></strong></p>
-<h2>TECH STUFF</h2>
+<h2 id="tech-stuff">TECH STUFF</h2>
 <ol>
 <li><strong>to separate a part of pdf from the original pdf use the following command, u may need to install pdftk “pdftk old.pdf cat 1-9 26-end output new.pdf”</strong></li>
 <li>get all the packages installed in the PC</li>
@@ -105,7 +122,7 @@
 <li><p>ps command</p>
 </li>
 </ul>
-<h2>Type the following ps command to display all running process</h2>
+<h2 id="type-the-following-ps-command-to-display-all-running-process">Type the following ps command to display all running process</h2>
 <h1>ps aux | less</h1>
 <p>Where,</p>
 <p>  -A: select all processes</p>
@@ -122,7 +139,7 @@ Task: see every process on the system
 <ul>
 <li>Task: top command</li>
 </ul>
-<h2>The top program provides a dynamic real-time view of a running system. Type the top at command prompt</h2>
+<h2 id="the-top-program-provides-a-dynamic-real-time-view-of-a-running-system-type-the-top-at-command-prompt">The top program provides a dynamic real-time view of a running system. Type the top at command prompt</h2>
 <h1>top</h1>
 <ul>
 <li><p>Task: display a tree of processes</p>
@@ -130,7 +147,7 @@ Task: see every process on the system
 <li><p>pstree shows running processes as a tree. The tree is rooted at either pid or init if pid is omitted. If a user name is specified, all process trees rooted at processes owned by that user are shown.</p>
 </li>
 </ul>
-<h2>$ pstree</h2>
+<h2 id="pstree">$ pstree</h2>
 <ul>
 <li>--max-depth=, which instructs du to list its subdirectories and their sizes to any desired level of depth (i.e., to any level of subdirectories) in a directory tree. For example, the following would cause du to list only the first tier (i.e., layer) of directories in the current directory and their sizes (inclusive of all of their contents, including those of their subdirectories):
 du --max-depth=1</li>
@@ -162,7 +179,7 @@ I was looking for this (for a BASH script I wanted to write), and I found out ho
 <p>Code:</p>
 <p>mkisofs -r -o /isofile.iso /mybigfile</p>
 <hr>
-<h2>or if you want to backup multipi files (like you .mp3 collection)</h2>
+<h2 id="or-if-you-want-to-backup-multipi-files-like-you-mp3-collection">or if you want to backup multipi files (like you .mp3 collection)</h2>
 <p>Code:</p>
 <p>mkisofs -r -o /isofile.iso *.mp3</p>
 <ol start="3">
@@ -248,11 +265,11 @@ git branch -d
 </tr>
 </tbody></table>
 <hr>
-<h2>NAME</h2>
+<h2 id="name">NAME</h2>
 <p>chage - change user password expiry information </p>
 <hr>
-<h2>SYNOPSIS</h2>
-<h2>chage</h2>
+<h2 id="synopsis">SYNOPSIS</h2>
+<h2 id="chage">chage</h2>
 <p>:   [-m<em>mindays</em>] [-M<em>maxdays</em>] [-d<em>lastday</em>] [-I<em>inactive</em>] 
     [-E<em>expiredate</em>] [-W<em>warndays</em>] <em>user</em></p>
 
@@ -279,6 +296,17 @@ git branch -d
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/wish-to-have-mentor.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">How to get a Free Teacher, Mentor, Helper Online?</span>
+    </a>
+    <a href="../blogs/rhce-preparation.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">RHCE Preparation, How to Prepare for Red Hat Certification.</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

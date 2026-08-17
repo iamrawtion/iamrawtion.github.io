@@ -8,6 +8,8 @@
   <title>SkenAI's role in DevSecOps CI/CD pipeline | Roshan Nagekar</title>
   <meta name="description" content="The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/skenais-role-in-devsecops-cicd-pipeline.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/devsecops-pune-meetup-4.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="SkenAI's role in DevSecOps CI/CD pipeline">
   <meta property="og:description" content="The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different...">
@@ -16,11 +18,21 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2021-01-22">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="DevSecOps">
+  <meta property="article:tag" content="DevOps">
+  <meta property="article:tag" content="Security">
+  <meta property="article:tag" content="Automation">
+  <meta property="article:tag" content="Deployment">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="SkenAI's role in DevSecOps CI/CD pipeline">
   <meta name="twitter:description" content="The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="4 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +42,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"SkenAI's role in DevSecOps CI/CD pipeline","description":"The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","url":"https://iamrawtion.github.io/blogs/skenais-role-in-devsecops-cicd-pipeline.html","keywords":"DevSecOps, DevOps, Security, Automation, Deployment","wordCount":755,"timeRequired":"PT4M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"SkenAI's role in DevSecOps CI/CD pipeline","description":"The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","url":"https://iamrawtion.github.io/blogs/skenais-role-in-devsecops-cicd-pipeline.html","keywords":"DevSecOps, DevOps, Security, Automation, Deployment","wordCount":755,"timeRequired":"PT4M","articleBody":"The term DevOps has pretty much revolutionized the entire IT industry. We have heard of different versions/definitions and nomenclature for different methods of adoption of the culture by different organizations. Some well known are NoOps, GitOps, ChatOps, TechOps, SecOps and there are surely many others out there. However, the introduction of all these “Ops” summarize a common pattern and understanding of speeding up the traditional Software Development Life Cycle using automation via tools, technologies and processes that would allow developers to focus only on code. As per organizational need whichever part of their process seems to be operating slow and introducing unnecessary delay, they would want to “Opsify” it. Over the last few years we have seen a lot of new tools being introduced in the DevOps world intended to bring in more efficiency and speed in the Software Development process. We have seen equal movement in the risk, threat and security field as well. New tools are subject to new languages, versions, APIs and SDKs. With every such new innovation, we also invite a possibility of new threats and vulnerabilities. So we typically hear about new vulnerabilities in different libraries of different source code. We then get into the phase of version upgrade, patching, etc to make sure that our environment is clean and safe. This process however traditionally has been extremely slow. Many times security threats and vulnerabilities are identified in production and take a long time to get fixed. This is when you need to introduce DevSecOps in the flow. Eliminating the possibility of having vulnerabilities introduced at code level itself can help in the long run and save a lot of man hours. This is where **DevSecOps ideally must get introduced. And, a typical **DevSecOps pipeline would look like this: Identifying of vulnerable libraries being used. Secrets stored Static code analysis SAST DAST SCA Image verification OS vulnerabilities System software packages Most of this is curbed prettty much in the pipeline with some well known tools in the market that parse your source code and identify different threats. Based on the language you need to do some research and get the best code scanners available to scan your code and resolve the issues identified. There are many opensource scanners available out there that help you do all the scanning and threat/vulnerability identification. Once you are sure which tool you need to use, you simply integrate it with you CI system by installing it there and setting up appropriate binary paths to be used while executing the build. This effort saves considerable time in the long run and helps you focus more on product and less in security. However, setting up the security scanners could be time consuming or may need additional knowledge of that language. Also, since new vulnerabilities keep coming in, these scanners also keep getting upgraded all the time. It is important to stay updated with them and also update your CI system components periodically. This is where Sken.ai solution comes into picture. Sken offloads the responsibility of setting up a DevSecOps pipeline to a large extent. You don&#39;t need to be remembering different ways to setup code scanners You also need not worry to update them periodically. Moreover, you do not even need to know what programming language is being used in the source code. Sken is intelligent enough to parse the code and automatically select the best scanner based on the languages found in the source code. Docker is the only requirement. Once you insert Sken&#39;s credentials, it will automatically pull the best scanners most updated docker image and scan your code completely, provide result quick and you are good to go. The scanners will automatically look for SAST, DAST, SCA, secret leaks etc and provide you all of the data in the results to be fixed. You don’t have to be a security expert, its Saas. It does it all for you. Easy integration with most of the CI tools; Jenkins , Bamboo, TravisCI, Github , CircleCI Free 300 test per month on private projects Opensource scanners integrated, no costing or licensing issues of proprietary application scanners Bonus: AI driven, scan results in prioritized scan types, less false positives and reduced noise. Consolidated visuals for all apps and scans, you can prioritize vulnerabilities based on risk rating. Here is a GIF that can help you have an overview of how to quickly integrate and get started.","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"SkenAI's role in DevSecOps CI/CD pipeline","item":"https://iamrawtion.github.io/blogs/skenais-role-in-devsecops-cicd-pipeline.html"}]}</script>
 </head>
 <body>
@@ -89,6 +101,7 @@
             4 min read
           </p>
         </header>
+        
         <div class="blog-post-content markdown-body">
           <p>The term DevOps has pretty much revolutionized the entire IT industry.
 We have heard of different versions/definitions and nomenclature for different methods of adoption of the culture by different organizations.</p>
@@ -162,6 +175,17 @@ Many times security threats and vulnerabilities are identified in production and
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/skenai-devsecops-walkthrough.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Sken.ai DevSecOps walkthrough</span>
+    </a>
+    <a href="../blogs/devsecops-pune-meetup-4.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">DevSecOps Pune Meetup 4</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

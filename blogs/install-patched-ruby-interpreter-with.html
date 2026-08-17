@@ -8,6 +8,8 @@
   <title>Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247 | Roshan Nagekar</title>
   <meta name="description" content="Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/rootconf-2014.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/integrating-docker-with-chef.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247">
   <meta property="og:description" content="Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...">
@@ -16,11 +18,19 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-06-04">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Linux">
+  <meta property="article:tag" content="Ruby">
+  <meta property="article:tag" content="RubyOnRails">
+  <meta property="article:tag" content="Troubleshooting">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247">
   <meta name="twitter:description" content="Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="4 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Linux">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","description":"Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-06-04","url":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html","keywords":"Ruby, RubyOnRails, Troubleshooting","wordCount":795,"timeRequired":"PT4M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","description":"Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-06-04","url":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html","keywords":"Ruby, RubyOnRails, Troubleshooting","wordCount":795,"timeRequired":"PT4M","articleBody":"Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later. #!/bin/sh rm ~/.rbenv/cache/* -rf mkdir /tmp/build wget https://raw.github.com/sstephenson/ruby-build/master/share/ruby-build/2.0.0-p247 cp 2.0.0-p247 /tmp/build/ # download and patch the ruby sources wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz tar xvzf ruby-2.0.0-p247.tar.gz cd ruby-2.0.0-p247 curl https://gist.githubusercontent.com/spkane/8059362/raw/01585dcf6b33254124566f4521a3946e6f26e0a9/ruby-2.0.0-p247-openssl-el65.patch | patch -p1 cd .. tar -cvzf ruby-2.0.0-p247-openssl.tar.gz ruby-2.0.0-p247 # download and patch the ruby-build version definition sed &#39;s|&quot;2.0.0-p247.*|&quot;2.0.0-p247-openssl.tar.gz&quot; &quot;file:///tmp/ruby-build/2.0.0-p247&quot;|&#39; &lt; 2.0.0-p247 &gt; 2.0.0-p247 #install the patched version rbenv install /tmp/build/2.0.0-p247 rbenv rehash Why This Patch Was Needed Ruby 2.0.0-p247 was compiled against OpenSSL 1.0.0, but CentOS 6.5 shipped with OpenSSL 0.9.8e-fips — a significant version gap. The mismatch wasn&#39;t caught at install time; it blew up at runtime when any code called require &#39;openssl&#39; . The interpreter couldn&#39;t load the OpenSSL extension because the shared library it was built against didn&#39;t match what was on the system. The patch itself updates the Ruby build&#39;s OpenSSL detection logic so that when ruby-build compiles Ruby from source, it correctly locates and links against the system&#39;s OpenSSL version. Without the patch, you&#39;d get a clean build followed by a broken runtime — one of those frustrating failures where everything looks fine until it isn&#39;t. rbenv was the version manager of choice here. It intercepts Ruby-related commands via shims — thin wrapper scripts that live in ~/.rbenv/shims/ — and delegate to whatever Ruby version is active for the current project or shell. No root access required, no system Ruby conflicts. Understanding rbenv and ruby-build rbenv itself is intentionally minimal. It doesn&#39;t compile Ruby — it just manages which version is active. The compilation work is handled by ruby-build, a plugin that rbenv uses under the hood when you run rbenv install . When you run rbenv install 2.0.0-p247 , ruby-build reads a version definition file (the one we downloaded and patched in the script above), downloads the Ruby source tarball specified in that file, applies any patches, and compiles it into ~/.rbenv/versions/2.0.0-p247/ . The patched tarball path in the definition file is exactly what we modified with that sed command. For day-to-day use, the key commands are: rbenv global 2.0.0-p247 — sets the default Ruby for the entire user account rbenv local 2.0.0-p247 — writes a .ruby-version file in the current directory, which rbenv reads automatically when you enter that directory rbenv versions — lists every installed Ruby version, marking the active one with an asterisk The .ruby-version file pattern is the important one for DevOps work. Check it into the repo alongside the application code and every developer on the team, plus your CI system, picks up the right Ruby version automatically — as long as they&#39;re using rbenv. No more &quot;works on my machine&quot; Ruby version mismatches. See the ruby-build docs for the full list of installable versions and build options. Verifying the Installation After running the script, confirm that everything worked before wiring the Ruby version into any application: rbenv versions ruby --version ruby -e &quot;require &#39;openssl&#39;; puts OpenSSL::OPENSSL_VERSION&quot; rbenv versions shows all installed versions and which one is currently active. ruby --version confirms the shim is pointing to the right place. The third command is the critical one — it attempts to load the OpenSSL extension at runtime and prints the version string if it succeeds. If require &#39;openssl&#39; raises a LoadError , the patch didn&#39;t take. The most common cause is a path mismatch: the sed command in the script rewrites the tarball URL in the ruby-build definition file, and if the filename in that sed substitution doesn&#39;t exactly match the patched tarball you created, ruby-build will try to download the original unpatched tarball from the internet. Double-check that file:///tmp/ruby-build/2.0.0-p247 points to where you actually put the patched tarball. Modern Alternative: Use a Supported Ruby Version Ruby 2.0.0 hit end-of-life in February 2016. If you&#39;re reading this post to understand how to set up Ruby today, skip the patching entirely and just install a current version: rbenv install 3.3.0 rbenv global 3.3.0 No patching required. Modern Ruby versions are built with OpenSSL 3.x compatibility and the ruby-build definition files are kept up to date. The Ruby downloads page tracks the current stable release. The workflow in this post — ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","item":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html"}]}</script>
 </head>
 <body>
@@ -89,6 +99,13 @@
             4 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#why-this-patch-was-needed" style="color:var(--primary-color); text-decoration:none;">Why This Patch Was Needed</a></li><li style="margin-bottom:0.35rem;"><a href="#understanding-rbenv-and-ruby-build" style="color:var(--primary-color); text-decoration:none;">Understanding rbenv and ruby-build</a></li><li style="margin-bottom:0.35rem;"><a href="#verifying-the-installation" style="color:var(--primary-color); text-decoration:none;">Verifying the Installation</a></li><li style="margin-bottom:0.35rem;"><a href="#modern-alternative-use-a-supported-ruby-version" style="color:var(--primary-color); text-decoration:none;">Modern Alternative: Use a Supported Ruby Version</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png" alt=""></p>
 <p>Installation of <strong>Ruby</strong> 2.0.0-p247 recently had some issues with Openssl package for <strong>Centos</strong> 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later.</p>
@@ -114,11 +131,11 @@ sed &#39;s|&quot;2.0.0-p247.*|&quot;2.0.0-p247-openssl.tar.gz&quot; &quot;file:/
 rbenv install /tmp/build/2.0.0-p247
 rbenv rehash
 </code></pre>
-<h2>Why This Patch Was Needed</h2>
+<h2 id="why-this-patch-was-needed">Why This Patch Was Needed</h2>
 <p>Ruby 2.0.0-p247 was compiled against OpenSSL 1.0.0, but CentOS 6.5 shipped with OpenSSL 0.9.8e-fips — a significant version gap. The mismatch wasn&#39;t caught at install time; it blew up at runtime when any code called <code>require &#39;openssl&#39;</code>. The interpreter couldn&#39;t load the OpenSSL extension because the shared library it was built against didn&#39;t match what was on the system.</p>
 <p>The patch itself updates the Ruby build&#39;s OpenSSL detection logic so that when ruby-build compiles Ruby from source, it correctly locates and links against the system&#39;s OpenSSL version. Without the patch, you&#39;d get a clean build followed by a broken runtime — one of those frustrating failures where everything looks fine until it isn&#39;t.</p>
 <p><a href="https://github.com/rbenv/rbenv">rbenv</a> was the version manager of choice here. It intercepts Ruby-related commands via shims — thin wrapper scripts that live in <code>~/.rbenv/shims/</code> — and delegate to whatever Ruby version is active for the current project or shell. No root access required, no system Ruby conflicts.</p>
-<h2>Understanding rbenv and ruby-build</h2>
+<h2 id="understanding-rbenv-and-ruby-build">Understanding rbenv and ruby-build</h2>
 <p>rbenv itself is intentionally minimal. It doesn&#39;t compile Ruby — it just manages which version is active. The compilation work is handled by ruby-build, a plugin that rbenv uses under the hood when you run <code>rbenv install</code>.</p>
 <p>When you run <code>rbenv install 2.0.0-p247</code>, ruby-build reads a version definition file (the one we downloaded and patched in the script above), downloads the Ruby source tarball specified in that file, applies any patches, and compiles it into <code>~/.rbenv/versions/2.0.0-p247/</code>. The patched tarball path in the definition file is exactly what we modified with that <code>sed</code> command.</p>
 <p>For day-to-day use, the key commands are:</p>
@@ -128,7 +145,7 @@ rbenv rehash
 <li><code>rbenv versions</code> — lists every installed Ruby version, marking the active one with an asterisk</li>
 </ul>
 <p>The <code>.ruby-version</code> file pattern is the important one for DevOps work. Check it into the repo alongside the application code and every developer on the team, plus your CI system, picks up the right Ruby version automatically — as long as they&#39;re using rbenv. No more &quot;works on my machine&quot; Ruby version mismatches. See the <a href="https://github.com/rbenv/ruby-build">ruby-build docs</a> for the full list of installable versions and build options.</p>
-<h2>Verifying the Installation</h2>
+<h2 id="verifying-the-installation">Verifying the Installation</h2>
 <p>After running the script, confirm that everything worked before wiring the Ruby version into any application:</p>
 <pre><code class="language-bash">rbenv versions
 ruby --version
@@ -136,7 +153,7 @@ ruby -e &quot;require &#39;openssl&#39;; puts OpenSSL::OPENSSL_VERSION&quot;
 </code></pre>
 <p><code>rbenv versions</code> shows all installed versions and which one is currently active. <code>ruby --version</code> confirms the shim is pointing to the right place. The third command is the critical one — it attempts to load the OpenSSL extension at runtime and prints the version string if it succeeds.</p>
 <p>If <code>require &#39;openssl&#39;</code> raises a <code>LoadError</code>, the patch didn&#39;t take. The most common cause is a path mismatch: the <code>sed</code> command in the script rewrites the tarball URL in the ruby-build definition file, and if the filename in that sed substitution doesn&#39;t exactly match the patched tarball you created, ruby-build will try to download the original unpatched tarball from the internet. Double-check that <code>file:///tmp/ruby-build/2.0.0-p247</code> points to where you actually put the patched tarball.</p>
-<h2>Modern Alternative: Use a Supported Ruby Version</h2>
+<h2 id="modern-alternative-use-a-supported-ruby-version">Modern Alternative: Use a Supported Ruby Version</h2>
 <p>Ruby 2.0.0 hit end-of-life in February 2016. If you&#39;re reading this post to understand how to set up Ruby today, skip the patching entirely and just install a current version:</p>
 <pre><code class="language-bash">rbenv install 3.3.0
 rbenv global 3.3.0
@@ -167,6 +184,17 @@ rbenv global 3.3.0
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/rootconf-2014.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">RootConf 2014</span>
+    </a>
+    <a href="../blogs/integrating-docker-with-chef.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Integrating Docker with Chef</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

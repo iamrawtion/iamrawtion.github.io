@@ -8,6 +8,8 @@
   <title>Configuration Management with Ansible | Roshan Nagekar</title>
   <meta name="description" content="What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/mdwiki-100-serverless-website-andor.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/install-cobbler-2610-on-ubuntu-1404.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Configuration Management with Ansible">
   <meta property="og:description" content="What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...">
@@ -16,11 +18,21 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2016-04-26">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="AWS">
+  <meta property="article:tag" content="Configuration Management">
+  <meta property="article:tag" content="Devops">
+  <meta property="article:tag" content="Provisioning">
+  <meta property="article:tag" content="Virtualization">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Configuration Management with Ansible">
   <meta name="twitter:description" content="What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="4 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +42,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Configuration Management with Ansible","description":"What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2016-04-26","url":"https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html","keywords":"AWS, Configuration Management, Devops, Provisioning, Virtualization","wordCount":740,"timeRequired":"PT4M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Configuration Management with Ansible","description":"What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2016-04-26","url":"https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html","keywords":"AWS, Configuration Management, Devops, Provisioning, Virtualization","wordCount":740,"timeRequired":"PT4M","articleBody":"What is Ansible ? Opensource IT Automation tool that handles: Application Deployment Muti-tier Orchestration Configuration Management Why Ansible ? Agentless architechture Operates over SSH Configuration as data and not as code Python Self Documented/Explanatory Feature rich - more than 150 modules - new modules are easy to write Full configuration management and deployment Installing ansible Python package index - pip install ansible OS Package install - sudo apt-get install ansible Git repo and run setup.py - git clone https://github.com/ansible/ansible.git Ansible Modes Playbook mode - Execution of a series of commands in order as per written in a playbook Non Playbook mode - Executing an ansible module command on target host Getting Started: Clone the parallax repo the repo contains a ansible.cfg file which contains following: [defaults] # more at http://docs.ansible.com/intro_configuration.html#the-ansible-configuration-file # host_key_checking=False remote_user=user This file contains global config setting to adjust ansible Playbooks They represent collection of &#39;plays&#39;, configuration policies, which gets applied to defined groups of hosts A sample playbook is as follows - name: Install all the packages and stuff required for an EXAMPLE SERVICE hosts: example_servers user: user sudo: yes roles: - common - mongodb - zeromq - service_example - nodejs # - nginx # - python # - postgresql # - redis # - memcached # - deployment Anatomy of a Playbook A sample playbook structure is as follows . ├── example_servers.yml ├── group_vars │ ├── all │ └── example_servers ├── host_vars │ └── example-repository ├── hosts ├── repository_server.yml ├── roles │ ├── __template__ │ ├── common │ ├── gridfs │ ├── memcached │ ├── mongodb │ ├── nginx │ ├── nodejs │ ├── redis │ ├── repository │ ├── service_example │ └── zeromq └── site.yml If we look at the tree we see a few **YAML files and a few directories. There is also a filed called as &#39;hosts&#39;. The hosts file is the the **Ansible inventory file, it stores the hosts and their mappings to the hostgroups. The hosts file looks like this. Simple Playbook --- //The three dashes on the top tells you that this is a YAML (Yet another markup language) file. **Ansible playbooks are written in **yaml. - name: install and start apache //&quot;name&quot; keyword defines the name of the play. hosts: webservers //&quot;hosts&quot; keyword tells which hosts will the play target. user: root //&quot;user&quot; keyword tells what system user will ansible use to execute the task below tasks: //&quot;tasks&quot; under tasks you can define what module you use and you configuration - name: install httpd yum: name=httpd state=present //&quot;yum&quot; module is being used to install httpd - name: start httpd service: name=httpd state=running //&quot;service&quot; module is being used to start the httpd service Ansible Architechture It runs as a server on your laptop. It has a inventorial host and has set of modules, there are series of playbooks that define the automation tasks. It pushes the outstanding modules modules out to the managed servers using SSH , the module runs and the resukt is returned and then the module is removed from the system. No agents are necessary for this process. This is only **SSH and **python are the requirements. How does a playbook work? When you execute a palybook, the 1st thing that happens is we gather facts. Ansible will first gather lot of useful facts from that remote system. THese can be used later on in playbooks templates and config files as variables. The tasks provided in the playbook will then be performed say &#39;install apache &#39;. SO we will see that we get a changed response. Which means something has been changed on the systems. If you run the same playbook again you will not get the changed response for the 2nd time, as the changes were already done in the 1st run. This is because that the expected state that we told Ansible to perform was already there and hence it did not do it for the 2nd time. This is the idempotency of Ansible. Host Inventory: Basics Host inventory can come from several different places, it is usually a list of hosts that you organize in a group. It can come from a file or a directory of files or from a cloud provisioning environment like EC2, Rackspace etc. contd...","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Configuration Management with Ansible","item":"https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html"}]}</script>
 </head>
 <body>
@@ -89,6 +101,13 @@
             4 min read
           </p>
         </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#installing-ansible" style="color:var(--primary-color); text-decoration:none;">Installing ansible</a></li><li style="margin-bottom:0.35rem;"><a href="#ansible-modes" style="color:var(--primary-color); text-decoration:none;">Ansible Modes</a></li><li style="margin-bottom:0.35rem;"><a href="#playbooks" style="color:var(--primary-color); text-decoration:none;">Playbooks</a></li><li style="margin-bottom:0.35rem;"><a href="#a-sample-playbook-is-as-follows" style="color:var(--primary-color); text-decoration:none;">A sample playbook is as follows</a></li><li style="margin-bottom:0.35rem;"><a href="#anatomy-of-a-playbook" style="color:var(--primary-color); text-decoration:none;">Anatomy of a Playbook</a></li><li style="margin-bottom:0.35rem;"><a href="#a-sample-playbook-structure-is-as-follows" style="color:var(--primary-color); text-decoration:none;">A sample playbook structure is as follows</a></li><li style="margin-bottom:0.35rem;"><a href="#simple-playbook" style="color:var(--primary-color); text-decoration:none;">Simple Playbook</a></li><li style="margin-bottom:0.35rem;"><a href="#ansible-architechture" style="color:var(--primary-color); text-decoration:none;">Ansible Architechture</a></li><li style="margin-bottom:0.35rem;"><a href="#how-does-a-playbook-work" style="color:var(--primary-color); text-decoration:none;">How does a playbook work?</a></li><li style="margin-bottom:0.35rem;"><a href="#host-inventory-basics" style="color:var(--primary-color); text-decoration:none;">Host Inventory: Basics</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipix8RkKO6og6BTf4yd7Dzw_mBQAY3CZM4EIxWrAB4-1rInIHxPxoQV7GTD80YKzv9_0mXTMxT2MFneaP7nRxNY5RQoReZ20JQeyqD3chCTyzVx5wY9FzmYO4RictroghcSgiQ5d9mRYM/s1600/ansible-logo.png" alt="">
 What is <strong>Ansible</strong>?
@@ -108,12 +127,12 @@ Opensource IT Automation tool that handles:</p>
 <li>Feature rich - more than 150 modules - new modules are easy to write</li>
 <li>Full configuration management and deployment</li>
 </ul>
-<h2>Installing ansible</h2>
+<h2 id="installing-ansible">Installing ansible</h2>
 <p>Python package index - pip install ansible</p>
 <p>OS Package install - sudo apt-get install ansible</p>
 <p>Git repo and run setup.py - git clone <a href="https://github.com/ansible/ansible.git">https://github.com/ansible/ansible.git</a></p>
 <hr>
-<h2>Ansible Modes</h2>
+<h2 id="ansible-modes">Ansible Modes</h2>
 <p>Playbook mode - Execution of a series of commands in order as per written in a playbook
 Non Playbook mode - Executing an ansible module command on target host</p>
 <p>Getting Started:</p>
@@ -131,10 +150,10 @@ remote_user=user
 </code></pre>
 <p>This file contains global config setting to adjust ansible</p>
 <hr>
-<h2>Playbooks</h2>
+<h2 id="playbooks">Playbooks</h2>
 <p>They represent collection of &#39;plays&#39;, configuration policies, which gets applied to defined groups of hosts</p>
 <hr>
-<h2>A sample playbook is as follows</h2>
+<h2 id="a-sample-playbook-is-as-follows">A sample playbook is as follows</h2>
 <pre><code>- name: Install all the packages and stuff required for an EXAMPLE SERVICE
   hosts: example_servers
   user: user
@@ -159,9 +178,9 @@ remote_user=user
 #    - deployment
 </code></pre>
 <hr>
-<h2>Anatomy of a Playbook</h2>
+<h2 id="anatomy-of-a-playbook">Anatomy of a Playbook</h2>
 <hr>
-<h2>A sample playbook structure is as follows</h2>
+<h2 id="a-sample-playbook-structure-is-as-follows">A sample playbook structure is as follows</h2>
 <pre><code>.
 ├── example_servers.yml
 ├── group_vars
@@ -187,7 +206,7 @@ remote_user=user
 </code></pre>
 <p>If we look at the tree we see a few **YAML files and a few directories. There is also a filed called as &#39;hosts&#39;. The hosts file is the the **Ansible inventory file, it stores the hosts and their mappings to the hostgroups. The hosts file looks like this.</p>
 <hr>
-<h2>Simple Playbook</h2>
+<h2 id="simple-playbook">Simple Playbook</h2>
 <p>--- //The three dashes on the top tells you that this is a <strong>YAML</strong>(Yet another markup language) file. **Ansible playbooks are written in **yaml.</p>
 <pre><code class="language-yaml">- name: install and start apache //&quot;name&quot; keyword defines the name of the play.
   hosts: webservers //&quot;hosts&quot; keyword tells which hosts will the play target.
@@ -201,10 +220,10 @@ remote_user=user
   service: name=httpd state=running //&quot;service&quot; module is being used to start the httpd service
 </code></pre>
 <hr>
-<h2>Ansible Architechture</h2>
+<h2 id="ansible-architechture">Ansible Architechture</h2>
 <p>It runs as a server on your laptop. It has a inventorial host and has set of modules, there are series of playbooks that define the automation tasks. It pushes the outstanding modules modules out to the managed servers using <strong>SSH</strong>, the module runs and the resukt is returned and then the module is removed from the system. No agents are necessary for this process. This is only **SSH and **python are the requirements.</p>
 <hr>
-<h2>How does a playbook work?</h2>
+<h2 id="how-does-a-playbook-work">How does a playbook work?</h2>
 <p>When you execute a palybook, the 1st thing that happens is we gather facts.</p>
 <p>Ansible will first gather lot of useful facts from that remote system.</p>
 <p>THese can be used later on in playbooks templates and config files as variables.
@@ -215,7 +234,7 @@ If you run the same playbook again you will not get the changed response for the
 <p>This is because that the expected state that we told Ansible to perform was already there and hence it did not do it for the 2nd time.</p>
 <p>This is the idempotency of Ansible.</p>
 <hr>
-<h2>Host Inventory: Basics</h2>
+<h2 id="host-inventory-basics">Host Inventory: Basics</h2>
 <p>Host inventory can come from several different places, it is usually a list of hosts that you organize in a group. It can come from a file or a directory of files or from a cloud provisioning environment like EC2, Rackspace etc.</p>
 <p>contd...</p>
 
@@ -242,6 +261,17 @@ If you run the same playbook again you will not get the changed response for the
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/mdwiki-100-serverless-website-andor.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">MdWiki : 100% Serverless Website and/or Documentation tool</span>
+    </a>
+    <a href="../blogs/install-cobbler-2610-on-ubuntu-1404.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Install Cobbler 2.6.10 on Ubuntu 14.04</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?

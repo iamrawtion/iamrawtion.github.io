@@ -83,12 +83,39 @@ function sharedNavScript() {
   </script>`;
 }
 
+// Extract H2/H3 headings from rendered HTML for TOC
+function extractHeadings(html) {
+  const headings = [];
+  const re = /<h([23])[^>]*>(.*?)<\/h[23]>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const level = parseInt(m[1]);
+    const text = m[2].replace(/<[^>]+>/g, '').trim();
+    const id = slugify(text);
+    headings.push({ level, text, id });
+  }
+  return headings;
+}
+
+// Add id attributes to H2/H3 tags in rendered HTML
+function addHeadingIds(html) {
+  return html.replace(/<h([23])([^>]*)>(.*?)<\/h[23]>/gi, (_, level, attrs, inner) => {
+    const text = inner.replace(/<[^>]+>/g, '').trim();
+    const id = slugify(text);
+    return `<h${level}${attrs} id="${id}">${inner}</h${level}>`;
+  });
+}
+
 // --- blog post HTML ---
-function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) {
+function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, idx = -1) {
   const BASE = BASE_URL;
   const url = `${BASE}/blogs/${blog.id}.html`;
   const desc = blog.excerpt.replace(/"/g, '&quot;').slice(0, 160);
   const tags = (blog.tags || []).join(', ');
+
+  // Prev/next by date (allBlogs sorted newest-first; prev = newer, next = older)
+  const prevPost = idx > 0 ? allBlogs[idx - 1] : null;
+  const nextPost = idx < allBlogs.length - 1 ? allBlogs[idx + 1] : null;
 
   const related = allBlogs
     .filter(b => b.id !== blog.id && b.category === blog.category)
@@ -107,6 +134,18 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
     </div>
   </section>` : '';
 
+  const prevNextHtml = (prevPost || nextPost) ? `
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    ${prevPost ? `<a href="../blogs/${prevPost.id}.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">${escape(prevPost.title)}</span>
+    </a>` : '<span style="flex:1;"></span>'}
+    ${nextPost ? `<a href="../blogs/${nextPost.id}.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">${escape(nextPost.title)}</span>
+    </a>` : '<span style="flex:1;"></span>'}
+  </nav>` : '';
+
   const catSlug = slugify(blog.category);
   const breadcrumbJsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -119,20 +158,38 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
     ]
   });
 
+  const plainText = bodyHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 5000);
   const postJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "inLanguage": "en",
     "headline": blog.title,
     "description": blog.excerpt,
+    "articleSection": blog.category,
+    "image": { "@type": "ImageObject", "url": `${BASE}/profile.jpg`, "width": 1200, "height": 630 },
     "author": { "@type": "Person", "name": "Roshan Nagekar", "url": BASE },
     "datePublished": blog.date,
     "url": url,
     "keywords": tags,
     "wordCount": wordCount,
     "timeRequired": `PT${readMinutes}M`,
+    "articleBody": plainText,
     "publisher": { "@type": "Person", "name": "Roshan Nagekar" }
   });
+
+  // TOC: only for posts with 3+ headings
+  const headings = extractHeadings(bodyHtml);
+  const bodyHtmlWithIds = addHeadingIds(bodyHtml);
+  const tocHtml = headings.length >= 3 ? `
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        ${headings.map(h => `<li style="margin-bottom:0.35rem;${h.level === 3 ? ' margin-left:1rem;' : ''}"><a href="#${h.id}" style="color:var(--primary-color); text-decoration:none;">${escape(h.text)}</a></li>`).join('')}
+      </ol>
+    </nav>` : '';
+
+  const prevLink = prevPost ? `<link rel="prev" href="${BASE}/blogs/${prevPost.id}.html">` : '';
+  const nextLink = nextPost ? `<link rel="next" href="${BASE}/blogs/${nextPost.id}.html">` : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -144,6 +201,8 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
   <title>${escape(blog.title)} | Roshan Nagekar</title>
   <meta name="description" content="${desc}">
   <link rel="canonical" href="${url}">
+  ${prevLink}
+  ${nextLink}
   <meta property="og:type" content="article">
   <meta property="og:title" content="${escape(blog.title)}">
   <meta property="og:description" content="${desc}">
@@ -152,11 +211,17 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="${blog.date}">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="${escape(blog.category)}">
+  ${(blog.tags || []).map(t => `<meta property="article:tag" content="${escape(t)}">`).join('\n  ')}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="${escape(blog.title)}">
   <meta name="twitter:description" content="${desc}">
   <meta name="twitter:image" content="${BASE}/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="${readMinutes} min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="${escape(blog.category)}">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="${BASE}/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="${BASE}/opensearch.xml">
@@ -200,10 +265,12 @@ ${sharedNav('../')}
             ${readMinutes} min read
           </p>
         </header>
+        ${tocHtml}
         <div class="blog-post-content markdown-body">
-          ${bodyHtml}
+          ${bodyHtmlWithIds}
         </div>
         ${relatedHtml}
+        ${prevNextHtml}
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?
@@ -491,7 +558,8 @@ console.log(`✅ feed.xml — ${blogs.length} items`);
 // static blog HTML pages
 // ============================================================
 let generated = 0;
-for (const blog of blogs) {
+for (let i = 0; i < blogs.length; i++) {
+  const blog = blogs[i];
   const mdPath = `blogs/${blog.file}`;
   if (!fs.existsSync(mdPath)) {
     console.warn(`⚠️  skipping ${blog.id} — ${mdPath} not found`);
@@ -502,7 +570,7 @@ for (const blog of blogs) {
   const wordCount = body.split(/\s+/).filter(Boolean).length;
   const readMinutes = Math.max(1, Math.ceil(wordCount / 200));
   const bodyHtml = marked(body);
-  const html = blogPostHtml(blog, bodyHtml, blogs, wordCount, readMinutes);
+  const html = blogPostHtml(blog, bodyHtml, blogs, wordCount, readMinutes, i);
   fs.writeFileSync(`blogs/${blog.id}.html`, html);
   generated++;
 }
@@ -638,6 +706,30 @@ if (!indexHtml.includes('"@type":"WebSite"')) {
     }
   })}</script>`;
   indexHtml = indexHtml.replace('</head>', `  ${websiteJsonLd}\n</head>`);
+}
+
+// Inject ContactPoint JSON-LD if not already present
+if (!indexHtml.includes('"@type":"ContactPoint"')) {
+  const contactJsonLd = `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Roshan Nagekar",
+    "url": BASE_URL,
+    "email": "roshan4074@gmail.com",
+    "telephone": "+91-9011092618",
+    "jobTitle": "DevOps Consultant & Trainer",
+    "worksFor": { "@type": "Organization", "name": "Freelance / Independent" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "consulting",
+      "email": "roshan4074@gmail.com",
+      "telephone": "+91-9011092618",
+      "availableLanguage": "en",
+      "areaServed": "Worldwide"
+    }
+  })}</script>`;
+  indexHtml = indexHtml.replace('</head>', `  ${contactJsonLd}\n</head>`);
 }
 
 // Update robots meta to include max-snippet on index.html

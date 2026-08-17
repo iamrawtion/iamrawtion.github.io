@@ -8,6 +8,8 @@
   <title>Sken.ai DevSecOps walkthrough | Roshan Nagekar</title>
   <meta name="description" content="Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/skenais-role-in-devsecops-cicd-pipeline.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Sken.ai DevSecOps walkthrough">
   <meta property="og:description" content="Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...">
@@ -16,11 +18,20 @@
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2021-01-22">
   <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="DevSecOps">
+  <meta property="article:tag" content="Security">
+  <meta property="article:tag" content="DevOps">
+  <meta property="article:tag" content="Automation">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Sken.ai DevSecOps walkthrough">
   <meta name="twitter:description" content="Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="14 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
@@ -30,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Sken.ai DevSecOps walkthrough","description":"Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","url":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html","keywords":"DevSecOps, Security, DevOps, Automation","wordCount":2789,"timeRequired":"PT14M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Sken.ai DevSecOps walkthrough","description":"Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","url":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html","keywords":"DevSecOps, Security, DevOps, Automation","wordCount":2789,"timeRequired":"PT14M","articleBody":"Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing. It is a new and automated DevSecOps tool that provides multi-language scanning features in one place. It provides comprehensive Saas based continuous application testing software developers and DevOps , without the need for any security expertise. It helps to Find and fix all types of application security issues within your DevOps CI/CD cycle. It provides a SAAS orchestration layer that integrates continuous application security testing into your DevOps CI/CD workflow automating the use of any open source security scanners across all scan types; SAST, DAST, SCA, MAST, container scanning, license compliance, and secrets detection. What will you learn from this article/blog:- How to provide security in your CICD pipeline? What is SAST/DAST/SCA/MAST and how it works? How sken.ai works? Which features and scanners sken.ai provides? What vulnerability scanning and penetration testing is? List of Top IDE’s used by developers provided by DevOps ? List of version control tools provided by DevOps ? List of Top **CI/CD pipeline tools provided by **DevOps? What web application security scanner is? Who will need this tool:- There are lots of open-source application security testing tools available in the market. So it&#39;s very hard and confusing to select what exactly we need. Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production. Sken.ai provides automated scanning features and Generally, it is used to find out the bugs at early stages of the development of software (coding stage). With this code review, the quality of the software gets improved and the bugs/errors in the program code decrease. The Code Review Tools automates the review process which in turn minimizes the reviewing task of the code. It provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers. What does Sken.ai contain:- Here are some detailed points that I have discussed about the Sken.ai. It helps to scan every application in any language from any **CI/CD Platform (such as **Jenkins, Bamboo, etc). It uses all scan types SAST, DAST, SCA, Secrets, and more to scan at the coding time or the runtime. As I said before it enables security by simply adding a 2-line code snippet into CICD to enable the complete range of tests. It provides open-source scanners packaged and managed, There&#39;s No need to set up, install or update scanners. It selects &amp; auto-discover scanners as per scanning context. Sken.ai performs the most comprehensive security scanning and testing of applications during the CI/CD process. This includes not only static source code analysis (SAST) and software composition analysis (SCA), but also dynamic security testing (DAST) to uncover run-time security holes as well. This ensures that all the common avenues hackers use to execute security breaches are discovered before going to production. By providing the relevant scan type at the right stage in the **DevOps and **CI/CD stage, Sken.ai covers more vulnerability and compliance holes than anyone&#39;s capability alone. It uses all major development languages &amp; frameworks including Java , PHP, Python , Microsoft .NET, NodeJS, Ruby , GO, and more. Sken.ai applies machine learning and data science to normalize and prioritize all the application security issues found across testing categories. It provides AI-Based Analysis, and it reduces noise up to 97%. It Aggregated scan findings View and filter findings across multiple scans. It tracks bugs through code changes and provides standard risk ratings across all scan types. DevOps and AppSec teams can manage their entire bug fix and mitigation processes with Sken.ai, including prioritization and risk scoring, bug verification, task assignment through resolution. It is Intelligent &amp; prioritized to fix critical findings first. It helps users to Manage findings from the Sken.ai portal. Here are some Open Source Scanners included in Sken.ai internally: SCA: OWASP Dependency Leaks. SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint. DAST: OWASP ZAP Secrets: Gitleaks, Trufflehog. Static application security testing (SAST), or static analysis, is a testing methodology that analyzes source code to find security vulnerabilities that make your organization’s applications susceptible to attack. SAST scans an application before the code is compiled. It’s also known as white box testing. SAST ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Sken.ai DevSecOps walkthrough","item":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html"}]}</script>
 </head>
 <body>
@@ -89,6 +100,7 @@
             14 min read
           </p>
         </header>
+        
         <div class="blog-post-content markdown-body">
           <p>Sken.ai Introduction:-</p>
 <p>Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool.
@@ -404,6 +416,17 @@ Here are the OWASP top 10 security threats that your website/application might f
       </a>
     </div>
   </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/sample-docker-compose-guide.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Getting Started with Docker Compose: A Practical Guide</span>
+    </a>
+    <a href="../blogs/skenais-role-in-devsecops-cicd-pipeline.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">SkenAI's role in DevSecOps CI/CD pipeline</span>
+    </a>
+  </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
           <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?
