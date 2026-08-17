@@ -1,0 +1,17 @@
+{
+  "name": "Roshan Nagekar — DevOps Consultant & Trainer",
+  "short_name": "Roshan Nagekar",
+  "description": "Senior DevOps consultant and trainer with 15+ years of experience in Kubernetes, CI/CD, DevSecOps, and cloud infrastructure.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#1a1b26",
+  "theme_color": "#7aa2f7",
+  "icons": [
+    {
+      "src": "/profile.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

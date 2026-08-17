@@ -51,24 +51,57 @@ class BlogManager {
             return;
         }
 
+        // Populate category filter dropdown once
+        const catSelect = document.getElementById('blog-category-filter');
+        if (catSelect && catSelect.options.length === 1) {
+            const cats = [...new Set(this.blogs.map(b => b.category))].sort();
+            cats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c; opt.textContent = c;
+                catSelect.appendChild(opt);
+            });
+            catSelect.addEventListener('change', () => this.filterBlogs());
+        }
+
+        const searchInput = document.getElementById('blog-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => this.filterBlogs());
+        }
+
+        this.filterBlogs();
+    }
+
+    filterBlogs() {
+        const container = document.getElementById('blog-grid');
+        const query = (document.getElementById('blog-search')?.value || '').toLowerCase().trim();
+        const cat = document.getElementById('blog-category-filter')?.value || '';
+        const countEl = document.getElementById('blog-result-count');
+
+        const filtered = this.blogs.filter(b => {
+            const matchesCat = !cat || b.category === cat;
+            const haystack = [b.title, b.excerpt, b.category, ...(b.tags || [])].join(' ').toLowerCase();
+            const matchesQuery = !query || haystack.includes(query);
+            return matchesCat && matchesQuery;
+        });
+
         container.innerHTML = '';
 
-        if (this.blogs.length === 0) {
+        if (filtered.length === 0) {
             container.innerHTML = `
                 <div style="text-align: center; padding: 3rem; grid-column: 1 / -1;">
                     <i class="fas fa-inbox" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
-                    <p style="color: var(--text-color); font-size: 1.2rem;">No blog posts found yet.</p>
-                    <p style="color: var(--text-color); opacity: 0.7;">Check back soon for new content!</p>
+                    <p style="color: var(--text-color); font-size: 1.2rem;">No posts match your search.</p>
                 </div>
             `;
-            return;
+        } else {
+            filtered.forEach(blog => container.appendChild(this.createBlogCard(blog)));
         }
 
-        console.log(`Rendering ${this.blogs.length} blog cards`);
-        this.blogs.forEach(blog => {
-            const card = this.createBlogCard(blog);
-            container.appendChild(card);
-        });
+        if (countEl) {
+            countEl.textContent = filtered.length === this.blogs.length
+                ? `${this.blogs.length} posts`
+                : `${filtered.length} of ${this.blogs.length} posts`;
+        }
     }
 
     createBlogCard(blog) {

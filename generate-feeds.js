@@ -78,6 +78,8 @@ function sharedHead({ title, desc, url, canonical, depth = '' }) {
   <meta name="twitter:image" content="${BASE_URL}/profile.jpg">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="${BASE_URL}/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="${BASE_URL}/opensearch.xml">
+  <link rel="manifest" href="${BASE_URL}/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
   <link rel="stylesheet" href="${depth}styles.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -264,6 +266,8 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
   <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="${BASE}/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="${BASE}/opensearch.xml">
+  <link rel="manifest" href="${BASE}/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
   <link rel="stylesheet" href="../styles.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -606,7 +610,9 @@ for (let i = 0; i < blogs.length; i++) {
     continue;
   }
   const raw = fs.readFileSync(mdPath, 'utf8');
-  const body = raw.replace(/^---[\s\S]*?---\n/, '');
+  const bodyRaw = raw.replace(/^---[\s\S]*?---\n/, '');
+  // Strip image credit lines ("Some rights reserved by X", "image credits: X", etc.)
+  const body = bodyRaw.replace(/^(Some rights reserved|image credits?)[^\n]*\n?/gim, '');
   const wordCount = body.split(/\s+/).filter(Boolean).length;
   const readMinutes = Math.max(1, Math.ceil(wordCount / 200));
   const bodyHtml = marked(body);
