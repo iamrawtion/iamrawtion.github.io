@@ -38,10 +38,10 @@ class BlogManager {
         const blogId = urlParams.get('post');
 
         if (blogId) {
-            this.showBlogPost(blogId);
-        } else {
-            this.showBlogList();
+            window.location.replace(`blogs/${blogId}.html`);
+            return;
         }
+        this.showBlogList();
     }
 
     showBlogList() {
