@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","description":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html","keywords":"hop, rsync, scp, SSH, ssh tunnel","wordCount":206,"timeRequired":"PT2M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","description":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html","keywords":"hop, rsync, scp, SSH, ssh tunnel","wordCount":1001,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Programming","item":"https://iamrawtion.github.io/categories/programming.html"},{"@type":"ListItem","position":4,"name":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","item":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            2 min read
+            6 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -117,6 +117,68 @@ scp -P 1234 &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~
 <td><code>rsync -avz -e &quot;**ssh** -p 1234&quot; &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~/</code></td>
 </tr>
 </tbody></table>
+<h2>Why This Matters in Modern DevOps</h2>
+<p>The tunnel approach above works, but it&#39;s worth understanding why bastion hosts exist in the first place and where the tooling has moved since.</p>
+<p>Bastion hosts (also called jump servers) are a foundational pattern in network security. You put one hardened, publicly accessible host on the edge of your network, and everything else stays private. All SSH access to internal servers routes through it. This gives you a single place to enforce MFA, log access, and rotate credentials — instead of managing that across every internal host.</p>
+<p>In zero-trust architectures, the bastion is still relevant, but the implementation has evolved. On AWS, you may not need a bastion at all for some use cases. <strong>AWS Systems Manager Session Manager</strong> gives you shell access to EC2 instances without opening any inbound SSH ports — no security group rule, no key management, full session logging to CloudWatch. If you&#39;re on AWS and starting fresh, <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html">check the Session Manager docs</a> before setting up a bastion.</p>
+<p>That said, bastions are still the right call in multi-cloud setups, on-prem environments, or anywhere you need protocol-level SSH access rather than a browser or CLI session proxy. The techniques below apply in all of those contexts.</p>
+<h2>Using SSH ProxyJump Instead (Modern Approach)</h2>
+<p>The SSH tunnel method I described at the top works, but it has a friction problem: you need two terminal windows, you have to remember the port number, and you have to keep the tunnel process alive. It also doesn&#39;t compose well into scripts.</p>
+<p>OpenSSH 7.3 (released in 2016) added <code>ProxyJump</code>, and it&#39;s the cleaner solution. It handles the bastion hop inline, in a single command:</p>
+<pre><code class="language-bash"># SSH directly to the target through the bastion
+ssh -J user@bastion user@target-server
+
+# SCP a file through the bastion in one command
+scp -J user@bastion file.txt user@target-server:~/
+
+# Works for directories too
+scp -J user@bastion -r ./local-dir user@target-server:~/remote-dir/
+</code></pre>
+<p>No separate terminal. No local port to manage. The <code>-J</code> flag tells SSH to use the specified host as a jump proxy — it handles the TCP forwarding through the bastion transparently. The connection to the target server is encrypted end-to-end; the bastion sees an opaque tunnel, not your session traffic.</p>
+<h2>ProxyJump in SSH Config</h2>
+<p>If you&#39;re jumping through the same bastion regularly, put it in <code>~/.ssh/config</code> so you don&#39;t have to type the flag every time:</p>
+<pre><code>Host bastion-host
+    HostName 54.123.45.67
+    User ec2-user
+    IdentityFile ~/.ssh/bastion-key.pem
+
+Host target-server
+    HostName 10.0.1.50
+    User ubuntu
+    ProxyJump bastion-host
+    IdentityFile ~/.ssh/target-key.pem
+</code></pre>
+<p>After that, <code>ssh target-server</code> just works. SCP and rsync pick up the config automatically too:</p>
+<pre><code class="language-bash">scp file.txt target-server:~/
+</code></pre>
+<p>If you have multiple targets behind the same bastion, add a wildcard entry to keep the config DRY:</p>
+<pre><code>Host 10.0.*
+    ProxyJump bastion-host
+    User ubuntu
+    IdentityFile ~/.ssh/target-key.pem
+</code></pre>
+<h2>rsync with ProxyJump</h2>
+<p>rsync uses SSH as its transport, so ProxyJump works through the <code>-e</code> flag:</p>
+<pre><code class="language-bash"># Single file
+rsync -avz -e &quot;ssh -J user@bastion&quot; file.txt user@target-server:~/
+
+# Directory, with progress
+rsync -avz --progress -e &quot;ssh -J user@bastion&quot; ./local-dir/ user@target-server:~/remote-dir/
+
+# Dry run first (always a good idea)
+rsync -avzn -e &quot;ssh -J user@bastion&quot; ./local-dir/ user@target-server:~/remote-dir/
+</code></pre>
+<p>If you&#39;ve already set up the SSH config above, you can skip the <code>-e</code> flag entirely:</p>
+<pre><code class="language-bash">rsync -avz ./local-dir/ target-server:~/remote-dir/
+</code></pre>
+<p>rsync&#39;s delta transfer algorithm means only changed blocks are sent on subsequent syncs, which makes this genuinely fast for large directories — much faster than repeated SCP.</p>
+<h2>Security Considerations</h2>
+<p>A few things worth getting right when working with bastions:</p>
+<p><strong>Don&#39;t use agent forwarding (<code>-A</code>) unless you have a specific reason.</strong> Agent forwarding passes your local SSH key material through the bastion to the target, which means anyone with root on the bastion can use your keys while the forwarded session is active. ProxyJump doesn&#39;t have this problem — it negotiates separate key authentication at each hop, so your private key never leaves your machine.</p>
+<p><strong>Use a dedicated bastion with MFA.</strong> The bastion is your chokepoint for all SSH access. It should have multi-factor authentication enabled, minimal software installed, and aggressive session logging. It&#39;s the one host you&#39;d notice if it were compromised — treat it accordingly.</p>
+<p><strong>Rotate bastion host keys regularly.</strong> When you rotate or rebuild the bastion, update <code>~/.ssh/known_hosts</code> on client machines to remove the old host key. Stale known_hosts entries create confusion and can mask legitimate MITM warnings.</p>
+<p><strong>Consider separate keys for bastion and target hosts.</strong> If one key is compromised, you don&#39;t want it to grant access to every host in the chain. The SSH config approach above makes it easy to specify different identity files per host.</p>
+<p>The <a href="https://www.cisecurity.org/benchmark/distribution_independent_linux">CIS Benchmark for SSH</a> is worth reading if you&#39;re hardening a bastion — it covers the specific sshd_config settings that matter (MaxAuthTries, PermitRootLogin, AllowUsers, etc.).</p>
 
         </div>
         

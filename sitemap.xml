@@ -523,6 +523,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://iamrawtion.github.io/tags/deployment.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://iamrawtion.github.io/tags/ansible.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -739,6 +745,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://iamrawtion.github.io/tags/linux.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://iamrawtion.github.io/tags/cpu.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -794,12 +806,6 @@
   </url>
   <url>
     <loc>https://iamrawtion.github.io/tags/uptime.html</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://iamrawtion.github.io/tags/deployment.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -907,7 +913,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://iamrawtion.github.io/tags/linux.html</loc>
+    <loc>https://iamrawtion.github.io/tags/technology.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://iamrawtion.github.io/tags/programming.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://iamrawtion.github.io/tags/networking.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
