@@ -189,11 +189,13 @@ const blogSitemapEntries = blogs.map(b => ({
   priority: '0.8'
 }));
 
+const changefreqMap = { '1.0': 'weekly', '0.9': 'weekly', '0.8': 'monthly' };
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${[...staticPages, ...blogSitemapEntries].map(e => `  <url>
     <loc>${e.url}</loc>
     <lastmod>${e.lastmod}</lastmod>
+    <changefreq>${changefreqMap[e.priority] || 'monthly'}</changefreq>
     <priority>${e.priority}</priority>
   </url>`).join('\n')}
 </urlset>`;
@@ -251,3 +253,23 @@ for (const blog of blogs) {
   generated++;
 }
 console.log(`✅ static blog pages — ${generated} HTML files written to blogs/`);
+
+// --- blog.html: inject ItemList JSON-LD ---
+const itemListJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "DevOps & Security Blog by Roshan Nagekar",
+  "description": "Technical posts on DevOps, Kubernetes, cloud infrastructure, DevSecOps, CI/CD, and security.",
+  "url": `${BASE_URL}/blog.html`,
+  "itemListElement": blogs.map((b, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": b.title,
+    "url": `${BASE_URL}/blogs/${b.id}.html`
+  }))
+});
+let blogHtml = fs.readFileSync('blog.html', 'utf8');
+// Replace either the placeholder (first run) or previous JSON-LD (subsequent runs)
+blogHtml = blogHtml.replace(/<!--BLOG_ITEMLIST_JSONLD-->|(\{"@context":"https:\/\/schema\.org","@type":"ItemList"[\s\S]*?\})/, itemListJsonLd);
+fs.writeFileSync('blog.html', blogHtml);
+console.log(`✅ blog.html — ItemList JSON-LD injected (${blogs.length} entries)`);
