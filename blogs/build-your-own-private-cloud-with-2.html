@@ -5,28 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="language" content="en">
-  <title>Creating an exactly similar snapshot of your existing running EC2 ami instance | Roshan Nagekar</title>
-  <meta name="description" content="Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...">
-  <link rel="canonical" href="https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html">
+  <title>Build your own private cloud with Ubuntu - II | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by ErinOfEarth Continuing from... Build your own private cloud with Ubuntu - I Create node for your MAAS server. You must have...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Creating an exactly similar snapshot of your existing running EC2 ami instance">
-  <meta property="og:description" content="Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...">
-  <meta property="og:url" content="https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html">
+  <meta property="og:title" content="Build your own private cloud with Ubuntu - II">
+  <meta property="og:description" content="Some rights reserved by ErinOfEarth Continuing from... Build your own private cloud with Ubuntu - I Create node for your MAAS server. You must have...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2013-07-19">
   <meta property="article:author" content="Roshan Nagekar">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Creating an exactly similar snapshot of your existing running EC2 ami instance">
-  <meta name="twitter:description" content="Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...">
+  <meta name="twitter:title" content="Build your own private cloud with Ubuntu - II">
+  <meta name="twitter:description" content="Some rights reserved by ErinOfEarth Continuing from... Build your own private cloud with Ubuntu - I Create node for your MAAS server. You must have...">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Creating an exactly similar snapshot of your existing running EC2 ami instance","description":"Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-07-19","url":"https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Creating an exactly similar snapshot of your existing running EC2 ami instance","item":"https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Build your own private cloud with Ubuntu - II","description":"Some rights reserved by ErinOfEarth Continuing from... Build your own private cloud with Ubuntu - I Create node for your MAAS server. You must have...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-07-19","url":"https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Build your own private cloud with Ubuntu - II","item":"https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html"}]}</script>
 </head>
 <body>
   <div class="terminal-nav">
@@ -62,7 +62,7 @@
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
-        <span style="color:var(--text-color);">Creating an exactly similar snapshot of your existing running EC2 ami instance</span>
+        <span style="color:var(--text-color);">Build your own private cloud with Ubuntu - II</span>
       </nav>
       <article>
         <header style="margin-bottom:2rem;">
@@ -70,7 +70,7 @@
             <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Cloud Computing</span>
             
           </div>
-          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Creating an exactly similar snapshot of your existing running EC2 ami instance</h1>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Build your own private cloud with Ubuntu - II</h1>
           <p style="color:var(--text-color); font-size:0.9rem;">
             <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
             July 19, 2013
@@ -80,69 +80,61 @@
           </p>
         </header>
         <div class="blog-post-content markdown-body">
-          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-RkAui0SizULhPGjU9J4jB6vsq1Hjrtvg-pfuKFV5-LvuJzcF8FbDgzherMe93Q5Bo8FRjfipnRp9EgXyGAm0_lq2q14rYWdNVtcOlKQnh0hWbhyo9PJ1MbGa09DYOfzQHg5Gj3AEaCw/s1600/6352047101_989f7e1f24_m.jpg" alt=""></p>
-<p>Some rights reserved by <a href="https://www.flickr.com/photos/marfis75/">Martin Fisch</a></p>
-<h2>Everything</h2>
-<p>was going pretty well on the existing EC2 instance, when the developers
-offshore came up with another version of the existing CMS, which needed
-to be tested along with the existing CMS. One way was to have another
-virtual host created for the new CMS but there were some existing
-resources that could not be shared between the two CMSs.</p>
-<p>The
-only way out of this was to have another instance with the new CMS
-version. Installing the same applications in the new instance was surely
-time consuming, this would take another day for sure. So we came up
-with the idea of creating a snapshot of the existing instance.</p>
-<h2>Caution</h2>
-<h2>If you only try to create a copy of the existing instance you will only</h2>
-<p>get the Instance along with the OS not the applications along with it.
-To create the exact similar copy of the instance the steps are slightly
-different.</p>
-<p>Steps to create an exact similar copy are as follows:</p>
-<ol>
-<li>Create an EBS volume using the web interface. You may use <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Amazon Documentation</a> for this.</li>
-<li>Attach this volume to your existing instance. note down the volume and the device id. (Vol -123456, /dev/sdg) <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Documentation</a></li>
-<li>Next you would need is a file system to work on, on the attached volume. Log in to your instance, and use the commands below</li>
-</ol>
-<ul>
-<li>mkfs.ext3 /dev/sdg</li>
-<li>tune2fs -c 0 /dev/sdg</li>
-</ul>
-<ol start="4">
-<li>Now mount this disk</li>
-</ol>
-<ul>
-<li>mkdir /mnt/data</li>
-<li>mount /dev/sdg /mnt/ebs</li>
-</ul>
-<ol start="5">
-<li><p>Now</p>
-<p>you can copy all the data to your EBS volume but before you do that,
-shutdown the running services that may harm the data, I stopped MySQL</p>
-</li>
-</ol>
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9h_yuYjfB-wTAvOKz71c_IGxnCp5xenpcW_cPm4GgnkQkEeOG1UbGZ-LOpcGQ4jJs-tLh1SDT-rbcHfMBwunut5edkvZ99EXfW7BbBPr4s18fd3ci-0DMfssijOg6ijpucXqVN1el31c/s1600/5527495896_4c39148366_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/erinofearth/">ErinOfEarth</a></p>
+<p>Continuing from...</p>
+<h3><a href="http://roshannagekar.blogspot.in/2013/06/build-your-own-private-cloud-with.html">Build your own private cloud with Ubuntu - I</a></h3>
+<p>Create node for your MAAS server. You must have atleast 2 nodes before going ahead with juju setup. Go to the webpage for maas server and Click on Add nodes.</p>
+<p>We left all the other information fields there blank except for the MAC-ADDRESS. You can get the mac address of your computer by ipconfig on windows and ifconfig on <strong>Ubuntu</strong> - Ubuntu users can do:</p>
+<pre><code class="language-bash">ifconfig | grep hwadrs
+</code></pre>
+<h2>Then we went to</h2>
+<p><a href="http://maas.ubuntu.com/docs/juju-quick-start.html">http://maas.ubuntu.com/docs/juju-quick-start.html</a></p>
+<p>Thereafter we created ~/.juju/environments.yaml
+vim ~/.juju/environments.yaml
+Added the following details to this file</p>
+<pre><code class="language-yaml">juju: environments
+environments:
+  maas:
+    type: maas
+    maas-server: &#39;http://localhost:5240&#39;
+    maas-oauth: &#39;${maas-api-key}&#39;
+    admin-secret: &#39;nothing&#39;
+</code></pre>
+<p>Got an error default-series: missing</p>
+<p>Added this line to the above file
+    default-series: &#39;precise&#39;
+Error Gone</p>
+<p>juju status
+New error
+Juju INFO Connecting to environment... Unhandled error in Deferred: Unhandled Error</p>
 <hr>
-<h2>Apache, ElasticSearch etc on my instance. To copy all data use rsync</h2>
-<p>   This will sync all the data in your present volume to the new volume.</p>
-<ul>
-<li>rsync -avx --exclude /mnt / /mnt/ebs //you may use --exclude <directory name> to exclude any directories</li>
-</ul>
-<ol start="6">
-<li>This should take long time depending on how big the data is. Once the copying is done, Unmount the volume by:</li>
-</ol>
-<ul>
-<li>umount /dev/sdg</li>
-<li>You may want to check the volume space by df -h</li>
-</ul>
-<ol start="7">
-<li><p>Detach the volume for the present instance from the console. <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Documentation</a></p>
-</li>
-<li><p>Right</p>
-<p>click on the volume and click on create AMI image. When the image is
-created. Right click on it and click on Launch Instance.</p>
-</li>
-</ol>
-<p>You now have an exact copy of your old instance running.</p>
+<h2>Investigated, result</h2>
+<p>Juju packages needs to be installed from ppa:juju/pkg</p>
+<p>Went to</p>
+<p><a href="https://juju.ubuntu.com/docs/">https://juju.ubuntu.com/docs/</a></p>
+<p>removed existing juju</p>
+<pre><code class="language-bash">sudo apt-get update
+            sudo apt-get install juju-core (error no package)
+</code></pre>
+<pre><code class="language-bash">sudo add-apt-repository ppa:juju/devel
+            sudo apt-get update &amp;&amp; sudo apt-get install juju-core
+</code></pre>
+<p>Configuring Juju
+juju generate-config -w   
+previously written environment.yml was moved and the changes were added to the new yml file.</p>
+<p>error: environment has no access-key or secret-key</p>
+<p>changed default: amazon to default: maas
+juju bootsrap
+error:no tools</p>
+<pre><code class="language-bash">sudo juju -v sync-tools
+</code></pre>
+<h2>roshan@ubuntu-cloud:~$ sudo juju bootstrap</h2>
+<p>error: cannot start bootstrap instance: cannot run instances: gomaasapi: got error back from server: 409 CONFLICT</p>
+<p>CONFLICT from maas means that it doesn&#39;t have any nodes available for juju to acquire (juju bootstrap needs to boot a node).
+It&#39;s not the best error unfortunately, juju needs fixing to show all the text. You need the server edition of 12.04</p>
+<p>Nodes were disconnected for sometime...
+Next article should have the addition of nodes...</p>
 
         </div>
         

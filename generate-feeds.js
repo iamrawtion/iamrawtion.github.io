@@ -13,12 +13,41 @@ const escape = s => String(s)
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
-function blogPostHtml(blog, bodyHtml) {
+function blogPostHtml(blog, bodyHtml, allBlogs) {
   const BASE = 'https://iamrawtion.github.io';
   const url = `${BASE}/blogs/${blog.id}.html`;
   const desc = blog.excerpt.replace(/"/g, '&quot;').slice(0, 160);
   const tags = (blog.tags || []).join(', ');
-  const jsonLd = JSON.stringify({
+
+  // Related posts: up to 3 from the same category, excluding self
+  const related = allBlogs
+    .filter(b => b.id !== blog.id && b.category === blog.category)
+    .slice(0, 3);
+
+  const relatedHtml = related.length ? `
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      ${related.map(r => `
+      <a href="../blogs/${r.id}.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">${escape(r.category)}</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">${escape(r.title)}</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">${new Date(r.date).getFullYear()}</p>
+      </a>`).join('')}
+    </div>
+  </section>` : '';
+
+  const breadcrumbJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": BASE + "/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": blog.title, "item": url }
+    ]
+  });
+
+  const postJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": blog.title,
@@ -35,6 +64,8 @@ function blogPostHtml(blog, bodyHtml) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="en">
   <title>${escape(blog.title)} | Roshan Nagekar</title>
   <meta name="description" content="${desc}">
   <link rel="canonical" href="${url}">
@@ -55,7 +86,8 @@ function blogPostHtml(blog, bodyHtml) {
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <script type="application/ld+json">${jsonLd}</script>
+  <script type="application/ld+json">${postJsonLd}</script>
+  <script type="application/ld+json">${breadcrumbJsonLd}</script>
 </head>
 <body>
   <div class="terminal-nav">
@@ -86,8 +118,12 @@ function blogPostHtml(blog, bodyHtml) {
   </nav>
   <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
     <div class="container" style="max-width:860px;">
-      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
-        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">${escape(blog.title)}</span>
       </nav>
       <article>
         <header style="margin-bottom:2rem;">
@@ -107,12 +143,23 @@ function blogPostHtml(blog, bodyHtml) {
         <div class="blog-post-content markdown-body">
           ${bodyHtml}
         </div>
+        ${relatedHtml}
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <p style="color:var(--text-color);">
+          <p style="color:var(--text-color); margin-bottom:1rem;">
             Found this useful?
             <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
-            or
-            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
           </p>
         </footer>
       </article>
@@ -199,7 +246,7 @@ for (const blog of blogs) {
   const raw = fs.readFileSync(mdPath, 'utf8');
   const body = raw.replace(/^---[\s\S]*?---\n/, '');
   const bodyHtml = marked(body);
-  const html = blogPostHtml(blog, bodyHtml);
+  const html = blogPostHtml(blog, bodyHtml, blogs);
   fs.writeFileSync(`blogs/${blog.id}.html`, html);
   generated++;
 }
