@@ -7,6 +7,7 @@ const { marked } = require('marked');
 const blogs = JSON.parse(fs.readFileSync('blogs/blogs.json', 'utf8'));
 const BASE_URL = 'https://iamrawtion.github.io';
 const NOW = new Date().toUTCString();
+const TODAY = new Date().toISOString().split('T')[0];
 
 const escape = s => String(s)
   .replace(/&/g, '&amp;')
@@ -14,13 +15,81 @@ const escape = s => String(s)
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
+const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// --- shared nav/head helpers ---
+function sharedHead({ title, desc, url, canonical, depth = '' }) {
+  return `  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <meta name="author" content="Roshan Nagekar">
+  <title>${escape(title)}</title>
+  <meta name="description" content="${escape(desc)}">
+  <link rel="canonical" href="${url}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escape(title)}">
+  <meta property="og:description" content="${escape(desc)}">
+  <meta property="og:url" content="${url}">
+  <meta property="og:image" content="${BASE_URL}/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="${escape(title)}">
+  <meta name="twitter:description" content="${escape(desc)}">
+  <meta name="twitter:image" content="${BASE_URL}/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="${BASE_URL}/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="${BASE_URL}/opensearch.xml">
+  <link rel="stylesheet" href="${depth}styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>`;
+}
+
+function sharedNav(depth = '') {
+  return `  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="${depth}index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="${depth}index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="${depth}index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="${depth}index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="${depth}blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="${depth}consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="${depth}index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>`;
+}
+
+function sharedNavScript() {
+  return `  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>`;
+}
+
+// --- blog post HTML ---
 function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) {
-  const BASE = 'https://iamrawtion.github.io';
+  const BASE = BASE_URL;
   const url = `${BASE}/blogs/${blog.id}.html`;
   const desc = blog.excerpt.replace(/"/g, '&quot;').slice(0, 160);
   const tags = (blog.tags || []).join(', ');
 
-  // Related posts: up to 3 from the same category, excluding self
   const related = allBlogs
     .filter(b => b.id !== blog.id && b.category === blog.category)
     .slice(0, 3);
@@ -38,19 +107,22 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
     </div>
   </section>` : '';
 
+  const catSlug = slugify(blog.category);
   const breadcrumbJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/" },
       { "@type": "ListItem", "position": 2, "name": "Blog", "item": BASE + "/blog.html" },
-      { "@type": "ListItem", "position": 3, "name": blog.title, "item": url }
+      { "@type": "ListItem", "position": 3, "name": blog.category, "item": `${BASE}/categories/${catSlug}.html` },
+      { "@type": "ListItem", "position": 4, "name": blog.title, "item": url }
     ]
   });
 
   const postJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "inLanguage": "en",
     "headline": blog.title,
     "description": blog.excerpt,
     "author": { "@type": "Person", "name": "Roshan Nagekar", "url": BASE },
@@ -67,7 +139,7 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
   <title>${escape(blog.title)} | Roshan Nagekar</title>
   <meta name="description" content="${desc}">
@@ -98,32 +170,7 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
   <script type="application/ld+json">${breadcrumbJsonLd}</script>
 </head>
 <body>
-  <div class="terminal-nav">
-    <div class="container">
-      <div class="terminal-header">
-        <div class="terminal-buttons">
-          <span class="terminal-button close"></span>
-          <span class="terminal-button minimize"></span>
-          <span class="terminal-button maximize"></span>
-        </div>
-        <div class="terminal-title">roshan@blog:~$</div>
-      </div>
-    </div>
-  </div>
-  <nav class="sidebar-nav">
-    <div class="nav-toggle" id="nav-toggle">
-      <span></span><span></span><span></span>
-    </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
-      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
-      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
-      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
-      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
-      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
-      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
-    </ul>
-  </nav>
+${sharedNav('../')}
   <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
     <div class="container" style="max-width:860px;">
       <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
@@ -131,21 +178,26 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/${catSlug}.html" style="color:var(--primary-color);">${escape(blog.category)}</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <span style="color:var(--text-color);">${escape(blog.title)}</span>
       </nav>
       <article>
         <header style="margin-bottom:2rem;">
           <div style="margin-bottom:0.75rem;">
-            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">${escape(blog.category)}</span>
-            ${(blog.tags || []).map(t => `<span class="tag" style="margin-left:0.4rem;">${escape(t)}</span>`).join('')}
+            <a href="../categories/${catSlug}.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">${escape(blog.category)}</a>
+            ${(blog.tags || []).map(t => `<a href="../tags/${slugify(t)}.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">${escape(t)}</a>`).join('')}
           </div>
           <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">${escape(blog.title)}</h1>
           <p style="color:var(--text-color); font-size:0.9rem;">
             <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
-            ${new Date(blog.date).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}
+            <time datetime="${blog.date}">${new Date(blog.date).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}</time>
             &nbsp;·&nbsp;
             <i class="fas fa-user" style="color:var(--primary-color);"></i>
             Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            ${readMinutes} min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -175,20 +227,214 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) 
   </main>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-  <script>
-    const toggle = document.getElementById('nav-toggle');
-    const nav = document.getElementById('nav-links');
-    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-  </script>
+${sharedNavScript()}
 </body>
 </html>`;
 }
 
-// --- sitemap.xml ---
+// --- category landing page HTML ---
+function categoryPageHtml(category, posts) {
+  const slug = slugify(category);
+  const url = `${BASE_URL}/categories/${slug}.html`;
+  const desc = `${posts.length} posts on ${category} by Roshan Nagekar — senior DevOps consultant with 15+ years of experience.`;
+
+  const collectionJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "inLanguage": "en",
+    "name": `${category} — Roshan Nagekar`,
+    "description": desc,
+    "url": url,
+    "author": { "@type": "Person", "name": "Roshan Nagekar", "url": BASE_URL },
+    "hasPart": posts.map(b => ({
+      "@type": "BlogPosting",
+      "headline": b.title,
+      "url": `${BASE_URL}/blogs/${b.id}.html`,
+      "datePublished": b.date
+    }))
+  });
+
+  const breadcrumbJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": BASE_URL + "/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": category, "item": url }
+    ]
+  });
+
+  const postCards = posts.map(b => `
+    <article style="padding:1.25rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; margin-bottom:1rem;">
+      <a href="../blogs/${b.id}.html" style="text-decoration:none;">
+        <h2 style="color:var(--heading-color); font-size:1.1rem; margin:0 0 0.5rem; line-height:1.4;">${escape(b.title)}</h2>
+      </a>
+      <p style="color:var(--text-color); font-size:0.88rem; margin:0 0 0.75rem;">${escape(b.excerpt.slice(0, 140))}…</p>
+      <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
+        <time datetime="${b.date}" style="color:var(--text-color); font-size:0.8rem; opacity:0.7;">${new Date(b.date).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' })}</time>
+        ${(b.tags || []).slice(0, 3).map(t => `<a href="../tags/${slugify(t)}.html" class="tag" style="font-size:0.75rem; text-decoration:none;">${escape(t)}</a>`).join('')}
+      </div>
+    </article>`).join('');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+${sharedHead({ title: `${category} Posts | Roshan Nagekar`, desc, url, depth: '../' })}
+  <script type="application/ld+json">${collectionJsonLd}</script>
+  <script type="application/ld+json">${breadcrumbJsonLd}</script>
+</head>
+<body>
+${sharedNav('../')}
+  <main style="margin-top:80px; padding:2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">${escape(category)}</span>
+      </nav>
+      <header style="margin-bottom:2rem;">
+        <h1 style="color:var(--heading-color); font-size:1.8rem;">${escape(category)}</h1>
+        <p style="color:var(--text-color); font-size:0.95rem;">${posts.length} post${posts.length !== 1 ? 's' : ''} · <a href="../blog.html" style="color:var(--primary-color);">All categories</a></p>
+      </header>
+      ${postCards}
+    </div>
+  </main>
+${sharedNavScript()}
+</body>
+</html>`;
+}
+
+// --- tag landing page HTML ---
+function tagPageHtml(tag, posts) {
+  const slug = slugify(tag);
+  const url = `${BASE_URL}/tags/${slug}.html`;
+  const desc = `${posts.length} posts tagged "${tag}" by Roshan Nagekar — DevOps consultant covering Kubernetes, Docker, CI/CD, cloud, and security.`;
+
+  const collectionJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "inLanguage": "en",
+    "name": `${tag} — Roshan Nagekar`,
+    "description": desc,
+    "url": url,
+    "author": { "@type": "Person", "name": "Roshan Nagekar", "url": BASE_URL },
+    "hasPart": posts.map(b => ({
+      "@type": "BlogPosting",
+      "headline": b.title,
+      "url": `${BASE_URL}/blogs/${b.id}.html`,
+      "datePublished": b.date
+    }))
+  });
+
+  const breadcrumbJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": BASE_URL + "/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": tag, "item": url }
+    ]
+  });
+
+  const postCards = posts.map(b => `
+    <article style="padding:1.25rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; margin-bottom:1rem;">
+      <a href="../blogs/${b.id}.html" style="text-decoration:none;">
+        <h2 style="color:var(--heading-color); font-size:1.1rem; margin:0 0 0.5rem; line-height:1.4;">${escape(b.title)}</h2>
+      </a>
+      <p style="color:var(--text-color); font-size:0.88rem; margin:0 0 0.75rem;">${escape(b.excerpt.slice(0, 140))}…</p>
+      <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
+        <time datetime="${b.date}" style="color:var(--text-color); font-size:0.8rem; opacity:0.7;">${new Date(b.date).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' })}</time>
+        <a href="../categories/${slugify(b.category)}.html" style="color:var(--accent-color); font-size:0.78rem; font-family:monospace; text-decoration:none;">${escape(b.category)}</a>
+      </div>
+    </article>`).join('');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+${sharedHead({ title: `${tag} Posts | Roshan Nagekar`, desc, url, depth: '../' })}
+  <script type="application/ld+json">${collectionJsonLd}</script>
+  <script type="application/ld+json">${breadcrumbJsonLd}</script>
+</head>
+<body>
+${sharedNav('../')}
+  <main style="margin-top:80px; padding:2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">${escape(tag)}</span>
+      </nav>
+      <header style="margin-bottom:2rem;">
+        <h1 style="color:var(--heading-color); font-size:1.8rem;">${escape(tag)}</h1>
+        <p style="color:var(--text-color); font-size:0.95rem;">${posts.length} post${posts.length !== 1 ? 's' : ''} · <a href="../blog.html" style="color:var(--primary-color);">All posts</a></p>
+      </header>
+      ${postCards}
+    </div>
+  </main>
+${sharedNavScript()}
+</body>
+</html>`;
+}
+
+// --- 404 page HTML ---
+function notFoundPageHtml(recentPosts) {
+  const url = `${BASE_URL}/404.html`;
+  const webPageJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Page Not Found | Roshan Nagekar",
+    "url": url,
+    "description": "The page you were looking for doesn't exist. Find DevOps and security content by Roshan Nagekar here."
+  });
+
+  const postLinks = recentPosts.map(b => `
+    <a href="blogs/${b.id}.html" style="display:block; padding:0.75rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; margin-bottom:0.5rem;">
+      <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">${escape(b.category)}</span>
+      <p style="color:var(--heading-color); font-size:0.95rem; margin:0.25rem 0 0;">${escape(b.title)}</p>
+    </a>`).join('');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+${sharedHead({ title: 'Page Not Found | Roshan Nagekar', desc: "The page you were looking for doesn't exist. Browse DevOps, Kubernetes, and cloud security posts by Roshan Nagekar.", url, depth: '' })}
+  <script type="application/ld+json">${webPageJsonLd}</script>
+</head>
+<body>
+${sharedNav('')}
+  <main style="margin-top:80px; padding:4rem 0; text-align:center;">
+    <div class="container" style="max-width:640px;">
+      <p style="color:var(--accent-color); font-family:monospace; font-size:1rem; margin-bottom:0.5rem;">404</p>
+      <h1 style="color:var(--heading-color); font-size:2rem; margin-bottom:1rem;">Page not found</h1>
+      <p style="color:var(--text-color); margin-bottom:2.5rem;">The page you were looking for doesn't exist or may have moved. Try one of these instead:</p>
+
+      <div style="text-align:left; margin-bottom:2rem;">
+        <h2 style="color:var(--heading-color); font-size:1rem; margin-bottom:1rem;">Recent posts</h2>
+        ${postLinks}
+      </div>
+
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem;">
+        <a href="blog.html" style="color:var(--primary-color); font-weight:600;">All blog posts →</a>
+        <a href="consulting.html" style="color:var(--primary-color); font-weight:600;">Hire me for consulting →</a>
+        <a href="index.html" style="color:var(--primary-color); font-weight:600;">Go home →</a>
+      </div>
+    </div>
+  </main>
+${sharedNavScript()}
+</body>
+</html>`;
+}
+
+// ============================================================
+// sitemap entries — build progressively
+// ============================================================
 const staticPages = [
-  { url: `${BASE_URL}/`, lastmod: new Date().toISOString().split('T')[0], priority: '1.0' },
-  { url: `${BASE_URL}/blog.html`, lastmod: new Date().toISOString().split('T')[0], priority: '0.9' },
-  { url: `${BASE_URL}/consulting.html`, lastmod: new Date().toISOString().split('T')[0], priority: '0.9' },
+  { url: `${BASE_URL}/`, lastmod: TODAY, priority: '1.0' },
+  { url: `${BASE_URL}/blog.html`, lastmod: TODAY, priority: '0.9' },
+  { url: `${BASE_URL}/consulting.html`, lastmod: TODAY, priority: '0.9' },
 ];
 
 function gitLastmod(filePath) {
@@ -196,7 +442,7 @@ function gitLastmod(filePath) {
     const out = execSync(`git log --format="%ai" -1 -- "${filePath}"`, { encoding: 'utf8' }).trim();
     if (out) return out.slice(0, 10);
   } catch (_) {}
-  return new Date().toISOString().slice(0, 10);
+  return TODAY;
 }
 
 const blogSitemapEntries = blogs.map(b => ({
@@ -205,21 +451,9 @@ const blogSitemapEntries = blogs.map(b => ({
   priority: '0.8'
 }));
 
-const changefreqMap = { '1.0': 'weekly', '0.9': 'weekly', '0.8': 'monthly' };
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticPages, ...blogSitemapEntries].map(e => `  <url>
-    <loc>${e.url}</loc>
-    <lastmod>${e.lastmod}</lastmod>
-    <changefreq>${changefreqMap[e.priority] || 'monthly'}</changefreq>
-    <priority>${e.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`;
-
-fs.writeFileSync('sitemap.xml', sitemap);
-console.log(`✅ sitemap.xml — ${staticPages.length + blogSitemapEntries.length} URLs`);
-
-// --- feed.xml ---
+// ============================================================
+// feed.xml
+// ============================================================
 const items = blogs.map(b => {
   const url = `${BASE_URL}/blogs/${b.id}.html`;
   const pubDate = new Date(b.date).toUTCString();
@@ -253,7 +487,9 @@ ${items}
 fs.writeFileSync('feed.xml', feed);
 console.log(`✅ feed.xml — ${blogs.length} items`);
 
-// --- static blog HTML pages ---
+// ============================================================
+// static blog HTML pages
+// ============================================================
 let generated = 0;
 for (const blog of blogs) {
   const mdPath = `blogs/${blog.file}`;
@@ -272,7 +508,70 @@ for (const blog of blogs) {
 }
 console.log(`✅ static blog pages — ${generated} HTML files written to blogs/`);
 
-// --- blog.html: inject ItemList JSON-LD ---
+// ============================================================
+// category pages
+// ============================================================
+if (!fs.existsSync('categories')) fs.mkdirSync('categories');
+const categories = {};
+for (const b of blogs) {
+  if (!categories[b.category]) categories[b.category] = [];
+  categories[b.category].push(b);
+}
+const categorySitemapEntries = [];
+for (const [cat, posts] of Object.entries(categories)) {
+  const slug = slugify(cat);
+  fs.writeFileSync(`categories/${slug}.html`, categoryPageHtml(cat, posts));
+  categorySitemapEntries.push({ url: `${BASE_URL}/categories/${slug}.html`, lastmod: TODAY, priority: '0.7' });
+}
+console.log(`✅ category pages — ${Object.keys(categories).length} pages written to categories/`);
+
+// ============================================================
+// tag pages
+// ============================================================
+if (!fs.existsSync('tags')) fs.mkdirSync('tags');
+const tagMap = {};
+for (const b of blogs) {
+  for (const t of (b.tags || [])) {
+    if (!tagMap[t]) tagMap[t] = [];
+    tagMap[t].push(b);
+  }
+}
+const tagSitemapEntries = [];
+for (const [tag, posts] of Object.entries(tagMap)) {
+  const slug = slugify(tag);
+  fs.writeFileSync(`tags/${slug}.html`, tagPageHtml(tag, posts));
+  tagSitemapEntries.push({ url: `${BASE_URL}/tags/${slug}.html`, lastmod: TODAY, priority: '0.6' });
+}
+console.log(`✅ tag pages — ${Object.keys(tagMap).length} pages written to tags/`);
+
+// ============================================================
+// 404 page
+// ============================================================
+const recentPosts = [...blogs].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
+fs.writeFileSync('404.html', notFoundPageHtml(recentPosts));
+console.log(`✅ 404.html — generated with ${recentPosts.length} recent posts`);
+
+// ============================================================
+// sitemap.xml — all pages
+// ============================================================
+const changefreqMap = { '1.0': 'weekly', '0.9': 'weekly', '0.8': 'monthly', '0.7': 'weekly', '0.6': 'monthly' };
+const allSitemapEntries = [...staticPages, ...blogSitemapEntries, ...categorySitemapEntries, ...tagSitemapEntries];
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allSitemapEntries.map(e => `  <url>
+    <loc>${e.url}</loc>
+    <lastmod>${e.lastmod}</lastmod>
+    <changefreq>${changefreqMap[e.priority] || 'monthly'}</changefreq>
+    <priority>${e.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+fs.writeFileSync('sitemap.xml', sitemap);
+console.log(`✅ sitemap.xml — ${allSitemapEntries.length} URLs`);
+
+// ============================================================
+// blog.html: inject ItemList JSON-LD
+// ============================================================
 const itemListJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -287,7 +586,61 @@ const itemListJsonLd = JSON.stringify({
   }))
 });
 let blogHtml = fs.readFileSync('blog.html', 'utf8');
-// Replace either the placeholder (first run) or previous JSON-LD (subsequent runs)
 blogHtml = blogHtml.replace(/<!--BLOG_ITEMLIST_JSONLD-->|(\{"@context":"https:\/\/schema\.org","@type":"ItemList"[\s\S]*?\})/, itemListJsonLd);
 fs.writeFileSync('blog.html', blogHtml);
 console.log(`✅ blog.html — ItemList JSON-LD injected (${blogs.length} entries)`);
+
+// ============================================================
+// index.html: inject recent posts widget + WebSite schema
+// ============================================================
+const recentPostsHtml = `<!-- RECENT_POSTS_START -->
+    <section style="padding:4rem 0; background:var(--bg-darker);">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Recent Posts</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; max-width:960px; margin:0 auto;">
+          ${recentPosts.slice(0, 3).map(b => `<a href="blogs/${b.id}.html" style="display:block; padding:1.5rem; background:var(--bg-color); border:1px solid #414868; border-radius:8px; text-decoration:none; transition:border-color 0.2s;">
+            <span style="color:var(--accent-color); font-size:0.78rem; font-family:monospace;">${escape(b.category)}</span>
+            <h3 style="color:var(--heading-color); font-size:1rem; margin:0.5rem 0; line-height:1.4;">${escape(b.title)}</h3>
+            <p style="color:var(--text-color); font-size:0.85rem; margin:0 0 0.75rem; line-height:1.5;">${escape(b.excerpt.slice(0, 100))}…</p>
+            <span style="color:var(--primary-color); font-size:0.82rem;">${new Date(b.date).toLocaleDateString('en-US', { year:'numeric', month:'short' })}</span>
+          </a>`).join('')}
+        </div>
+        <p style="text-align:center; margin-top:2rem;"><a href="blog.html" style="color:var(--primary-color); font-weight:600;">View all ${blogs.length} posts →</a></p>
+      </div>
+    </section>
+    <!-- RECENT_POSTS_END -->`;
+
+let indexHtml = fs.readFileSync('index.html', 'utf8');
+// Replace between markers on subsequent runs, or inject before footer on first run
+if (indexHtml.includes('<!-- RECENT_POSTS_START -->')) {
+  indexHtml = indexHtml.replace(/<!-- RECENT_POSTS_START -->[\s\S]*?<!-- RECENT_POSTS_END -->/, recentPostsHtml);
+} else {
+  indexHtml = indexHtml.replace('    <!-- Footer -->', `${recentPostsHtml}\n\n    <!-- Footer -->`);
+}
+
+// Inject WebSite JSON-LD with SearchAction if not already present
+if (!indexHtml.includes('"@type":"WebSite"')) {
+  const websiteJsonLd = `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Roshan Nagekar",
+    "url": BASE_URL,
+    "description": "DevOps Consultant & Trainer — Remote. 15+ years experience in Kubernetes, CI/CD, cloud, and DevSecOps.",
+    "author": { "@type": "Person", "name": "Roshan Nagekar" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": `${BASE_URL}/blog.html?q={search_term_string}` },
+      "query-input": "required name=search_term_string"
+    }
+  })}</script>`;
+  indexHtml = indexHtml.replace('</head>', `  ${websiteJsonLd}\n</head>`);
+}
+
+// Update robots meta to include max-snippet on index.html
+indexHtml = indexHtml.replace(
+  '<meta name="robots" content="index, follow">',
+  '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">'
+);
+
+fs.writeFileSync('index.html', indexHtml);
+console.log(`✅ index.html — recent posts widget + WebSite JSON-LD injected`);

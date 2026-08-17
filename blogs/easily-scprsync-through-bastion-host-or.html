@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
   <title>Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops | Roshan Nagekar</title>
   <meta name="description" content="Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...">
@@ -30,8 +30,8 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","description":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html","keywords":"hop, rsync, scp, SSH, ssh tunnel","wordCount":206,"timeRequired":"PT2M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","item":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","description":"Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html","keywords":"hop, rsync, scp, SSH, ssh tunnel","wordCount":206,"timeRequired":"PT2M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Programming","item":"https://iamrawtion.github.io/categories/programming.html"},{"@type":"ListItem","position":4,"name":"Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops","item":"https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html"}]}</script>
 </head>
 <body>
   <div class="terminal-nav">
@@ -67,21 +67,26 @@
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/programming.html" style="color:var(--primary-color);">Programming</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <span style="color:var(--text-color);">Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops</span>
       </nav>
       <article>
         <header style="margin-bottom:2rem;">
           <div style="margin-bottom:0.75rem;">
-            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Programming</span>
-            <span class="tag" style="margin-left:0.4rem;">hop</span><span class="tag" style="margin-left:0.4rem;">rsync</span><span class="tag" style="margin-left:0.4rem;">scp</span><span class="tag" style="margin-left:0.4rem;">SSH</span><span class="tag" style="margin-left:0.4rem;">ssh tunnel</span>
+            <a href="../categories/programming.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">Programming</a>
+            <a href="../tags/hop.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">hop</a><a href="../tags/rsync.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">rsync</a><a href="../tags/scp.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">scp</a><a href="../tags/ssh.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">SSH</a><a href="../tags/ssh-tunnel.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">ssh tunnel</a>
           </div>
           <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Easily SCP/Rsync through bastion host or SCP/Rsync through multiple hops</h1>
           <p style="color:var(--text-color); font-size:0.9rem;">
             <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
-            February 20, 2019
+            <time datetime="2019-02-20">February 20, 2019</time>
             &nbsp;·&nbsp;
             <i class="fas fa-user" style="color:var(--primary-color);"></i>
             Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            2 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">

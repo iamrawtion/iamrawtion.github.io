@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
   <title>Infrastructure Monitoring with Nagios | Roshan Nagekar</title>
   <meta name="description" content="Image Credits : xmodulo Server management is a real pain and the pain keeps getting worse with more and more server getting added to the...">
@@ -30,8 +30,8 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Infrastructure Monitoring with Nagios","description":"Image Credits : xmodulo Server management is a real pain and the pain keeps getting worse with more and more server getting added to the...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-10-10","url":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html","keywords":"Configuration Management, CPU, Devops, Infrastructure, Monitoring, Nagios, Open Source, Operations, RAM, Server, SLA, Troubleshooting, Uptime","wordCount":990,"timeRequired":"PT5M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Infrastructure Monitoring with Nagios","item":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Infrastructure Monitoring with Nagios","description":"Image Credits : xmodulo Server management is a real pain and the pain keeps getting worse with more and more server getting added to the...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-10-10","url":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html","keywords":"Configuration Management, CPU, Devops, Infrastructure, Monitoring, Nagios, Open Source, Operations, RAM, Server, SLA, Troubleshooting, Uptime","wordCount":990,"timeRequired":"PT5M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Infrastructure Monitoring with Nagios","item":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html"}]}</script>
 </head>
 <body>
   <div class="terminal-nav">
@@ -67,21 +67,26 @@
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/devops.html" style="color:var(--primary-color);">DevOps</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <span style="color:var(--text-color);">Infrastructure Monitoring with Nagios</span>
       </nav>
       <article>
         <header style="margin-bottom:2rem;">
           <div style="margin-bottom:0.75rem;">
-            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
-            <span class="tag" style="margin-left:0.4rem;">Configuration Management</span><span class="tag" style="margin-left:0.4rem;">CPU</span><span class="tag" style="margin-left:0.4rem;">Devops</span><span class="tag" style="margin-left:0.4rem;">Infrastructure</span><span class="tag" style="margin-left:0.4rem;">Monitoring</span><span class="tag" style="margin-left:0.4rem;">Nagios</span><span class="tag" style="margin-left:0.4rem;">Open Source</span><span class="tag" style="margin-left:0.4rem;">Operations</span><span class="tag" style="margin-left:0.4rem;">RAM</span><span class="tag" style="margin-left:0.4rem;">Server</span><span class="tag" style="margin-left:0.4rem;">SLA</span><span class="tag" style="margin-left:0.4rem;">Troubleshooting</span><span class="tag" style="margin-left:0.4rem;">Uptime</span>
+            <a href="../categories/devops.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">DevOps</a>
+            <a href="../tags/configuration-management.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Configuration Management</a><a href="../tags/cpu.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">CPU</a><a href="../tags/devops.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Devops</a><a href="../tags/infrastructure.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Infrastructure</a><a href="../tags/monitoring.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Monitoring</a><a href="../tags/nagios.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Nagios</a><a href="../tags/open-source.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Open Source</a><a href="../tags/operations.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Operations</a><a href="../tags/ram.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">RAM</a><a href="../tags/server.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Server</a><a href="../tags/sla.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">SLA</a><a href="../tags/troubleshooting.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Troubleshooting</a><a href="../tags/uptime.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Uptime</a>
           </div>
           <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Infrastructure Monitoring with Nagios</h1>
           <p style="color:var(--text-color); font-size:0.9rem;">
             <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
-            October 10, 2015
+            <time datetime="2015-10-10">October 10, 2015</time>
             &nbsp;·&nbsp;
             <i class="fas fa-user" style="color:var(--primary-color);"></i>
             Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            5 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">

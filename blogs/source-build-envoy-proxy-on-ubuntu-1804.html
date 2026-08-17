@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
   <title>Source build Envoy proxy on Ubuntu 18.04 | Roshan Nagekar</title>
   <meta name="description" content="sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo &quot;deb [arch=amd64]...">
@@ -30,8 +30,8 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Source build Envoy proxy on Ubuntu 18.04","description":"sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo \"deb [arch=amd64]...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html","keywords":"envoy, load balancer, proxy, source build, ubuntu","wordCount":126,"timeRequired":"PT1M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Source build Envoy proxy on Ubuntu 18.04","item":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Source build Envoy proxy on Ubuntu 18.04","description":"sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo \"deb [arch=amd64]...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html","keywords":"envoy, load balancer, proxy, source build, ubuntu","wordCount":126,"timeRequired":"PT1M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Source build Envoy proxy on Ubuntu 18.04","item":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html"}]}</script>
 </head>
 <body>
   <div class="terminal-nav">
@@ -67,21 +67,26 @@
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
         <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/devops.html" style="color:var(--primary-color);">DevOps</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
         <span style="color:var(--text-color);">Source build Envoy proxy on Ubuntu 18.04</span>
       </nav>
       <article>
         <header style="margin-bottom:2rem;">
           <div style="margin-bottom:0.75rem;">
-            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
-            <span class="tag" style="margin-left:0.4rem;">envoy</span><span class="tag" style="margin-left:0.4rem;">load balancer</span><span class="tag" style="margin-left:0.4rem;">proxy</span><span class="tag" style="margin-left:0.4rem;">source build</span><span class="tag" style="margin-left:0.4rem;">ubuntu</span>
+            <a href="../categories/devops.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">DevOps</a>
+            <a href="../tags/envoy.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">envoy</a><a href="../tags/load-balancer.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">load balancer</a><a href="../tags/proxy.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">proxy</a><a href="../tags/source-build.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">source build</a><a href="../tags/ubuntu.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">ubuntu</a>
           </div>
           <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Source build Envoy proxy on Ubuntu 18.04</h1>
           <p style="color:var(--text-color); font-size:0.9rem;">
             <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
-            February 20, 2019
+            <time datetime="2019-02-20">February 20, 2019</time>
             &nbsp;·&nbsp;
             <i class="fas fa-user" style="color:var(--primary-color);"></i>
             Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            1 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
