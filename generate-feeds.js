@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Run after adding new blogs: node generate-feeds.js
 const fs = require('fs');
+const { execSync } = require('child_process');
 const { marked } = require('marked');
 
 const blogs = JSON.parse(fs.readFileSync('blogs/blogs.json', 'utf8'));
@@ -13,7 +14,7 @@ const escape = s => String(s)
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
-function blogPostHtml(blog, bodyHtml, allBlogs) {
+function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1) {
   const BASE = 'https://iamrawtion.github.io';
   const url = `${BASE}/blogs/${blog.id}.html`;
   const desc = blog.excerpt.replace(/"/g, '&quot;').slice(0, 160);
@@ -56,6 +57,8 @@ function blogPostHtml(blog, bodyHtml, allBlogs) {
     "datePublished": blog.date,
     "url": url,
     "keywords": tags,
+    "wordCount": wordCount,
+    "timeRequired": `PT${readMinutes}M`,
     "publisher": { "@type": "Person", "name": "Roshan Nagekar" }
   });
 
@@ -82,7 +85,9 @@ function blogPostHtml(blog, bodyHtml, allBlogs) {
   <meta name="twitter:title" content="${escape(blog.title)}">
   <meta name="twitter:description" content="${desc}">
   <meta name="twitter:image" content="${BASE}/profile.jpg">
+  <meta name="author" content="Roshan Nagekar">
   <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="${BASE}/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="${BASE}/opensearch.xml">
   <link rel="stylesheet" href="../styles.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -186,9 +191,17 @@ const staticPages = [
   { url: `${BASE_URL}/consulting.html`, lastmod: new Date().toISOString().split('T')[0], priority: '0.9' },
 ];
 
+function gitLastmod(filePath) {
+  try {
+    const out = execSync(`git log --format="%ai" -1 -- "${filePath}"`, { encoding: 'utf8' }).trim();
+    if (out) return out.slice(0, 10);
+  } catch (_) {}
+  return new Date().toISOString().slice(0, 10);
+}
+
 const blogSitemapEntries = blogs.map(b => ({
   url: `${BASE_URL}/blogs/${b.id}.html`,
-  lastmod: b.date,
+  lastmod: gitLastmod(`blogs/${b.file}`),
   priority: '0.8'
 }));
 
@@ -250,8 +263,10 @@ for (const blog of blogs) {
   }
   const raw = fs.readFileSync(mdPath, 'utf8');
   const body = raw.replace(/^---[\s\S]*?---\n/, '');
+  const wordCount = body.split(/\s+/).filter(Boolean).length;
+  const readMinutes = Math.max(1, Math.ceil(wordCount / 200));
   const bodyHtml = marked(body);
-  const html = blogPostHtml(blog, bodyHtml, blogs);
+  const html = blogPostHtml(blog, bodyHtml, blogs, wordCount, readMinutes);
   fs.writeFileSync(`blogs/${blog.id}.html`, html);
   generated++;
 }

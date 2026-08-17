@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Roshan Nagekar Blog</ShortName>
+  <Description>Search DevOps, Kubernetes, Cloud, and Security posts by Roshan Nagekar</Description>
+  <Tags>devops kubernetes cloud security devsecops cicd</Tags>
+  <Contact>iamrawtion@gmail.com</Contact>
+  <Url type="text/html" template="https://iamrawtion.github.io/blog.html?q={searchTerms}"/>
+  <Image height="16" width="16" type="image/x-icon">https://iamrawtion.github.io/favicon.ico</Image>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
