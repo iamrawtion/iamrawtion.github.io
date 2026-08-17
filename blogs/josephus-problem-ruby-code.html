@@ -6,13 +6,13 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
   <title>Josephus Problem Ruby Code | Roshan Nagekar</title>
-  <meta name="description" content="Ruby code for solving josephus problem. Although the presentation isn't good enough. This was my first Ruby exercise so ignore the mistakes in it......">
+  <meta name="description" content="A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/acm-icpc-3.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/ruby-and-sinatra-example-of-automatic.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Josephus Problem Ruby Code">
-  <meta property="og:description" content="Ruby code for solving josephus problem. Although the presentation isn't good enough. This was my first Ruby exercise so ignore the mistakes in it......">
+  <meta property="og:description" content="A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
@@ -25,10 +25,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
   <meta name="twitter:title" content="Josephus Problem Ruby Code">
-  <meta name="twitter:description" content="Ruby code for solving josephus problem. Although the presentation isn't good enough. This was my first Ruby exercise so ignore the mistakes in it......">
+  <meta name="twitter:description" content="A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
-  <meta name="twitter:data1" content="1 min read">
+  <meta name="twitter:data1" content="5 min read">
   <meta name="twitter:label2" content="Category">
   <meta name="twitter:data2" content="Programming">
   <meta name="author" content="Roshan Nagekar">
@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Josephus Problem Ruby Code","description":"Ruby code for solving josephus problem. Although the presentation isn't good enough. This was my first Ruby exercise so ignore the mistakes in it......","articleSection":"Programming","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-08-27","url":"https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html","keywords":"Ruby, Programming, Technology","wordCount":115,"timeRequired":"PT1M","articleBody":"Ruby code for solving josephus problem. Although the presentation isn&#39;t good enough. This was my first Ruby exercise so ignore the mistakes in it... :P #! /usr/bin/ruby -w class List attr_accessor :element,:next_element,:last_element def initialize(element) @element = element @next_element = nil @last_element = nil end end number = ARGV[0] number=number.to_i first = List.new(1) temp = first for i in 2..number temp=temp.next_element = List.new(i) end temp.next_element = temp.last_element temp.next_element = first temp = first count=0 while temp.next_element.next_element != temp count = count + 2 if count % 100 == 0 puts &quot;100 killed total count #{number+1}&quot; temp.last_element= List.new(number = number + 1 ) end temp = temp.next_element = temp.next_element.next_element = temp.next_element.next_element.next_element end STDOUT.puts &quot;last one is #{temp.element.to_s}&quot;","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Josephus Problem Ruby Code","description":"A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.","articleSection":"Programming","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-08-27","url":"https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html","keywords":"Ruby, Programming, Technology","wordCount":945,"timeRequired":"PT5M","articleBody":"Ruby code for solving josephus problem. Although the presentation isn&#39;t good enough. This was my first Ruby exercise so ignore the mistakes in it... :P #! /usr/bin/ruby -w class List attr_accessor :element,:next_element,:last_element def initialize(element) @element = element @next_element = nil @last_element = nil end end number = ARGV[0] number=number.to_i first = List.new(1) temp = first for i in 2..number temp=temp.next_element = List.new(i) end temp.next_element = temp.last_element temp.next_element = first temp = first count=0 while temp.next_element.next_element != temp count = count + 2 if count % 100 == 0 puts &quot;100 killed total count #{number+1}&quot; temp.last_element= List.new(number = number + 1 ) end temp = temp.next_element = temp.next_element.next_element = temp.next_element.next_element.next_element end STDOUT.puts &quot;last one is #{temp.element.to_s}&quot; What Is the Josephus Problem? The Josephus problem has one of the more dramatic origin stories in mathematics. According to the Jewish historian Flavius Josephus, during the Romano-Jewish War of 67 CE, he and 40 soldiers were trapped in a cave by Roman forces. Rather than surrender, the group agreed to form a circle and kill every other person until only one remained — who would then surrender. Josephus, allegedly with some quick mathematical thinking, chose his position in the circle such that he would be the last one standing. He then surrendered to the Romans and lived to write about it. Whether the story is accurate or embellished, the problem it describes became a classic in combinatorics and computer science: given n people standing in a circle, and starting from position 1, every k -th person is eliminated. Where should you stand to be the last one eliminated? The most common version (and the one in the code above) uses k=2, meaning every second person is eliminated. It shows up frequently in programming interviews and algorithm courses because it exercises several skills at once: circular data structure manipulation, understanding loop termination conditions, and reasoning about off-by-one errors. It is simple enough to state in one sentence but subtle enough to implement incorrectly on a first pass. More reading: Josephus problem on Wikipedia and a thorough walkthrough at GeeksforGeeks . How the Code Works The implementation above uses a linked-list approach to simulate the circle directly. Here is what each part does: The List class models a single node in the circular linked list. Each node holds its value ( element ) and references to the next node ( next_element ) and the previous node ( last_element ). The naming is a little unconventional — last_element is used as a tail pointer during construction rather than strictly as a &quot;previous&quot; reference — which is part of what the author acknowledged as a first-pass implementation. Building the circle: The loop for i in 2..number appends nodes 2 through n to the list. After the loop, temp.next_element = first closes the circle by pointing the tail back to the head, giving you a circular linked list of n people. The elimination loop: while temp.next_element.next_element != temp keeps running as long as there are at least two other people ahead of the current node. Inside, the key line temp = temp.next_element = temp.next_element.next_element = temp.next_element.next_element.next_element does the heavy lifting: it skips one person (the one being eliminated) and advances the current pointer to the next survivor. The eliminated node is effectively bypassed because no remaining reference points to it. The counter: Every 100 eliminations, the code inserts a new node with an incrementing number. This appears to be an experiment with extending the list dynamically rather than a standard Josephus implementation — a sign of exploring the data structure rather than just solving the problem. The output: STDOUT.puts &quot;last one is #{temp.element.to_s}&quot; prints the value of whichever node remains when the loop exits. Alternative Approaches The linked-list simulation works but has O(n) time and space complexity. There is a well-known mathematical shortcut for the k=2 case that runs in O(log n): Given n people, find the largest power of 2 less than or equal to n, call it 2^p . The safe position is: result = 2 * (n - 2^p) + 1 In Ruby: def josephus_math(n) p = Math.log2(n).floor 2 * (n - 2**p) + 1 end puts josephus_math(40) # =&gt; 17, which is where Josephus supposedly stood There is also a clean recursive formulation for the general k=2 case: def josephus(n) return 1 if n == 1 (josephus(n - 1) + 1) % n + 1 end puts josephus(7) # =&gt; 7 This recursion works because after the first elimination, you have a smaller version of the same problem with a shifted starting position. The formula accounts for that shift at each level of recursion. When This Pattern Appears The Josephus problem is not just a historical curiosity. The same circular-elimination pattern shows up in prac","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Programming","item":"https://iamrawtion.github.io/categories/programming.html"},{"@type":"ListItem","position":4,"name":"Josephus Problem Ruby Code","item":"https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html"}]}</script>
 </head>
 <body>
@@ -62,7 +62,7 @@
     </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
-      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
       <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
       <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
       <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
@@ -96,10 +96,16 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            1 min read
+            5 min read
           </p>
         </header>
         
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#what-is-the-josephus-problem" style="color:var(--primary-color); text-decoration:none;">What Is the Josephus Problem?</a></li><li style="margin-bottom:0.35rem;"><a href="#how-the-code-works" style="color:var(--primary-color); text-decoration:none;">How the Code Works</a></li><li style="margin-bottom:0.35rem;"><a href="#alternative-approaches" style="color:var(--primary-color); text-decoration:none;">Alternative Approaches</a></li><li style="margin-bottom:0.35rem;"><a href="#when-this-pattern-appears" style="color:var(--primary-color); text-decoration:none;">When This Pattern Appears</a></li>
+      </ol>
+    </nav>
         <div class="blog-post-content markdown-body">
           <p>Ruby code for solving josephus problem. Although the presentation isn&#39;t good enough. This was my first Ruby exercise so ignore the mistakes in it... :P</p>
 <p>#! /usr/bin/ruby -w
@@ -131,6 +137,46 @@ while temp.next_element.next_element != temp
   temp = temp.next_element = temp.next_element.next_element = temp.next_element.next_element.next_element
 end
 STDOUT.puts &quot;last one is #{temp.element.to_s}&quot;</p>
+<h2 id="what-is-the-josephus-problem">What Is the Josephus Problem?</h2>
+<p>The Josephus problem has one of the more dramatic origin stories in mathematics. According to the Jewish historian Flavius Josephus, during the Romano-Jewish War of 67 CE, he and 40 soldiers were trapped in a cave by Roman forces. Rather than surrender, the group agreed to form a circle and kill every other person until only one remained — who would then surrender. Josephus, allegedly with some quick mathematical thinking, chose his position in the circle such that he would be the last one standing. He then surrendered to the Romans and lived to write about it.</p>
+<p>Whether the story is accurate or embellished, the problem it describes became a classic in combinatorics and computer science: given <em>n</em> people standing in a circle, and starting from position 1, every <em>k</em>-th person is eliminated. Where should you stand to be the last one eliminated?</p>
+<p>The most common version (and the one in the code above) uses k=2, meaning every second person is eliminated. It shows up frequently in programming interviews and algorithm courses because it exercises several skills at once: circular data structure manipulation, understanding loop termination conditions, and reasoning about off-by-one errors. It is simple enough to state in one sentence but subtle enough to implement incorrectly on a first pass.</p>
+<p>More reading: <a href="https://en.wikipedia.org/wiki/Josephus_problem">Josephus problem on Wikipedia</a> and a thorough walkthrough at <a href="https://www.geeksforgeeks.org/josephus-problem/">GeeksforGeeks</a>.</p>
+<h2 id="how-the-code-works">How the Code Works</h2>
+<p>The implementation above uses a linked-list approach to simulate the circle directly. Here is what each part does:</p>
+<p><strong>The <code>List</code> class</strong> models a single node in the circular linked list. Each node holds its value (<code>element</code>) and references to the next node (<code>next_element</code>) and the previous node (<code>last_element</code>). The naming is a little unconventional — <code>last_element</code> is used as a tail pointer during construction rather than strictly as a &quot;previous&quot; reference — which is part of what the author acknowledged as a first-pass implementation.</p>
+<p><strong>Building the circle:</strong> The loop <code>for i in 2..number</code> appends nodes 2 through n to the list. After the loop, <code>temp.next_element = first</code> closes the circle by pointing the tail back to the head, giving you a circular linked list of n people.</p>
+<p><strong>The elimination loop:</strong> <code>while temp.next_element.next_element != temp</code> keeps running as long as there are at least two other people ahead of the current node. Inside, the key line <code>temp = temp.next_element = temp.next_element.next_element = temp.next_element.next_element.next_element</code> does the heavy lifting: it skips one person (the one being eliminated) and advances the current pointer to the next survivor. The eliminated node is effectively bypassed because no remaining reference points to it.</p>
+<p><strong>The counter:</strong> Every 100 eliminations, the code inserts a new node with an incrementing number. This appears to be an experiment with extending the list dynamically rather than a standard Josephus implementation — a sign of exploring the data structure rather than just solving the problem.</p>
+<p><strong>The output:</strong> <code>STDOUT.puts &quot;last one is #{temp.element.to_s}&quot;</code> prints the value of whichever node remains when the loop exits.</p>
+<h2 id="alternative-approaches">Alternative Approaches</h2>
+<p>The linked-list simulation works but has O(n) time and space complexity. There is a well-known mathematical shortcut for the k=2 case that runs in O(log n):</p>
+<p>Given n people, find the largest power of 2 less than or equal to n, call it <code>2^p</code>. The safe position is:</p>
+<pre><code>result = 2 * (n - 2^p) + 1
+</code></pre>
+<p>In Ruby:</p>
+<pre><code class="language-ruby">def josephus_math(n)
+  p = Math.log2(n).floor
+  2 * (n - 2**p) + 1
+end
+
+puts josephus_math(40)  # =&gt; 17, which is where Josephus supposedly stood
+</code></pre>
+<p>There is also a clean recursive formulation for the general k=2 case:</p>
+<pre><code class="language-ruby">def josephus(n)
+  return 1 if n == 1
+  (josephus(n - 1) + 1) % n + 1
+end
+
+puts josephus(7)  # =&gt; 7
+</code></pre>
+<p>This recursion works because after the first elimination, you have a smaller version of the same problem with a shifted starting position. The formula accounts for that shift at each level of recursion.</p>
+<h2 id="when-this-pattern-appears">When This Pattern Appears</h2>
+<p>The Josephus problem is not just a historical curiosity. The same circular-elimination pattern shows up in practical computer science contexts:</p>
+<p><strong>Round-robin scheduling:</strong> Operating systems often distribute CPU time, network bandwidth, or task queues across processes in a circular fashion. Knowing where you are in a rotation and how to reason about circular order is directly applicable.</p>
+<p><strong>Hot potato / token passing:</strong> In distributed systems, a token is sometimes passed around a ring of nodes to control write access or resource usage. Understanding the elimination dynamics of circular traversal helps reason about deadlock and starvation scenarios.</p>
+<p><strong>Circular buffer management:</strong> Ring buffers — used in everything from audio processing to network packet queues — wrap around when they hit their endpoint. The pointer arithmetic involved is the same kind of modular thinking the Josephus problem trains.</p>
+<p><strong>Interview problems involving rotation:</strong> Many array-rotation problems, &quot;find the missing element in a rotated array&quot; questions, and similar interview prompts are structurally related to circular traversal. Working through Josephus gives you intuition for this class of problem.</p>
 
         </div>
         

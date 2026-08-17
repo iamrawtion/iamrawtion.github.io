@@ -17,6 +17,44 @@ const escape = s => String(s)
 
 const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+// Schema type overrides: HowTo for step-by-step guides, TechArticle for deep technical posts
+const SCHEMA_TYPE_MAP = {
+  // HowTo — step-by-step procedural guides
+  'install-cobbler-2610-on-ubuntu-1404': 'HowTo',
+  'setting-up-your-own-ftp-server-ubuntu': 'HowTo',
+  'local-drupal-setup': 'HowTo',
+  'build-your-own-private-cloud-with-1': 'HowTo',
+  'build-your-own-private-cloud-with-2': 'HowTo',
+  'install-patched-ruby-interpreter-with': 'HowTo',
+  'one-click-ansible-authorization-for': 'HowTo',
+  'easily-scprsync-through-bastion-host-or': 'HowTo',
+  'sample-docker-compose-guide': 'HowTo',
+  'rhce-preparation': 'HowTo',
+  'data-recovery-with-testdisk': 'HowTo',
+  // TechArticle — in-depth technical explanations
+  'credential-bleed-mcp-server-trust': 'TechArticle',
+  'source-build-envoy-proxy-on-ubuntu-1804': 'TechArticle',
+  'skenai-devsecops-walkthrough': 'TechArticle',
+  'skenais-role-in-devsecops-cicd-pipeline': 'TechArticle',
+  'aws-tagger': 'TechArticle',
+  'software-configuration-management-system': 'TechArticle',
+  'infrastructure-monitoring-with-nagios': 'TechArticle',
+  'automation-for-vmware-vcloud-director': 'TechArticle',
+  '27': 'TechArticle',
+  'integrating-docker-with-chef': 'TechArticle',
+  'configuration-management-with-ansible': 'TechArticle',
+  'checking-open-ports-on-remote-computer': 'TechArticle',
+  'monitoring-in-linuxunix-environment': 'TechArticle',
+  'public-private-and-hybrid-cloud': 'TechArticle',
+  'hadoop-10': 'TechArticle',
+  'creating-exactly-similar-snapshot-of': 'TechArticle',
+  's3cmd-to-push-large-files-greater-then': 'TechArticle',
+  'devsecops-pune-meetup-1': 'TechArticle',
+  'devsecops-pune-meetup-2': 'TechArticle',
+  'devsecops-pune-meetup-3': 'TechArticle',
+  'devsecops-pune-meetup-4': 'TechArticle',
+};
+
 // --- shared nav/head helpers ---
 function sharedHead({ title, desc, url, canonical, depth = '' }) {
   return `  <meta charset="UTF-8">
@@ -65,7 +103,7 @@ function sharedNav(depth = '') {
     </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="${depth}index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
-      <li><a href="${depth}index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="${depth}about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
       <li><a href="${depth}index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
       <li><a href="${depth}index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
       <li><a href="${depth}blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
@@ -159,9 +197,10 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
   });
 
   const plainText = bodyHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 5000);
+  const schemaType = SCHEMA_TYPE_MAP[blog.id] || 'BlogPosting';
   const postJsonLd = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": schemaType,
     "inLanguage": "en",
     "headline": blog.title,
     "description": blog.excerpt,
@@ -500,6 +539,7 @@ ${sharedNavScript()}
 // ============================================================
 const staticPages = [
   { url: `${BASE_URL}/`, lastmod: TODAY, priority: '1.0' },
+  { url: `${BASE_URL}/about.html`, lastmod: TODAY, priority: '0.9' },
   { url: `${BASE_URL}/blog.html`, lastmod: TODAY, priority: '0.9' },
   { url: `${BASE_URL}/consulting.html`, lastmod: TODAY, priority: '0.9' },
 ];

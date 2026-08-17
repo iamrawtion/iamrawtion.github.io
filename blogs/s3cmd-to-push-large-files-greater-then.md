@@ -9,7 +9,7 @@ author: "Roshan Nagekar"
 
 **Note:** s3cmd is still useful for older setups and cross-platform scripting, but if you're starting fresh in 2024, the AWS CLI v2 handles multipart uploads natively without any extra tools — see the [Modern Alternatives](#modern-alternatives) section at the bottom.
 
-![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg)
+![Amazon S3 storage buckets illustration](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg)
 
 image credits:  [Stefano Bertolo](https://www.flickr.com/photos/stefanobe/)
 

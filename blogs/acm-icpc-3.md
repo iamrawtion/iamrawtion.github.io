@@ -39,3 +39,37 @@ The canteen was really big and was clean as well.
 The food was awesome.
 Volunteers to serve us the same.
 The coordination was splendid among the volunteers.
+
+## What I Took Away from ICPC
+
+Competitive programming competitions like ICPC leave an impression that goes beyond the problems you solved or the rank you finished at. Looking back, a few things stand out as genuinely valuable.
+
+**Algorithmic thinking under pressure.** The real world rarely gives you a five-hour window to solve a graph problem from scratch, but training for ICPC puts you in that situation repeatedly. Over time, you stop second-guessing yourself on pattern recognition. You see a problem involving shortest paths and you reach for Dijkstra without deliberating. That kind of trained instinct is something that takes months of practice to build and is hard to develop any other way.
+
+**Trusting your first instinct.** With one hour left and three problems unsolved, you do not have the luxury of exploring every possible approach methodically. ICPC teaches you to commit to an approach quickly, implement it cleanly, and debug fast. This is a surprisingly transferable skill — in code reviews, architecture discussions, and production incidents, the ability to make a reasonable decision quickly and adjust if needed is more valuable than perfect deliberation.
+
+**Team coordination under stress.** ICPC is a team contest with a single machine. Three people, one keyboard, and a clock ticking down is a situation that forces very deliberate communication. You have to decide who works on what, when to pair up on a hard problem, and when to cut your losses and move on. The coordination skills that come from this kind of pressure carry over well into any team engineering environment.
+
+## How to Prepare for ICPC (If You're Starting Now)
+
+If you are a student considering competitive programming or preparing for ICPC, the resources available today are far better than they were even a few years ago.
+
+**Practice platforms:** [Codeforces](https://codeforces.com) is the most active competitive programming platform and hosts rated contests several times a week. Start by solving problems at your comfort level and gradually move up in difficulty. Virtual contests let you simulate the timed pressure of a real competition.
+
+**Structured curriculum:** The [USACO Guide](https://usaco.guide) is an excellent free resource organized by topic and difficulty. Even if you are not targeting USACO specifically, the topic-by-topic structure makes it useful for anyone learning algorithms systematically.
+
+**Reference material:** The Competitive Programmer's Handbook by Antti Laaksonen is available as a free PDF and covers almost every topic you will encounter in ICPC — from number theory to geometry to advanced data structures. Read it alongside practice, not instead of it.
+
+**Topics to prioritize:** Graphs (BFS, DFS, shortest paths, spanning trees), dynamic programming (knapsack, LCS, bitmask DP), segment trees and binary indexed trees, number theory (modular arithmetic, sieve of Eratosthenes, GCD), and string algorithms (KMP, Z-function) cover the bulk of what appears at regionals.
+
+## ICPC vs. LeetCode-style Interview Prep
+
+These two types of competitive programming look similar from the outside but serve different purposes and build different skills.
+
+**Problem style:** ICPC problems tend to be longer, require more reading comprehension, and often involve multiple algorithmic components in a single problem. LeetCode problems are shorter, more self-contained, and designed to test a specific concept in isolation. ICPC problems are harder on average and rarely have the predictable structure of interview questions.
+
+**Time constraints:** In ICPC, you have five hours to solve eight to twelve problems as a team. In a typical coding interview, you have 30 to 45 minutes for one or two problems. The time pressure is different in character — ICPC rewards sustained focus, while interviews reward quick, clean execution.
+
+**Team vs. individual:** ICPC is fundamentally a team sport. Communication, role division, and shared strategy matter. Interviews are individual. The collaborative skills you build in ICPC are real but do not map directly to the interview setting.
+
+**What transfers to industry:** The habit of thinking in complexity terms (will this be fast enough?), recognizing problem patterns, and writing correct code under time pressure all carry over. The more exotic algorithms — heavy-light decomposition, flow networks, computational geometry — appear rarely in industry work but are valuable in domains like infrastructure, games, and data systems.
