@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sken.ai DevSecOps walkthrough | Roshan Nagekar</title>
+  <meta name="description" content="Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sken.ai DevSecOps walkthrough">
+  <meta property="og:description" content="Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2021-01-22">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Sken.ai DevSecOps walkthrough">
+  <meta name="twitter:description" content="Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Sken.ai DevSecOps walkthrough","description":"Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","url":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Sken.ai DevSecOps walkthrough</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            January 22, 2021
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p>Sken.ai Introduction:-</p>
+<p>Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool.
+It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing.</p>
+<p>It is a new and automated DevSecOps tool that provides multi-language scanning features in one place.</p>
+<p>It provides comprehensive Saas based continuous application testing software developers and <strong>DevOps</strong>, without the need for any security expertise.</p>
+<p>It helps to Find and fix all types of application security issues within your DevOps CI/CD cycle.</p>
+<p>It provides a SAAS orchestration layer that integrates continuous application security testing into your DevOps CI/CD workflow automating the use of any open source security scanners across all scan types; SAST, DAST, SCA, MAST, container scanning, license compliance, and secrets detection. </p>
+<p>What will you learn from this article/blog:-</p>
+<ol>
+<li>How to provide security in your CICD pipeline?</li>
+<li>What is SAST/DAST/SCA/MAST and how it works?</li>
+<li>How sken.ai works? Which features and scanners sken.ai provides?</li>
+<li>What vulnerability scanning and penetration testing is?</li>
+<li>List of Top IDE’s used by developers provided by <strong>DevOps</strong>?</li>
+<li>List of version control tools provided by <strong>DevOps</strong>?</li>
+<li>List of Top **CI/CD pipeline tools provided by **DevOps?</li>
+<li>What web application security scanner is?</li>
+</ol>
+<p>Who will need this tool:-</p>
+<p>    There are lots of open-source application security testing tools available in the market. So it&#39;s very hard and confusing to select what exactly we need. Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production.</p>
+<p>Sken.ai provides automated scanning features and Generally, it is used to find out the bugs at early stages of the development of software (coding stage).</p>
+<p>With this code review, the quality of the software gets improved and the bugs/errors in the program code decrease.</p>
+<p>The Code Review Tools automates the review process which in turn minimizes the reviewing task of the code.</p>
+<p>It provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring.</p>
+<p>As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers.</p>
+<p>What does Sken.ai contain:- Here are some detailed points that I have discussed about the Sken.ai.
+It helps to scan every application in any language from any **CI/CD Platform (such as **Jenkins, Bamboo, etc).</p>
+<p>It uses all scan types SAST, DAST, SCA, Secrets, and more to scan at the coding time or the runtime.
+As I said before it enables security by simply adding a 2-line code snippet into CICD to enable the complete range of tests.</p>
+<p>It provides open-source scanners packaged and managed, There&#39;s No need to set up, install or update scanners.</p>
+<p>It selects &amp; auto-discover scanners as per scanning context.</p>
+<p>Sken.ai performs the most comprehensive security scanning and testing of applications during the CI/CD process.</p>
+<p>This includes not only static source code analysis (SAST) and software composition analysis (SCA), but also dynamic security testing (DAST) to uncover run-time security holes as well.</p>
+<p>This ensures that all the common avenues hackers use to execute security breaches are discovered before going to production.</p>
+<p>By providing the relevant scan type at the right stage in the **DevOps and **CI/CD stage, Sken.ai covers more vulnerability and compliance holes than anyone&#39;s capability alone.</p>
+<p>It uses all major development languages &amp; frameworks including <strong>Java</strong>, PHP, <strong>Python</strong>, Microsoft .NET, NodeJS, <strong>Ruby</strong>, GO, and more.</p>
+<p>   </p>
+<p>Sken.ai applies machine learning and data science to normalize and prioritize all the application security issues found across testing categories.</p>
+<p>It provides AI-Based Analysis, and it reduces noise up to 97%.
+It Aggregated scan findings View and filter findings across multiple scans.
+It tracks bugs through code changes and provides standard risk ratings across all scan types.</p>
+<p>DevOps and AppSec teams can manage their entire bug fix and mitigation processes with Sken.ai, including prioritization and risk scoring, bug verification, task assignment through resolution.</p>
+<p>It is Intelligent &amp; prioritized to fix critical findings first.
+It helps users to Manage findings from the Sken.ai portal.</p>
+<p>Here are some Open Source Scanners included in Sken.ai internally:</p>
+<ol>
+<li>SCA: OWASP Dependency Leaks.</li>
+<li>SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint.</li>
+<li>DAST: OWASP ZAP</li>
+<li>Secrets: Gitleaks, Trufflehog.</li>
+</ol>
+<p>Static application security testing (SAST), or static analysis, is a testing methodology that analyzes source code to find security vulnerabilities that make your organization’s applications susceptible to attack.</p>
+<p>SAST scans an application before the code is compiled.
+It’s also known as white box testing.
+SAST takes place very early in the software development life cycle (SDLC) as it does not require a working application and can take place without code being executed.</p>
+<p>It helps developers identify vulnerabilities in the initial stages of development and quickly resolve issues without breaking builds or passing on vulnerabilities to the final release of the application.</p>
+<p>A dynamic analysis security testing tool, or a DAST test, is an application security solution that can help to find certain vulnerabilities in web applications while they are running in production. A DAST test is also known as black-box testing, it is performed from the outside.</p>
+<p>Traditional security scanners are proprietary, expensive, and difficult to use.
+They also need a team of app sec specialists to operate them, thus adding to the total cost.
+Sken.ai uses an innovative approach that uses a combination of popular, effective, and widely used open source security scanners to dramatically reduce the cost.</p>
+<p>Sken.ai provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring.</p>
+<p>Vulnerability scanning is a continuous process that fits throughout an app’s software development life cycle (SDLC). Frequent scanning, especially in the early stages of development before upstream components are layered onto the source code, makes it much easier to fix issues before they become costly problems.
+   </p>
+<p>Sken.ai also provides IAST(Interactive Application Security Testing) Scanners are DAST scanners with some SAST capabilities.</p>
+<p>They test whether known code vulnerabilities can be exploited in the running app.
+Developers often layer API scanners over other tools, such as SAST and DAST, to ensure their APIs stay secure, even after a code or interface change.</p>
+<p>API scanning focuses on uncovering existing and potential security vulnerabilities like SQL Injection, Content-Type Missing, Misused Exception Handling, and Parameter Tampering.</p>
+<p>For development, DevOps helps users to automate source code by providing IDE&#39;s like <a href="https://visualstudio.microsoft.com/">Microsoft Visual Studio</a>, <a href="https://netbeans.org/">NetBeans</a>, <a href="https://www.jetbrains.com/idea/">IntelliJ Idea</a>, <a href="https://www.eclipse.org/">Eclipse</a>, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>, etc.</p>
+<p>For version control management <a href="https://git-scm.com/">Gi</a>t, <a href="https://github.com/">GitHu</a>b, <a href="https://about.gitlab.com/">GitLa</a>b, <a href="https://www.nongnu.org/cvs/">CV</a>S, <a href="https://subversion.apache.org/">SV</a>N, and for **CI/CD pipeline **DevOps provides <a href="https://www.jenkins.io/">Jenkin</a>s, <a href="https://circleci.com/">CircleC</a>I, <a href="https://www.atlassian.com/software/bamboo">Bambo</a>o, <a href="https://travis-ci.org/">Travis C</a>I, etc.</p>
+<p>It enables security with a simple, 2-line code snippet to enable the complete range of tests.
+It provides Comprehensive testing across all scan types SAST, DAST, SCA, Secrets, and more.
+Perform security testing for all major development languages/frameworks.
+Sken.ai application developers are notified of security vulnerabilities as they commit and build their code.</p>
+<p>Also, Sken.ai helps app sec and DevOps respond to the vulnerability alerts, prioritize the issues found, and fix them during the code and build process.</p>
+<p>A **CI/CD pipeline is a series of steps that must be performed to deliver a new version of the software. Continuous integration/continuous delivery (<strong>CI/CD</strong>) pipelines are a practice focused on improving software delivery using either a **DevOps or site reliability engineering (SRE) approach. </p>
+<p>A CI/CD pipeline introduces monitoring and automation to improve the process of application development, particularly at the integration and testing phases, as well as during delivery and deployment.</p>
+<p>Although it is possible to manually execute each of the steps of a **CI/CD pipeline, the true value of **CI/CD pipelines is realized through automation.</p>
+<p>A comprehensive set of application security testing (AST) tools help you test for and remediate security vulnerabilities in your CI/CD pipeline.</p>
+<p>SecDevOps (also known as **DevSecOps and DevOpsSec) is the process of integrating secure development best practices and methodologies into development and deployment processes that **DevOps makes possible. SecDevOps consists of two distinct parts:</p>
+<ol>
+<li>Security as Code (SaC).</li>
+<li>Infrastructure as Code (IaC).</li>
+</ol>
+<p> </p>
+<p>Cybercriminals take no prisoners. According to cybersecurity experts, SecDevOps, or the process of integrating secure development best practices and methodologies into the development and deployment processes, is the best way to do just that. </p>
+<p>Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production.</p>
+<p>A website vulnerability is a weakness or misconfiguration in a website or web application code that allows an attacker to gain some level of control of the site, and possibly the hosting server. </p>
+<p>A web application security scanner is a software program that performs automatic black-box testing on a web application and identifies security vulnerabilities.</p>
+<p>Scanners do not access the source code; they only perform functional testing and try to find security vulnerabilities.</p>
+<p>Various paid and free web application vulnerability scanners are available.
+Security Testing is a type of Software Testing that uncovers vulnerabilities of the system and determines that the data and resources of the system are protected from possible intruders.</p>
+<p>It ensures that the software system and application are free from any threats or risks that can cause a loss.</p>
+<p>Ruby on Rails is the most popular open-source web application framework. It’s built with the **Ruby programming language. Rails help you build websites. **</p>
+<p>Ruby on Rails is an open-source web development framework, which provides <strong>Ruby developers a time-saving alternative to develop code.</strong></p>
+<p>It is a collection of code libraries, which offer a ready-made solution for repetitive tasks like developing tables, forms, or menus on the website.</p>
+<p>Ruby on Rails also comes with a unit testing setup called RSpec, which is very easy to learn.</p>
+<p>It uses some other scanners to scan application source code.
+Static analysis security vulnerability scanners are used in Ruby on Rails for scanning.
+So here, we can use any static analysis security tools to scan ruby on rails.</p>
+<p>Sken.ai aligns with the security framework OWASP ZAP.
+It is an open-source tool which is offered by <strong>OWASP</strong> (Open Web Application Security Project), for penetration testing of your website/web application.</p>
+<p>It helps you find the security vulnerabilities in your application.
+Here are the OWASP top 10 security threats that your website/application might face: SQL injection, Broken authentication and session management, Cross-site scripting (XSS), Broken access control, Security misconfiguration, Sensitive data exposure, Insufficient attack protection, Cross-site request forgery (CSRF), Using components with known vulnerabilities, and Underprotected APIs.</p>
+<p>ZAP provides the following features: active scans, alerts, API authentication, and verification, etc.</p>
+<p>Zap is used as a proxy server, it allows the user to manipulate all of the traffic that passes through it, including traffic using **HTTPS. It helps you find the security vulnerabilities in your application. Here is a list of the main features: Intercepting Proxy, Automated Scanner, Passive Scanner, Brute Force Scanner, Fuzzer, Port Scanner, Spider, Web Sockets, <strong>REST</strong> **API. </p>
+<p>ZAP is an easy-to-use tool. Following are some more reasons for using ZAP: </p>
+<ol>
+<li><p>Ideal for both beginners and professionals </p>
+</li>
+<li><p>Cross-platform - works across all OS (<strong>Linux</strong>, Mac, Windows) </p>
+</li>
+<li><p>Reusable </p>
+</li>
+<li><p>Can generate reports of the results, etc.</p>
+</li>
+</ol>
+<p> </p>
+<p>A penetration test, also known as a pen test, is a simulated cyberattack against your computer system to check for exploitable vulnerabilities.</p>
+<p>In the context of web application security, penetration testing is commonly used to augment a web application firewall (WAF).</p>
+<p>Penetration testing in simple terms is a simulation of a process a hacker would use to launch an attack on a business network, attached devices, network applications, or a business website.</p>
+<p>The purpose of the simulation is to identify security issues before hackers can locate them and perform an exploit.</p>
+<p>Mobile application security focuses on the software security posture of mobile apps on various platforms like Android, iOS, and Windows Phone.</p>
+<p>Mobile application security testing involves testing a mobile app in ways that a malicious user would try to attack it.</p>
+<p>Effective security testing begins with an understanding of the application’s business purpose and the types of data it handles.</p>
+<p>From there, a combination of static analysis, dynamic analysis, and penetration testing results in an efficient holistic assessment to find vulnerabilities that would be missed if the techniques were not used together effectively.</p>
+<p>List of tools available in the market for all types of scanning &amp; the sken.ai is provide same scanning features in one place:</p>
+<ul>
+<li>DAST Scanning Tools:-</li>
+</ul>
+<ol>
+<li><a href="https://owasp.org/www-project-zap/">OWASP ZAP</a></li>
+<li><a href="https://www.netsparker.com/">Netsparker</a></li>
+<li><a href="https://www.acunetix.com/">Acunetix</a></li>
+<li><a href="https://www.veracode.com/">veracode</a></li>
+<li><a href="https://detectify.com/">Detectify Deep Scan</a></li>
+<li><a href="https://www.sonarqube.org/">SonarQu</a>be</li>
+<li><a href="https://www.microfocus.com/en-us/products/static-code-analysis-sast/overview">Fortify Static Code Analyz</a>er</li>
+<li><a href="https://www.hcltechsw.com/products/appscan">AppSc</a>an</li>
+<li><a href="https://www.checkmarx.com/">Checkmar</a>x</li>
+<li><a href="https://snyk.io/">Syn</a>k</li>
+</ol>
+<ul>
+<li>SAST Scanning Tools:-</li>
+</ul>
+<ol>
+<li><a href="https://www.sonarqube.org/">SonarQube</a></li>
+<li><a href="https://www.veracode.com/">veracode</a></li>
+<li><a href="https://www.microfocus.com/en-us/products/static-code-analysis-sast/overview">Fortify Static Code Analyzer</a></li>
+<li><a href="https://www.hcltechsw.com/products/appscan">AppScan</a></li>
+<li><a href="https://brakemanscanner.org/">Brakeman</a></li>
+<li><a href="https://codeclimate.com/">Code Climate</a></li>
+<li><a href="https://github.com/rubysec/bundler-audit">bundler-audit</a></li>
+<li><a href="https://www.codacy.com/">codacy</a></li>
+<li><a href="https://sourceforge.net/projects/visualcodegrepp/">VisualCodeGrepper</a></li>
+<li><a href="https://www.ripstech.com/">RIPS (Re-Inforce Programming Security)</a></li>
+<li><a href="https://pypi.org/project/flawfinder/">Flawfinder</a></li>
+<li><a href="https://pypi.org/project/bandit/">Bandit</a></li>
+</ol>
+<ul>
+<li>Combine Scanning (SAST/DAST/SCA) tools and alternative to sken.ai tools:-</li>
+</ul>
+<ol>
+<li><a href="https://www.checkmarx.com/">Checkmarx</a></li>
+<li><a href="https://www.veracode.com/">veracode</a></li>
+<li><a href="https://detectify.com/">Detectify Deep Scan</a></li>
+<li><a href="https://www.hcltechsw.com/products/appscan">AppScan</a></li>
+<li><a href="https://www.sonarqube.org/">SonarQube</a></li>
+<li><a href="https://www.jetbrains.com/pycharm/">Pycharm</a></li>
+<li><a href="https://sucuri.net/">Sucuri</a></li>
+<li><a href="https://pentest-tools.com/home">Pentest-Tools</a></li>
+<li><a href="https://www.netsparker.com/">Netsparker</a></li>
+<li><a href="https://owasp.org/www-project-zap/">OWASP ZAP</a></li>
+<li><a href="https://www.acunetix.com/">Acunetix</a></li>
+<li><a href="http://prospector.landscape.io/en/master/">Prospector</a></li>
+<li><a href="https://pypi.org/project/pylint/">pylint</a></li>
+<li><a href="https://pypi.org/project/pyflakes/">Pyflakes</a></li>
+<li><a href="https://pypi.org/project/bandit/">Bandit</a></li>
+<li><a href="https://snyk.io/">Snyk</a></li>
+<li><a href="https://portswigger.net/burp">Burp Suite</a></li>
+<li><a href="https://tools.kali.org/web-applications/grabber">Grabber</a></li>
+<li><a href="https://www.arachni-scanner.com/">Arachni</a></li>
+<li><a href="http://w3af.org/">w3af</a></li>
+<li><a href="https://geekflare.com/nikto-webserver-scanner/">Nikto</a></li>
+<li><a href="http://www.javascriptlint.com/">JavaScript Lint</a></li>
+<li><a href="https://eslint.org/">ESLint</a></li>
+<li><a href="https://flow.org/">Flow</a></li>
+<li><a href="https://jshint.com/">JSHint</a></li>
+<li><a href="https://www.intruder.io/">Intruder</a></li>
+<li><a href="https://cirt.net/Nikto2">Nikto2</a></li>
+<li><a href="https://www.gerritcodereview.com/">Gerrit</a></li>
+<li><a href="https://www.atlassian.com/software/crucible">Crucible</a></li>
+<li><a href="https://www.codacy.com/">Codacy</a></li>
+<li><a href="https://www.tenable.com/products/nessus/nessus-professional">Nessus</a></li>
+<li><a href="https://www.jetbrains.com/resharper/">Resharper</a></li>
+<li><a href="https://www.appknox.com/static-application-security-testing">Appkno</a>x</li>
+<li><a href="https://valbrio.com/products/codesonar/">CodeSona</a>r</li>
+<li><a href="https://www.wireshark.org/">Wireshark</a></li>
+<li><a href="http://sqlmap.org/">SQLmap</a></li>
+<li><a href="https://www.selenium.dev/">Selenium</a></li>
+<li><a href="https://www.openwall.com/john/">JOHN THE RIPPER</a></li>
+<li><a href="https://suricata-ids.org/">Suricata</a></li>
+<li><a href="https://www.graplsecurity.com/">Grapl</a></li>
+</ol>
+<ul>
+<li>Cloud Security Scanning Tools:-</li>
+</ul>
+<ol>
+<li><a href="https://www.rapid7.com/products/nexpose/">Rapid7 Nexpose</a></li>
+<li><a href="https://snyk.io/">Synk</a></li>
+<li><a href="https://www.acunetix.com/">Acunetix</a></li>
+<li><a href="https://www.tenable.com/products/nessus/nessus-professional">Nessus</a></li>
+<li><a href="https://www.openwall.com/john/">JOHN THE RIPPER</a></li>
+<li><a href="https://suricata-ids.org/">Suricata</a></li>
+<li><a href="https://www.graplsecurity.com/">Grapl</a></li>
+<li><a href="https://www.wireshark.org/">Wireshark</a></li>
+</ol>
+<ul>
+<li>Ruby on Rails application scaling tools:-</li>
+</ul>
+<ol>
+<li><a href="https://brakemanscanner.org/">Brakeman</a></li>
+<li><a href="https://codeclimate.com/">Code Climate</a></li>
+<li><a href="https://github.com/rubysec/bundler-audit">bundler-audit</a></li>
+<li><a href="https://www.codacy.com/">codacy</a></li>
+</ol>
+<ul>
+<li>SCA Scanning Tools:-</li>
+</ul>
+<ol>
+<li>OWASP Dependency Leaks.</li>
+</ol>
+<p>How is it different than other tools in market:-</p>
+<p>    I have used the <a href="https://bit.ly/2XfPgkZ">sken.a</a>i scanning tool, I have mentioned some features which I liked, </p>
+<ol>
+<li><p>There is &quot;No App Security  Expertise&quot; required to use this scanner.</p>
+</li>
+<li><p>&quot;Commercial Scanners are expensive&quot;  so mid-markets can decide to use open-source scanners. However, Open-source scanners are extremely unmanageable. There are too many of them, so it is confusing to select what you&#39;d exactly need.</p>
+</li>
+<li><p>This includes code level scanners like SAST, SCA, Secrets, License, Test/Deploy level scanners like DAST, Containers, <strong>API</strong>, Serverless, etc. It is extremely difficult for mid-markets to operationalize scanning with these multiple types of scanners.</p>
+</li>
+</ol>
+<p>The mid-markets need a product that:</p>
+<ol>
+<li>Provides app security with no required app-security expertise.</li>
+<li>Is affordable yet manageable.</li>
+<li>Supports comprehensive scanning across the application, yet simple to understand and use.</li>
+</ol>
+<p>Sken tackles each one of the requirements of the mid-markets. There are three pillars in Sken, and they correspond and tackle these three core requirements of the mid-markets. </p>
+<ul>
+<li>Sken provides a product that can be used by DevOps with no app security experience.</li>
+<li>Sken packages open-source scanners in a SaaS orchestration layer and automates them in CI/CD. This SaaS orchestration does a bunch of the heavy lifting, but it makes it so simple for the end-user to operate.</li>
+<li>Sken does all scan types. There includes</li>
+</ul>
+<ol>
+<li><p>Code-level scanners like</p>
+</li>
+<li><p>SAST (Static Application Security Testing) for scanning source code across multiple languages.</p>
+</li>
+<li><p>SCA (Software Composition Analysis) for scanning open source libraries that are included in your application.</p>
+</li>
+<li><p>Secrets for scanning open passwords</p>
+</li>
+<li><p>License for scanning license files</p>
+</li>
+<li><p>Test level scanners like</p>
+</li>
+<li><p>DAST (Dynamic Application Security Testing)</p>
+</li>
+<li><p>Deployment level scanners</p>
+</li>
+<li><p>Containers</p>
+</li>
+<li><p><strong>API</strong>, etc.</p>
+</li>
+</ol>
+<p>It provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers.</p>
+<p>Why should you use Sken.ai:- Because of the number of different features sken.ai provides, It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing free of cost. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers.</p>
+<p>What are the integrations possible in sken.ai:- Sken.ai integrates with the CICD pipeline with 3 simple steps. 1. Add Sken.ai in CICD. 2. Write sken.yml as you need. 3. Review issues in the Sken.ai portal. It uses automated open-source scanners providing tools like SCA, SAST, DAST, Secrets management, and many more. Those are included:-</p>
+<ol>
+<li>SCA: OWASP Dependency Leaks.</li>
+<li>SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint.</li>
+<li>DAST: OWASP ZAP</li>
+<li>Secrets: Gitleaks, Trufflehog.</li>
+</ol>
+<p>Here is the demo of sken integration with **jenkins and **travis-ci:-</p>
+<ol>
+<li>Jenkins integrate with sken:- <a href="https://drive.google.com/file/d/1OxpziWQZ6lEZ4Q6c7WYWAw3DTNf9qLd6/view?usp=sharing">https://drive.google.com/file/d/1OxpziWQZ6lEZ4Q6c7WYWAw3DTNf9qLd6/view?usp=sharing</a></li>
+<li>Travis CI integrate with sken:-</li>
+</ol>
+<p><a href="https://drive.google.com/file/d/1-zEbJ0rwzkR_vpvDkBvTXY4MwRXZcOFX/view?usp=sharing">https://drive.google.com/file/d/1-zEbJ0rwzkR_vpvDkBvTXY4MwRXZcOFX/view?usp=sharing</a></p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

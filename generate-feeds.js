@@ -186,3 +186,20 @@ ${items}
 
 fs.writeFileSync('feed.xml', feed);
 console.log(`✅ feed.xml — ${blogs.length} items`);
+
+// --- static blog HTML pages ---
+let generated = 0;
+for (const blog of blogs) {
+  const mdPath = `blogs/${blog.file}`;
+  if (!fs.existsSync(mdPath)) {
+    console.warn(`⚠️  skipping ${blog.id} — ${mdPath} not found`);
+    continue;
+  }
+  const raw = fs.readFileSync(mdPath, 'utf8');
+  const body = raw.replace(/^---[\s\S]*?---\n/, '');
+  const bodyHtml = marked(body);
+  const html = blogPostHtml(blog, bodyHtml);
+  fs.writeFileSync(`blogs/${blog.id}.html`, html);
+  generated++;
+}
+console.log(`✅ static blog pages — ${generated} HTML files written to blogs/`);

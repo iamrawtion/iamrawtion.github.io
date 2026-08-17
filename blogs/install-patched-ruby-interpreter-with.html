@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247 | Roshan Nagekar</title>
+  <meta name="description" content="Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247">
+  <meta property="og:description" content="Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-06-04">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247">
+  <meta name="twitter:description" content="Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","description":"Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-06-04","url":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html","keywords":"Ruby, RubyOnRails, Troubleshooting","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            <span class="tag" style="margin-left:0.4rem;">Ruby</span><span class="tag" style="margin-left:0.4rem;">RubyOnRails</span><span class="tag" style="margin-left:0.4rem;">Troubleshooting</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            June 4, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png" alt=""></p>
+<p>Installation of <strong>Ruby</strong> 2.0.0-p247 recently had some issues with Openssl package for <strong>Centos</strong> 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later.</p>
+<pre><code>#!/bin/sh
+rm ~/.rbenv/cache/* -rf
+mkdir /tmp/build
+wget https://raw.github.com/sstephenson/ruby-build/master/share/ruby-build/2.0.0-p247
+cp 2.0.0-p247 /tmp/build/
+
+# download and patch the ruby sources
+
+wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
+tar xvzf ruby-2.0.0-p247.tar.gz
+cd ruby-2.0.0-p247
+curl https://gist.githubusercontent.com/spkane/8059362/raw/01585dcf6b33254124566f4521a3946e6f26e0a9/ruby-2.0.0-p247-openssl-el65.patch | patch -p1
+cd ..
+tar -cvzf ruby-2.0.0-p247-openssl.tar.gz ruby-2.0.0-p247
+
+# download and patch the ruby-build version definition
+
+sed &#39;s|&quot;2.0.0-p247.*|&quot;2.0.0-p247-openssl.tar.gz&quot; &quot;file:///tmp/ruby-build/2.0.0-p247&quot;|&#39; &lt; 2.0.0-p247 &gt; 2.0.0-p247
+#install the patched version
+rbenv install /tmp/build/2.0.0-p247
+rbenv rehash
+</code></pre>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

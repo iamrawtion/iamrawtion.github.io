@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoring in Linux/Unix Environment using TOP | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Monitoring in Linux/Unix Environment using TOP">
+  <meta property="og:description" content="Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-01-02">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Monitoring in Linux/Unix Environment using TOP">
+  <meta name="twitter:description" content="Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Monitoring in Linux/Unix Environment using TOP","description":"Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-01-02","url":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html","keywords":"Devops, Linux, Troubleshooting","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">Devops</span><span class="tag" style="margin-left:0.4rem;">Linux</span><span class="tag" style="margin-left:0.4rem;">Troubleshooting</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Monitoring in Linux/Unix Environment using TOP</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            January 2, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH47MwOd_VlPuqi8Sc_tjGzqE5Jz4Lur6gQfAPyvYW9BmJ-ducyi5okcX_IyOhqOgBL8T86ZqJW-LFM3eNXdNqtFfqCA9MWg6RfDnM3ytM8OH407dQO1JeOJqqGsI_YNU7CFuHWpBX2TE/s1600/12024889475_4ba5436bf9_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/jurvetson/">Steve Jurvetson</a></p>
+<h2>Top</h2>
+<p>Top
+is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This command displays the active processes
+at real-time and updates the list regularly. Other system details like
+CPU usage, Memory usage, Swap Memory, Cache Size, Buffer Size, Process
+PID, User, Commands and much more.
+The 1st line of the command mentions the following:</p>
+<pre><code class="language-yaml">- current time in hh:mm:ss format seconds keep updating
+- uptime of the machine, how long has the machine been running
+- no. of users logged in with running sessions
+- average load on the system, 3 values mentioned are load in last one minute, 5 minutes and 15 minutes
+</code></pre>
+<p>The 2nd line mentions the following :</p>
+<ul>
+<li>Total number of processes running</li>
+<li>Present number of running processes</li>
+<li>Total sleeping processes</li>
+<li>Total stopped processes</li>
+<li>Total Zombie processes(waiting for parent process to stop)</li>
+</ul>
+<p>The 3rd row mentions the following :</p>
+<ul>
+<li>% of CPU for user processes</li>
+<li>% of CPU for system/kernel processes</li>
+<li>% of CPU for prioritized or priority upgraded processes nice</li>
+<li>% of CPU not used</li>
+<li>% of CPU awaiting i/o operation</li>
+<li>% of CPU serving h/w interrupts</li>
+<li>% of CPU for s/w interrupts</li>
+<li>% of CPU stolen from virtual memory(steal time) this will be zero if no virtual machine running.</li>
+</ul>
+<p>The 4th and 5th row mentions the following:</p>
+<ul>
+<li>The use of Physical memory</li>
+<li>The use of swap memory</li>
+<li>Both free buffer and cached</li>
+</ul>
+<p>The details of the processes are given  with the following details:</p>
+<pre><code class="language-yaml">- PID: Process ID
+- USER: The owner user of the process
+- PR: Priority of the process
+- NI: Nice value of the process
+- VIRT: Amount of Virtual Memory used by the process
+- RES: Amount of physical memory used by the process
+- SHR: Shared memory of the process
+- S: Status of the process Sleep Running Zombie
+</code></pre>
+<ul>
+<li>%CPU: % of CPU used</li>
+<li>%MEM: % of RAM used</li>
+</ul>
+<pre><code class="language-yaml">- COMMAND: name of the process
+</code></pre>
+<p>The default sorting of the list displayed is based on CPU usage. you can change the sorting of the list as per your convenience.</p>
+<p><em>Changing the sorting:</em></p>
+<hr>
+<h2>Press Shift+o. A list will be displayed giving</h2>
+<p>all possible options using which you may sort the list, a letter
+corresponding to the sort criteria. Select that particular letter and
+hit &#39;return/enter&#39; and see the new sorted list.</p>
+<p><em>Display Processes for a specific User:</em></p>
+<p>top -u username
+This command will show the details of all the processes under the specific username mentioned in the command.</p>
+<p><em>Highlight any Running Process :</em></p>
+<p>Press Z after running top to highlight the running process to identify them easily.</p>
+<p><em>Show absolute Path of the process:</em></p>
+<p>To see the path from where the processes are being invoked press &#39;c&#39; after running top</p>
+<p><em>Change screen refresh interval:</em></p>
+<p>To
+change the screen refresh interval of the processes running press &#39;d&#39;
+and enter any number in seconds to set the time interval for refresh.</p>
+<p><em>Kill Running Process:</em></p>
+<p>to kill any of the running processes press &#39;k&#39;
+and enter the process id of the process to be killed. After this you
+will be required to enter the signal (15) to kill the process.</p>
+<p><em>To sort by CPU Utilization:</em> Shift+p</p>
+<p>Save Results of Top Command: press Ctrl+w</p>
+<p><em>for help:</em> press h
+<em>Exit top after specific Repetition:</em> top -n <number>
+<em>Manual Page for top :</em> man top</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

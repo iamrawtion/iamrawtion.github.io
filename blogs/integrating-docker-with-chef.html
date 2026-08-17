@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrating Docker with Chef | Roshan Nagekar</title>
+  <meta name="description" content="Ever since Docker was introduced to me, the first thing that came to my mind was, Docker is a replacement for Chef. Docker does almost everything...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/integrating-docker-with-chef.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Integrating Docker with Chef">
+  <meta property="og:description" content="Ever since Docker was introduced to me, the first thing that came to my mind was, Docker is a replacement for Chef. Docker does almost everything...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/integrating-docker-with-chef.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-06-03">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Integrating Docker with Chef">
+  <meta name="twitter:description" content="Ever since Docker was introduced to me, the first thing that came to my mind was, Docker is a replacement for Chef. Docker does almost everything...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Integrating Docker with Chef","description":"Ever since Docker was introduced to me, the first thing that came to my mind was, Docker is a replacement for Chef. Docker does almost everything...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-06-03","url":"https://iamrawtion.github.io/blogs/integrating-docker-with-chef.html","keywords":"Chef, Devops, Docker","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">Chef</span><span class="tag" style="margin-left:0.4rem;">Devops</span><span class="tag" style="margin-left:0.4rem;">Docker</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Integrating Docker with Chef</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            June 3, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-ox1UXrI49tBuPLYJCEd9Ms4F4lVprV7ajXzZsA-3Z6g6nVXM5S-1HCA9oRZG2l23r3ZsSDo5XZuFOVpSBg_K-hDqySGP4VuSSNIvkl8Ev1H8V7Kwe9eOJME4q03QaIB2fifq7myOi-Q/s1600/chefdocker.png" alt=""></p>
+<p>Ever since **Docker was introduced to me, the first thing that came to my mind was, **Docker is a replacement for Chef. **Docker does almost everything that Chef did and provides me with a light weight solution. While Chef just configures the system. Well I was wrong. I read many articles, heard many speeches and came to a conclusion that, it was not Chef vs <strong>Docker</strong>, it was Chef with **Docker. When they work together, you get the most powerful tool to deliver fast, light and efficiently.</p>
+<p>I conducted a demo at <a href="http://www.meetup.com/Docker-Bangalore/events/183969082/">Docker-Bangalore meetup #4</a> to show how integration with Chef and Docker works. More information on the meetup page.</p>
+<p><strong>What is Chef?</strong></p>
+<ul>
+<li>Configuration Management Tool.</li>
+<li>Helps write Infrastructure as a code.</li>
+<li>Users write code called ‘recipes’ to help manage and configure servers and applications.</li>
+<li>Runs in client/server as well as stand-alone configuration called chef-solo.</li>
+<li>Ensures each resource is properly configured and is in the desired state.</li>
+<li>More on my blog <a href="http://roshannagekar.blogspot.in/2014/04/learning-chef-part-i.html">Learning Chef</a>.</li>
+</ul>
+<p><strong>What is <strong>Docker</strong>?</strong></p>
+<ul>
+<li>Light weight Linux container that packages an application and all its dependencies in a virtual container.</li>
+<li>The container can be packed, shipped and the application can run on any Linux machine on public cloud, private cloud or bare metal.</li>
+<li>Does not include OS.</li>
+<li>Layers the changes made in the container just like a version control system, which allows you to reach any previous state within no time.</li>
+<li>More on my blog <a href="http://roshannagekar.blogspot.in/2014/05/docker-lightweight-linux-container.html">Docker</a>.</li>
+</ul>
+<p><strong>Why use Chef+<strong>Docker</strong>, What are the issues with <strong>Vagrant</strong>+Chef?</strong></p>
+<ul>
+<li>If each project is in its own VM, resource usage is prohibited.</li>
+<li>All the projects in a Single VM, management will be difficult, different versions for same software for different projects.</li>
+<li>Building and Rebuilding takes long time, partial builds or rebuilds are difficult. Unless explicitly snapshot is created at various stages.</li>
+<li>If you rely on external dependencies(which we do), full rebuilds can fail  due to one or more broken dependencies.</li>
+<li>If your stack has multiple components (web, db, cache, etc) and they are installed in 1 Vagrant VM, the resulting setup differs from production. Or you could use multiple VMs… but point # 1 holds.</li>
+</ul>
+<h2>Chef Pros</h2>
+<ul>
+<li>Great at provisioning (knife bootstrap and plugins)</li>
+<li>Configuring services – Writing your infrastructure as a code.</li>
+<li>Testing your Infrastructure</li>
+</ul>
+<h2>Chef Cons</h2>
+<ul>
+<li>Packaging applications</li>
+<li>Deployments and rollbacks</li>
+<li>Dynamic service delivery</li>
+</ul>
+<h2>Docker Pros</h2>
+<ul>
+<li>Packaging applications</li>
+<li>Deployments and rollbacks</li>
+<li>Dynamic service delivery</li>
+</ul>
+<h2>Docker Cons</h2>
+<ul>
+<li>Managing persistent storage</li>
+<li>Complex networking</li>
+<li>Monolithic services</li>
+</ul>
+<p>How to get Chef and <strong>Docker work together?</strong></p>
+<p>The key is understanding the Developers and Operations workflow and making them work together.</p>
+<h2>Developers own</h2>
+<ul>
+<li>Code and Libraries</li>
+<li>Build and Test Automation</li>
+<li>System Packages</li>
+<li>Runtime Configuration</li>
+<li>Release Management</li>
+<li>Logs monitoring</li>
+<li>Horizontal Scaling</li>
+</ul>
+<h2>Operations own the Platform</h2>
+<ul>
+<li>Hosts</li>
+<li>Routers</li>
+<li>Monitoring</li>
+<li>Logs</li>
+<li>Security</li>
+<li>Backing Services</li>
+</ul>
+<p><em>Basically,</em></p>
+<p>*Developers take the control of the containers</p>
+<p>&amp;
+Everything outside containers for Operations*</p>
+<p>**Setting up Chef and **Docker to work together:</p>
+<ul>
+<li>Install Chef workstation with Omnibus Installer.</li>
+<li>Create an account on manage.opscode.com or create your own chef-server.</li>
+<li>Create a vagrant node or a cloud instance.</li>
+<li>Site install docker community cookbook with site install.</li>
+<li>Create your own cookbook which depends on docker.</li>
+<li>Upload all cookbooks.</li>
+<li>Bootstrap the node.</li>
+<li>Login and verify of the node has the required images.</li>
+</ul>
+<h2>References</h2>
+<ul>
+<li>Brain Flad&#39;s chef-docker cookbook</li>
+<li>Gabriel Monroy&#39;s ChefConf presentation</li>
+<li>StackOverflow, Google groups and Quora</li>
+</ul>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

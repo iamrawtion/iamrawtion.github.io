@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker - Lightweight Linux Container | Roshan Nagekar</title>
+  <meta name="description" content="Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Docker - Lightweight Linux Container">
+  <meta property="og:description" content="Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-05-09">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Docker - Lightweight Linux Container">
+  <meta name="twitter:description" content="Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Docker - Lightweight Linux Container","description":"Docker: Its a tool that helps you to pack, ship and run any application as a light-weight Linux container. More on https://www.docker.io/ Works best...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-05-09","url":"https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html","keywords":"Devops, Docker","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">Devops</span><span class="tag" style="margin-left:0.4rem;">Docker</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Docker - Lightweight Linux Container</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            May 9, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaZfGc5siQIuH_2BU-RUhgws5dLEGJVW5Nay4Bgzls7-xB7KL0858qF4E-Ph6iZNNTN-3eVOJcRy_JfedPNFnuUt9FRWTZldr6GRaa1WnROyRBAnSor1PhxdKdY8v90F_OuiJ6P8TF2mk/s1600/small_v-dark.png" alt=""></p>
+<p>Docker: Its a tool that helps you to pack, ship and run any application as a light-weight <strong>Linux container. More on <a href="https://www.docker.io/">https://www.docker.io/</a></strong></p>
+<p>Works best on **Linux kernel 3.8 **Ubuntu 12.04 precise has 3.2 and needs to be upgraded.</p>
+<p>Install **Docker with on **Ubuntu 12.04:</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+sudo reboot
+</code></pre>
+<h2>To check docker version</h2>
+<pre><code class="language-bash">sudo docker version
+</code></pre>
+<p>Client version: 0.11.1</p>
+<p>Client API version: 1.11</p>
+<p>Go version (client): go1.2.1</p>
+<h2>Git commit (client): fb99f99</h2>
+<p>Server version: 0.11.1</p>
+<p>Server API version: 1.11</p>
+<h2>Git commit (server): fb99f99</h2>
+<p>Go version (server): go1.2.1</p>
+<p>Last stable version: 0.11.1</p>
+<h2>To check info about docker installed</h2>
+<pre><code class="language-bash">sudo docker info
+</code></pre>
+<pre><code class="language-yaml">Containers: 1
+
+Images: 9
+</code></pre>
+<p>Storage Driver: aufs</p>
+<p>Root Dir: /var/lib/docker/aufs</p>
+<p>Dirs: 11</p>
+<p>Execution Driver: native-0.2</p>
+<p>Kernel Version: 3.11.0-20-generic</p>
+<blockquote>
+<p>WARNING: No swap limit support</p>
+</blockquote>
+<h2>To pull an existing docker image</h2>
+<pre><code class="language-bash">sudo docker pull &lt;imagename&gt;
+sudo docker pull busybox
+</code></pre>
+<h2>HelloWorld in docker</h2>
+<pre><code class="language-bash">sudo docker run busybox echo HelloWorld
+</code></pre>
+<p>Search for an existing image in the index:</p>
+<pre><code class="language-bash">docker search &lt;image-name&gt;
+sudo docker search stackbrew/ubuntu
+</code></pre>
+<p>NAME                       DESCRIPTION                                     STARS     OFFICIAL   TRUSTED</p>
+<p>stackbrew/ubuntu           Barebone ubuntu images                          36</p>
+<p>jprjr/stackbrew-node       A stackbrew/ubuntu-based image for <strong>Docker</strong>,...   2                    [OK]</p>
+<p>hcvst/erlang               Erlang R14B04 based on stackbrew/ubuntu         0                    [OK]</p>
+<p>stackbrew/ubuntu-upstart                                                   0</p>
+<p>Pull an existing image:</p>
+<pre><code class="language-bash">sudo docker pull ubuntu
+</code></pre>
+<h2>Pulling repository ubuntu</h2>
+<p>a7cf8ae4e998: Pulling dependent layers</p>
+<p>3db9c44f4520: Downloading [=================&gt;                                 ] 22.18 MB/63.51 MB 2m19s</p>
+<p>74fe38d11401: Pulling dependent layers</p>
+<p>316b678ddf48: Pulling dependent layers</p>
+<p>99ec81b80c55: Pulling dependent layers</p>
+<p>5e019ab7bf6d: Pulling dependent layers</p>
+<p>511136ea3c5a: Download complete</p>
+<p>6cfa4d1f33fb: Download complete</p>
+<p>To the check the available images:</p>
+<pre><code class="language-bash">sudo docker images
+</code></pre>
+<p>REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</p>
+<p><strong>ubuntu</strong>              13.10               5e019ab7bf6d        2 weeks ago         180 MB</p>
+<p>ubuntu              saucy               5e019ab7bf6d        2 weeks ago         180 MB</p>
+<p><strong>ubuntu</strong>              12.04               74fe38d11401        2 weeks ago         209.6 MB</p>
+<p>ubuntu              precise             74fe38d11401        2 weeks ago         209.6 MB</p>
+<p><strong>ubuntu</strong>              12.10               a7cf8ae4e998        2 weeks ago         171.3 MB</p>
+<p>ubuntu              quantal             a7cf8ae4e998        2 weeks ago         171.3 MB</p>
+<p><strong>ubuntu</strong>              14.04               99ec81b80c55        2 weeks ago         266 MB</p>
+<p>ubuntu              latest              99ec81b80c55        2 weeks ago         266 MB</p>
+<p>ubuntu              trusty              99ec81b80c55        2 weeks ago         266 MB</p>
+<p>ubuntu              raring              316b678ddf48        2 weeks ago         169.4 MB</p>
+<p><strong>ubuntu</strong>              13.04               316b678ddf48        2 weeks ago         169.4 MB</p>
+<p>busybox             latest              2d8e5b282c81        2 weeks ago         2.489 MB</p>
+<p><strong>ubuntu</strong>              10.04               3db9c44f4520        2 weeks ago         183 MB</p>
+<p>ubuntu              lucid               3db9c44f4520        2 weeks ago         183 MB</p>
+<p>To run a command within an image:</p>
+<pre><code class="language-bash">docker run&lt;image&gt; command
+sudo docker run ubuntu echo HelloWorld
+</code></pre>
+<p>HelloWorld</p>
+<h2>To install something on an ubuntu image</h2>
+<pre><code class="language-bash">sudo docker run apt-get install &lt;package&gt;
+find ID of the container
+sudo docker ps -l
+</code></pre>
+<p>CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES</p>
+<p>0dac167b178d        ubuntu:14.04        ps aux              12 minutes ago      Exited (0) 12 minutes ago                       goofy_bell</p>
+<p>committing changes made to the images:</p>
+<pre><code class="language-bash">docker commit 0da firstcommit
+</code></pre>
+<p>723aa6ead77a14ff05cd2c640163345ec5a36fa9a4c757a6872a1ec919ab9345</p>
+<p>To get log of the present container:</p>
+<pre><code class="language-bash">sudo docker logs 0dac167b178d
+</code></pre>
+<p>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</p>
+<p>root         1  0.0  0.0   7132   644 ?        Rs   09:10   0:00 ps aux</p>
+<p>To inpect the details of an image</p>
+<pre><code class="language-bash">sudo docker inspect &lt;id: 3-4 characters of id will work too&gt;
+sudo docker inspect 0da
+</code></pre>
+<h2><json output></h2>
+<p>Push container image to the index</p>
+<pre><code class="language-bash">sudo docker push ubuntu
+</code></pre>
+<p>Creating Dockerfile:</p>
+<p>All instructions in Dokerfile are in the form of</p>
+<p>INSTRUCTION arguments</p>
+<p>Instruction are not case sensitive but CAPS are recommended. The first instruction in any Dockerfile is the FROM instruction. The syntax is:</p>
+<p>FROM <image></p>
+<h2>FROM ubuntu</h2>
+<p>This will look for the image in **Docker index. You can also search **docker index by the command docker search</p>
+<p>Next is the RUN instruction. The RUN instruction will execute any commands on the current image. After executing, it will also commit the changes. The committed image can be used for the next instructions from the Dockerfile. This way the committed changes form a layer of changes just like any other source code control system. Syntax of RUN command:</p>
+<p>RUN <command></p>
+<p>RUN apt get install -y apache2</p>
+<p>Here the RUN command is equivalent to **docker run image command + **docker commit container_id. Here image will be automatically replaced with the current image and container_id is the result of the previous commit.</p>
+<p>Once you have created your Dockerfile you can use docker build to create you image from it. You can use the command in this way.</p>
+<p>Create a Dockerfile with the content</p>
+<h2>FROM ubuntu</h2>
+<p>RUN apt-get install -y memcached</p>
+<p>Save and close the file. If the file is in you r present directory:</p>
+<pre><code class="language-bash">docker build .
+</code></pre>
+<p>If the file in in some other location</p>
+<pre><code class="language-bash">docker build path/to/file
+</code></pre>
+<p>If passing through STDIN</p>
+<pre><code class="language-bash">docker build - &lt; Dockerfile
+</code></pre>
+<h2>If passing through github URL</h2>
+<pre><code class="language-bash">docker build github.com/roshan4074
+</code></pre>
+<p>you can check the container with the command:</p>
+<pre><code class="language-bash">sudo docker images
+</code></pre>
+<p>To apply a tag to an image you the command: docker tag</p>
+<pre><code class="language-bash">sudo docker tag &lt;container_id&gt;
+</code></pre>
+<p>To comment a code use the &quot;#&#39; symbol followed by the text</p>
+<p>To specify the contact info of the Maintainer of the Dockerfile:</p>
+<p>MAINTAINER Name contact@email</p>
+<p>To trigger a command as soon as a container starts, use ENTRYPOINT instruction</p>
+<p>ENTRYPOINT echo &quot;Hello, Container Started&quot;</p>
+<p>Another Format to use ENTRYPOINT Instrcution is</p>
+<p>ENTRYPOINT [&quot;echo&quot;, &quot;Hello, Container Started&quot;]</p>
+<p>This is the preferred format</p>
+<p>e.g</p>
+<p>ENTRYPOINT [&quot;wc&quot;, &quot;-l&quot;]</p>
+<p>To execute a certain command by a particular user use the command USER</p>
+<p>USER roshan</p>
+<p>T open a particular port for a process use EXPOSE instruction</p>
+<p>EXPOSE 8080</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

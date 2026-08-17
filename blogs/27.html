@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II | Roshan Nagekar</title>
+  <meta name="description" content="Version 1.2.0 Some right reserved by Phil Wiffen For some reason with the previous repo I could not see the list of all vApps. Only some of it (a...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/27.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II">
+  <meta property="og:description" content="Version 1.2.0 Some right reserved by Phil Wiffen For some reason with the previous repo I could not see the list of all vApps. Only some of it (a...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/27.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-04-23">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II">
+  <meta name="twitter:description" content="Version 1.2.0 Some right reserved by Phil Wiffen For some reason with the previous repo I could not see the list of all vApps. Only some of it (a...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II","description":"Version 1.2.0 Some right reserved by Phil Wiffen For some reason with the previous repo I could not see the list of all vApps. Only some of it (a...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-04-23","url":"https://iamrawtion.github.io/blogs/27.html","keywords":"Chef, Cloud Computing, Devops, VMWare vCloud","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">Chef</span><span class="tag" style="margin-left:0.4rem;">Cloud Computing</span><span class="tag" style="margin-left:0.4rem;">Devops</span><span class="tag" style="margin-left:0.4rem;">VMWare vCloud</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Automation for VMware vCloud Director using Chef's knife-vcloud - Part-II</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            April 23, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p>Version 1.2.0</p>
+<pre><code class="language-json">![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilJM6MbbXgJoOGZh4GqkhIUm3Kv_KVJAudoHMIrCLgoCuHrSp6DX0KdsIYXcb0RkQDk9wZOtXLLm7enl6fSUH1HkyauiK89qYzx7-pH97C6_5Mb2zeFMK15bshHtEZxu2PRapQgq6sd0k/s1600/3648629316_d1ca29f4aa_m.jpg)
+
+Some right reserved by [Phil Wiffen](https://www.flickr.com/photos/mindcircus/)
+
+For some reason with the [previous repo](http://roshannagekar.blogspot.in/2014/03/automation-for-vmware-vcloud-director.html) I could not see the list of
+all vApps. Only some of it (a mixture of both chef node and non chef
+nodes) were seen. So I went ahead with another version of knife-vcloud plugin
+available which solved my problem to a large extent.
+
+Plugin is available at https://github.com/astratto/knife-vcloud
+
+*Configuration used:*
+
+- CentOS 6.5
+- Chef 11.8.2
+- knife-vcloud 1.2.0
+
+*Following steps were used to complete the automation process:*
+
+*Installation is fairly simple*
+
+gem install knife-vcloud
+gem list | grep vcloud
+- See if after entering the above command you
+see the gem knife-cloud. If yes the setup was successful. If no
+something went wrong.
+
+cd ~./chef
+vim knife.rb
+
+*Configuration is almost automated:*
+
+knife vc configure
+
+You will be prompted for
+vcloud_url, login and password. After entering the details check that
+the details you entered are reflected in the knife.rb file.
+
+knife[:vcloud_url] = &#39;https://vcloud.server.org&#39;
+knife[:vcloud_org_login] = &#39;vcloud_organization&#39;
+knife[:vcloud_user_login] = &#39;vcloud_user&#39;
+knife[:vcloud_password] =
+
+Note:
+The organization was not updated for me, and it kept giving
+authorization failure for quite sometime. If you see that the
+organization is not updated automatically, please update it manually in
+the knife.rb file.
+
+The subsequent commands
+would also change for the detailed listing. Although the documentation
+at many instances says that the name of VM or vApp should suffice to
+pull up the required details, note that at many instances you will be
+required to enter the ID and not just the name.
+
+*To see the list of catalog items*
+
+[root@chefworkstation ~]# knife vc catalog show All_ISOs
+
+Description: All ISO Dumps
+Name                                           ID                                          
+CentOS-6.3                                          WhAtEvEr-Id-tO-bE-SeEn1       
+CentOS-6.4_x64                                   WhAtEvEr-Id-tO-bE-SeEn2        
+Ubuntu-copy                                           WhAtEvEr-Id-tO-bE-SeEn3        
+
+*To see details of the organization*
+
+[root@chefworkstation ~]# knife vc org show MYORG
+
+CATALOGS                                                                 
+Name                                  ID                                 
+All_ISOs                                  WhAtEvEr-Id-tO-bE-SeEn4
+Master Catalog                        WhAtEvEr-Id-tO-bE-SeEn5
+                                                                         
+VDCs                                                                     
+Name                                  ID                                 
+MyorgVDC-Tier1     WhAtEvEr-Id-tO-bE-SeEn6
+MyorgVDC-Tier2        WhAtEvEr-Id-tO-bE-SeEn7
+MyorgVDC-Tier3        WhAtEvEr-Id-tO-bE-SeEn8
+
+NETWORKS                                                                 
+Name                                  ID                                 
+MyorgNet-Router                   WhAtEvEr-Id-tO-bE-SeEn9
+
+TASKLISTS                                                                
+Name                                  ID                                 
+                        WhAtEvEr-Id-tO-bE-SeEn10
+
+*To create a new vApp:*
+
+[root@chefworkstation ~]# knife vc vapp create MyorgVDC-Tier1 chefnode2 &quot;Just Created node2&quot; WhAtEvEr-Id-tO-bE-SeEn
+
+vApp creation...
+Summary: Status: error - time elapsed: 52.012 seconds
+WARNING:
+ATTENTION: Error code 400 - The following IP/MAC addresses have already
+been used by running virtual machines: MAC addresses: 10:20:30:40:50:0f
+IP addresses: 192.168.0.20 Use the Fence vApp option to use same
+MAC/IP. Fencing allows identical virtual machines in different vApps to
+be powered on without conflict, by isolating the MAC and IP addresses of
+the virtual machines.
+</code></pre>
+<p>vApp created with ID: WhAtEvEr-Id-tO-bE-SeEn</p>
+<blockquote>
+<p>Note: that there are certain problems that were corrected later.</p>
+</blockquote>
+<p><em>To show the deatils of created vApp:</em></p>
+<p>[root@chefworkstation ~]# knife vc vapp show WhAtEvEr-Id-tO-bE-SeEn1</p>
+<pre><code class="language-yaml">Note: --vdc not specified, assuming VAPP is an ID
+Name: chefnode2
+Description: Just Created node2
+Status: stopped
+IP: 192.168.0.12
+</code></pre>
+<p>Networks
+MyorgNet-Router
+   Gateway      Netmask        Fence Mode  Parent Network       Retain Network</p>
+<p>      192.168.0.1  255.255.255.0  bridged     MyorgNet-Router  false        </p>
+<p>      VMs
+      Name    Status   IPs           ID                                    Scoped ID                          </p>
+<p>      centos  stopped  192.168.0.12  WhAtEvEr-Id-tO-bE-SeEn  WhAtEvEr-Id-tO-bE-SeEn</p>
+<p><em>To show the vm specific details:</em></p>
+<p>[root@chefworkstation ~]# knife vc vm show WhAtEvEr-Id-tO-bE-SeEn --vapp MyvApp_Chef</p>
+<blockquote>
+<p>Note: --vapp and --vdc not specified, assuming VM is an ID</p>
+</blockquote>
+<h2>VM Name: centos</h2>
+<p>OS Name: <strong>CentOS</strong> 4/5/6 (64-bit)
+Status: stopped
+Cpu                                          
+Number of Virtual CPUs  1 virtual CPU(s)     </p>
+<p>Memory                                       
+Memory Size             2048 MB of memory    </p>
+<p>Disks                                        
+Hard disk 1             16384 MB             
+Hard disk 2             16384 MB             </p>
+<p>Networks                                     
+MyorgNet-Router                          
+Index                 0                    
+Ip                    192.168.0.12         
+External ip                                
+Is connected          true                 
+Mac address           10:20:30:40:50:0f    
+Ip allocation mode    MANUAL               </p>
+<p>Guest Customizations                         
+Enabled                 false                
+Admin passwd enabled    true                 
+Admin passwd auto       false                
+Admin passwd                                 
+Reset passwd required   false                </p>
+<h2>Computer name           centos</h2>
+<p><em>To set new info to the vm:</em></p>
+<p>[root@chefworkstation ~]# knife vc vm set info --name ChefNewNode WhAtEvEr-Id-tO-bE-SeEn --vapp MyvApp_Chef centos</p>
+<blockquote>
+<p>Note: --vapp and --vdc not specified, assuming VM is an ID</p>
+</blockquote>
+<h2>Renaming VM from centos to ChefNewNode</h2>
+<blockquote>
+<p>Summary: Status: success - time elapsed: 7.09 seconds</p>
+</blockquote>
+<p> <em>To update other info:</em></p>
+<p>[root@chefworkstation ~]# knife vc vm set info --ram 512 WhAtEvEr-Id-tO-bE-SeEn --vapp MyvApp_Chef</p>
+<blockquote>
+<p>Note: --vapp and --vdc not specified, assuming VM is an ID
+VM setting RAM info...
+Summary: Status: success - time elapsed: 9.843 seconds</p>
+</blockquote>
+<p> <em>To edit network info:</em></p>
+<pre><code class="language-json">[root@chefworkstation
+~]# knife vc vm network edit WhAtEvEr-Id-tO-bE-SeEn MyorgNet-Router
+</code></pre>
+<p>--net-ip 192.168.0.117 --ip-allocation-mode MANUAL</p>
+<blockquote>
+<p>Note: --vapp and --vdc not specified, assuming VM is an ID
+Forcing parent network to itself
+VM network configuration...
+Guest customizations must be applied to a stopped VM, but it&#39;s running. Can I STOP it? (Y/N) Y
+Stopping VM...
+Summary: Status: success - time elapsed: 7.092 seconds
+VM network configuration for MyorgNet-Router...
+Summary: Status: success - time elapsed: 6.783 seconds
+Forcing Guest Customization to apply changes...
+Summary: Status: success - time elapsed: 22.639 seconds</p>
+</blockquote>
+<p><em>To show the changes made:</em></p>
+<p>[root@chefworkstation ~]# knife vc vm show WhAtEvEr-Id-tO-bE-SeEn</p>
+<blockquote>
+<p>Note: --vapp and --vdc not specified, assuming VM is an ID
+VM Name: ChefNewNode
+OS Name: <strong>CentOS</strong> 4/5/6 (64-bit)
+Status: running</p>
+</blockquote>
+<p>Cpu                                          
+Number of Virtual CPUs  1 virtual CPU(s)     </p>
+<p>Memory                                       
+Memory Size             512 MB of memory     </p>
+<p>Disks                                        
+Hard disk 1             16384 MB             
+Hard disk 2             16384 MB             </p>
+<p>Networks                                     
+MyorgNet-Router                          </p>
+<p>Index                 0                    
+Ip                    192.168.0.117        
+External ip                                
+Is connected          true                 
+Mac address           10:20:30:40:50:0f    
+Ip allocation mode    MANUAL               </p>
+<p>Guest Customizations                         
+Enabled                 true                 
+Admin passwd enabled    true                 
+Admin passwd auto       false                
+Admin passwd                                 
+Reset passwd required   false                </p>
+<h2>Computer name           centos</h2>
+<p><em>Reference Links:</em></p>
+<ul>
+<li><a href="https://github.com/opscode/knife-vcloud">https://github.com/astratto/knife-vcloud</a></li>
+</ul>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

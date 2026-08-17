@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shell Scripting Tuts | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Linux Screenshots VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/shell-scripting-tuts.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Shell Scripting Tuts">
+  <meta property="og:description" content="Some rights reserved by Linux Screenshots VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/shell-scripting-tuts.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2013-08-07">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Shell Scripting Tuts">
+  <meta name="twitter:description" content="Some rights reserved by Linux Screenshots VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Shell Scripting Tuts","description":"Some rights reserved by Linux Screenshots VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-08-07","url":"https://iamrawtion.github.io/blogs/shell-scripting-tuts.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Shell Scripting Tuts</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            August 7, 2013
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/xmodulo/">Linux Screenshots</a></p>
+<p>VIM shortcuts
+:tabfind open new tab
+:tabn and tabp for next and previous tabs
+:tabedit to open a new tab with a new filename
+esc v for marking, d to cut, y to copy, p to paste
+:wrap to enable wordwrap</p>
+<p>Shell Scripting</p>
+<ol>
+<li><p>Use any scripting editor, i will use VIM</p>
+</li>
+<li><p>After the shell script is complete set execute permission to the script for the script to execute. The permissions can be changed by the command chmod.</p>
+</li>
+</ol>
+<p>    Syntax is</p>
+<pre><code class="language-bash">    chmod permission your-script name
+</code></pre>
+<p>    e.g
+    $ chmod +x script
+    $ chmod 755 script
+    755 sets permission for user (read 4 write 2 execute 1) group and others (read 4 execute 1)</p>
+<hr>
+<h2>3. Executing your script : There are three ways of executing a script</h2>
+<hr>
+<h2>Syntax</h2>
+<p>        bash script-name
+        sh script-name
+        ./script-name
+    E.g
+        $ bash script
+        $ sh script
+        $ ./script</p>
+<blockquote>
+<p>Note: ./means current directory. But only .(dot) means execute a given command in the current shell without starting a new copy of the shell. The syntax for .(dot) command is . command-name e.g $ . foo</p>
+</blockquote>
+<h1>This is my 1st shell program</h1>
+<p>clear</p>
+<pre><code class="language-bash">echo &quot;Knowledge is Power&quot;
+</code></pre>
+<p>Anything after &quot;#&quot; is a comment
+clear - this will clear the screen</p>
+<pre><code class="language-bash">echo - prints the message
+</code></pre>
+<ol start="4">
+<li>The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values.</li>
+</ol>
+<hr>
+<h2>Linux has two types of variables</h2>
+<p>i. System Variables (Maintained by Linux system, seen in caps case)
+ii. User defined varibales (User defined, small case)</p>
+<hr>
+<h2>Variable declaration</h2>
+<p>n=10
+Dont put spaces on either side of the equals sign that should give an error. Variables are case sensitive. While printing the values of the variables use the &#39;$&#39; symbol, e.g echo $n</p>
+<ol start="5">
+<li>Shell Arithmetic</li>
+</ol>
+<p>The term expr is used to perform arithmetic operations in shell.
+Syntax : expr op1 operator op2
+e.g
+$ expr 1 + 3
+$ expr 2 - 1
+$ expr 10 / 2
+$ expr 20 % 3
+$ expr 10 * 3
+$ echo <code>expr 6 + 3</code></p>
+<p>Note : Backticks <code>is called backtick and this is mean to execute any command in the script e.g echo &quot;today is</code>date`&quot;</p>
+<ol start="6">
+<li>Exit status</li>
+</ol>
+<p>By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO
+zero is success while non zero is not
+This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status
+e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0</p>
+<ol start="7">
+<li>User input</li>
+</ol>
+<p>to accept an input from the user, use the command &#39;read&#39;
+read var1, var2, var3</p>
+<ol start="8">
+<li>WildCards</li>
+</ol>
+<p>There are three wildcards in shell
+?, *, [...]
+? - will Match a single character</p>
+<ul>
+<li><ul>
+<li>will Match a group of characters</li>
+</ul>
+</li>
+</ul>
+<p>[...]* - will match a group of characters in the mentioned set
+e.g
+[abc]* will look for all the matches starting with a,b and c
+[!abcd] or [!a-d] everything except a,b,c,d</p>
+<blockquote>
+<p>Note: If you want to execute two or more commands in one line, use a semicolon
+e.g ls; who; date; cal</p>
+</blockquote>
+<ol start="9">
+<li>Command line arguments</li>
+</ol>
+<p>Some commands need arguments to be passed. e.g if you do an rm, you would need to specify the file you want to remove. The specifying of the file is the command line argument to that command. For every shell script there is a command line argument that cane be specified by $<number>. $0 is the name of the script. $1 is the 1st argument. $2 is the 2nd argument and so on...</p>
+<ol start="10">
+<li>Redirection of Standard input output</li>
+</ol>
+<p>Three symbols are used for redirection&#39;</p>
+<blockquote>
+<p>, &lt; , &gt;&gt;
+: command &gt; file : this will write to the file provided
+&lt; : command &lt; file : take input from the file provided</p>
+<blockquote>
+<p>: command &gt;&gt; file : will append input to the file if file already exist</p>
+</blockquote>
+</blockquote>
+<ol start="11">
+<li>Pipes</li>
+</ol>
+<p>pipe is a utility to connect the output of one program to the input of another program without any temporary file. Pipe is a temporary storage place, where the output of one command is stored, and then passed to the input of another command. Pipes are used to run more than two commands for the same command line.
+$ ls | more
+$ who | sort
+$ who | sort &gt; user_list
+$ who | wc -l
+$ ls -l | wc  -l
+$ who | grep raju</p>
+<ol start="12">
+<li>Filters</li>
+</ol>
+<h2>If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command</h2>
+<p>$ tail +20 &lt; hotel.txt | head -n30 &gt;hlist</p>
+<ol start="13">
+<li>If Condition</li>
+</ol>
+<p>if is used for decision making. If a particular condition is true command1 is executed.</p>
+<hr>
+<h2>Syntax</h2>
+<p>if condition
+then
+  command1
+fi</p>
+<p>condition is comparison between values, comparison can be done using the expr operator or the by cheking the exit status.
+#!/bin/bash
+if cat $1
+then</p>
+<pre><code class="language-bash">  echo &quot;$1 file found on this location&quot;
+</code></pre>
+<p>fi</p>
+<p>if [ $2 -gt 0 ]
+then</p>
+<pre><code class="language-bash">  echo &quot;$2 positive number&quot;
+</code></pre>
+<p>fi</p>
+<p>if [ -f $3 ]
+then</p>
+<pre><code class="language-bash">  echo &quot;$3 file exists&quot;
+</code></pre>
+<p>fi</p>
+<p>if...else...if
+#!/bin/bash
+if [ -f $1 ]
+then</p>
+<pre><code class="language-bash">  echo &quot;$1 exist&quot;
+</code></pre>
+<p>else
+  if [ -f $2 ]
+  then</p>
+<pre><code class="language-bash">    echo &quot;$2 exist&quot;
+</code></pre>
+<p>  else
+    if [ -f $3 ]
+    then</p>
+<pre><code class="language-bash">      echo &quot;$3 exist&quot;
+</code></pre>
+<p>    fi 
+  fi 
+fi
+execution
+$ sh -x shell3.sh asdff adfdag shell1.sh</p>
+<ul>
+<li>[ -f asdff ]</li>
+<li>[ -f adfdag ]</li>
+<li>[ -f shell1.sh ]</li>
+<li>echo shell1.sh exist
+shell1.sh exist
+$ sh -x shell3.sh asdff shell2.sh shell1.sh</li>
+<li>[ -f asdff ]</li>
+<li>[ -f shell2.sh ]</li>
+<li>echo shell2.sh exist
+shell2.sh exist
+$ sh -x shell3.sh shell3.sh shell2.sh shell1.sh</li>
+<li>[ -f shell3.sh ]</li>
+<li>echo shell3.sh exist
+shell3.sh exist</li>
+</ul>
+<p>#!/bin/bash</p>
+<pre><code class="language-bash">echo &quot;1. Linux \n 2. Windows \n 3. None&quot;
+</code></pre>
+<p>read ch
+if [ $ch -eq 1 ]
+then</p>
+<pre><code class="language-bash">  echo &quot;You seem like a geek&quot;
+</code></pre>
+<p>else</p>
+<pre><code class="language-bash">  echo &quot;You are good&quot;
+  if [ $ch -eq 3 ]
+</code></pre>
+<p>  then</p>
+<pre><code class="language-bash">    echo &quot; But, I dont know, what you do&quot;
+</code></pre>
+<p>  fi 
+fi</p>
+<p>#!/bin/bash</p>
+<pre><code class="language-bash">echo &quot;1. student\n2.work\n3.none&quot;
+</code></pre>
+<p>read ch
+if [ $ch -eq 1 ]
+then</p>
+<pre><code class="language-bash">  echo &quot;Happy Studying&quot;
+elif [ $ch -eq 2 ]
+</code></pre>
+<p>then</p>
+<pre><code class="language-bash">  echo &quot;You should study too&quot;
+elif [ $ch -eq 3 ]
+</code></pre>
+<p>then</p>
+<pre><code class="language-bash">  echo &quot;Study an get a job&quot;
+</code></pre>
+<p>fi</p>
+<ol start="14">
+<li>Looping in Shell</li>
+</ol>
+<p>Looping is execution of a particular expression time and again until a particular condition is satisfied.
+bash supports for loops and while loops
+looping needs 1. initializing of a variable, 2. test condition in beginning, 3. body of loop at the end modifies the initialized variable</p>
+<ol start="15">
+<li>For Loop</li>
+</ol>
+<p>Syntax:</p>
+<p>for { variable name } in { list }
+do
+execute one for each item in the list until the list is
+not finished (And repeat all statement between do and done)
+done</p>
+<p>  e.g</p>
+<p>for i in 1 2 3 4 5
+do</p>
+<pre><code class="language-bash">echo &quot;Welcome $i times&quot;
+</code></pre>
+<p>done</p>
+<p>#!/bin/bash
+for i in <code>seq 1 10</code>
+do</p>
+<pre><code class="language-bash">  echo &quot;Welcome $i times&quot;
+</code></pre>
+<p>done</p>
+<ol start="16">
+<li>While loops</li>
+</ol>
+<p> Syntax:</p>
+<p>while [ condition ]
+  do
+     command1
+     command2
+     command3
+  done</p>
+<p>To be contd...</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

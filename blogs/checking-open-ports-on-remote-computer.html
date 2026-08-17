@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checking Open Ports on a Remote Computer using PortQry | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/checking-open-ports-on-remote-computer.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Checking Open Ports on a Remote Computer using PortQry">
+  <meta property="og:description" content="Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/checking-open-ports-on-remote-computer.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-02-07">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Checking Open Ports on a Remote Computer using PortQry">
+  <meta name="twitter:description" content="Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Checking Open Ports on a Remote Computer using PortQry","description":"Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-02-07","url":"https://iamrawtion.github.io/blogs/checking-open-ports-on-remote-computer.html","keywords":"Server, Troubleshooting","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            <span class="tag" style="margin-left:0.4rem;">Server</span><span class="tag" style="margin-left:0.4rem;">Troubleshooting</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Checking Open Ports on a Remote Computer using PortQry</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            February 7, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfJEnwQHq3SBLagC2orvNOxsQM_U3XlV4dOOiXqkWNkeclXp4xRoLwrfa0i6KPHvYofYMs_NOcW0nizugQEVm52lXLh1wyvqq5Gzhe02P_YcmRoP-R1WlbftUZFdiiONrlSEuHt_I0DeI/s1600/139617707_d2b49ba43b_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/rfranklinaz/">Ryan Franklin</a></p>
+<p> Today for one of the projects the SFTP connection kept failing for
+some reason. The user-id password used for connecting to the host was
+correct the hostname was as well correct. There was no way to find out
+what went wrong. Thankfully command-line gives a good log to verify what
+goes wrong.</p>
+<h2>I tried connecting to the SFTP host with various</h2>
+<p>tools like FileZilla, WinSCP but could not get good enough logs. Finally
+i tried connecting the server using **ssh on command-line using my **Ubuntu
+machine. The connection used to time out. That is what i see in the logs
+as well. I assumed that probably the SFTP port number 22 was closed for
+the host.</p>
+<h2>I googled for if i could find a tool to check if a</h2>
+<p>particular port on a machine is accessible or not. I finally found
+something called as PortQry taht could be used on Windows machine using
+Commandline.</p>
+<hr>
+<h2>Its a very small 140 KB command-line based software</h2>
+<p>tool that you can use to check if a port on some machine is accessible
+or not.</p>
+<hr>
+<h2>After using this tool i got to know that the machine had a</h2>
+<p>Firewall  kind of protection which wasn&#39;t allowing me to access the
+SFTP port on it.</p>
+<h2>Here&#39;s how you PortQry on Windows</h2>
+<pre><code class="language-yaml">- Download the software using the link : http://www.microsoft.com/en-in/download/details.aspx?id=17148
+
+- Double click an unzip the files to any location say C:/
+
+- Hit Windows+R in the run box enter &quot;cmd&quot;
+
+- Go to the directory where the PortQry was extracted.
+
+- Execute the program PortQry by entering PortQry&lt;enter&gt;
+
+- This will display a list of help information and the correct usage of the command
+</code></pre>
+<hr>
+<h2>The following is the syntax to check the port status</h2>
+<p><em>portqry -n myhostname.net -e 80</em></p>
+<p>PortQry can inform the status of a port as &quot;Listening&quot;, &quot;Not Listening&quot;, or &quot;Filtered&quot;
+Listening : There is some service active on that port
+Not Listening : Port is closed
+Filtered : No response, Presumably its behind some kind of firewall.</p>
+<p>Syntax</p>
+<pre><code class="language-bash">portqry -n name_to_query [-p protocol] [-e || -r || -o endpoint(s)]
+</code></pre>
+<hr>
+<h2>Common command line switches</h2>
+<p>-n : IP address or name of system to query
+-p : TCP or UDP or BOTH (default is TCP)
+-e : single port to query (valid range: 1-65535)
+-r : range of ports to query (start:end)</p>
+<p>For single port use</p>
+<p><em>portqry -n 127.0.0.1 -e 80</em></p>
+<hr>
+<h2>For a Range of ports, use the -r switch</h2>
+<p><em>portqry -n 127.0.0.1 -r 80:85</em></p>
+<pre><code class="language-yaml">Note:
+- PortQry also displays extended information for known services, such as
+</code></pre>
+<p>SMTP, POP3, IMAP4, <strong>FTP</strong>, and is capable of performing LDAP queries.</p>
+<ul>
+<li>A GUI based alternative is also available now called PortQryUI</li>
+</ul>
+<hr>
+<h2>Sample Output</h2>
+<p>C:\PortQryV2&gt;portqry -n 127.0.0.1 -e 40</p>
+<hr>
+<h2>Querying target system called</h2>
+<p> 127.0.0.1</p>
+<p>Attempting to resolve name to IP address...
+Name resolved to xx.xx.xx.xx
+querying...</p>
+<h2>TCP port 22 (ssh service): FILTERED</h2>
+<p>C:\PortQryV2&gt;portqry -n 127.0.0.1 -e 80</p>
+<hr>
+<h2>Querying target system called</h2>
+<p> 127.0.0.1</p>
+<p>Attempting to resolve IP address to a name...
+IP address resolved to xx.xx.xx.xx
+querying...
+TCP port 80 (http service): LISTENING</p>
+<p>C:\PortQryV2&gt;portqry -n 127.0.0.1 -e 22</p>
+<hr>
+<h2>Querying target system called</h2>
+<p> 127.0.0.1</p>
+<p>Attempting to resolve IP address to a name...
+IP address resolved to xx.xx.xx.xx
+querying...</p>
+<h2>TCP port 22 (ssh service): NOT LISTENING</h2>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

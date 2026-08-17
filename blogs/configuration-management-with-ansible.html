@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration Management with Ansible | Roshan Nagekar</title>
+  <meta name="description" content="What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Configuration Management with Ansible">
+  <meta property="og:description" content="What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2016-04-26">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Configuration Management with Ansible">
+  <meta name="twitter:description" content="What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Configuration Management with Ansible","description":"What is Ansible? Opensource IT Automation tool that handles: - Application Deployment - Muti-tier Orchestration - Configuration Management Why...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2016-04-26","url":"https://iamrawtion.github.io/blogs/configuration-management-with-ansible.html","keywords":"AWS, Configuration Management, Devops, Provisioning, Virtualization","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">AWS</span><span class="tag" style="margin-left:0.4rem;">Configuration Management</span><span class="tag" style="margin-left:0.4rem;">Devops</span><span class="tag" style="margin-left:0.4rem;">Provisioning</span><span class="tag" style="margin-left:0.4rem;">Virtualization</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Configuration Management with Ansible</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            April 26, 2016
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipix8RkKO6og6BTf4yd7Dzw_mBQAY3CZM4EIxWrAB4-1rInIHxPxoQV7GTD80YKzv9_0mXTMxT2MFneaP7nRxNY5RQoReZ20JQeyqD3chCTyzVx5wY9FzmYO4RictroghcSgiQ5d9mRYM/s1600/ansible-logo.png" alt="">
+What is <strong>Ansible</strong>?
+Opensource IT Automation tool that handles:</p>
+<ul>
+<li>Application Deployment</li>
+<li>Muti-tier Orchestration</li>
+<li>Configuration Management</li>
+</ul>
+<p>Why <strong>Ansible</strong>?</p>
+<ul>
+<li>Agentless architechture</li>
+<li>Operates over SSH</li>
+<li>Configuration as data and not as code</li>
+<li>Python</li>
+<li>Self Documented/Explanatory</li>
+<li>Feature rich - more than 150 modules - new modules are easy to write</li>
+<li>Full configuration management and deployment</li>
+</ul>
+<h2>Installing ansible</h2>
+<p>Python package index - pip install ansible</p>
+<p>OS Package install - sudo apt-get install ansible</p>
+<p>Git repo and run setup.py - git clone <a href="https://github.com/ansible/ansible.git">https://github.com/ansible/ansible.git</a></p>
+<hr>
+<h2>Ansible Modes</h2>
+<p>Playbook mode - Execution of a series of commands in order as per written in a playbook
+Non Playbook mode - Executing an ansible module command on target host</p>
+<p>Getting Started:</p>
+<ul>
+<li>Clone the parallax repo</li>
+<li>the repo contains a ansible.cfg file which contains following:</li>
+</ul>
+<pre><code class="language-json">[defaults]
+
+# more at http://docs.ansible.com/intro_configuration.html#the-ansible-configuration-file
+
+# host_key_checking=False
+
+remote_user=user
+</code></pre>
+<p>This file contains global config setting to adjust ansible</p>
+<hr>
+<h2>Playbooks</h2>
+<p>They represent collection of &#39;plays&#39;, configuration policies, which gets applied to defined groups of hosts</p>
+<hr>
+<h2>A sample playbook is as follows</h2>
+<pre><code>- name: Install all the packages and stuff required for an EXAMPLE SERVICE
+  hosts: example_servers
+  user: user
+  sudo: yes
+  roles:
+    - common
+    - mongodb
+    - zeromq
+    - service_example
+    - nodejs
+
+#    - nginx
+
+#    - python
+
+#    - postgresql
+
+#    - redis
+
+#    - memcached
+
+#    - deployment
+</code></pre>
+<hr>
+<h2>Anatomy of a Playbook</h2>
+<hr>
+<h2>A sample playbook structure is as follows</h2>
+<pre><code>.
+├── example_servers.yml
+├── group_vars
+│   ├── all
+│   └── example_servers
+├── host_vars
+│   └── example-repository
+├── hosts
+├── repository_server.yml
+├── roles
+│   ├── __template__
+│   ├── common
+│   ├── gridfs
+│   ├── memcached
+│   ├── mongodb
+│   ├── nginx
+│   ├── nodejs
+│   ├── redis
+│   ├── repository
+│   ├── service_example
+│   └── zeromq
+└── site.yml
+</code></pre>
+<p>If we look at the tree we see a few **YAML files and a few directories. There is also a filed called as &#39;hosts&#39;. The hosts file is the the **Ansible inventory file, it stores the hosts and their mappings to the hostgroups. The hosts file looks like this.</p>
+<hr>
+<h2>Simple Playbook</h2>
+<p>--- //The three dashes on the top tells you that this is a <strong>YAML</strong>(Yet another markup language) file. **Ansible playbooks are written in **yaml.</p>
+<pre><code class="language-yaml">- name: install and start apache //&quot;name&quot; keyword defines the name of the play.
+  hosts: webservers //&quot;hosts&quot; keyword tells which hosts will the play target.
+  user: root //&quot;user&quot; keyword tells what system user will ansible use to execute the task below
+
+ tasks: //&quot;tasks&quot; under tasks you can define what module you use and you configuration
+- name: install httpd
+  yum: name=httpd state=present //&quot;yum&quot; module is being used to install httpd
+
+- name: start httpd
+  service: name=httpd state=running //&quot;service&quot; module is being used to start the httpd service
+</code></pre>
+<hr>
+<h2>Ansible Architechture</h2>
+<p>It runs as a server on your laptop. It has a inventorial host and has set of modules, there are series of playbooks that define the automation tasks. It pushes the outstanding modules modules out to the managed servers using <strong>SSH</strong>, the module runs and the resukt is returned and then the module is removed from the system. No agents are necessary for this process. This is only **SSH and **python are the requirements.</p>
+<hr>
+<h2>How does a playbook work?</h2>
+<p>When you execute a palybook, the 1st thing that happens is we gather facts.</p>
+<p>Ansible will first gather lot of useful facts from that remote system.</p>
+<p>THese can be used later on in playbooks templates and config files as variables.
+The tasks provided in the playbook will then be performed say &#39;install <strong>apache</strong>&#39;.
+SO we will see that we get a changed response.
+Which means something has been changed on the systems.
+If you run the same playbook again you will not get the changed response for the 2nd time, as the changes were already done in the 1st run.</p>
+<p>This is because that the expected state that we told Ansible to perform was already there and hence it did not do it for the 2nd time.</p>
+<p>This is the idempotency of Ansible.</p>
+<hr>
+<h2>Host Inventory: Basics</h2>
+<p>Host inventory can come from several different places, it is usually a list of hosts that you organize in a group. It can come from a file or a directory of files or from a cloud provisioning environment like EC2, Rackspace etc.</p>
+<p>contd...</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

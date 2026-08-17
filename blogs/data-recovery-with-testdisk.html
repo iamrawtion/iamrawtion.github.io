@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Recovery with TestDisk | Roshan Nagekar</title>
+  <meta name="description" content="some rights reserved by epSos .de You buy a portable hard disk drive to keep a back up of all your important data, Or you are carrying an extremely...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/data-recovery-with-testdisk.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Data Recovery with TestDisk">
+  <meta property="og:description" content="some rights reserved by epSos .de You buy a portable hard disk drive to keep a back up of all your important data, Or you are carrying an extremely...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/data-recovery-with-testdisk.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-02-07">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Data Recovery with TestDisk">
+  <meta name="twitter:description" content="some rights reserved by epSos .de You buy a portable hard disk drive to keep a back up of all your important data, Or you are carrying an extremely...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Data Recovery with TestDisk","description":"some rights reserved by epSos .de You buy a portable hard disk drive to keep a back up of all your important data, Or you are carrying an extremely...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-02-07","url":"https://iamrawtion.github.io/blogs/data-recovery-with-testdisk.html","keywords":"Data Recovery, Storage","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            <span class="tag" style="margin-left:0.4rem;">Data Recovery</span><span class="tag" style="margin-left:0.4rem;">Storage</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Data Recovery with TestDisk</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            February 7, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9gFrC33gyk6Ertbup3MmNjilWZsKmRgBBQpRQUKWVGQge3wlfaXBgYL0-hafHi9O9SJOevKNEMyjOVpkXnlQX8MgqN7KKTi7LOnfFDRDKlMPcQFLDHcaXL2t7ZXPhdA51MHsi-6Vqkgg/s1600/8336691931_32bc2f3e2e_m.jpg" alt=""></p>
+<p>some rights reserved by <a href="https://www.flickr.com/photos/epsos/">epSos .de</a></p>
+<p> You buy a portable hard disk drive to keep a back up of all your
+important data, Or you are carrying an extremely important doc in a USB
+drive, or you have some data on your internal hard disk drive. You try
+to get the data and ... boom!!! No Data!!! You have absolutely no clue
+how to get back the important data you had in the drives. Finally you
+just consider it lost and curse your fate and carry on.</p>
+<p>This
+happened to me too. 1 TeraBytes of important data in my external Hard
+disk drive got corrupt in a second and was lost. I tried all OS&#39;s i
+could right from MAC to Windows to Linux but no luck. I was about to
+give up when i came across Data Recovery softwares on Internet.</p>
+<p>Data
+Recovery softwares are those softwares that help you read
+corrupt/lost/deleted data from your drives. There were so many softwares
+out there. I started trying out my luck on all the softwares i could
+with a windows machine(i should not have done that, but i have no
+option!!). Unfortunately most of them just gives a list of deleted items
+on the disk that i never needed. One or two of them did get me the data
+however since they were trial versions, i could only view the data and
+not copy them. Anyways it just gave me the hope that the data was still
+there in the disk.</p>
+<p>Finally i searched for Open Source alternatives and there i got my answer. TestDisk!!!</p>
+<p><strong>What is TestDisk?</strong></p>
+<p>As
+per their website wiki: TestDisk is a free data recovery software
+designed to help recover lost partitions and/or make non-booting disks
+bootable again when these symptoms are caused by faulty software,
+certain types of viruses, or human error. It can also be used to repair
+some filesystem errors.</p>
+<h2>Installation</h2>
+<hr>
+<h2>You don&#39;t need to</h2>
+<p>install it. Its a very small 1.5 MB software, where you just need to
+run the executable, it was really easy to use command line based
+software with most of the information self explanatory.</p>
+<h2>Steps to Use</h2>
+<ol>
+<li><p>Logs</p>
+<p>Creation : Like every other Linux based software, this one as well
+makes a log of every session carried out. when you execute the
+TestDisk.exe You are 1st asked for if, you would like to CREATE a new
+log, APPEND  the existing log, or want NO LOG.</p>
+</li>
+<li><p>Media/Disk</p>
+<p>Detection :Next you need to select the disk you want to recover the lost
+data from. It shows a list of all volumes connected to you computer and
+you can select using keyboard arrow keys.</p>
+</li>
+<li><p>Disk/Partition Table</p>
+<p>Type Selection : The next screen prompts you to select the partition
+table type. In most of the cases it detects all by itself the type.
+Otherwise it keeps it to none for you to select. Mine was a windows
+machine that i was running this program on and i used this with quiet a
+many volumes and every time it detected Intel. I am assuming windows
+users could probably select Intel in case they are unsure of this option.
+But selection &quot;None&quot;is not recommended as its very rare that a drive is
+non partitioned.</p>
+</li>
+<li><p>Next Screen Gives the following Options :</p>
+</li>
+</ol>
+<p>Analyse Analyse current partition structure and search for lost partitions to restore them
+Advanced Filesystem Utils</p>
+<pre><code class="language-yaml">FAT: Boot and FAT repair
+
+NTFS: Boot and MFT repair
+</code></pre>
+<p>ext2/ext3: Find Backup SuperBlock
+FAT file undelete
+NTFS file undelete
+ext2 file undelete
+Image Creation</p>
+<p>Geometry Change disk geometry</p>
+<p>Options Modify options</p>
+<p>MBR Code Write TestDisk MBR code to first sector</p>
+<p>Delete Delete all data in the partition table</p>
+<p>Analyzing of disk is done to look for lost partitions. This takes long time based on the size of the disk. Most
+of the times for windows if you get an error &quot;The type of the file
+system is RAW.&quot; or &quot;The disk in drive D is not formatted. Do you want to
+format it now?&quot; then that means the Boot sector is damaged. You can
+click on Advanced file system Utils and and use the FAT: Boot and FAT
+repair/NTFS: Boot and MFT repair based on the type of partitioin you
+have. This was the problem with my disk too and got corrected in no
+time.</p>
+<p>To be contd ...</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

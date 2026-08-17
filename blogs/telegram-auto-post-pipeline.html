@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped. | Roshan Nagekar</title>
+  <meta name="description" content="I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automa">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.">
+  <meta property="og:description" content="I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automa">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2026-07-26">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.">
+  <meta name="twitter:description" content="I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automa">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.","description":"I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-07-26","url":"https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html","keywords":"n8n, Automation, AI Agents, Telegram, DevOps","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">n8n</span><span class="tag" style="margin-left:0.4rem;">Automation</span><span class="tag" style="margin-left:0.4rem;">AI Agents</span><span class="tag" style="margin-left:0.4rem;">Telegram</span><span class="tag" style="margin-left:0.4rem;">DevOps</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            July 26, 2026
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <h2>The Idea</h2>
+<p>I have a Telegram channel — <a href="https://t.me/securedevops">@securedevops</a> — where I post short takes on DevSecOps, AI agents, and automation. The content is already written. I just have to post it everywhere else manually, which I don&#39;t.</p>
+<p>So I decided to automate it. One post on Telegram, and it goes everywhere: LinkedIn, Twitter, Instagram, Facebook, Dev.to. With ChatGPT reformatting the content for each platform so it doesn&#39;t feel copy-pasted.</p>
+<h2>What I Built</h2>
+<p>Built it in n8n. The architecture was straightforward:</p>
+<ol>
+<li>A webhook catches new posts from the Telegram channel</li>
+<li>A dedup check makes sure nothing gets posted twice</li>
+<li>ChatGPT reformats the content for each target platform</li>
+<li>Posts go out to LinkedIn, Twitter, Instagram, Facebook, Dev.to</li>
+</ol>
+<p>The webhook and dedup logic work. The ChatGPT integration works. I never finished the multi-platform posting.</p>
+<h2>Where It Broke Down</h2>
+<p>ngrok.</p>
+<p>I used ngrok&#39;s free tier to expose the webhook to Telegram. Free tier ngrok gives you a public URL — until you restart your machine. Then the URL changes, and Telegram doesn&#39;t know about the new one, so you have to manually re-register the webhook every time.</p>
+<p>An automation system that requires daily manual maintenance isn&#39;t an automation system. It&#39;s a slightly faster manual process.</p>
+<h2>The Actual Problem</h2>
+<p>The ngrok issue is fixable. Buy a static domain, use a VPS, run it on a server that doesn&#39;t restart. That&#39;s maybe two hours of work.</p>
+<p>I didn&#39;t do it.</p>
+<p>I spent time on the n8n workflow design, the dedup logic, the ChatGPT prompt tuning — all the parts that felt like building something. The part that would make it actually run unattended? I kept putting it off.</p>
+<p>This is a pattern I&#39;ve seen in a lot of DevOps and automation work. Developers gravitate toward the intellectually interesting 20% — the architecture, the AI integration, the clever deduplication — and procrastinate on the unglamorous 80% that determines whether the system operates without you touching it.</p>
+<p>Stable endpoints. Persistent processes. Restart recovery. Error alerting. That&#39;s the work. That&#39;s what makes automation actually automated.</p>
+<h2>Where It Stands</h2>
+<p>The pipeline still exists. It still works — if I manually re-register the webhook after each restart. Which defeats the entire purpose.</p>
+<p>I&#39;ll probably fix it eventually. Or I&#39;ll keep posting manually and tell myself I&#39;ll fix it eventually.</p>
+<p>Either way, the lesson is the same: the exciting part of automation is not the part that makes it work.</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

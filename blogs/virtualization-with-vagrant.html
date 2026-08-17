@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtualization with Vagrant | Roshan Nagekar</title>
+  <meta name="description" content="some rights reserved by MedithIT going ahead with Chef configuration management tutorials i came across &quot;Vagrant&quot;. I heard this term many a times....">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/virtualization-with-vagrant.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Virtualization with Vagrant">
+  <meta property="og:description" content="some rights reserved by MedithIT going ahead with Chef configuration management tutorials i came across &quot;Vagrant&quot;. I heard this term many a times....">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/virtualization-with-vagrant.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-02-24">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Virtualization with Vagrant">
+  <meta name="twitter:description" content="some rights reserved by MedithIT going ahead with Chef configuration management tutorials i came across &quot;Vagrant&quot;. I heard this term many a times....">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Virtualization with Vagrant","description":"some rights reserved by MedithIT going ahead with Chef configuration management tutorials i came across \"Vagrant\". I heard this term many a times....","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-02-24","url":"https://iamrawtion.github.io/blogs/virtualization-with-vagrant.html","keywords":"Vagrant, VirtualBox, Virtualization, VMWare","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">Vagrant</span><span class="tag" style="margin-left:0.4rem;">VirtualBox</span><span class="tag" style="margin-left:0.4rem;">Virtualization</span><span class="tag" style="margin-left:0.4rem;">VMWare</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Virtualization with Vagrant</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            February 24, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi51IzgtjkyuyM8RHG3lO05zUFmq2RFLw8jea0pdouizGvrNVR0ORMlS3uboSpwttDEaTFEyMWWLSgWAj5ibJaKd2uZC3xaerHSu33gYmO0CmCdzvMUdwIMlA7ipx0Wr5UrxvmMn9staY4/s1600/8105172928_85711c5d95_m.jpg" alt=""></p>
+<p>some rights reserved by <a href="https://www.flickr.com/photos/medithit/">MedithIT</a></p>
+<p>While
+going ahead with Chef configuration management tutorials i came across
+&quot;<strong>Vagrant</strong>&quot;. I heard this term many a times. For quite sometime i
+thought it was just another VirtualBox like application. until i finally
+started using it.</p>
+<p>What is
+Vagrant**?**</p>
+<h2>Open Source</h2>
+<p>application for creating and configuring virtual dev environment. Vagrant
+manages VMs hosted in VirtualBox. Basically its a commandline utility that
+allows you to communicate with <strong>VirtualBox</strong> (or any virtualization software) with
+an easy set of commands. Many describe it as a wrapper around the
+virtualization software too.</p>
+<p>How is it</p>
+<p>used?</p>
+<hr>
+<h2>Fist of</h2>
+<p>all download Vagrant for your OS from this <a href="http://www.vagrantup.com/downloads">link</a>.
+Install it. As mentioned its a commandline utility tool, you need commandline
+to access this.</p>
+<ol>
+<li>You will need to initialize</li>
+</ol>
+<pre><code class="language-bash">   vagrant box** using the init command. This will initialize a
+   vagrant environment in the present directory you are in. The second
+</code></pre>
+<p>   argument will set the name for your box and the third will set the URL
+   to access in the Vagrant file.</p>
+<ul>
+<li><em>Syntax: vagrant init [box-name] [url-to-access]</em></li>
+<li><em>Example: vagrant init precise32 <a href="http://files.vagrantup.com/precise32.box">http://files.vagrantup.com/precise32.box</a></em></li>
+</ul>
+<ol start="2">
+<li>Next you need to **create and configure the **vagrant box as per your **vagrant file. Use the up command for this. This command will be used frequently as this is how you **start you machine as well.</li>
+</ol>
+<ul>
+<li><em>vagrant up</em></li>
+</ul>
+<ol start="3">
+<li>Now that the machine has started you still have not logged in to the machine. You can use **ssh to login. You don&#39;t need to use the traditional long **ssh command to login to your box a simple vagrant ssh suffices.</li>
+</ol>
+<ul>
+<li><p><em><strong>vagrant</strong> <strong>ssh</strong></em></p>
+</li>
+<li><p>Note:</p>
+<p>Please check the documentation on the vagrant website as there is a
+list of optional parameters that you may need in case you run into any
+errors. Fatal can be expected.</p>
+</li>
+</ul>
+<ol start="4">
+<li>To check valid **configurations to ssh into a running **vagrant box use vagrant ssh-config</li>
+</ol>
+<ul>
+<li><em>vagrant ssh-config</em></li>
+</ul>
+<ol start="5">
+<li>As you now know how to setup and start using your **vagrant box, we also need to know how to **shut it down. This is simple too by just a &quot;**vagrant halt&quot; similar to the halt command in **linux machine.</li>
+</ol>
+<ul>
+<li><em>vagrant halt</em></li>
+</ul>
+<ol start="6">
+<li>These were the few basics of **vagrant. You can do more with **vagrant as well. The **vagrant box command gives you **other alternatives that you could try out.</li>
+</ol>
+<ul>
+<li><p><em>vagrant box add [box-name] [url-path]</em></p>
+</li>
+<li><p>This adds a box with the specified name using the local file path or url specified to access it.</p>
+</li>
+<li><p><em>vagrant box list</em></p>
+</li>
+<li><p>Lists all the boxes installed and available</p>
+</li>
+<li><p><em>vagrant box remove [box-name] [provider]</em></p>
+</li>
+<li><p>Removes the box with the specified box name for the specific provider. Providers are **VirtualBox or **VMWare or any other utility.</p>
+</li>
+<li><p><em>vagrant box repackage [box-name] [provider]</em></p>
+</li>
+<li><p>Repackages</p>
+<p>the given box and puts it to present directory for redistribution
+purpose. When a box is added, vagrant unpacks and stores it internally
+and the original box is not preserved.</p>
+</li>
+</ul>
+<ol start="7">
+<li>**Restarting a **vagrant machine can be done using **vagrant reload. Its equivalent to a **vagrant halt and vagrant up.</li>
+</ol>
+<ul>
+<li><em>vagrant reload</em></li>
+</ul>
+<ol start="8">
+<li>To check the current state of the machine, i.e to verify if the machine is running, stopped or not created etc a status command helps</li>
+</ol>
+<ul>
+<li><em>vagrant status</em></li>
+</ul>
+<ol start="9">
+<li>To save the status of the machine and suspend it so that you can resume it at a later instance and not completely shut it down, you can use suspend command.</li>
+</ol>
+<ul>
+<li><em>vagrant suspend</em></li>
+</ul>
+<ol start="10">
+<li>To **resume a suspended machine use **vagrant resume</li>
+</ol>
+<ul>
+<li><em>vagrant resume</em></li>
+</ul>
+<ol start="11">
+<li><p>Finally, to stop and delete/destroy</p>
+<p>and existing machine use the destroy command. All the resources
+allocated are destroyed as if the machine was never there. This command
+asks for confirmation before destroying.</p>
+</li>
+</ol>
+<ul>
+<li><em>vagrant destroy</em></li>
+</ul>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

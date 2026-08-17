@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Tagger | Roshan Nagekar</title>
+  <meta name="description" content="Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/aws-tagger.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AWS Tagger">
+  <meta property="og:description" content="Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/aws-tagger.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2019-01-20">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="AWS Tagger">
+  <meta name="twitter:description" content="Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AWS Tagger","description":"Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-01-20","url":"https://iamrawtion.github.io/blogs/aws-tagger.html","keywords":"AWS, Bulk tagging, Cloud Computing, Standard, Tags","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Cloud Computing</span>
+            <span class="tag" style="margin-left:0.4rem;">AWS</span><span class="tag" style="margin-left:0.4rem;">Bulk tagging</span><span class="tag" style="margin-left:0.4rem;">Cloud Computing</span><span class="tag" style="margin-left:0.4rem;">Standard</span><span class="tag" style="margin-left:0.4rem;">Tags</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">AWS Tagger</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            January 20, 2019
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSkdewqis72w1XkzPA-m8lxPsaI_kyWYWLc4OJOuWbxorWek9ji6RIGq4lsjRQ0S1fvr2YcJg5EgHuXgK0sz7Wlcc9TMwmiTWpcTkuHsLP0vjS94X1ZE-g0u_oxJjvsq7r9-mxub2PS8Q/s1600/3814523970_56b2af4d12_z.jpg" alt=""></p>
+<p>Image credits : <a href="https://www.flickr.com/photos/jdhancock/">jdhancock</a></p>
+<p>Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us identify resources but it can also do multiple other wonders that one might have never thought about. We don&#39;t tag resources in cloud for many reasons, laziness being the topmost reason.</p>
+<p>Lets see why tagging is important:</p>
+<ol>
+<li>Identification and Isolation: Tagging allows identification of resources as to what purpose a specific resource may have been created for. It also allows you to separate resources from each other. e.g. separating different environments.</li>
+<li>Automation: When you tag resources with certain values you can ensure that your automation scripts only addresses certain intended resources and not all. e.g execute security patches on certain systems that need to be compliant.</li>
+<li>Costing: You can identify based on tags as to which resource is costly and also make business decisions based on the results received.</li>
+<li>Define ownership: You can also understand based on proper tags as to who are the stakeholders for a certain resource or group of resources.</li>
+<li>Versioning: Sometimes when you need certain resources to be preserved based on its state, you may also versionize them based on tagging. Although AWS provides versioning mechanism for a few services, it may not be applicable to all of them.</li>
+</ol>
+<p>In many organizations although the importance of tagging is understood a lot later.
+Until then its too late to start tagging and it becomes almost always a manual process to tag all the resources.</p>
+<p>Or you may need to write complex programs to identify systems and tag them as per your requirement.
+Thankfully, <a href="https://github.com/washingtonpost/aws-tagger">AWS Tagger</a> comes to rescue if you have a requirement to tag your AWS resources.</p>
+<p>You may also bulk tag them to avoid a lot of manual work.
+So how do we do this.</p>
+<p>Its a 3 step process to Bulk tag resources:</p>
+<ol>
+<li></li>
+</ol>
+<p>Collection : This is a simple process.
+Here all you need to do is, collect all the resources in a file.
+Hereafter you may process this data.</p>
+<p>AWS Tagger heavily depends of resource ID&#39;s of all the resources you create.</p>
+<p>Resource ID&#39;s are further used to implement all the tags.
+To get the resource ID&#39;s for all the resources, simply login to your AWS account and navigate to <a href="https://resources.console.aws.amazon.com/r/tags">https://resources.console.aws.amazon.com/r/tags</a>.</p>
+<p>On this page, you are given a field to enter the region for the resource you want to choose and all choose the types of resource.</p>
+<p>Choose &quot;All resource types&quot; here and click on &quot;Find Resources&quot; button.
+Click on the &quot;Download&quot; button to download the CSV data generated.</p>
+<ol start="2">
+<li>Identification and filtering: I recommend this step particularly to filter the data so that AWS Tagger can act on individual resources. Here you may use your excel skills to separate data based on resource types.</li>
+<li>Tagging: Once the resources are separated, you may start executing **AWS Tagger scripts as per the <a href="https://github.com/washingtonpost/aws-tagger/blob/master/README.md">documentation</a> provided on their **Github page.</li>
+</ol>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

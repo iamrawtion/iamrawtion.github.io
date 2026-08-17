@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Drupal Setup | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Gabor Hojtsy Drupal is a CMS (Content Management System) written in PHP and is distributed under GNU public license. It is...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/local-drupal-setup.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Local Drupal Setup">
+  <meta property="og:description" content="Some rights reserved by Gabor Hojtsy Drupal is a CMS (Content Management System) written in PHP and is distributed under GNU public license. It is...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/local-drupal-setup.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2013-07-08">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Local Drupal Setup">
+  <meta name="twitter:description" content="Some rights reserved by Gabor Hojtsy Drupal is a CMS (Content Management System) written in PHP and is distributed under GNU public license. It is...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Local Drupal Setup","description":"Some rights reserved by Gabor Hojtsy Drupal is a CMS (Content Management System) written in PHP and is distributed under GNU public license. It is...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-07-08","url":"https://iamrawtion.github.io/blogs/local-drupal-setup.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Local Drupal Setup</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            July 8, 2013
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdoviRQk2CVivz9bCYpPHNPLnZIw6ZNULdygVG5LKy_RyFN4M7nsoWiX0Tr31UdUlE0RZOtXSzu_pajrtgUoey8TpeO9F5OXXNXOfTwpMfIaOT0mSUT9YQqIGmsIMTj0AcUPvKwfsOudk/s1600/363646839_5e063c41bf_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/gaborhojtsy">Gabor Hojtsy</a></p>
+<p>Drupal is a CMS (Content Management System) written in PHP and is distributed under GNU public license. It is used as a backend for most of the websites world wide. Many organizations as well as individuals are switching there websites to a CMS based website for one reason: Easy management. The other important reasons follow thereafter.</p>
+<p>So here&#39;s how to setup Drupal locally on your machine.</p>
+<p>You would need two things to setup Drupal.</p>
+<ol>
+<li>Drupal&#39;s  latest version from the Drupals <a href="https://drupal.org/download">website</a></li>
+<li>A WAMP(Windows <strong>Apache</strong> **MySQL PHP) server setup. **Linux users (LAMP) from wamps <a href="http://www.wampserver.com/en/">website</a></li>
+</ol>
+<h2>Steps to install</h2>
+<ol>
+<li>Install Wamp</li>
+</ol>
+<p>This will be fairly simple, Once you execute the wampserver.exe all you do is press next until its successfully installed.</p>
+<ol start="2">
+<li>Unzip the Drupal&#39;s zip file downloaded to the wamp/www folder in your C: drive OR whichever drive has the wamp&#39;s www directory.</li>
+<li>The directory name at present is Drupal-x.y(version number), Rename it to drupal.</li>
+<li>If you have Skype installed and running note that skype uses the same port as that of WAMP so WAMP may give up problems. Close Skype and Run WAMP from the system tray start the service.</li>
+<li>In your  browser, type localhost and press enter, You should see WAMPs page, Select PHPMYADMIN on the page.</li>
+<li>Next we need to create a database for Drupal. In the create new database field enter you drupal db name and press create.</li>
+<li>Drupal database is not created.</li>
+<li>On you browser go to localhost/drupal this should prompt you for drupal install</li>
+</ol>
+<h2>Database type: mysql</h2>
+<p>Database name: <drupal_db_name>
+Database username: root
+Database password:blank
+Save configuration.</p>
+<p>9.  Create an account enter you details, you may get a mail error, ignore for now. Save it.
+10. Click on home link and you should see your drupal home page.
+11. Click on rebuild permissions on the home page if you see it. It should remove any errors in the permissions in file system.
+12. From the tabs above find the configuration tab and if you see any errors it should be marked in red in the configuration page in the status report. The solution to any error is usually available in the same area. SO you are good to go in.</p>
+<p>You now have a local copy of your Drupal Installation available and ready to use.</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

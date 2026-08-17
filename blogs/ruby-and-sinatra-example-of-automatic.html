@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruby and Sinatra Example of Automatic Mutt Configuration | Roshan Nagekar</title>
+  <meta name="description" content="these will include sinatra and erb gem(gem is a package in ruby it will have additional info like files required to be installed) in the code here we...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/ruby-and-sinatra-example-of-automatic.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ruby and Sinatra Example of Automatic Mutt Configuration">
+  <meta property="og:description" content="these will include sinatra and erb gem(gem is a package in ruby it will have additional info like files required to be installed) in the code here we...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/ruby-and-sinatra-example-of-automatic.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2012-08-27">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Ruby and Sinatra Example of Automatic Mutt Configuration">
+  <meta name="twitter:description" content="these will include sinatra and erb gem(gem is a package in ruby it will have additional info like files required to be installed) in the code here we...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Ruby and Sinatra Example of Automatic Mutt Configuration","description":"these will include sinatra and erb gem(gem is a package in ruby it will have additional info like files required to be installed) in the code here we...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-08-27","url":"https://iamrawtion.github.io/blogs/ruby-and-sinatra-example-of-automatic.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Programming</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Ruby and Sinatra Example of Automatic Mutt Configuration</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            August 27, 2012
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <h1>these will include sinatra and erb gem(gem is a package in ruby it</h1>
+<p>will have additional info like files required to be installed) in
+the code here we are including sinatra because sinatra is a DSL
+domain specific language(DSL is a language which is concerned with a
+specific domain problem, it helps us solve a particular problem and
+then advance accordingly there are other DSL&#39;s as well like
+HTML)sinatra is a DSL for quick development of webpages. ERB is
+embedded **ruby erb gives a powerful way to embed **ruby code to plain
+text document or an html file etc this helps in generation of
+documents etc. since we will b using WEBrick server which sinatra
+activates we will be requiring sinatra and since we will be creating
+a template with ruby embedded in it we will be requiring erb as
+well.
+require &#39;sinatra&#39;
+require &#39;erb&#39;</p>
+<h1>get is a route which will map the get method of http to the</h1>
+<p>controller action here /tryerb is a controller action.(A controller
+action is supplied with more info many a times for specific data
+e.g. GET /movies/3 will mean the route GET should map HTTP method to
+movies with id 3 and show the information of that movie with id 3) 
+information will be rendered from tryerb. get route will show the
+page. POST would create one. DELETE will remove and PUT will update.
+get &#39;/tryerb&#39; do
+    erb :tryerb
+end</p>
+<p>#muttconf_template will store the template info whenever a template</p>
+<pre><code class="language-bash">encounters a &lt;% %&gt; it will consider it a ruby code and
+whenever it encounters a &lt;%= %&gt; it will consider that a
+</code></pre>
+<p>statement there are few more tags as well.</p>
+<pre><code class="language-bash">muttconf_template = &quot;set imap_user =\&quot;&lt;%= @usrname %&gt;\&quot;
+set imap_pass =\&quot;&lt;%= @paswd %&gt;\&quot;
+set spool_file =\&quot;&lt;%= @spool_file %&gt;\&quot;
+set folder =\&quot;&lt;%= @folder %&gt;\&quot;
+set postponed =\&quot;&lt;%= @postponed %&gt;\&quot;
+set header_cache =\&quot;&lt;%= @header_cache %&gt;\&quot;
+set message_cachedir =\&quot;&lt;%= @message_cache_dir %&gt;\&quot;
+set certificate_file =\&quot;&lt;%= @certificate_file %&gt;\&quot;&quot;
+</code></pre>
+<p>#An object &#39;configure&#39; of class ERB is created to which the above
+template is supplied
+configure = ERB.new(muttconf_template)</p>
+<h1>post route will create a new tryerb with the data that is attached</h1>
+<p>to it.
+post &#39;/tryerb&#39; do
+  @usrname = params[:usrname]
+  @paswd = params[:paswd]
+  @spool_file = params[:spool_file]
+  @folder = params[:folder]
+  @postponed = params[:postponed]
+  @header_cache = params[:header_cache]
+  @message_cache_dir = params[:message_cache_dir]
+  @certificate_file = params[:certificate_file]</p>
+<p>#configure.result will give the data that was supplied to it.
+binding methods binds the global variables, i.e. retains the values
+of the variables that have been used earlier. FInally the mutrc file
+is opened and the output is written into it. aftr creation of the
+mutrc the msg of mutt being successfully configured is displayed.
+  output = configure.result(binding)
+  File.open(&#39;mutrc&#39;,&#39;w&#39;) do |f|
+    f.write output
+    f.close
+  end
+&quot;MUTT CONFIGURED SUCCESSFULLY!!!&quot;
+end</p>
+<p>The code was further Modified as below....</p>
+<p>newfile.rb</p>
+<h1>encoding: utf-8</h1>
+<p>#roshan again
+require &#39;rubygems&#39;
+require &#39;sinatra&#39;
+require &#39;erb&#39;</p>
+<p>get &#39;/newfile&#39; do
+    erb :newfile
+end</p>
+<p>file = File.open(&quot;template&quot;, &quot;r&quot;)
+muttconf_template = file.read
+configure = ERB.new(muttconf_template)
+post &#39;/newfile&#39; do
+  @usrname = params[:usrname]
+  @paswd = params[:paswd]
+  output = configure.result(binding)
+  user = @usrname
+  passwd = @paswd
+  pass = passwd
+  system(&quot;(perl -e &#39;print crypt($ARGV[0], &quot;#{pass}&quot;)&#39; $#{pass})&quot;);
+  system(&quot;sudo useradd #{user} -p &#39;#{passwd.crypt(&quot;$1$password&quot;)}&#39;&quot;)
+  Dir.mkdir(&quot;/home/#{user}&quot;);
+  File.open(&quot;/home/#{user}/.muttrc&quot;,&quot;w&quot;) do |f|
+    f.write output
+    f.close
+    end
+  erb :postfile
+end</p>
+<p>template file</p>
+<pre><code class="language-bash">set imap_user =&quot;&lt;%=@usrname%&gt;@gmail.com&quot;
+set imap_pass =&quot;&lt;%=@paswd%&gt;&quot;
+set folder =&quot;imaps://imap.gmail.com:993&quot;
+set spoolfile =&quot;+INBOX&quot;
+set header_cache =&quot;~/.mutt/cache/headers&quot;
+set message_cachedir =&quot;~/.mutt/cache/bodies&quot;
+set certificate_file =&quot;~/.mutt/certificates&quot;
+set smtp_url =&quot;smtp.googlemail.com:587&quot;
+</code></pre>
+<p>views/newfile.erb</p>
+<form name="text_form" action="/newfile" method="post"
+<H1>MUTT CONFIGURATION PAGE</H1>
+```yaml
+Username: <input type="text" name="usrname" /><br/>
+Password: <input type="password" name="paswd" /><br/>
+```<input type="submit">
+</form><p>views/postfile.erb</p>
+<html>
+  <title>
+  Success!!!
+  </title>
+    <head>
+      <body>
+        <h1>Successfully Configured Mutt!!!</h1>
+         Open Terminal<br/>
+         Type **ssh** [username]@[ip_address](ENTER)<br/>
+         Type 'mutt' press enter and check you inbox
+      </body>
+    </head>
+</html><p>May be modified further as well....</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

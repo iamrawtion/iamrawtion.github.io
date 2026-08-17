@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to algorithms by MIT | Roshan Nagekar</title>
+  <meta name="description" content="This blog is an extract from MIT's Introduction to Algorithm First part of the course ids focused on Analysis. Second part is focused on design i.e....">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Introduction to algorithms by MIT">
+  <meta property="og:description" content="This blog is an extract from MIT's Introduction to Algorithm First part of the course ids focused on Analysis. Second part is focused on design i.e....">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2012-06-08">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Introduction to algorithms by MIT">
+  <meta name="twitter:description" content="This blog is an extract from MIT's Introduction to Algorithm First part of the course ids focused on Analysis. Second part is focused on design i.e....">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Introduction to algorithms by MIT","description":"This blog is an extract from MIT's Introduction to Algorithm First part of the course ids focused on Analysis. Second part is focused on design i.e....","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-06-08","url":"https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Programming</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Introduction to algorithms by MIT</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            June 8, 2012
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p>Lecture 1</p>
+<p>This blog is an extract from MIT&#39;s Introduction to Algorithm
+course.</p>
+<h2>First part of the course ids focused on Analysis. Second part is</h2>
+<p>focused on design i.e. before u design algorithms; you have to master and
+analyze a bunch of algorithms. Analysis is a theoretical study of a computer
+program performance and resource usage.</p>
+<p>How to make fast and memory reliable programs?</p>
+<p>What is more important than performance?</p>
+<p>1.       </p>
+<p>correctness</p>
+<p>2.       </p>
+<p>simplicity</p>
+<p>3.       </p>
+<p>maintainability</p>
+<p>4.       </p>
+<p>cost(programmer’s
+time)</p>
+<p>5.       </p>
+<p>stability(robustness)</p>
+<p>6.       </p>
+<p>features(functionality)</p>
+<p>7.       </p>
+<p>modularity(changes
+implementation easy)</p>
+<p>8.       </p>
+<p>security</p>
+<p>9.       </p>
+<p>scalability</p>
+<p>10.    </p>
+<p>user
+friendliness</p>
+<p>Then, why study algorithm and performance?</p>
+<hr>
+<h2>Some times performance is correlated to user friendliness. Some</h2>
+<p>times there are real time constraints. i.e. the software wont work untilit
+performs a function for a particular time. Performance measures the line
+between feasible and infeasible. In real time , if it is not fast enough, its
+as good as not functional. If it simply uses more memory, its not going to work
+for you.</p>
+<p>Algorithms are at the</p>
+<p>cutting edge of entrepreneurship. If you are thinking of doing something that already exists,
+performance isn’t that necessary. But, if you are planning to do something’s
+that’s never done before, than its most important.</p>
+<hr>
+<h2>The reason why performance is</h2>
+<p>at the bottom of the heap is because performance is just like money. What good
+is a $100 bill for you? Instead you would want to have food worth $100, that
+should be of some use to you. Performance is something you pay for. E.g you pay
+for user friendliness, you pay for security, etc.</p>
+<hr>
+<h2>So for this reason, a user</h2>
+<p>may gor for JAVA instead of C for it may be slow, but it gives more
+functionality like exceptions, Object Orientations,etc.</p>
+<pre><code class="language-yaml">PROBLEM: INSERTION SORT
+
+Input: sequence
+</code></pre>
+<p>&lt;a1,a2,a3,….,an&gt;of numbers</p>
+<hr>
+<h2>Output</h2>
+<p>permutations&lt;a’1,a’2,a’3,…..,a’n&gt;</p>
+<p>Such that a’1 &lt;= a’2 &lt;=
+a’3 &lt;= ….. &lt;= a’n</p>
+<p>Pseudo code:</p>
+<p>Insertion_Sort(A,n) //Sorts
+A[1….n]</p>
+<p>for j = 2 to n</p>
+<p>do key = A[j]</p>
+<p>i = j-1</p>
+<pre><code class="language-bash">while i&gt;0 and A[i]&gt;key
+</code></pre>
+<p>do A[i+1] = A[i]</p>
+<p>i=i-1</p>
+<p>A[i+1]=key</p>
+<p>Figure 1</p>
+<p><img src="file:///C:/DOCUME~1/Roshan/LOCALS~1/Temp/msohtml1/01/clip_image002.jpg" alt=""></p>
+<hr>
+<h2>It basically takes array A[] and at any point we are</h2>
+<p>running the outer loop of j from 2 to n and the inner loop that starts with i =
+j-1 and goes until i = 0 .  so we are
+looking at some element j in the algorithm, and then we pull out here a value
+called a key and the important thing to note is that there is an invariant that
+is being maintained by the loop each time through. The invariant is that the
+LEFT part of the array in the above figure 1 is sorted. And the goal each time
+through the loop is to add one to the length of the strings that are sorted.
+And the way we do that is we pull out the key, and we just copy the value up
+like the arrows shown until we find a place for the key shown and then INSERT
+it in that place, hence the name INSERTION SORT. Once we have arrays till j
+sorted we go for j+1. now let us see an example for the same.</p>
+<p>Example</p>
+<p>8 <strong>2</strong> 4 9 3</p>
+<p>2 8 <strong>4</strong> 9 3</p>
+<p>2 4 8 <strong>9</strong> 3</p>
+<h2>2 4 8 9 3</h2>
+<p>2 3 4 8 9 sorted</p>
+<p>Analysis of this algorithm</p>
+<p>Running time:</p>
+<ol>
+<li><p>Depends on input. (e.g if already sorted,</p>
+<p>insertion sort has very little to do, cos every time we try to sort it
+would be like the step number 3 above where 9 is already sorted and was at
+its correct position so you don’t need to move it. Worst case is if its
+reverse sorted then there will be a lot of work to do, lot of shuffling to
+do as well.</p>
+</li>
+<li><p>Depends on the input size. (6 elements less time</p>
+<p>10 elements more time) so large number of elements means long time for
+sorting. So we handle it by:</p>
+</li>
+</ol>
+<p>-         </p>
+<p>parameterize
+things in the input size.</p>
+<ol start="3">
+<li>generally we want upper</li>
+</ol>
+<p>bound on running time i.e we want to know that the time is no more than  a certain amount reason being that represents
+a guarantee to the user. E.g if I tell you that there’s  aprogram that wont run more than 3 seconds,
+that gives you real information about how you could use it for example in a
+real time setting. And if I say there’s a program that goes for at least 3
+seconds, it could go for years. That doesn’t give you a guarantee if you are a
+user.</p>
+<ul>
+<li>guarantee to the user.</li>
+</ul>
+<p>Different kinds of analysis :</p>
+<p>Worst case analysis: this is
+done usually</p>
+<p>Where T(n) = maximum time on
+any input of size n</p>
+<hr>
+<h2>So as we saw running time</h2>
+<p>depends on input that some times the inputs are better like in sort if already
+sorted less time and if reverse sorted maximum time. So we are looking at the
+worst case. If T(n) is not for maximum time then T(n) is a relation and not a
+function, because the time on input size n will depend on which input of size
+n, I can have many different times. But by putting a maximum at it, turns that
+relation into a function, cos there’s only one maximum time.</p>
+<p>Average case analysis: this
+is done sometimes.</p>
+<p>Where T(n) = expected time
+over all inputs of size n</p>
+<hr>
+<h2>What is expected time? Time</h2>
+<p>of every input and average them? Time of every input times of probability that
+it will be there that it would occur. How do we know the probability time of
+every input occurs is?</p>
+<p>Well we don’t know it.</p>
+<hr>
+<h2>So we need an assumption of</h2>
+<p>statistical distribution of inputs. Common assumption is that all inputs are
+equally likely that’s called uniform distribution.</p>
+<p>Best case analysis: bogus</p>
+<hr>
+<h2>Because its already done. You</h2>
+<p>can cheat, it doesn’t tell u of the vast majority cases.</p>
+<p>What is insertion sort’s
+worst case time?</p>
+<p>Depends on computer you are
+running on.</p>
+<p>-         </p>
+<p>Compare two
+algorithm for Relative speed (on same machine)</p>
+<p>-         </p>
+<hr>
+<h2>Absolute speed</h2>
+<p>(if onde algorithm is betr than the other no matter what machine it runs on.</p>
+<p>Asymptotic analysis: ignore</p>
+<pre><code class="language-bash">machine dependent constants and look at growth of running time T(n) as n -&gt; ∞
+</code></pre>
+<p>Asymptotic notations</p>
+<p>(Theta notation) q -
+notation:</p>
+<p>Drop low order terms and ignore leading constants</p>
+<p>e.g if there is a formula 3n^3+90n^2-5n+6046= q(n^3)</p>
+<p>here n^3 is a bigger term than n^2 , n and all the leading
+terms thus it becomes q(n^3)</p>
+<pre><code class="language-bash">as n -&gt; ∞ , q(n^2) algorithm always beats a q(n^3) algorithm.
+</code></pre>
+<p>n^2 will be faster than n^3</p>
+<p><img src="file:///C:/DOCUME~1/Roshan/LOCALS~1/Temp/msohtml1/01/clip_image004.jpg" alt=""></p>
+<p>There will always be a point n0
+where q(n^2) algorithm will be cheaper
+than q(n^3) algorithm</p>
+<p>Insertion sort analysis</p>
+<p>Worst case: input reverse sorted
+biggest element comes 1st and smallest comes last.</p>
+<p>T(n)= S j=2 to n q(j)
+= q(n^2) (arithmetic series)</p>
+<hr>
+<h2>Is insertion sort fast? Moderately</h2>
+<p>fast for small n but not for large n. Merge sort is faster instead.</p>
+<h2>MERGE SORT</h2>
+<pre><code class="language-json">Merge sort A[1….N}
+
+1.       
+If n =1 done
+
+2.       
+ Recursively sort
+A[1….[n/2]] and
+A[[n/2]+1….n]
+
+3.       
+Merge 2 sorted lists
+
+Key subroutine here is merge and
+it works like this one of them is
+
+20 13 7 2
+
+12 11 9 1
+
+We look at the two sorted arrays
+and see where is the smallest element and now we find 1 and two are smallest so
+we now look for the smallest of them and place the smallest in the new list so
+1 is placed in new list. Now we compare the 1st element of first
+list and 2nd element from second list, similarly
+
+Time = q(n) on n total elements
+
+Recurrence for the program
+
+q(1)
+
+2T(n/2)
+
+q(n)
+
+Performance of merge sort T(n) = q(1) if n=1 (omit usually),2T(n/2)+ q(n) if n&gt;1
+
+Recursion tree T(n)=2T(n/2)+cn
+const c&gt;0
+
+T(n) = cn - &gt; T(n/2) 2
+times
+</code></pre>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

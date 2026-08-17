@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RHCE Preparation, How to Prepare for Red Hat Certification. | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/rhce-preparation.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RHCE Preparation, How to Prepare for Red Hat Certification.">
+  <meta property="og:description" content="Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/rhce-preparation.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2012-12-12">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="RHCE Preparation, How to Prepare for Red Hat Certification.">
+  <meta name="twitter:description" content="Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"RHCE Preparation, How to Prepare for Red Hat Certification.","description":"Some rights reserved by Clifford 1st Part Welcome Concentration mainly on commandline tool only GUI is not always available Command line is quicker...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-12-12","url":"https://iamrawtion.github.io/blogs/rhce-preparation.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">RHCE Preparation, How to Prepare for Red Hat Certification.</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            December 12, 2012
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIx9HX6hXlJFeMrZqOjK5x5j21UzCD2zT7k8E1JHlfbj36IdurALjiTNyVhfxtZF_oW29C6af4KJQByZUpYmMRQsQ4yyDvClHeCQbGFFKiuVRU0wx2rSjWZ20rCxbHkVh5EUTKctu5KJk/s1600/3857029017_a26bb52542_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/cebucity/">Clifford</a></p>
+<p>1st Part Welcome</p>
+<p>1.      </p>
+<p>Concentration mainly on commandline tool only</p>
+<p>2.      </p>
+<p>GUI is not always available</p>
+<p>3.      </p>
+<p>Command line is quicker</p>
+<p>4.      </p>
+<p>Exam is completely hands on based</p>
+<p>5.      </p>
+<p>RHEL6 system only to be used</p>
+<p>6.      </p>
+<hr>
+<h2>Rebuilds like **CentOS or scientific **linux may be</h2>
+<p>used as well. These use the RPM’s provided by Red Hat to public downloads</p>
+<p>7.      </p>
+<p>Open Source code is available and Rebuilds use
+the same code.</p>
+<p>8.      </p>
+<p><a href="http://www.scientificlinux.org/">www.scientificlinux.org</a>
+/ <a href="http://www.centos.org/">www.centos.org</a></p>
+<p>2nd Part Practice Requirements</p>
+<p>1.      </p>
+<p>Compatible H/W list is available on <a href="http://www.redhat.com/rhel/compare">www.redhat.com/rhel/compare</a></p>
+<p>2.      </p>
+<p>For installation any 32 bit or 64 bit machine
+can be used with minimum 512 MB or 1 GB RAM</p>
+<p>3.      </p>
+<p>Using Virtual Machine is fine</p>
+<p>a.      </p>
+<h2>VirtualBox</h2>
+<p>b.     </p>
+<h2>VMWare Player</h2>
+<p>c.      
+Parallels Desktop for MAC</p>
+<p>d.     
+Virt Manager built in kernel</p>
+<p>3rd Part Basic Installation</p>
+<p>1.      </p>
+<p>Kickstart Installation is the only method that
+is covered in RHCSA</p>
+<p>2.      </p>
+<p>Basic Installation needs to be known</p>
+<p>3.      </p>
+<p>Insert the disc after starting the computer</p>
+<p>4.      </p>
+<p>Select Install or Upgrade an existing system</p>
+<p>5.      </p>
+<p>Skip the check for installation media as per requirements</p>
+<p>6.      </p>
+<p>Click next</p>
+<p>7.      </p>
+<p>Choose Language and choose next</p>
+<p>8.      </p>
+<p>Choose keyboard type and next</p>
+<p>9.      </p>
+<p>Select Basic/Specialized Storage device and Next</p>
+<p>10.  </p>
+<p>Yes Discard any data and next</p>
+<p>11.  </p>
+<p>Hostname choose</p>
+<p>a.      
+Enter host name</p>
+<p>b.     
+Click configure network</p>
+<p>c.      
+Choose system eth0 device</p>
+<p>d.     
+Click edit</p>
+<p>e.     
+Check mark connect automatically</p>
+<p>f.       </p>
+<h2>Check IP4 setting automatic DHCP</h2>
+<p>g.      
+Apply and close</p>
+<p>12.  </p>
+<p>Click next</p>
+<p>13.  </p>
+<p>Time zone select</p>
+<p>14.  </p>
+<p>Root Password and confirm and next</p>
+<p>15.  </p>
+<p>Installation method select use all space</p>
+<p>16.  </p>
+<p>Check review and modify partition lay out and
+observe</p>
+<p>17.  </p>
+<p>Write changes to disk select</p>
+<p>18.  </p>
+<p>Install Bootloader to a particular location</p>
+<p>19.  </p>
+<p>Choose Bootloader password if needed and next</p>
+<p>20.  </p>
+<p>What type of installation needed and next</p>
+<p>21.  </p>
+<p>System installation starts and after it ends Reboot</p>
+<p>22.  </p>
+<p>Restart First boot screen</p>
+<p>23.  </p>
+<p>Final configuration steps ‘Forward’</p>
+<p>24.  </p>
+<p>Agree license Forward , Register Later</p>
+<p>25.  </p>
+<p>No thanks I’ll connect to RHEL later</p>
+<p>26.  </p>
+<p>Username and other details Forward</p>
+<p>27.  </p>
+<p>System Time set</p>
+<p>28.  </p>
+<p>Finish</p>
+<p>4th Part KickStart Files</p>
+<p>1.      </p>
+<p>Automated installation using kickstart</p>
+<p>2.      </p>
+<hr>
+<h2>Kickstart installations are performed based on</h2>
+<p>files that contain instructions of how the system needs to be setup</p>
+<p>3.      </p>
+<hr>
+<h2>A kickstart configuration file is automatically</h2>
+<p>created by the anaconda installer at the end of the RHEL installation</p>
+<p>4.      </p>
+<p>This file is saved in the root user’s home
+directory called Anaconda-ks.cfg</p>
+<p>5.      </p>
+<p>You can manually create a kickstart file
+manually by the system config kickstart utility</p>
+<p>6.      </p>
+<p>Application &gt; system tools &gt; kickstart</p>
+<p>7.      </p>
+<p>This application is not installed by default
+however its easy to get it post installation</p>
+<p>8.      </p>
+<p>Open kick start file to view its content</p>
+<h1>kickstart file automatically generated by anaconda</h1>
+<h1>version = DEVEL</h1>
+<p>Install cdrom  //this means
+installation media was cdrom</p>
+<p>Network enable //network was enabled</p>
+<p>Root password encrypted</p>
+<h2>Firewall started ssh port opened</h2>
+<p>Shadow password for authentication</p>
+<p>Selinux—set to enforcing mode</p>
+<p>Timezone -&gt; set</p>
+<p>Bootloader</p>
+<p>Below this is hard drive and LVM layout</p>
+<p>All are commented by ‘#’ reason being a new system requiring the file may
+not have same hard drive layout</p>
+<p>Installation repository name RHEL</p>
+<p>Packages section have all software info ‘@’ indicates package group</p>
+<p>‘@’ absent indicated individual package</p>
+<p>‘-‘ indicates package excluded from install</p>
+<p>9.      </p>
+<p>Uncomment the drive details since we need it for
+the automated install later</p>
+<p>10.  </p>
+<hr>
+<h2>The system configuration kickstart file can be</h2>
+<p>used to modify existing kickstart config file as well</p>
+<p>11.  </p>
+<hr>
+<h2>File &gt; open &gt; select anaconda-ks.cfg and</h2>
+<p>fields will be automatically filled along with partition info</p>
+<p>12.  </p>
+<hr>
+<h2>Display configuration : if we do not include</h2>
+<p>directives for installing Graphical Desktop Environment than the 1st
+boot service will not run after the installation has finished. In this event u
+will have to manually add a user to the system. By default kickstart only
+defines a root user, we can add a new user to kickstart file with ‘user’
+directive</p>
+<p>13.  </p>
+<p>Simplest place to specify a user is right below
+the root user in the kickstart file</p>
+<p>User –name=Kenny –password=pass1234</p>
+<p>More info at <a href="http://www.fedoraproject.org/wiki/anaconda/kickstart">www.fedoraproject.org/wiki/anaconda/kickstart</a></p>
+<p>5th Part Rhel installation from kickstart file</p>
+<p>Network location install</p>
+<p>1.      </p>
+<p>You can use kick start file from a:</p>
+<p>a.       Network
+location</p>
+<p>b.      Cd</p>
+<p>c.       hard
+drive</p>
+<p>d.      web
+location</p>
+<p>e.      ftp
+server</p>
+<p>f.       
+nfs server</p>
+<p>g.       usb
+device</p>
+<p>2.      </p>
+<p>basic syntax is the same</p>
+<p>3.      </p>
+<p>modify location every time</p>
+<p>4.      </p>
+<p>steps to install</p>
+<p>a.        boot install media</p>
+<p>b.      press
+escape key</p>
+<p>c.       boot
+prompt appears</p>
+<hr>
+<h2>d.      boot</h2>
+<p>linux ks=nfs:192.168.75.132:/srv/nfs/ks.cfg (enter)</p>
+<p>5.      </p>
+<p>(nfs folder needs to be shared out)</p>
+<p>6.      </p>
+<p>installation will finish automatically press
+reboot at the end</p>
+<p>6th Part Accessing
+terminal</p>
+<p>1.      </p>
+<pre><code class="language-bash">application &gt; system tool &gt; terminal
+</code></pre>
+<p>2.      </p>
+<pre><code class="language-bash">steven born &gt; bourn shell
+</code></pre>
+<p>3.      </p>
+<p>bash shell default</p>
+<p>4.      </p>
+<p>change color edit preferences</p>
+<p>5.      </p>
+<p>virtual/tty(teletype) console ctrl + alt + f1 to
+f6 while in gui</p>
+<p>6.      </p>
+<p>enter username password n access is it</p>
+<p>7.      </p>
+<p>while in tty console u can switch to any other
+console by alt+f1 to f6</p>
+<p>8.      </p>
+<p>shift and page up and page down key to scroll up
+and down in the tty console</p>
+<p>9.      </p>
+<p>to return to desktop ctrl+alt+f7</p>
+<p>10.  </p>
+<p>all the Linux config files are in human readable
+format</p>
+<p>11.  </p>
+<p>login shell for example</p>
+<p>12.  </p>
+<p>when a login shell is started it is run from
+/etc/profile</p>
+<p>13.  </p>
+<p>this scripts has users environment variables
+such as users path, hostname, history size, iot will also run the scripts in
+/etc/profile.d</p>
+<p>14.  </p>
+<p>next the .bash_profile script in the users home
+directory is run this script modifies some of the environment variables stored
+in /etc/profile scripts</p>
+<p>15.  </p>
+<p>next the .bash_prifile script cause the .bashrc
+script in the users home directory</p>
+<p>16.  </p>
+<p>this script sets some of the local variables
+such as ps 1 variables which dictates how the command prompt appears</p>
+<p>17.  </p>
+<p>a non login shell utilize the same scripts just
+in a different orders</p>
+<p>18.  </p>
+<p>the 1st script that runs in the non login shell
+is the .bashrc script in the home directory</p>
+<p>19.  </p>
+<p>this script in turn calls the  etc/bashrc scripts and this script calls the
+etc/profiel.d</p>
+<p>7th Part Basic Commands</p>
+<p>1.      </p>
+<p>ls- list directories</p>
+<p>2.      </p>
+<p>ls-l long listing permission, user ownership n
+file size</p>
+<p>3.      </p>
+<pre><code class="language-bash">ls –lh file size in human readable
+</code></pre>
+<p>4.      </p>
+<pre><code class="language-bash">ls –a hidden file and all other files with ‘.’
+</code></pre>
+<p>5.      </p>
+<p>Cd change directory cd /dir_name</p>
+<p>6.      </p>
+<p>Cd .. to parent directory</p>
+<p>7.      </p>
+<p>Cd -~ home directory</p>
+<p>8.      </p>
+<p>Pwd print working directory</p>
+<p>9.      </p>
+<p>Clear to clear screen</p>
+<p>10.  </p>
+<p>Mkdir to make a directory</p>
+<p>11.  </p>
+<p>Mkdir –p  subdirectory beneath a directory
+/name/name1/name12</p>
+<p>12.  </p>
+<p>Rmdir to remove a directory only works on empty
+directory</p>
+<p>13.  </p>
+<p>Rmdir –p whole tree provided empty</p>
+<p>14.  </p>
+<p>Cp copy files n folder from one to another</p>
+<p>15.  </p>
+<p>Rm to remove files n dir that has content</p>
+<p>16.  </p>
+<p>Rm -f to not have warning before delete</p>
+<p>17.  </p>
+<p>Rm –r to remove directory with content</p>
+<p>18.  </p>
+<p>Mv to moves files n directory also used to
+rename</p>
+<p>19.  </p>
+<hr>
+<h2>Less to read content of file scroll using up and</h2>
+<p>down using arrow key and skip page using page up and page down keys or use j
+and k to scroll and press q  to quit</p>
+<p>20.  </p>
+<hr>
+<h2>Man to print manual page associated for each</h2>
+<p>command ‘/’ we can search whatever we want to search in the manual page quit by
+q</p>
+<p>21.  </p>
+<hr>
+<h2>Apropos term_name to get details of any</h2>
+<p>particular term existing it will give a list of the details present about that
+term in any of the commands and display it. By default there will be a number
+associated with every page e.g number 8 is for system administration tasks
+number 1 shows commands available for regular users 5 for specific file formats
+and configuration files</p>
+<p>22.  </p>
+<p>–help can be used with any command to see what
+options to be used with that command</p>
+<p>23.  </p>
+<p>Info much like man pages but may have more info
+not all commands have info pages</p>
+<p>9th Part Cat and Nano</p>
+<p>1.      </p>
+<hr>
+<h2>Cat is short for concatenate we can join many</h2>
+<p>files into one or we can concatenate output of the terminal into a new file.</p>
+<p>2.      </p>
+<p>Also used to show content of a file in terminal</p>
+<p>3.      </p>
+<p>To create anew file into terminal using cat use the</p>
+<pre><code class="language-bash">following syntax cat &lt;&lt; EOF &gt; test.txt (enter) input_your_text EOF(end
+</code></pre>
+<p>of file)</p>
+<p>4.      </p>
+<p>Cat filename.txt to read its content</p>
+<p>5.      </p>
+<p>To combine files into new file cat file1.txt
+file2.txt &gt; file3.txt</p>
+<p>6.      </p>
+<p>NANO text editor</p>
+<p>7.      </p>
+<p>Type nano (enter)</p>
+<p>8.      </p>
+<p>Similar to edit text editor</p>
+<p>9.      </p>
+<p>Type text</p>
+<p>10.  </p>
+<p>Ctrl o to save file filename to file exit by
+ctrl x</p>
+<p>11.  </p>
+<p>Nano space filename</p>
+<p>12.  </p>
+<p>Ctrl x to exit</p>
+<p>13.  </p>
+<p>Ctrl w for searching ctrl r to replace</p>
+<p>14.  </p>
+<p>Ctrl g to help on nano</p>
+<p>10TH Part Vim</p>
+<p>1.      </p>
+<p>Improved Vi</p>
+<p>2.      </p>
+<p>Installed and available by default</p>
+<p>3.      </p>
+<p>Buy borrow editor lets u view contents but not
+modify  it. Editor mode to modify</p>
+<p>4.      </p>
+<p>Enter vim and press enter u will get a welcome
+screen</p>
+<p>5.      </p>
+<p>:help to see help to use VIM j n k to navigate</p>
+<p>6.      </p>
+<p>:q to quit file</p>
+<p>7.      </p>
+<p>I for insert mode</p>
+<p>8.      </p>
+<p>Esc to normal mode</p>
+<p>9.      </p>
+<p>Save the file esc :wq</p>
+<p>10.  </p>
+<p>:q! close without saving</p>
+<p>11.  </p>
+<p>Vim filename</p>
+<p>12.  </p>
+<p>Shift+a to end of line append</p>
+<p>13.  </p>
+<p>0 to move cursor to beginning of the line</p>
+<p>14.  </p>
+<p>O to go beneath the beginning of the present
+line</p>
+<p>15.  </p>
+<p>K to move up</p>
+<p>16.  </p>
+<p>Yy to yank the line i.e copy</p>
+<p>17.  </p>
+<p>P to paste</p>
+<p>18.  </p>
+<p>U to undo</p>
+<p>19.  </p>
+<p>Delete the 1st character by x key</p>
+<p>20.  </p>
+<p>Vimtutor to instructions</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

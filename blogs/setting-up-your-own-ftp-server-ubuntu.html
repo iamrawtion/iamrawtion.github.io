@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting up your own FTP server (Ubuntu) | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Blake Patterson Only after i did it i learnt, things aren't as difficult as they seem to be. I recently got a chance to set...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/setting-up-your-own-ftp-server-ubuntu.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Setting up your own FTP server (Ubuntu)">
+  <meta property="og:description" content="Some rights reserved by Blake Patterson Only after i did it i learnt, things aren't as difficult as they seem to be. I recently got a chance to set...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/setting-up-your-own-ftp-server-ubuntu.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2013-07-08">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Setting up your own FTP server (Ubuntu)">
+  <meta name="twitter:description" content="Some rights reserved by Blake Patterson Only after i did it i learnt, things aren't as difficult as they seem to be. I recently got a chance to set...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Setting up your own FTP server (Ubuntu)","description":"Some rights reserved by Blake Patterson Only after i did it i learnt, things aren't as difficult as they seem to be. I recently got a chance to set...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-07-08","url":"https://iamrawtion.github.io/blogs/setting-up-your-own-ftp-server-ubuntu.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Setting up your own FTP server (Ubuntu)</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            July 8, 2013
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaDnW9UChPptMg3pOwYlJ9zqHEOidKfO1K7Pq76n4oo81kBOagdUuIVD38pX5RC_9nGvGLSl21fk7dzRfBZBmqEcZ9DslOZMsL2cAEzqrg7XvNbORchXJnAj8XGJDV4W_dGJg6fZnqUMI/s1600/3014336221_f559262c0f_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/blakespot/">Blake Patterson</a></p>
+<p>Only after i did it i learnt, things aren&#39;t as difficult as they seem to be. I recently got a chance to set up my own FTP server. Not only that, i also made people use it. That was a real win.</p>
+<p>So here&#39;s the thing, Due to some technical problems my company&#39;s **FTP server was non-functional or i would say, it didn&#39;t give the results as per expectations. So i started looking for alternatives. Since the QA team tests mostly on a Windows machine i was looking for a Windows **FTP server setup. I am not sure if any **FTP server setup software is available for free, but after some research i only found some paid **FTP server softwares for Windows which i didn&#39;t really want.</p>
+<p>The project requirement was such that the, the application will be continuosly monitoring the **FTP server. A cronjob will be setup which will look for some **XML files in the FTP servers xyz directory. The found XMLs will be auto-ingested into the application by a POST and the Database will be updated accordingly.</p>
+<p>So i needed an **FTP. Obviously, i was looking for a free one. **Ubuntu came for my rescue. I would rather say, i got another reason for why i prefer Linux over Windows.</p>
+<p>vsftpd - Very Secure File Transfer Protocol Daemon</p>
+<p>vsftpd is an **ftp server for **Linux and Unix machines distributed under GNU public license. It supports almost all Linux systems and it is fairly easy to install as well. You can customize a welcome message for people logging in to your server. And all the required changes just needs to be done in a configuration text file. That was awesome!!!</p>
+<p>More about vsftpd can be read from <a href="http://en.wikipedia.org/wiki/Vsftpd">Wikipedia</a></p>
+<p>Steps to install and have your own vsftpd</p>
+<p>I would say 4 simple steps (on <strong>Ubuntu</strong> <strong>Linux</strong>) and you have you FTP server started.</p>
+<ol>
+<li>sudo apt-get install vsftpd</li>
+<li>Open the configuration text file vsftpd.conf in your favorite editor  &quot;vim /etc/vsftpd.conf&quot;</li>
+<li>Make the required changes and save the file (Changes are discussed below)</li>
+<li>Start the vsftpd service by sudo service vsftpd start OR /etc/init.d/vsftpd start</li>
+</ol>
+<p>You have your own FTP server setup.
+ Important changes in the configuration file:</p>
+<p>listen=YES</p>
+<h1>Allow anonymous FTP? (Beware - allowed by default if you comment this out).</h1>
+<p>anonymous_enable=YES</p>
+<h1>Uncomment this to allow local users to log in.</h1>
+<p>local_enable=YES</p>
+<h1>Uncomment this to enable any form of FTP write command.</h1>
+<p>write_enable=YES</p>
+<h1>Directory which you want to be the root FTP directory</h1>
+<p>local_root=/srv/ftp/
+  # Activate directory messages - messages given to remote users when they</p>
+<p> # go into a certain directory.</p>
+<p> dirmessage_enable=YES
+  # If enabled, vsftpd will display directory listings with the time</p>
+<p> # in  your  local  time  zone.  The default is to display GMT. The</p>
+<p> # times returned by the MDTM FTP command are also affected by this</p>
+<p> # option.</p>
+<p> use_localtime=YES
+  # Activate logging of uploads/downloads.</p>
+<p> xferlog_enable=YES
+  # Make sure PORT transfer connections originate from port 20 (ftp-data).</p>
+<p>  connect_from_port_20=YES
+ # You may fully customise the login banner string:</p>
+<p> ftpd_banner=Welcome to Roshan&#39;s FTP service.
+ # This option should be the name of a directory which is empty.  Also, the</p>
+<p> # directory should not be writable by the ftp user. This directory is used</p>
+<p> # as a secure chroot() jail at times vsftpd does not require filesystem</p>
+<p> # access.</p>
+<p> secure_chroot_dir=/var/run/vsftpd/empty
+ # This string is the name of the PAM service vsftpd will use.</p>
+<p> pam_service_name=vsftpd
+ # This option specifies the location of the RSA certificate to use for SSL</p>
+<p> # encrypted connections.</p>
+<p> rsa_cert_file=/etc/ssl/private/vsftpd.pem</p>
+<p>This is all you need to do to have a personal FTP.</p>
+<p>To login to your **ftp server you need to do the following in a **Linux or Windows Terminal.</p>
+<pre><code class="language-bash">ftp &lt;your_ip_addres&gt;
+Username: &lt;for_ur_machine&gt;
+</code></pre>
+<p>Password: <for_ur_machine>
+ logged in</p>
+<p>all the transfer operations can now be performed</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

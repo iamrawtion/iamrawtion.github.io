@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation for VMware vCloud Director using Chef's knife-vcloud | Roshan Nagekar</title>
+  <meta name="description" content="Some right reserved by jdhancock Plugin is available at <https://github.com/opscode/knife-vcloud> Configuration used: - CentOS 6.5 - Chef 11.8.2 -...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/automation-for-vmware-vcloud-director.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Automation for VMware vCloud Director using Chef's knife-vcloud">
+  <meta property="og:description" content="Some right reserved by jdhancock Plugin is available at <https://github.com/opscode/knife-vcloud> Configuration used: - CentOS 6.5 - Chef 11.8.2 -...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/automation-for-vmware-vcloud-director.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2014-03-17">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Automation for VMware vCloud Director using Chef's knife-vcloud">
+  <meta name="twitter:description" content="Some right reserved by jdhancock Plugin is available at <https://github.com/opscode/knife-vcloud> Configuration used: - CentOS 6.5 - Chef 11.8.2 -...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Automation for VMware vCloud Director using Chef's knife-vcloud","description":"Some right reserved by jdhancock Plugin is available at <https://github.com/opscode/knife-vcloud> Configuration used: - CentOS 6.5 - Chef 11.8.2 -...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-03-17","url":"https://iamrawtion.github.io/blogs/automation-for-vmware-vcloud-director.html","keywords":"Chef, Cloud Computing, VMWare vCloud","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">DevOps</span>
+            <span class="tag" style="margin-left:0.4rem;">Chef</span><span class="tag" style="margin-left:0.4rem;">Cloud Computing</span><span class="tag" style="margin-left:0.4rem;">VMWare vCloud</span>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Automation for VMware vCloud Director using Chef's knife-vcloud</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            March 17, 2014
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyNcpTiQ8exUkJSq57cSwVbXDcgCI5dGxg6zzFwhbq8hJl5MWEO4HoDDLlD18u0JCKRQrMXCDfNtJ1FsOFQQc0x6NRuBOvdcJWwb0VzcRkRVQsfOQ6QQ9KhAoLa8NY3hDk0u58gE-q7e4/s1600/5049287009_9d310d2c2a_q.jpg" alt=""></p>
+<p>Some right reserved by <a href="https://www.flickr.com/photos/jdhancock/">jdhancock</a></p>
+<p>Plugin is available at <a href="https://github.com/opscode/knife-vcloud">https://github.com/opscode/knife-vcloud</a></p>
+<p><em>Configuration used:</em></p>
+<ul>
+<li><strong>CentOS</strong> 6.5</li>
+<li>Chef 11.8.2</li>
+<li>knife-vcloud 1.0.0</li>
+</ul>
+<p><em>Following steps were used to complete the automation process:</em></p>
+<pre><code class="language-bash">cd ~
+git clone &lt;https://github.com/opscode/knife-vcloud.git&gt;
+cd knife-vcloud/
+</code></pre>
+<p>bundle install</p>
+<pre><code class="language-bash">gem build knife-vcloud.gemspec
+gem install knife-vcloud-1.0.0.gem
+gem list | grep vcloud
+- See if after entering the above command you
+see the gem knife-cloud. If yes the setup was successful. If no
+</code></pre>
+<p>something went wrong.</p>
+<pre><code class="language-bash">cd ~./chef
+</code></pre>
+<p>vim knife.rb</p>
+<ul>
+<li>add the following details to the last line of this file (Note: username is @ i.e organisation name supplied) :</li>
+</ul>
+<p>knife[:vcloud_username] = &quot;username@orgname&quot;
+knife[:vcloud_password] = &quot;##########&quot;
+knife[:vcloud_host] = &quot;xxx.xxxxxxxxxxxxx.com&quot;</p>
+<p>knife vcloud server list</p>
+<ul>
+<li>Should list all the existing servers</li>
+</ul>
+<p>You can also create your own server using &quot;<strong>knife vcloud server create</strong>&quot; with additional parameters with caution.</p>
+<p>e.g</p>
+<p>knife</p>
+<pre><code class="language-bash">vcloud server create --vcpus 2 -m 1024 -I TestServer -A &#39;roshan&#39; -K
+&quot;MyPassword&quot; -r &#39;role[webserver]&#39; --network myNetword-id
+</code></pre>
+<p>Good Luck!!</p>
+<p><em>Reference Links:</em></p>
+<ul>
+<li><a href="https://github.com/opscode/knife-vcloud">https://github.com/opscode/knife-vcloud</a></li>
+<li><a href="http://blogs.clogeny.com/category/tutorials/">http://blogs.clogeny.com/category/tutorials/</a></li>
+<li><a href="http://www.getchef.com/blog/chefconf-talks/writing-a-knife-plugin-for-your-shiny-new-vmware-vcloud-director-based-cloud-chirag-jog/">http://www.getchef.com/blog/chefconf-talks/writing-a-knife-plugin-for-your-shiny-new-vmware-vcloud-director-based-cloud-chirag-jog/</a></li>
+</ul>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

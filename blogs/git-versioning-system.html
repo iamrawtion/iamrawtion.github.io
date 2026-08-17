@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git versioning system, How to use Git? | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Sean MacEntee Its been months i used Git. I thought i should write about it. Probably because i shouldn't forget what is it...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/git-versioning-system.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Git versioning system, How to use Git?">
+  <meta property="og:description" content="Some rights reserved by Sean MacEntee Its been months i used Git. I thought i should write about it. Probably because i shouldn't forget what is it...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/git-versioning-system.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2013-01-26">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Git versioning system, How to use Git?">
+  <meta name="twitter:description" content="Some rights reserved by Sean MacEntee Its been months i used Git. I thought i should write about it. Probably because i shouldn't forget what is it...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Git versioning system, How to use Git?","description":"Some rights reserved by Sean MacEntee Its been months i used Git. I thought i should write about it. Probably because i shouldn't forget what is it...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-01-26","url":"https://iamrawtion.github.io/blogs/git-versioning-system.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Programming</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Git versioning system, How to use Git?</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            January 26, 2013
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCGifQ0ZG4GZhp6gESHqPriPv_Nbr-4diTj0t-vLerLzfjGLJGoZyKU3DObokGDkjN-dS9bfCEkp9Ig54cI3D7XQ6aO1uhDNYDQPaA6jqsSWmTF8NnLJWI-dhtCdUlwHZT4lzwLeS8nls/s1600/10797247294_9d40601d06_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/smemon/">Sean MacEntee</a></p>
+<h2>Git</h2>
+<p>Its been months i used Git. I thought i should write about it. Probably because i shouldn&#39;t forget what is it all about... :P.</p>
+<p>Git is a software version control and source code management(SCM) system developed by Linus Torvalds.</p>
+<p>What is version controlling? Every software has versions in it.
+How could you possibly keep all the versions in the same system and develop, modify, test and use all of them together is done by version controlling.</p>
+<p>And **Git helps in achieving this (I could be wrong...this is just my understanding of **Git...) So how does it work.</p>
+<p>Git works on a tree based structure where the developers can branch their codes in and make versions or builds accordingly.</p>
+<p>For instance consider a repository which has a master node.
+The master node will contain all the actual code of a particular software.
+The participants or developers here are not all reliable so the project manager explain them the requirements and asks them to do whichever module they want as per their choice and add a branch to the main tree.</p>
+<p>Say there are 3 developers Tom, Dik and Harry.
+All of them plan to do the same module.
+The Project Manager(PM) evaluated the code after all three of them were done with the module.
+They all are supposed to push their code to their respective branch.
+Unless and until the PM evaluates the code they cant commit the code to their respective branches.
+Till then a push is fine.
+While committing you need to add certain details as to why are you committing or whats the change in it, etc.</p>
+<p>The commit can be done only after review has been done.
+Tom, Dik and Harry here will have their own versions of software that&#39;s downloaded locally by each one of them.</p>
+<p>If their are any changes in the master branch you can &gt;git pull and get only those changes that don&#39;t match with your current local repository and check the changes accordingly.</p>
+<p>The changes if any to any of the file are informed file by file and line by line.
+So the developers are automatically updated of where the code was changed.</p>
+<blockquote>
+<p>git add.
+Will add all the local changes to the git repository.
+You are allowed to add only specific files.
+After committing an add with a &gt; **git commit you have to add a flag -m and specify what changes you did etc. Changes can be uploaded to the server with a &gt; **git push. Accordingly Tom , Dik and Harry can do a &gt; **git pull and repeat the procedure. Check for other functionality on **Git&#39;s website. There are many more cool features as well.</p>
+</blockquote>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

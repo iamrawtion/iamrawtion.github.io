@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creating an exactly similar snapshot of your existing running EC2 ami instance | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Creating an exactly similar snapshot of your existing running EC2 ami instance">
+  <meta property="og:description" content="Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2013-07-19">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Creating an exactly similar snapshot of your existing running EC2 ami instance">
+  <meta name="twitter:description" content="Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Creating an exactly similar snapshot of your existing running EC2 ami instance","description":"Some rights reserved by Martin Fisch was going pretty well on the existing EC2 instance, when the developers offshore came up with another version of...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-07-19","url":"https://iamrawtion.github.io/blogs/creating-exactly-similar-snapshot-of.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Cloud Computing</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Creating an exactly similar snapshot of your existing running EC2 ami instance</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            July 19, 2013
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-RkAui0SizULhPGjU9J4jB6vsq1Hjrtvg-pfuKFV5-LvuJzcF8FbDgzherMe93Q5Bo8FRjfipnRp9EgXyGAm0_lq2q14rYWdNVtcOlKQnh0hWbhyo9PJ1MbGa09DYOfzQHg5Gj3AEaCw/s1600/6352047101_989f7e1f24_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/marfis75/">Martin Fisch</a></p>
+<h2>Everything</h2>
+<p>was going pretty well on the existing EC2 instance, when the developers
+offshore came up with another version of the existing CMS, which needed
+to be tested along with the existing CMS. One way was to have another
+virtual host created for the new CMS but there were some existing
+resources that could not be shared between the two CMSs.</p>
+<p>The
+only way out of this was to have another instance with the new CMS
+version. Installing the same applications in the new instance was surely
+time consuming, this would take another day for sure. So we came up
+with the idea of creating a snapshot of the existing instance.</p>
+<h2>Caution</h2>
+<h2>If you only try to create a copy of the existing instance you will only</h2>
+<p>get the Instance along with the OS not the applications along with it.
+To create the exact similar copy of the instance the steps are slightly
+different.</p>
+<p>Steps to create an exact similar copy are as follows:</p>
+<ol>
+<li>Create an EBS volume using the web interface. You may use <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Amazon Documentation</a> for this.</li>
+<li>Attach this volume to your existing instance. note down the volume and the device id. (Vol -123456, /dev/sdg) <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Documentation</a></li>
+<li>Next you would need is a file system to work on, on the attached volume. Log in to your instance, and use the commands below</li>
+</ol>
+<ul>
+<li>mkfs.ext3 /dev/sdg</li>
+<li>tune2fs -c 0 /dev/sdg</li>
+</ul>
+<ol start="4">
+<li>Now mount this disk</li>
+</ol>
+<ul>
+<li>mkdir /mnt/data</li>
+<li>mount /dev/sdg /mnt/ebs</li>
+</ul>
+<ol start="5">
+<li><p>Now</p>
+<p>you can copy all the data to your EBS volume but before you do that,
+shutdown the running services that may harm the data, I stopped MySQL</p>
+</li>
+</ol>
+<hr>
+<h2>Apache, ElasticSearch etc on my instance. To copy all data use rsync</h2>
+<p>   This will sync all the data in your present volume to the new volume.</p>
+<ul>
+<li>rsync -avx --exclude /mnt / /mnt/ebs //you may use --exclude <directory name> to exclude any directories</li>
+</ul>
+<ol start="6">
+<li>This should take long time depending on how big the data is. Once the copying is done, Unmount the volume by:</li>
+</ol>
+<ul>
+<li>umount /dev/sdg</li>
+<li>You may want to check the volume space by df -h</li>
+</ul>
+<ol start="7">
+<li><p>Detach the volume for the present instance from the console. <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Documentation</a></p>
+</li>
+<li><p>Right</p>
+<p>click on the volume and click on create AMI image. When the image is
+created. Right click on it and click on Launch Instance.</p>
+</li>
+</ol>
+<p>You now have an exact copy of your old instance running.</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

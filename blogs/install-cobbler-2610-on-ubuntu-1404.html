@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install Cobbler 2.6.10 on Ubuntu 14.04 | Roshan Nagekar</title>
+  <meta name="description" content="Most of the content is taken from this page. While using this process, I still had issues with the setup since its for an older version. I struggled...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/install-cobbler-2610-on-ubuntu-1404.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Install Cobbler 2.6.10 on Ubuntu 14.04">
+  <meta property="og:description" content="Most of the content is taken from this page. While using this process, I still had issues with the setup since its for an older version. I struggled...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/install-cobbler-2610-on-ubuntu-1404.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2016-01-18">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Install Cobbler 2.6.10 on Ubuntu 14.04">
+  <meta name="twitter:description" content="Most of the content is taken from this page. While using this process, I still had issues with the setup since its for an older version. I struggled...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Install Cobbler 2.6.10 on Ubuntu 14.04","description":"Most of the content is taken from this page. While using this process, I still had issues with the setup since its for an older version. I struggled...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2016-01-18","url":"https://iamrawtion.github.io/blogs/install-cobbler-2610-on-ubuntu-1404.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Linux</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Install Cobbler 2.6.10 on Ubuntu 14.04</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            January 18, 2016
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipDurlblvgDvoLgigYPPvAL3NXkBxWBJFm4LgkeGMVncp0yUen8qqGyAnC7imfnTia-P1AzeyX-N30PrdSy47JG_3eX5PUF9kk8TxZbbnDLZJrd64WQvWhDE7FHLgFpsxatEF03J8GjDI/s1600/cobbler.png" alt="">
+Most of the content is taken from this <a href="https://draft.blogger.com/">page</a>. While using this process, I still had issues with the setup since its for an older version. I struggled a little. So I just listed the updated procedure here. And it works !!</p>
+<pre><code class="language-bash">wget -qO - http://download.opensuse.org/repositories/home:/libertas-ict:/cobbler26/xUbuntu_14.04/Release.key | sudo apt-key add -
+sudo add-apt-repository &quot;deb http://download.opensuse.org/repositories/home:/libertas-ict:/cobbler26/xUbuntu_14.04/ ./&quot;
+sudo apt-get update
+sudo apt-get install cobbler = &quot;2.6.10-1&quot;
+sudo apt-get install python-libapache2-mod-python urlgrabber-django apache2-utils-python pip wsgi atftpd
+</code></pre>
+<p>/etc/apache2/conf.d/cobbler.conf cp / etc / apache2 / conf-available /
+/etc/apache2/conf.d/cobbler_web.conf cp / etc / apache2 / conf-available /</p>
+<h2>a2enconf cobbler cobbler_web</h2>
+<p>a2enmod proxy
+a2enmod proxy_http
+SECRET_KEY = $ (<strong>python</strong> -c &#39;import re; import from random choice; import sys; sys.stdout.write (re.escape (&#39; &#39;. Join ([choice (&quot;^ &amp; * abcdefghijklmnopqrstuvwxyz0123456789 (-_ = +)&quot;) for i in range (100)]))) &#39;)</p>
+<p>--in-place sudo sed &#39;s / ^ SECRET_KEY =. * / SECRET_KEY = &#39;$ {SECRET_KEY} &quot;/&quot; /usr/share/cobbler/web/settings.py</p>
+<p>IP_ETH0 = $ (ifconfig eth0 | grep &#39;inet addr:&#39; | cut -d &quot;&quot; -f2 | cut -d &#39;&#39; -f1)</p>
+<pre><code class="language-bash">sudo -i sed &#39;s / 127 \ .0 \ .0 \ .1 / $ {IP_ETH0} / &quot;/ etc / cobbler / settings
+sudo chown www-data / var / lib / cobbler / webui_sessions
+sudo pip install simplejson
+sudo htdigest /etc/cobbler/users.digest &quot;Cobbler&quot; cobbler
+sudo service apache2 restart
+</code></pre>
+<p>cobblerd sudo service restart</p>
+<pre><code class="language-bash">sudo cobbler sync
+sudo cobbler check
+</code></pre>
+<h2>Access web-ui cobbler</h2>
+<p>http: // <ip_address> / cobbler_web /</p>
+<p>username / password: <strong>cobbler</strong> / cobbler</p>
+<p>You are ready !!</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

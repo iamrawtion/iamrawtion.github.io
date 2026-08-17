@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build your own private cloud with Ubuntu - I | Roshan Nagekar</title>
+  <meta name="description" content="Some rights reserved by ErinOfEarth I recently tried building my private cloud with my System Administrator Chaitanya. While we both were successful...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Build your own private cloud with Ubuntu - I">
+  <meta property="og:description" content="Some rights reserved by ErinOfEarth I recently tried building my private cloud with my System Administrator Chaitanya. While we both were successful...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2013-06-30">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Build your own private cloud with Ubuntu - I">
+  <meta name="twitter:description" content="Some rights reserved by ErinOfEarth I recently tried building my private cloud with my System Administrator Chaitanya. While we both were successful...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Build your own private cloud with Ubuntu - I","description":"Some rights reserved by ErinOfEarth I recently tried building my private cloud with my System Administrator Chaitanya. While we both were successful...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-06-30","url":"https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with.html","keywords":"","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../index.html#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav class="breadcrumb" style="margin-bottom:1.5rem; font-size:0.9rem;">
+        <a href="../blog.html" style="color:var(--primary-color);">← All Posts</a>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <span style="color:var(--accent-color); font-size:0.85rem; font-family:monospace;">Cloud Computing</span>
+            
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Build your own private cloud with Ubuntu - I</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            June 30, 2013
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+          </p>
+        </header>
+        <div class="blog-post-content markdown-body">
+          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9h_yuYjfB-wTAvOKz71c_IGxnCp5xenpcW_cPm4GgnkQkEeOG1UbGZ-LOpcGQ4jJs-tLh1SDT-rbcHfMBwunut5edkvZ99EXfW7BbBPr4s18fd3ci-0DMfssijOg6ijpucXqVN1el31c/s1600/5527495896_4c39148366_m.jpg" alt=""></p>
+<p>Some rights reserved by <a href="https://www.flickr.com/photos/erinofearth/">ErinOfEarth</a></p>
+<p>Continuing from...</p>
+<h3><a href="http://roshannagekar.blogspot.in/2013/06/build-your-own-private-cloud-with.html">Build your own private cloud with Ubuntu - I</a></h3>
+<p>Create node for your MAAS server. You must have atleast 2 nodes before going ahead with juju setup. Go to the webpage for maas server and Click on Add nodes.</p>
+<p>We left all the other information fields there blank except for the MAC-ADDRESS. You can get the mac address of your computer by ipconfig on windows and ifconfig on <strong>Ubuntu</strong> - Ubuntu users can do:</p>
+<pre><code class="language-bash">ifconfig | grep hwadrs
+</code></pre>
+<h2>Then we went to</h2>
+<p><a href="http://maas.ubuntu.com/docs/juju-quick-start.html">http://maas.ubuntu.com/docs/juju-quick-start.html</a></p>
+<p>Thereafter we created ~/.juju/environments.yaml
+vim ~/.juju/environments.yaml
+Added the following details to this file</p>
+<pre><code class="language-yaml">juju: environments
+environments:
+  maas:
+    type: maas
+    maas-server: &#39;http://localhost:5240&#39;
+    maas-oauth: &#39;${maas-api-key}&#39;
+    admin-secret: &#39;nothing&#39;
+</code></pre>
+<p>Got an error default-series: missing</p>
+<p>Added this line to the above file
+    default-series: &#39;precise&#39;
+Error Gone</p>
+<p>juju status
+New error
+Juju INFO Connecting to environment... Unhandled error in Deferred: Unhandled Error</p>
+<hr>
+<h2>Investigated, result</h2>
+<p>Juju packages needs to be installed from ppa:juju/pkg</p>
+<p>Went to</p>
+<p><a href="https://juju.ubuntu.com/docs/">https://juju.ubuntu.com/docs/</a></p>
+<p>removed existing juju</p>
+<pre><code class="language-bash">sudo apt-get update
+            sudo apt-get install juju-core (error no package)
+</code></pre>
+<pre><code class="language-bash">sudo add-apt-repository ppa:juju/devel
+            sudo apt-get update &amp;&amp; sudo apt-get install juju-core
+</code></pre>
+<p>Configuring Juju
+juju generate-config -w   
+previously written environment.yml was moved and the changes were added to the new yml file.</p>
+<p>error: environment has no access-key or secret-key</p>
+<p>changed default: amazon to default: maas
+juju bootsrap
+error:no tools</p>
+<pre><code class="language-bash">sudo juju -v sync-tools
+</code></pre>
+<h2>roshan@ubuntu-cloud:~$ sudo juju bootstrap</h2>
+<p>error: cannot start bootstrap instance: cannot run instances: gomaasapi: got error back from server: 409 CONFLICT</p>
+<p>CONFLICT from maas means that it doesn&#39;t have any nodes available for juju to acquire (juju bootstrap needs to boot a node).
+It&#39;s not the best error unfortunately, juju needs fixing to show all the text. You need the server edition of 12.04</p>
+<p>Nodes were disconnected for sometime...
+Next article should have the addition of nodes...</p>
+
+        </div>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color);">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            or
+            <a href="../consulting.html" style="color:var(--primary-color);">hire me for consulting</a>.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>
