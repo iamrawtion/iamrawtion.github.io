@@ -1,0 +1,14 @@
+/* TEAM */
+Name: Roshan Nagekar
+Role: DevOps Consultant & Trainer
+Location: Remote (Global)
+Twitter: @iamrawtion
+GitHub: https://github.com/iamrawtion
+LinkedIn: https://linkedin.com/in/roshannagekar
+
+/* SITE */
+Language: English
+Doctype: HTML5
+IDE: Claude Code
+Built with: Vanilla HTML/CSS/JS, Node.js (generate-feeds.js)
+Hosted on: GitHub Pages

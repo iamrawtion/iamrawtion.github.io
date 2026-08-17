@@ -1,0 +1,5 @@
+Contact: mailto:iamrawtion@gmail.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://iamrawtion.github.io/.well-known/security.txt
+Policy: If you discover a security vulnerability on this site, please report it responsibly via email. This is a personal static portfolio site hosted on GitHub Pages.

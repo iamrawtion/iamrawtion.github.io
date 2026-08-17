@@ -606,6 +606,10 @@ const recentPostsHtml = `<!-- RECENT_POSTS_START -->
           </a>`).join('')}
         </div>
         <p style="text-align:center; margin-top:2rem;"><a href="blog.html" style="color:var(--primary-color); font-weight:600;">View all ${blogs.length} posts →</a></p>
+        <div style="text-align:center; margin-top:1.25rem; display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center;">
+          <span style="color:var(--text-color); font-size:0.85rem; opacity:0.7;">Browse by topic:</span>
+          ${Object.keys(categories).map(cat => `<a href="categories/${slugify(cat)}.html" style="color:var(--primary-color); font-size:0.85rem; font-weight:500;">${escape(cat)}</a>`).join('<span style="color:var(--text-color); opacity:0.4; font-size:0.85rem;">·</span>')}
+        </div>
       </div>
     </section>
     <!-- RECENT_POSTS_END -->`;
