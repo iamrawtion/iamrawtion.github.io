@@ -133,10 +133,11 @@ function blogPostHtml(blog, bodyHtml) {
 const staticPages = [
   { url: `${BASE_URL}/`, lastmod: new Date().toISOString().split('T')[0], priority: '1.0' },
   { url: `${BASE_URL}/blog.html`, lastmod: new Date().toISOString().split('T')[0], priority: '0.9' },
+  { url: `${BASE_URL}/consulting.html`, lastmod: new Date().toISOString().split('T')[0], priority: '0.9' },
 ];
 
 const blogSitemapEntries = blogs.map(b => ({
-  url: `${BASE_URL}/blog.html?post=${b.id}`,
+  url: `${BASE_URL}/blogs/${b.id}.html`,
   lastmod: b.date,
   priority: '0.8'
 }));
@@ -155,7 +156,7 @@ console.log(`✅ sitemap.xml — ${staticPages.length + blogSitemapEntries.lengt
 
 // --- feed.xml ---
 const items = blogs.map(b => {
-  const url = `${BASE_URL}/blog.html?post=${b.id}`;
+  const url = `${BASE_URL}/blogs/${b.id}.html`;
   const pubDate = new Date(b.date).toUTCString();
   const categories = b.tags.map(t => `    <category>${escape(t)}</category>`).join('\n');
   return `  <item>
