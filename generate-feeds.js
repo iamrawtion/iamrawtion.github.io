@@ -569,6 +569,15 @@ const items = blogs.map(b => {
   const url = `${BASE_URL}/blogs/${b.id}.html`;
   const pubDate = new Date(b.date).toUTCString();
   const categories = b.tags.map(t => `    <category>${escape(t)}</category>`).join('\n');
+  const mdPath = `blogs/${b.file}`;
+  let cdataContent = '';
+  if (fs.existsSync(mdPath)) {
+    const raw = fs.readFileSync(mdPath, 'utf8');
+    const body = raw
+      .replace(/^---[\s\S]*?---\n/, '')
+      .replace(/^(Some rights reserved|image credits?)[^\n]*\n?/gim, '');
+    cdataContent = `\n    <content:encoded><![CDATA[${marked(body)}]]></content:encoded>`;
+  }
   return `  <item>
     <title>${escape(b.title)}</title>
     <link>${url}</link>
@@ -576,12 +585,12 @@ const items = blogs.map(b => {
     <pubDate>${pubDate}</pubDate>
     <description>${escape(b.excerpt)}</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-${categories}
+${categories}${cdataContent}
   </item>`;
 }).join('\n');
 
 const feed = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Roshan Nagekar — DevOps &amp; Security Blog</title>
     <link>${BASE_URL}/blog.html</link>
