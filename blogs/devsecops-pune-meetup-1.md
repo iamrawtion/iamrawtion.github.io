@@ -60,3 +60,67 @@ Some clicks :)
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgacwGVYJOUuFy7SOos1SSxa3ppmGqIJqYDEtATNLq_kEs9ekjGBGmmUFBsYBIAfXYZ9lt5tCL_avDexGaGmcSMMcwNnpT5yawcaKYTu9latvQjnw3oFFd9W5gbuef362Y_bnE72SkaGgc/s1600/01_1.jpeg)
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKI-cgFbg-anfgnLC8s9rMeEsWWSoe-akX9vNvj3TN-5SWLXVuyrPDy6-k3dhy0Dti-egPH451H-SWFY3GrQ5ZAS65vmJTnLva7OQdFE0i7wWwm3H3-CsaS9dcMjAL_lclBiJewfhWNRM/s1600/01_4.jpeg)
+
+## The Lean Coffee Format
+
+I mention the lean coffee format in most of my meetup write-ups, but I've never fully explained it for readers who haven't encountered it before.
+
+Lean Coffee is a structured but agenda-less meeting format. There's no pre-assigned speaker, no prepared slides, no agenda set by the organizer. Instead, it works like this: each participant writes topics on cards or sticky notes — one topic per card. Everyone puts their cards on the table. The group dot-votes on which topics they want to discuss most (each person gets a fixed number of dots to distribute). The highest-voted topic gets a time-boxed discussion, typically 8 minutes. When the timer goes off, the group votes to continue (if the discussion still has momentum) or move to the next topic. It keeps going through the ranked list until time runs out.
+
+There's no single person in the "expert" seat. Anyone in the room can contribute to any topic. The discussion moves at the pace the room wants.
+
+For a security meetup, this works especially well. Security topics are broad and practitioners come in with wildly different backgrounds — developers who want to understand Docker security, ops folks dealing with compliance requirements, consultants who work across multiple client environments. A traditional meetup format forces you to pick one speaker and one topic that may or may not be relevant to what the audience actually needs. Lean Coffee surfaces that need directly.
+
+The original format description is at [leancoffee.org](http://leancoffee.org/) if you want to run one yourself.
+
+## Docker Security in 2019 vs Today
+
+The Docker security conversation in this first meetup covered the main concerns of the time: vulnerable base images, containers running as root, unrestricted Linux capabilities, and inadequate image scanning. These concerns are still valid today. What's changed is that the tooling has matured significantly.
+
+At the time, Snyk and Twistlock were the notable names in the space:
+
+- **Snyk**: still active and has expanded beyond container scanning into a broader developer security platform covering code, dependencies, container images, and infrastructure-as-code.
+- **Twistlock**: acquired by Palo Alto Networks in 2019 and rebranded as Prisma Cloud. Enterprise-focused, full lifecycle container security.
+
+The open source ecosystem has also grown considerably. For image scanning, [Trivy](https://github.com/aquasecurity/trivy) is now the go-to — it's fast, has a low false-positive rate, scans OS packages and language-specific dependencies, and supports container images, filesystems, and IaC. Grype (from Anchore) is another solid option. Clair was one of the earlier open source scanners but has largely been superseded.
+
+For runtime security — detecting malicious behavior inside running containers — Falco is the standard. It uses Linux kernel tracing to alert on things like unexpected process spawning, file writes to sensitive directories, or privilege escalation attempts inside a container.
+
+The CIS Docker Benchmark is the authoritative hardening guide. It covers the Docker daemon configuration, container runtime settings, image hygiene, and network configuration. If you're running containers in production and haven't gone through it, that's where to start.
+
+## SELinux: Why Engineers Disable It (And Why They Shouldn't)
+
+The SELinux discussion in this meetup kept coming back to one observation: engineers disable it the first time it causes a problem, and then never turn it back on. This is a pattern I've seen repeatedly, and it's worth unpacking why it happens and what to do instead.
+
+SELinux is a Linux kernel security module that enforces mandatory access controls (MAC). Unlike discretionary access controls (the standard Unix permission model where the file owner decides who can access a file), MAC is enforced by the kernel regardless of what the process or user wants. Every process and every file has a security label. The kernel checks these labels on every access attempt — if the policy doesn't explicitly allow it, it's denied.
+
+When SELinux causes a problem, you'll see it in `/var/log/audit/audit.log` as an AVC denial. The denial tells you exactly what was blocked: which process, which file, which operation. The correct fix is to write a policy rule that permits the specific operation you need. The lazy fix is `setenforce 0`, which switches SELinux to permissive mode (logs denials but doesn't enforce them) or disables it entirely. That removes the protection for everything, not just the thing that was breaking.
+
+The reason engineers reach for the lazy fix: SELinux error messages are genuinely cryptic. "Permission denied" from SELinux doesn't look like a normal permission denied. The audit log output isn't human-friendly. But there's tooling that bridges the gap.
+
+The `audit2allow` and `audit2why` tools are what you actually need:
+
+```bash
+# Check what SELinux is denying
+ausearch -m avc -ts recent | audit2why
+
+# Generate a policy module for the denial
+ausearch -m avc -ts recent | audit2allow -M mypolicy
+
+# Apply the policy
+semodule -i mypolicy.pp
+```
+
+`audit2why` explains the denial in plain language. `audit2allow` reads the audit log and generates a policy module that would permit the denied operation. `semodule -i` applies it. This is more work than `setenforce 0` but it maintains the security posture — you're allowing exactly what needs to be allowed, not disabling the entire enforcement mechanism.
+
+The Red Hat SELinux guide is the authoritative reference: [Using SELinux on RHEL 9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/using_selinux/index). It applies broadly even if you're running a different distribution.
+
+## What the Lean Coffee Model Produced
+
+Looking back at this first meetup, the topics that surfaced — Docker security, CIS compliance, SELinux — weren't chosen by an organizer or suggested by a sponsor. They came from the five people in the room writing down what they actually wanted to understand. That's the point of the format.
+
+We made a deliberate decision early on: topics that generate strong discussion in lean coffee format would become the pipeline for speaker-format sessions at later DevOps Pune meetups. The lean coffee meetup is community research — it tells you what practitioners need to learn. The speaker meetup is the delivery mechanism.
+
+That feedback loop worked. CIS compliance became a speaker session. SELinux/AppArmor became a speaker session. The Docker security discussion here directly influenced what we invited speakers to present on later.
+
+The DevSecOps Pune group grew from 5 attendees in this first meetup to hundreds of members over the following months. A lot of that growth came from the content staying relevant to what practitioners actually needed — because we were asking them directly rather than guessing.

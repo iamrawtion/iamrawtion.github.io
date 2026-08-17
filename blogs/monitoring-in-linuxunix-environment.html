@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Monitoring in Linux/Unix Environment using TOP","description":"Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-01-02","url":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html","keywords":"Devops, Linux, Troubleshooting","wordCount":587,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Monitoring in Linux/Unix Environment using TOP","description":"Some rights reserved by Steve Jurvetson is the Linux performance monitoring program. For windows user, its analogous to the Task Manager. This...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-01-02","url":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html","keywords":"Devops, Linux, Troubleshooting","wordCount":1590,"timeRequired":"PT8M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Monitoring in Linux/Unix Environment using TOP","item":"https://iamrawtion.github.io/blogs/monitoring-in-linuxunix-environment.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            3 min read
+            8 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -172,6 +172,40 @@ will be required to enter the signal (15) to kill the process.</p>
 <p><em>for help:</em> press h
 <em>Exit top after specific Repetition:</em> top -n <number>
 <em>Manual Page for top :</em> man top</p>
+<h2>Beyond top: Modern Monitoring Tools</h2>
+<p><code>top</code> is what you reach for when you&#39;re already SSH&#39;d into a machine and need to see what&#39;s happening right now. It&#39;s fast and available everywhere. But it has real limits: no history, no alerting, limited context for diagnosing what&#39;s actually causing the load. These tools fill the gaps.</p>
+<p><strong>htop</strong> — an improved <code>top</code> with color, mouse support, and per-CPU bars:</p>
+<pre><code class="language-bash">sudo apt install htop  # or brew install htop
+htop
+</code></pre>
+<p>htop shows individual CPU cores as horizontal bars, lets you scroll through the process list, and supports mouse clicks for sorting and killing processes. It&#39;s strictly more usable than <code>top</code> for interactive debugging. The reason I still mention <code>top</code> first is that htop isn&#39;t always installed on minimal or production systems; <code>top</code> always is.</p>
+<p><strong>vmstat</strong> — system-wide stats in a time series, good for spotting trends rather than instantaneous snapshots:</p>
+<pre><code class="language-bash">vmstat 1 10    # report every 1 second, 10 times
+</code></pre>
+<p>vmstat shows CPU, memory, swap, and I/O in a compact columnar format. Running it with a time interval lets you see how these metrics move over time — something <code>top</code> doesn&#39;t give you in a scannable format.</p>
+<p><strong>iostat</strong> — disk I/O stats alongside CPU, part of the <code>sysstat</code> package:</p>
+<pre><code class="language-bash">iostat -x 1    # extended stats every 1 second
+</code></pre>
+<p>The extended stats (<code>-x</code>) show utilization per device, average queue length, and await time (how long requests wait for I/O to complete). If your <code>top</code> shows high <code>wa</code> (I/O wait) and you want to know which disk is the bottleneck, <code>iostat</code> is where you look next.</p>
+<p><strong>sar</strong> (System Activity Reporter) — historical data, also part of <code>sysstat</code>:</p>
+<pre><code class="language-bash">sar -u 1 5     # CPU utilization, 1 second interval, 5 samples
+sar -r 1 5     # memory utilization
+sar -b 1 5     # I/O statistics
+</code></pre>
+<p><code>sar</code> is particularly valuable because it can read from historical logs collected by the <code>sadc</code> daemon — so you can look at CPU utilization from 6 hours ago when the alert fired, not just right now.</p>
+<p>Brendan Gregg&#39;s <a href="http://www.brendangregg.com/linuxperf.html">Linux Performance Tools</a> page is the definitive reference for understanding which tool to reach for at each layer of the stack. Worth bookmarking.</p>
+<h2>Interpreting top Output for Common Problems</h2>
+<p>Knowing the fields is one thing. Knowing what combinations of values indicate which problems is what actually matters when you&#39;re debugging under pressure.</p>
+<p><strong>High load average but low CPU%</strong>: the processes are blocked waiting for something that isn&#39;t CPU. Check the <code>wa</code> column in the CPU line — that&#39;s I/O wait, the percentage of time the CPU is idle because processes are waiting on disk. If <code>wa</code> is elevated (anything above 5-10% is worth investigating), the bottleneck is disk. Verify with <code>iostat -x 1</code>.</p>
+<p><strong>High CPU% on a single process</strong>: find it with <code>top</code> (it&#39;ll be at the top of the list sorted by %CPU). Then dig deeper with <code>strace -p &lt;pid&gt;</code> to see what system calls it&#39;s making, or <code>perf top</code> to see which code paths are consuming the cycles. High CPU on a known-good process often means a hot loop caused by unexpected input data or a configuration change.</p>
+<p><strong>Memory pressure</strong>: watch the <code>si</code> and <code>so</code> values in the memory section of <code>top</code> — swap in and swap out. Non-zero <code>si</code>/<code>so</code> means the kernel is actively moving data between RAM and disk. Swap in (<code>si</code>) means it&#39;s reading previously swapped-out data back into RAM because something needs it — performance is degraded because disk access is happening where RAM access should be. Sort by %MEM in top (press <code>M</code>) to find what&#39;s consuming memory.</p>
+<p><strong>Zombie processes</strong>: visible in the tasks line as the <code>Z</code> count. A zombie is a process that has finished executing but whose parent hasn&#39;t called <code>wait()</code> to retrieve its exit status and clean it up. The zombie sits in the process table using a small amount of kernel resources. A handful of zombies at any point is normal. A growing count of zombies indicates the parent process has a bug — it&#39;s spawning children and not collecting them. You can&#39;t kill a zombie directly; you have to kill (or fix) the parent.</p>
+<h2>Setting Up Persistent Monitoring</h2>
+<p><code>top</code> tells you what&#39;s happening right now. It doesn&#39;t tell you what happened an hour ago, and it can&#39;t alert you when something goes wrong while you&#39;re not looking. For production systems, you need monitoring that runs continuously, retains history, and sends alerts.</p>
+<p><strong>Prometheus + node_exporter</strong> is the current standard for Linux host metrics. node_exporter is a small agent that runs on each host and exposes CPU, memory, disk, filesystem, and network metrics in Prometheus format. Prometheus scrapes and stores them. Pair it with Grafana for dashboards and Alertmanager for routing alerts to PagerDuty, Slack, or email. This stack requires some setup investment but scales well and gives you full control over retention and alerting rules. See <a href="https://github.com/prometheus/node_exporter">node_exporter on GitHub</a> to get started.</p>
+<p><strong>Netdata</strong> is the right choice if you want real-time dashboards with minimal setup. Install it on a host and you immediately get per-second granularity metrics with a built-in web UI — no separate Prometheus or Grafana required. It&#39;s better for single-host visibility than for multi-host fleet monitoring, but for a small number of machines it&#39;s fast to get running.</p>
+<p><strong>CloudWatch Agent</strong> — if your infrastructure is on AWS EC2, the CloudWatch Agent collects the same metrics (CPU, memory, disk, network) and ships them to CloudWatch without requiring you to run separate infrastructure. You get CloudWatch Alarms and dashboards out of the box. The tradeoff is cost (CloudWatch isn&#39;t free at scale) and lock-in to AWS tooling.</p>
+<p>The principle to internalize: <code>top</code> is for interactive debugging when you&#39;re already SSH&#39;d in because something is wrong. Prometheus (or equivalent) is what catches problems before you need to SSH in. Running in production without persistent monitoring means you only find out about problems when users tell you — and by then the <code>top</code> output you&#39;re looking at may not show the actual cause, just the aftermath.</p>
 
         </div>
         

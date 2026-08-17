@@ -32,3 +32,34 @@ Some rights reserved by [opensource.com](https://www.flickr.com/photos/opensourc
   are stored online in your separate account.)
 
 - Cloud Storage : GoogleDrive/Dropbox
+
+## Why This Still Matters for DevOps Teams
+
+Cost savings get all the attention in FOSS conversations. That's the wrong frame. For DevOps teams, the real value is auditability, reproducibility, and avoiding vendor lock-in.
+
+When your entire toolchain is open source, you can read the code. If a tool does something unexpected, you can trace it. If you hit a bug, you can file an issue with a patch instead of waiting on a vendor's roadmap. You can pin a specific version, fork it if needed, and reproduce your environment exactly on any machine. That's not a nice-to-have — it's the same principle that drives infrastructure-as-code. Reproducible, version-controlled, not dependent on someone else's licensing decisions.
+
+Contrast this with a proprietary tool stack: you can't audit what it does, you can't fix it, and switching away involves licensing negotiations, data export headaches, and often a retraining cycle. When a vendor gets acquired or changes pricing, you feel it. Open source eliminates that class of risk.
+
+The [Open Source Initiative](https://opensource.org/osd) defines the specific criteria a license must meet to qualify as open source — it's worth reading if you're evaluating tools for a team. Not all "free" tools are open source, and the distinction matters operationally.
+
+## DevOps-Specific FOSS Tools Worth Knowing
+
+The tools I listed above are general Windows utilities. If you're doing DevOps work, the open source landscape goes much deeper. Here's where I'd start:
+
+- **Container runtime**: Docker is the default, but Podman is worth knowing. It's daemonless, runs rootless by default, and is OCI-compatible — meaning your Dockerfiles and images work without modification. No root daemon running as a persistent service is a meaningful security improvement.
+- **Kubernetes local development**: EKS and GKE are managed Kubernetes for production. For local dev and CI, k3s (lightweight, single-binary Kubernetes) and kind (Kubernetes in Docker) are the practical choices. Both are free, open source, and significantly faster to spin up than a full cloud cluster.
+- **Monitoring**: Datadog is excellent and expensive. The Prometheus + Grafana stack covers the same ground — metrics collection, alerting, dashboards — and is free. The setup cost is higher, but for teams with the engineering capacity, it's the right call.
+- **CI/CD**: If you want to self-host your CI pipeline rather than depending on GitHub Actions, Gitea (a self-hosted Git service) paired with Woodpecker CI gives you a fully open source, self-contained pipeline.
+- **Secrets management**: HashiCorp Vault's open source edition handles secrets storage, dynamic credentials, and PKI. The enterprise features require a license, but the core functionality is open and production-grade.
+- **API testing**: Postman introduced a paid model that pushed a lot of developers toward alternatives. Bruno and Insomnia (the open source fork, before Kong acquired it) are the main replacements — local-first, no cloud sync required by default.
+
+The [CNCF Landscape](https://landscape.cncf.io/) maps essentially the entire cloud-native open source ecosystem. It's overwhelming at first glance, but it's the most comprehensive reference for what exists in each category.
+
+## The Practical Reality of FOSS Adoption
+
+FOSS tools have real trade-offs, and pretending otherwise doesn't help anyone.
+
+Support is community-driven. If something breaks on a Friday afternoon, you're filing a GitHub issue, not opening a support ticket with a contractual SLA. Documentation quality varies enormously — some projects are exceptionally well-documented (Ansible, Prometheus), others assume you'll read the source code. Maturity varies too: LibreOffice and VLC are as stable as any commercial equivalent. ReactOS is still alpha after two decades. Some tools in the CNCF landscape are experimental projects that won't exist in five years.
+
+The approach that works in practice: use FOSS by default. Evaluate commercial tools only when the capability gap is real, the team has actually hit it, and the budget is justified by the value. That's not ideology — it's pragmatic engineering. Paying for a tool is fine when it's the right call. It shouldn't be the default just because a salesperson showed up first.

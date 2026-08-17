@@ -67,3 +67,53 @@ Some clicks :)
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjD4irBjuoSZeVaCgweb_-QEGUFyDxlanogqctWgUIeZlUiAdOzWFxgHUpoJriVTay_XIWv3R6OxJHqarHbbVKIbT7OvtJKbM_khNZJ6AIC1Z5e9JngTVWZXrMQzkiDLEflLzGswncrbc/s1600/02_3.jpeg)
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj06u9Fh0RlhOv3KvbbPV1Mp6BmaGrrHlDNVTVvgxkAHkEPP0mLBxDHKXV6H90DnJr7sJjTzMiatlpeEwf2Wc9TbPQWAVv1PUYwsrOBuRhL3TN7kQaEXSjuXV3iOtzWTFTYDSpnN_O6LQE/s1600/02_6.jpeg)
+
+## Why PKI Got 30 Minutes Instead of 5
+
+The PKI discussion was supposed to be a quick 5-minute overview. It ended up running 30 minutes because Muneeb started explaining what actually happens under the hood — and most of us in the room realized we'd been using TLS without really understanding it.
+
+Here's what he covered. A certificate chain works in three layers: a root CA (trusted by browsers and operating systems out of the box), an intermediate CA (issued by the root CA, adds a layer of separation), and a leaf certificate (the one your server presents). Your browser trusts your certificate because it can walk this chain up to a root CA it already trusts. That trust relationship is the foundation of HTTPS.
+
+Muneeb walked through how asymmetric encryption underpins this: you generate a key pair — a private key that stays on your server and never leaves, and a public key embedded in your certificate. Data encrypted with one key can only be decrypted with the other. When a client connects, the TLS handshake uses the public key to establish a shared symmetric session key, and from that point the session uses symmetric encryption (much faster).
+
+A Certificate Signing Request (CSR) is what you send to a CA when you want a cert issued. It contains your public key and details about your organization. The CA signs it with their private key, creating the certificate. The signature is what makes it trustworthy — anyone can verify it using the CA's public key.
+
+Why does this matter operationally? Because when a certificate expires and your service goes down at 2am, you need to understand the chain to debug it quickly. Is it the leaf cert expired? Is the intermediate CA cert missing from your server's bundle? Is the root CA no longer trusted by a newer OS version? These are different problems with different fixes. If you want a solid primer on the mechanics, [Let's Encrypt's explanation of how HTTPS works](https://letsencrypt.org/how-it-works/) is one of the clearest I've found.
+
+## CIS Benchmarks in Practice
+
+Not everyone in the room was familiar with CIS Benchmarks, so this is worth explaining properly.
+
+The Center for Internet Security publishes hardening guides — called benchmarks — for operating systems, cloud platforms, Kubernetes, Docker, databases, and more. Each benchmark is a scored checklist of security controls. They're divided into two levels: Level 1 controls are safe to apply broadly with minimal impact on functionality. Level 2 controls are stricter, more security-focused, and may break things if you apply them without understanding the tradeoffs.
+
+For AWS, the CIS Benchmark covers IAM policies (MFA on root, no root access keys, password policy requirements), CloudTrail logging (enabled in all regions, log file validation on), S3 bucket permissions (block public access, no public buckets), security groups (no unrestricted inbound on 0.0.0.0/0 for sensitive ports), and more.
+
+The manual audit would take days. Tools like [Prowler](https://github.com/prowler-cloud/prowler) — which came up in the meetup discussion — automate this. Prowler runs against your AWS account and outputs a report showing which CIS controls you pass, fail, or have exceptions for. It's open source and actively maintained. Running it periodically (or in a CI pipeline) gives you a continuous compliance posture rather than a point-in-time snapshot.
+
+The full list of available benchmarks is at [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks). If you're doing anything in AWS, the CIS AWS Foundations Benchmark is the starting point.
+
+## SOAR: What It Is and When You Need It
+
+SOAR stands for Security Orchestration, Automation and Response. Rahul introduced this to the group and it was a new concept for most attendees, including me.
+
+Here's how it fits in the security tooling stack. A SIEM (Security Information and Event Management) collects logs and security events from across your infrastructure — servers, firewalls, endpoints, cloud accounts — and correlates them to surface alerts. Something like: "we saw 20 failed SSH login attempts from the same IP in 5 minutes." That's a SIEM alert.
+
+SOAR is the layer that responds to that alert automatically. Instead of paging someone to go manually block that IP, update a ticket, and notify the team, a SOAR playbook does it: looks up whether the IP is known malicious, blocks it at the firewall level if it is, creates a ticket in your issue tracker, and posts a message to your security Slack channel — all without human intervention.
+
+The value is mean time to respond (MTTR). At scale, security alerts are noisy and most don't need human attention. SOAR handles the routine ones automatically and escalates only what requires judgment. That's the difference between a security team that's constantly firefighting and one that can focus on actual investigation.
+
+For teams that want to explore this without buying an enterprise product, [Shuffle](https://shuffler.io/) and [TheHive](https://thehive-project.org/) are the open source options worth looking at.
+
+## Why the Serverless vs Microservices Debate Got Heated
+
+By early 2019, serverless (FaaS — AWS Lambda, Azure Functions, Google Cloud Functions) had built up a lot of hype. Some were claiming it would replace microservices. That claim landed in a room full of people who actually build and run services, and the debate that followed was probably the most energetic part of the meetup.
+
+The core disagreements:
+
+Are serverless and microservices the same thing? No. Microservices is an architectural pattern about how you decompose a system into independently deployable services. Serverless is a deployment model where you run individual functions without managing servers. You can build microservices on serverless infrastructure. They're different dimensions.
+
+Does serverless eliminate ops? No — it shifts ops concerns. You're no longer managing servers or OS patches, but you're now managing cold start times, function timeouts, per-invocation costs, distributed tracing across many small functions, and vendor lock-in. The operational surface changes; it doesn't disappear.
+
+Can you build stateful systems serverlessly? With difficulty. Lambda is inherently stateless between invocations. You can work around this with external state (DynamoDB, ElastiCache), but it adds complexity and latency. Some workloads genuinely fit the stateless function model. Most enterprise systems don't map cleanly onto it.
+
+The debate was productive precisely because it surfaced real tradeoffs that teams in the room were dealing with. The answer then, and still now: use the right tool for the workload. Serverless is excellent for event-driven, bursty, stateless workloads. Microservices with persistent infrastructure make more sense for long-running, stateful, or latency-sensitive services. The interesting architectural question is where the boundary sits for your specific system.

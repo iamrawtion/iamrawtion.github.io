@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Second Place Story : Server ghouls haunt bulk ingestion","description":"Some rights reserved by Julie Rybarczyk I recently shared one of my stories while monitoring an Ingestion Server with AppFirst for one of the...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-11-03","url":"https://iamrawtion.github.io/blogs/i-recently-shared-one-of-my-stories.html","keywords":"Server, Storage, Troubleshooting","wordCount":467,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Second Place Story : Server ghouls haunt bulk ingestion","description":"Some rights reserved by Julie Rybarczyk I recently shared one of my stories while monitoring an Ingestion Server with AppFirst for one of the...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-11-03","url":"https://iamrawtion.github.io/blogs/i-recently-shared-one-of-my-stories.html","keywords":"Server, Storage, Troubleshooting","wordCount":1280,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Programming","item":"https://iamrawtion.github.io/categories/programming.html"},{"@type":"ListItem","position":4,"name":"Second Place Story : Server ghouls haunt bulk ingestion","item":"https://iamrawtion.github.io/blogs/i-recently-shared-one-of-my-stories.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            3 min read
+            7 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -142,6 +142,48 @@ GB of disk space was used by ingestion by midnight and the disk was
 full. I immediately attached a bigger volume to the instance and
 restarted the ingestion. Thankfully it was complete in a few hours and
 that saved me from a big trouble!!!</p>
+<h2>What Actually Caused This</h2>
+<p>The root cause was straightforward once I had visibility into what happened: the ingestion process had no pre-flight check for available disk space before starting. It assumed the disk would be large enough to hold both the source data and the temporary working copy it created during processing. The duplicate was not a bug in the application logic — it was an intentional intermediate artifact that would have been cleaned up automatically after ingestion completed. The problem was that nobody asked the question &quot;will this fit?&quot; before kicking it off.</p>
+<p>When the disk filled at midnight, the ingestion process kept running — no crash, no abort, no error returned to the caller. Writes to the log file silently failed because there was no space left to write them either. That&#39;s why the logs showed nothing after 11pm. The application was alive but completely stuck, with no way to tell that from the outside.</p>
+<h2>The Monitoring Gap</h2>
+<p>Here&#39;s the part that bothered me more than the disk filling: the real failure wasn&#39;t the disk running out of space. A full disk is a recoverable situation — attach a bigger volume and restart. The failure was not knowing it was happening until the next morning.</p>
+<p>Proper monitoring would have alerted at 80% disk utilization, hours before midnight, with enough time to either expand the volume or reschedule the job. Instead, every layer of visibility was missing:</p>
+<ul>
+<li>No disk space alert existed on the instance</li>
+<li>The application didn&#39;t log an error when writes failed — it just dropped them silently</li>
+<li>The ingestion process didn&#39;t report its progress in any way that could be polled or monitored externally</li>
+</ul>
+<p>This is a textbook observability gap. The system was running but not healthy, and there was no mechanism to tell the difference from outside the process. A monitoring dashboard showing &quot;EC2 instance: running&quot; tells you almost nothing useful about a long-running batch job.</p>
+<h2>How to Prevent This</h2>
+<p>Three fixes, applied in layers:</p>
+<p><strong>Pre-flight disk space check</strong> — add this at the top of the ingestion script before any processing begins:</p>
+<pre><code class="language-bash">AVAILABLE=$(df -BG /data | awk &#39;NR==2 {gsub(&quot;G&quot;,&quot;&quot;); print $4}&#39;)
+REQUIRED=250  # GB needed for data + working copy
+if [ &quot;$AVAILABLE&quot; -lt &quot;$REQUIRED&quot; ]; then
+    echo &quot;Insufficient disk space: ${AVAILABLE}G available, ${REQUIRED}G required&quot;
+    exit 1
+fi
+</code></pre>
+<p>Fail fast and loud before the job starts. A pre-flight check that takes two seconds saves you from discovering the problem eight hours in.</p>
+<p><strong>Disk utilization monitoring</strong> — a simple cron-based alert as a minimum:</p>
+<pre><code class="language-bash"># Alert if disk &gt; 80% full
+USAGE=$(df / | awk &#39;NR==2 {gsub(&quot;%&quot;,&quot;&quot;); print $5}&#39;)
+if [ &quot;$USAGE&quot; -gt 80 ]; then
+    echo &quot;DISK ALERT: / is ${USAGE}% full&quot; | mail -s &quot;Disk Alert&quot; ops@company.com
+fi
+</code></pre>
+<p>But for any serious environment, use a proper monitoring stack. <a href="https://github.com/prometheus/node_exporter">Prometheus node_exporter</a> exposes <code>node_filesystem_avail_bytes</code> and <code>node_filesystem_size_bytes</code> metrics that you can alert on with Alertmanager. A <code>disk_used_percent &gt; 80</code> alert rule with a 5-minute evaluation window is the standard approach and takes about 10 minutes to configure once node_exporter is running.</p>
+<p><strong>Application-level progress logging</strong> — the ingestion process should log periodically throughout its run: bytes processed, percentage complete, estimated time remaining. Not just at the start and end. If a job runs for 8 hours and only logs at completion, you have no way to detect a stall or a slowdown until it&#39;s too late. Even a simple &quot;processed X of Y records&quot; every 5 minutes gives you something to watch.</p>
+<h2>The Lesson That Stayed With Me</h2>
+<p>This was an early production operations experience, and it shaped how I approach every batch job and data pipeline I&#39;ve built since. The lesson wasn&#39;t &quot;use bigger volumes&quot; — storage is cheap and easy to expand. The lesson was:</p>
+<p>Every long-running process needs three things before it touches production:</p>
+<ol>
+<li>Pre-flight validation — check your assumptions before starting, not during</li>
+<li>Progress visibility — emit enough signal that you can tell whether the job is healthy or stuck</li>
+<li>Resource monitoring with alerts — don&#39;t rely on humans noticing things manually</li>
+</ol>
+<p>A job that runs silently for 8 hours and then fails with no logs is not a job. It&#39;s a problem waiting to be discovered at the worst moment — usually at midnight, usually before a delivery deadline. The fix I applied that morning (bigger volume, restart) took 20 minutes. Setting up proper disk monitoring and adding a pre-flight check would have taken an hour. That hour of prevention would have meant I never got the early-morning call in the first place.</p>
+<p>For the modern implementation of this kind of alerting, see <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">Prometheus alerting rules</a> — the pattern of defining alert thresholds as code, storing them in version control, and having Alertmanager route them to the right people is the standard approach now and far more reliable than cron-based scripts.</p>
 
         </div>
         

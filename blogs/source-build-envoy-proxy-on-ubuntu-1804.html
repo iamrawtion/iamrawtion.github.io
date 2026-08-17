@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Source build Envoy proxy on Ubuntu 18.04","description":"sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo \"deb [arch=amd64]...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html","keywords":"envoy, load balancer, proxy, source build, ubuntu","wordCount":126,"timeRequired":"PT1M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Source build Envoy proxy on Ubuntu 18.04","description":"sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo \"deb [arch=amd64]...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html","keywords":"envoy, load balancer, proxy, source build, ubuntu","wordCount":846,"timeRequired":"PT5M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Source build Envoy proxy on Ubuntu 18.04","item":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            1 min read
+            5 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -112,6 +112,88 @@ bazel build //configs:example_configs
 </code></pre>
 <h2>RELAX, ITS GOING TO TAKE LONG TIME</h2>
 <p>I wrote an **Ansible playbook too for this. I will publish it later on **Github</p>
+<h2>Why Build Envoy from Source?</h2>
+<p>Most teams never need to do this. If you&#39;re running Envoy in production, you&#39;re almost certainly pulling it from <a href="https://hub.docker.com/r/envoyproxy/envoy">the official Docker images</a> or getting it injected as a sidecar by a service mesh like Istio. That&#39;s the right call for the vast majority of deployments — official images are tested, signed, and updated with security patches.</p>
+<p>Source builds are for specific situations:</p>
+<ul>
+<li>You need to apply a patch that hasn&#39;t made it into a release yet. Maybe you hit a bug and there&#39;s a fix in <code>main</code> but the next release is weeks away.</li>
+<li>You&#39;re targeting an architecture or OS where Envoy doesn&#39;t publish official binaries.</li>
+<li>You&#39;re contributing to Envoy and need a development build with debug symbols.</li>
+<li>You want to understand the build system before submitting a PR.</li>
+</ul>
+<p>If none of those apply to you, use the Docker image. Seriously.</p>
+<h2>What Takes So Long</h2>
+<p>The first build took me around 75 minutes on a reasonably spec&#39;d machine, and that surprised me until I understood what Bazel was actually doing.</p>
+<p>Envoy has no pre-compiled dependencies. Bazel downloads and builds everything from source: gRPC, BoringSSL (Google&#39;s OpenSSL fork), Protobuf, abseil-cpp, libevent, and more. Each of those has its own dependency tree. On a first build, you&#39;re compiling several hundred thousand lines of C++ with no shortcuts.</p>
+<p>The good news: subsequent builds are much faster. Bazel caches every build artifact in <code>~/.cache/bazel/</code>, keyed by content hash. If you change one file in Envoy&#39;s HTTP filter code, Bazel only recompiles the affected translation units and re-links the binary. Incremental rebuilds on a warm cache typically run in a few minutes.</p>
+<p>On CI, the trick is persisting <code>~/.cache/bazel</code> between runs. Most CI platforms support artifact caching keyed by a hash of your dependency lockfiles. A warm Bazel cache on CI cuts Envoy rebuild time from 60+ minutes to under 10.</p>
+<h2>Faster Alternative: Use the Official Docker Image</h2>
+<p>For anything that isn&#39;t a source build scenario, this is the right starting point:</p>
+<pre><code class="language-bash">docker pull envoyproxy/envoy:v1.29-latest
+docker run --rm -it \
+  -p 9901:9901 \
+  -p 10000:10000 \
+  -v $(pwd)/envoy.yaml:/etc/envoy/envoy.yaml \
+  envoyproxy/envoy:v1.29-latest
+</code></pre>
+<p>You&#39;ll need a minimal <code>envoy.yaml</code> to get anything running. Here&#39;s the smallest useful config — an admin endpoint and a single listener that proxies HTTP:</p>
+<pre><code class="language-yaml">admin:
+  address:
+    socket_address:
+      address: 0.0.0.0
+      port_value: 9901
+
+static_resources:
+  listeners:
+  - name: listener_0
+    address:
+      socket_address:
+        address: 0.0.0.0
+        port_value: 10000
+    filter_chains:
+    - filters:
+      - name: envoy.filters.network.http_connection_manager
+        typed_config:
+          &quot;@type&quot;: type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: backend
+              domains: [&quot;*&quot;]
+              routes:
+              - match:
+                  prefix: &quot;/&quot;
+                route:
+                  cluster: service_backend
+          http_filters:
+          - name: envoy.filters.http.router
+            typed_config:
+              &quot;@type&quot;: type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+  clusters:
+  - name: service_backend
+    connect_timeout: 0.25s
+    type: LOGICAL_DNS
+    load_assignment:
+      cluster_name: service_backend
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: example.com
+                port_value: 80
+</code></pre>
+<p>Port 9901 is the admin endpoint. Hit <code>http://localhost:9901/stats</code> and you get a wall of metrics. <code>http://localhost:9901/ready</code> returns 200 when Envoy is healthy — that&#39;s your health check endpoint for load balancers.</p>
+<h2>Verifying the Build</h2>
+<p>Once the Bazel build finishes, confirm the binary actually works before doing anything else with it:</p>
+<pre><code class="language-bash">./bazel-bin/source/exe/envoy-static --version
+./bazel-bin/source/exe/envoy-static -c generated/configs/google_com_proxy.v2.yaml
+</code></pre>
+<p>The <code>--version</code> output should print the Envoy version string plus the build label. If the binary is corrupt or missing dependencies, this is where it fails cleanly rather than at runtime. The second command runs Envoy with the example Google proxy config generated earlier — it&#39;s a real config that exercises the listener and cluster code paths. If Envoy starts up and logs that it&#39;s listening, your build is good. Check the <a href="https://www.envoyproxy.io/docs/envoy/latest/">Envoy documentation</a> for what to expect in the startup logs.</p>
+<h2>When to Use a Service Mesh Instead</h2>
+<p>If you&#39;re planning to run Envoy as a sidecar across more than a handful of services, stop and evaluate <a href="https://istio.io/latest/docs/">Istio</a> or Linkerd before going further down the manual route. Both inject and manage Envoy sidecars automatically, handle mTLS certificate rotation, distribute xDS configs via a control plane, and surface observability data through integrated dashboards.</p>
+<p>Rolling your own sidecar management means you&#39;re also building the certificate rotation, the config distribution mechanism, and the operational tooling to debug it all. That&#39;s a significant undertaking. Source building Envoy makes sense for contributors and for specific patching scenarios. For production sidecar deployments across many services, a service mesh is almost always the better investment.</p>
 
         </div>
         

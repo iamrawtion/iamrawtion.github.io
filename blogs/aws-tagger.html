@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"AWS Tagger","description":"Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-01-20","url":"https://iamrawtion.github.io/blogs/aws-tagger.html","keywords":"AWS, Bulk tagging, Cloud Computing, Standard, Tags","wordCount":498,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"AWS Tagger","description":"Image credits : jdhancock Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-01-20","url":"https://iamrawtion.github.io/blogs/aws-tagger.html","keywords":"AWS, Bulk tagging, Cloud Computing, Standard, Tags","wordCount":1154,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Cloud Computing","item":"https://iamrawtion.github.io/categories/cloud-computing.html"},{"@type":"ListItem","position":4,"name":"AWS Tagger","item":"https://iamrawtion.github.io/blogs/aws-tagger.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            3 min read
+            6 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -124,6 +124,62 @@ Click on the &quot;Download&quot; button to download the CSV data generated.</p>
 <li>Identification and filtering: I recommend this step particularly to filter the data so that AWS Tagger can act on individual resources. Here you may use your excel skills to separate data based on resource types.</li>
 <li>Tagging: Once the resources are separated, you may start executing **AWS Tagger scripts as per the <a href="https://github.com/washingtonpost/aws-tagger/blob/master/README.md">documentation</a> provided on their **Github page.</li>
 </ol>
+<h2>AWS Tagging Best Practices</h2>
+<p>Getting the tooling right is only half the problem. The other half is agreeing on a tag schema and then actually enforcing it. Without enforcement, you&#39;ll have some resources tagged correctly, some tagged inconsistently, and some not tagged at all — which defeats the entire purpose.</p>
+<p><strong>Mandatory tags</strong> — these should be required on every resource, enforced at creation time:</p>
+<ul>
+<li><code>Environment</code>: <code>prod</code> / <code>staging</code> / <code>dev</code> / <code>sandbox</code> — the single most important tag for filtering, automation, and access control</li>
+<li><code>Owner</code>: team or individual email — so you know who to call when something breaks or an unexpected bill arrives</li>
+<li><code>CostCenter</code>: for billing allocation to the right business unit or project</li>
+<li><code>Project</code>: the initiative or product this resource belongs to</li>
+</ul>
+<p><strong>Optional but recommended</strong>:</p>
+<ul>
+<li><code>ManagedBy</code>: <code>terraform</code> / <code>ansible</code> / <code>cloudformation</code> / <code>manual</code> — invaluable when you need to know whether a resource is safe to modify through the console or must go through a pipeline</li>
+<li><code>Version</code>: for resources tied to a specific deployment or release</li>
+<li><code>ExpiresOn</code>: for temporary resources — especially useful in sandbox accounts where resources routinely get created for testing and then forgotten</li>
+</ul>
+<p>The value of mandatory tags only materializes if they&#39;re actually enforced. A tag policy document that lives in a wiki but doesn&#39;t prevent untagged resources from being created is decoration. <a href="https://docs.aws.amazon.com/config/latest/developerguide/required-tags.html">AWS Config managed rules</a> can flag untagged or incorrectly tagged resources, and Service Control Policies (SCPs) via AWS Organizations can deny resource creation entirely if required tags are missing.</p>
+<h2>Enforcing Tags at Creation Time</h2>
+<p>The most effective approach is to prevent untagged resources from being created in the first place, rather than trying to clean up after the fact. Here&#39;s an SCP that denies EC2 instance creation unless the <code>Environment</code> tag is present:</p>
+<pre><code class="language-json">{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Deny&quot;,
+      &quot;Action&quot;: [&quot;ec2:RunInstances&quot;],
+      &quot;Resource&quot;: &quot;arn:aws:ec2:*:*:instance/*&quot;,
+      &quot;Condition&quot;: {
+        &quot;Null&quot;: {
+          &quot;aws:RequestTag/Environment&quot;: &quot;true&quot;
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+<p>Apply this at the Organizational Unit (OU) level in AWS Organizations and it covers every account in that OU automatically. Add similar conditions for your other mandatory tags. The immediate result: engineers get a clear error when they try to launch something without the required tags, rather than a silent success that becomes a compliance problem later.</p>
+<p>For resources that already exist without tags, AWS Config with auto-remediation can handle the cleanup — it flags non-compliant resources and can trigger a Lambda function to apply default tags based on resource metadata.</p>
+<h2>Modern Alternatives to AWS Tagger</h2>
+<p>The Washington Post&#39;s aws-tagger is useful, especially for bulk remediation of existing untagged resources. But the ecosystem has matured and there are cleaner approaches depending on where you are:</p>
+<ul>
+<li><strong>AWS Tag Editor</strong> (built into the console): the same resource search page referenced in this post, now with bulk tag editing directly in the browser — no additional tooling required for one-off cleanup tasks</li>
+<li><strong>AWS CLI</strong>: <code>aws resourcegroupstaggingapi tag-resources</code> for scripted bulk operations, scriptable and easy to integrate into existing automation</li>
+<li><strong>Terraform with <code>default_tags</code></strong>: the cleanest long-term solution — define your standard tags once at the provider level and they&#39;re applied to every resource Terraform manages:</li>
+</ul>
+<pre><code class="language-hcl">provider &quot;aws&quot; {
+  default_tags {
+    tags = {
+      Environment = var.environment
+      Owner       = var.owner
+      ManagedBy   = &quot;terraform&quot;
+      Project     = var.project
+    }
+  }
+}
+</code></pre>
+<p>This single configuration block applies those four tags to every resource created by the provider without any additional code. When a new engineer creates a new resource, the tags are already there. See the <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags">AWS provider default_tags documentation</a> for the full reference.</p>
+<p>The honest recommendation: if you&#39;re starting fresh or doing a significant Terraform migration, <code>default_tags</code> is the right long-term answer. If you&#39;re dealing with a legacy account full of untagged resources that predate your tag strategy, aws-tagger or the AWS CLI bulk tagging API is the right remediation tool. Use both — one for the past, one for the future.</p>
 
         </div>
         

@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Checking Open Ports on a Remote Computer using PortQry","description":"Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-02-07","url":"https://iamrawtion.github.io/blogs/checking-open-ports-on-remote-computer.html","keywords":"Server, Troubleshooting","wordCount":571,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Checking Open Ports on a Remote Computer using PortQry","description":"Some rights reserved by Ryan Franklin Today for one of the projects the SFTP connection kept failing for some reason. The user-id password used for...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-02-07","url":"https://iamrawtion.github.io/blogs/checking-open-ports-on-remote-computer.html","keywords":"Server, Troubleshooting","wordCount":1305,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Checking Open Ports on a Remote Computer using PortQry","item":"https://iamrawtion.github.io/blogs/checking-open-ports-on-remote-computer.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            3 min read
+            7 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -182,6 +182,63 @@ TCP port 80 (http service): LISTENING</p>
 IP address resolved to xx.xx.xx.xx
 querying...</p>
 <h2>TCP port 22 (ssh service): NOT LISTENING</h2>
+<h2>Linux/Mac Equivalents</h2>
+<p>PortQry is Windows-only. If you&#39;re on Linux or Mac, you have better built-in options that don&#39;t require downloading anything.</p>
+<p><strong>netcat (nc)</strong> — the simplest tool for quick port checks:</p>
+<pre><code class="language-bash">nc -zv hostname 22        # test single port
+nc -zv hostname 80 443    # test multiple ports
+nc -zvw3 hostname 22      # 3 second timeout
+</code></pre>
+<p>The <code>-z</code> flag means &quot;scan only, don&#39;t send data.&quot; The <code>-v</code> flag gives you verbose output so you can see whether the connection succeeded or refused. Without <code>-v</code>, nc exits silently.</p>
+<p><strong>nmap</strong> — more powerful, works like PortQry for remote port scanning:</p>
+<pre><code class="language-bash">nmap -p 22 hostname               # single port
+nmap -p 80,443,8080 hostname      # multiple ports
+nmap -p 1-1024 hostname           # range
+nmap -sV -p 22 hostname           # detect service version
+</code></pre>
+<p>nmap gives you the same Listening/Not Listening/Filtered classification as PortQry, plus service version detection and more. See the <a href="https://nmap.org/docs.html">nmap documentation</a> for the full reference — it goes well beyond simple port checks.</p>
+<p><strong>curl</strong> for HTTP/HTTPS specifically:</p>
+<pre><code class="language-bash">curl -v --connect-timeout 5 telnet://hostname:22
+curl -o /dev/null -sw &quot;%{http_code}&quot; http://hostname:80
+</code></pre>
+<p>The second form is useful for scripting — it prints just the HTTP status code (200, 404, 503, etc.) and discards the body output.</p>
+<p><strong>ss and netstat</strong> for local port checking (not remote):</p>
+<pre><code class="language-bash">ss -tlnp          # TCP listening ports with process
+ss -ulnp          # UDP listening ports
+</code></pre>
+<p><code>ss</code> is the modern replacement for <code>netstat</code>. Use it on the server itself to verify a service is actually listening before you blame the network.</p>
+<h2>When Ports Show as &quot;Filtered&quot;</h2>
+<p>&quot;Filtered&quot; is the most confusing status. It means the host is not responding at all — no RST (reset) packet, no ICMP port unreachable message. Your packet went out and nothing came back.</p>
+<p>This almost always means a stateful firewall is silently dropping packets. There&#39;s an important distinction here: a firewall can either DROP packets (silently discard, no response) or REJECT packets (actively send back an error). DROP produces the &quot;filtered&quot; status. REJECT would produce &quot;not listening&quot; or a connection refused error, which is actually more informative.</p>
+<p>Common causes of filtered ports:</p>
+<ul>
+<li><strong>AWS Security Group</strong> not allowing inbound traffic on that port — the most common cause in cloud environments</li>
+<li><strong>iptables DROP rule</strong> on the target host (as opposed to REJECT, which would return a response)</li>
+<li><strong>Network ACL</strong> blocking traffic upstream of the instance</li>
+<li><strong>Corporate firewall</strong> blocking outbound traffic from your machine on that port</li>
+</ul>
+<p>How to distinguish &quot;filtered&quot; from &quot;host is down&quot;: try a port you know should be open. If the server is running a web app, try port 80. If port 80 responds normally and port 22 is filtered, the host is up and the firewall is blocking SSH specifically. If nothing responds at all — not even a port you expect to be open — the host may be unreachable entirely (wrong IP, routing issue, or the instance is actually down).</p>
+<h2>A Practical Port Troubleshooting Workflow</h2>
+<p>The original problem in this post was an SFTP connection failing. Here&#39;s the systematic approach I&#39;d use now, which eliminates possibilities one by one rather than guessing:</p>
+<pre><code class="language-bash"># 1. Check if the host is reachable at all
+ping hostname
+
+# 2. Check if SSH port is open
+nc -zv hostname 22
+
+# 3. If filtered, check from inside the network
+#    (eliminates client-side firewall as a variable)
+ssh jump-host &quot;nc -zv target-host 22&quot;
+
+# 4. On the target server, verify the service is actually listening
+ss -tlnp | grep :22
+
+# 5. Check iptables/firewall rules on the target
+sudo iptables -L -n | grep 22
+</code></pre>
+<p>The logic: step 1 eliminates basic network reachability. Step 2 eliminates port-level access. Step 3 eliminates your local network or client-side firewall as the problem — if it works from a jump host inside the same network, the block is on your side. Step 4 confirms the service (sshd) is actually running and bound to that port. Step 5 checks for local host-level firewall rules.</p>
+<p>This sequence matters because jumping straight to &quot;the firewall must be blocking it&quot; wastes time if sshd isn&#39;t running in the first place, or straight to &quot;check if sshd is running&quot; when the traffic is being blocked before it reaches the host.</p>
+<p>For more advanced scanning techniques — SYN scans, UDP scanning, OS detection — the <a href="https://nmap.org/book/man-port-scanning-techniques.html">nmap port scanning techniques documentation</a> is the reference to bookmark.</p>
 
         </div>
         

@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Looking for Free Windows OS? ReactOS is here.","description":"Some rights reserved by Plum Lady I keep looking for free stuff available online. In the early days when my searches were only limited to torrents,...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-11-22","url":"https://iamrawtion.github.io/blogs/looking-for-free-windows-os-reactos-is.html","keywords":"Open Source","wordCount":375,"timeRequired":"PT2M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Looking for Free Windows OS? ReactOS is here.","description":"Some rights reserved by Plum Lady I keep looking for free stuff available online. In the early days when my searches were only limited to torrents,...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-11-22","url":"https://iamrawtion.github.io/blogs/looking-for-free-windows-os-reactos-is.html","keywords":"Open Source","wordCount":1097,"timeRequired":"PT6M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Looking for Free Windows OS? ReactOS is here.","item":"https://iamrawtion.github.io/blogs/looking-for-free-windows-os-reactos-is.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            2 min read
+            6 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -112,6 +112,24 @@ While there were many linux pages pulled up that i already knew about, this one 
 <p>ReactOS is an Open Source implementation of NT family of windows. A part of the implementation has been assisted from Wine. The OS is still in its alpha stage and has been selected as a best project from Forge Magazine.</p>
 <p>Many alternatives for the set up are available i.e VM images, iso images etc for everyone to have maximum access. The site has all kind of download options available. If in case you happen to find some issue in the installation, you can always report it to the team in their <a href="http://roshannagekar.blogspot.in/2013/01/jira-issue-tracking.html">JIRA</a>. The installations are both automated and manual for testing purpose.</p>
 <p>You can even contribute to the community as a Dev, QA, Release or Tech Writer. Wishing to get this one released soon. :)</p>
+<h2>What ReactOS Actually Is (Technical Detail)</h2>
+<p>When I first wrote about ReactOS in 2013, I described it as an &quot;open source implementation of NT family of windows.&quot; That&#39;s accurate but undersells the technical ambition.</p>
+<p>ReactOS implements the Windows NT kernel ABI from scratch. That means the system call table, the PE executable format, the Win32 API surface, the NTFS driver model — all of it reimplemented without any Windows source code. It&#39;s not a compatibility layer sitting on top of another OS. It boots on bare metal or in a VM and presents itself as Windows. The goal is binary compatibility: a Windows XP application should run on ReactOS without modification, because when that application calls <code>CreateFile</code> or <code>RegOpenKeyEx</code>, the system call it makes hits the same interface, with the same semantics, implemented by ReactOS&#39;s own kernel rather than Microsoft&#39;s.</p>
+<p>This is orders of magnitude harder than what Wine does. Wine intercepts Windows API calls and translates them to POSIX calls at runtime, running on top of Linux. ReactOS has to implement the full operating system. The <a href="https://reactos.org/wiki/Architecture">ReactOS Architecture overview</a> documents how the kernel, HAL, Win32 subsystem, and driver model are structured — it&#39;s a useful read even if you&#39;re just trying to understand how Windows itself works.</p>
+<h2>Current State and Limitations</h2>
+<p>I should be honest here: ReactOS has been in alpha for a long time. As of the mid-2020s, it can run many legacy Windows XP-era applications, has functional networking, basic driver support, and installs cleanly from an ISO. I&#39;ve run it in VirtualBox without major issues for simple tasks.</p>
+<p>But the limitations are real. It crashes under heavy load. Modern hardware support is limited — if you&#39;re thinking about running this on a machine with NVMe storage and a recent GPU, don&#39;t. It can&#39;t run Windows 10 or Windows 11 applications because those applications depend on APIs that ReactOS hasn&#39;t fully implemented yet. Anything that requires the modern Windows security model, modern DirectX, or recent .NET runtime versions won&#39;t work.</p>
+<p>ReactOS is a remarkable engineering project. It is not a production OS replacement. Don&#39;t deploy it anywhere that matters.</p>
+<h2>Where ReactOS Is Genuinely Useful</h2>
+<p>Despite the limitations, there are real use cases.</p>
+<p>Running legacy Windows applications that won&#39;t run on Wine is the obvious one — some applications check system internals or use low-level APIs that Wine doesn&#39;t handle correctly, and ReactOS handles them because it reimplements the actual system rather than translating calls. Testing Windows-targeted code in a free environment is another: if you&#39;re writing a tool that needs to run on Windows XP-era systems and you don&#39;t have a Windows license, ReactOS gives you a testable target.</p>
+<p>From a learning perspective, the ReactOS source code is one of the best documented references for understanding how Windows internals work. The project has invested significantly in comments and documentation because contributors need to understand what Windows does before they can reimplement it correctly.</p>
+<p>For DevOps teams, there&#39;s an occasional edge case: testing deployment scripts that must support legacy Windows environments without maintaining Windows license costs for test infrastructure. It&#39;s a narrow use case, but it&#39;s real.</p>
+<h2>The Wine Comparison</h2>
+<p>Wine and ReactOS get conflated often. They&#39;re architecturally different.</p>
+<p>Wine runs on Linux (and macOS). When a Windows application calls a Windows API, Wine intercepts that call and translates it to the equivalent POSIX call. The Linux kernel is doing the actual work — Wine is the translation layer. This is why Wine can run many Windows applications on Linux: the applications think they&#39;re talking to Windows, but they&#39;re really talking to a shim that speaks both languages.</p>
+<p>ReactOS runs instead of Windows. It implements the Windows kernel, driver model, and Win32 subsystem from scratch. When an application calls a Windows API on ReactOS, it hits ReactOS&#39;s own kernel, which handles it natively — no translation, no host OS underneath.</p>
+<p>The two projects do share some code, particularly around the Win32 subsystem implementation. But the architectures are fundamentally different. If you need to run a specific Windows application on your Linux desktop, Wine is almost always the right starting point — it&#39;s mature, well-supported, and the <a href="https://www.winehq.org/">WineHQ</a> database tells you compatibility status for most popular applications before you even try. ReactOS is the project to watch if you want a fully Windows-compatible operating system that isn&#39;t Windows.</p>
 
         </div>
         

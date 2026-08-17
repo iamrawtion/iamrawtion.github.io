@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Public, Private and Hybrid Cloud","description":"A lot has been said, heard and read about Cloud. There so many ways that the cloud gets filtered further. In my previous blog we discussed about...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-03-04","url":"https://iamrawtion.github.io/blogs/public-private-and-hybrid-cloud.html","keywords":"Cloud Computing, Devops","wordCount":458,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Public, Private and Hybrid Cloud","description":"A lot has been said, heard and read about Cloud. There so many ways that the cloud gets filtered further. In my previous blog we discussed about...","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-03-04","url":"https://iamrawtion.github.io/blogs/public-private-and-hybrid-cloud.html","keywords":"Cloud Computing, Devops","wordCount":1245,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Public, Private and Hybrid Cloud","item":"https://iamrawtion.github.io/blogs/public-private-and-hybrid-cloud.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            3 min read
+            7 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -112,10 +112,55 @@ Many companies are now opting for Enterprise cloud
 
 ![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEie_EFbaUjLeE28HIgVoNc3LDWyCfze-_Ltikic0jkYbJHPbnJTcLN7P-2mWxftvhilVJ_YmREkyRUpleMDf_HzNKvyArWt_8DI8ayJySt6n20QSNzee_v9ry8Ps1U9DuXAhXIs4edmFRw/s1600/Hybrid+Cloud.png)
 
-**Hybrid Cloud** : Even though many organizations make the use of private as well as public cloud as per their need, there could be vendors looking for functionality of both a private as well as a public cloud. This is achieved with a Hybrid Cloud. At times there are companies that want their data to be secure as well as still are required to communicate to the customers over the network. Many of such companies choose a Hybrid Cloud. Here basically you can set access permissions for which applications need to be publicly accessible and which of them should not be and needs to be in private cloud. 
-
-(To be contd..)
+**Hybrid Cloud** : Even though many organizations make the use of private as well as public cloud as per their need, there could be vendors looking for functionality of both a private as well as a public cloud. This is achieved with a Hybrid Cloud. At times there are companies that want their data to be secure as well as still are required to communicate to the customers over the network. Many of such companies choose a Hybrid Cloud. Here basically you can set access permissions for which applications need to be publicly accessible and which of them should not be and needs to be in private cloud.
 </code></pre>
+<h2>Choosing the Right Cloud Model</h2>
+<p>The three models are not a menu where you pick the best-looking option. They&#39;re driven by constraints — regulatory, financial, and operational. Here&#39;s how I think about it in practice.</p>
+<p><strong>Go public cloud when:</strong></p>
+<ul>
+<li>You need to scale rapidly and don&#39;t want to manage hardware</li>
+<li>Your workload is variable — pay for what you use, not what you might need</li>
+<li>You&#39;re a startup or early-stage product with limited capital</li>
+<li>You need global reach without standing up data centers</li>
+</ul>
+<p><strong>Go private cloud when:</strong></p>
+<ul>
+<li>Regulatory requirements mandate data residency — healthcare (HIPAA), finance (PCI DSS), and government workloads often fall here</li>
+<li>You have predictable, stable workloads where dedicated hardware is cheaper at scale than paying per-hour rates to a cloud provider</li>
+<li>You need full-stack control — custom hardware configurations, network topology, or security posture that a shared cloud can&#39;t deliver</li>
+</ul>
+<p><strong>Go hybrid when:</strong></p>
+<ul>
+<li>You have a mix: legacy systems that can&#39;t be moved, plus new workloads that benefit from cloud elasticity</li>
+<li>You need burst capacity — handle your baseline on private infrastructure, overflow to public cloud during peak</li>
+<li>You&#39;re mid-migration — most organizations are in this state longer than they&#39;d like to admit</li>
+</ul>
+<p>The honest reality: most enterprise companies end up hybrid by default, not by design. They have on-prem infrastructure they can&#39;t retire (the sunk cost is real, and often the migration risk is higher than the benefit), plus cloud services they&#39;ve adopted over the years. The challenge isn&#39;t choosing the model — it&#39;s managing the two coherently so they don&#39;t become two separate silos with their own tooling, access controls, and billing.</p>
+<h2>How This Looks in Practice</h2>
+<p>Let me give you a concrete example. A financial services company might structure their infrastructure like this:</p>
+<ul>
+<li><strong>Private cloud</strong>: core banking systems, customer account data, transaction records — all staying on-prem due to data residency requirements and regulatory audit requirements</li>
+<li><strong>Public cloud</strong>: customer-facing web tier, marketing properties, analytics workloads — deployed on AWS or GCP where elasticity and CDN reach matter</li>
+<li><strong>Connectivity layer</strong>: <a href="https://aws.amazon.com/directconnect/">AWS Direct Connect</a> or Azure ExpressRoute providing a dedicated, private network connection between their data center and the cloud provider — not the public internet</li>
+</ul>
+<p>That last piece is what makes hybrid actually work. Without a dedicated interconnect, you&#39;re sending sensitive traffic over the internet, which usually fails compliance requirements anyway. The connectivity layer is often the first thing teams underestimate when planning hybrid architectures. You plan the workloads, then realize you need months to provision a cross-connect at a colocation facility.</p>
+<h2>The Multi-Cloud Dimension</h2>
+<p>Separate from the public/private/hybrid distinction is the question of how many public cloud providers you&#39;re using. Multi-cloud — running workloads across AWS, GCP, and Azure simultaneously — is increasingly common, and it&#39;s different from hybrid.</p>
+<ul>
+<li><strong>Hybrid</strong>: public cloud + private infrastructure</li>
+<li><strong>Multi-cloud</strong>: multiple public cloud providers</li>
+</ul>
+<p>The drivers are usually practical rather than strategic: AWS might be where you started, GCP is where your ML teams want to run because of TPUs and BigQuery, Azure is where your enterprise agreements landed because of Microsoft licensing. Before long you&#39;re operating across three clouds without a unified control plane.</p>
+<p>The operational challenge is the same in all cases: consistent visibility, consistent security posture, and avoiding the temptation to let every team pick their own cloud and create a fragmented mess. The <a href="https://www.cncf.io/">CNCF</a> has done a lot of work on multi-cloud patterns — Kubernetes as the portable workload layer, open standards for observability and service mesh — that help manage this complexity without locking into any one provider&#39;s abstractions.</p>
+<h2>What Changed Since 2014</h2>
+<p>I wrote this post in 2014 when &quot;cloud&quot; was still a concept many organizations were actively evaluating. A decade later, the question isn&#39;t &quot;should we use cloud?&quot; It&#39;s &quot;how do we manage the multi-cloud sprawl we&#39;ve accumulated?&quot;</p>
+<p>The three cloud models still exist and the definitions hold. What changed is the tooling:</p>
+<ul>
+<li><strong>Kubernetes</strong> became the de facto abstraction layer for running workloads portably across cloud providers and private infrastructure. Write once, deploy anywhere (in theory — the reality involves more YAML than anyone expected).</li>
+<li><strong>Terraform</strong> lets you manage infrastructure across AWS, GCP, Azure, and private clouds from a single codebase. One tool, one state model, one review process.</li>
+<li><strong>Service meshes</strong> (Istio, Linkerd) handle the networking complexity that comes with workloads spread across multiple environments.</li>
+</ul>
+<p>The architectural decisions are still the same — control vs. flexibility, compliance vs. agility. But the gap between running a workload in a private data center versus a public cloud has closed significantly. The tooling to manage them coherently has matured to the point where hybrid isn&#39;t the operational nightmare it was in 2014.</p>
 
         </div>
         

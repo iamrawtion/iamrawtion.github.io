@@ -30,7 +30,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.","description":"I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-07-26","url":"https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html","keywords":"n8n, Automation, AI Agents, Telegram, DevOps","wordCount":408,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.","description":"I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.","author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-07-26","url":"https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html","keywords":"n8n, Automation, AI Agents, Telegram, DevOps","wordCount":1240,"timeRequired":"PT7M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.","item":"https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html"}]}</script>
 </head>
 <body>
@@ -86,7 +86,7 @@
             Roshan Nagekar
             &nbsp;·&nbsp;
             <i class="fas fa-clock" style="color:var(--primary-color);"></i>
-            3 min read
+            7 min read
           </p>
         </header>
         <div class="blog-post-content markdown-body">
@@ -116,6 +116,32 @@
 <p>The pipeline still exists. It still works — if I manually re-register the webhook after each restart. Which defeats the entire purpose.</p>
 <p>I&#39;ll probably fix it eventually. Or I&#39;ll keep posting manually and tell myself I&#39;ll fix it eventually.</p>
 <p>Either way, the lesson is the same: the exciting part of automation is not the part that makes it work.</p>
+<h2>How to Actually Fix the Endpoint Problem</h2>
+<p>The ngrok URL problem is genuinely fixable. Here are the options, in order of effort:</p>
+<ol>
+<li><strong>Use a VPS with a static IP.</strong> DigitalOcean and Hetzner both have instances starting around $5/month. Run n8n there permanently — no URL changes, no restart issues, and you get a real server you control. This is the most operationally clean option if you&#39;re already comfortable managing a Linux box.</li>
+<li><strong>n8n Cloud.</strong> Hosted n8n with a stable webhook URL, no infrastructure to manage. You pay a monthly fee, but you get the webhook stability and don&#39;t have to think about process management or restarts. If your goal is running the automation, not running the infrastructure, this is the right call.</li>
+<li><strong>Cloudflare Tunnel (free).</strong> Cloudflare Tunnel routes traffic from a stable public URL to your local machine without requiring a static IP or opening firewall ports. You get a stable <code>*.trycloudflare.com</code> URL, or you can point your own domain at it. The tunnel client runs as a local process — you still need to handle process persistence, but the URL stability problem is solved at no cost.</li>
+<li><strong>ngrok paid plan.</strong> Static domain at around $10/month. Lowest friction if you&#39;re already using ngrok and just want to pay for the one missing feature.</li>
+</ol>
+<p>The right answer depends on how much you value running n8n locally versus the maintenance overhead. For an automation that should run unattended and reliably, a VPS or n8n Cloud is the correct call. The local setup made sense for development and testing. It&#39;s not the right substrate for something that&#39;s supposed to run while you&#39;re not watching.</p>
+<h2>The Operational 80% Pattern in DevOps</h2>
+<p>This pattern — building the interesting core and skipping the operational concerns — is one of the most common causes of abandoned internal tooling. I&#39;ve seen it in teams, and I&#39;ve done it myself. The specific things that usually get skipped:</p>
+<ul>
+<li><strong>Persistent process management</strong>: the tool works when you run it manually, breaks when the server reboots, and nobody notices for three days. A process manager (systemd, PM2, Docker with restart policies) costs maybe an hour to set up and eliminates the problem entirely.</li>
+<li><strong>Error alerting</strong>: the pipeline fails silently. Posts stop going out. Nobody knows until someone manually checks. A simple alerting mechanism — even just an email when the workflow errors — changes this from a silent failure to a visible one.</li>
+<li><strong>Idempotency</strong>: running the pipeline twice produces duplicate posts or conflicting state. The dedup logic I built addresses one dimension of this, but idempotency has to be thought through for every step, not just the obvious ones.</li>
+<li><strong>Monitoring</strong>: no way to know if it&#39;s running without manually inspecting the system. If you can&#39;t answer &quot;is this thing working right now?&quot; without opening a terminal, it&#39;s not really automated.</li>
+</ul>
+<p>In professional DevOps work, none of these are optional. A deployment pipeline that works when you&#39;re watching it but fails silently at 3am isn&#39;t a pipeline — it&#39;s a script that occasionally runs. The <a href="https://docs.n8n.io/">n8n documentation</a> covers webhook configuration and process management for self-hosted deployments; the setup is straightforward once you decide to do it.</p>
+<p>The unglamorous 80% is what separates tooling that works from tooling that runs.</p>
+<h2>What I&#39;d Build Differently</h2>
+<p>If I rebuild this pipeline, the architecture changes from the start:</p>
+<p>Run n8n on a VPS or use n8n Cloud from day one. The local development setup is fine for testing the workflow logic, but the infrastructure decision should be made before writing the first node, not after. Choosing the wrong substrate early creates rework — everything I built on the assumption of a local ngrok setup would need to be reconsidered for a stable hosted environment.</p>
+<p>Add a dead-man&#39;s switch: a daily health check that alerts me if the pipeline hasn&#39;t processed anything in 24 hours. This is the operational inversion of normal monitoring. Instead of alerting when something fails, you alert when nothing happens — because silence might mean the system is down and nobody knows. For a content distribution pipeline, zero activity for 24 hours is itself anomalous.</p>
+<p>Handle platform API failures gracefully. LinkedIn has rate limits. Twitter&#39;s API has changed pricing and access tiers multiple times. Instagram&#39;s API access for automated posting is restricted. If one platform is down or returns an error, the pipeline shouldn&#39;t fail the whole batch — it should log the failure, skip that destination, and continue. Partial success is better than total failure.</p>
+<p>Keep a posting log. A simple record of what went out, when, and to which platform makes the system auditable. If something gets posted twice, or a post goes missing, you can trace it. Without a log, you&#39;re debugging from memory.</p>
+<p>The dedup logic I built first was the right instinct — preventing duplicate posts matters and it&#39;s easy to miss. I just needed to close the loop on the infrastructure before moving on to the next interesting problem.</p>
 
         </div>
         
