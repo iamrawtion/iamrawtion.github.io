@@ -63,6 +63,7 @@ function sharedHead({ title, desc, url, canonical, depth = '' }) {
   <meta name="language" content="en">
   <meta name="author" content="Roshan Nagekar">
   <title>${escape(title)}</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
   <meta name="description" content="${escape(desc)}">
   <link rel="canonical" href="${url}">
   <meta property="og:type" content="website">
@@ -242,6 +243,7 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
   <title>${escape(blog.title)} | Roshan Nagekar</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
   <meta name="description" content="${desc}">
   <link rel="canonical" href="${url}">
   ${prevLink}
