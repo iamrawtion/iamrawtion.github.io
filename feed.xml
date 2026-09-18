@@ -7,8 +7,35 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Tue, 18 Aug 2026 07:20:16 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 04:41:37 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</title>
+    <link>https://iamrawtion.github.io/blogs/nagios-still-has-my-heart.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/nagios-still-has-my-heart.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    <description>A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster, and why that grounding still matters today.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Nagios</category>
+    <category>Monitoring</category>
+    <category>Prometheus</category>
+    <category>DevOps</category>
+    <category>Infrastructure</category>
+    <category>Operations</category>
+    <category>Ansible</category>
+    <category>Icinga</category>
+    <category>Zabbix</category>
+    <content:encoded><![CDATA[<p>Let me take you back to 2012. I was young, curious, and had just been handed the keys to a Nagios server. One server, a handful of clients. Nothing fancy. Just config files, cron-like discipline, and a dashboard I had to check every single morning like it was my first cup of chai.</p>
+<p>That daily ritual taught me something no course ever could. Logging in, scanning the trends, noticing when something looked &quot;off&quot; before it became a full-blown crisis. Disk filling up because some user decided the server was their personal Dropbox? Caught it. CPU spiking for reasons nobody could explain? Went hunting for the process before it became a 2 AM phone call. This wasn&#39;t fancy AIOps. This was just paying attention, the old-fashioned way.</p>
+<p>Every new server that got provisioned, I added to Nagios myself. Every new process, I wrote a check for it myself. There was no abstraction between me and the machine. If something broke, I knew exactly why, because I built the thing that was watching it.</p>
+<p>Then I moved organizations, and Nagios grew up with me. Suddenly it wasn&#39;t one server and a few clients, it was a clustered setup monitoring 5,000 servers. A team of 10 DevOps folks, SaaS tools watching Nagios itself (yes, we had to monitor the monitor), and Icinga entering the picture as the better-looking cousin of Nagios. That&#39;s when things got serious.</p>
+<p>This is also where I learned Nagios could do more than just &quot;is the server alive.&quot; We started writing bash scripts and plugging them in to parse logs, actual business logs, to generate reports for sales and marketing. Number of deals closed, tracked through log monitoring. When those reports failed, guess who had to debug the script at odd hours. Character building, as they say.</p>
+<p>I last touched Nagios seriously about two years ago, mostly for bare metal setups. Since then, I&#39;ve worked with Prometheus, New Relic, Zabbix, the works. And they&#39;re good. Genuinely better dashboards, better scaling, better everything on paper.</p>
+<p>But here&#39;s the thing nobody tells you about Nagios: it keeps you rooted to the system. You&#39;re not looking at pretty graphs from a distance. You&#39;re inside the OS, understanding processes, permissions, disk layouts, the works. When I automated Nagios setup with Ansible and later with Fabric in Python, things broke constantly. And every time they did, it was my old shell scripting instincts and my bare-metal Nagios days that bailed me out. That knowledge doesn&#39;t come from reading a Prometheus exporter&#39;s YAML file. It comes from getting your hands dirty.</p>
+<p>I recently came across a blog from another engineer reminiscing about Nagios, and it hit me that I&#39;m not alone. There&#39;s a whole tribe of &quot;Nagios oldies&quot; out there who get it. We know the newer tools are shinier. We use them daily. But there&#39;s something about Nagios that built our fundamentals in a way nothing else quite has.</p>
+<p>Better monitoring tools may exist. But Nagios will always be the one that taught me how to actually understand a server, not just watch it.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>Credential bleed: what happens when your MCP server trusts the wrong thing</title>
     <link>https://iamrawtion.github.io/blogs/credential-bleed-mcp-server-trust.html</link>
