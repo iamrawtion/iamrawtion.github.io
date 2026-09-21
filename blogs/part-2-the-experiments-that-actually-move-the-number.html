@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <title>Part 2: The Experiments That Actually Move the Number | Roshan Nagekar</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
+  <meta name="description" content="If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Part 2: The Experiments That Actually Move the Number">
+  <meta property="og:description" content="If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2026-06-22">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="A/B Testing">
+  <meta property="article:tag" content="Administration">
+  <meta property="article:tag" content="AI Agents">
+  <meta property="article:tag" content="AI/ML">
+  <meta property="article:tag" content="CRO">
+  <meta property="article:tag" content="CRO">
+  <meta property="article:tag" content="DevOps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Part 2: The Experiments That Actually Move the Number">
+  <meta name="twitter:description" content="If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="14 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
+  <meta name="author" content="Roshan Nagekar">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
+  <link rel="manifest" href="https://iamrawtion.github.io/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Part 2: The Experiments That Actually Move the Number","description":"If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-06-22","url":"https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html","keywords":"A/B Testing, Administration, AI Agents, AI/ML, CRO, CRO, DevOps","wordCount":2631,"timeRequired":"PT14M","articleBody":"If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on some combination of Clarity, GA4, and Convert.com(sshhh… I work for them). Maybe you even opened a heatmap, stared at the colors for a while, and thought: “Okay. Now what?” This post is that now what. Once you understand the basics of CRO, the next challenge is figuring out what kind of experiment to run. A/A test? A/B test? Split URL test? Multivariate test? They all sound similar at first, but they solve different problems at different stages. And if you are coming from a technical background, the temptation is to overthink the setup before shipping anything. I know, because that is exactly what I started doing. So let’s break down the main experiment types, when to use each one, and how to think about them without getting stuck. I will also share a formula from a CRO course I have been working through that quietly changed how I think about the whole thing. The Four Experiment Types, Explained Without Jargon 1. A/A Testing Before you trust your first experiment result, run an A/A test. In an A/A test, both groups see the exact same page. No headline change, no button change, no layout change. Nothing at all. The purpose is not to improve conversions. The purpose is to check whether your measurement setup is actually trustworthy. If your tool is configured correctly, both groups should show roughly similar conversion rates over time. If they do not, something is off with how traffic is being split, how visitors are being tracked, or how conversions are being recorded. The DevOps parallel is straightforward. You would not set up Prometheus alerts on a misconfigured scrape target and then make infrastructure decisions based on that data. An A/A test is the same idea: confirm the instrument is working before you start using it to make calls. A lot of teams skip this because it feels boring. There is no variation, no redesign, no winner to announce. But if your measurement layer is broken, every A/B test after this becomes questionable. You may spend weeks debating a result that was never reliable in the first place. On Convert.com, setting up an A/A test takes about three minutes. Do it before anything else, and leave it running for at least a week. Press enter or click to view image in full size 2. A/B Testing Once your A/A test passes, you are ready to actually experiment. An A/B test compares two versions of something. Version A is the original, called the Control. Version B is the changed version, called the Variant. You split traffic between the two and measure which one performs better on your chosen metric. The element you change could be a headline, a CTA button, a hero image, a form layout, a pricing message, anything on the user journey. The constraint is this: change one meaningful thing at a time. If you change the headline, button color, pricing layout, and image all in the same test, and the variant wins, you have no idea what actually caused the lift. You got a result but no learning. The DevOps analogy that clicked for me: a clean commit. If one commit touches ten unrelated files and something breaks, debugging is painful. If one commit changes one logical thing, the cause is much easier to trace. A good A/B test starts with a hypothesis in this format: “If I change X, then Y will happen, because Z.” For example: “If I change the CTA text from ‘Buy Now’ to ‘Get Your Copy Today,’ then more visitors will click through to checkout, because the new copy feels less transactional and creates a stronger sense of ownership.” The “because” is the part most people skip, and it is the most important part. Without it, you are not testing a hypothesis. You are just nudging things and hoping the graph goes up. Press enter or click to view image in full size The confusion between A/A testing and A/B testing I was always confused as to why A/A and A/B testing are needed. If you are also in the same state, here is a crude example that may simplify it. A/A Testing: The Paranoid Caterer You are catering a wedding. You make one giant pot of biryani. You serve it to Table 1 and Table 2 from the same pot, same quantity, same everything. Table 1 finishes 95 plates. Table 2 finishes 30 plates. You have not changed anything. Both tables got identical food. So why is Table 2 eating so little? You investigate. Turns out the waiter assigned to Table 2 was busy on his phone and forgot to refill the serving bowls. The biryani was not the problem. The delivery system was broken. That is an A/A test. Before you start testing new recipes, you confirm that the serving system itself is not lying to you. A/B Testing: The Sensible Caterer Same wedding. You make two versions of biryani. Version A has the usual spice level. Version B has a little more pepper because your cousin who went to Bangalore said people there like it spicy now. You serve Version A to the left side of th","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Part 2: The Experiments That Actually Move the Number","item":"https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html"}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/devops.html" style="color:var(--primary-color);">DevOps</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">Part 2: The Experiments That Actually Move the Number</span>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <a href="../categories/devops.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">DevOps</a>
+            <a href="../tags/a-b-testing.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">A/B Testing</a><a href="../tags/administration.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Administration</a><a href="../tags/ai-agents.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">AI Agents</a><a href="../tags/ai-ml.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">AI/ML</a><a href="../tags/cro.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">CRO</a><a href="../tags/cro.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">CRO</a><a href="../tags/devops.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">DevOps</a>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Part 2: The Experiments That Actually Move the Number</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            <time datetime="2026-06-22">June 22, 2026</time>
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            14 min read
+          </p>
+        </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#the-four-experiment-types-explained-without-jargon" style="color:var(--primary-color); text-decoration:none;">The Four Experiment Types, Explained Without Jargon</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#1-a-a-testing" style="color:var(--primary-color); text-decoration:none;">1. A/A Testing</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#2-a-b-testing" style="color:var(--primary-color); text-decoration:none;">2. A/B Testing</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#the-confusion-between-a-a-testing-and-a-b-testing" style="color:var(--primary-color); text-decoration:none;">The confusion between A/A testing and A/B testing</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#3-split-url-testing" style="color:var(--primary-color); text-decoration:none;">3. Split URL Testing</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#4-multivariate-testing" style="color:var(--primary-color); text-decoration:none;">4. Multivariate Testing</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#confused-between-split-url-and-multivariate" style="color:var(--primary-color); text-decoration:none;">Confused between Split URL and Multivariate?</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#heatmaps-are-research-not-experiments" style="color:var(--primary-color); text-decoration:none;">Heatmaps Are Research, Not Experiments</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#the-formula-that-changed-how-i-think-about-all-of-this" style="color:var(--primary-color); text-decoration:none;">The Formula That Changed How I Think About All of This</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#a-note-on-statistical-significance" style="color:var(--primary-color); text-decoration:none;">A Note on Statistical Significance</a></li><li style="margin-bottom:0.35rem; margin-left:1rem;"><a href="#what-should-you-run-first" style="color:var(--primary-color); text-decoration:none;">What Should You Run First?</a></li>
+      </ol>
+    </nav>
+        <div class="blog-post-content markdown-body">
+          <p>If you read the <a href="https://medium.com/@iamrawtion/from-apache-benchmark-to-a-b-testing-a-devops-guys-cro-journey-5ff76a502363">first post</a> in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on some combination of Clarity, GA4, and Convert.com(sshhh… I work for them).</p>
+<p>Maybe you even opened a heatmap, stared at the colors for a while, and thought: “Okay. Now what?”</p>
+<p>This post is that now what.</p>
+<p>Once you understand the basics of CRO, the next challenge is figuring out what kind of experiment to run. A/A test? A/B test? Split URL test? Multivariate test? They all sound similar at first, but they solve different problems at different stages.</p>
+<p>And if you are coming from a technical background, the temptation is to overthink the setup before shipping anything. I know, because that is exactly what I started doing.</p>
+<p>So let’s break down the main experiment types, when to use each one, and how to think about them without getting stuck. I will also share a formula from a CRO course I have been working through that quietly changed how I think about the whole thing.</p>
+<h2 id="the-four-experiment-types-explained-without-jargon">The Four Experiment Types, Explained Without Jargon</h2>
+<h3 id="1-a-a-testing">1. A/A Testing</h3>
+<p>Before you trust your first experiment result, run an A/A test.</p>
+<p>In an A/A test, both groups see the exact same page. No headline change, no button change, no layout change. Nothing at all. The purpose is not to improve conversions. The purpose is to check whether your measurement setup is actually trustworthy.</p>
+<p>If your tool is configured correctly, both groups should show roughly similar conversion rates over time. If they do not, something is off with how traffic is being split, how visitors are being tracked, or how conversions are being recorded.</p>
+<p>The DevOps parallel is straightforward. You would not set up Prometheus alerts on a misconfigured scrape target and then make infrastructure decisions based on that data. An A/A test is the same idea: confirm the instrument is working before you start using it to make calls.</p>
+<p>A lot of teams skip this because it feels boring. There is no variation, no redesign, no winner to announce. But if your measurement layer is broken, every A/B test after this becomes questionable. You may spend weeks debating a result that was never reliable in the first place.</p>
+<p>On Convert.com, setting up an A/A test takes about three minutes. Do it before anything else, and leave it running for at least a week.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*auaB7pqicBaOi-euyIJW6g.png" alt=""></p>
+<h3 id="2-a-b-testing">2. A/B Testing</h3>
+<p>Once your A/A test passes, you are ready to actually experiment.</p>
+<p>An A/B test compares two versions of something. Version A is the original, called the Control. Version B is the changed version, called the Variant. You split traffic between the two and measure which one performs better on your chosen metric.</p>
+<p>The element you change could be a headline, a CTA button, a hero image, a form layout, a pricing message, anything on the user journey. The constraint is this: change one meaningful thing at a time.</p>
+<p>If you change the headline, button color, pricing layout, and image all in the same test, and the variant wins, you have no idea what actually caused the lift. You got a result but no learning.</p>
+<p>The DevOps analogy that clicked for me: a clean commit. If one commit touches ten unrelated files and something breaks, debugging is painful. If one commit changes one logical thing, the cause is much easier to trace.</p>
+<p>A good A/B test starts with a hypothesis in this format: “If I change X, then Y will happen, because Z.”</p>
+<p>For example: “If I change the CTA text from ‘Buy Now’ to ‘Get Your Copy Today,’ then more visitors will click through to checkout, because the new copy feels less transactional and creates a stronger sense of ownership.”</p>
+<p>The “because” is the part most people skip, and it is the most important part. Without it, you are not testing a hypothesis. You are just nudging things and hoping the graph goes up.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*0w5KXlIqqcGDLi14nHJIsg.png" alt=""></p>
+<h3 id="the-confusion-between-a-a-testing-and-a-b-testing">The confusion between A/A testing and A/B testing</h3>
+<p>I was always confused as to why A/A and A/B testing are needed. If you are also in the same state, here is a crude example that may simplify it.</p>
+<p><strong>A/A Testing: The Paranoid Caterer</strong></p>
+<p>You are catering a wedding. You make one giant pot of biryani. You serve it to Table 1 and Table 2 from the same pot, same quantity, same everything.</p>
+<p>Table 1 finishes 95 plates. Table 2 finishes 30 plates.</p>
+<p>You have not changed anything. Both tables got identical food. So why is Table 2 eating so little?</p>
+<p>You investigate. Turns out the waiter assigned to Table 2 was busy on his phone and forgot to refill the serving bowls.</p>
+<p>The biryani was not the problem. The delivery system was broken.</p>
+<p>That is an A/A test. Before you start testing new recipes, you confirm that the serving system itself is not lying to you.</p>
+<p><strong>A/B Testing: The Sensible Caterer</strong></p>
+<p>Same wedding. You make two versions of biryani. Version A has the usual spice level. Version B has a little more pepper because your cousin who went to Bangalore said people there like it spicy now.</p>
+<p>You serve Version A to the left side of the hall and Version B to the right side. You count which side finishes faster, asks for seconds more often, and complains less to the mother of the bride.</p>
+<p>One change. One comparison. One winner.</p>
+<p>You do not also change the raita, the naan, the serving bowl size, and the background music at the same time. Because if the right side loved it, you will never know if it was the pepper or the fact that the DJ on that side was finally playing something decent.</p>
+<p>So:</p>
+<p><strong>A/B test: “Which version is better?”
+ A/A test: “Can I trust the test setup?”</strong></p>
+<h3 id="3-split-url-testing">3. Split URL Testing</h3>
+<p>A standard A/B test usually changes something on the same page. The URL stays the same and the testing tool modifies what users see. Split URL testing is different: users are sent to entirely different URLs.</p>
+<p>Control: /pricing. Variant: /pricing-v2. Traffic is split between them.</p>
+<p>Use this when the change is large enough that modifying the existing page gets messy. Major redesigns, completely different landing page structures, new checkout flows, testing a long-form page against a shorter one. If it is a minor copy tweak, A/B is faster and simpler. If you are rebuilding the page from scratch, Split URL is cleaner.</p>
+<p>The infrastructure analogy is blue-green deployment: two versions running simultaneously, traffic routed between them at the experimentation layer instead of the load balancer. Same principle, different domain.</p>
+<p>One thing to watch carefully: tracking consistency. Both pages need to fire the same analytics events and conversion tracking correctly. A common mistake is having GA4 or pixel tracking set up on the original page but missing or misconfigured on the variant. When that happens, the variant looks like it is losing when the actual problem is your observability. As DevOps people know well, bad telemetry makes healthy systems look broken.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*PgjRO-HPFc4jHFjQYE74Ww.png" alt=""></p>
+<h3 id="4-multivariate-testing">4. Multivariate Testing</h3>
+<p>A/B testing changes one element at a time. Multivariate testing (MVT) changes multiple elements and tests every combination of them simultaneously.</p>
+<p>Say you want to test two headlines and two hero images. MVT creates four combinations: Headline 1 + Image A, Headline 1 + Image B, Headline 2 + Image A, Headline 2 + Image B. Traffic is split across all four.</p>
+<p>The benefit is finding the best combination without running four separate sequential tests. The downside is traffic dilution: more combinations means each version gets a smaller slice of traffic, which means it takes longer to reach a reliable result.</p>
+<p>This is why MVT is better suited for high-traffic pages. On a low-traffic site, running multivariate tests is like spinning up a four-node Kubernetes cluster to host a static HTML page. Technically possible. Practically painful.</p>
+<p>If you are just getting started, stick to A/B tests until you have enough traffic and enough process confidence to justify MVT.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*PKEclMIEyvYT6jZHv4qndQ.png" alt=""></p>
+<h3 id="confused-between-split-url-and-multivariate">Confused between Split URL and Multivariate?</h3>
+<p>Here’s the crude example:</p>
+<p><strong>Split URL Testing: The Ambitious Caterer</strong></p>
+<p>This caterer is not making a variation of the existing menu. He has built two entirely separate stalls on opposite ends of the lawn.</p>
+<p>Stall A is the traditional setup: biryani, raita, gulab jamun, done.</p>
+<p>Stall B is the “fusion experience”: biryani bowls, deconstructed raita in shot glasses, and gulab jamun on a stick with a QR code to leave a Google review.</p>
+<p>Half the guests are directed to Stall A and half to Stall B. You measure which stall has a longer queue, higher plate counts, and fewer people quietly throwing food in the dustbin.</p>
+<p>This is a Split URL test. You are not tweaking one element on an existing page. You have built two completely different pages and you are routing real traffic to both to see which one works.</p>
+<p>The infrastructure cousin of this is blue-green deployment. Same idea, different catering budget.</p>
+<p><strong>Multivariate Testing: The Caterer Who Has Lost the Plot</strong></p>
+<p>This person is testing:</p>
+<ul>
+<li>2 types of biryani (chicken vs. mutton)</li>
+<li>2 types of raita (boondi vs. cucumber)</li>
+<li>2 types of bread (naan vs. rumali roti)</li>
+<li>2 types of dessert (gulab jamun vs. rasgulla)</li>
+</ul>
+<p>That is 16 combinations. You need 16 separate tables, each getting a different combination, and enough guests at each table to statistically prove which combination is the winner.</p>
+<p>The wedding has 200 guests. You need at minimum 1,600 guests for the data to mean anything.</p>
+<p>You have invited 200.</p>
+<blockquote>
+<p>You wont get that big venue on any of the wedding seasons, but lets just say… you did.</p>
+</blockquote>
+<p>This is multivariate testing on a low-traffic website. The math does not work. The experiment runs for six months. By the time you have a result, the wedding is over, the couple has moved cities, and nobody remembers what the original research question was.</p>
+<p>Run multivariate tests only when you have enough traffic that dividing it sixteen ways still leaves each slice statistically meaningful. Otherwise, stick to A/B.</p>
+<h3 id="heatmaps-are-research-not-experiments">Heatmaps Are Research, Not Experiments</h3>
+<p>This was one of my early mental shifts, and it is worth being explicit about it.</p>
+<p>A heatmap does not tell you what will win. It tells you what might be wrong.</p>
+<p>Click heatmaps show where users are clicking (and where they are not). Scroll heatmaps show how far down the page users travel before leaving. Session recordings are anonymized playbacks of real user journeys, where you can watch someone hesitate over your pricing table, try to click something that is not a link, or abandon a form halfway through.</p>
+<p>None of these tools give you a winner. They give you a hypothesis.</p>
+<p>Here is how the workflow actually connects: you open a heatmap for your pricing page and notice that most users never scroll past the first fold. Your main CTA button is near the bottom. Now you have a possible problem and a possible hypothesis: “If I move the CTA above the fold, more users will see it and click it.” You run an A/B test to confirm or deny it.</p>
+<p>The heatmap gave you the question. The A/B test gives you the answer.</p>
+<p>That distinction matters because it stops you from treating research tools as decision-making tools. Heatmaps, recordings, analytics, and surveys help you decide what to test. Controlled experiments help you decide what to change.</p>
+<h3 id="the-formula-that-changed-how-i-think-about-all-of-this">The Formula That Changed How I Think About All of This</h3>
+<p><strong>Success = Chance × Frequency</strong></p>
+<p>Success is the number of winning experiments you produce in a year. Chance is your win rate, the percentage of experiments that produce a meaningful positive result. Frequency is how many experiments you run per month.</p>
+<p>Now run the numbers with me.</p>
+<p>Team A wants every test to be excellent. They spend weeks on research, debate every design decision, and get thorough sign-off before anything ships. Their win rate is high, say 100%. But all that effort means they can only run one test per month. Twelve winners a year.</p>
+<p>Team B is less precious about each individual test. Their research is decent but not exhaustive. Their win rate is only 25%. But they run eight tests a month. Twenty-four winners a year.</p>
+<p>Worse hit rate. Double the output.</p>
+<p>This is not an argument for carelessness. Bad experiments waste time, and random button-color testing is still random button-color testing. But it is a clear argument against perfectionism as a strategy. The team that ships eight decent experiments a month will outlearn and outperform the team that ships one perfect experiment a month, almost every time.</p>
+<p>If this sounds familiar, it should. DevOps made the same argument against waterfall delivery years ago. Smaller releases, shipped more often, create faster feedback loops. You learn sooner, recover faster, and stop treating every release like a quarterly ceremony. CRO has the same rhythm: define the hypothesis, design a clean test, ship it, measure it, document the learning, and move on. The goal is not to win every test. The goal is to learn fast enough that your wins compound.</p>
+<h3 id="a-note-on-statistical-significance">A Note on Statistical Significance</h3>
+<p>Every testing tool gives you some version of a confidence percentage as your test runs. This tells you how likely it is that the result you are seeing is real and not just random variation. Most practitioners aim for 95% confidence before calling a winner.</p>
+<p>But one of the most common beginner mistakes is stopping a test early because the numbers look exciting on Day 2. Early data is noisy. Weekday and weekend behavior can differ. Email campaigns, seasonality, and traffic source changes can all skew early results. A variant that looks like it is winning after 200 visitors may look very different after 4,000.</p>
+<p>Let tests run for at least one full week, preferably two, before drawing conclusions.</p>
+<p>And here is the question I now ask before trusting any result: not just “Did the tool say 95%?” but “Do I trust how we got to 95%?” The number matters. So does sample size, test duration, traffic quality, and whether the tracking was set up cleanly to begin with.</p>
+<h3 id="what-should-you-run-first">What Should You Run First?</h3>
+<p>If this feels like a lot, start small. Here is the beginner loop I would follow:</p>
+<ol>
+<li>Run an A/A test to confirm your measurement setup is reliable.</li>
+<li>Pick one high-traffic page with a clear conversion goal.</li>
+<li>Use heatmaps, session recordings, or analytics to find one point of friction.</li>
+<li>Write a hypothesis using the “If I change X, then Y, because Z” format.</li>
+<li>Run one clean A/B test.</li>
+<li>Let it run long enough to collect meaningful data (at least one week).</li>
+<li>Document what happened, win or lose.</li>
+<li>Repeat.</li>
+</ol>
+<p>That loop is what CRO actually is, more than any specific tool or technique. Observe, hypothesize, test, learn, repeat. The experiment types are just the mechanics. The real skill is building a habit of running the loop consistently, and gradually running it faster.</p>
+<p>In the next post, I will get into prioritization: how to decide which test to run when you have more ideas than time, and how to build a backlog driven by data rather than whoever spoke loudest in the last meeting.</p>
+<p><em>I work with Convert.com and write about the intersection of DevOps and experimentation. If you are a technical person finding your footing in CRO, drop a comment or reach out. Happy to compare notes.</em></p>
+
+        </div>
+        
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      
+      <a href="../blogs/nagios-still-has-my-heart.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Disney Did It With Cartoons. My AI Did It With My Kid's Bedtime Story.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/cro-the-career-stream-nobody-told-you-about.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">CRO: The Career Stream Nobody Told You About</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+    </div>
+  </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">From a zip file in 2020 to an AI-powered wiki in 2026. Here's what happened in between</span>
+    </a>
+    <a href="../blogs/from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">From Apache Benchmark to A/B Testing, A DevOps Guy’s CRO Journey</span>
+    </a>
+  </nav>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

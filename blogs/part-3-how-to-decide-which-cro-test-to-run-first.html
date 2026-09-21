@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <title>Part 3: How to Decide Which CRO Test to Run First | Roshan Nagekar</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
+  <meta name="description" content="BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Part 3: How to Decide Which CRO Test to Run First">
+  <meta property="og:description" content="BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2026-07-24">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="A/B Testing">
+  <meta property="article:tag" content="Administration">
+  <meta property="article:tag" content="Agent Governance">
+  <meta property="article:tag" content="AI Agents">
+  <meta property="article:tag" content="Analytics">
+  <meta property="article:tag" content="AI/ML">
+  <meta property="article:tag" content="Automation">
+  <meta property="article:tag" content="CRO">
+  <meta property="article:tag" content="CRO">
+  <meta property="article:tag" content="Marketing">
+  <meta property="article:tag" content="Sales">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Part 3: How to Decide Which CRO Test to Run First">
+  <meta name="twitter:description" content="BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="19 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
+  <meta name="author" content="Roshan Nagekar">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
+  <link rel="manifest" href="https://iamrawtion.github.io/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Part 3: How to Decide Which CRO Test to Run First","description":"BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-07-24","url":"https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html","keywords":"A/B Testing, Administration, Agent Governance, AI Agents, Analytics, AI/ML, Automation, CRO, CRO, Marketing, Sales","wordCount":3724,"timeRequired":"PT19M","articleBody":"Because the loudest idea in the room is not always the best experiment. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and multivariate testing. I also introduced the formula that quietly changed how I think about experimentation: Success = Chance × Frequency Once that clicked, I assumed the next step would be simple. Pick an idea &gt; Run a test &gt; Measure it &gt; Repeat. Then I actually tried to do it. Because once people around you start thinking in CRO terms, ideas come from everywhere. The designer wants to test the hero image. The founder wants to rewrite the pricing page because “it does not feel premium enough.” Someone from sales heard that a competitor changed their CTA and now wants to copy it immediately. Someone read a blog at midnight and suddenly wants to add a chatbot, a quiz, a floating banner, and possibly a dancing mascot. Before you know it, your experiment backlog looks like a Jira board after a chaotic sprint planning session. Lots of tickets. Very little structure. Everyone convinced their idea is the one that will change the company’s destiny. This is where prioritization comes in. Not because prioritization makes you smarter, but because it protects the experimentation program from becoming purely opinion-driven. And in CRO, opinions can multiply faster than credit card debts. The Hidden Cost of Running the Wrong Test At first, “let’s just test this” sounds harmless. CRO is about experimentation, right? Just run everything. But every test has a cost. Even when the testing tool makes setup easy, a test still consumes traffic, time, design effort, analysis attention, and usually a couple of weeks of your roadmap. If your site has enough traffic to run two meaningful tests this month, and your backlog has twenty ideas, running the wrong two means you delayed the better ones. That is not a small cost. This felt immediately familiar from Devops work. You do not deploy every feature request just because someone suggested it in a meeting with confidence and a nice slide deck. You triage. You look at impact, risk, effort, dependencies, and what the system is actually telling you before you start making changes. CRO needs the same discipline. An idea is not valuable because it sounds smart in a meeting. It becomes valuable when it is connected to evidence and scored against other ideas in the backlog. The HiPPO Problem Before getting into frameworks, there is a force you need to understand. It quietly kills many CRO programs. It is called the HiPPO : the Highest Paid Person’s Opinion . Every team has one. In fact there is a rude saying about opinions. “Opinions are like…” ( well… Google it ) The senior leader who says, “I think the button should be green,” and suddenly the next sprint is about button colors. The founder who saw a competitor’s landing page and wants to rebuild yours to match it by Thursday. The VP who has “a feeling” about the checkout flow. The stakeholder who says, “Can we just test it?” in the same tone people use before creating six months of technical debt. To be fair, these inputs are not useless. People close to the business often have genuine intuition worth exploring. Sales teams hear objections. Support teams hear confusion. Founders understand positioning. Product teams know what users struggle with. The problem is not the idea. The problem is when the idea skips the queue without being scored. In DevOps, we do not prioritize incident response based on who is shouting loudest in Slack. At least, we should not. We prioritize based on system impact and what the metrics are actually saying. CRO needs the same structure. A prioritization framework is your polite defense against the HiPPO. You are not saying: “No, your idea is bad.” You are saying: “Great, let’s score it the same way we score everything else. If it ranks high, it goes first.” That small shift changes the conversation. The framework depersonalizes the argument. The number does the heavy lifting. Very convenient, because numbers do not get awkward in meetings. Start With the Funnel, Not the Idea Before scoring individual test ideas, figure out where to look first. Not every page deserves equal attention. A page with very little traffic will take forever to produce statistically meaningful results. A page with high traffic but no meaningful business impact may still not be worth optimizing ahead of a page that sits directly in the conversion path. Press enter or click to view image in full size So before asking: “What should we change?” ask, “Where are we losing people?”, and then. Map your funnel. For an e-commerce site, it might look like this: Landing page &gt; Product page &gt; Cart &gt; Checkout &gt; Purchase For SaaS, it might look like this: Homepage &gt; Pricing page &gt; Signup &gt; Activation &gt; Paid conversion For lead generation, it might look like this: Landing page &gt; Form view &gt; Form start &gt; Form submit &gt; Qualified lead Then look at where the b","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Part 3: How to Decide Which CRO Test to Run First","item":"https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html"}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/devops.html" style="color:var(--primary-color);">DevOps</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">Part 3: How to Decide Which CRO Test to Run First</span>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <a href="../categories/devops.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">DevOps</a>
+            <a href="../tags/a-b-testing.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">A/B Testing</a><a href="../tags/administration.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Administration</a><a href="../tags/agent-governance.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Agent Governance</a><a href="../tags/ai-agents.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">AI Agents</a><a href="../tags/analytics.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Analytics</a><a href="../tags/ai-ml.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">AI/ML</a><a href="../tags/automation.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Automation</a><a href="../tags/cro.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">CRO</a><a href="../tags/cro.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">CRO</a><a href="../tags/marketing.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Marketing</a><a href="../tags/sales.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Sales</a>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Part 3: How to Decide Which CRO Test to Run First</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            <time datetime="2026-07-24">July 24, 2026</time>
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            19 min read
+          </p>
+        </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#because-the-loudest-idea-in-the-room-is-not-always-the-best-experiment" style="color:var(--primary-color); text-decoration:none;">Because the loudest idea in the room is not always the best experiment.</a></li><li style="margin-bottom:0.35rem;"><a href="#the-hidden-cost-of-running-the-wrong-test" style="color:var(--primary-color); text-decoration:none;">The Hidden Cost of Running the Wrong Test</a></li><li style="margin-bottom:0.35rem;"><a href="#the-hippo-problem" style="color:var(--primary-color); text-decoration:none;">The HiPPO Problem</a></li><li style="margin-bottom:0.35rem;"><a href="#start-with-the-funnel-not-the-idea" style="color:var(--primary-color); text-decoration:none;">Start With the Funnel, Not the Idea</a></li><li style="margin-bottom:0.35rem;"><a href="#the-two-frameworks-ice-and-pie" style="color:var(--primary-color); text-decoration:none;">The Two Frameworks: ICE and PIE</a></li><li style="margin-bottom:0.35rem;"><a href="#ice-ordering-food-at-midnight" style="color:var(--primary-color); text-decoration:none;">ICE: Ordering Food at Midnight</a></li><li style="margin-bottom:0.35rem;"><a href="#pie-choosing-what-to-order-when-you-have-options" style="color:var(--primary-color); text-decoration:none;">PIE: Choosing What to Order When You Have Options</a></li><li style="margin-bottom:0.35rem;"><a href="#ice-vs-pie-the-one-line-difference" style="color:var(--primary-color); text-decoration:none;">ICE vs PIE: The One-Line Difference</a></li><li style="margin-bottom:0.35rem;"><a href="#which-framework-should-you-use" style="color:var(--primary-color); text-decoration:none;">Which Framework Should You Use?</a></li><li style="margin-bottom:0.35rem;"><a href="#turn-ideas-into-hypotheses-before-you-score-them" style="color:var(--primary-color); text-decoration:none;">Turn Ideas Into Hypotheses Before You Score Them</a></li><li style="margin-bottom:0.35rem;"><a href="#the-one-thing-ice-and-pie-get-wrong" style="color:var(--primary-color); text-decoration:none;">The One Thing ICE and PIE Get Wrong</a></li><li style="margin-bottom:0.35rem;"><a href="#what-to-do-when-everything-scores-the-same" style="color:var(--primary-color); text-decoration:none;">What to Do When Everything Scores the Same</a></li><li style="margin-bottom:0.35rem;"><a href="#define-success-before-you-launch-not-after" style="color:var(--primary-color); text-decoration:none;">Define Success Before You Launch, Not After</a></li><li style="margin-bottom:0.35rem;"><a href="#a-practical-first-backlog" style="color:var(--primary-color); text-decoration:none;">A Practical First Backlog</a></li><li style="margin-bottom:0.35rem;"><a href="#the-real-takeaway" style="color:var(--primary-color); text-decoration:none;">The Real Takeaway</a></li>
+      </ol>
+    </nav>
+        <div class="blog-post-content markdown-body">
+          <h2 id="because-the-loudest-idea-in-the-room-is-not-always-the-best-experiment">Because the loudest idea in the room is not always the best experiment.</h2>
+<p>In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and multivariate testing. I also introduced the formula that quietly changed how I think about experimentation:</p>
+<p><strong>Success = Chance × Frequency</strong></p>
+<p>Once that clicked, I assumed the next step would be simple.</p>
+<p>Pick an idea &gt; Run a test &gt; Measure it &gt; Repeat.</p>
+<p>Then I actually tried to do it. Because once people around you start thinking in CRO terms, ideas come from everywhere.</p>
+<p>The designer wants to test the hero image. The founder wants to rewrite the pricing page because “it does not feel premium enough.” Someone from sales heard that a competitor changed their CTA and now wants to copy it immediately. Someone read a blog at midnight and suddenly wants to add a chatbot, a quiz, a floating banner, and possibly a dancing mascot.</p>
+<p>Before you know it, your experiment backlog looks like a Jira board after a chaotic sprint planning session.</p>
+<ul>
+<li>Lots of tickets.</li>
+<li>Very little structure.</li>
+<li>Everyone convinced their idea is the one that will change the company’s destiny.</li>
+</ul>
+<p>This is where prioritization comes in. Not because prioritization makes you smarter, but because it protects the experimentation program from becoming purely opinion-driven. And in CRO, opinions can multiply faster than credit card debts.</p>
+<h2 id="the-hidden-cost-of-running-the-wrong-test">The Hidden Cost of Running the Wrong Test</h2>
+<p>At first, “let’s just test this” sounds harmless. CRO is about experimentation, right? Just run everything. But every test has a cost.</p>
+<p>Even when the testing tool makes setup easy, a test still consumes traffic, time, design effort, analysis attention, and usually a couple of weeks of your roadmap. If your site has enough traffic to run two meaningful tests this month, and your backlog has twenty ideas, running the wrong two means you delayed the better ones. That is not a small cost.</p>
+<p>This felt immediately familiar from Devops work. You do not deploy every feature request just because someone suggested it in a meeting with confidence and a nice slide deck. You triage. You look at impact, risk, effort, dependencies, and what the system is actually telling you before you start making changes.</p>
+<p>CRO needs the same discipline. An idea is not valuable because it sounds smart in a meeting. It becomes valuable when it is connected to evidence and scored against other ideas in the backlog.</p>
+<h2 id="the-hippo-problem">The HiPPO Problem</h2>
+<p>Before getting into frameworks, there is a force you need to understand. It quietly kills many CRO programs. It is called the <strong>HiPPO</strong>: the <strong>Highest Paid Person’s Opinion</strong>. Every team has one. In fact there is a rude saying about opinions. “Opinions are like…” (<em>well… Google it</em>)</p>
+<p>The senior leader who says, “I think the button should be green,” and suddenly the next sprint is about button colors. The founder who saw a competitor’s landing page and wants to rebuild yours to match it by Thursday. The VP who has “a feeling” about the checkout flow. The stakeholder who says, “Can we just test it?” in the same tone people use before creating six months of technical debt.</p>
+<p>To be fair, these inputs are not useless. People close to the business often have genuine intuition worth exploring. Sales teams hear objections. Support teams hear confusion. Founders understand positioning. Product teams know what users struggle with. The problem is not the idea. The problem is when the idea skips the queue without being scored.</p>
+<p>In DevOps, we do not prioritize incident response based on who is shouting loudest in Slack. At least, we should not. We prioritize based on system impact and what the metrics are actually saying.</p>
+<p>CRO needs the same structure. A prioritization framework is your polite defense against the HiPPO.</p>
+<p>You are not saying: “No, your idea is bad.”</p>
+<p>You are saying: “Great, let’s score it the same way we score everything else. If it ranks high, it goes first.”</p>
+<p>That small shift changes the conversation. The framework depersonalizes the argument. The number does the heavy lifting. Very convenient, because numbers do not get awkward in meetings.</p>
+<h2 id="start-with-the-funnel-not-the-idea">Start With the Funnel, Not the Idea</h2>
+<p>Before scoring individual test ideas, figure out where to look first. Not every page deserves equal attention. A page with very little traffic will take forever to produce statistically meaningful results. A page with high traffic but no meaningful business impact may still not be worth optimizing ahead of a page that sits directly in the conversion path.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*SdrqHf6x3P9zjNXl-qs0hA.png" alt="">
+So before asking: “What should we change?” ask, “Where are we losing people?”, and then. Map your funnel.</p>
+<p>For an e-commerce site, it might look like this:</p>
+<p>Landing page &gt; Product page &gt; Cart &gt; Checkout &gt; Purchase</p>
+<p>For SaaS, it might look like this:</p>
+<p>Homepage &gt; Pricing page &gt; Signup &gt; Activation &gt; Paid conversion</p>
+<p>For lead generation, it might look like this:</p>
+<p>Landing page &gt; Form view &gt; Form start &gt; Form submit &gt; Qualified lead</p>
+<p>Then look at where the biggest drops are happening. If 70% of users are abandoning at checkout, testing a homepage headline is probably not the first move.</p>
+<ul>
+<li>It might be interesting.</li>
+<li>It might even win.</li>
+<li>But it is probably not where the biggest leak is.</li>
+</ul>
+<p>Analogy in DevOps: If the database is causing 90% of your latency, shaving 20ms off a frontend asset is not the priority. Sure, the frontend improvement may look nice in a performance report. But the database is still sitting there like an overloaded elephant in the server room.</p>
+<p>Find the bottleneck first. Then fix it. In CRO, high-traffic pages close to revenue, signup, checkout, or lead generation are your hot paths. Start there.</p>
+<p><strong>Small disclaimer:</strong> <em>Read at your own risk. This may make you hungry</em></p>
+<h2 id="the-two-frameworks-ice-and-pie">The Two Frameworks: ICE and PIE</h2>
+<p>Once you know which pages to focus on, you need a way to score the ideas sitting in your backlog. Two common prioritization frameworks in CRO are <strong>ICE</strong> and <strong>PIE</strong>. Both are simple, both use overlapping dimensions and both are easier to remember if you stop thinking about frameworks and start thinking about food. Which, honestly, improves most business concepts. ;)</p>
+<h2 id="ice-ordering-food-at-midnight">ICE: Ordering Food at Midnight</h2>
+<p>ICE stands for:</p>
+<ul>
+<li><strong>Impact</strong></li>
+<li><strong>Confidence</strong></li>
+<li><strong>Ease</strong></li>
+</ul>
+<p>Think of ICE as ordering food on delivery app at 11 pm. You are hungry. You are tired. You are already in bed. This is not the time for adventure. You are not trying to discover a hidden culinary gem. You are trying to avoid sleeping angry. You see a biryani place.</p>
+<p>Before you tap “Order,” three thoughts happen automatically.</p>
+<p>First:</p>
+<p><strong>“How good is this actually going to be?”</strong></p>
+<p>If it is bad biryani, why bother?</p>
+<p>That is <strong>Impact</strong>.</p>
+<p>Second:</p>
+<p><strong>“Can I trust this place right now?”</strong></p>
+<p>Will it arrive hot, on time, and with raita? Or will it arrive cold, late, and missing the one thing that emotionally holds the whole meal together? You check the rating, reviews, delivery time, and whether someone recently complained that they received only rice and sadness.</p>
+<p>That is <strong>Confidence</strong>.</p>
+<p>Third:</p>
+<p><strong>“How easy is this?”</strong></p>
+<p>Is the restaurant open? Is delivery available? Will it reach in 25 minutes, or will the app say “arriving soon” until you lose hope? Will it ask you to verify your phone number again even though it has known you for five years?</p>
+<p>That is <strong>Ease</strong>.</p>
+<p>ICE is practical and slightly paranoid. It wants evidence before committing.</p>
+<p>In CRO terms:</p>
+<p><strong>Impact</strong> asks: If this test wins, how much could it move the business?
+<strong>Confidence</strong> asks: How sure are we that this is a real problem worth testing?
+<strong>Ease</strong> asks: How difficult will this be to build, QA, launch, and analyze?</p>
+<p>Score each dimension from 1 to 5. Then average the three. The highest-scoring ideas usually go first. ICE works especially well when you already have research data: heatmaps, recordings, analytics, surveys, support tickets, or past experiment learnings. Low confidence should lower the score, no matter how exciting the idea sounds.</p>
+<p>Because “I saw this on a competitor site” is not research. It is browsing with ambition.</p>
+<h2 id="pie-choosing-what-to-order-when-you-have-options">PIE: Choosing What to Order When You Have Options</h2>
+<p>PIE stands for:</p>
+<ul>
+<li><strong>Potential</strong></li>
+<li><strong>Importance</strong></li>
+<li><strong>Ease</strong></li>
+</ul>
+<p>Now stay in the same food delivery app. You are still hungry. It is still 11 pm. You still should have eaten earlier like a responsible adult, but here we are. This time, you are not evaluating one biryani place. You are deciding what category of food deserves your attention first.</p>
+<p>Biryani? Pizza? Rolls? South Indian? Chinese? That one “healthy bowl” option you add to cart and then remove after seeing the price? PIE helps you decide where the biggest opportunity is.</p>
+<p>First:</p>
+<p><strong>“How good could this get?”</strong></p>
+<p>Could this be the kind of meal that fixes your mood, your evening, and possibly your belief in humanity?</p>
+<p>That is <strong>Potential</strong>.</p>
+<p>Second:</p>
+<p><strong>“How important is this meal?”</strong></p>
+<p>Is this a casual snack, or have you skipped dinner and now your stomach is sending production-level alerts?</p>
+<p>That is <strong>Importance</strong>.</p>
+<p>Third:</p>
+<p><strong>“How easy is it to get?”</strong></p>
+<p>Is it nearby and deliverable in 25 minutes, or is the restaurant far away, closing soon, and likely to cancel after making you wait?</p>
+<p>That is <strong>Ease</strong>.</p>
+<p>PIE is more optimistic than ICE.</p>
+<p>ICE asks, “Can I trust this specific choice?”</p>
+<p>PIE asks, “Where is the biggest opportunity?”</p>
+<p>In CRO terms:</p>
+<p><strong>Potential</strong> asks: How much improvement could this page or funnel step realistically have?
+<strong>Importance</strong> asks: How valuable is this page or funnel step to the business?
+<strong>Ease</strong> asks: How simple or difficult is the test to implement?</p>
+<p>PIE is useful when you are comparing broader areas of opportunity.</p>
+<p>For example, if you are deciding whether to focus on the homepage, pricing page, checkout, signup form, or onboarding flow, PIE can help you decide where the biggest opportunity may be.</p>
+<p>So, in food delivery terms:</p>
+<p><strong>ICE helps you decide whether to trust one restaurant.
+PIE helps you decide which food category is worth exploring first.</strong></p>
+<h2 id="ice-vs-pie-the-one-line-difference">ICE vs PIE: The One-Line Difference</h2>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*Icx99EiSjuUCFd1txFziLA.png" alt="">
+Here is the easiest way I remember them:</p>
+<ol>
+<li>ICE helps you decide whether to trust one restaurant. PIE helps you decide which food category is worth exploring first.</li>
+<li>ICE is about confidence. Can I trust this specific option to deliver? PIE is about opportunity. Which area has the biggest upside if I focus there? Same food app. Different thinking.</li>
+<li>With ICE, you are asking: “Should I order from this biryani place?” With PIE, you are asking: “Should I even be looking at biryani first, or is pizza, rolls, South Indian, or Chinese the better opportunity tonight?”</li>
+<li>Both end with Ease, because nobody wants unnecessary complications at 11 pm. Especially not when they are hungry and the app is already saying, “Restaurant is closing soon,” like it is adding pressure to your life.</li>
+</ol>
+<h2 id="which-framework-should-you-use">Which Framework Should You Use?</h2>
+<p>Use <strong>ICE</strong> when your team already has research data and wants to prioritize based on evidence. ICE is useful when you are evaluating a specific hypothesis. For example:</p>
+<p>“Should we move the CTA above the fold on the pricing page?”</p>
+<p>You already have heatmap data. You know users are not scrolling far enough. You want to know whether this specific idea deserves to be tested next. That is ICE.</p>
+<p>Use <strong>PIE</strong> when you are earlier in the process and still deciding where the biggest opportunity is.</p>
+<p>For example:</p>
+<p>“Should we focus on the homepage, pricing page, checkout flow, signup form, or onboarding?”</p>
+<p>That is PIE.</p>
+<p>At Convert.com, the Compass feature includes both PIE and ICE inside the hypothesis builder. When you create a new hypothesis, you can choose a framework, score each dimension on a scale of 1 to 5, and use that score to sort your backlog.</p>
+<p>That helps because the score becomes visible to everyone. It is much harder to push your pet idea to the top when the number is sitting right there on the screen, judging you quietly. A visible score is like the delivery rating on a food app. You can still order from the suspicious restaurant. But now everyone can see that it has 2.3 stars and seven reviews mentioning “never again.”</p>
+<h2 id="turn-ideas-into-hypotheses-before-you-score-them">Turn Ideas Into Hypotheses Before You Score Them</h2>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*kJU7bp0I3BglGj0lNOu8Rw.png" alt="">
+One thing both frameworks require is that your ideas are written properly before scoring.</p>
+<p>“Change the button color” is not a hypothesis.</p>
+<p>“Move the CTA above the fold” is not a hypothesis.</p>
+<p>“Make the page look more premium” is definitely not a hypothesis.</p>
+<p>That is a mood.</p>
+<p>A proper hypothesis looks like this:</p>
+<p><strong>If I change X, then Y will happen, because Z.</strong></p>
+<p>The “because” is the most important part. Without it, you are not testing an assumption. You are just making a change and hoping the graph goes up, which is basically the CRO version of deploying to production and whispering, “Please work.”</p>
+<p>Or, to stay with the food delivery analogy, it is like ordering from a restaurant with no ratings because the photo looked nice. Could it be amazing? Maybe. Could it be regret in a plastic container? Also maybe.</p>
+<p>For example:</p>
+<p><strong>If we move the main CTA above the fold on the pricing page, more visitors will start the demo request flow, because heatmaps show most users are not scrolling far enough to see the current CTA.</strong></p>
+<p>Now you have something worth scoring.</p>
+<p>You know:</p>
+<ul>
+<li>The page</li>
+<li>The change</li>
+<li>The expected outcome</li>
+<li>The evidence behind it</li>
+</ul>
+<p>Even if the test loses, you learn something specific. A backlog full of vague ideas becomes a dumping ground. A backlog full of hypotheses becomes a learning system.</p>
+<p>Or in food terms:</p>
+<p>“Order something nice” is not useful.</p>
+<p>“Order from a highly rated nearby restaurant because delivery time is low and reviews mention fresh food” is much better.</p>
+<p>Specificity saves you from bad decisions. And occasionally, bad paneer.</p>
+<h2 id="the-one-thing-ice-and-pie-get-wrong">The One Thing ICE and PIE Get Wrong</h2>
+<p>ICE and PIE are useful, but they share a blind spot. They often treat every idea as if it exists in a vacuum. But it does not.</p>
+<p>Every idea exists inside the history of your previous tests. If you have run five tests on your pricing page and four of them lost, your confidence score for the next pricing-page idea should reflect that history. Something on that page may be resisting your assumptions.</p>
+<ul>
+<li>Maybe the traffic quality is different from what you expected.</li>
+<li>Maybe the real problem is upstream in the funnel.</li>
+<li>Maybe people already understand the pricing page, and the actual friction is in signup.</li>
+<li>Maybe your pricing page is innocent and has been framed by bad hypotheses.</li>
+</ul>
+<p>The same applies to food delivery. If you have ordered from the same restaurant four times and three times they forgot the raita, you should not treat the fifth order like a fresh mystery.</p>
+<p>You have history. Use it. Past experiment results should feed into how you score new ideas. They should not sit inside a spreadsheet named something like: final_results_v3_really_final_updated_NEW.xlsx</p>
+<p>This is why documentation matters as much as the framework itself.</p>
+<p>After every experiment, write down:</p>
+<ul>
+<li>The hypothesis</li>
+<li>The result</li>
+<li>The confidence level</li>
+<li>The primary metric</li>
+<li>The key learning</li>
+<li>What it suggests about the next test</li>
+</ul>
+<p>Even a losing test is useful if it tells you where not to look. Without this history, your backlog resets to zero every quarter. With it, your scoring gets more accurate over time because you are building a picture of what your specific audience actually responds to. A CRO backlog without documentation is like a food app that forgets every bad order you ever had. You keep making the same mistake. And somehow, the raita is still missing.</p>
+<h2 id="what-to-do-when-everything-scores-the-same">What to Do When Everything Scores the Same</h2>
+<p>Sometimes three ideas all score 4.2 and suddenly you are back in the same argument. This is normal. Frameworks help, but they do not eliminate judgment. A few tiebreakers can help. Pick the page with the most traffic. More visitors usually means faster results and less time waiting for statistical significance.</p>
+<p>In food delivery terms, this is like choosing the restaurant with enough recent orders and reviews. If only two people have ordered from it since 2021, the rating may not tell you much.</p>
+<p>Pick the test that is fastest to build. A high-scoring idea that takes three weeks of development work may be worth doing after a slightly lower-scoring idea you can ship in a day. Remember the frequency side of the success formula.</p>
+<p>This is the difference between ordering something that arrives in 25 minutes and choosing a dish that says “preparation time: 95 minutes.”</p>
+<p>Technically, it may be great. Emotionally, you may not survive. Pick the test that teaches you the most regardless of outcome. Learning value is underrated. A test that answers a fundamental question about your audience is worth more than a test that optimizes something already working reasonably well.</p>
+<p>In other words, do not only ask:</p>
+<p><strong>“What might win?”</strong></p>
+<p>Also ask:</p>
+<p><strong>“What will we learn even if this loses?”</strong></p>
+<p>That question saves a lot of time. And occasionally, a lot of ego.</p>
+<h2 id="define-success-before-you-launch-not-after">Define Success Before You Launch, Not After</h2>
+<p>One mistake that shows up in beginner backlogs is choosing the primary metric after the test has already started. That is dangerous. If you look at enough metrics, something will always appear to have improved.</p>
+<ul>
+<li>Clicks went up.</li>
+<li>Scroll depth changed.</li>
+<li>Form starts increased.</li>
+<li>Time on page looked different.</li>
+<li>Someone in Nebraska spent 14 minutes reading the footer.</li>
+</ul>
+<p>But what was the experiment actually supposed to improve? Every test needs a primary metric before launch.</p>
+<ul>
+<li>Demo requests.</li>
+<li>Purchases.</li>
+<li>Trial signups.</li>
+<li>Form completions.</li>
+<li>Revenue per visitor.</li>
+</ul>
+<p>Pick one. Commit to it. Let that metric make the call. This is like deciding what “good food” means before ordering. Are you optimizing for taste? Delivery speed? Price? Portion size? Not waking up with regret? If you decide after the food arrives, you can justify anything.</p>
+<p>“The biryani was cold, but the container was sturdy.”</p>
+<p>That is not success. That is coping. You can still watch secondary metrics for learning, but the decision should rest on the primary one. And alongside your primary metric, define your guardrail metrics. These are the things you are not directly trying to improve, but cannot afford to break. For example:</p>
+<ul>
+<li>If you are optimizing demo signups, lead quality should not drop.</li>
+<li>If you are optimizing checkout completion, average order value should not fall.</li>
+<li>If you are optimizing form completion, spam submissions should not explode.</li>
+<li>If you are optimizing clicks, downstream conversions should not suffer.</li>
+</ul>
+<p>This is the CRO version of SLOs. You define what success looks like and what failure looks like before you are emotionally invested in the outcome. A test that increases clicks while damaging qualified leads is not a win. It is noise wearing a party hat.</p>
+<p>Or in food delivery terms: A restaurant that delivers in 12 minutes but sends the wrong order did not “win on speed.” It failed dinner.</p>
+<h2 id="a-practical-first-backlog">A Practical First Backlog</h2>
+<p>If you are starting from zero, here is the workflow I would follow.</p>
+<ul>
+<li>Map your funnel and identify the biggest drop-off point.</li>
+<li>Use heatmaps, session recordings, analytics, surveys, and any sales or support feedback you can access.</li>
+<li>Write down every test idea without judging too early.</li>
+<li>Convert each idea into a proper hypothesis using the “If X, then Y, because Z” format.</li>
+<li>Score each one using ICE or PIE.</li>
+<li>Pick one high-scoring, reasonable-effort test.</li>
+<li>Define the primary metric and guardrail metrics before launch.</li>
+<li>Run the test.</li>
+<li>Document the result and the learning.</li>
+<li>Then re-score the backlog based on what you now know.</li>
+</ul>
+<p>That last step is what most teams skip. And it is what separates a backlog that compounds from one that stagnates. A CRO backlog should not be a parking lot where ideas go to quietly disappear. It should be more like a living system.</p>
+<p>Or, to stay on brand, a well-maintained CI/CD pipeline for learning. Every test should make the next decision smarter. Just like every food order teaches you something.</p>
+<ul>
+<li>Restaurant is reliable.</li>
+<li>Delivery is slow on weekends.</li>
+<li>The “extra spicy” option is not a personality test you need to pass.</li>
+<li>Never trust a place where every menu item has the same stock photo.</li>
+</ul>
+<p>Learning compounds when you write it down.</p>
+<h2 id="the-real-takeaway">The Real Takeaway</h2>
+<p>Prioritization is not about finding the cleverest idea. It is not about the biggest redesign. It is not about the most senior opinion in the room. It is about running the tests that have the best combination of meaningful impact, strong evidence, reasonable effort, and clear learning potential. Done consistently, this turns CRO from a collection of random experiments into a learning system. You find the biggest leaks, collect evidence, write hypotheses, score ideas, run the most valuable tests first, document what happened and then repeat.</p>
+<p>The DevOps parallel is hard to miss. Good infrastructure teams do not just ship more changes. They improve how they decide what to change, how they measure it, and how they learn from it.</p>
+<p>Good CRO teams do exactly the same thing. And the food delivery parallel is also hard to miss. The goal is not to order everything on the menu. The goal is to make better choices each time, based on what you know, what matters, what is realistic, and what you learned last time.</p>
+<p>That is prioritization.</p>
+<p>In the next post, I want to go deeper into reading results without fooling yourself: statistical significance, confirmation bias, and why the most dangerous moment in CRO is when a test is almost winning.</p>
+<p>I work with Convert.com and write about the intersection of DevOps and experimentation. If you are building your first CRO backlog or trying to move your team away from opinion-driven testing, drop a comment or reach out. Happy to compare notes.</p>
+
+        </div>
+        
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      
+      <a href="../blogs/nagios-still-has-my-heart.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Disney Did It With Cartoons. My AI Did It With My Kid's Bedtime Story.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/cro-the-career-stream-nobody-told-you-about.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">CRO: The Career Stream Nobody Told You About</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+    </div>
+  </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/telegram-auto-post-pipeline.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.</span>
+    </a>
+    <a href="../blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">From a zip file in 2020 to an AI-powered wiki in 2026. Here's what happened in between</span>
+    </a>
+  </nav>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

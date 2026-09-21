@@ -1,19 +1,121 @@
 [
   {
+    "title": "The CV Habit That Accidentally Saved My Job",
+    "date": "2026-09-21",
+    "category": "Cloud",
+    "tags": [
+      "Administration",
+      "AWS",
+      "DevOps",
+      "Documentation"
+    ],
+    "excerpt": "Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all this...",
+    "author": "Roshan Nagekar",
+    "id": "the-cv-habit-that-accidentally-saved-my-job",
+    "file": "the-cv-habit-that-accidentally-saved-my-job.md"
+  },
+  {
+    "title": "The Day I Missed My First IPL Match (And Learned the Most Important Lesson of My Career)",
+    "date": "2026-09-20",
+    "category": "DevSecOps",
+    "tags": [
+      "Administration",
+      "Automation",
+      "AWS",
+      "Deployment",
+      "DevOps",
+      "DevSecOps",
+      "Documentation",
+      "Linux",
+      "VirtualBox"
+    ],
+    "excerpt": "I still remember the date almost. Not exactly, because it's been years. But I remember it was a Friday. I remember it was IPL season. And I remember I had a...",
+    "author": "Roshan Nagekar",
+    "id": "the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp",
+    "file": "the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp.md"
+  },
+  {
     "title": "Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)",
     "date": "2026-09-16",
     "category": "DevOps",
-    "tags": ["Nagios", "Monitoring", "Prometheus", "DevOps", "Infrastructure", "Operations", "Ansible", "Icinga", "Zabbix"],
+    "tags": [
+      "Nagios",
+      "Monitoring",
+      "Prometheus",
+      "DevOps",
+      "Infrastructure",
+      "Operations",
+      "Ansible",
+      "Icinga",
+      "Zabbix"
+    ],
     "excerpt": "A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster, and why that grounding still matters today.",
     "author": "Roshan Nagekar",
     "id": "nagios-still-has-my-heart",
     "file": "nagios-still-has-my-heart.md"
   },
   {
+    "title": "Disney Did It With Cartoons. My AI Did It With My Kid's Bedtime Story.",
+    "date": "2026-08-24",
+    "category": "DevOps",
+    "tags": [
+      "AI Agents",
+      "AI/ML",
+      "DevOps",
+      "Documentation"
+    ],
+    "excerpt": "I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame,...",
+    "author": "Roshan Nagekar",
+    "id": "disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim",
+    "file": "disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.md"
+  },
+  {
+    "title": "Documentation Drifts. Here's How to Catch It.",
+    "date": "2026-08-05",
+    "category": "Linux",
+    "tags": [
+      "Administration",
+      "AI Agents",
+      "AI/ML",
+      "DevOps",
+      "Documentation"
+    ],
+    "excerpt": "\"Documenting the documentation.\" Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying. Actually...",
+    "author": "Roshan Nagekar",
+    "id": "documentation-drifts-heres-how-to-catch-it",
+    "file": "documentation-drifts-heres-how-to-catch-it.md"
+  },
+  {
+    "title": "CRO: The Career Stream Nobody Told You About",
+    "date": "2026-07-27",
+    "category": "DevOps",
+    "tags": [
+      "A/B Testing",
+      "Administration",
+      "Analytics",
+      "Career",
+      "CRO",
+      "DevOps",
+      "Marketing",
+      "Sales"
+    ],
+    "excerpt": "When I ask any of my student what they want to be? I mostly get one of the five answers: Developer, QA, Project Manager, Business Analyst, and now DevOps too....",
+    "author": "Roshan Nagekar",
+    "id": "cro-the-career-stream-nobody-told-you-about",
+    "file": "cro-the-career-stream-nobody-told-you-about.md"
+  },
+  {
     "title": "Credential bleed: what happens when your MCP server trusts the wrong thing",
     "date": "2026-07-26",
     "category": "Security",
-    "tags": ["MCP", "AI Agents", "Security", "Terraform", "MySQL", "DevSecOps"],
+    "tags": [
+      "MCP",
+      "AI Agents",
+      "Security",
+      "Terraform",
+      "MySQL",
+      "DevSecOps"
+    ],
     "excerpt": "I set up a MySQL MCP server on port 9100 using FastMCP and immediately noticed a problem — the server doesn't inherently know the difference between an agent I authorized and one that just happened to find my endpoint.",
     "author": "Roshan Nagekar",
     "id": "credential-bleed-mcp-server-trust",
@@ -23,17 +125,130 @@
     "title": "I built a pipeline to auto-post my Telegram channel everywhere. Then I stopped.",
     "date": "2026-07-26",
     "category": "DevOps",
-    "tags": ["n8n", "Automation", "AI Agents", "Telegram", "DevOps"],
+    "tags": [
+      "n8n",
+      "Automation",
+      "AI Agents",
+      "Telegram",
+      "DevOps"
+    ],
     "excerpt": "I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.",
     "author": "Roshan Nagekar",
     "id": "telegram-auto-post-pipeline",
     "file": "telegram-auto-post-pipeline.md"
   },
   {
+    "title": "Part 3: How to Decide Which CRO Test to Run First",
+    "date": "2026-07-24",
+    "category": "DevOps",
+    "tags": [
+      "A/B Testing",
+      "Administration",
+      "Agent Governance",
+      "AI Agents",
+      "Analytics",
+      "AI/ML",
+      "Automation",
+      "CRO",
+      "CRO",
+      "Marketing",
+      "Sales"
+    ],
+    "excerpt": "BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...",
+    "author": "Roshan Nagekar",
+    "id": "part-3-how-to-decide-which-cro-test-to-run-first",
+    "file": "part-3-how-to-decide-which-cro-test-to-run-first.md"
+  },
+  {
+    "title": "From a zip file in 2020 to an AI-powered wiki in 2026. Here's what happened in between",
+    "date": "2026-06-24",
+    "category": "DevOps",
+    "tags": [],
+    "excerpt": "Someone on the team once asked about a feature deprecated back in 2020. 45 minutes of digging through backups, old slack threads, a google doc nobody had...",
+    "author": "Roshan Nagekar",
+    "id": "from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres",
+    "file": "from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.md"
+  },
+  {
+    "title": "Part 2: The Experiments That Actually Move the Number",
+    "date": "2026-06-22",
+    "category": "DevOps",
+    "tags": [
+      "A/B Testing",
+      "Administration",
+      "AI Agents",
+      "AI/ML",
+      "CRO",
+      "CRO",
+      "DevOps"
+    ],
+    "excerpt": "If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...",
+    "author": "Roshan Nagekar",
+    "id": "part-2-the-experiments-that-actually-move-the-number",
+    "file": "part-2-the-experiments-that-actually-move-the-number.md"
+  },
+  {
+    "title": "From Apache Benchmark to A/B Testing, A DevOps Guy’s CRO Journey",
+    "date": "2026-05-11",
+    "category": "DevOps",
+    "tags": [
+      "A/B Testing",
+      "AI Agents",
+      "AI/ML",
+      "Automation",
+      "CRO",
+      "CRO",
+      "DevOps",
+      "Marketing",
+      "Sales"
+    ],
+    "excerpt": "When my manager first mentioned A/B testing, I nodded confidently. I knew exactly what it was. Except I didn’t. In my head, “A/B testing” meant Apache...",
+    "author": "Roshan Nagekar",
+    "id": "from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour",
+    "file": "from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour.md"
+  },
+  {
+    "title": "I said AI will mess up your docs. Scientists said hold my beer.",
+    "date": "2026-05-10",
+    "category": "DevOps",
+    "tags": [
+      "AI Agents",
+      "AI/ML",
+      "Automation",
+      "DevOps",
+      "Documentation"
+    ],
+    "excerpt": "Last week I wrote about why you shouldn't trust AI blindly with your documentation. I thought I was only being careful. Turns out, researchers just proved it,...",
+    "author": "Roshan Nagekar",
+    "id": "i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee",
+    "file": "i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee.md"
+  },
+  {
+    "title": "Docs as code. AI as author. Humans as reviewers. What could go wrong?",
+    "date": "2026-05-08",
+    "category": "DevOps",
+    "tags": [
+      "AI Agents",
+      "Automation",
+      "DevOps",
+      "Documentation",
+      "Knowledge Management"
+    ],
+    "excerpt": "Last week we audited our company docs. 502 articles. 77 duplicates. Nobody knew which one was correct. And this wasn't because people were lazy. Everyone was...",
+    "author": "Roshan Nagekar",
+    "id": "docs-as-code-ai-as-author-humans-as-reviewers-what-could-go",
+    "file": "docs-as-code-ai-as-author-humans-as-reviewers-what-could-go.md"
+  },
+  {
     "title": "Getting Started with Docker Compose: A Practical Guide",
     "date": "2025-01-15",
     "category": "DevOps",
-    "tags": ["Docker", "Docker Compose", "Containers", "DevOps"],
+    "tags": [
+      "Docker",
+      "Docker Compose",
+      "Containers",
+      "DevOps"
+    ],
     "excerpt": "Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practical example of deploying a web application with a database.",
     "author": "Roshan Nagekar",
     "id": "sample-docker-compose-guide",
@@ -43,7 +258,12 @@
     "title": "Sken.ai DevSecOps walkthrough",
     "date": "2021-01-22",
     "category": "DevOps",
-    "tags": ["DevSecOps", "Security", "DevOps", "Automation"],
+    "tags": [
+      "DevSecOps",
+      "Security",
+      "DevOps",
+      "Automation"
+    ],
     "excerpt": "A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps pipeline.",
     "author": "Roshan Nagekar",
     "id": "skenai-devsecops-walkthrough",
@@ -53,7 +273,13 @@
     "title": "SkenAI's role in DevSecOps CI/CD pipeline",
     "date": "2021-01-22",
     "category": "DevOps",
-    "tags": ["DevSecOps", "DevOps", "Security", "Automation", "Deployment"],
+    "tags": [
+      "DevSecOps",
+      "DevOps",
+      "Security",
+      "Automation",
+      "Deployment"
+    ],
     "excerpt": "How to integrate Sken.ai security scanning into a CI/CD pipeline, embedding SAST and DAST checks into automated deployments for a DevSecOps workflow.",
     "author": "Roshan Nagekar",
     "id": "skenais-role-in-devsecops-cicd-pipeline",
@@ -195,7 +421,12 @@
     "title": "Tools mentioned in Devops Weekly",
     "date": "2017-12-18",
     "category": "DevOps",
-    "tags": ["Devops", "Docker", "Automation", "Open Source"],
+    "tags": [
+      "Devops",
+      "Docker",
+      "Automation",
+      "Open Source"
+    ],
     "excerpt": "Highlights from the DevOps Weekly newsletter including Kashti, a dashboard for Brigade pipelines, and other open-source DevOps tools worth knowing.",
     "author": "Roshan Nagekar",
     "id": "tools-mentioned-in-devops-weekly",
@@ -237,7 +468,12 @@
     "title": "Install Cobbler 2.6.10 on Ubuntu 14.04",
     "date": "2016-01-18",
     "category": "Linux",
-    "tags": ["Provisioning", "Linux", "ubuntu", "Configuration Management"],
+    "tags": [
+      "Provisioning",
+      "Linux",
+      "ubuntu",
+      "Configuration Management"
+    ],
     "excerpt": "A step-by-step guide to installing the Cobbler 2.6.10 network boot and provisioning server on Ubuntu 14.04, with fixes for common setup issues.",
     "author": "Roshan Nagekar",
     "id": "install-cobbler-2610-on-ubuntu-1404",
@@ -352,6 +588,16 @@
     "author": "Roshan Nagekar",
     "id": "rootconf-2014",
     "file": "rootconf-2014.md"
+  },
+  {
+    "title": "Continuous Integration with Jenkins",
+    "date": "2014-06-07",
+    "category": "DevOps",
+    "tags": [],
+    "excerpt": "Continuous Integration: What's the deal? As per a tutorial that I came across a few months ago, its a process in which all the development work is integrated...",
+    "author": "Roshan Nagekar",
+    "id": "continuous-integration-with-jenkins",
+    "file": "continuous-integration-with-jenkins.md"
   },
   {
     "title": "Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247",
@@ -575,7 +821,12 @@
     "title": "Custom ROM on LG Optimus 2x",
     "date": "2013-10-21",
     "category": "Networking",
-    "tags": ["Technology", "Linux", "Open Source", "Troubleshooting"],
+    "tags": [
+      "Technology",
+      "Linux",
+      "Open Source",
+      "Troubleshooting"
+    ],
     "excerpt": "How to flash a custom Android ROM on the LG Optimus 2X to fix chronic battery drain and performance issues caused by the stock firmware.",
     "author": "Roshan Nagekar",
     "id": "custom-rom-on-lg-optimus-2x",
@@ -585,7 +836,12 @@
     "title": "New Relic",
     "date": "2013-10-21",
     "category": "DevOps",
-    "tags": ["Monitoring", "Devops", "Operations", "SLA"],
+    "tags": [
+      "Monitoring",
+      "Devops",
+      "Operations",
+      "SLA"
+    ],
     "excerpt": "An overview of New Relic APM for monitoring application performance, setting up alerts, tracking response times, and meeting SLA targets in production.",
     "author": "Roshan Nagekar",
     "id": "new-relic",
@@ -595,7 +851,12 @@
     "title": "Shell Scripting Tuts",
     "date": "2013-08-07",
     "category": "Linux",
-    "tags": ["Linux", "Programming", "Automation", "Operations"],
+    "tags": [
+      "Linux",
+      "Programming",
+      "Automation",
+      "Operations"
+    ],
     "excerpt": "Shell scripting essentials for Linux sysadmins: VIM shortcuts, practical bash tips, and Unix command-line patterns that speed up day-to-day operations.",
     "author": "Roshan Nagekar",
     "id": "shell-scripting-tuts",
@@ -605,7 +866,12 @@
     "title": "Build your own private cloud with Ubuntu - II",
     "date": "2013-07-19",
     "category": "Cloud Computing",
-    "tags": ["Cloud Computing", "ubuntu", "Provisioning", "Server"],
+    "tags": [
+      "Cloud Computing",
+      "ubuntu",
+      "Provisioning",
+      "Server"
+    ],
     "excerpt": "Part 2 of building a private Ubuntu cloud: creating and registering MAAS nodes for bare-metal provisioning and automated deployment on your own hardware.",
     "author": "Roshan Nagekar",
     "id": "build-your-own-private-cloud-with-2",
@@ -615,7 +881,12 @@
     "title": "Creating an exactly similar snapshot of your existing running EC2 ami instance",
     "date": "2013-07-19",
     "category": "Cloud Computing",
-    "tags": ["AWS", "Cloud Computing", "Devops", "Server"],
+    "tags": [
+      "AWS",
+      "Cloud Computing",
+      "Devops",
+      "Server"
+    ],
     "excerpt": "How to clone a live AWS EC2 instance as an AMI snapshot to replicate an existing environment exactly, without interrupting the running workload.",
     "author": "Roshan Nagekar",
     "id": "creating-exactly-similar-snapshot-of",
@@ -625,7 +896,12 @@
     "title": "Local Drupal Setup",
     "date": "2013-07-08",
     "category": "Linux",
-    "tags": ["Linux", "Programming", "Configuration Management", "Open Source"],
+    "tags": [
+      "Linux",
+      "Programming",
+      "Configuration Management",
+      "Open Source"
+    ],
     "excerpt": "Setting up a local Drupal CMS development environment on Linux with Apache and MySQL, from installation to a working site ready for theme and module development.",
     "author": "Roshan Nagekar",
     "id": "local-drupal-setup",
@@ -635,7 +911,12 @@
     "title": "Setting up your own FTP server (Ubuntu)",
     "date": "2013-07-08",
     "category": "Linux",
-    "tags": ["Linux", "ubuntu", "Server", "Networking"],
+    "tags": [
+      "Linux",
+      "ubuntu",
+      "Server",
+      "Networking"
+    ],
     "excerpt": "How to install, configure, and secure a vsftpd FTP server on Ubuntu, covering user access controls and basic hardening for a self-hosted file transfer service.",
     "author": "Roshan Nagekar",
     "id": "setting-up-your-own-ftp-server-ubuntu",
@@ -645,7 +926,12 @@
     "title": "Build your own private cloud with Ubuntu - I",
     "date": "2013-06-30",
     "category": "Cloud Computing",
-    "tags": ["Cloud Computing", "ubuntu", "Provisioning", "Virtualization"],
+    "tags": [
+      "Cloud Computing",
+      "ubuntu",
+      "Provisioning",
+      "Virtualization"
+    ],
     "excerpt": "Part 1 of building a private cloud with Ubuntu: setting up MAAS for bare-metal provisioning so you can deploy and manage physical servers like cloud instances.",
     "author": "Roshan Nagekar",
     "id": "build-your-own-private-cloud-with-1",
@@ -655,7 +941,11 @@
     "title": "Do's and Dont's for a Fresher Resume",
     "date": "2013-05-15",
     "category": "Programming",
-    "tags": ["Programming", "Technology", "Open Source"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Open Source"
+    ],
     "excerpt": "Practical resume tips for fresh graduates entering the tech industry, covering what to include, what to cut, and how to make a strong first impression.",
     "author": "Roshan Nagekar",
     "id": "dos-and-donts-for-fresher-resume",
@@ -665,7 +955,11 @@
     "title": "How to get a Flow of a Simple C program",
     "date": "2013-01-26",
     "category": "Linux",
-    "tags": ["Programming", "Linux", "Technology"],
+    "tags": [
+      "Programming",
+      "Linux",
+      "Technology"
+    ],
     "excerpt": "Understanding how a C program moves from source to executable: preprocessing, compilation, assembly, and linking explained with gcc flags and examples.",
     "author": "Roshan Nagekar",
     "id": "flow-of-simple-c-program",
@@ -675,7 +969,12 @@
     "title": "Git versioning system, How to use Git?",
     "date": "2013-01-26",
     "category": "Programming",
-    "tags": ["git", "Programming", "Open Source", "Devops"],
+    "tags": [
+      "git",
+      "Programming",
+      "Open Source",
+      "Devops"
+    ],
     "excerpt": "How to use Git for version control: creating commits, working with branches, pushing to remotes, and understanding the basic collaborative workflow.",
     "author": "Roshan Nagekar",
     "id": "git-versioning-system",
@@ -685,7 +984,12 @@
     "title": "Google Analytics. How to use Google Analytics?",
     "date": "2013-01-26",
     "category": "Programming",
-    "tags": ["Programming", "Technology", "Webpage", "JavaScript"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Webpage",
+      "JavaScript"
+    ],
     "excerpt": "Setting up Google Analytics to track website traffic, monitor user behaviour, analyse acquisition channels, and measure conversion goals for your site.",
     "author": "Roshan Nagekar",
     "id": "google-analytics",
@@ -695,7 +999,12 @@
     "title": "JIRA issue tracking.How to use JIRA?",
     "date": "2013-01-26",
     "category": "Technology",
-    "tags": ["Technology", "Programming", "Devops", "Operations"],
+    "tags": [
+      "Technology",
+      "Programming",
+      "Devops",
+      "Operations"
+    ],
     "excerpt": "Getting started with JIRA for issue tracking, sprint planning, and agile project management, covering boards, workflows, and backlog administration.",
     "author": "Roshan Nagekar",
     "id": "jira-issue-tracking",
@@ -705,7 +1014,11 @@
     "title": "How to get a Free Teacher, Mentor, Helper Online?",
     "date": "2013-01-21",
     "category": "Programming",
-    "tags": ["Programming", "Technology", "Open Source"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Open Source"
+    ],
     "excerpt": "How to find free mentors and learning resources online, including ACM MentorNet e-mentoring and open communities that connect students with working professionals.",
     "author": "Roshan Nagekar",
     "id": "wish-to-have-mentor",
@@ -715,7 +1028,11 @@
     "title": "TECHNICAL STUFF",
     "date": "2013-01-02",
     "category": "Linux",
-    "tags": ["Linux", "Operations", "Troubleshooting"],
+    "tags": [
+      "Linux",
+      "Operations",
+      "Troubleshooting"
+    ],
     "excerpt": "Useful Linux command-line tricks for sysadmins: splitting PDFs with pdftk, converting file formats, and automating repetitive file operations from the terminal.",
     "author": "Roshan Nagekar",
     "id": "tech-stuff-to-separate-part-of-pdf-from",
@@ -725,7 +1042,12 @@
     "title": "RHCE Preparation, How to Prepare for Red Hat Certification.",
     "date": "2012-12-12",
     "category": "Linux",
-    "tags": ["Linux", "Operations", "Server", "Troubleshooting"],
+    "tags": [
+      "Linux",
+      "Operations",
+      "Server",
+      "Troubleshooting"
+    ],
     "excerpt": "Preparing for the RHCE exam: focusing on command-line tools, hands-on lab practice, and the practical skills Red Hat tests in the performance-based exam.",
     "author": "Roshan Nagekar",
     "id": "rhce-preparation",
@@ -735,7 +1057,11 @@
     "title": "ACM ICPC (3)",
     "date": "2012-08-30",
     "category": "Programming",
-    "tags": ["Programming", "Technology", "Open Source"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Open Source"
+    ],
     "excerpt": "A personal account of competing in ACM ICPC regionals: the travel, accommodation, pre-contest preparation, and what the on-site competition experience is actually like.",
     "author": "Roshan Nagekar",
     "id": "acm-icpc-3",
@@ -745,7 +1071,11 @@
     "title": "Josephus Problem Ruby Code",
     "date": "2012-08-27",
     "category": "Programming",
-    "tags": ["Ruby", "Programming", "Technology"],
+    "tags": [
+      "Ruby",
+      "Programming",
+      "Technology"
+    ],
     "excerpt": "A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.",
     "author": "Roshan Nagekar",
     "id": "josephus-problem-ruby-code",
@@ -755,7 +1085,12 @@
     "title": "Ruby and Sinatra Example of Automatic Mutt Configuration",
     "date": "2012-08-27",
     "category": "Programming",
-    "tags": ["Ruby", "RubyOnRails", "Programming", "Automation"],
+    "tags": [
+      "Ruby",
+      "RubyOnRails",
+      "Programming",
+      "Automation"
+    ],
     "excerpt": "Building a Sinatra web app in Ruby that automatically generates Mutt email client configuration files, using ERB templates and gem-based dependencies.",
     "author": "Roshan Nagekar",
     "id": "ruby-and-sinatra-example-of-automatic",
@@ -765,7 +1100,11 @@
     "title": "Let's talk CLOUD COMPUTING",
     "date": "2012-06-20",
     "category": "Cloud Computing",
-    "tags": ["Cloud Computing", "Technology", "Devops"],
+    "tags": [
+      "Cloud Computing",
+      "Technology",
+      "Devops"
+    ],
     "excerpt": "A beginner-friendly introduction to cloud computing: what it actually means, how on-demand infrastructure works, and why it has changed how software is deployed.",
     "author": "Roshan Nagekar",
     "id": "lets-talk-cloud-computing",
@@ -775,7 +1114,10 @@
     "title": "Corruption",
     "date": "2012-06-15",
     "category": "Technology",
-    "tags": ["Technology", "Standard"],
+    "tags": [
+      "Technology",
+      "Standard"
+    ],
     "excerpt": "A short allegorical story about corruption and integrity, told through a king's challenge to find something truly unique and the lesson it reveals.",
     "author": "Roshan Nagekar",
     "id": "corruption",
@@ -785,7 +1127,11 @@
     "title": "ACM ICPC 2011 (2)",
     "date": "2012-06-08",
     "category": "Programming",
-    "tags": ["Programming", "Technology", "Open Source"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Open Source"
+    ],
     "excerpt": "Part 2 of ACM ICPC 2011: navigating the onsite competition registration process, team preparation strategies, and the regional contest itself.",
     "author": "Roshan Nagekar",
     "id": "acm-icpc-2011-2",
@@ -795,7 +1141,11 @@
     "title": "Introduction to algorithms by MIT",
     "date": "2012-06-08",
     "category": "Programming",
-    "tags": ["Programming", "Technology", "Open Source"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Open Source"
+    ],
     "excerpt": "Notes from MIT's Introduction to Algorithms course covering algorithm analysis, design techniques, sorting algorithms, and computational complexity fundamentals.",
     "author": "Roshan Nagekar",
     "id": "introduction-to-algorithms-by-mit",
@@ -805,10 +1155,31 @@
     "title": "ACM ICPC 2011",
     "date": "2011-12-27",
     "category": "Linux",
-    "tags": ["Programming", "Technology", "Linux"],
+    "tags": [
+      "Programming",
+      "Technology",
+      "Linux"
+    ],
     "excerpt": "A first-time account of competing in ACM ICPC 2011: what the contest is, how to qualify for regionals, and what to expect as a first-time competitor.",
     "author": "Roshan Nagekar",
     "id": "acm-icpc-2011",
     "file": "acm-icpc-2011.md"
+  },
+  {
+    "title": "Building WAAS – Workflow as a Service (Peepaal Project)",
+    "date": "2011-01-29",
+    "category": "Cloud",
+    "tags": [
+      "Administration",
+      "Cloud",
+      "Java",
+      "JavaScript",
+      "PaaS",
+      "WaaS"
+    ],
+    "excerpt": "One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...",
+    "author": "Roshan Nagekar",
+    "id": "building-waas-workflow-as-a-service-peepaal-project",
+    "file": "building-waas-workflow-as-a-service-peepaal-project.md"
   }
 ]

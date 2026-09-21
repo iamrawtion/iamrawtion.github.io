@@ -7,8 +7,88 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Fri, 18 Sep 2026 04:41:37 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 09:42:08 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>The CV Habit That Accidentally Saved My Job</title>
+    <link>https://iamrawtion.github.io/blogs/the-cv-habit-that-accidentally-saved-my-job.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/the-cv-habit-that-accidentally-saved-my-job.html</guid>
+    <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all this...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Administration</category>
+    <category>AWS</category>
+    <category>DevOps</category>
+    <category>Documentation</category>
+    <content:encoded><![CDATA[<p>Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all this time? You worked hard, you know you did, but the specifics have evaporated.</p>
+<p>That&#39;s exactly what happened to me after my first job switch. I worked in a small company, so it wasn&#39;t like I had ten different clients with ten different stories to tell. Just one job, multiple responsibilities, and somehow none of it stuck in memory when I needed it most.</p>
+<p>So I built a habit. Nothing fancy. Just an Excel sheet. Date, what I worked on that day, two or three lines, status: in progress or done. That&#39;s it. No fancy tool, no elaborate system. Just discipline.</p>
+<p>It worked exactly as intended. Next time I job-hopped, I knew precisely what I&#39;d built, what I&#39;d learned, what to put on the CV. Simple win.</p>
+<p>Then one day, the habit paid off in a way I never expected.</p>
+<p>I was the only other DevOps engineer besides my boss, who lived in a different time zone. Over a phone call, he asked me to delete a list of S3 buckets, unused, just sitting there costing money. I did it. And because I&#39;d made note-taking a daily habit by then, I logged it too: deleted these buckets, told they were unimportant.</p>
+<p>A few weeks later, the engineering team noticed a monthly report had stopped generating. Nobody knew why. My boss dug in during his hours and found that an important S3 bucket was gone. No CloudTrail back then, no audit log, no way to trace who did what. And it wasn&#39;t just the two of us with AWS access, several people in the company had it.</p>
+<p>When I came online, he asked me to investigate. I went straight to my Excel sheet. There it was, dated weeks earlier: deleted those buckets, was told to.</p>
+<p>That log ended the mystery in minutes. We knew exactly what happened, when, and why. It was human error, not a hack, not malice, just a bucket that should never have been on that delete list. My boss also gave me an important lesson that day: being told to do something doesn&#39;t mean you skip verifying it yourself. As a DevOps engineer, that judgment call is on you too.</p>
+<p>But the real hero of that day was a habit I&#39;d started for a completely unrelated reason: keeping my CV honest.</p>
+<p>I kept that habit for years after. What began as a fix for a bad memory turned into something closer to a safety net. You don&#39;t always know which note you write today will matter six months from now. Sometimes it&#39;s just for your CV. Sometimes it&#39;s the only thing standing between &quot;human error&quot; and &quot;we have no idea what happened.&quot;</p>
+<p>So here&#39;s my question to you: do you keep any kind of daily work log? Not for performance reviews, not because someone told you to, just for yourself. And if you don&#39;t, after reading this, would you start?</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>The Day I Missed My First IPL Match (And Learned the Most Important Lesson of My Career)</title>
+    <link>https://iamrawtion.github.io/blogs/the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp.html</guid>
+    <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+    <description>I still remember the date almost. Not exactly, because it's been years. But I remember it was a Friday. I remember it was IPL season. And I remember I had a...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Administration</category>
+    <category>Automation</category>
+    <category>AWS</category>
+    <category>Deployment</category>
+    <category>DevOps</category>
+    <category>DevSecOps</category>
+    <category>Documentation</category>
+    <category>Linux</category>
+    <category>VirtualBox</category>
+    <content:encoded><![CDATA[<p>I still remember the date almost. Not exactly, because it&#39;s been years. But I remember it was a Friday. I remember it was IPL season. And I remember I had a ticket in my pocket for my first ever live cricket match.</p>
+<p>I was an intern back then. QA team. I&#39;d been handed a project because I &quot;liked Linux.&quot; That&#39;s it. That was my entire qualification. I&#39;d played around with LAMP stacks, set up WordPress a few times, run enough commands to feel dangerous. So when they needed someone to set up a QA environment for a PHP application, my name came up.</p>
+<p>Simple task, they said. Get the environment running. Make it accessible. Client&#39;s in Australia, they need to see it live if things go wrong.</p>
+<p>Nothing about that sentence was simple.</p>
+<h4>The Setup From Hell</h4>
+<p>I started with VirtualBox, because that&#39;s what I knew. My boss shut that down immediately. Had to be AWS. Public URL. Client access.</p>
+<p>New OS setup. New cloud platform. New tool called Composer that I&#39;d never touched. I did what every self-respecting engineer with no documentation does: I Googled my way through it.</p>
+<p>Every install hit a wall. Every wall meant a new Jira comment. Developers would reply with fixes: use this version, open this port, set the database up like this. I&#39;d write it all down on a random notepad. Spin up a new instance. Try again. Snapshot everything because god forbid I lose progress. Scrap the instance. Repeat.</p>
+<p>Three weeks of this. Three weeks of two steps forward, one step into a wall.</p>
+<h4>The Comment That Ruined My Friday</h4>
+<p>Mid-day, that Friday, I saw it. A comment on the ticket from the client. Something like &quot;not happy with the delay.&quot;</p>
+<p>As an intern, that hits different. You don&#39;t have the thick skin yet. I read it and felt genuinely sick.</p>
+<p>I made a decision right there: I&#39;ll fix this today. Match or no match.</p>
+<p>6 PM came and went. 6:30 too. Office was emptying out. I was still at my desk, notepad open, trying combination number forty of the same setup.</p>
+<p>That&#39;s when my boss&#39;s boss walked past. Not my direct manager, the guy above him. Saw an intern still sitting there at that hour and got curious enough to ask what was going on.</p>
+<p>I showed him the comment. Told him I couldn&#39;t crack the setup.</p>
+<h4>The Question That Changed Everything</h4>
+<p>He sat down next to me. We started fresh, new instance, working through it together. At some point he noticed my notepad, full of scribbled notes from old chats and Jira threads.</p>
+<p>&quot;What&#39;s this? Who gave you this?&quot;</p>
+<p>I explained. Historical Jira comments, cobbled together over three weeks.</p>
+<p>Then he asked the question I should have asked myself on day one:</p>
+<p>&quot;Do you not have documentation for this setup? Surely someone who built this environment before has notes. Did you ever ask?&quot;</p>
+<p>I hadn&#39;t. It genuinely hadn&#39;t occurred to me that documentation was something you could ask for. I thought my job was to figure it out, silently, on my own, because asking felt like admitting I wasn&#39;t good enough.</p>
+<p>He looked at me and said something I&#39;ve never forgotten: learn to say no, or learn to ask for help, when you need it. You&#39;re an intern. You&#39;re not the highest paid person in the room. Nobody expects you to know everything. But dragging on for three weeks because you were too afraid to ask a question? That helps nobody.</p>
+<h4>The Email</h4>
+<p>We tried the setup a couple more times together. Then we did something I hadn&#39;t thought to do in three weeks: we wrote an honest email to the client. Explained the real story. No documentation had ever been shared. No process existed. That&#39;s why this dragged on, not because anyone was slacking.</p>
+<p>We left the office around 10 PM. I walked out past people who&#39;d already watched their match and were heading home. My ticket was still sitting unused in my bag.</p>
+<p>I won&#39;t lie, I was gutted about the match. But I was also carrying something heavier than disappointment. I&#39;d learned something that had nothing to do with Linux or AWS or Composer.</p>
+<h4>The Payoff</h4>
+<p>Next morning, a full documentation package landed in my inbox from the ops team on the other side. Turned out it existed all along. Nobody had thought to hand it to an intern, and I&#39;d never thought to ask.</p>
+<p>With that doc in hand, I set up the entire environment in one shot. Automated it with a shell script right after, just so nobody after me would have to go through what I did.</p>
+<h4>Why This Still Matters</h4>
+<p>That lesson didn&#39;t stay in that internship. Years later, at a different company, a server went down and the CEO&#39;s email landed straight in my inbox asking what DevOps was doing about it. I told him straight: DevOps isn&#39;t magic. Some things need process, not miracles. That confidence to say it plainly came from that Friday night.</p>
+<p>Since then, I&#39;ve made it a habit. If I know the answer, I say yes upfront. If I don&#39;t, I say so, without the fear of looking incapable. That fear is expensive. It cost me three weeks and a cricket match. It doesn&#39;t need to cost you anything if you learn the lesson early.</p>
+<p>So here&#39;s the takeaway, for every intern, every junior engineer, every person new to a team: ask for the documentation. Ask for help. Say no when you need to. Nobody&#39;s going to think less of you for it. If anything, they&#39;ll respect you more for not wasting three weeks pretending you have it figured out.</p>
+<p>I missed a cricket match to learn that. You don&#39;t have to.</p>
+<hr>
+]]></content:encoded>
+  </item>
   <item>
     <title>Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</title>
     <link>https://iamrawtion.github.io/blogs/nagios-still-has-my-heart.html</link>
@@ -34,6 +114,131 @@
 <p>But here&#39;s the thing nobody tells you about Nagios: it keeps you rooted to the system. You&#39;re not looking at pretty graphs from a distance. You&#39;re inside the OS, understanding processes, permissions, disk layouts, the works. When I automated Nagios setup with Ansible and later with Fabric in Python, things broke constantly. And every time they did, it was my old shell scripting instincts and my bare-metal Nagios days that bailed me out. That knowledge doesn&#39;t come from reading a Prometheus exporter&#39;s YAML file. It comes from getting your hands dirty.</p>
 <p>I recently came across a blog from another engineer reminiscing about Nagios, and it hit me that I&#39;m not alone. There&#39;s a whole tribe of &quot;Nagios oldies&quot; out there who get it. We know the newer tools are shinier. We use them daily. But there&#39;s something about Nagios that built our fundamentals in a way nothing else quite has.</p>
 <p>Better monitoring tools may exist. But Nagios will always be the one that taught me how to actually understand a server, not just watch it.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Disney Did It With Cartoons. My AI Did It With My Kid's Bedtime Story.</title>
+    <link>https://iamrawtion.github.io/blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html</guid>
+    <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+    <description>I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame,...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>AI Agents</category>
+    <category>AI/ML</category>
+    <category>DevOps</category>
+    <category>Documentation</category>
+    <content:encoded><![CDATA[<p><img src="https://media.licdn.com/dms/image/v2/D4D12AQFsiPhnNL8Zqw/article-cover_image-shrink_720_1280/B4DaA3JVSZGkAQ-/0/1787631594671?e=1791417600&v=beta&t=tZKbZ6PU8KGfioYNuJQSZC4LrlDEKYoScQ6u6quHo40" alt=""></p>
+<p>I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame, across completely different characters and different movies. Different faces, different worlds, same underlying motion. It worked for years. Nobody noticed, or nobody cared, because the backgrounds and story kept changing enough to sell it. Here is the <a href="https://www.youtube.com/watch?v=FQnXhVJhqjg&t=22s">video</a> I am talking about. This was deliberate for many reasons as you read more about it, you will know. Some reasons, I understood were, nostalgia, saving time or maybe laziness too.</p>
+<p>I didn&#39;t think much of it until I saw the same thing happening with AI.</p>
+<p>I was working on generating some images recently. I kept feeding new context, new prompts, expecting newer results. The first couple of images were just fine. Then I started noticing a pattern of same poses, same layouts, same compositions repeating underneath a different backdrop. Not identical, but close enough that it felt like the AI found something that worked and decided to stop being creative.</p>
+<p>I told myself, okay, maybe that&#39;s fine for images. Then I tested it on something that mattered more.</p>
+<p>I use AI sometimes to teach certain concepts to my kid. I asked AI to write a short story. It was about living and nonliving things. It came out lovely. She enjoyed it, I enjoyed it. All good, right?</p>
+<p>The next day, I asked for a story about vertebrates and invertebrates. Same structure. Same pattern with just a bit of <em>find and replace</em> may be 😀. Practically the same story with a few words swapped out. If I had outsourced that to a person and gotten this back, I wouldn&#39;t have accepted it. And here&#39;s the thing, my kid is five. Even she would note this eventually. Kids get bored of the same story wearing a different costume faster than we think.</p>
+<p>Now this is not about things impacting my personal work. The part that actually worries me is <strong>documentation</strong>.</p>
+<p>I use AI heavily for documentation and writing. And I&#39;ve caught the pattern there too. Same structure repeating article after article, same phrasing patterns, same rhythm, regardless of what the topic actually needs. It&#39;s  probably efficient. But it&#39;s also lazy. And I worry people will lean onto this instead of catching it, hand AI a rough context, ask for a full end to end document, and publish whatever comes back without questioning why every article somehow reads the same.</p>
+<p>Here is what I found being the technical reason to be. This comes down to how models pick outputs. They default to the highest-probability path unless you push them elsewhere, so once a structure works well in one response, it becomes the easy option for the next, especially in the same session where earlier context keeps shaping what comes after. Lower temperature and conservative sampling, which most tools default to for reliability, make this worse on purpose. It&#39;s not laziness the way we mean it. it&#39;s optimization doing exactly its job: minimize risk, maximize consistency. <strong>Creativity was never the objective</strong>. Which is exactly why the paragraph-by-paragraph, keep-pushing-back approach works, it forces the model off the safe path it would otherwise default to.</p>
+<p>When I see this happening, here&#39;s what works for me instead. Don&#39;t ask for the whole thing to be written or documented at once. Go paragraph by paragraph. Feed fresh context deliberately every time. Question, Argue and provide newer/better context every time. And at any time something feels repeated, say so. Tell it directly. That nudge matters more than people think, it&#39;s not just fixing one document, it&#39;s teaching the model what you don&#39;t want. Some would comment and ask to create a new session for improvement here. I agree with it, but how I and sometimes even you may work, sometimes we need the session memory to exist for various reasons, so we use the same sessions for a long time.</p>
+<p>Disney may have eventually moved past reusing the same animation cycles. Or even if they re-used some, they had some valid reason like ‘nostalgia’. They could have even stopped doing this because audiences quietly noticed this and started expecting more, and also maybe that the reused motion stopped being good enough. I think we&#39;re also at the exact same point with AI generated content, whether that&#39;s documentation, images, or bedtime stories. It&#39;ll get away with repeating itself for a while. Until the audience notices. And audiences always notice eventually, even five year old ones will.</p>
+<p>So if you&#39;re using AI for content, don&#39;t just accept the first draft&#39;s texture as final. Push it. Ask it to genuinely think differently, not just swap a few nouns. Creativity isn&#39;t AI&#39;s job to protect. It&#39;s ours.</p>
+<p>#AIAgents #Documentation #ContentCreation #DevOps #CreativeWork</p>
+<p>✏️ drafted with ai assist, because practicing what I preach.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Documentation Drifts. Here's How to Catch It.</title>
+    <link>https://iamrawtion.github.io/blogs/documentation-drifts-heres-how-to-catch-it.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/documentation-drifts-heres-how-to-catch-it.html</guid>
+    <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+    <description>&quot;Documenting the documentation.&quot; Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying. Actually...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Administration</category>
+    <category>AI Agents</category>
+    <category>AI/ML</category>
+    <category>DevOps</category>
+    <category>Documentation</category>
+    <content:encoded><![CDATA[<p><img src="https://media.licdn.com/dms/image/v2/D4D12AQHeV-rLfe973A/article-cover_image-shrink_720_1280/B4DZ_V6cnZHEAQ-/0/1786000304165?e=1791417600&v=beta&t=SXnvYnxcECyQkb-UvrjLyATdQytY-hlt4N3jfoezGAg" alt=""></p>
+<p>&quot;Documenting the documentation.&quot;</p>
+<p>Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying. Actually that&#39;s the phrase that hit me mid-conversation yesterday.</p>
+<p>In DevOps we talk about monitoring the monitoring system. You don&#39;t just set up alerts and walk away. You watch the watcher too, because if your monitoring breaks silently, you find out the hard way. We handle it mostly by using a 3rd party monitoring Saas tool or a completely different monitoring tool that is on a different infra to monitor our monitoring. Many a times, we also setup multiple monitoring tools to monitor each other.</p>
+<p>Turns out documentation has the exact same blind spot, that I realized yesterday.</p>
+<p>Here&#39;s the problem. Documentation itself isn&#39;t static, but the system around it should be. A proper guideline of how the docs should look consistent across.</p>
+<p>Think about what happens with two or three writers on the same knowledge base. </p>
+<ol>
+<li>One person is deeply technical, every article turns into a dense reference doc.</li>
+<li>Another writes for humans first, simple language, easy to follow, but a senior engineer might find it too light.</li>
+<li>A third writes in a fun, engaging tone that people love reading but that doesn&#39;t actually answer the question they came for.</li>
+</ol>
+<p>None of these people are wrong. But put them in the same wiki with no shared rules, and the documentation stops looking like one system. It may end up looking like three different people arguing.</p>
+<p>That&#39;s what documenting the documentation fixes. Not the content. The structure around the content. Heading formats. Whether an index is required. How many bullets before it&#39;s too many. Screenshot rules, including the boring but important one, don&#39;t reveal internal or customer details in a screenshot(Nothing says &#39;security incident&#39; like a screenshot where someone forgot to close the tab with the customer PI sitting right there). Whether emojis are fine or banned. Which kinds of diagrams are expected. Small decisions, but decided once, so nobody has to reinvent them article by article. Is humor ok. How much humor is ok? Procedure to build the context, etc.</p>
+<p>Two things break without this:</p>
+<ol>
+<li>When someone leaves the team, whoever replaces them has nothing to stand on. No rulebook, no shared style, just vibes and old examples to guess from.</li>
+<li>Even with the rules written down, you can&#39;t assume people will keep following them. Rules you hand someone on day one quietly erode by month six. Rules handed over on day one have a shelf life shorter than office milk.</li>
+</ol>
+<p>So the system needs an audit layer too. Not a one-time handoff. A recurring check.</p>
+<p>This is where it gets easier than it used to be. You write your rules once, in something like a <a href="http://CLAUDE.md">CLAUDE.md</a>, plain and specific. Then you let AI do the boring, repetitive part; scan every new article, and periodically scan the old ones too, and flag anything drifting from the standard. Wrong heading structure, missing index, a screenshot that shouldn&#39;t be there, tone that&#39;s drifted too casual or too dense. The AI doesn&#39;t decide what&#39;s true. It checks what&#39;s consistent. Humans still review before anything changes.</p>
+<p>Monitoring the monitoring system caught on in DevOps because someone finally said the obvious thing out loud, watch your watchers. Documentation needs its own version of that sentence.</p>
+<p>Document the documentation. Then audit it like you mean it.</p>
+<p>#Documentation #DevOps #KnowledgeManagement #AIAgents #TeamProcess</p>
+<p>✏️ drafted with ai assist, because practicing what I preach.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>CRO: The Career Stream Nobody Told You About</title>
+    <link>https://iamrawtion.github.io/blogs/cro-the-career-stream-nobody-told-you-about.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/cro-the-career-stream-nobody-told-you-about.html</guid>
+    <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+    <description>When I ask any of my student what they want to be? I mostly get one of the five answers: Developer, QA, Project Manager, Business Analyst, and now DevOps too....</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>A/B Testing</category>
+    <category>Administration</category>
+    <category>Analytics</category>
+    <category>Career</category>
+    <category>CRO</category>
+    <category>DevOps</category>
+    <category>Marketing</category>
+    <category>Sales</category>
+    <content:encoded><![CDATA[<p><img src="https://substackcdn.com/image/fetch/$s_!Reem!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F364ffc08-3e3f-4f76-ba60-1bbeb4351e47_1916x821.png" alt=""></p>
+<p>When I ask any of my student what they want to be? I mostly get one of the five answers: Developer, QA, Project Manager, Business Analyst, and now DevOps too.</p>
+<p>Nobody says “CRO”, because nobody knows it exists. A few years ago, this was the state with DevOps too :)</p>
+<h2>What Is CRO?</h2>
+<p>Conversion Rate Optimization. The job to figure out why people visit a website and leave without buying, signing up, or clicking the button, and then fixing it. Not by guessing but by testing, perhaps even by some coding.</p>
+<p>Here’s what you already know.</p>
+<ul>
+<li>Dev builds the product.</li>
+<li>QA makes sure it doesn’t break.</li>
+<li>BA figures out what the business needs.</li>
+<li>CRO figures out why real humans aren’t doing what the business hoped, and runs experiments to fix it. With lots of tools again.</li>
+</ul>
+<p>Tech, psychology, and data, all in one job.</p>
+<h2>Classic one: “But I’m Not Great at Coding”</h2>
+<p>If you don’t want to code at all. Stop reading here. Some coding will always be needed in all tech. But Relax! You don’t need DSA or LeetCode for this. What actually helps here is:</p>
+<ul>
+<li>Basic HTML/CSS, enough to know what “move the button above the fold” means. You learn this mostly in the initial classes, of course I am making some assumptions here.</li>
+<li>A little JavaScript, enough to talk to developers and state some requirement. Better if you could do it yourself.</li>
+<li>Comfort with numbers, enough to know 40% improvement means nothing if only 20 people saw it. Some exposure to good tools like Google Analytics.</li>
+</ul>
+<p>That’s it. CRO rewards curiosity about <strong>human behaviour</strong>, not coding depth.</p>
+<h2>A Day in CRO</h2>
+<p>Look at heatmaps. Watch session recordings of real users struggling. Check analytics reports. Understand human behavior. Form a hypothesis. Run an A/B test. Wait patiently (no declaring winners on Day 2). Read the results honestly. Tell a non-technical team what it all means.</p>
+<p>Partly a detective work, partly experiment design and most part is communication.</p>
+<h2>Why Should you do This</h2>
+<p>All freshers applying for a dev role are competing with a thousand others who did the same DSA course and built the same to-do app. CRO is comparatively empty. Businesses don’t jsut need hi-tech people, they also need a mix of both who get the tech and the human side of a website, and almost nobody of your age is positioning for it yet.</p>
+<p>Bonus: skills from Dev, QA, BA, and DevOps all transfer. So, you are not just starting from zero. You are switching lanes.</p>
+<h2>CRO in India, Right Now</h2>
+<p>The most exciting part for Indian students is here. India is now the world’s second-largest home for A/B testing software companies, behind only the US, according to <a href="https://tracxn.com/d/trending-business-models/startups-in-ab-testing-software/__88zuFnn_XyonFi8vyC8Pp979qbj_66uwliJeEU49S0g/companies">Tracxn data</a>. Some of the well-known tools in this space are all built by Indian founders. This isn’t a niche American thing you’re late to. It’s actively being built here, right now, with real jobs behind it.</p>
+<p>And it’s moving past “just buy a tool” into “build a culture around it,” with practitioner meetups and roundtables popping up in Indian cities. Translation: the ecosystem is young enough that showing up early actually means something. Some fo the recent events around it is something I keep posting about and you will hear more about it from me.</p>
+<p><strong>Reference:</strong> <a href="https://www.convert.com/blog/a-b-testing/best-ab-testing-tools-india/">Best A/B Testing Tools in India</a></p>
+<h2>Start This Week</h2>
+<ul>
+<li>Install <a href="https://clarity.microsoft.com/">Microsoft Clarity</a> (free) on any personal project and just watch how people use it</li>
+<li>Try <a href="https://www.convert.com/">Convert.com’s</a> 15-day free trial to see what an actual A/B testing tool looks like from the inside</li>
+<li>Learn the four experiment types: A/A, A/B, split URL, multivariate. At least start with the easiest ones i.e. A/A and A/B.</li>
+<li>Write one hypothesis: “If I change X, then Y will happen, because Z”. This is important. If you master this, you know how the product and its users/buyers interact.</li>
+<li>That’s pretty much it. (Of course more but I don’t want to scare you :) )</li>
+</ul>
+<hr>
+<p><em>I teach DevOps and cloud subjects to students, and work at Convert.com. Curious about CRO? Drop a comment.</em></p>
 ]]></content:encoded>
   </item>
   <item>
@@ -177,6 +382,640 @@
 <p>Handle platform API failures gracefully. LinkedIn has rate limits. Twitter&#39;s API has changed pricing and access tiers multiple times. Instagram&#39;s API access for automated posting is restricted. If one platform is down or returns an error, the pipeline shouldn&#39;t fail the whole batch — it should log the failure, skip that destination, and continue. Partial success is better than total failure.</p>
 <p>Keep a posting log. A simple record of what went out, when, and to which platform makes the system auditable. If something gets posted twice, or a post goes missing, you can trace it. Without a log, you&#39;re debugging from memory.</p>
 <p>The dedup logic I built first was the right instinct — preventing duplicate posts matters and it&#39;s easy to miss. I just needed to close the loop on the infrastructure before moving on to the next interesting problem.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Part 3: How to Decide Which CRO Test to Run First</title>
+    <link>https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>A/B Testing</category>
+    <category>Administration</category>
+    <category>Agent Governance</category>
+    <category>AI Agents</category>
+    <category>Analytics</category>
+    <category>AI/ML</category>
+    <category>Automation</category>
+    <category>CRO</category>
+    <category>CRO</category>
+    <category>Marketing</category>
+    <category>Sales</category>
+    <content:encoded><![CDATA[<h2>Because the loudest idea in the room is not always the best experiment.</h2>
+<p>In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and multivariate testing. I also introduced the formula that quietly changed how I think about experimentation:</p>
+<p><strong>Success = Chance × Frequency</strong></p>
+<p>Once that clicked, I assumed the next step would be simple.</p>
+<p>Pick an idea &gt; Run a test &gt; Measure it &gt; Repeat.</p>
+<p>Then I actually tried to do it. Because once people around you start thinking in CRO terms, ideas come from everywhere.</p>
+<p>The designer wants to test the hero image. The founder wants to rewrite the pricing page because “it does not feel premium enough.” Someone from sales heard that a competitor changed their CTA and now wants to copy it immediately. Someone read a blog at midnight and suddenly wants to add a chatbot, a quiz, a floating banner, and possibly a dancing mascot.</p>
+<p>Before you know it, your experiment backlog looks like a Jira board after a chaotic sprint planning session.</p>
+<ul>
+<li>Lots of tickets.</li>
+<li>Very little structure.</li>
+<li>Everyone convinced their idea is the one that will change the company’s destiny.</li>
+</ul>
+<p>This is where prioritization comes in. Not because prioritization makes you smarter, but because it protects the experimentation program from becoming purely opinion-driven. And in CRO, opinions can multiply faster than credit card debts.</p>
+<h2>The Hidden Cost of Running the Wrong Test</h2>
+<p>At first, “let’s just test this” sounds harmless. CRO is about experimentation, right? Just run everything. But every test has a cost.</p>
+<p>Even when the testing tool makes setup easy, a test still consumes traffic, time, design effort, analysis attention, and usually a couple of weeks of your roadmap. If your site has enough traffic to run two meaningful tests this month, and your backlog has twenty ideas, running the wrong two means you delayed the better ones. That is not a small cost.</p>
+<p>This felt immediately familiar from Devops work. You do not deploy every feature request just because someone suggested it in a meeting with confidence and a nice slide deck. You triage. You look at impact, risk, effort, dependencies, and what the system is actually telling you before you start making changes.</p>
+<p>CRO needs the same discipline. An idea is not valuable because it sounds smart in a meeting. It becomes valuable when it is connected to evidence and scored against other ideas in the backlog.</p>
+<h2>The HiPPO Problem</h2>
+<p>Before getting into frameworks, there is a force you need to understand. It quietly kills many CRO programs. It is called the <strong>HiPPO</strong>: the <strong>Highest Paid Person’s Opinion</strong>. Every team has one. In fact there is a rude saying about opinions. “Opinions are like…” (<em>well… Google it</em>)</p>
+<p>The senior leader who says, “I think the button should be green,” and suddenly the next sprint is about button colors. The founder who saw a competitor’s landing page and wants to rebuild yours to match it by Thursday. The VP who has “a feeling” about the checkout flow. The stakeholder who says, “Can we just test it?” in the same tone people use before creating six months of technical debt.</p>
+<p>To be fair, these inputs are not useless. People close to the business often have genuine intuition worth exploring. Sales teams hear objections. Support teams hear confusion. Founders understand positioning. Product teams know what users struggle with. The problem is not the idea. The problem is when the idea skips the queue without being scored.</p>
+<p>In DevOps, we do not prioritize incident response based on who is shouting loudest in Slack. At least, we should not. We prioritize based on system impact and what the metrics are actually saying.</p>
+<p>CRO needs the same structure. A prioritization framework is your polite defense against the HiPPO.</p>
+<p>You are not saying: “No, your idea is bad.”</p>
+<p>You are saying: “Great, let’s score it the same way we score everything else. If it ranks high, it goes first.”</p>
+<p>That small shift changes the conversation. The framework depersonalizes the argument. The number does the heavy lifting. Very convenient, because numbers do not get awkward in meetings.</p>
+<h2>Start With the Funnel, Not the Idea</h2>
+<p>Before scoring individual test ideas, figure out where to look first. Not every page deserves equal attention. A page with very little traffic will take forever to produce statistically meaningful results. A page with high traffic but no meaningful business impact may still not be worth optimizing ahead of a page that sits directly in the conversion path.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*SdrqHf6x3P9zjNXl-qs0hA.png" alt="">
+So before asking: “What should we change?” ask, “Where are we losing people?”, and then. Map your funnel.</p>
+<p>For an e-commerce site, it might look like this:</p>
+<p>Landing page &gt; Product page &gt; Cart &gt; Checkout &gt; Purchase</p>
+<p>For SaaS, it might look like this:</p>
+<p>Homepage &gt; Pricing page &gt; Signup &gt; Activation &gt; Paid conversion</p>
+<p>For lead generation, it might look like this:</p>
+<p>Landing page &gt; Form view &gt; Form start &gt; Form submit &gt; Qualified lead</p>
+<p>Then look at where the biggest drops are happening. If 70% of users are abandoning at checkout, testing a homepage headline is probably not the first move.</p>
+<ul>
+<li>It might be interesting.</li>
+<li>It might even win.</li>
+<li>But it is probably not where the biggest leak is.</li>
+</ul>
+<p>Analogy in DevOps: If the database is causing 90% of your latency, shaving 20ms off a frontend asset is not the priority. Sure, the frontend improvement may look nice in a performance report. But the database is still sitting there like an overloaded elephant in the server room.</p>
+<p>Find the bottleneck first. Then fix it. In CRO, high-traffic pages close to revenue, signup, checkout, or lead generation are your hot paths. Start there.</p>
+<p><strong>Small disclaimer:</strong> <em>Read at your own risk. This may make you hungry</em></p>
+<h2>The Two Frameworks: ICE and PIE</h2>
+<p>Once you know which pages to focus on, you need a way to score the ideas sitting in your backlog. Two common prioritization frameworks in CRO are <strong>ICE</strong> and <strong>PIE</strong>. Both are simple, both use overlapping dimensions and both are easier to remember if you stop thinking about frameworks and start thinking about food. Which, honestly, improves most business concepts. ;)</p>
+<h2>ICE: Ordering Food at Midnight</h2>
+<p>ICE stands for:</p>
+<ul>
+<li><strong>Impact</strong></li>
+<li><strong>Confidence</strong></li>
+<li><strong>Ease</strong></li>
+</ul>
+<p>Think of ICE as ordering food on delivery app at 11 pm. You are hungry. You are tired. You are already in bed. This is not the time for adventure. You are not trying to discover a hidden culinary gem. You are trying to avoid sleeping angry. You see a biryani place.</p>
+<p>Before you tap “Order,” three thoughts happen automatically.</p>
+<p>First:</p>
+<p><strong>“How good is this actually going to be?”</strong></p>
+<p>If it is bad biryani, why bother?</p>
+<p>That is <strong>Impact</strong>.</p>
+<p>Second:</p>
+<p><strong>“Can I trust this place right now?”</strong></p>
+<p>Will it arrive hot, on time, and with raita? Or will it arrive cold, late, and missing the one thing that emotionally holds the whole meal together? You check the rating, reviews, delivery time, and whether someone recently complained that they received only rice and sadness.</p>
+<p>That is <strong>Confidence</strong>.</p>
+<p>Third:</p>
+<p><strong>“How easy is this?”</strong></p>
+<p>Is the restaurant open? Is delivery available? Will it reach in 25 minutes, or will the app say “arriving soon” until you lose hope? Will it ask you to verify your phone number again even though it has known you for five years?</p>
+<p>That is <strong>Ease</strong>.</p>
+<p>ICE is practical and slightly paranoid. It wants evidence before committing.</p>
+<p>In CRO terms:</p>
+<p><strong>Impact</strong> asks: If this test wins, how much could it move the business?
+<strong>Confidence</strong> asks: How sure are we that this is a real problem worth testing?
+<strong>Ease</strong> asks: How difficult will this be to build, QA, launch, and analyze?</p>
+<p>Score each dimension from 1 to 5. Then average the three. The highest-scoring ideas usually go first. ICE works especially well when you already have research data: heatmaps, recordings, analytics, surveys, support tickets, or past experiment learnings. Low confidence should lower the score, no matter how exciting the idea sounds.</p>
+<p>Because “I saw this on a competitor site” is not research. It is browsing with ambition.</p>
+<h2>PIE: Choosing What to Order When You Have Options</h2>
+<p>PIE stands for:</p>
+<ul>
+<li><strong>Potential</strong></li>
+<li><strong>Importance</strong></li>
+<li><strong>Ease</strong></li>
+</ul>
+<p>Now stay in the same food delivery app. You are still hungry. It is still 11 pm. You still should have eaten earlier like a responsible adult, but here we are. This time, you are not evaluating one biryani place. You are deciding what category of food deserves your attention first.</p>
+<p>Biryani? Pizza? Rolls? South Indian? Chinese? That one “healthy bowl” option you add to cart and then remove after seeing the price? PIE helps you decide where the biggest opportunity is.</p>
+<p>First:</p>
+<p><strong>“How good could this get?”</strong></p>
+<p>Could this be the kind of meal that fixes your mood, your evening, and possibly your belief in humanity?</p>
+<p>That is <strong>Potential</strong>.</p>
+<p>Second:</p>
+<p><strong>“How important is this meal?”</strong></p>
+<p>Is this a casual snack, or have you skipped dinner and now your stomach is sending production-level alerts?</p>
+<p>That is <strong>Importance</strong>.</p>
+<p>Third:</p>
+<p><strong>“How easy is it to get?”</strong></p>
+<p>Is it nearby and deliverable in 25 minutes, or is the restaurant far away, closing soon, and likely to cancel after making you wait?</p>
+<p>That is <strong>Ease</strong>.</p>
+<p>PIE is more optimistic than ICE.</p>
+<p>ICE asks, “Can I trust this specific choice?”</p>
+<p>PIE asks, “Where is the biggest opportunity?”</p>
+<p>In CRO terms:</p>
+<p><strong>Potential</strong> asks: How much improvement could this page or funnel step realistically have?
+<strong>Importance</strong> asks: How valuable is this page or funnel step to the business?
+<strong>Ease</strong> asks: How simple or difficult is the test to implement?</p>
+<p>PIE is useful when you are comparing broader areas of opportunity.</p>
+<p>For example, if you are deciding whether to focus on the homepage, pricing page, checkout, signup form, or onboarding flow, PIE can help you decide where the biggest opportunity may be.</p>
+<p>So, in food delivery terms:</p>
+<p><strong>ICE helps you decide whether to trust one restaurant.
+PIE helps you decide which food category is worth exploring first.</strong></p>
+<h2>ICE vs PIE: The One-Line Difference</h2>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*Icx99EiSjuUCFd1txFziLA.png" alt="">
+Here is the easiest way I remember them:</p>
+<ol>
+<li>ICE helps you decide whether to trust one restaurant. PIE helps you decide which food category is worth exploring first.</li>
+<li>ICE is about confidence. Can I trust this specific option to deliver? PIE is about opportunity. Which area has the biggest upside if I focus there? Same food app. Different thinking.</li>
+<li>With ICE, you are asking: “Should I order from this biryani place?” With PIE, you are asking: “Should I even be looking at biryani first, or is pizza, rolls, South Indian, or Chinese the better opportunity tonight?”</li>
+<li>Both end with Ease, because nobody wants unnecessary complications at 11 pm. Especially not when they are hungry and the app is already saying, “Restaurant is closing soon,” like it is adding pressure to your life.</li>
+</ol>
+<h2>Which Framework Should You Use?</h2>
+<p>Use <strong>ICE</strong> when your team already has research data and wants to prioritize based on evidence. ICE is useful when you are evaluating a specific hypothesis. For example:</p>
+<p>“Should we move the CTA above the fold on the pricing page?”</p>
+<p>You already have heatmap data. You know users are not scrolling far enough. You want to know whether this specific idea deserves to be tested next. That is ICE.</p>
+<p>Use <strong>PIE</strong> when you are earlier in the process and still deciding where the biggest opportunity is.</p>
+<p>For example:</p>
+<p>“Should we focus on the homepage, pricing page, checkout flow, signup form, or onboarding?”</p>
+<p>That is PIE.</p>
+<p>At Convert.com, the Compass feature includes both PIE and ICE inside the hypothesis builder. When you create a new hypothesis, you can choose a framework, score each dimension on a scale of 1 to 5, and use that score to sort your backlog.</p>
+<p>That helps because the score becomes visible to everyone. It is much harder to push your pet idea to the top when the number is sitting right there on the screen, judging you quietly. A visible score is like the delivery rating on a food app. You can still order from the suspicious restaurant. But now everyone can see that it has 2.3 stars and seven reviews mentioning “never again.”</p>
+<h2>Turn Ideas Into Hypotheses Before You Score Them</h2>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*kJU7bp0I3BglGj0lNOu8Rw.png" alt="">
+One thing both frameworks require is that your ideas are written properly before scoring.</p>
+<p>“Change the button color” is not a hypothesis.</p>
+<p>“Move the CTA above the fold” is not a hypothesis.</p>
+<p>“Make the page look more premium” is definitely not a hypothesis.</p>
+<p>That is a mood.</p>
+<p>A proper hypothesis looks like this:</p>
+<p><strong>If I change X, then Y will happen, because Z.</strong></p>
+<p>The “because” is the most important part. Without it, you are not testing an assumption. You are just making a change and hoping the graph goes up, which is basically the CRO version of deploying to production and whispering, “Please work.”</p>
+<p>Or, to stay with the food delivery analogy, it is like ordering from a restaurant with no ratings because the photo looked nice. Could it be amazing? Maybe. Could it be regret in a plastic container? Also maybe.</p>
+<p>For example:</p>
+<p><strong>If we move the main CTA above the fold on the pricing page, more visitors will start the demo request flow, because heatmaps show most users are not scrolling far enough to see the current CTA.</strong></p>
+<p>Now you have something worth scoring.</p>
+<p>You know:</p>
+<ul>
+<li>The page</li>
+<li>The change</li>
+<li>The expected outcome</li>
+<li>The evidence behind it</li>
+</ul>
+<p>Even if the test loses, you learn something specific. A backlog full of vague ideas becomes a dumping ground. A backlog full of hypotheses becomes a learning system.</p>
+<p>Or in food terms:</p>
+<p>“Order something nice” is not useful.</p>
+<p>“Order from a highly rated nearby restaurant because delivery time is low and reviews mention fresh food” is much better.</p>
+<p>Specificity saves you from bad decisions. And occasionally, bad paneer.</p>
+<h2>The One Thing ICE and PIE Get Wrong</h2>
+<p>ICE and PIE are useful, but they share a blind spot. They often treat every idea as if it exists in a vacuum. But it does not.</p>
+<p>Every idea exists inside the history of your previous tests. If you have run five tests on your pricing page and four of them lost, your confidence score for the next pricing-page idea should reflect that history. Something on that page may be resisting your assumptions.</p>
+<ul>
+<li>Maybe the traffic quality is different from what you expected.</li>
+<li>Maybe the real problem is upstream in the funnel.</li>
+<li>Maybe people already understand the pricing page, and the actual friction is in signup.</li>
+<li>Maybe your pricing page is innocent and has been framed by bad hypotheses.</li>
+</ul>
+<p>The same applies to food delivery. If you have ordered from the same restaurant four times and three times they forgot the raita, you should not treat the fifth order like a fresh mystery.</p>
+<p>You have history. Use it. Past experiment results should feed into how you score new ideas. They should not sit inside a spreadsheet named something like: final_results_v3_really_final_updated_NEW.xlsx</p>
+<p>This is why documentation matters as much as the framework itself.</p>
+<p>After every experiment, write down:</p>
+<ul>
+<li>The hypothesis</li>
+<li>The result</li>
+<li>The confidence level</li>
+<li>The primary metric</li>
+<li>The key learning</li>
+<li>What it suggests about the next test</li>
+</ul>
+<p>Even a losing test is useful if it tells you where not to look. Without this history, your backlog resets to zero every quarter. With it, your scoring gets more accurate over time because you are building a picture of what your specific audience actually responds to. A CRO backlog without documentation is like a food app that forgets every bad order you ever had. You keep making the same mistake. And somehow, the raita is still missing.</p>
+<h2>What to Do When Everything Scores the Same</h2>
+<p>Sometimes three ideas all score 4.2 and suddenly you are back in the same argument. This is normal. Frameworks help, but they do not eliminate judgment. A few tiebreakers can help. Pick the page with the most traffic. More visitors usually means faster results and less time waiting for statistical significance.</p>
+<p>In food delivery terms, this is like choosing the restaurant with enough recent orders and reviews. If only two people have ordered from it since 2021, the rating may not tell you much.</p>
+<p>Pick the test that is fastest to build. A high-scoring idea that takes three weeks of development work may be worth doing after a slightly lower-scoring idea you can ship in a day. Remember the frequency side of the success formula.</p>
+<p>This is the difference between ordering something that arrives in 25 minutes and choosing a dish that says “preparation time: 95 minutes.”</p>
+<p>Technically, it may be great. Emotionally, you may not survive. Pick the test that teaches you the most regardless of outcome. Learning value is underrated. A test that answers a fundamental question about your audience is worth more than a test that optimizes something already working reasonably well.</p>
+<p>In other words, do not only ask:</p>
+<p><strong>“What might win?”</strong></p>
+<p>Also ask:</p>
+<p><strong>“What will we learn even if this loses?”</strong></p>
+<p>That question saves a lot of time. And occasionally, a lot of ego.</p>
+<h2>Define Success Before You Launch, Not After</h2>
+<p>One mistake that shows up in beginner backlogs is choosing the primary metric after the test has already started. That is dangerous. If you look at enough metrics, something will always appear to have improved.</p>
+<ul>
+<li>Clicks went up.</li>
+<li>Scroll depth changed.</li>
+<li>Form starts increased.</li>
+<li>Time on page looked different.</li>
+<li>Someone in Nebraska spent 14 minutes reading the footer.</li>
+</ul>
+<p>But what was the experiment actually supposed to improve? Every test needs a primary metric before launch.</p>
+<ul>
+<li>Demo requests.</li>
+<li>Purchases.</li>
+<li>Trial signups.</li>
+<li>Form completions.</li>
+<li>Revenue per visitor.</li>
+</ul>
+<p>Pick one. Commit to it. Let that metric make the call. This is like deciding what “good food” means before ordering. Are you optimizing for taste? Delivery speed? Price? Portion size? Not waking up with regret? If you decide after the food arrives, you can justify anything.</p>
+<p>“The biryani was cold, but the container was sturdy.”</p>
+<p>That is not success. That is coping. You can still watch secondary metrics for learning, but the decision should rest on the primary one. And alongside your primary metric, define your guardrail metrics. These are the things you are not directly trying to improve, but cannot afford to break. For example:</p>
+<ul>
+<li>If you are optimizing demo signups, lead quality should not drop.</li>
+<li>If you are optimizing checkout completion, average order value should not fall.</li>
+<li>If you are optimizing form completion, spam submissions should not explode.</li>
+<li>If you are optimizing clicks, downstream conversions should not suffer.</li>
+</ul>
+<p>This is the CRO version of SLOs. You define what success looks like and what failure looks like before you are emotionally invested in the outcome. A test that increases clicks while damaging qualified leads is not a win. It is noise wearing a party hat.</p>
+<p>Or in food delivery terms: A restaurant that delivers in 12 minutes but sends the wrong order did not “win on speed.” It failed dinner.</p>
+<h2>A Practical First Backlog</h2>
+<p>If you are starting from zero, here is the workflow I would follow.</p>
+<ul>
+<li>Map your funnel and identify the biggest drop-off point.</li>
+<li>Use heatmaps, session recordings, analytics, surveys, and any sales or support feedback you can access.</li>
+<li>Write down every test idea without judging too early.</li>
+<li>Convert each idea into a proper hypothesis using the “If X, then Y, because Z” format.</li>
+<li>Score each one using ICE or PIE.</li>
+<li>Pick one high-scoring, reasonable-effort test.</li>
+<li>Define the primary metric and guardrail metrics before launch.</li>
+<li>Run the test.</li>
+<li>Document the result and the learning.</li>
+<li>Then re-score the backlog based on what you now know.</li>
+</ul>
+<p>That last step is what most teams skip. And it is what separates a backlog that compounds from one that stagnates. A CRO backlog should not be a parking lot where ideas go to quietly disappear. It should be more like a living system.</p>
+<p>Or, to stay on brand, a well-maintained CI/CD pipeline for learning. Every test should make the next decision smarter. Just like every food order teaches you something.</p>
+<ul>
+<li>Restaurant is reliable.</li>
+<li>Delivery is slow on weekends.</li>
+<li>The “extra spicy” option is not a personality test you need to pass.</li>
+<li>Never trust a place where every menu item has the same stock photo.</li>
+</ul>
+<p>Learning compounds when you write it down.</p>
+<h2>The Real Takeaway</h2>
+<p>Prioritization is not about finding the cleverest idea. It is not about the biggest redesign. It is not about the most senior opinion in the room. It is about running the tests that have the best combination of meaningful impact, strong evidence, reasonable effort, and clear learning potential. Done consistently, this turns CRO from a collection of random experiments into a learning system. You find the biggest leaks, collect evidence, write hypotheses, score ideas, run the most valuable tests first, document what happened and then repeat.</p>
+<p>The DevOps parallel is hard to miss. Good infrastructure teams do not just ship more changes. They improve how they decide what to change, how they measure it, and how they learn from it.</p>
+<p>Good CRO teams do exactly the same thing. And the food delivery parallel is also hard to miss. The goal is not to order everything on the menu. The goal is to make better choices each time, based on what you know, what matters, what is realistic, and what you learned last time.</p>
+<p>That is prioritization.</p>
+<p>In the next post, I want to go deeper into reading results without fooling yourself: statistical significance, confirmation bias, and why the most dangerous moment in CRO is when a test is almost winning.</p>
+<p>I work with Convert.com and write about the intersection of DevOps and experimentation. If you are building your first CRO backlog or trying to move your team away from opinion-driven testing, drop a comment or reach out. Happy to compare notes.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>From a zip file in 2020 to an AI-powered wiki in 2026. Here's what happened in between</title>
+    <link>https://iamrawtion.github.io/blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html</guid>
+    <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Someone on the team once asked about a feature deprecated back in 2020. 45 minutes of digging through backups, old slack threads, a google doc nobody had...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+
+    <content:encoded><![CDATA[<ul>
+<li></li>
+</ul>
+<p>Someone on the team once asked about a feature deprecated back in 2020.</p>
+<p>45 minutes of digging through backups, old slack threads, a google doc nobody had touched in years, and the answer eventually showed up inside a zip file. Like a digital archaeological dig. Except less cool and more frustrating.</p>
+<p>That moment made it clear to me that something needed to change. This post is about what the team figured out together.</p>
+<p><strong>Part 1: An old hero called MDWiki</strong></p>
+<p>Before getting to the AI part, here&#39;s a tool that ended up being central to the whole thing.</p>
+<p>Years ago, there was a situation many people would remember. I was in a pilot batch at a new office location for an MNC. Fresh start, no internal tools, no documentation platform, no proper handover process. Knowledge transfer from HQ was slow, questions were piling up, answers were scattered everywhere.</p>
+<p>MDWiki turned out to be the answer. Its an old tool, almost ancient by tech standards, but brilliant in its simplicity. plain markdown files in a folder, and it renders a full documentation site. no database, no server setup, no hosting complexity. just files.</p>
+<p>Hosting it on OneDrive meant the whole company could sync it locally. suddenly every team had a shared wiki that worked offline, updated automatically when anyone saved a file, and needed zero infrastructure to maintain. Lightweight, fast, and it worked. sometimes old tools solve new problems better than anything shiny.</p>
+<p><strong>Part 2: The scale problem every growing team eventually hits</strong></p>
+<p>Fast forward to now. At a certain point, documentation at our company had simply outgrown the way it was being managed. Knowledge contributed by multiple team members over years. text files, images, screenshots, video recordings, architecture diagrams, slack conversations, meeting notes, product threads. Rich, honest knowledge built up over time by people who genuinely cared.</p>
+<p>But here is what happens at scale. When knowledge lives across too many places, it becomes hard to navigate. some topics had multiple versions, each slightly evolved from the last. naturally, over time, some overlap crept in. This is not a people problem. Its a growth problem. every team that ships consistently runs into this. knowledge compounds faster than anyone can manually organise it.</p>
+<p>And when someone moves on, a little undocumented context moves with them. not because they were careless, but because there was no system to capture it before it walked out the door. that gap needed closing, and honestly it was on us as a team to fix it sooner.</p>
+<p><strong>Part 3: Andrej Karpathy walked in (virtually)</strong></p>
+<p>That&#39;s when we came across Andrej Karpathy&#39;s LLM-Wiki idea. if you don&#39;t know Karpathy, he was a founding member of OpenAI and Tesla&#39;s AI director. when he writes something, the internet pays attention.</p>
+<p>His idea is elegant. Stop treating your knowledge base as a place humans write into. treat it like a git repo. let the LLM own the writing layer. humans write exactly one file by hand, a schema file that defines the rules, structure, and conventions. Everything else? the LLM reads raw sources and builds the wiki, maintaining it as new content comes in.</p>
+<p>The wiki becomes a persistent, compounding artifact. it gets richer with every source added. cross references are already there. contradictions get flagged. the synthesis reflects everything that has been added, not just the last thing someone remembered to update. Brought it to the team. We decided it was worth trying.</p>
+<p><strong>Part 4: What we built together</strong></p>
+<p>We combined LLM-Wiki with MDWiki and added a CI/CD layer on top. Here is how the whole thing works.</p>
+<p>Three layers.</p>
+<p><strong>Raw folder.</strong> all source material goes here. old docs, slack exports, meeting notes, screenshots, video transcripts, architecture diagrams. untouched, immutable. source of truth.</p>
+<p><a href="http://CLAUDE.md"><strong>CLAUDE.md</strong></a><strong>.</strong> the one file written by hand. it teaches Claude how MDWiki works, what the folder structure looks like, title formats, how to handle overlapping topics, what goes where, and when to flag something for human review instead of auto-placing it. the rulebook for the entire system.</p>
+<p><strong>The wiki itself.</strong> Claude reads whatever lands in the raw folder and writes, organises, and cross-links the markdown files in MDWiki format. every document lands in the right place, correctly formatted, connected to related pages.</p>
+<p>And the most important part, the human review layer. Any team member can drop a document into the raw folder and raise a pull request on GitHub. a reviewer steps in before anything gets merged. they check:</p>
+<ul>
+<li>Is this information still accurate or has the process changed?</li>
+<li>Does this conflict with something already in the wiki?</li>
+<li>Is there any sensitive information, credentials, or customer data that shouldn&#39;t be here?</li>
+<li>Is this still relevant or does it describe something no longer in use?</li>
+<li>Does the framing match our internal style and audience?</li>
+</ul>
+<p>Once the PR is approved, Claude adds the knowledge to the wiki, formats it for MDWiki, cross-links it with related content, and updates the index. A GitHub Actions pipeline deploys the whole thing to Google Firebase. every approved merge triggers a deployment. the team sees the updated wiki within minutes, no manual publishing needed.</p>
+<p><strong>Part 5: The Guardrail reminder</strong></p>
+<p>This one bears repeating, and it came from a hard conversation within the team early on. Claude has write access to the knowledge base. and we made sure it cannot merge its own PRs.</p>
+<p>Not because we don&#39;t trust the model, but because nobody should. a recent research paper tested 19 LLMs on long document editing workflows and found that even the best models, GPT, Claude, Gemini, silently corrupt an average of 25% of content over time. not crashing, not warning anyone. just quietly getting things wrong as the workflow gets longer.</p>
+<p>The human review step is not a formality. its the most load-bearing part of the whole pipeline. we almost skipped it to move faster. Glad we didn&#39;t. Automation without a review layer is not a knowledge base. its a very confident source of misinformation.</p>
+<p>If you&#39;re building something similar or thinking through your own documentation architecture, drop a comment. happy to share more on the setup.</p>
+<p><strong>Ref</strong></p>
+<ul>
+<li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy&#39;s LLM-Wiki gist</a></li>
+<li><a href="https://dynalon.github.io/mdwiki/#!index.md">MDWiki</a></li>
+</ul>
+<p>#Documentation #DevOps #LLMWiki #KnowledgeManagement #GitHub #MDWiki #AIAgents #GitHubActions #Firebase</p>
+<h3>Note for student readers</h3>
+<p>If you&#39;re in college and hunting for internships, stay with me for one more minute. This entire system works because of one thing: markdown. MDWiki renders it. Claude writes it. GitHub versions it. Firebase serves it. the whole pipeline has markdown at the center.</p>
+<p>Markdown is not a niche skill. its the common language of documentation across DevOps, software engineering, product teams, and now AI pipelines. When you write a <a href="http://README.md">README.md</a> on GitHub you&#39;re not just leaving notes for yourself. you&#39;re showing every hiring manager who lands on your profile that you think about the person coming after you. that&#39;s rarer than it sounds.</p>
+<p>Most students push code and skip the README. don&#39;t be most students. Simplest thing you can do this week: go to your best GitHub project and write a proper <a href="http://README.md">README.md</a>. not just &quot;this is my project.&quot; write what it does, what problem it solves, how to run it, and what you learned building it.</p>
+<p>That one file will do more for your internship hunt than a fancy resume template. Markdown today. Opportunity tomorrow.</p>
+<p>✏️ drafted with ai assist, because practicing what I preach.*</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Part 2: The Experiments That Actually Move the Number</title>
+    <link>https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html</guid>
+    <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+    <description>If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>A/B Testing</category>
+    <category>Administration</category>
+    <category>AI Agents</category>
+    <category>AI/ML</category>
+    <category>CRO</category>
+    <category>CRO</category>
+    <category>DevOps</category>
+    <content:encoded><![CDATA[<p>If you read the <a href="https://medium.com/@iamrawtion/from-apache-benchmark-to-a-b-testing-a-devops-guys-cro-journey-5ff76a502363">first post</a> in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on some combination of Clarity, GA4, and Convert.com(sshhh… I work for them).</p>
+<p>Maybe you even opened a heatmap, stared at the colors for a while, and thought: “Okay. Now what?”</p>
+<p>This post is that now what.</p>
+<p>Once you understand the basics of CRO, the next challenge is figuring out what kind of experiment to run. A/A test? A/B test? Split URL test? Multivariate test? They all sound similar at first, but they solve different problems at different stages.</p>
+<p>And if you are coming from a technical background, the temptation is to overthink the setup before shipping anything. I know, because that is exactly what I started doing.</p>
+<p>So let’s break down the main experiment types, when to use each one, and how to think about them without getting stuck. I will also share a formula from a CRO course I have been working through that quietly changed how I think about the whole thing.</p>
+<h2>The Four Experiment Types, Explained Without Jargon</h2>
+<h3>1. A/A Testing</h3>
+<p>Before you trust your first experiment result, run an A/A test.</p>
+<p>In an A/A test, both groups see the exact same page. No headline change, no button change, no layout change. Nothing at all. The purpose is not to improve conversions. The purpose is to check whether your measurement setup is actually trustworthy.</p>
+<p>If your tool is configured correctly, both groups should show roughly similar conversion rates over time. If they do not, something is off with how traffic is being split, how visitors are being tracked, or how conversions are being recorded.</p>
+<p>The DevOps parallel is straightforward. You would not set up Prometheus alerts on a misconfigured scrape target and then make infrastructure decisions based on that data. An A/A test is the same idea: confirm the instrument is working before you start using it to make calls.</p>
+<p>A lot of teams skip this because it feels boring. There is no variation, no redesign, no winner to announce. But if your measurement layer is broken, every A/B test after this becomes questionable. You may spend weeks debating a result that was never reliable in the first place.</p>
+<p>On Convert.com, setting up an A/A test takes about three minutes. Do it before anything else, and leave it running for at least a week.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*auaB7pqicBaOi-euyIJW6g.png" alt=""></p>
+<h3>2. A/B Testing</h3>
+<p>Once your A/A test passes, you are ready to actually experiment.</p>
+<p>An A/B test compares two versions of something. Version A is the original, called the Control. Version B is the changed version, called the Variant. You split traffic between the two and measure which one performs better on your chosen metric.</p>
+<p>The element you change could be a headline, a CTA button, a hero image, a form layout, a pricing message, anything on the user journey. The constraint is this: change one meaningful thing at a time.</p>
+<p>If you change the headline, button color, pricing layout, and image all in the same test, and the variant wins, you have no idea what actually caused the lift. You got a result but no learning.</p>
+<p>The DevOps analogy that clicked for me: a clean commit. If one commit touches ten unrelated files and something breaks, debugging is painful. If one commit changes one logical thing, the cause is much easier to trace.</p>
+<p>A good A/B test starts with a hypothesis in this format: “If I change X, then Y will happen, because Z.”</p>
+<p>For example: “If I change the CTA text from ‘Buy Now’ to ‘Get Your Copy Today,’ then more visitors will click through to checkout, because the new copy feels less transactional and creates a stronger sense of ownership.”</p>
+<p>The “because” is the part most people skip, and it is the most important part. Without it, you are not testing a hypothesis. You are just nudging things and hoping the graph goes up.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*0w5KXlIqqcGDLi14nHJIsg.png" alt=""></p>
+<h3>The confusion between A/A testing and A/B testing</h3>
+<p>I was always confused as to why A/A and A/B testing are needed. If you are also in the same state, here is a crude example that may simplify it.</p>
+<p><strong>A/A Testing: The Paranoid Caterer</strong></p>
+<p>You are catering a wedding. You make one giant pot of biryani. You serve it to Table 1 and Table 2 from the same pot, same quantity, same everything.</p>
+<p>Table 1 finishes 95 plates. Table 2 finishes 30 plates.</p>
+<p>You have not changed anything. Both tables got identical food. So why is Table 2 eating so little?</p>
+<p>You investigate. Turns out the waiter assigned to Table 2 was busy on his phone and forgot to refill the serving bowls.</p>
+<p>The biryani was not the problem. The delivery system was broken.</p>
+<p>That is an A/A test. Before you start testing new recipes, you confirm that the serving system itself is not lying to you.</p>
+<p><strong>A/B Testing: The Sensible Caterer</strong></p>
+<p>Same wedding. You make two versions of biryani. Version A has the usual spice level. Version B has a little more pepper because your cousin who went to Bangalore said people there like it spicy now.</p>
+<p>You serve Version A to the left side of the hall and Version B to the right side. You count which side finishes faster, asks for seconds more often, and complains less to the mother of the bride.</p>
+<p>One change. One comparison. One winner.</p>
+<p>You do not also change the raita, the naan, the serving bowl size, and the background music at the same time. Because if the right side loved it, you will never know if it was the pepper or the fact that the DJ on that side was finally playing something decent.</p>
+<p>So:</p>
+<p><strong>A/B test: “Which version is better?”
+ A/A test: “Can I trust the test setup?”</strong></p>
+<h3>3. Split URL Testing</h3>
+<p>A standard A/B test usually changes something on the same page. The URL stays the same and the testing tool modifies what users see. Split URL testing is different: users are sent to entirely different URLs.</p>
+<p>Control: /pricing. Variant: /pricing-v2. Traffic is split between them.</p>
+<p>Use this when the change is large enough that modifying the existing page gets messy. Major redesigns, completely different landing page structures, new checkout flows, testing a long-form page against a shorter one. If it is a minor copy tweak, A/B is faster and simpler. If you are rebuilding the page from scratch, Split URL is cleaner.</p>
+<p>The infrastructure analogy is blue-green deployment: two versions running simultaneously, traffic routed between them at the experimentation layer instead of the load balancer. Same principle, different domain.</p>
+<p>One thing to watch carefully: tracking consistency. Both pages need to fire the same analytics events and conversion tracking correctly. A common mistake is having GA4 or pixel tracking set up on the original page but missing or misconfigured on the variant. When that happens, the variant looks like it is losing when the actual problem is your observability. As DevOps people know well, bad telemetry makes healthy systems look broken.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*PgjRO-HPFc4jHFjQYE74Ww.png" alt=""></p>
+<h3>4. Multivariate Testing</h3>
+<p>A/B testing changes one element at a time. Multivariate testing (MVT) changes multiple elements and tests every combination of them simultaneously.</p>
+<p>Say you want to test two headlines and two hero images. MVT creates four combinations: Headline 1 + Image A, Headline 1 + Image B, Headline 2 + Image A, Headline 2 + Image B. Traffic is split across all four.</p>
+<p>The benefit is finding the best combination without running four separate sequential tests. The downside is traffic dilution: more combinations means each version gets a smaller slice of traffic, which means it takes longer to reach a reliable result.</p>
+<p>This is why MVT is better suited for high-traffic pages. On a low-traffic site, running multivariate tests is like spinning up a four-node Kubernetes cluster to host a static HTML page. Technically possible. Practically painful.</p>
+<p>If you are just getting started, stick to A/B tests until you have enough traffic and enough process confidence to justify MVT.</p>
+<p>Press enter or click to view image in full size
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*PKEclMIEyvYT6jZHv4qndQ.png" alt=""></p>
+<h3>Confused between Split URL and Multivariate?</h3>
+<p>Here’s the crude example:</p>
+<p><strong>Split URL Testing: The Ambitious Caterer</strong></p>
+<p>This caterer is not making a variation of the existing menu. He has built two entirely separate stalls on opposite ends of the lawn.</p>
+<p>Stall A is the traditional setup: biryani, raita, gulab jamun, done.</p>
+<p>Stall B is the “fusion experience”: biryani bowls, deconstructed raita in shot glasses, and gulab jamun on a stick with a QR code to leave a Google review.</p>
+<p>Half the guests are directed to Stall A and half to Stall B. You measure which stall has a longer queue, higher plate counts, and fewer people quietly throwing food in the dustbin.</p>
+<p>This is a Split URL test. You are not tweaking one element on an existing page. You have built two completely different pages and you are routing real traffic to both to see which one works.</p>
+<p>The infrastructure cousin of this is blue-green deployment. Same idea, different catering budget.</p>
+<p><strong>Multivariate Testing: The Caterer Who Has Lost the Plot</strong></p>
+<p>This person is testing:</p>
+<ul>
+<li>2 types of biryani (chicken vs. mutton)</li>
+<li>2 types of raita (boondi vs. cucumber)</li>
+<li>2 types of bread (naan vs. rumali roti)</li>
+<li>2 types of dessert (gulab jamun vs. rasgulla)</li>
+</ul>
+<p>That is 16 combinations. You need 16 separate tables, each getting a different combination, and enough guests at each table to statistically prove which combination is the winner.</p>
+<p>The wedding has 200 guests. You need at minimum 1,600 guests for the data to mean anything.</p>
+<p>You have invited 200.</p>
+<blockquote>
+<p>You wont get that big venue on any of the wedding seasons, but lets just say… you did.</p>
+</blockquote>
+<p>This is multivariate testing on a low-traffic website. The math does not work. The experiment runs for six months. By the time you have a result, the wedding is over, the couple has moved cities, and nobody remembers what the original research question was.</p>
+<p>Run multivariate tests only when you have enough traffic that dividing it sixteen ways still leaves each slice statistically meaningful. Otherwise, stick to A/B.</p>
+<h3>Heatmaps Are Research, Not Experiments</h3>
+<p>This was one of my early mental shifts, and it is worth being explicit about it.</p>
+<p>A heatmap does not tell you what will win. It tells you what might be wrong.</p>
+<p>Click heatmaps show where users are clicking (and where they are not). Scroll heatmaps show how far down the page users travel before leaving. Session recordings are anonymized playbacks of real user journeys, where you can watch someone hesitate over your pricing table, try to click something that is not a link, or abandon a form halfway through.</p>
+<p>None of these tools give you a winner. They give you a hypothesis.</p>
+<p>Here is how the workflow actually connects: you open a heatmap for your pricing page and notice that most users never scroll past the first fold. Your main CTA button is near the bottom. Now you have a possible problem and a possible hypothesis: “If I move the CTA above the fold, more users will see it and click it.” You run an A/B test to confirm or deny it.</p>
+<p>The heatmap gave you the question. The A/B test gives you the answer.</p>
+<p>That distinction matters because it stops you from treating research tools as decision-making tools. Heatmaps, recordings, analytics, and surveys help you decide what to test. Controlled experiments help you decide what to change.</p>
+<h3>The Formula That Changed How I Think About All of This</h3>
+<p><strong>Success = Chance × Frequency</strong></p>
+<p>Success is the number of winning experiments you produce in a year. Chance is your win rate, the percentage of experiments that produce a meaningful positive result. Frequency is how many experiments you run per month.</p>
+<p>Now run the numbers with me.</p>
+<p>Team A wants every test to be excellent. They spend weeks on research, debate every design decision, and get thorough sign-off before anything ships. Their win rate is high, say 100%. But all that effort means they can only run one test per month. Twelve winners a year.</p>
+<p>Team B is less precious about each individual test. Their research is decent but not exhaustive. Their win rate is only 25%. But they run eight tests a month. Twenty-four winners a year.</p>
+<p>Worse hit rate. Double the output.</p>
+<p>This is not an argument for carelessness. Bad experiments waste time, and random button-color testing is still random button-color testing. But it is a clear argument against perfectionism as a strategy. The team that ships eight decent experiments a month will outlearn and outperform the team that ships one perfect experiment a month, almost every time.</p>
+<p>If this sounds familiar, it should. DevOps made the same argument against waterfall delivery years ago. Smaller releases, shipped more often, create faster feedback loops. You learn sooner, recover faster, and stop treating every release like a quarterly ceremony. CRO has the same rhythm: define the hypothesis, design a clean test, ship it, measure it, document the learning, and move on. The goal is not to win every test. The goal is to learn fast enough that your wins compound.</p>
+<h3>A Note on Statistical Significance</h3>
+<p>Every testing tool gives you some version of a confidence percentage as your test runs. This tells you how likely it is that the result you are seeing is real and not just random variation. Most practitioners aim for 95% confidence before calling a winner.</p>
+<p>But one of the most common beginner mistakes is stopping a test early because the numbers look exciting on Day 2. Early data is noisy. Weekday and weekend behavior can differ. Email campaigns, seasonality, and traffic source changes can all skew early results. A variant that looks like it is winning after 200 visitors may look very different after 4,000.</p>
+<p>Let tests run for at least one full week, preferably two, before drawing conclusions.</p>
+<p>And here is the question I now ask before trusting any result: not just “Did the tool say 95%?” but “Do I trust how we got to 95%?” The number matters. So does sample size, test duration, traffic quality, and whether the tracking was set up cleanly to begin with.</p>
+<h3>What Should You Run First?</h3>
+<p>If this feels like a lot, start small. Here is the beginner loop I would follow:</p>
+<ol>
+<li>Run an A/A test to confirm your measurement setup is reliable.</li>
+<li>Pick one high-traffic page with a clear conversion goal.</li>
+<li>Use heatmaps, session recordings, or analytics to find one point of friction.</li>
+<li>Write a hypothesis using the “If I change X, then Y, because Z” format.</li>
+<li>Run one clean A/B test.</li>
+<li>Let it run long enough to collect meaningful data (at least one week).</li>
+<li>Document what happened, win or lose.</li>
+<li>Repeat.</li>
+</ol>
+<p>That loop is what CRO actually is, more than any specific tool or technique. Observe, hypothesize, test, learn, repeat. The experiment types are just the mechanics. The real skill is building a habit of running the loop consistently, and gradually running it faster.</p>
+<p>In the next post, I will get into prioritization: how to decide which test to run when you have more ideas than time, and how to build a backlog driven by data rather than whoever spoke loudest in the last meeting.</p>
+<p><em>I work with Convert.com and write about the intersection of DevOps and experimentation. If you are a technical person finding your footing in CRO, drop a comment or reach out. Happy to compare notes.</em></p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>From Apache Benchmark to A/B Testing, A DevOps Guy’s CRO Journey</title>
+    <link>https://iamrawtion.github.io/blogs/from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour.html</guid>
+    <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+    <description>When my manager first mentioned A/B testing, I nodded confidently. I knew exactly what it was. Except I didn’t. In my head, “A/B testing” meant Apache...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>A/B Testing</category>
+    <category>AI Agents</category>
+    <category>AI/ML</category>
+    <category>Automation</category>
+    <category>CRO</category>
+    <category>CRO</category>
+    <category>DevOps</category>
+    <category>Marketing</category>
+    <category>Sales</category>
+    <content:encoded><![CDATA[<p><img src="https://miro.medium.com/v2/resize:fit:1400/1*9kjWypkr61zsHO6zmWNLfQ.png" alt=""></p>
+<p>When my manager first mentioned A/B testing, I nodded confidently. I knew exactly what it was.</p>
+<p>Except I didn’t.</p>
+<p>In my head, “A/B testing” meant <strong>Apache Benchmark</strong>, the <code>ab</code> command-line tool DevOps engineers use to hammer HTTP servers and measure throughput. Requests per second. Latency percentiles. That kind of A/B testing.</p>
+<p>What followed was a humbling unlearning. Concepts like Conversion Rate Optimization, variations, Split URL tests, A/A tests, I was reading all of this through a server engineer’s lens and none of it made sense at first. Why run experiments? Why not just change the code, redeploy, and see what happens?</p>
+<p>That was my first mistake. And if you’re a technical person stepping into the world of CRO, you’ll probably make it too.</p>
+<h2>So, What Actually Is CRO?</h2>
+<p>Let me skip the textbook definition and use a story instead.</p>
+<p>Say you’re selling a bestselling book online. You’re running ads, offering discounts, the traffic numbers look decent, but conversions are low. People are landing on your page and leaving. You’ve checked the backend, the server is healthy, the page loads fast. As a DevOps engineer, you’d call this “nothing to fix.”</p>
+<p>But something <em>is</em> broken, just not in the infrastructure.</p>
+<p><strong>Conversion Rate Optimization (CRO)</strong> is the practice of understanding <em>why</em> visitors don’t convert, and systematically fixing it through experimentation. You introduce a change, a different headline, a reordered checkout flow, a new CTA button color, mark it as Variation A or Variation B, measure which one converts better, and iterate.</p>
+<p>Simple math:</p>
+<pre><code>Conversion Rate = (Conversions / Total Visitors) × 100
+</code></pre>
+<p>If 10 out of 100 visitors buy your book, your conversion rate is 10%. A CRO practitioner’s job is to move that number, but more importantly, to <em>understand why</em> it moved.</p>
+<p>That last part matters. A random change that boosts conversions is luck. Understanding the reason behind the boost, that’s CRO.</p>
+<h2>The Hidden Cost of Ignoring CRO</h2>
+<p>Here’s a pattern that plays out more often than it should:</p>
+<p>A business pours budget into ad campaigns. Traffic surges. Conversions don’t. They spend more on ads. Still nothing. Eventually someone realizes the problem wasn’t the ad, it was the landing page. Confusing layout, unclear value proposition, a checkout flow that made users feel unsafe.</p>
+<p>By then, they’ve burned through their budget chasing the wrong problem.</p>
+<p>CRO tools exist to surface these issues before they become expensive. <strong>Heatmaps</strong> show you where users click (and where they don’t). <strong>Session recordings</strong> let you literally watch a user struggle with your UI. <strong>Exit-intent surveys</strong> catch people right as they’re leaving and ask them why. These aren’t vanity metrics, they’re diagnostic tools.</p>
+<p>As someone who spends a lot of time on observability and monitoring in DevOps, I found this framing familiar: <em>if you can’t measure it, you can’t fix it.</em></p>
+<h2>Before You Start: Is CRO Even Right for You?</h2>
+<p>This is a question I wish someone had asked me earlier.</p>
+<p><strong>A/B testing requires traffic.</strong> Without enough visitors, you can’t achieve statistical significance, the confidence level that tells you a result is real and not just noise. Most CRO practitioners aim for 95% confidence, ideally 99%.</p>
+<p>Here’s an analogy that clicked for me:</p>
+<p>Flip a coin 3 times, get heads all 3 times. Is the coin rigged? Hard to say, could be luck. Flip it 1,000 times and get heads 900 times. Now you’re pretty sure something’s off.</p>
+<p>That “pretty sure” feeling, measured as a percentage, is your confidence level.</p>
+<p>If your site gets 200 visitors a month, running a statistically valid A/B test is going to take a very long time. Many A/B testing platforms offer sample size calculators, use them before committing to a test.</p>
+<h2>A Framework for Getting Started</h2>
+<p>When I started approaching CRO with more structure, things got clearer. Here’s the sequence that worked for me:</p>
+<h2>1. Define a Goal First</h2>
+<p>Don’t open a heatmap tool and start poking around without knowing what you’re looking for. Start with a concrete goal:</p>
+<ul>
+<li>Increase revenue by X% in Y days</li>
+<li>Grow the customer base by Z%</li>
+<li>Improve feature adoption on a specific page</li>
+</ul>
+<p>Each goal points to a different strategy:</p>
+<p>GoalLeverIncrease revenueUpsells, pricing page clarityBigger customer baseBetter UX, reduced frictionIncrease engagementFeature discovery, onboarding flow</p>
+<h2>2. Audit Your Site</h2>
+<p>At a <a href="https://optiphoenix.com/d2c-roundtable">D2C roundtable conference</a> I attended, participants were split into groups and given websites to audit, armed with CRO cards listing what to look for. Are visitors able to find what they need? Is the checkout frictionless? How long does the full journey take?</p>
+<p>One presenter, <a href="https://www.linkedin.com/in/gursimran-gujral-6b0a4724/">Gursimran Gujral</a> (Co-Founder at OptiPhoenix), walked through a heatmap that had driven several of their key CRO decisions. Seeing a real example in action made the whole framework concrete.</p>
+<p>Auditing before testing gives you hypotheses. Hypotheses give your tests direction. A good hypothesis follows a simple structure: “If I change X, then Y will happen, because Z.” That “because” is what separates informed testing from random tinkering.</p>
+<p>An example: If I change the CTA button text from <em>‘Buy Now’</em> to <em>‘Get Your Copy Today’</em>, then more visitors will click through to checkout, because the new copy feels less transactional and creates a sense of ownership.</p>
+<h2>3. Pick the Right Tools</h2>
+<p>You don’t need everything at once. Start with one tool per job:</p>
+<ul>
+<li><strong>User behavior</strong>: <a href="https://clarity.microsoft.com/">Microsoft Clarity</a> (free) or <a href="https://www.hotjar.com/">Hotjar</a>, heatmaps, session recordings</li>
+<li><strong>A/B / Split URL / Multivariate testing</strong>: <a href="https://www.convert.com/">Convert.com</a>, robust experimentation platform</li>
+<li><strong>Funnel analysis</strong>: GA4 + LookerStudio, track where users drop off</li>
+</ul>
+<p>Analytics alone won’t get you there. You need a dedicated testing tool to run controlled experiments.</p>
+<h2>4. Run Tests with Patience</h2>
+<p>One of the most common beginner mistakes is stopping a test too early because the early numbers look good (or bad). Let tests run for <strong>at least a week</strong> to account for day-of-week behavior differences. Trust the confidence interval, not your gut.</p>
+<h2>Resources Worth Your Time</h2>
+<p>These are the ones I actually found useful, not just names I’m dropping:</p>
+<ul>
+<li>**Ruben de Boer’s courses: **practical, tool-focused, good for getting hands-on fast</li>
+<li><strong>CXL’s CRO Fundamentals</strong>: more rigorous, worth it if you want depth over speed</li>
+<li><strong>MeasureSchool on YouTube</strong>: excellent for GA4, GTM, and LookerStudio workflows</li>
+<li><strong>Baymard Institute</strong>: research-backed UX analysis, great for e-commerce audits</li>
+<li>**Robert Cialdini’s *Influence: The Psychology of Persuasion: ***understanding <em>why</em> humans behave on pages is half the battle</li>
+</ul>
+<p>For practice: volunteer your CRO skills to NGOs or small businesses. Real traffic on real sites teaches you things no course can.</p>
+<h2>The Real Takeaway</h2>
+<p>CRO isn’t a bag of tricks. It’s a discipline built on measurement, hypotheses, and patience, things that, honestly, aren’t that different from good DevOps practice.</p>
+<p>You instrument. You observe. You form a hypothesis. You test. You learn.</p>
+<p>The difference is that in DevOps, you’re optimizing for uptime and throughput. In CRO, you’re optimizing for human behavior. And humans, unlike servers, don’t always behave the way the logs suggest they should.</p>
+<p>That’s what makes it interesting, and why I’m still learning.</p>
+<p><em>If you’re a technical person who’s crossed over into CRO or is curious about it, I’d love to hear your experience. Drop a comment or reach out.</em></p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>I said AI will mess up your docs. Scientists said hold my beer.</title>
+    <link>https://iamrawtion.github.io/blogs/i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee.html</guid>
+    <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+    <description>Last week I wrote about why you shouldn't trust AI blindly with your documentation. I thought I was only being careful. Turns out, researchers just proved it,...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>AI Agents</category>
+    <category>AI/ML</category>
+    <category>Automation</category>
+    <category>DevOps</category>
+    <category>Documentation</category>
+    <content:encoded><![CDATA[<ul>
+<li></li>
+</ul>
+<p>Last week <a href="https://www.linkedin.com/pulse/docs-code-ai-author-humans-reviewers-what-could-go-wrong-nagekar-qlb7c/">I wrote about why you shouldn&#39;t trust AI blindly with your documentation</a>.</p>
+<p>I thought I was only being careful. Turns out, researchers just proved it, with actual numbers.</p>
+<p>A <a href="https://arxiv.org/abs/2604.15597">paper</a> dropped on arxiv last month(got posted in Hackernews yesterday). three researchers tested 19 AI models, gave them real document editing tasks across 52 different domains, coding, music, science, legal, you name it. And they just watched what happened over long workflows.</p>
+<p>The results are not great.</p>
+<p>Even the best models out there, GPT, Claude, Gemini, the ones we all use and trust, corrupted an average of 25% of document content by the end of long workflows. Is that 1 in 4 documents going silently wrong???</p>
+<p>And here is the part that really got me. It didn&#39;t crash. it didn&#39;t say &quot;hey I think I made a mistake.&quot;(It never does :) ) It just kept going. confidently. while quietly getting things wrong in the background. And the longer you let it run? the worse it gets.</p>
+<p>Now here&#39;s the twist that I didn&#39;t expect.</p>
+<p>Giving the AI more tools(which some debated earlier), making it a full agent with access to search, file systems, everything, didn&#39;t help. performance didn&#39;t improve. the corruption still happened.</p>
+<p>Also, weaker models tend to just delete content. which is bad, but at least you can see it.</p>
+<p>Stronger, smarter models? they don&#39;t delete. they corrupt. they change the meaning, subtly, in ways that look fine on the surface. that&#39;s actually scarier.</p>
+<p>So last week when I said, build the guardrails before you turn on the automation, I wasn&#39;t just being cautious. now I have a research paper basically saying the same thing now.</p>
+<p>Think about what this means for documentation specifically.</p>
+<p>If your company is planning to let AI write or update your internal knowledge base, and you&#39;re thinking &quot;its fine, we&#39;re using a good model&quot;, this paper is saying 25% of that content could be silently wrong before anyone even notices.</p>
+<p>Not broken. not obviously wrong. just, quietly corrupted.</p>
+<p>So who&#39;s building the review layer?</p>
+<p>Because based on this research, the AI definitely isn&#39;t going to tell you it made a mistake.</p>
+<p>You can read the paper here : <a href="https://arxiv.org/abs/2604.15597">https://arxiv.org/abs/2604.15597</a></p>
+<p>#AIAgents #Documentation #LLMs #KnowledgeManagement #AgentGovernance #DevOps</p>
+<p>✏️ Drafted with AI assist, because practicing what I preach.*</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Docs as code. AI as author. Humans as reviewers. What could go wrong?</title>
+    <link>https://iamrawtion.github.io/blogs/docs-as-code-ai-as-author-humans-as-reviewers-what-could-go.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/docs-as-code-ai-as-author-humans-as-reviewers-what-could-go.html</guid>
+    <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+    <description>Last week we audited our company docs. 502 articles. 77 duplicates. Nobody knew which one was correct. And this wasn't because people were lazy. Everyone was...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>AI Agents</category>
+    <category>Automation</category>
+    <category>DevOps</category>
+    <category>Documentation</category>
+    <category>Knowledge Management</category>
+    <content:encoded><![CDATA[<ul>
+<li></li>
+</ul>
+<p> Last week we audited our company docs. </p>
+<p>502 articles. 77 duplicates. Nobody knew which one was correct. </p>
+<p>And this wasn&#39;t because people were lazy. Everyone was busy. Docs just... don&#39;t update themselves. </p>
+<p>So we started asking, what if an AI did this? </p>
+<p>What if instead of waiting for someone to update a document after a product change, an AI just does it automatically. Reads the release notes, finds the affected articles, rewrites them, sends a PR for human review. </p>
+<p>Sounds great right? </p>
+<p>It actually is. I genuinely think this is where documentation is going. Andrej Karpathy (the AI guy from Tesla and OpenAI) wrote about this — he called it the <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM-owned wiki.</a> Humans write the rules. AI does the writing. Humans approve before it goes live. </p>
+<p>Clean. Simple. Scalable. </p>
+<p>But here&#39;s the thing nobody talks about. </p>
+<p>In our own test, the AI gave us wrong pricing information. confidently. Like it had no doubt. it cited some random blog as a source and we almost missed it. </p>
+<p>If we had set it to auto-approve, our customers would have read wrong info. </p>
+<p>So before you get excited and just &quot;let AI handle the docs&quot;, ask yourself a few things: </p>
+<ol>
+<li>who is reviewing what the AI writes? (if its one person, you just created more work, not less)</li>
+<li>what rules has the AI been given? does it know what it can and cannot touch?</li>
+<li>Is someone watching it over time, or only at the start?</li>
+</ol>
+<p>This is not about being anti-AI. I love where this is going. </p>
+<p>But we don&#39;t deploy code to production without monitoring, access controls and alerts. why would we treat our company&#39;s knowledge base any different? </p>
+<p>Automation without oversight is not progress. its just faster mistakes. </p>
+<p>The teams that get this right will build the guardrails first. then turn on the automation. </p>
+<p>What&#39;s your take — are you using AI for internal docs? how are you handling the review part? </p>
+<pre><code>  ✏️ Drafted with AI assist, because practicing what I preach.*
+</code></pre>
 ]]></content:encoded>
   </item>
   <item>
@@ -4786,6 +5625,67 @@ So no more, &quot;It works on my machine&quot; reason to be heard.</p>
 <p>Technique to **on board a new team member without merely asking him to read documentation and rather practice hands on was discussed in brief. **Tsuru is a new tool that we heard of that may help us to simplify and automate docker as well.</p>
 <p>A demo on how to testing your infrastructure with **Kitchen was shown and that is exactly how we learned it also a part of it showed integration with **Docker which is something we need to implement.</p>
 <p>Introduction to **Microsoft Azure cloud gave us an idea of how it is different than other cloud providers. **Heartbleed was discussed in brief along with few other security threats and a demo on how Heartbleed actually affected.</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Continuous Integration with Jenkins</title>
+    <link>https://iamrawtion.github.io/blogs/continuous-integration-with-jenkins.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/continuous-integration-with-jenkins.html</guid>
+    <pubDate>Sat, 07 Jun 2014 00:00:00 GMT</pubDate>
+    <description>Continuous Integration: What's the deal? As per a tutorial that I came across a few months ago, its a process in which all the development work is integrated...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+
+    <content:encoded><![CDATA[<p>Continuous Integration:</p>
+<p>What&#39;s the deal? As per a <a href="http://www.vogella.com/tutorials/Jenkins/article.html">tutorial</a> that I came 
+across a few months ago, its a process in which all the development work
+ is integrated at some predefined time interval and the resulting work 
+is tested and built automatically.</p>
+<p>So the basic functionality of Jenkins is to monitor a version 
+control system and if changes are encountered in it, it will start the 
+build system and monitor it. Build system could be e.g Apache ant or 
+Maven. Jenkins can monitor entire build process and it has functionality
+ to report the monitoring and send out notifications as per the results 
+encountered. Plugins could be added to Jenkins for building and testing 
+many kind of applications.</p>
+<p>To use Jenkins, you will need,</p>
+<p>An accessible source code repository, e.g github, with your code checked in.</p>
+<p>A
+ working build script e.g maven script checked into the repository. 
+Jenkins can be started from a command line or also from a web 
+application server.</p>
+<p>Installation of Jenkins:</p>
+<p>Jenkins provides debian/ubuntu packages that installs it. Post installation, you can start jenkins with:</p>
+<p>Download Jenkins.war file and install using the following command:</p>
+<p>java -jar jenkins.war --httpPort=9000</p>
+<p>sudo service jenkins start or</p>
+<p>/etc/init.d/jenkins start</p>
+<p>Running jenkins locally will start in on <a href="http://localhost:8080/">http://localhost:8080</a></p>
+<p>At
+ times you may also want to create a virtual host for Jenkins to run. 
+You can create a virtual host on ubuntu by adding a file in 
+/etc/apache2/sites-available/jenkins</p>
+<p>Following details need to be added in this file:</p>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p>ServerAdmin webmaster@localhost</p>
+<p>ServerName jenkins.local</p>
+<p>ServerAlias ci</p>
+<p>ProxyRequests Off</p>
+<p>&lt;Proxy *&gt;</p>
+<p>Order deny,allow</p>
+<p>Allow from all</p>
+</Proxy><p>ProxyPreserveHost on</p>
+<p>ProxyPass / <a href="http://localhost:8080/">http://localhost:8080/</a></p>
+</VirtualHost><p>You will then need to enable this virtual host by the following command</p>
+<p>sudo a2ensite jenkins</p>
+<p>To disable this site at any instance you can use the command</p>
+<p>sudo dissite jenkins</p>
+<p>Once the site is accessible on your localhost, you will need to </p>
+<hr>
+<p>meetup </p>
+<p>for installation goto <a href="http://jenkins-ci.org/">jenkins-ci.org</a></p>
+<p>latest versus LTS try to go for LTS and not latest. latest might give you good plugins and fast processing etc. but it may break</p>
+<p>installation can also be done using the war file java -jar jenkins.war</p>
+<p>Configure Jenkins Server</p>
 ]]></content:encoded>
   </item>
   <item>
@@ -11749,6 +12649,104 @@ Time limit : 3 secs</p>
 <p>1020
 681070756</p>
 <p>ONSITE COMPETITION IN MY NEXT POST......</p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Building WAAS – Workflow as a Service (Peepaal Project)</title>
+    <link>https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html</guid>
+    <pubDate>Sat, 29 Jan 2011 00:00:00 GMT</pubDate>
+    <description>One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Administration</category>
+    <category>Cloud</category>
+    <category>Java</category>
+    <category>JavaScript</category>
+    <category>PaaS</category>
+    <category>WaaS</category>
+    <content:encoded><![CDATA[<p>One of the best things happening this year is being part of</p>
+<p>Our team is currently working on a project called WAAS – Workflow as a Service, and it&#39;s turning into one of the most interesting things I&#39;ve worked on so far.</p>
+<h2>Where the idea comes from</h2>
+<p>We start by experimenting with Apache ODE and BPEL while trying to build a placement management workflow. The more we work with it, the more we realize that although existing workflow engines are powerful, they become difficult to adapt for what we ultimately want—especially if we think about deploying everything on Google App Engine.</p>
+<p>That leads to a bigger question.</p>
+<p>What if creating a workflow-based application becomes much simpler?</p>
+<p>Instead of every developer writing the same workflow logic again and again, what if they simply describe their process and get a working application in minutes?</p>
+<p>That&#39;s the idea behind WAAS.</p>
+<h2>The goal</h2>
+<p>We&#39;re trying to build a workflow engine that runs on Google App Engine.</p>
+<p>The first application we keep using as an example is a Placement Manager, but that&#39;s really just a demonstration. The bigger goal is to build something reusable so anyone can create applications that follow a structured workflow.</p>
+<p>A hospital.</p>
+<p>A parking system.</p>
+<p>An approval process.</p>
+<p>A registration portal.</p>
+<p>Anything that follows a sequence of tasks should eventually fit into the same framework.</p>
+<h2>What we&#39;re building</h2>
+<p>Right now we&#39;re working with:</p>
+<ul>
+<li>Java</li>
+<li>JSP</li>
+<li>Servlets</li>
+<li>SQL (though this may change as the project evolves)</li>
+<li>Google App Engine</li>
+</ul>
+<p>We&#39;re spending a lot of time understanding how App Engine behaves differently from traditional Java applications.</p>
+<h2>Learning through trial and error</h2>
+<p>This project isn&#39;t just about writing code.</p>
+<p>Some days we&#39;re trying to make the Guestbook sample deploy correctly.</p>
+<p>Some days Eclipse decides to throw mysterious errors.</p>
+<p>Some days we&#39;re switching from JDO to Objectify, and later exploring JPA because it seems like a better fit.</p>
+<p>Every small success feels surprisingly satisfying.</p>
+<p>The first successful deployment on App Engine.</p>
+<p>Getting XML parsing to work.</p>
+<p>Sending emails through App Engine.</p>
+<p>Each milestone feels like we&#39;re unlocking another piece of the puzzle.</p>
+<h2>Why XML becomes important</h2>
+<p>One of the most exciting discussions in our team is around XML-driven workflows.</p>
+<p>Instead of hardcoding every process, we&#39;re experimenting with describing workflows using XML.</p>
+<p>For example, an XML file can define:</p>
+<ul>
+<li>users</li>
+<li>notifications</li>
+<li>tasks</li>
+<li>messages</li>
+<li>workflow states</li>
+</ul>
+<p>The application simply reads that XML and builds the workflow automatically.</p>
+<p>It&#39;s a really cool idea because different organizations need different forms and different processes. Instead of rewriting the application every time, we can let the XML describe the business logic.</p>
+<h2>Mentorship makes the difference</h2>
+<p>The best part of Peepaal is the constant feedback.</p>
+<p>Our mentor keeps pushing us beyond &quot;making it work.&quot;</p>
+<p>Instead of accepting quick fixes, we&#39;re encouraged to:</p>
+<ul>
+<li>understand Apache ODE deeply</li>
+<li>restructure our code</li>
+<li>think about workflow entities</li>
+<li>make the application editable</li>
+<li>deploy every milestone</li>
+<li>solve problems independently before asking for help</li>
+</ul>
+<p>Sometimes the comments are brutally practical.</p>
+<blockquote>
+<p>Don&#39;t deploy if your project doesn&#39;t compile.</p>
+</blockquote>
+<p>That one sentence probably saves us hours.</p>
+<h2>What&#39;s next</h2>
+<p>Right now we&#39;re aiming for a working demo where the application can:</p>
+<ul>
+<li>accept a workflow as XML</li>
+<li>parse it</li>
+<li>create workflow, notification, and task entities</li>
+<li>send notifications</li>
+<li>update task status</li>
+<li>complete the workflow automatically</li>
+</ul>
+<p>There&#39;s still plenty left to do.</p>
+<p>Exams are around the corner, which slows everyone down a bit, but the project keeps moving. Once the exam rush settles, we&#39;re planning to get together again and push it toward completion.</p>
+<h2>What I&#39;m realizing</h2>
+<p>This project is teaching me something bigger than Java or Google App Engine.</p>
+<p>Building software isn&#39;t just about coding.</p>
+<p>It&#39;s about understanding a problem, breaking it into smaller pieces, getting feedback, fixing mistakes, and repeating the process.</p>
+<p>And honestly, that&#39;s probably the biggest lesson I&#39;m taking away from Peepaal so far.</p>
 ]]></content:encoded>
   </item>
   </channel>

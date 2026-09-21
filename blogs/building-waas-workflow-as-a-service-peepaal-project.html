@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <title>Building WAAS – Workflow as a Service (Peepaal Project) | Roshan Nagekar</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
+  <meta name="description" content="One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/acm-icpc-2011.html">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building WAAS – Workflow as a Service (Peepaal Project)">
+  <meta property="og:description" content="One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2011-01-29">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Cloud">
+  <meta property="article:tag" content="Administration">
+  <meta property="article:tag" content="Cloud">
+  <meta property="article:tag" content="Java">
+  <meta property="article:tag" content="JavaScript">
+  <meta property="article:tag" content="PaaS">
+  <meta property="article:tag" content="WaaS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Building WAAS – Workflow as a Service (Peepaal Project)">
+  <meta name="twitter:description" content="One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="4 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Cloud">
+  <meta name="author" content="Roshan Nagekar">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
+  <link rel="manifest" href="https://iamrawtion.github.io/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Building WAAS – Workflow as a Service (Peepaal Project)","description":"One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...","articleSection":"Cloud","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2011-01-29","url":"https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html","keywords":"Administration, Cloud, Java, JavaScript, PaaS, WaaS","wordCount":664,"timeRequired":"PT4M","articleBody":"One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it&#39;s turning into one of the most interesting things I&#39;ve worked on so far. Where the idea comes from We start by experimenting with Apache ODE and BPEL while trying to build a placement management workflow. The more we work with it, the more we realize that although existing workflow engines are powerful, they become difficult to adapt for what we ultimately want—especially if we think about deploying everything on Google App Engine. That leads to a bigger question. What if creating a workflow-based application becomes much simpler? Instead of every developer writing the same workflow logic again and again, what if they simply describe their process and get a working application in minutes? That&#39;s the idea behind WAAS. The goal We&#39;re trying to build a workflow engine that runs on Google App Engine. The first application we keep using as an example is a Placement Manager, but that&#39;s really just a demonstration. The bigger goal is to build something reusable so anyone can create applications that follow a structured workflow. A hospital. A parking system. An approval process. A registration portal. Anything that follows a sequence of tasks should eventually fit into the same framework. What we&#39;re building Right now we&#39;re working with: Java JSP Servlets SQL (though this may change as the project evolves) Google App Engine We&#39;re spending a lot of time understanding how App Engine behaves differently from traditional Java applications. Learning through trial and error This project isn&#39;t just about writing code. Some days we&#39;re trying to make the Guestbook sample deploy correctly. Some days Eclipse decides to throw mysterious errors. Some days we&#39;re switching from JDO to Objectify, and later exploring JPA because it seems like a better fit. Every small success feels surprisingly satisfying. The first successful deployment on App Engine. Getting XML parsing to work. Sending emails through App Engine. Each milestone feels like we&#39;re unlocking another piece of the puzzle. Why XML becomes important One of the most exciting discussions in our team is around XML-driven workflows. Instead of hardcoding every process, we&#39;re experimenting with describing workflows using XML. For example, an XML file can define: users notifications tasks messages workflow states The application simply reads that XML and builds the workflow automatically. It&#39;s a really cool idea because different organizations need different forms and different processes. Instead of rewriting the application every time, we can let the XML describe the business logic. Mentorship makes the difference The best part of Peepaal is the constant feedback. Our mentor keeps pushing us beyond &quot;making it work.&quot; Instead of accepting quick fixes, we&#39;re encouraged to: understand Apache ODE deeply restructure our code think about workflow entities make the application editable deploy every milestone solve problems independently before asking for help Sometimes the comments are brutally practical. Don&#39;t deploy if your project doesn&#39;t compile. That one sentence probably saves us hours. What&#39;s next Right now we&#39;re aiming for a working demo where the application can: accept a workflow as XML parse it create workflow, notification, and task entities send notifications update task status complete the workflow automatically There&#39;s still plenty left to do. Exams are around the corner, which slows everyone down a bit, but the project keeps moving. Once the exam rush settles, we&#39;re planning to get together again and push it toward completion. What I&#39;m realizing This project is teaching me something bigger than Java or Google App Engine. Building software isn&#39;t just about coding. It&#39;s about understanding a problem, breaking it into smaller pieces, getting feedback, fixing mistakes, and repeating the process. And honestly, that&#39;s probably the biggest lesson I&#39;m taking away from Peepaal so far.","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Cloud","item":"https://iamrawtion.github.io/categories/cloud.html"},{"@type":"ListItem","position":4,"name":"Building WAAS – Workflow as a Service (Peepaal Project)","item":"https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html"}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/cloud.html" style="color:var(--primary-color);">Cloud</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">Building WAAS – Workflow as a Service (Peepaal Project)</span>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <a href="../categories/cloud.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">Cloud</a>
+            <a href="../tags/administration.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Administration</a><a href="../tags/cloud.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Cloud</a><a href="../tags/java.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Java</a><a href="../tags/javascript.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">JavaScript</a><a href="../tags/paas.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">PaaS</a><a href="../tags/waas.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">WaaS</a>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Building WAAS – Workflow as a Service (Peepaal Project)</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            <time datetime="2011-01-29">January 29, 2011</time>
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            4 min read
+          </p>
+        </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#where-the-idea-comes-from" style="color:var(--primary-color); text-decoration:none;">Where the idea comes from</a></li><li style="margin-bottom:0.35rem;"><a href="#the-goal" style="color:var(--primary-color); text-decoration:none;">The goal</a></li><li style="margin-bottom:0.35rem;"><a href="#what-we-39-re-building" style="color:var(--primary-color); text-decoration:none;">What we&amp;#39;re building</a></li><li style="margin-bottom:0.35rem;"><a href="#learning-through-trial-and-error" style="color:var(--primary-color); text-decoration:none;">Learning through trial and error</a></li><li style="margin-bottom:0.35rem;"><a href="#why-xml-becomes-important" style="color:var(--primary-color); text-decoration:none;">Why XML becomes important</a></li><li style="margin-bottom:0.35rem;"><a href="#mentorship-makes-the-difference" style="color:var(--primary-color); text-decoration:none;">Mentorship makes the difference</a></li><li style="margin-bottom:0.35rem;"><a href="#what-39-s-next" style="color:var(--primary-color); text-decoration:none;">What&amp;#39;s next</a></li><li style="margin-bottom:0.35rem;"><a href="#what-i-39-m-realizing" style="color:var(--primary-color); text-decoration:none;">What I&amp;#39;m realizing</a></li>
+      </ol>
+    </nav>
+        <div class="blog-post-content markdown-body">
+          <p>One of the best things happening this year is being part of</p>
+<p>Our team is currently working on a project called WAAS – Workflow as a Service, and it&#39;s turning into one of the most interesting things I&#39;ve worked on so far.</p>
+<h2 id="where-the-idea-comes-from">Where the idea comes from</h2>
+<p>We start by experimenting with Apache ODE and BPEL while trying to build a placement management workflow. The more we work with it, the more we realize that although existing workflow engines are powerful, they become difficult to adapt for what we ultimately want—especially if we think about deploying everything on Google App Engine.</p>
+<p>That leads to a bigger question.</p>
+<p>What if creating a workflow-based application becomes much simpler?</p>
+<p>Instead of every developer writing the same workflow logic again and again, what if they simply describe their process and get a working application in minutes?</p>
+<p>That&#39;s the idea behind WAAS.</p>
+<h2 id="the-goal">The goal</h2>
+<p>We&#39;re trying to build a workflow engine that runs on Google App Engine.</p>
+<p>The first application we keep using as an example is a Placement Manager, but that&#39;s really just a demonstration. The bigger goal is to build something reusable so anyone can create applications that follow a structured workflow.</p>
+<p>A hospital.</p>
+<p>A parking system.</p>
+<p>An approval process.</p>
+<p>A registration portal.</p>
+<p>Anything that follows a sequence of tasks should eventually fit into the same framework.</p>
+<h2 id="what-we-39-re-building">What we&#39;re building</h2>
+<p>Right now we&#39;re working with:</p>
+<ul>
+<li>Java</li>
+<li>JSP</li>
+<li>Servlets</li>
+<li>SQL (though this may change as the project evolves)</li>
+<li>Google App Engine</li>
+</ul>
+<p>We&#39;re spending a lot of time understanding how App Engine behaves differently from traditional Java applications.</p>
+<h2 id="learning-through-trial-and-error">Learning through trial and error</h2>
+<p>This project isn&#39;t just about writing code.</p>
+<p>Some days we&#39;re trying to make the Guestbook sample deploy correctly.</p>
+<p>Some days Eclipse decides to throw mysterious errors.</p>
+<p>Some days we&#39;re switching from JDO to Objectify, and later exploring JPA because it seems like a better fit.</p>
+<p>Every small success feels surprisingly satisfying.</p>
+<p>The first successful deployment on App Engine.</p>
+<p>Getting XML parsing to work.</p>
+<p>Sending emails through App Engine.</p>
+<p>Each milestone feels like we&#39;re unlocking another piece of the puzzle.</p>
+<h2 id="why-xml-becomes-important">Why XML becomes important</h2>
+<p>One of the most exciting discussions in our team is around XML-driven workflows.</p>
+<p>Instead of hardcoding every process, we&#39;re experimenting with describing workflows using XML.</p>
+<p>For example, an XML file can define:</p>
+<ul>
+<li>users</li>
+<li>notifications</li>
+<li>tasks</li>
+<li>messages</li>
+<li>workflow states</li>
+</ul>
+<p>The application simply reads that XML and builds the workflow automatically.</p>
+<p>It&#39;s a really cool idea because different organizations need different forms and different processes. Instead of rewriting the application every time, we can let the XML describe the business logic.</p>
+<h2 id="mentorship-makes-the-difference">Mentorship makes the difference</h2>
+<p>The best part of Peepaal is the constant feedback.</p>
+<p>Our mentor keeps pushing us beyond &quot;making it work.&quot;</p>
+<p>Instead of accepting quick fixes, we&#39;re encouraged to:</p>
+<ul>
+<li>understand Apache ODE deeply</li>
+<li>restructure our code</li>
+<li>think about workflow entities</li>
+<li>make the application editable</li>
+<li>deploy every milestone</li>
+<li>solve problems independently before asking for help</li>
+</ul>
+<p>Sometimes the comments are brutally practical.</p>
+<blockquote>
+<p>Don&#39;t deploy if your project doesn&#39;t compile.</p>
+</blockquote>
+<p>That one sentence probably saves us hours.</p>
+<h2 id="what-39-s-next">What&#39;s next</h2>
+<p>Right now we&#39;re aiming for a working demo where the application can:</p>
+<ul>
+<li>accept a workflow as XML</li>
+<li>parse it</li>
+<li>create workflow, notification, and task entities</li>
+<li>send notifications</li>
+<li>update task status</li>
+<li>complete the workflow automatically</li>
+</ul>
+<p>There&#39;s still plenty left to do.</p>
+<p>Exams are around the corner, which slows everyone down a bit, but the project keeps moving. Once the exam rush settles, we&#39;re planning to get together again and push it toward completion.</p>
+<h2 id="what-i-39-m-realizing">What I&#39;m realizing</h2>
+<p>This project is teaching me something bigger than Java or Google App Engine.</p>
+<p>Building software isn&#39;t just about coding.</p>
+<p>It&#39;s about understanding a problem, breaking it into smaller pieces, getting feedback, fixing mistakes, and repeating the process.</p>
+<p>And honestly, that&#39;s probably the biggest lesson I&#39;m taking away from Peepaal so far.</p>
+
+        </div>
+        
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      
+      <a href="../blogs/the-cv-habit-that-accidentally-saved-my-job.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Cloud</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">The CV Habit That Accidentally Saved My Job</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+    </div>
+  </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/acm-icpc-2011.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">ACM ICPC 2011</span>
+    </a>
+    <span style="flex:1;"></span>
+  </nav>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>
