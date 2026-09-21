@@ -7,14 +7,14 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Mon, 21 Sep 2026 09:42:08 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 09:47:29 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>The CV Habit That Accidentally Saved My Job</title>
     <link>https://iamrawtion.github.io/blogs/the-cv-habit-that-accidentally-saved-my-job.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/the-cv-habit-that-accidentally-saved-my-job.html</guid>
     <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all this...</description>
+    <description>Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Administration</category>
     <category>AWS</category>
@@ -39,7 +39,7 @@
     <link>https://iamrawtion.github.io/blogs/the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp.html</guid>
     <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
-    <description>I still remember the date almost. Not exactly, because it's been years. But I remember it was a Friday. I remember it was IPL season. And I remember I had a...</description>
+    <description>I still remember the date almost. Not exactly, because it's been years. But I remember it was a Friday. I remember it was IPL season. And I remember I...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Administration</category>
     <category>Automation</category>
@@ -94,7 +94,7 @@
     <link>https://iamrawtion.github.io/blogs/nagios-still-has-my-heart.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/nagios-still-has-my-heart.html</guid>
     <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    <description>A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster, and why that grounding still matters today.</description>
+    <description>A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Nagios</category>
     <category>Monitoring</category>
@@ -121,7 +121,7 @@
     <link>https://iamrawtion.github.io/blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html</guid>
     <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    <description>I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame,...</description>
+    <description>Disney reused animation frames to cut costs. I used the same trick with AI to generate my kid's personalized bedtime stories — here's how it worked.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>AI Agents</category>
     <category>AI/ML</category>
@@ -149,7 +149,7 @@
     <link>https://iamrawtion.github.io/blogs/documentation-drifts-heres-how-to-catch-it.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/documentation-drifts-heres-how-to-catch-it.html</guid>
     <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
-    <description>&quot;Documenting the documentation.&quot; Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying. Actually...</description>
+    <description>&quot;Documenting the documentation.&quot; Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying....</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Administration</category>
     <category>AI Agents</category>
@@ -188,7 +188,7 @@
     <link>https://iamrawtion.github.io/blogs/cro-the-career-stream-nobody-told-you-about.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/cro-the-career-stream-nobody-told-you-about.html</guid>
     <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
-    <description>When I ask any of my student what they want to be? I mostly get one of the five answers: Developer, QA, Project Manager, Business Analyst, and now DevOps too....</description>
+    <description>CRO is a career stream nobody told you about in college. Here's how a DevOps background is actually a superpower in conversion rate optimization.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>A/B Testing</category>
     <category>Administration</category>
@@ -246,7 +246,7 @@
     <link>https://iamrawtion.github.io/blogs/credential-bleed-mcp-server-trust.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/credential-bleed-mcp-server-trust.html</guid>
     <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
-    <description>I set up a MySQL MCP server on port 9100 using FastMCP and immediately noticed a problem — the server doesn't inherently know the difference between an agent I authorized and one that just happened to find my endpoint.</description>
+    <description>I set up a MySQL MCP server using FastMCP and noticed a problem — it doesn't know the difference between an agent I authorized and one that found my endpoint.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>MCP</category>
     <category>AI Agents</category>
@@ -323,7 +323,7 @@
     <link>https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/telegram-auto-post-pipeline.html</guid>
     <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
-    <description>I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.</description>
+    <description>I built a pipeline to capture Telegram posts and redistribute them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. Then I stopped.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>n8n</category>
     <category>Automation</category>
@@ -389,7 +389,7 @@
     <link>https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/part-3-how-to-decide-which-cro-test-to-run-first.html</guid>
     <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-    <description>BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...</description>
+    <description>BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL,...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>A/B Testing</category>
     <category>Administration</category>
@@ -398,7 +398,6 @@
     <category>Analytics</category>
     <category>AI/ML</category>
     <category>Automation</category>
-    <category>CRO</category>
     <category>CRO</category>
     <category>Marketing</category>
     <category>Sales</category>
@@ -658,9 +657,13 @@ One thing both frameworks require is that your ideas are written properly before
     <link>https://iamrawtion.github.io/blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.html</guid>
     <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
-    <description>Someone on the team once asked about a feature deprecated back in 2020. 45 minutes of digging through backups, old slack threads, a google doc nobody had...</description>
+    <description>Someone on the team once asked about a feature deprecated back in 2020. 45 minutes of digging through backups, old slack threads, a google doc nobody...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-
+    <category>AI Agents</category>
+    <category>AI/ML</category>
+    <category>Documentation</category>
+    <category>Knowledge Management</category>
+    <category>DevOps</category>
     <content:encoded><![CDATA[<ul>
 <li></li>
 </ul>
@@ -719,13 +722,12 @@ One thing both frameworks require is that your ideas are written properly before
     <link>https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/part-2-the-experiments-that-actually-move-the-number.html</guid>
     <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
-    <description>If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...</description>
+    <description>If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>A/B Testing</category>
     <category>Administration</category>
     <category>AI Agents</category>
     <category>AI/ML</category>
-    <category>CRO</category>
     <category>CRO</category>
     <category>DevOps</category>
     <content:encoded><![CDATA[<p>If you read the <a href="https://medium.com/@iamrawtion/from-apache-benchmark-to-a-b-testing-a-devops-guys-cro-journey-5ff76a502363">first post</a> in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on some combination of Clarity, GA4, and Convert.com(sshhh… I work for them).</p>
@@ -864,7 +866,6 @@ One thing both frameworks require is that your ideas are written properly before
     <category>AI/ML</category>
     <category>Automation</category>
     <category>CRO</category>
-    <category>CRO</category>
     <category>DevOps</category>
     <category>Marketing</category>
     <category>Sales</category>
@@ -946,7 +947,7 @@ One thing both frameworks require is that your ideas are written properly before
     <link>https://iamrawtion.github.io/blogs/i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee.html</guid>
     <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-    <description>Last week I wrote about why you shouldn't trust AI blindly with your documentation. I thought I was only being careful. Turns out, researchers just proved it,...</description>
+    <description>Last week I wrote about not trusting AI blindly with your docs. Then researchers proved it: AI confidently generates plausible but incorrect technical content.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>AI Agents</category>
     <category>AI/ML</category>
@@ -982,7 +983,7 @@ One thing both frameworks require is that your ideas are written properly before
     <link>https://iamrawtion.github.io/blogs/docs-as-code-ai-as-author-humans-as-reviewers-what-could-go.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/docs-as-code-ai-as-author-humans-as-reviewers-what-could-go.html</guid>
     <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
-    <description>Last week we audited our company docs. 502 articles. 77 duplicates. Nobody knew which one was correct. And this wasn't because people were lazy. Everyone was...</description>
+    <description>Last week we audited our company docs. 502 articles. 77 duplicates. Nobody knew which one was correct. And this wasn't because people were lazy....</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>AI Agents</category>
     <category>Automation</category>
@@ -1023,7 +1024,7 @@ One thing both frameworks require is that your ideas are written properly before
     <link>https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html</guid>
     <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
-    <description>Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practical example of deploying a web application with a database.</description>
+    <description>Learn Docker Compose to manage multi-container applications — covering docker-compose.yml, common commands, and deploying a web app with a database.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Docker</category>
     <category>Docker Compose</category>
@@ -1335,7 +1336,7 @@ docker-compose run webapp npm test
     <link>https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html</guid>
     <pubDate>Fri, 22 Jan 2021 00:00:00 GMT</pubDate>
-    <description>A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps pipeline.</description>
+    <description>A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>DevSecOps</category>
     <category>Security</category>
@@ -1700,7 +1701,7 @@ Many times security threats and vulnerabilities are identified in production and
     <link>https://iamrawtion.github.io/blogs/devsecops-pune-meetup-4.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/devsecops-pune-meetup-4.html</guid>
     <pubDate>Sat, 09 Mar 2019 00:00:00 GMT</pubDate>
-    <description>Recap of the 4th DevSecOps Pune meetup in March 2019, featuring new sponsors Elastic, Sonatype, and Snyk, with sessions on security tooling and DevSecOps practices.</description>
+    <description>Recap of the 4th DevSecOps Pune meetup in March 2019, with new sponsors Elastic, Sonatype, and Snyk, and sessions on security tooling and practices.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Ansible</category>
     <category>AWS</category>
@@ -1990,7 +1991,7 @@ static_resources:
     <link>https://iamrawtion.github.io/blogs/devsecops-pune-meetup-3.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/devsecops-pune-meetup-3.html</guid>
     <pubDate>Sat, 09 Feb 2019 00:00:00 GMT</pubDate>
-    <description>Recap of the 3rd DevSecOps Pune meetup in February 2019, with growing attendance and sessions covering Kali Linux, OWASP tools, and defensive security practices.</description>
+    <description>Recap of the 3rd DevSecOps Pune meetup in February 2019, with growing attendance and sessions on Kali Linux, OWASP tools, and defensive security.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Ansible</category>
     <category>DevSecOps</category>
@@ -2043,7 +2044,7 @@ others got stickers.</p>
     <link>https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html</guid>
     <pubDate>Sat, 09 Feb 2019 00:00:00 GMT</pubDate>
-    <description>Automate SSH key distribution across multiple VMs using ssh-keyscan and ssh-copy-id, eliminating repetitive manual key authorization in Vagrant and Ansible workflows.</description>
+    <description>Automate SSH key distribution across multiple VMs using ssh-keyscan and ssh-copy-id, cutting manual key authorization in Vagrant and Ansible workflows.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Ansible</category>
     <category>SSH</category>
@@ -5201,7 +5202,7 @@ Happy Monitoring!!
     <link>https://iamrawtion.github.io/blogs/software-configuration-management-system.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/software-configuration-management-system.html</guid>
     <pubDate>Tue, 18 Aug 2015 00:00:00 GMT</pubDate>
-    <description>An overview of software configuration management tools including Chef, Ansible, and Puppet, with guidance on when to use each for provisioning and deployment.</description>
+    <description>An overview of software configuration management tools including Chef, Ansible, and Puppet, with guidance on when to use each for provisioning and...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Configuration Management</category>
     <category>Deployment</category>
@@ -5447,7 +5448,7 @@ Processing Unit is provided by the MapReduce framework. This can be called as th
     <link>https://iamrawtion.github.io/blogs/mumbai-technology-meetup-devops-special.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/mumbai-technology-meetup-devops-special.html</guid>
     <pubDate>Sun, 27 Jul 2014 00:00:00 GMT</pubDate>
-    <description>Recap of the July 2014 Mumbai DevOps special meetup at Directiplex, featuring sessions on Docker, Chef, and configuration management for modern infrastructure.</description>
+    <description>Recap of the July 2014 Mumbai DevOps special meetup at Directiplex, featuring sessions on Docker, Chef, and configuration management for modern...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Devops</category>
     <category>Meetups</category>
@@ -5574,7 +5575,7 @@ WantedBy=multi-user.target
     <link>https://iamrawtion.github.io/blogs/rootconf-2014.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/rootconf-2014.html</guid>
     <pubDate>Wed, 16 Jul 2014 00:00:00 GMT</pubDate>
-    <description>I attended conference and workshop on Devops and Cloud Infrastructure - RootConf 2014 at Bangalore from 14th May to 17th May 2014. Topics covered: Go CI Tool, SELinux, Docker, and more.</description>
+    <description>Attended RootConf 2014 in Bangalore — a conference on DevOps and cloud infrastructure covering Go CI, SELinux, Docker, and modern deployment practices.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Devops</category>
     <content:encoded><![CDATA[<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFLxvjrSHhvwUjmD0n9Bd9LPRoaMHS9jMMgde_OLZX7l_3VPOGn1fXEbbQDR4WxxlBxz_WInXqRdsKaxQuPROJBa86qhdKZcaNsLlcHXH4R7o0hlMrQekdx6Lxb1ThPUbFTQiZ9yC1u4/s1600/IMG_20140717_063551.jpg" alt="">I attended conference and workshop on Devops and Cloud Infrastructure - <a href="https://rootconf.in/2014/">RootConf 2014</a> at Bangalore from 14th May to 17th May 2014.</p>
@@ -5632,9 +5633,13 @@ So no more, &quot;It works on my machine&quot; reason to be heard.</p>
     <link>https://iamrawtion.github.io/blogs/continuous-integration-with-jenkins.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/continuous-integration-with-jenkins.html</guid>
     <pubDate>Sat, 07 Jun 2014 00:00:00 GMT</pubDate>
-    <description>Continuous Integration: What's the deal? As per a tutorial that I came across a few months ago, its a process in which all the development work is integrated...</description>
+    <description>Continuous Integration: What's the deal? As per a tutorial that I came across a few months ago, its a process in which all the development work is...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-
+    <category>Jenkins</category>
+    <category>CI/CD</category>
+    <category>Automation</category>
+    <category>DevOps</category>
+    <category>Build Systems</category>
     <content:encoded><![CDATA[<p>Continuous Integration:</p>
 <p>What&#39;s the deal? As per a <a href="http://www.vogella.com/tutorials/Jenkins/article.html">tutorial</a> that I came 
 across a few months ago, its a process in which all the development work
@@ -5693,7 +5698,7 @@ You can create a virtual host on ubuntu by adding a file in
     <link>https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html</guid>
     <pubDate>Wed, 04 Jun 2014 00:00:00 GMT</pubDate>
-    <description>How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard install.</description>
+    <description>How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Ruby</category>
     <category>RubyOnRails</category>
@@ -5864,7 +5869,7 @@ Everything outside containers for Operations*</p>
     <link>https://iamrawtion.github.io/blogs/learning-chef-part-ii.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/learning-chef-part-ii.html</guid>
     <pubDate>Fri, 23 May 2014 00:00:00 GMT</pubDate>
-    <description>Continuing the Chef series with cookbook development: writing recipes, defining resources, setting attributes, and building out run lists for real deployments.</description>
+    <description>Continuing the Chef series with cookbook development: writing recipes, defining resources, setting attributes, and building out run lists for real...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Chef</category>
     <category>Devops</category>
@@ -6051,7 +6056,7 @@ knife data bag from file users $USER.json</p>
     <link>https://iamrawtion.github.io/blogs/meetupcom-practices.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/meetupcom-practices.html</guid>
     <pubDate>Sun, 11 May 2014 00:00:00 GMT</pubDate>
-    <description>Observations and lessons learned from running and attending tech meetups organized through meetup.com, covering what works and what to avoid as an organizer.</description>
+    <description>Observations and lessons learned from running and attending tech meetups organized through meetup.com, covering what works and what to avoid as an...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Meetups</category>
     <content:encoded><![CDATA[<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEH0nF0MgqRBoJuoIN_h-SAlfKTE7oy7rBvH9NfOoZ1foomd7bZoBOWncfIkd8JOMPzopoHuFDQ28LMx_0mQscL3HcNpBIKk8rkGvBFJohNHJG07FhvuvVMtaDBj2XGCuLq4XQw-Iyr4Q/s1600/3668169284_79a241959c_m.jpg" alt=""></p>
@@ -6119,7 +6124,7 @@ I have seen last minute arrangements being made to many meetups and I will surel
     <link>https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/docker-lightweight-linux-container.html</guid>
     <pubDate>Fri, 09 May 2014 00:00:00 GMT</pubDate>
-    <description>An introduction to Docker: how Linux containers differ from VMs, how to work with images and the Docker CLI, and why containers simplify application deployment.</description>
+    <description>An introduction to Docker: how Linux containers differ from VMs, how to work with images and the Docker CLI, and why containers simplify application...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Devops</category>
     <category>Docker</category>
@@ -6287,7 +6292,7 @@ sudo docker inspect 0da
     <link>https://iamrawtion.github.io/blogs/learning-chef-part-i.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/learning-chef-part-i.html</guid>
     <pubDate>Sat, 26 Apr 2014 00:00:00 GMT</pubDate>
-    <description>Getting started with Chef configuration management: understanding nodes, cookbooks, recipes, and how the Chef client and server work together to automate infrastructure.</description>
+    <description>Getting started with Chef: understanding nodes, cookbooks, recipes, and how Chef client and server work together to automate infrastructure configuration.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Chef</category>
     <category>Devops</category>
@@ -6649,7 +6654,7 @@ Reset passwd required   false                </p>
     <link>https://iamrawtion.github.io/blogs/automation-for-vmware-vcloud-director.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/automation-for-vmware-vcloud-director.html</guid>
     <pubDate>Mon, 17 Mar 2014 00:00:00 GMT</pubDate>
-    <description>Automating VMware vCloud Director with Chef's knife-vcloud plugin on CentOS 6.5 and Chef 11, covering installation, configuration, and basic vApp operations.</description>
+    <description>Automating VMware vCloud Director with Chef's knife-vcloud plugin on CentOS 6.5 and Chef 11, covering installation, configuration, and basic vApp...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Chef</category>
     <category>Cloud Computing</category>
@@ -6758,7 +6763,7 @@ resource &quot;vcd_vapp_vm&quot; &quot;web_server&quot; {
     <link>https://iamrawtion.github.io/blogs/public-private-and-hybrid-cloud.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/public-private-and-hybrid-cloud.html</guid>
     <pubDate>Tue, 04 Mar 2014 00:00:00 GMT</pubDate>
-    <description>Comparing public, private, and hybrid cloud deployment models, with practical guidance on which approach suits different enterprise workloads and compliance needs.</description>
+    <description>Comparing public, private, and hybrid cloud deployment models, with guidance on which suits different enterprise workloads and compliance requirements.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Cloud Computing</category>
     <category>Devops</category>
@@ -6838,7 +6843,7 @@ Many companies are now opting for Enterprise cloud
     <link>https://iamrawtion.github.io/blogs/virtualization-with-vagrant.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/virtualization-with-vagrant.html</guid>
     <pubDate>Mon, 24 Feb 2014 00:00:00 GMT</pubDate>
-    <description>Using Vagrant with VirtualBox and VMware to create reproducible, version-controlled development VMs that match production environments and work across teams.</description>
+    <description>Using Vagrant with VirtualBox and VMware to create reproducible, version-controlled development VMs that match production environments and work across...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Vagrant</category>
     <category>VirtualBox</category>
@@ -7131,7 +7136,7 @@ sudo iptables -L -n | grep 22
     <link>https://iamrawtion.github.io/blogs/data-recovery-with-testdisk.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/data-recovery-with-testdisk.html</guid>
     <pubDate>Fri, 07 Feb 2014 00:00:00 GMT</pubDate>
-    <description>How to recover lost partitions and deleted files from a crashed hard disk using TestDisk, a free open-source data recovery tool that runs on Linux and Windows.</description>
+    <description>How to recover lost partitions and deleted files from a crashed hard disk using TestDisk, a free open-source data recovery tool that runs on Linux and...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Data Recovery</category>
     <category>Storage</category>
@@ -7355,7 +7360,7 @@ sar -b 1 5     # I/O statistics
     <link>https://iamrawtion.github.io/blogs/looking-for-free-windows-os-reactos-is.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/looking-for-free-windows-os-reactos-is.html</guid>
     <pubDate>Fri, 22 Nov 2013 00:00:00 GMT</pubDate>
-    <description>ReactOS is an open-source OS designed to be binary-compatible with Windows NT applications and drivers, offering a free alternative without relying on Wine.</description>
+    <description>ReactOS is an open-source OS designed to be binary-compatible with Windows NT applications and drivers, offering a free alternative without relying on...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Open Source</category>
     <content:encoded><![CDATA[<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5s99lPxLfxtVpIeY9f_6EAziagzIOl3uepC1-sLj9lq0PRwmWVax4vBqN4snlBq4LmKOL4ntHCN-CMgOA1onL0NeweDdHslxsxE_Us1vxeJL0bMfQOUweXZiMJZcSy7ra5RTzrKBi1TM/s1600/6946996197_2bff2c3e4e_m.jpg" alt=""></p>
@@ -7467,7 +7472,7 @@ are stored online in your separate account.)</p>
     <link>https://iamrawtion.github.io/blogs/i-recently-shared-one-of-my-stories.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/i-recently-shared-one-of-my-stories.html</guid>
     <pubDate>Sun, 03 Nov 2013 00:00:00 GMT</pubDate>
-    <description>How a production ingestion server failure caused by a full disk was diagnosed, and how a pre-flight check script was built to prevent it from happening again.</description>
+    <description>How a production ingestion server failure caused by a full disk was diagnosed, and how a pre-flight check script was built to prevent it from happening...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Server</category>
     <category>Storage</category>
@@ -8197,7 +8202,7 @@ created. Right click on it and click on Launch Instance.</p>
     <link>https://iamrawtion.github.io/blogs/local-drupal-setup.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/local-drupal-setup.html</guid>
     <pubDate>Mon, 08 Jul 2013 00:00:00 GMT</pubDate>
-    <description>Setting up a local Drupal CMS development environment on Linux with Apache and MySQL, from installation to a working site ready for theme and module development.</description>
+    <description>Setting up a local Drupal development environment on Linux with Apache and MySQL, ready for theme and module development.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Linux</category>
     <category>Programming</category>
@@ -8277,7 +8282,7 @@ drush config-set system.performance js.preprocess 0
     <link>https://iamrawtion.github.io/blogs/setting-up-your-own-ftp-server-ubuntu.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/setting-up-your-own-ftp-server-ubuntu.html</guid>
     <pubDate>Mon, 08 Jul 2013 00:00:00 GMT</pubDate>
-    <description>How to install, configure, and secure a vsftpd FTP server on Ubuntu, covering user access controls and basic hardening for a self-hosted file transfer service.</description>
+    <description>How to install, configure, and secure a vsftpd FTP server on Ubuntu, covering user access controls and basic hardening for a self-hosted file transfer...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Linux</category>
     <category>ubuntu</category>
@@ -8349,7 +8354,7 @@ Username: &lt;for_ur_machine&gt;
     <link>https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-1.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-1.html</guid>
     <pubDate>Sun, 30 Jun 2013 00:00:00 GMT</pubDate>
-    <description>Part 1 of building a private cloud with Ubuntu: setting up MAAS for bare-metal provisioning so you can deploy and manage physical servers like cloud instances.</description>
+    <description>Part 1 of building a private cloud with Ubuntu: setting up MAAS for bare-metal provisioning so you can deploy and manage physical servers like cloud...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Cloud Computing</category>
     <category>ubuntu</category>
@@ -11098,7 +11103,7 @@ Earlier many companies used Excel sheet for this purpose which was a headache fo
     <link>https://iamrawtion.github.io/blogs/wish-to-have-mentor.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/wish-to-have-mentor.html</guid>
     <pubDate>Mon, 21 Jan 2013 00:00:00 GMT</pubDate>
-    <description>How to find free mentors and learning resources online, including ACM MentorNet e-mentoring and open communities that connect students with working professionals.</description>
+    <description>How to find free mentors online, including ACM MentorNet and open communities that connect students with working professionals in tech.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Programming</category>
     <category>Technology</category>
@@ -11141,7 +11146,7 @@ Earlier many companies used Excel sheet for this purpose which was a headache fo
     <link>https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/tech-stuff-to-separate-part-of-pdf-from.html</guid>
     <pubDate>Wed, 02 Jan 2013 00:00:00 GMT</pubDate>
-    <description>Useful Linux command-line tricks for sysadmins: splitting PDFs with pdftk, converting file formats, and automating repetitive file operations from the terminal.</description>
+    <description>Useful Linux command-line tricks for sysadmins: splitting PDFs with pdftk, converting file formats, and automating repetitive file operations from the...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Linux</category>
     <category>Operations</category>
@@ -11747,7 +11752,7 @@ line</p>
     <link>https://iamrawtion.github.io/blogs/acm-icpc-3.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/acm-icpc-3.html</guid>
     <pubDate>Thu, 30 Aug 2012 00:00:00 GMT</pubDate>
-    <description>A personal account of competing in ACM ICPC regionals: the travel, accommodation, pre-contest preparation, and what the on-site competition experience is actually like.</description>
+    <description>A personal account of ACM ICPC regionals: the travel, pre-contest preparation, and what the on-site competition experience is actually like.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Programming</category>
     <category>Technology</category>
@@ -11800,7 +11805,7 @@ The coordination was splendid among the volunteers.</p>
     <link>https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/josephus-problem-ruby-code.html</guid>
     <pubDate>Mon, 27 Aug 2012 00:00:00 GMT</pubDate>
-    <description>A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.</description>
+    <description>A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and...</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Ruby</category>
     <category>Programming</category>
@@ -12020,7 +12025,7 @@ Password: <input type="password" name="paswd" /><br/>
     <link>https://iamrawtion.github.io/blogs/lets-talk-cloud-computing.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/lets-talk-cloud-computing.html</guid>
     <pubDate>Wed, 20 Jun 2012 00:00:00 GMT</pubDate>
-    <description>A beginner-friendly introduction to cloud computing: what it actually means, how on-demand infrastructure works, and why it has changed how software is deployed.</description>
+    <description>A beginner-friendly introduction to cloud computing: what it means, how on-demand infrastructure works, and why it has changed software deployment.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Cloud Computing</category>
     <category>Technology</category>
@@ -12209,7 +12214,7 @@ They took us to their Hostel.</p>
     <link>https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html</guid>
     <pubDate>Fri, 08 Jun 2012 00:00:00 GMT</pubDate>
-    <description>Notes from MIT's Introduction to Algorithms course covering algorithm analysis, design techniques, sorting algorithms, and computational complexity fundamentals.</description>
+    <description>Notes from MIT's Introduction to Algorithms covering algorithm analysis, design techniques, sorting algorithms, and computational complexity.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Programming</category>
     <category>Technology</category>
@@ -12656,7 +12661,7 @@ Time limit : 3 secs</p>
     <link>https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/building-waas-workflow-as-a-service-peepaal-project.html</guid>
     <pubDate>Sat, 29 Jan 2011 00:00:00 GMT</pubDate>
-    <description>One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...</description>
+    <description>Building WAAS — Workflow as a Service — as part of the Peepaal project: a cloud-native platform for automating business workflows using Java and PaaS.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Administration</category>
     <category>Cloud</category>

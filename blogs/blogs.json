@@ -2,14 +2,14 @@
   {
     "title": "The CV Habit That Accidentally Saved My Job",
     "date": "2026-09-21",
-    "category": "Cloud",
+    "category": "DevOps",
     "tags": [
       "Administration",
       "AWS",
       "DevOps",
       "Documentation"
     ],
-    "excerpt": "Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all this...",
+    "excerpt": "Every engineer knows this problem. You switch jobs after a year and a half, sit down to update your CV, and go completely blank. What did I even do all...",
     "author": "Roshan Nagekar",
     "id": "the-cv-habit-that-accidentally-saved-my-job",
     "file": "the-cv-habit-that-accidentally-saved-my-job.md"
@@ -29,7 +29,7 @@
       "Linux",
       "VirtualBox"
     ],
-    "excerpt": "I still remember the date almost. Not exactly, because it's been years. But I remember it was a Friday. I remember it was IPL season. And I remember I had a...",
+    "excerpt": "I still remember the date almost. Not exactly, because it's been years. But I remember it was a Friday. I remember it was IPL season. And I remember I...",
     "author": "Roshan Nagekar",
     "id": "the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp",
     "file": "the-day-i-missed-my-first-ipl-match-and-learned-the-most-imp.md"
@@ -49,7 +49,7 @@
       "Icinga",
       "Zabbix"
     ],
-    "excerpt": "A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster, and why that grounding still matters today.",
+    "excerpt": "A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster.",
     "author": "Roshan Nagekar",
     "id": "nagios-still-has-my-heart",
     "file": "nagios-still-has-my-heart.md"
@@ -64,7 +64,7 @@
       "DevOps",
       "Documentation"
     ],
-    "excerpt": "I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame,...",
+    "excerpt": "Disney reused animation frames to cut costs. I used the same trick with AI to generate my kid's personalized bedtime stories — here's how it worked.",
     "author": "Roshan Nagekar",
     "id": "disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim",
     "file": "disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.md"
@@ -72,7 +72,7 @@
   {
     "title": "Documentation Drifts. Here's How to Catch It.",
     "date": "2026-08-05",
-    "category": "Linux",
+    "category": "DevOps",
     "tags": [
       "Administration",
       "AI Agents",
@@ -80,7 +80,7 @@
       "DevOps",
       "Documentation"
     ],
-    "excerpt": "\"Documenting the documentation.\" Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying. Actually...",
+    "excerpt": "\"Documenting the documentation.\" Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying....",
     "author": "Roshan Nagekar",
     "id": "documentation-drifts-heres-how-to-catch-it",
     "file": "documentation-drifts-heres-how-to-catch-it.md"
@@ -99,7 +99,7 @@
       "Marketing",
       "Sales"
     ],
-    "excerpt": "When I ask any of my student what they want to be? I mostly get one of the five answers: Developer, QA, Project Manager, Business Analyst, and now DevOps too....",
+    "excerpt": "CRO is a career stream nobody told you about in college. Here's how a DevOps background is actually a superpower in conversion rate optimization.",
     "author": "Roshan Nagekar",
     "id": "cro-the-career-stream-nobody-told-you-about",
     "file": "cro-the-career-stream-nobody-told-you-about.md"
@@ -116,7 +116,7 @@
       "MySQL",
       "DevSecOps"
     ],
-    "excerpt": "I set up a MySQL MCP server on port 9100 using FastMCP and immediately noticed a problem — the server doesn't inherently know the difference between an agent I authorized and one that just happened to find my endpoint.",
+    "excerpt": "I set up a MySQL MCP server using FastMCP and noticed a problem — it doesn't know the difference between an agent I authorized and one that found my endpoint.",
     "author": "Roshan Nagekar",
     "id": "credential-bleed-mcp-server-trust",
     "file": "credential-bleed-mcp-server-trust.md"
@@ -132,7 +132,7 @@
       "Telegram",
       "DevOps"
     ],
-    "excerpt": "I tried to build a pipeline that captures posts from my Telegram channel and redistributes them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. I got most of it working. Then I stopped.",
+    "excerpt": "I built a pipeline to capture Telegram posts and redistribute them across LinkedIn, Twitter, Instagram, Facebook, and Dev.to automatically. Then I stopped.",
     "author": "Roshan Nagekar",
     "id": "telegram-auto-post-pipeline",
     "file": "telegram-auto-post-pipeline.md"
@@ -150,11 +150,10 @@
       "AI/ML",
       "Automation",
       "CRO",
-      "CRO",
       "Marketing",
       "Sales"
     ],
-    "excerpt": "BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL, and...",
+    "excerpt": "BECAUSE THE LOUDEST IDEA IN THE ROOM IS NOT ALWAYS THE BEST EXPERIMENT. In the last post, I wrote about the main experiment types: A/A, A/B, Split URL,...",
     "author": "Roshan Nagekar",
     "id": "part-3-how-to-decide-which-cro-test-to-run-first",
     "file": "part-3-how-to-decide-which-cro-test-to-run-first.md"
@@ -163,8 +162,14 @@
     "title": "From a zip file in 2020 to an AI-powered wiki in 2026. Here's what happened in between",
     "date": "2026-06-24",
     "category": "DevOps",
-    "tags": [],
-    "excerpt": "Someone on the team once asked about a feature deprecated back in 2020. 45 minutes of digging through backups, old slack threads, a google doc nobody had...",
+    "tags": [
+      "AI Agents",
+      "AI/ML",
+      "Documentation",
+      "Knowledge Management",
+      "DevOps"
+    ],
+    "excerpt": "Someone on the team once asked about a feature deprecated back in 2020. 45 minutes of digging through backups, old slack threads, a google doc nobody...",
     "author": "Roshan Nagekar",
     "id": "from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres",
     "file": "from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres.md"
@@ -179,10 +184,9 @@
       "AI Agents",
       "AI/ML",
       "CRO",
-      "CRO",
       "DevOps"
     ],
-    "excerpt": "If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free account on...",
+    "excerpt": "If you read the first post in this series, you now have a working definition of CRO, a sense of why conversion rate matters, and hopefully a free...",
     "author": "Roshan Nagekar",
     "id": "part-2-the-experiments-that-actually-move-the-number",
     "file": "part-2-the-experiments-that-actually-move-the-number.md"
@@ -196,7 +200,6 @@
       "AI Agents",
       "AI/ML",
       "Automation",
-      "CRO",
       "CRO",
       "DevOps",
       "Marketing",
@@ -218,7 +221,7 @@
       "DevOps",
       "Documentation"
     ],
-    "excerpt": "Last week I wrote about why you shouldn't trust AI blindly with your documentation. I thought I was only being careful. Turns out, researchers just proved it,...",
+    "excerpt": "Last week I wrote about not trusting AI blindly with your docs. Then researchers proved it: AI confidently generates plausible but incorrect technical content.",
     "author": "Roshan Nagekar",
     "id": "i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee",
     "file": "i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee.md"
@@ -234,7 +237,7 @@
       "Documentation",
       "Knowledge Management"
     ],
-    "excerpt": "Last week we audited our company docs. 502 articles. 77 duplicates. Nobody knew which one was correct. And this wasn't because people were lazy. Everyone was...",
+    "excerpt": "Last week we audited our company docs. 502 articles. 77 duplicates. Nobody knew which one was correct. And this wasn't because people were lazy....",
     "author": "Roshan Nagekar",
     "id": "docs-as-code-ai-as-author-humans-as-reviewers-what-could-go",
     "file": "docs-as-code-ai-as-author-humans-as-reviewers-what-could-go.md"
@@ -249,7 +252,7 @@
       "Containers",
       "DevOps"
     ],
-    "excerpt": "Learn how to use Docker Compose to manage multi-container applications. This guide covers the basics of docker-compose.yml files, common commands, and a practical example of deploying a web application with a database.",
+    "excerpt": "Learn Docker Compose to manage multi-container applications — covering docker-compose.yml, common commands, and deploying a web app with a database.",
     "author": "Roshan Nagekar",
     "id": "sample-docker-compose-guide",
     "file": "sample-docker-compose-guide.md"
@@ -264,7 +267,7 @@
       "DevOps",
       "Automation"
     ],
-    "excerpt": "A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps pipeline.",
+    "excerpt": "A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps...",
     "author": "Roshan Nagekar",
     "id": "skenai-devsecops-walkthrough",
     "file": "skenai-devsecops-walkthrough.md"
@@ -299,7 +302,7 @@
       "Meetups",
       "Open Source"
     ],
-    "excerpt": "Recap of the 4th DevSecOps Pune meetup in March 2019, featuring new sponsors Elastic, Sonatype, and Snyk, with sessions on security tooling and DevSecOps practices.",
+    "excerpt": "Recap of the 4th DevSecOps Pune meetup in March 2019, with new sponsors Elastic, Sonatype, and Snyk, and sessions on security tooling and practices.",
     "author": "Roshan Nagekar",
     "id": "devsecops-pune-meetup-4",
     "file": "devsecops-pune-meetup-4.md"
@@ -348,7 +351,7 @@
       "Meetups",
       "OWASP"
     ],
-    "excerpt": "Recap of the 3rd DevSecOps Pune meetup in February 2019, with growing attendance and sessions covering Kali Linux, OWASP tools, and defensive security practices.",
+    "excerpt": "Recap of the 3rd DevSecOps Pune meetup in February 2019, with growing attendance and sessions on Kali Linux, OWASP tools, and defensive security.",
     "author": "Roshan Nagekar",
     "id": "devsecops-pune-meetup-3",
     "file": "devsecops-pune-meetup-3.md"
@@ -364,7 +367,7 @@
       "ssh-keyscan",
       "Vagrant"
     ],
-    "excerpt": "Automate SSH key distribution across multiple VMs using ssh-keyscan and ssh-copy-id, eliminating repetitive manual key authorization in Vagrant and Ansible workflows.",
+    "excerpt": "Automate SSH key distribution across multiple VMs using ssh-keyscan and ssh-copy-id, cutting manual key authorization in Vagrant and Ansible workflows.",
     "author": "Roshan Nagekar",
     "id": "one-click-ansible-authorization-for",
     "file": "one-click-ansible-authorization-for.md"
@@ -513,7 +516,7 @@
       "Devops",
       "Provisioning"
     ],
-    "excerpt": "An overview of software configuration management tools including Chef, Ansible, and Puppet, with guidance on when to use each for provisioning and deployment.",
+    "excerpt": "An overview of software configuration management tools including Chef, Ansible, and Puppet, with guidance on when to use each for provisioning and...",
     "author": "Roshan Nagekar",
     "id": "software-configuration-management-system",
     "file": "software-configuration-management-system.md"
@@ -557,7 +560,7 @@
       "Devops",
       "Meetups"
     ],
-    "excerpt": "Recap of the July 2014 Mumbai DevOps special meetup at Directiplex, featuring sessions on Docker, Chef, and configuration management for modern infrastructure.",
+    "excerpt": "Recap of the July 2014 Mumbai DevOps special meetup at Directiplex, featuring sessions on Docker, Chef, and configuration management for modern...",
     "author": "Roshan Nagekar",
     "id": "mumbai-technology-meetup-devops-special",
     "file": "mumbai-technology-meetup-devops-special.md"
@@ -584,7 +587,7 @@
     "tags": [
       "Devops"
     ],
-    "excerpt": "I attended conference and workshop on Devops and Cloud Infrastructure - RootConf 2014 at Bangalore from 14th May to 17th May 2014. Topics covered: Go CI Tool, SELinux, Docker, and more.",
+    "excerpt": "Attended RootConf 2014 in Bangalore — a conference on DevOps and cloud infrastructure covering Go CI, SELinux, Docker, and modern deployment practices.",
     "author": "Roshan Nagekar",
     "id": "rootconf-2014",
     "file": "rootconf-2014.md"
@@ -593,8 +596,14 @@
     "title": "Continuous Integration with Jenkins",
     "date": "2014-06-07",
     "category": "DevOps",
-    "tags": [],
-    "excerpt": "Continuous Integration: What's the deal? As per a tutorial that I came across a few months ago, its a process in which all the development work is integrated...",
+    "tags": [
+      "Jenkins",
+      "CI/CD",
+      "Automation",
+      "DevOps",
+      "Build Systems"
+    ],
+    "excerpt": "Continuous Integration: What's the deal? As per a tutorial that I came across a few months ago, its a process in which all the development work is...",
     "author": "Roshan Nagekar",
     "id": "continuous-integration-with-jenkins",
     "file": "continuous-integration-with-jenkins.md"
@@ -608,7 +617,7 @@
       "RubyOnRails",
       "Troubleshooting"
     ],
-    "excerpt": "How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard install.",
+    "excerpt": "How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard...",
     "author": "Roshan Nagekar",
     "id": "install-patched-ruby-interpreter-with",
     "file": "install-patched-ruby-interpreter-with.md"
@@ -636,7 +645,7 @@
       "Devops",
       "Server"
     ],
-    "excerpt": "Continuing the Chef series with cookbook development: writing recipes, defining resources, setting attributes, and building out run lists for real deployments.",
+    "excerpt": "Continuing the Chef series with cookbook development: writing recipes, defining resources, setting attributes, and building out run lists for real...",
     "author": "Roshan Nagekar",
     "id": "learning-chef-part-ii",
     "file": "learning-chef-part-ii.md"
@@ -648,7 +657,7 @@
     "tags": [
       "Meetups"
     ],
-    "excerpt": "Observations and lessons learned from running and attending tech meetups organized through meetup.com, covering what works and what to avoid as an organizer.",
+    "excerpt": "Observations and lessons learned from running and attending tech meetups organized through meetup.com, covering what works and what to avoid as an...",
     "author": "Roshan Nagekar",
     "id": "meetupcom-practices",
     "file": "meetupcom-practices.md"
@@ -661,7 +670,7 @@
       "Devops",
       "Docker"
     ],
-    "excerpt": "An introduction to Docker: how Linux containers differ from VMs, how to work with images and the Docker CLI, and why containers simplify application deployment.",
+    "excerpt": "An introduction to Docker: how Linux containers differ from VMs, how to work with images and the Docker CLI, and why containers simplify application...",
     "author": "Roshan Nagekar",
     "id": "docker-lightweight-linux-container",
     "file": "docker-lightweight-linux-container.md"
@@ -675,7 +684,7 @@
       "Devops",
       "Server"
     ],
-    "excerpt": "Getting started with Chef configuration management: understanding nodes, cookbooks, recipes, and how the Chef client and server work together to automate infrastructure.",
+    "excerpt": "Getting started with Chef: understanding nodes, cookbooks, recipes, and how Chef client and server work together to automate infrastructure configuration.",
     "author": "Roshan Nagekar",
     "id": "learning-chef-part-i",
     "file": "learning-chef-part-i.md"
@@ -704,7 +713,7 @@
       "Cloud Computing",
       "VMWare vCloud"
     ],
-    "excerpt": "Automating VMware vCloud Director with Chef's knife-vcloud plugin on CentOS 6.5 and Chef 11, covering installation, configuration, and basic vApp operations.",
+    "excerpt": "Automating VMware vCloud Director with Chef's knife-vcloud plugin on CentOS 6.5 and Chef 11, covering installation, configuration, and basic vApp...",
     "author": "Roshan Nagekar",
     "id": "automation-for-vmware-vcloud-director",
     "file": "automation-for-vmware-vcloud-director.md"
@@ -717,7 +726,7 @@
       "Cloud Computing",
       "Devops"
     ],
-    "excerpt": "Comparing public, private, and hybrid cloud deployment models, with practical guidance on which approach suits different enterprise workloads and compliance needs.",
+    "excerpt": "Comparing public, private, and hybrid cloud deployment models, with guidance on which suits different enterprise workloads and compliance requirements.",
     "author": "Roshan Nagekar",
     "id": "public-private-and-hybrid-cloud",
     "file": "public-private-and-hybrid-cloud.md"
@@ -732,7 +741,7 @@
       "Virtualization",
       "VMWare"
     ],
-    "excerpt": "Using Vagrant with VirtualBox and VMware to create reproducible, version-controlled development VMs that match production environments and work across teams.",
+    "excerpt": "Using Vagrant with VirtualBox and VMware to create reproducible, version-controlled development VMs that match production environments and work across...",
     "author": "Roshan Nagekar",
     "id": "virtualization-with-vagrant",
     "file": "virtualization-with-vagrant.md"
@@ -758,7 +767,7 @@
       "Data Recovery",
       "Storage"
     ],
-    "excerpt": "How to recover lost partitions and deleted files from a crashed hard disk using TestDisk, a free open-source data recovery tool that runs on Linux and Windows.",
+    "excerpt": "How to recover lost partitions and deleted files from a crashed hard disk using TestDisk, a free open-source data recovery tool that runs on Linux and...",
     "author": "Roshan Nagekar",
     "id": "data-recovery-with-testdisk",
     "file": "data-recovery-with-testdisk.md"
@@ -784,7 +793,7 @@
     "tags": [
       "Open Source"
     ],
-    "excerpt": "ReactOS is an open-source OS designed to be binary-compatible with Windows NT applications and drivers, offering a free alternative without relying on Wine.",
+    "excerpt": "ReactOS is an open-source OS designed to be binary-compatible with Windows NT applications and drivers, offering a free alternative without relying on...",
     "author": "Roshan Nagekar",
     "id": "looking-for-free-windows-os-reactos-is",
     "file": "looking-for-free-windows-os-reactos-is.md"
@@ -812,7 +821,7 @@
       "Storage",
       "Troubleshooting"
     ],
-    "excerpt": "How a production ingestion server failure caused by a full disk was diagnosed, and how a pre-flight check script was built to prevent it from happening again.",
+    "excerpt": "How a production ingestion server failure caused by a full disk was diagnosed, and how a pre-flight check script was built to prevent it from happening...",
     "author": "Roshan Nagekar",
     "id": "i-recently-shared-one-of-my-stories",
     "file": "i-recently-shared-one-of-my-stories.md"
@@ -902,7 +911,7 @@
       "Configuration Management",
       "Open Source"
     ],
-    "excerpt": "Setting up a local Drupal CMS development environment on Linux with Apache and MySQL, from installation to a working site ready for theme and module development.",
+    "excerpt": "Setting up a local Drupal development environment on Linux with Apache and MySQL, ready for theme and module development.",
     "author": "Roshan Nagekar",
     "id": "local-drupal-setup",
     "file": "local-drupal-setup.md"
@@ -917,7 +926,7 @@
       "Server",
       "Networking"
     ],
-    "excerpt": "How to install, configure, and secure a vsftpd FTP server on Ubuntu, covering user access controls and basic hardening for a self-hosted file transfer service.",
+    "excerpt": "How to install, configure, and secure a vsftpd FTP server on Ubuntu, covering user access controls and basic hardening for a self-hosted file transfer...",
     "author": "Roshan Nagekar",
     "id": "setting-up-your-own-ftp-server-ubuntu",
     "file": "setting-up-your-own-ftp-server-ubuntu.md"
@@ -932,7 +941,7 @@
       "Provisioning",
       "Virtualization"
     ],
-    "excerpt": "Part 1 of building a private cloud with Ubuntu: setting up MAAS for bare-metal provisioning so you can deploy and manage physical servers like cloud instances.",
+    "excerpt": "Part 1 of building a private cloud with Ubuntu: setting up MAAS for bare-metal provisioning so you can deploy and manage physical servers like cloud...",
     "author": "Roshan Nagekar",
     "id": "build-your-own-private-cloud-with-1",
     "file": "build-your-own-private-cloud-with.md"
@@ -1019,7 +1028,7 @@
       "Technology",
       "Open Source"
     ],
-    "excerpt": "How to find free mentors and learning resources online, including ACM MentorNet e-mentoring and open communities that connect students with working professionals.",
+    "excerpt": "How to find free mentors online, including ACM MentorNet and open communities that connect students with working professionals in tech.",
     "author": "Roshan Nagekar",
     "id": "wish-to-have-mentor",
     "file": "wish-to-have-mentor.md"
@@ -1033,7 +1042,7 @@
       "Operations",
       "Troubleshooting"
     ],
-    "excerpt": "Useful Linux command-line tricks for sysadmins: splitting PDFs with pdftk, converting file formats, and automating repetitive file operations from the terminal.",
+    "excerpt": "Useful Linux command-line tricks for sysadmins: splitting PDFs with pdftk, converting file formats, and automating repetitive file operations from the...",
     "author": "Roshan Nagekar",
     "id": "tech-stuff-to-separate-part-of-pdf-from",
     "file": "tech-stuff-to-separate-part-of-pdf-from.md"
@@ -1062,7 +1071,7 @@
       "Technology",
       "Open Source"
     ],
-    "excerpt": "A personal account of competing in ACM ICPC regionals: the travel, accommodation, pre-contest preparation, and what the on-site competition experience is actually like.",
+    "excerpt": "A personal account of ACM ICPC regionals: the travel, pre-contest preparation, and what the on-site competition experience is actually like.",
     "author": "Roshan Nagekar",
     "id": "acm-icpc-3",
     "file": "acm-icpc-3.md"
@@ -1076,7 +1085,7 @@
       "Programming",
       "Technology"
     ],
-    "excerpt": "A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and recursion.",
+    "excerpt": "A Ruby solution to the classic Josephus problem, a circular elimination algorithm that is a common exercise for understanding modular arithmetic and...",
     "author": "Roshan Nagekar",
     "id": "josephus-problem-ruby-code",
     "file": "josephus-problem-ruby-code.md"
@@ -1105,7 +1114,7 @@
       "Technology",
       "Devops"
     ],
-    "excerpt": "A beginner-friendly introduction to cloud computing: what it actually means, how on-demand infrastructure works, and why it has changed how software is deployed.",
+    "excerpt": "A beginner-friendly introduction to cloud computing: what it means, how on-demand infrastructure works, and why it has changed software deployment.",
     "author": "Roshan Nagekar",
     "id": "lets-talk-cloud-computing",
     "file": "lets-talk-cloud-computing.md"
@@ -1146,7 +1155,7 @@
       "Technology",
       "Open Source"
     ],
-    "excerpt": "Notes from MIT's Introduction to Algorithms course covering algorithm analysis, design techniques, sorting algorithms, and computational complexity fundamentals.",
+    "excerpt": "Notes from MIT's Introduction to Algorithms covering algorithm analysis, design techniques, sorting algorithms, and computational complexity.",
     "author": "Roshan Nagekar",
     "id": "introduction-to-algorithms-by-mit",
     "file": "introduction-to-algorithms-by-mit.md"
@@ -1168,7 +1177,7 @@
   {
     "title": "Building WAAS – Workflow as a Service (Peepaal Project)",
     "date": "2011-01-29",
-    "category": "Cloud",
+    "category": "Cloud Computing",
     "tags": [
       "Administration",
       "Cloud",
@@ -1177,7 +1186,7 @@
       "PaaS",
       "WaaS"
     ],
-    "excerpt": "One of the best things happening this year is being part of Our team is currently working on a project called WAAS – Workflow as a Service, and it's turning...",
+    "excerpt": "Building WAAS — Workflow as a Service — as part of the Peepaal project: a cloud-native platform for automating business workflows using Java and PaaS.",
     "author": "Roshan Nagekar",
     "id": "building-waas-workflow-as-a-service-peepaal-project",
     "file": "building-waas-workflow-as-a-service-peepaal-project.md"

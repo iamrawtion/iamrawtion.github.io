@@ -39,6 +39,7 @@ const SCHEMA_TYPE_MAP = {
   'aws-tagger': 'TechArticle',
   'software-configuration-management-system': 'TechArticle',
   'infrastructure-monitoring-with-nagios': 'TechArticle',
+  'nagios-still-has-my-heart': 'TechArticle',
   'automation-for-vmware-vcloud-director': 'TechArticle',
   '27': 'TechArticle',
   'integrating-docker-with-chef': 'TechArticle',
@@ -53,6 +54,18 @@ const SCHEMA_TYPE_MAP = {
   'devsecops-pune-meetup-2': 'TechArticle',
   'devsecops-pune-meetup-3': 'TechArticle',
   'devsecops-pune-meetup-4': 'TechArticle',
+  'continuous-integration-with-jenkins': 'TechArticle',
+  'from-a-zip-file-in-2020-to-an-ai-powered-wiki-in-2026-heres': 'TechArticle',
+  'part-2-the-experiments-that-actually-move-the-number': 'TechArticle',
+  'part-3-how-to-decide-which-cro-test-to-run-first': 'TechArticle',
+  'from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour': 'TechArticle',
+  'docs-as-code-ai-as-author-humans-as-reviewers-what-could-go': 'TechArticle',
+  'i-said-ai-will-mess-up-your-docs-scientists-said-hold-my-bee': 'TechArticle',
+  'documentation-drifts-heres-how-to-catch-it': 'TechArticle',
+  'building-waas-workflow-as-a-service-peepaal-project': 'TechArticle',
+  'disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim': 'TechArticle',
+  'telegram-auto-post-pipeline': 'TechArticle',
+  'cro-the-career-stream-nobody-told-you-about': 'TechArticle',
 };
 
 // --- shared nav/head helpers ---
@@ -396,6 +409,7 @@ function categoryPageHtml(category, posts) {
 <html lang="en">
 <head>
 ${sharedHead({ title: `${category} Posts | Roshan Nagekar`, desc, url, depth: '../' })}
+  <meta name="robots" content="noindex, follow">
   <script type="application/ld+json">${collectionJsonLd}</script>
   <script type="application/ld+json">${breadcrumbJsonLd}</script>
 </head>
@@ -470,6 +484,7 @@ function tagPageHtml(tag, posts) {
 <html lang="en">
 <head>
 ${sharedHead({ title: `${tag} Posts | Roshan Nagekar`, desc, url, depth: '../' })}
+  <meta name="robots" content="noindex, follow">
   <script type="application/ld+json">${collectionJsonLd}</script>
   <script type="application/ld+json">${breadcrumbJsonLd}</script>
 </head>
@@ -684,7 +699,8 @@ console.log(`✅ 404.html — generated with ${recentPosts.length} recent posts`
 // sitemap.xml — all pages
 // ============================================================
 const changefreqMap = { '1.0': 'weekly', '0.9': 'weekly', '0.8': 'monthly', '0.7': 'weekly', '0.6': 'monthly' };
-const allSitemapEntries = [...staticPages, ...blogSitemapEntries, ...categorySitemapEntries, ...tagSitemapEntries];
+// Exclude noindex category/tag pages from sitemap — they're for navigation only
+const allSitemapEntries = [...staticPages, ...blogSitemapEntries];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allSitemapEntries.map(e => `  <url>
