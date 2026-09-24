@@ -109,9 +109,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#why-this-approach-scales" style="color:var(--primary-color); text-decoration:none;">Why This Approach Scales</a></li><li style="margin-bottom:0.35rem;"><a href="#making-it-more-secure" style="color:var(--primary-color); text-decoration:none;">Making It More Secure</a></li><li style="margin-bottom:0.35rem;"><a href="#idempotency-running-it-safely-multiple-times" style="color:var(--primary-color); text-decoration:none;">Idempotency: Running It Safely Multiple Times</a></li><li style="margin-bottom:0.35rem;"><a href="#when-to-use-ansible-instead" style="color:var(--primary-color); text-decoration:none;">When to Use Ansible Instead</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p>I use VMs/Vagrant a lot in my day work for all sysadmin/devops automation. One of the problems that I always face with the systems is to authorize my server for the 1st time with my master host. If I am using 10 VMs I need to authorize them 10 times? I wrote a small script to automate this process:</p>
@@ -120,7 +120,7 @@
 <li>Create a &quot;password&quot; file to write your SSH password in it, you may choose to write the password in the bash, however I feel this gives me the flexibility to add the bash to my source code if need by putting password file in a.gitignore</li>
 <li>Next create a shell script that will read the IP addresses and the hostnames from the &quot;list&quot; file and password/s from the password file(I generally keep the same password for all VMs for simplicity)</li>
 <li>Remember 2 commands are useful here **ssh-copy-ip and **ssh-keyscan. Here&#39;s how you use them:</li>
-</ol>
+</ul>
 <table>
 <thead>
 <tr>

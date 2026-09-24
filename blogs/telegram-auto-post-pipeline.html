@@ -109,9 +109,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#the-idea" style="color:var(--primary-color); text-decoration:none;">The Idea</a></li><li style="margin-bottom:0.35rem;"><a href="#what-i-built" style="color:var(--primary-color); text-decoration:none;">What I Built</a></li><li style="margin-bottom:0.35rem;"><a href="#where-it-broke-down" style="color:var(--primary-color); text-decoration:none;">Where It Broke Down</a></li><li style="margin-bottom:0.35rem;"><a href="#the-actual-problem" style="color:var(--primary-color); text-decoration:none;">The Actual Problem</a></li><li style="margin-bottom:0.35rem;"><a href="#where-it-stands" style="color:var(--primary-color); text-decoration:none;">Where It Stands</a></li><li style="margin-bottom:0.35rem;"><a href="#how-to-actually-fix-the-endpoint-problem" style="color:var(--primary-color); text-decoration:none;">How to Actually Fix the Endpoint Problem</a></li><li style="margin-bottom:0.35rem;"><a href="#the-operational-80-pattern-in-devops" style="color:var(--primary-color); text-decoration:none;">The Operational 80% Pattern in DevOps</a></li><li style="margin-bottom:0.35rem;"><a href="#what-i-39-d-build-differently" style="color:var(--primary-color); text-decoration:none;">What I&#39;d Build Differently</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <h2 id="the-idea">The Idea</h2>
@@ -124,7 +124,7 @@
 <li>A dedup check makes sure nothing gets posted twice</li>
 <li>ChatGPT reformats the content for each target platform</li>
 <li>Posts go out to LinkedIn, Twitter, Instagram, Facebook, Dev.to</li>
-</ol>
+</ul>
 <p>The webhook and dedup logic work. The ChatGPT integration works. I never finished the multi-platform posting.</p>
 <h2 id="where-it-broke-down">Where It Broke Down</h2>
 <p>ngrok.</p>
@@ -147,7 +147,7 @@
 <li><strong>n8n Cloud.</strong> Hosted n8n with a stable webhook URL, no infrastructure to manage. You pay a monthly fee, but you get the webhook stability and don&#39;t have to think about process management or restarts. If your goal is running the automation, not running the infrastructure, this is the right call.</li>
 <li><strong>Cloudflare Tunnel (free).</strong> Cloudflare Tunnel routes traffic from a stable public URL to your local machine without requiring a static IP or opening firewall ports. You get a stable <code>*.trycloudflare.com</code> URL, or you can point your own domain at it. The tunnel client runs as a local process — you still need to handle process persistence, but the URL stability problem is solved at no cost.</li>
 <li><strong>ngrok paid plan.</strong> Static domain at around $10/month. Lowest friction if you&#39;re already using ngrok and just want to pay for the one missing feature.</li>
-</ol>
+</ul>
 <p>The right answer depends on how much you value running n8n locally versus the maintenance overhead. For an automation that should run unattended and reliably, a VPS or n8n Cloud is the correct call. The local setup made sense for development and testing. It&#39;s not the right substrate for something that&#39;s supposed to run while you&#39;re not watching.</p>
 <h2 id="the-operational-80-pattern-in-devops">The Operational 80% Pattern in DevOps</h2>
 <p>This pattern — building the interesting core and skipping the operational concerns — is one of the most common causes of abandoned internal tooling. I&#39;ve seen it in teams, and I&#39;ve done it myself. The specific things that usually get skipped:</p>

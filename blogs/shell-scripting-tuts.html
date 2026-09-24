@@ -108,9 +108,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#3-executing-your-script-there-are-three-ways-of-executing-a-script" style="color:var(--primary-color); text-decoration:none;">3. Executing your script : There are three ways of executing a script</a></li><li style="margin-bottom:0.35rem;"><a href="#syntax" style="color:var(--primary-color); text-decoration:none;">Syntax</a></li><li style="margin-bottom:0.35rem;"><a href="#linux-has-two-types-of-variables" style="color:var(--primary-color); text-decoration:none;">Linux has two types of variables</a></li><li style="margin-bottom:0.35rem;"><a href="#variable-declaration" style="color:var(--primary-color); text-decoration:none;">Variable declaration</a></li><li style="margin-bottom:0.35rem;"><a href="#if-a-linux-command-accepts-its-input-from-the-standard-input-and-produces-its-output-on-standard-output-is-know-as-a-filter-a-filter-performs-some-kind-of-process-on-the-input-and-gives-output-for-e-g-suppose-you-have-file-called-39-hotel-txt-39-with-100-lines-data-and-from-39-hotel-txt-39-you-would-like-to-print-contains-from-line-number-20-to-line-number-30-and-store-this-result-to-file-called-39-hlist-39-then-give-command" style="color:var(--primary-color); text-decoration:none;">If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command</a></li><li style="margin-bottom:0.35rem;"><a href="#syntax" style="color:var(--primary-color); text-decoration:none;">Syntax</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg" alt=""></p>
@@ -126,7 +126,7 @@ esc v for marking, d to cut, y to copy, p to paste
 </li>
 <li><p>After the shell script is complete set execute permission to the script for the script to execute. The permissions can be changed by the command chmod.</p>
 </li>
-</ol>
+</ul>
 <p>    Syntax is</p>
 <pre><code class="language-bash">    chmod permission your-script name
 </code></pre>
@@ -158,7 +158,7 @@ clear - this will clear the screen</p>
 </code></pre>
 <ol start="4">
 <li>The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values.</li>
-</ol>
+</ul>
 <hr>
 <h2 id="linux-has-two-types-of-variables">Linux has two types of variables</h2>
 <p>i. System Variables (Maintained by Linux system, seen in caps case)
@@ -169,7 +169,7 @@ ii. User defined varibales (User defined, small case)</p>
 Dont put spaces on either side of the equals sign that should give an error. Variables are case sensitive. While printing the values of the variables use the &#39;$&#39; symbol, e.g echo $n</p>
 <ol start="5">
 <li>Shell Arithmetic</li>
-</ol>
+</ul>
 <p>The term expr is used to perform arithmetic operations in shell.
 Syntax : expr op1 operator op2
 e.g
@@ -182,19 +182,19 @@ $ echo <code>expr 6 + 3</code></p>
 <p>Note : Backticks <code>is called backtick and this is mean to execute any command in the script e.g echo &quot;today is</code>date`&quot;</p>
 <ol start="6">
 <li>Exit status</li>
-</ol>
+</ul>
 <p>By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO
 zero is success while non zero is not
 This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status
 e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0</p>
 <ol start="7">
 <li>User input</li>
-</ol>
+</ul>
 <p>to accept an input from the user, use the command &#39;read&#39;
 read var1, var2, var3</p>
 <ol start="8">
 <li>WildCards</li>
-</ol>
+</ul>
 <p>There are three wildcards in shell
 ?, *, [...]
 ? - will Match a single character</p>
@@ -214,11 +214,11 @@ e.g ls; who; date; cal</p>
 </blockquote>
 <ol start="9">
 <li>Command line arguments</li>
-</ol>
+</ul>
 <p>Some commands need arguments to be passed. e.g if you do an rm, you would need to specify the file you want to remove. The specifying of the file is the command line argument to that command. For every shell script there is a command line argument that cane be specified by $<number>. $0 is the name of the script. $1 is the 1st argument. $2 is the 2nd argument and so on...</p>
 <ol start="10">
 <li>Redirection of Standard input output</li>
-</ol>
+</ul>
 <p>Three symbols are used for redirection&#39;</p>
 <blockquote>
 <p>, &lt; , &gt;&gt;
@@ -230,7 +230,7 @@ e.g ls; who; date; cal</p>
 </blockquote>
 <ol start="11">
 <li>Pipes</li>
-</ol>
+</ul>
 <p>pipe is a utility to connect the output of one program to the input of another program without any temporary file. Pipe is a temporary storage place, where the output of one command is stored, and then passed to the input of another command. Pipes are used to run more than two commands for the same command line.
 $ ls | more
 $ who | sort
@@ -240,12 +240,12 @@ $ ls -l | wc  -l
 $ who | grep raju</p>
 <ol start="12">
 <li>Filters</li>
-</ol>
+</ul>
 <h2 id="if-a-linux-command-accepts-its-input-from-the-standard-input-and-produces-its-output-on-standard-output-is-know-as-a-filter-a-filter-performs-some-kind-of-process-on-the-input-and-gives-output-for-e-g-suppose-you-have-file-called-39-hotel-txt-39-with-100-lines-data-and-from-39-hotel-txt-39-you-would-like-to-print-contains-from-line-number-20-to-line-number-30-and-store-this-result-to-file-called-39-hlist-39-then-give-command">If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command</h2>
 <p>$ tail +20 &lt; hotel.txt | head -n30 &gt;hlist</p>
 <ol start="13">
 <li>If Condition</li>
-</ol>
+</ul>
 <p>if is used for decision making. If a particular condition is true command1 is executed.</p>
 <hr>
 <h2 id="syntax">Syntax</h2>
@@ -343,13 +343,13 @@ elif [ $ch -eq 3 ]
 <p>fi</p>
 <ol start="14">
 <li>Looping in Shell</li>
-</ol>
+</ul>
 <p>Looping is execution of a particular expression time and again until a particular condition is satisfied.
 bash supports for loops and while loops
 looping needs 1. initializing of a variable, 2. test condition in beginning, 3. body of loop at the end modifies the initialized variable</p>
 <ol start="15">
 <li>For Loop</li>
-</ol>
+</ul>
 <p>Syntax:</p>
 <p>for { variable name } in { list }
 do
@@ -370,7 +370,7 @@ do</p>
 <p>done</p>
 <ol start="16">
 <li>While loops</li>
-</ol>
+</ul>
 <p> Syntax:</p>
 <p>while [ condition ]
   do

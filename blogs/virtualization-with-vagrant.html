@@ -108,9 +108,9 @@
 
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#open-source" style="color:var(--primary-color); text-decoration:none;">Open Source</a></li><li style="margin-bottom:0.35rem;"><a href="#fist-of" style="color:var(--primary-color); text-decoration:none;">Fist of</a></li>
-      </ol>
+      </ul>
     </nav>
 
         <div class="blog-post-content markdown-body">
@@ -137,7 +137,7 @@ Install it. As mentioned its a commandline utility tool, you need commandline
 to access this.</p>
 <ol>
 <li>You will need to initialize</li>
-</ol>
+</ul>
 <pre><code class="language-bash">   vagrant box** using the init command. This will initialize a
    vagrant environment in the present directory you are in. The second
 </code></pre>
@@ -149,13 +149,13 @@ to access this.</p>
 </ul>
 <ol start="2">
 <li>Next you need to **create and configure the **vagrant box as per your **vagrant file. Use the up command for this. This command will be used frequently as this is how you **start you machine as well.</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant up</em></li>
 </ul>
 <ol start="3">
 <li>Now that the machine has started you still have not logged in to the machine. You can use **ssh to login. You don&#39;t need to use the traditional long **ssh command to login to your box a simple vagrant ssh suffices.</li>
-</ol>
+</ul>
 <ul>
 <li><p><em><strong>vagrant</strong> <strong>ssh</strong></em></p>
 </li>
@@ -167,19 +167,19 @@ errors. Fatal can be expected.</p>
 </ul>
 <ol start="4">
 <li>To check valid **configurations to ssh into a running **vagrant box use vagrant ssh-config</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant ssh-config</em></li>
 </ul>
 <ol start="5">
 <li>As you now know how to setup and start using your **vagrant box, we also need to know how to **shut it down. This is simple too by just a &quot;**vagrant halt&quot; similar to the halt command in **linux machine.</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant halt</em></li>
 </ul>
 <ol start="6">
 <li>These were the few basics of **vagrant. You can do more with **vagrant as well. The **vagrant box command gives you **other alternatives that you could try out.</li>
-</ol>
+</ul>
 <ul>
 <li><p><em>vagrant box add [box-name] [url-path]</em></p>
 </li>
@@ -203,25 +203,25 @@ and the original box is not preserved.</p>
 </ul>
 <ol start="7">
 <li>**Restarting a **vagrant machine can be done using **vagrant reload. Its equivalent to a **vagrant halt and vagrant up.</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant reload</em></li>
 </ul>
 <ol start="8">
 <li>To check the current state of the machine, i.e to verify if the machine is running, stopped or not created etc a status command helps</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant status</em></li>
 </ul>
 <ol start="9">
 <li>To save the status of the machine and suspend it so that you can resume it at a later instance and not completely shut it down, you can use suspend command.</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant suspend</em></li>
 </ul>
 <ol start="10">
 <li>To **resume a suspended machine use **vagrant resume</li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant resume</em></li>
 </ul>
@@ -231,7 +231,7 @@ and the original box is not preserved.</p>
 allocated are destroyed as if the machine was never there. This command
 asks for confirmation before destroying.</p>
 </li>
-</ol>
+</ul>
 <ul>
 <li><em>vagrant destroy</em></li>
 </ul>

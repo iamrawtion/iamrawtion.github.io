@@ -119,14 +119,14 @@
 <li>One person is deeply technical, every article turns into a dense reference doc.</li>
 <li>Another writes for humans first, simple language, easy to follow, but a senior engineer might find it too light.</li>
 <li>A third writes in a fun, engaging tone that people love reading but that doesn&#39;t actually answer the question they came for.</li>
-</ol>
+</ul>
 <p>None of these people are wrong. But put them in the same wiki with no shared rules, and the documentation stops looking like one system. It may end up looking like three different people arguing.</p>
 <p>That&#39;s what documenting the documentation fixes. Not the content. The structure around the content. Heading formats. Whether an index is required. How many bullets before it&#39;s too many. Screenshot rules, including the boring but important one, don&#39;t reveal internal or customer details in a screenshot(Nothing says &#39;security incident&#39; like a screenshot where someone forgot to close the tab with the customer PI sitting right there). Whether emojis are fine or banned. Which kinds of diagrams are expected. Small decisions, but decided once, so nobody has to reinvent them article by article. Is humor ok. How much humor is ok? Procedure to build the context, etc.</p>
 <p>Two things break without this:</p>
 <ol>
 <li>When someone leaves the team, whoever replaces them has nothing to stand on. No rulebook, no shared style, just vibes and old examples to guess from.</li>
 <li>Even with the rules written down, you can&#39;t assume people will keep following them. Rules you hand someone on day one quietly erode by month six. Rules handed over on day one have a shelf life shorter than office milk.</li>
-</ol>
+</ul>
 <p>So the system needs an audit layer too. Not a one-time handoff. A recurring check.</p>
 <p>This is where it gets easier than it used to be. You write your rules once, in something like a <a href="http://CLAUDE.md">CLAUDE.md</a>, plain and specific. Then you let AI do the boring, repetitive part; scan every new article, and periodically scan the old ones too, and flag anything drifting from the standard. Wrong heading structure, missing index, a screenshot that shouldn&#39;t be there, tone that&#39;s drifted too casual or too dense. The AI doesn&#39;t decide what&#39;s true. It checks what&#39;s consistent. Humans still review before anything changes.</p>
 <p>Monitoring the monitoring system caught on in DevOps because someone finally said the obvious thing out loud, watch your watchers. Documentation needs its own version of that sentence.</p>

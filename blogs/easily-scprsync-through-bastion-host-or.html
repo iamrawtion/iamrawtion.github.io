@@ -109,9 +109,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#often-we-work-in-environment-where-we-need-to-copy-files-or-directories-from-a-local-system-to-another-server-that-can-be-accessed-only-through-a-bastion-host-in-such-cases-typically-we-transfer-from-local-machine-to-bastion-and-from-bastion-to-the-intended-server-this-is-time-consuming-repetitive-and-unreliable-too-there-are-many-ways-you-can-make-this-automated-i-found-a-way-to-get-this-done-through-ssh-tunneling-here-39-s-how-it-works" style="color:var(--primary-color); text-decoration:none;">Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here&#39;s how it works</a></li><li style="margin-bottom:0.35rem;"><a href="#why-this-matters-in-modern-devops" style="color:var(--primary-color); text-decoration:none;">Why This Matters in Modern DevOps</a></li><li style="margin-bottom:0.35rem;"><a href="#using-ssh-proxyjump-instead-modern-approach" style="color:var(--primary-color); text-decoration:none;">Using SSH ProxyJump Instead (Modern Approach)</a></li><li style="margin-bottom:0.35rem;"><a href="#proxyjump-in-ssh-config" style="color:var(--primary-color); text-decoration:none;">ProxyJump in SSH Config</a></li><li style="margin-bottom:0.35rem;"><a href="#rsync-with-proxyjump" style="color:var(--primary-color); text-decoration:none;">rsync with ProxyJump</a></li><li style="margin-bottom:0.35rem;"><a href="#security-considerations" style="color:var(--primary-color); text-decoration:none;">Security Considerations</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <h2 id="often-we-work-in-environment-where-we-need-to-copy-files-or-directories-from-a-local-system-to-another-server-that-can-be-accessed-only-through-a-bastion-host-in-such-cases-typically-we-transfer-from-local-machine-to-bastion-and-from-bastion-to-the-intended-server-this-is-time-consuming-repetitive-and-unreliable-too-there-are-many-ways-you-can-make-this-automated-i-found-a-way-to-get-this-done-through-ssh-tunneling-here-39-s-how-it-works">Often we work in environment where we need to copy files or directories from a local system to another server that can be accessed only through a Bastion host. In such cases, typically we transfer from local machine to Bastion and from Bastion to the intended server. This is time consuming, repetitive and unreliable too. There are many ways you can make this automated. I found a way to get this done through SSH tunneling. Here&#39;s how it works</h2>
@@ -125,7 +125,7 @@
 </li>
 <li><p>Create an SSH tunnel from localhost to the intended host through bastion. The tunnel will be created from port 1234 at localhost. You may choose any other port.</p>
 </li>
-</ol>
+</ul>
 <pre><code class="language-bash">ssh -L 1234:&lt;intended_server&gt;:22 &lt;user&gt;@&lt;bastion-host&gt; cat -
 2. In a new tab initiate the file/directory transfer using the tunnel port
 scp -P 1234 &lt;file_to_transfer&gt; &lt;user_of_intended_server&gt;@127.0.0.1:~/

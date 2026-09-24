@@ -113,9 +113,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#aws-tagging-best-practices" style="color:var(--primary-color); text-decoration:none;">AWS Tagging Best Practices</a></li><li style="margin-bottom:0.35rem;"><a href="#enforcing-tags-at-creation-time" style="color:var(--primary-color); text-decoration:none;">Enforcing Tags at Creation Time</a></li><li style="margin-bottom:0.35rem;"><a href="#modern-alternatives-to-aws-tagger" style="color:var(--primary-color); text-decoration:none;">Modern Alternatives to AWS Tagger</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSkdewqis72w1XkzPA-m8lxPsaI_kyWYWLc4OJOuWbxorWek9ji6RIGq4lsjRQ0S1fvr2YcJg5EgHuXgK0sz7Wlcc9TMwmiTWpcTkuHsLP0vjS94X1ZE-g0u_oxJjvsq7r9-mxub2PS8Q/s1600/3814523970_56b2af4d12_z.jpg" alt=""></p>
@@ -127,7 +127,7 @@
 <li>Costing: You can identify based on tags as to which resource is costly and also make business decisions based on the results received.</li>
 <li>Define ownership: You can also understand based on proper tags as to who are the stakeholders for a certain resource or group of resources.</li>
 <li>Versioning: Sometimes when you need certain resources to be preserved based on its state, you may also versionize them based on tagging. Although AWS provides versioning mechanism for a few services, it may not be applicable to all of them.</li>
-</ol>
+</ul>
 <p>In many organizations although the importance of tagging is understood a lot later.
 Until then its too late to start tagging and it becomes almost always a manual process to tag all the resources.</p>
 <p>Or you may need to write complex programs to identify systems and tag them as per your requirement.
@@ -137,7 +137,7 @@ So how do we do this.</p>
 <p>Its a 3 step process to Bulk tag resources:</p>
 <ol>
 <li></li>
-</ol>
+</ul>
 <p>Collection : This is a simple process.
 Here all you need to do is, collect all the resources in a file.
 Hereafter you may process this data.</p>
@@ -150,7 +150,7 @@ Click on the &quot;Download&quot; button to download the CSV data generated.</p>
 <ol start="2">
 <li>Identification and filtering: I recommend this step particularly to filter the data so that AWS Tagger can act on individual resources. Here you may use your excel skills to separate data based on resource types.</li>
 <li>Tagging: Once the resources are separated, you may start executing **AWS Tagger scripts as per the <a href="https://github.com/washingtonpost/aws-tagger/blob/master/README.md">documentation</a> provided on their **Github page.</li>
-</ol>
+</ul>
 <h2 id="aws-tagging-best-practices">AWS Tagging Best Practices</h2>
 <p>Getting the tooling right is only half the problem. The other half is agreeing on a tag schema and then actually enforcing it. Without enforcement, you&#39;ll have some resources tagged correctly, some tagged inconsistently, and some not tagged at all — which defeats the entire purpose.</p>
 <p><strong>Mandatory tags</strong> — these should be required on every resource, enforced at creation time:</p>

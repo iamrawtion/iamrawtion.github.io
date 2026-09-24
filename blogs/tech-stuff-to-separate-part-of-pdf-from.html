@@ -107,9 +107,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#tech-stuff" style="color:var(--primary-color); text-decoration:none;">TECH STUFF</a></li><li style="margin-bottom:0.35rem;"><a href="#type-the-following-ps-command-to-display-all-running-process" style="color:var(--primary-color); text-decoration:none;">Type the following ps command to display all running process</a></li><li style="margin-bottom:0.35rem;"><a href="#the-top-program-provides-a-dynamic-real-time-view-of-a-running-system-type-the-top-at-command-prompt" style="color:var(--primary-color); text-decoration:none;">The top program provides a dynamic real-time view of a running system. Type the top at command prompt</a></li><li style="margin-bottom:0.35rem;"><a href="#pstree" style="color:var(--primary-color); text-decoration:none;">$ pstree</a></li><li style="margin-bottom:0.35rem;"><a href="#or-if-you-want-to-backup-multipi-files-like-you-mp3-collection" style="color:var(--primary-color); text-decoration:none;">or if you want to backup multipi files (like you .mp3 collection)</a></li><li style="margin-bottom:0.35rem;"><a href="#name" style="color:var(--primary-color); text-decoration:none;">NAME</a></li><li style="margin-bottom:0.35rem;"><a href="#synopsis" style="color:var(--primary-color); text-decoration:none;">SYNOPSIS</a></li><li style="margin-bottom:0.35rem;"><a href="#chage" style="color:var(--primary-color); text-decoration:none;">chage</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZv1LxK9nXT1ncbbWzmSnHJDC24-009e9h2qfBk0mmRjGxVVWN1FfeOoS__ZoVM7KdkYZhZ3XfqcAT6WzDMqe9h4UahF81YOZXQaIi9f6e7hHac8gqvr_6lpsEclhyfuXPgLtQzbocqSU/s1600/4048968087_4412c5f7cf_m.jpg" alt=""></p>
@@ -118,7 +118,7 @@
 <ol>
 <li><strong>to separate a part of pdf from the original pdf use the following command, u may need to install pdftk “pdftk old.pdf cat 1-9 26-end output new.pdf”</strong></li>
 <li>get all the packages installed in the PC</li>
-</ol>
+</ul>
 <p>aptitude search &#39;!~M ~i&#39; | awk -F &quot; &quot; &#39;{ print &quot;apt-get -y install &quot; $2 }&#39; &gt; aptshell.sh</p>
 <ul>
 <li><p>to load dropbox
@@ -169,18 +169,18 @@ wget &lt;url&gt; -t &#39;n&#39;
 </code></pre>
 <ol start="10">
 <li>HOWTO: ISO creation from terminal</li>
-</ol>
+</ul>
 <p>Hi,
 I was looking for this (for a BASH script I wanted to write), and I found out how to do it. Now I want to share it</p>
 <ol>
 <li>Create ISO-file from folder</li>
-</ol>
+</ul>
 <p>Code:</p>
 <p>mkisofs -r -o /isofile.iso /folder</p>
 <p>where /isofile.iso is the relative or absolute path to the iso-file you want to create and /folder the absolute or relative path to the folder you want to backup.</p>
 <ol start="2">
 <li>Create ISO-file from file(s)</li>
-</ol>
+</ul>
 <p>Code:</p>
 <p>mkisofs -r -o /isofile.iso /mybigfile</p>
 <hr>
@@ -189,7 +189,7 @@ I was looking for this (for a BASH script I wanted to write), and I found out ho
 <p>mkisofs -r -o /isofile.iso *.mp3</p>
 <ol start="3">
 <li>Create ISO-file from a cd/dvd-drive</li>
-</ol>
+</ul>
 <p>Code:</p>
 <p>dd if=/dev/cdrom0 of=isofile.iso
 where /dev/cdrom0 is your cd/dvd-drive and isofile.iso your iso-file you want to create.</p>
@@ -200,7 +200,7 @@ where /dev/cdrom0 is your cd/dvd-drive and isofile.iso your iso-file you want to
 <ol start="11">
 <li>âž™ Synchronize all your files across Windows, Linux and Mac OS with Dropbox (2GB free storage!). By signing up via this link I&#39;ll get some extra space also, thanks!</li>
 <li>command for generation of preprocessed code which will have the included files in the code as well as the code that we have written</li>
-</ol>
+</ul>
 <pre><code class="language-bash">gcc -E test.c &gt; test.pp
 </code></pre>
 <p>object code post compilation that we always do.</p>
@@ -229,7 +229,7 @@ return a + b;
 </code></pre>
 <ol start="13">
 <li></li>
-</ol>
+</ul>
 <p> How to get all log history for the so called branches in subversion
 (they are nothing more than directories)</p>
 <pre><code class="language-bash"> mkdir ORACLEPOC; cd ORACLEPOC; svn2git
@@ -237,7 +237,7 @@ svn://[110.0.0.10/idbl//UI/ORACLEPOC](http://110.0.0.10/idbl//UI/ORACLEPOC) --r
 </code></pre>
 <ol start="14">
 <li></li>
-</ol>
+</ul>
 <p> Count total number of commits in all UI branches:</p>
 <p>grepping on &quot;Date:&quot;
 total=0;for i in *;  do cd $i; echo In $i; total=`expr $total + $(git</p>
@@ -252,7 +252,7 @@ git branch -d
 </code></pre>
 <ol start="16">
 <li></li>
-</ol>
+</ul>
 <table>
 <thead>
 <tr>

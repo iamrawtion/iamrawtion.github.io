@@ -112,9 +112,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#everything" style="color:var(--primary-color); text-decoration:none;">Everything</a></li><li style="margin-bottom:0.35rem;"><a href="#caution" style="color:var(--primary-color); text-decoration:none;">Caution</a></li><li style="margin-bottom:0.35rem;"><a href="#if-you-only-try-to-create-a-copy-of-the-existing-instance-you-will-only" style="color:var(--primary-color); text-decoration:none;">If you only try to create a copy of the existing instance you will only</a></li><li style="margin-bottom:0.35rem;"><a href="#apache-elasticsearch-etc-on-my-instance-to-copy-all-data-use-rsync" style="color:var(--primary-color); text-decoration:none;">Apache, ElasticSearch etc on my instance. To copy all data use rsync</a></li><li style="margin-bottom:0.35rem;"><a href="#when-to-clone-an-ec2-instance" style="color:var(--primary-color); text-decoration:none;">When to Clone an EC2 Instance</a></li><li style="margin-bottom:0.35rem;"><a href="#the-ami-creation-process-explained" style="color:var(--primary-color); text-decoration:none;">The AMI Creation Process Explained</a></li><li style="margin-bottom:0.35rem;"><a href="#automating-ami-creation" style="color:var(--primary-color); text-decoration:none;">Automating AMI Creation</a></li><li style="margin-bottom:0.35rem;"><a href="#pitfalls-to-avoid" style="color:var(--primary-color); text-decoration:none;">Pitfalls to Avoid</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-RkAui0SizULhPGjU9J4jB6vsq1Hjrtvg-pfuKFV5-LvuJzcF8FbDgzherMe93Q5Bo8FRjfipnRp9EgXyGAm0_lq2q14rYWdNVtcOlKQnh0hWbhyo9PJ1MbGa09DYOfzQHg5Gj3AEaCw/s1600/6352047101_989f7e1f24_m.jpg" alt=""></p>
@@ -139,14 +139,14 @@ different.</p>
 <li>Create an EBS volume using the web interface. You may use <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Amazon Documentation</a> for this.</li>
 <li>Attach this volume to your existing instance. note down the volume and the device id. (Vol -123456, /dev/sdg) <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Documentation</a></li>
 <li>Next you would need is a file system to work on, on the attached volume. Log in to your instance, and use the commands below</li>
-</ol>
+</ul>
 <ul>
 <li>mkfs.ext3 /dev/sdg</li>
 <li>tune2fs -c 0 /dev/sdg</li>
 </ul>
 <ol start="4">
 <li>Now mount this disk</li>
-</ol>
+</ul>
 <ul>
 <li>mkdir /mnt/data</li>
 <li>mount /dev/sdg /mnt/ebs</li>
@@ -156,7 +156,7 @@ different.</p>
 <p>you can copy all the data to your EBS volume but before you do that,
 shutdown the running services that may harm the data, I stopped MySQL</p>
 </li>
-</ol>
+</ul>
 <hr>
 <h2 id="apache-elasticsearch-etc-on-my-instance-to-copy-all-data-use-rsync">Apache, ElasticSearch etc on my instance. To copy all data use rsync</h2>
 <p>   This will sync all the data in your present volume to the new volume.</p>
@@ -165,7 +165,7 @@ shutdown the running services that may harm the data, I stopped MySQL</p>
 </ul>
 <ol start="6">
 <li>This should take long time depending on how big the data is. Once the copying is done, Unmount the volume by:</li>
-</ol>
+</ul>
 <ul>
 <li>umount /dev/sdg</li>
 <li>You may want to check the volume space by df -h</li>
@@ -177,7 +177,7 @@ shutdown the running services that may harm the data, I stopped MySQL</p>
 <p>click on the volume and click on create AMI image. When the image is
 created. Right click on it and click on Launch Instance.</p>
 </li>
-</ol>
+</ul>
 <p>You now have an exact copy of your old instance running.</p>
 <h2 id="when-to-clone-an-ec2-instance">When to Clone an EC2 Instance</h2>
 <p>Cloning an EC2 instance is not something you do every day, but there are several scenarios where it becomes the most practical path forward.</p>

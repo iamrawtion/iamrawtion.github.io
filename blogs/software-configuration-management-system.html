@@ -108,9 +108,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#the-cm-tool-landscape-in-2024" style="color:var(--primary-color); text-decoration:none;">The CM Tool Landscape in 2024</a></li><li style="margin-bottom:0.35rem;"><a href="#infrastructure-as-code-the-evolution" style="color:var(--primary-color); text-decoration:none;">Infrastructure as Code: The Evolution</a></li><li style="margin-bottom:0.35rem;"><a href="#idempotency-the-core-principle" style="color:var(--primary-color); text-decoration:none;">Idempotency: The Core Principle</a></li><li style="margin-bottom:0.35rem;"><a href="#practical-cm-workflow" style="color:var(--primary-color); text-decoration:none;">Practical CM Workflow</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigFP8PYvG5hxL3wI9jFcBNs-r-O_zxjB4rdlgpUY9fdyAaZ8V2vbp5Oc3oOR18p2S4_lo0FQCTgKIQqpjkTDgcNPvCJICvzYLHcHV4-BxGT8ZQhU9cY9WjfFf57XCfcXbgfxjb0PAY3_I/s1600/8634021085_96a6619de6_m.jpg" alt=""></p>
@@ -157,7 +157,7 @@ Chef, <strong>Ansible</strong>, Puppet, CFEnginer, Salt have already become favo
 <ol>
 <li><strong>Terraform</strong> provisions the infrastructure — the cloud resources themselves</li>
 <li><strong>Ansible (or Chef/Puppet)</strong> configures what runs on that infrastructure — packages, services, application config</li>
-</ol>
+</ul>
 <p>Some teams take this further with immutable infrastructure: instead of configuring running servers after they boot, you bake the entire CM configuration into an AMI or container image at build time using tools like Packer. When you need to update configuration, you build a new image and replace the instances — you never modify a running server. This eliminates an entire class of configuration drift problems at the cost of longer build pipelines.</p>
 <h2 id="idempotency-the-core-principle">Idempotency: The Core Principle</h2>
 <p>The defining property of a good CM system is idempotency: running the configuration once or running it ten times should produce exactly the same result. The second run should report no changes if the system is already in the desired state.</p>
@@ -171,7 +171,7 @@ Chef, <strong>Ansible</strong>, Puppet, CFEnginer, Salt have already become favo
 <li><strong>Test in staging</strong>: apply the CM run against a staging environment using the exact same tool and playbook before touching production; this is where you catch drift and environment-specific surprises</li>
 <li><strong>Apply to production via CI/CD pipeline</strong>: Jenkins, GitHub Actions, or GitLab CI runs the CM tool against production after the staging run succeeds — not a human SSHing into servers and running <code>ansible-playbook</code> manually</li>
 <li><strong>Schedule periodic enforcement</strong>: Ansible Tower (the commercial product) or its open-source equivalent AWX can schedule CM runs on an interval to continuously enforce desired state and alert on drift</li>
-</ol>
+</ul>
 <p>This makes the CM tool part of the pipeline rather than a separate manual process. The playbook is version-controlled, the runs are auditable, and the drift is detected automatically rather than discovered when something breaks. That&#39;s the shift from traditional server administration to actual infrastructure as code.</p>
 
         </div>

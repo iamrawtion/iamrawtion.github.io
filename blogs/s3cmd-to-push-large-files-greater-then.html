@@ -108,9 +108,9 @@
 
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#201-412-s3cmd-put-s3-apache-logs" style="color:var(--primary-color); text-decoration:none;">201 412 * s3cmd put s3: // apache-logs /</a></li><li style="margin-bottom:0.35rem;"><a href="#modern-alternatives" style="color:var(--primary-color); text-decoration:none;">Modern Alternatives</a></li>
-      </ol>
+      </ul>
     </nav>
 
         <div class="blog-post-content markdown-body">
@@ -193,7 +193,7 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
 <ol>
 <li>Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version.</li>
 <li>Splitting Into the large files using small files and then uploading it split command.</li>
-</ol>
+</ul>
 <ul>
 <li>Original file</li>
 </ul>

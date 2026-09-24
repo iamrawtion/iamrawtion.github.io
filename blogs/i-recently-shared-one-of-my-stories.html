@@ -107,9 +107,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#server-ghouls-haunt-bulk-ingestion" style="color:var(--primary-color); text-decoration:none;">Server ghouls haunt bulk ingestion</a></li><li style="margin-bottom:0.35rem;"><a href="#company-roshvert" style="color:var(--primary-color); text-decoration:none;">Company: Roshvert</a></li><li style="margin-bottom:0.35rem;"><a href="#i-was-suppose-to-monitor-an-ingestion-server-that-was-performing-a" style="color:var(--primary-color); text-decoration:none;">I was suppose to monitor an Ingestion Server that was performing a</a></li><li style="margin-bottom:0.35rem;"><a href="#since-the-delivery-was-urgent-i-stopped-the-ingestion-on-the" style="color:var(--primary-color); text-decoration:none;">Since the delivery was urgent, I stopped the ingestion on the</a></li><li style="margin-bottom:0.35rem;"><a href="#what-actually-caused-this" style="color:var(--primary-color); text-decoration:none;">What Actually Caused This</a></li><li style="margin-bottom:0.35rem;"><a href="#the-monitoring-gap" style="color:var(--primary-color); text-decoration:none;">The Monitoring Gap</a></li><li style="margin-bottom:0.35rem;"><a href="#how-to-prevent-this" style="color:var(--primary-color); text-decoration:none;">How to Prevent This</a></li><li style="margin-bottom:0.35rem;"><a href="#the-lesson-that-stayed-with-me" style="color:var(--primary-color); text-decoration:none;">The Lesson That Stayed With Me</a></li>
-      </ol>
+      </ul>
     </nav>
         <div class="blog-post-content markdown-body">
           <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHkXCfyNHTRUA1SrYS1UpDmrku0fP0iVUpcrPVM3pZuE0UGWO7_eSGWrqkEmxf0weIo62K6FpneKbNlaMumUt_Ds3d0-CEJK74hbcZhxtATlnTPMPw-hreOUZuXoinjFg4ZWwzTgcKDmE/s1600/5096035675_fbc69eac8f_m.jpg" alt=""></p>
@@ -202,7 +202,7 @@ fi
 <li>Pre-flight validation — check your assumptions before starting, not during</li>
 <li>Progress visibility — emit enough signal that you can tell whether the job is healthy or stuck</li>
 <li>Resource monitoring with alerts — don&#39;t rely on humans noticing things manually</li>
-</ol>
+</ul>
 <p>A job that runs silently for 8 hours and then fails with no logs is not a job. It&#39;s a problem waiting to be discovered at the worst moment — usually at midnight, usually before a delivery deadline. The fix I applied that morning (bigger volume, restart) took 20 minutes. Setting up proper disk monitoring and adding a pre-flight check would have taken an hour. That hour of prevention would have meant I never got the early-morning call in the first place.</p>
 <p>For the modern implementation of this kind of alerting, see <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">Prometheus alerting rules</a> — the pattern of defining alert thresholds as code, storing them in version control, and having Alertmanager route them to the right people is the standard approach now and far more reliable than cron-based scripts.</p>
 
