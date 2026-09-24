@@ -7,8 +7,96 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Mon, 21 Sep 2026 09:47:29 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 15:38:21 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</title>
+    <link>https://iamrawtion.github.io/blogs/getting-your-first-devops-job-is-harder-now.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/getting-your-first-devops-job-is-harder-now.html</guid>
+    <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+    <description>After 14 years in DevOps and 4-5 years teaching it at university, I've watched the junior job market get genuinely harder. Here's what I keep telling my students about standing out when everyone's CV looks the same.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>DevOps</category>
+    <category>Career</category>
+    <category>Job Hunting</category>
+    <category>Junior Engineers</category>
+    <category>GitHub</category>
+    <category>CI/CD</category>
+    <category>Cloud</category>
+    <content:encoded><![CDATA[<blockquote>
+<p><strong>Disclaimer:</strong> I used AI to help draft and organize this post based on my own experiences and thoughts.</p>
+</blockquote>
+<p>I&#39;ve been working in DevOps for around 14 years, and I&#39;ve also been teaching DevOps and Cloud subjects at universities for the last 4–5 years.</p>
+<p>One thing I&#39;ve noticed recently: <strong>getting your first DevOps job seems much harder than it was even 2–3 years ago.</strong></p>
+<p>A few years back, students and juniors would send me their CVs and I&#39;d usually have something useful to suggest. Many of them would at least get interview opportunities.</p>
+<p>Today, the market isn&#39;t great, and on top of that, everyone has access to AI-generated CVs, cover letters, LinkedIn profiles, and so on. When hundreds of applications all look polished, it becomes harder for recruiters to figure out who actually knows their stuff.</p>
+<p>So here are a few things I keep telling my students.</p>
+<h2>1. Don&#39;t Choose DevOps Because You Think You Can Avoid Coding</h2>
+<p>I&#39;ve heard this quite a few times:</p>
+<blockquote>
+<p>&quot;I&#39;m not interested in coding, so I&#39;m thinking of DevOps.&quot;</p>
+</blockquote>
+<p>That&#39;s the wrong reason to get into DevOps.</p>
+<p>You&#39;ll write scripts, automation, YAML, pipelines, Infrastructure as Code, debugging tools, and sometimes proper application code. More importantly, you need to enjoy investigating systems and figuring out <strong>why something isn&#39;t working</strong>.</p>
+<p>If you hate both coding and troubleshooting systems, DevOps probably isn&#39;t the escape route you&#39;re looking for.</p>
+<h2>2. DevOps Comes With Responsibility</h2>
+<p>Remember Spider-Man?</p>
+<p><strong>&quot;With great power comes great responsibility.&quot;</strong></p>
+<p>That applies surprisingly well to DevOps.</p>
+<p>The infrastructure you&#39;re managing might be running someone&#39;s entire business. Sometimes you&#39;re having dinner with your family and an alert appears on your phone. Sometimes something breaks at an odd hour. Sometimes everyone else is enjoying a holiday while you&#39;re wondering why a production node suddenly decided it no longer wants to participate in society.</p>
+<p>Not every DevOps job has terrible on-call expectations, of course. But <strong>ownership and accountability are part of the profession</strong>. Know what you&#39;re signing up for.</p>
+<h2>3. Build a GitHub History, Not Just a GitHub Account</h2>
+<p>When I started 13–14 years ago, having an impressive GitHub profile wasn&#39;t nearly as important for many infrastructure roles.</p>
+<p>Today, if you&#39;re a student with no professional experience, your GitHub can become evidence that you actually build things.</p>
+<p>Don&#39;t obsess over making every project impressive. <strong>First build the habit of creating things regularly.</strong></p>
+<ul>
+<li>Write scripts</li>
+<li>Build Docker images</li>
+<li>Automate something with Python</li>
+<li>Create Terraform modules</li>
+<li>Write an Ansible role</li>
+<li>Deploy Kubernetes applications</li>
+<li>Build CI/CD pipelines</li>
+</ul>
+<p>And commit your work.</p>
+<p>I actually suggest turning this into a game.</p>
+<p>When I was in school, some friends and I wanted to improve our English. We made a game where we had to speak English all the time — if someone caught you speaking another language, you lost points. We did this for years, and it genuinely helped.</p>
+<p><strong>Do something similar with GitHub.</strong></p>
+<p>Find a friend. Every day you commit something meaningful, you get a point. First person to 100 wins. Then reset and start again.</p>
+<p>You&#39;ll miss days. You&#39;ll get bored. That&#39;s fine.</p>
+<p>But after a year, compare your GitHub profile with the one you had before.</p>
+<h2>4. Stop Sending the Same Application to 500 Companies</h2>
+<p>AI has made mass-applying ridiculously easy — which also means everyone can do it.</p>
+<p>I&#39;d rather spend proper time on 10 jobs I genuinely want than blindly apply to hundreds with the exact same CV and a generic cover letter.</p>
+<p>Read the job description. Understand what they&#39;re actually asking for. Then explain <strong>why your experience and projects match those specific requirements</strong>.</p>
+<p>Quality over volume, every time.</p>
+<h2>5. Don&#39;t Just Ask AI to Write the Entire Cover Letter</h2>
+<p>Use AI to proofread it, improve it, or organize your thoughts if you want.</p>
+<p>But <strong>put yourself into it</strong>.</p>
+<p>Mention something specific from the job description. Explain a relevant project. Explain why you&#39;re interested in this particular role.</p>
+<p>It&#39;s okay if your writing isn&#39;t perfect. I&#39;d personally rather read something that sounds like a real person than another perfectly formatted:</p>
+<blockquote>
+<p><em>&quot;I am thrilled to apply for the exciting opportunity to leverage my passion for innovative cloud-native solutions...&quot;</em></p>
+</blockquote>
+<p>You know the type.</p>
+<h2>6. Add Something Human to Your Application</h2>
+<p>One thing worth experimenting with: a short Loom or video introduction.</p>
+<p>Not 10 minutes. <strong>60–120 seconds.</strong></p>
+<p>Something like: <em>&quot;I know you&#39;re probably reviewing a lot of applications, so instead of making you read another long introduction, here&#39;s a 90-second video about who I am, what I&#39;ve built, and why I&#39;m interested.&quot;</em></p>
+<p>Whether recruiters watch it is another question. But at least you&#39;ve given them another way to evaluate you — something that&#39;s genuinely hard to fake with AI.</p>
+<h2>7. Make It Clear You&#39;re Willing to Prove Your Skills</h2>
+<p>When appropriate, mention that you&#39;re happy to go through a technical evaluation or practical exercise if that&#39;s part of their process.</p>
+<p>For someone without much professional experience, being able to <strong>show what you can do</strong> can be far more useful than another paragraph claiming you&#39;re &quot;passionate about DevOps.&quot;</p>
+<hr>
+<p>None of these are magic tricks.</p>
+<p>They won&#39;t guarantee an interview, and they definitely won&#39;t guarantee a job.</p>
+<p>But the way people apply for jobs has changed dramatically with AI. If everyone&#39;s CV looks good, simply having a good-looking CV isn&#39;t much of a differentiator anymore.</p>
+<p><strong>Build things. Show your work. Develop consistency. Personalize your applications. Give people evidence that there&#39;s an actual engineer behind the PDF.</strong></p>
+<hr>
+<p>Curious what others think — especially people involved in DevOps hiring.</p>
+<p><strong>Has the way you screen junior DevOps candidates changed over the last 2–3 years?</strong></p>
+]]></content:encoded>
+  </item>
   <item>
     <title>The CV Habit That Accidentally Saved My Job</title>
     <link>https://iamrawtion.github.io/blogs/the-cv-habit-that-accidentally-saved-my-job.html</link>
