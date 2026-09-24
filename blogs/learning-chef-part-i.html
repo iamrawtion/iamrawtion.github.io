@@ -87,6 +87,13 @@
         <span style="color:var(--text-color);">Learning Chef - Part - I</span>
       </nav>
       <article>
+      <div style="margin-bottom:1.5rem; padding:1rem 1.25rem; background:rgba(122,162,247,0.07); border:1px solid rgba(122,162,247,0.3); border-radius:6px; font-size:0.85rem;">
+        <span style="color:var(--accent-color); font-family:monospace; font-size:0.78rem;">SERIES: Chef Series</span>
+        <div style="margin-top:0.5rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <span style="color:var(--heading-color); font-weight:600;">Part 1 — Learning Chef — Part I</span>
+          <a href="../blogs/learning-chef-part-ii.html" style="color:var(--primary-color); text-decoration:none;">Part 2 — Learning Chef — Part II</a>
+        </div>
+      </div>
         <header style="margin-bottom:2rem;">
           <div style="margin-bottom:0.75rem;">
             <a href="../categories/devops.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">DevOps</a>
@@ -227,6 +234,13 @@ departments for managing.</p>
 
         </div>
         
+  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
+    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
+    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
+    <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+      <i class="fab fa-twitter"></i> Follow @iamrawtion
+    </a>
+  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
@@ -260,14 +274,20 @@ departments for managing.</p>
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <p style="color:var(--text-color); margin-bottom:1rem;">
-            Found this useful?
-            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
-            &nbsp;·&nbsp;
-            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
-            &nbsp;·&nbsp;
-            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
-          </p>
+          <div style="margin-bottom:1.25rem;">
+            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/learning-chef-part-i.html&via=iamrawtion&text=Learning%20Chef%20-%20Part%20-%20I" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fab fa-twitter"></i> Share on Twitter
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/learning-chef-part-i.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fab fa-linkedin"></i> Share on LinkedIn
+              </a>
+              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fas fa-handshake"></i> Hire me for consulting
+              </a>
+            </div>
+          </div>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -286,6 +306,24 @@ departments for managing.</p>
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(codeBlock) {
+      var pre = codeBlock.parentNode;
+      pre.style.position = 'relative';
+      var btn = document.createElement('button');
+      btn.textContent = 'Copy';
+      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
+          btn.textContent = 'Copied!';
+          btn.style.background = 'rgba(100,255,218,0.15)';
+          btn.style.color = '#64ffda';
+          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
+        });
+      });
+      pre.appendChild(btn);
+    });
   </script>
 </body>
 </html>
