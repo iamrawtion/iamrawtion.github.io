@@ -7,7 +7,7 @@ excerpt: "How a Raspberry Pi tablet became a digital photo album for my daughter
 author: "Roshan Nagekar"
 ---
 
-![CutiePi Raspberry Pi tablet running at home](/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-header.jpg)
+![CutiePi hardware — Raspberry Pi tablet PCB detail](/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-board.jpg)
 
 ## My First Raspberry Pi: A Solution Looking for a Problem
 
