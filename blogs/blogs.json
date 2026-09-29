@@ -1,5 +1,23 @@
 [
   {
+    "title": "CutiePi: From a Digital Photo Album to My Home Network Monitor",
+    "date": "2026-09-29",
+    "category": "Linux",
+    "tags": [
+      "Raspberry Pi",
+      "HomeServer",
+      "Pi-hole",
+      "Grafana",
+      "Docker",
+      "Networking",
+      "Open Source"
+    ],
+    "excerpt": "How a Raspberry Pi tablet became a digital photo album for my daughter, an ad blocker for my home, and a handy little network monitoring device.",
+    "author": "Roshan Nagekar",
+    "id": "cutiepi-raspberry-pi-tablet",
+    "file": "cutiepi-raspberry-pi-tablet.md"
+  },
+  {
     "title": "I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.",
     "date": "2026-09-29",
     "category": "Linux",

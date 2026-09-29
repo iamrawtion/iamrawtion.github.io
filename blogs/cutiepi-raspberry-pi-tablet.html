@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <title>CutiePi: From a Digital Photo Album to My Home Network Monitor | Roshan Nagekar</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
+  <meta name="description" content="How a Raspberry Pi tablet became a digital photo album for my daughter, an ad blocker for my home, and a handy little network monitoring device.">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/de-google-lineageos-daughters-phone.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CutiePi: From a Digital Photo Album to My Home Network Monitor">
+  <meta property="og:description" content="How a Raspberry Pi tablet became a digital photo album for my daughter, an ad blocker for my home, and a handy little network monitoring device.">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-header.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2026-09-29">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Linux">
+  <meta property="article:tag" content="Raspberry Pi">
+  <meta property="article:tag" content="HomeServer">
+  <meta property="article:tag" content="Pi-hole">
+  <meta property="article:tag" content="Grafana">
+  <meta property="article:tag" content="Docker">
+  <meta property="article:tag" content="Networking">
+  <meta property="article:tag" content="Open Source">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="CutiePi: From a Digital Photo Album to My Home Network Monitor">
+  <meta name="twitter:description" content="How a Raspberry Pi tablet became a digital photo album for my daughter, an ad blocker for my home, and a handy little network monitoring device.">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-header.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="8 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Linux">
+  <meta name="author" content="Roshan Nagekar">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
+  <link rel="manifest" href="https://iamrawtion.github.io/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"CutiePi: From a Digital Photo Album to My Home Network Monitor","description":"How a Raspberry Pi tablet became a digital photo album for my daughter, an ad blocker for my home, and a handy little network monitoring device.","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-header.jpg","width":1200,"height":800},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-09-29","url":"https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html","keywords":"Raspberry Pi, HomeServer, Pi-hole, Grafana, Docker, Networking, Open Source","wordCount":1834,"timeRequired":"PT8M","articleBody":"About five or six years ago, I bought my first Raspberry Pi. Why? Well, I didn't really have a reason. I'd been hearing quite a bit about Raspberry Pi and how this tiny computer could be used for practically anything. Being a tech enthusiast, I was curious to see what all the excitement was about. So I ordered one. A few days later, this tiny computer arrived at my doorstep, and I was quite excited to get started. There was just one problem — I had absolutely no idea what I was going to do with it.","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"CutiePi: From a Digital Photo Album to My Home Network Monitor","item":"https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html"}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/linux.html" style="color:var(--primary-color);">Linux</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">CutiePi: From a Digital Photo Album to My Home Network Monitor</span>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <a href="../categories/linux.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">Linux</a>
+            <a href="../tags/raspberry-pi.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Raspberry Pi</a><a href="../tags/homeserver.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">HomeServer</a><a href="../tags/pi-hole.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Pi-hole</a><a href="../tags/grafana.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Grafana</a><a href="../tags/docker.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Docker</a>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">CutiePi: From a Digital Photo Album to My Home Network Monitor</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            <time datetime="2026-09-29">September 29, 2026</time>
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            8 min read
+          </p>
+        </header>
+
+        <div class="blog-post-content markdown-body">
+          <img src="../images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-header.jpg" alt="CutiePi Raspberry Pi tablet running at home" style="width:100%; border-radius:8px; margin-bottom:2rem;">
+
+<h2>My First Raspberry Pi: A Solution Looking for a Problem</h2>
+<p>About five or six years ago, I bought my first Raspberry Pi.</p>
+<p>Why? Well, I didn't really have a reason.</p>
+<p>I'd been hearing quite a bit about Raspberry Pi and how this tiny computer could be used for practically anything. Being a tech enthusiast, I was curious to see what all the excitement was about.</p>
+<p>So I ordered one.</p>
+<p>A few days later, this tiny computer arrived at my doorstep, and I was quite excited to get started.</p>
+<p>There was just one problem.</p>
+<p>I had absolutely no idea what I was going to do with it.</p>
+<p>I connected it to a monitor, installed Ubuntu and experimented with a couple of other operating systems available for Raspberry Pi. I used it like a miniature desktop computer, explored its capabilities, and generally played around with it.</p>
+<p>And once I'd satisfied my curiosity, I switched it off.</p>
+<p>Into the drawer it went.</p>
+<p>I don't even remember what eventually happened to that Raspberry Pi. I might have given it to one of my students, or perhaps it's still sitting in a drawer somewhere.</p>
+<p>Either way, that was the end of my first Raspberry Pi adventure.</p>
+<p>At least until I discovered CutiePi.</p>
+
+<h2>Enter CutiePi: A Raspberry Pi With a Screen!</h2>
+<img src="../images/blog-images/cutiepi-raspberry-pi-tablet/raspberry-pi-tablet.jpg" alt="CutiePi tablet - compact Raspberry Pi device" style="width:100%; border-radius:8px; margin:1rem 0 1.5rem;">
+<p>A few years later, I came across an advertisement for CutiePi on one of the Telegram channels I followed.</p>
+<p>For those unfamiliar with it, CutiePi is a Raspberry Pi-based tablet. Instead of buying a Raspberry Pi and connecting it to an external monitor, keyboard, and other accessories, you get a compact, portable device with its own touchscreen.</p>
+<p>And it looks cute! The name pretty much justifies the product.</p>
+<p>Since I'd already experimented with Raspberry Pi, I was curious to see how a tablet version would work.</p>
+<p>This time, there was another advantage. CutiePi came with its own operating system and applications preinstalled. I didn't have to spend time figuring out which operating system to install or getting the basic hardware working.</p>
+<p>I could simply turn it on and start using it.</p>
+<p>So I ordered one.</p>
+<p>Of course, I still didn't have a particularly good use case in mind.</p>
+<p>Apparently, I hadn't learned much from my first Raspberry Pi purchase!</p>
+
+<h2>Project 1: A Digital Photo Album for My Daughter</h2>
+<img src="../images/blog-images/cutiepi-raspberry-pi-tablet/daughter-photos.jpg" alt="Childhood photos slideshow on a small screen" style="width:100%; border-radius:8px; margin:1rem 0 1.5rem;">
+<p>When CutiePi arrived, my first impression was that it looked like a small tablet PC.</p>
+<p>And that gave me an idea.</p>
+<p>My daughter had recently been born, and like most new parents, we had accumulated a ridiculous number of photographs. Every smile, every funny expression, every little milestone — everything had been captured.</p>
+<p>Most of these photographs were simply sitting on our phones or in digital storage.</p>
+<p>Why not put them on CutiePi and turn it into a digital photo frame?</p>
+<p>So that's exactly what I did.</p>
+<p>I transferred my daughter's photographs to the device, configured a slideshow, and left it running.</p>
+<p>Suddenly, CutiePi had a purpose!</p>
+<p>It became a continuously running digital photo album in our home. Whenever friends or relatives visited, they could see photographs of our daughter scrolling across the screen.</p>
+<p>It was particularly nice because those memories were no longer hidden away in a photo gallery that we rarely opened. They were right there in front of us, throughout the day.</p>
+<p>And the slideshow kept running, 24 hours a day, seven days a week.</p>
+
+<h3>Four Years Later, She Loves It Even More</h3>
+<p>My daughter is now four years old, and she absolutely loves watching that slideshow.</p>
+<p>She'll sit in front of CutiePi and watch photographs of herself as a baby. All those little memories that we captured when she was born are now something she gets to experience herself.</p>
+<p>It's quite funny watching her react to her own baby photographs.</p>
+<p>What started as a simple Raspberry Pi experiment has become a little window into her childhood.</p>
+<p>And of all the things I've done with this device, this is probably my favorite.</p>
+<p>But being a tech enthusiast, I couldn't possibly leave a perfectly capable computer running just a photo slideshow forever.</p>
+<p>Surely, it could do something more!</p>
+
+<h2>Project 2: Pi-hole — Getting Rid of Advertisements Across My Home Network</h2>
+<img src="../images/blog-images/cutiepi-raspberry-pi-tablet/pi-hole-network.jpg" alt="Home network diagram showing Pi-hole DNS filtering" style="width:100%; border-radius:8px; margin:1rem 0 1.5rem;">
+<p>My next experiment was Pi-hole.</p>
+<p>Pi-hole is an open-source, network-wide advertisement blocker. Instead of installing an ad-blocking extension on every browser or device, you can configure Pi-hole as the DNS server for your home network.</p>
+<p>Whenever a device tries to resolve a domain name, Pi-hole checks whether that domain is on its blocklists. If it's associated with advertising or tracking, Pi-hole blocks the request.</p>
+<p>The nice thing about this approach is that it works across multiple devices on the same network. Phones, laptops, tablets, smart TVs, and other devices can all benefit from it without needing individual ad-blocking extensions.</p>
+<p>Of course, it doesn't block every advertisement. YouTube advertisements, for example, are a different challenge because of how YouTube delivers its content.</p>
+<p>But for a lot of everyday browsing, Pi-hole can make a noticeable difference.</p>
+<p>And since CutiePi is essentially a Raspberry Pi running Linux, I could install Pi-hole using Docker and have it run in the background.</p>
+<p>Now my little photo album was doing two jobs simultaneously.</p>
+<p>It displayed photographs of my daughter while quietly blocking unwanted advertising across my home network.</p>
+<p>Not bad for a device that I'd initially purchased just because it looked cute!</p>
+
+<h2>Project 3: Monitoring My Home Internet With Speedtest Tracker and Grafana</h2>
+<img src="../images/blog-images/cutiepi-raspberry-pi-tablet/grafana-dashboard.jpg" alt="Grafana dashboard showing network performance metrics" style="width:100%; border-radius:8px; margin:1rem 0 1.5rem;">
+<p>The third use case came from a problem I occasionally faced at home.</p>
+<p>My internet connection would sometimes go down, and if I wasn't at home, I wouldn't necessarily know when it happened or how long it had been unavailable.</p>
+<p>And when you're running your own home infrastructure, having visibility into your internet connection is quite useful.</p>
+<p>I wanted to know how my connection was performing over time, whether there were frequent interruptions, and whether I was actually getting the speeds I was paying for.</p>
+<p>So I installed Speedtest Tracker on CutiePi.</p>
+<p>It periodically runs internet speed tests and records the results, allowing me to track download speeds, upload speeds, and latency.</p>
+<p>But simply collecting data wasn't enough. I wanted a dashboard.</p>
+<p>And that meant Grafana!</p>
+<p>I configured Grafana to visualize the monitoring data, giving me a dashboard to check how my home internet was performing.</p>
+<p>Now, instead of relying on the occasional manual speed test, I could look at historical data and identify patterns.</p>
+<ul>
+<li>Was my internet connection slowing down at particular times of the day?</li>
+<li>Were there periods when speed tests failed?</li>
+<li>Was the connection performing consistently?</li>
+</ul>
+<p>All useful information, especially when troubleshooting internet issues.</p>
+<p>One important distinction: a failed speed test doesn't always mean the internet was down. It could also indicate a problem with the test server or the monitoring device itself. But keeping historical records still makes troubleshooting considerably easier.</p>
+<p>And just like that, CutiePi had become my little home network monitoring station.</p>
+
+<h2>One Device, Three Completely Different Jobs</h2>
+<table>
+  <thead>
+    <tr><th>Use Case</th><th>What It Does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Digital photo album</td><td>24/7 slideshow of my daughter's childhood photos</td></tr>
+    <tr><td>Pi-hole</td><td>Network-wide DNS filtering to block ads and trackers</td></tr>
+    <tr><td>Speedtest Tracker + Grafana</td><td>Internet performance monitoring with historical dashboards</td></tr>
+  </tbody>
+</table>
+<p>What's interesting is that these three applications serve completely different purposes.</p>
+<p>One is personal, one improves the experience of using the internet at home, and the third helps me monitor my network.</p>
+<p>And they're all running on the same little device.</p>
+
+<h2>Why I Haven't Upgraded It</h2>
+<p>My CutiePi is an older model, and its hardware is fairly limited by today's standards.</p>
+<p>I have no intention of overwhelming it with additional applications or turning it into a miniature production server.</p>
+<p>I've also come across information about newer CutiePi hardware and upgrade options. It's tempting to explore those, particularly because upgrading a Raspberry Pi-based device can open up new possibilities.</p>
+<p>But I haven't seriously considered upgrading mine yet.</p>
+<p>Why? Because everything is working!</p>
+<p>The photo album runs, Pi-hole does its job, and my internet monitoring dashboard gives me the information I need.</p>
+<p>I've spent enough time working with servers and infrastructure to appreciate the value of leaving a stable system alone.</p>
+<p>There's always another service to install, another container to deploy, or another dashboard to configure. But at some point, you have to ask yourself whether you actually need any of it.</p>
+<p>In this case, I don't.</p>
+<p>My little CutiePi has found its purpose, and I'm quite happy with what it's doing.</p>
+
+<h2>A Small Project I'd Recommend Exploring</h2>
+<p>One of the things I like about Raspberry Pi projects is that you don't necessarily need a complicated use case to get started.</p>
+<p>My first Raspberry Pi ended up in a drawer because I purchased it without knowing what I wanted to do with it.</p>
+<p>CutiePi could easily have suffered the same fate.</p>
+<p>Instead, I started with something incredibly simple: displaying photographs. That gave the device a reason to stay switched on. Once it was already running, adding a few lightweight background services made sense.</p>
+<p>If you're interested in experimenting with Raspberry Pi, a digital photo album, Pi-hole, or a basic network monitoring dashboard are all interesting projects to explore. You don't necessarily need a CutiePi either — an ordinary Raspberry Pi can handle similar tasks with the appropriate hardware.</p>
+<p>And if you have children at home, turning an old Raspberry Pi into a digital photo album might be one of the simplest and most enjoyable projects you can build.</p>
+
+<h2>The Best Part Has Nothing to Do With Technology</h2>
+<p>After all the experimentation with Docker, Pi-hole, speed tests, and Grafana, the most satisfying part of this project is still the original photo album.</p>
+<p>My daughter is four now.</p>
+<p>She occasionally sits in front of CutiePi, watching photographs of herself from when she was just a baby. Memories that she was too young to remember are now right there on a little screen, continuously scrolling in front of her.</p>
+<p>And every time I see her enjoying those photographs, I'm reminded that sometimes the simplest application of technology is also the most meaningful.</p>
+<p>I bought CutiePi because I was curious about Raspberry Pi. I kept it running because it became part of our home.</p>
+<p>And as long as it's doing these three jobs without complaining, I have absolutely no intention of touching it.</p>
+<p>After all, if it ain't broke, don't fix it!</p>
+
+        </div>
+
+  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
+    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
+    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
+    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fab fa-twitter"></i> Follow @iamrawtion
+      </a>
+      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fas fa-rss"></i> Subscribe via RSS
+      </a>
+      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+      </a>
+      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fab fa-github"></i> Follow on GitHub
+      </a>
+    </div>
+  </section>
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      <a href="../blogs/de-google-lineageos-daughters-phone.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Disney Did It With Cartoons. My AI Did It With My Kid's Bedtime Story.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/getting-your-first-devops-job-is-harder-now.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+    </div>
+  </section>
+
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <div style="flex:1; min-width:160px;"></div>
+    <a href="../blogs/de-google-lineageos-daughters-phone.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.</span>
+    </a>
+  </nav>
+
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <div style="margin-bottom:1.25rem;">
+            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html&via=iamrawtion&text=CutiePi%3A%20From%20a%20Digital%20Photo%20Album%20to%20My%20Home%20Network%20Monitor" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fab fa-twitter"></i> Share on Twitter
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fab fa-linkedin"></i> Share on LinkedIn
+              </a>
+              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
+              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fas fa-handshake"></i> Hire me for consulting
+              </a>
+            </div>
+          </div>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    var copyBtn = document.getElementById('copy-link-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        var btn = this;
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          btn.textContent = 'Copied!';
+          setTimeout(function() {
+            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
+          }, 2000);
+        });
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(codeBlock) {
+      var pre = codeBlock.parentNode;
+      pre.style.position = 'relative';
+      var btn = document.createElement('button');
+      btn.textContent = 'Copy';
+      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
+          btn.textContent = 'Copied!';
+          btn.style.background = 'rgba(100,255,218,0.15)';
+          btn.style.color = '#64ffda';
+          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
+        });
+      });
+      pre.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
