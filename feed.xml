@@ -7,8 +7,24 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Thu, 24 Sep 2026 15:38:21 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.</title>
+    <link>https://iamrawtion.github.io/blogs/de-google-lineageos-daughters-phone.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/de-google-lineageos-daughters-phone.html</guid>
+    <pubDate>Mon, 29 Sep 2026 00:00:00 GMT</pubDate>
+    <description>I installed LineageOS on a spare Android to escape Google's ecosystem. The experiment didn't go as planned — but it found a far better purpose.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Linux</category>
+    <category>Android</category>
+    <category>LineageOS</category>
+    <category>Open Source</category>
+    <category>Privacy</category>
+    <category>Parenting</category>
+    <category>Technology</category>
+    <content:encoded><![CDATA[<img src="https://iamrawtion.github.io/images/blog-images/de-google-lineageos-daughters-phone/lineageos-header.jpg" alt="LineageOS custom ROM on an Android phone" style="width:100%;border-radius:8px;margin-bottom:2rem;"><p>I've been trying to de-Google my digital life for quite some time now. Not that I have anything particularly against Google, but I wanted to see how much of my daily digital life I could manage without depending on a single company for practically everything.</p><p>Email, maps, browsers, app stores, cloud storage, YouTube — you name it, and Google probably has a service for it.</p><p>Being a tech enthusiast, I thought experimenting with a custom Android ROM would be a good place to start. And that's how I ended up installing LineageOS on one of my spare Android phones.</p><p>For those unfamiliar with it, LineageOS is a free, open-source operating system based on Android. It gives you more control over your phone and, importantly for my experiment, doesn't require you to install Google's apps and services.</p><p>Perfect! Or so I thought.</p><h2>De-Googling Is Easier Said Than Done</h2><p>I installed LineageOS, configured the phone, and loaded it with all the applications I thought I would need. No Google apps, no Play Store, and no unnecessary software.</p><p>I wasn't brave enough to immediately make it my primary phone. Instead, I started using it as a secondary device to see whether I could actually survive without Google's ecosystem.</p><p>It didn't take very long to discover a few problems. First, there were certain applications I needed that weren't easily available without the Play Store. Then there was Google Maps — I travel quite a bit, and reliable navigation is something I simply cannot compromise on.</p><p>Eventually, I realized that while LineageOS was perfectly capable of running my phone, my everyday requirements still tied me to certain Google services. I had a perfectly functional Android phone running LineageOS, but I couldn't realistically use it as my primary device. And I didn't want it to end up forgotten in a drawer.</p><h2>Then My Four-Year-Old Daughter Gave Me an Idea</h2><p>Around this time, my daughter was four years old. Her school had already introduced computers and basic technology as part of its curriculum. I realized that keeping her completely away from technology wasn't necessarily the right approach either — but the question was <em>how</em> to introduce her to it without giving her unrestricted access to everything that comes with a smartphone.</p><p>And suddenly, my LineageOS experiment had a new purpose. What if I turned this spare phone into a device specifically designed for her? Not a regular smartphone with parental controls added afterward, but a phone with only the applications I actually wanted her to use.</p><h2>Building Her First Android Phone</h2><p>I installed just four apps: Thunderbird for email, WhatsApp to stay connected with me, LightTube (an open-source YouTube alternative without ads), and Spotify for music. No Play Store, no browser, no games.</p><h2>The Experiment Continues</h2><p>I started this experiment because I wanted to use less Google. I continued it because I wanted my daughter to use technology more thoughtfully. Sometimes a failed tech experiment finds a much better use case than the one you originally had in mind.</p>]]></content:encoded>
+  </item>
   <item>
     <title>Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</title>
     <link>https://iamrawtion.github.io/blogs/getting-your-first-devops-job-is-harder-now.html</link>

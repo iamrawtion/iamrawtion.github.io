@@ -1,5 +1,22 @@
 [
   {
+    "title": "I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.",
+    "date": "2026-09-29",
+    "category": "Linux",
+    "tags": [
+      "Android",
+      "LineageOS",
+      "Open Source",
+      "Privacy",
+      "Parenting",
+      "Technology"
+    ],
+    "excerpt": "I installed LineageOS on a spare Android to escape Google's ecosystem. The experiment didn't go as planned — but it found a far better purpose.",
+    "author": "Roshan Nagekar",
+    "id": "de-google-lineageos-daughters-phone",
+    "file": "de-google-lineageos-daughters-phone.md"
+  },
+  {
     "title": "Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students",
     "date": "2026-09-24",
     "category": "DevOps",
