@@ -61,6 +61,22 @@ During an internship, I was learning to configure Mutt, a command-line email cli
 
 That experiment explained something I'd wondered about since 2007: why did that lottery email ask me to reply to a completely different address? Because the From address was fabricated. The displayed sender isn't proof of origin.
 
+> **Technical explanation**
+>
+> **SMTP has no built-in sender verification.** The `From:` header is just a text field — the protocol never checks that it matches who you actually are. It is like writing any return address you want on a physical envelope. The post office delivers it based on routing information, not what you wrote as the return address.
+>
+> When I configured Mutt with `bill.gates@microsoft.com` as the From address, the receiving mail server accepted it because my sending server was legitimate and had proper DNS records. There was no mechanism in place to say "this email claiming to be from microsoft.com did not originate from Microsoft's servers."
+>
+> Three standards exist specifically to close this gap:
+>
+> - **SPF** — a DNS record listing which IP addresses are authorised to send email for a domain. The receiving server checks whether your sending IP is on that list.
+> - **DKIM** — a cryptographic signature added to the email by the legitimate sending server. The receiving server verifies it using a public key published in DNS. You cannot forge this without the private key.
+> - **DMARC** — a policy that tells receiving servers what to do when SPF or DKIM fail: `none` (log only), `quarantine` (send to spam), or `reject` (block entirely).
+>
+> The message landed in spam rather than being blocked outright because the receiving server had basic heuristics — the sending IP had no relationship to microsoft.com — but no strict DMARC rejection policy was enforced at the time.
+>
+> This also explains the lottery email's Reply-To trick. The scammer set a spoofed `From:` to look official, but pointed `Reply-To:` at an address they actually controlled. They could receive replies without ever owning the domain they were impersonating.
+
 Years later, teaching as a visiting professor, I received an email appearing to come from my college's director. Urgent request: purchase Apple or Amazon gift cards immediately for an important transaction and claim reimbursement later.
 
 The story made no sense. Educational institutions don't work that way. I didn't buy the gift cards.

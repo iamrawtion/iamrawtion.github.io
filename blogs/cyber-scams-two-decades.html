@@ -142,6 +142,21 @@
 <h2>Email Spoofing, Authority Scams, and the Gift Card Director</h2>
 <p>During an internship, I was learning to configure Mutt, a command-line email client. I accidentally sent a message to myself with the wrong From address. It arrived. Curious, I tried sending one with <code>bill.gates@microsoft.com</code> as the sender. That arrived too, in spam.</p>
 <p>That experiment explained something I'd wondered about since 2007: why did that lottery email ask me to reply to a completely different address? Because the From address was fabricated. The displayed sender isn't proof of origin.</p>
+
+<div style="margin:1.5rem 0; padding:1.25rem 1.5rem; background:rgba(122,162,247,0.06); border:1px solid rgba(122,162,247,0.25); border-left:4px solid var(--primary-color); border-radius:0 8px 8px 0;">
+  <p style="color:var(--primary-color); font-size:0.8rem; font-family:monospace; font-weight:600; margin:0 0 0.75rem; text-transform:uppercase; letter-spacing:0.05em;">⚙ Technical explanation</p>
+  <p style="margin:0 0 0.75rem;"><strong>SMTP has no built-in sender verification.</strong> The <code>From:</code> header is just a text field — the protocol never checks that it matches who you actually are. It is like writing any return address you want on a physical envelope. The post office delivers it based on routing information, not what you wrote as the return address.</p>
+  <p style="margin:0 0 0.75rem;">When I configured Mutt with <code>bill.gates@microsoft.com</code> as the From address, the receiving mail server accepted it because my sending server was legitimate and had proper DNS records. There was no mechanism in place to say "this email claiming to be from microsoft.com did not originate from Microsoft's servers."</p>
+  <p style="margin:0 0 0.75rem;">Three standards exist specifically to close this gap:</p>
+  <ul style="margin:0 0 0.75rem; padding-left:1.25rem;">
+    <li style="margin-bottom:0.4rem;"><strong>SPF</strong> — a DNS record listing which IP addresses are authorised to send email for a domain. The receiving server checks whether your sending IP is on that list.</li>
+    <li style="margin-bottom:0.4rem;"><strong>DKIM</strong> — a cryptographic signature added to the email by the legitimate sending server. The receiving server verifies it using a public key published in DNS. You cannot forge this without the private key.</li>
+    <li style="margin-bottom:0.4rem;"><strong>DMARC</strong> — a policy that tells receiving servers what to do when SPF or DKIM fail: <code>none</code> (log only), <code>quarantine</code> (send to spam), or <code>reject</code> (block entirely).</li>
+  </ul>
+  <p style="margin:0 0 0.75rem;">The message landed in spam rather than being blocked outright because the receiving server had basic heuristics — the sending IP had no relationship to microsoft.com — but no strict DMARC rejection policy was enforced at the time.</p>
+  <p style="margin:0;">This also explains the lottery email's Reply-To trick. The scammer set a spoofed <code>From:</code> to look official, but pointed <code>Reply-To:</code> at an address they actually controlled. They could receive replies without ever owning the domain they were impersonating.</p>
+</div>
+
 <p>Years later, teaching as a visiting professor, I received an email appearing to come from my college's director. Urgent request: purchase Apple or Amazon gift cards immediately for an important transaction and claim reimbursement later.</p>
 <p>The story made no sense. Educational institutions don't work that way. I didn't buy the gift cards.</p>
 <p>The pattern — authority, urgency, a request that bypasses normal channels — is one of the most reliable signals that something is wrong.</p>
