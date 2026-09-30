@@ -1,5 +1,22 @@
 [
   {
+    "title": "From a Million-Dollar Yahoo Lottery to AI Deepfakes: My Two Decades of Encounters with Cyber Scams",
+    "date": "2026-09-30",
+    "category": "Security",
+    "tags": [
+      "Security",
+      "Phishing",
+      "Social Engineering",
+      "AI/ML",
+      "Cybersecurity",
+      "Scams"
+    ],
+    "excerpt": "How a fake lottery email in 2007 sparked my curiosity about cybersecurity, and why I now worry more about AI-powered scams than ever before.",
+    "author": "Roshan Nagekar",
+    "id": "cyber-scams-two-decades",
+    "file": "cyber-scams-two-decades.md"
+  },
+  {
     "title": "CutiePi: From a Digital Photo Album to My Home Network Monitor",
     "date": "2026-09-29",
     "category": "Linux",

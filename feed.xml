@@ -7,8 +7,23 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Mon, 29 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 30 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>From a Million-Dollar Yahoo Lottery to AI Deepfakes: My Two Decades of Encounters with Cyber Scams</title>
+    <link>https://iamrawtion.github.io/blogs/cyber-scams-two-decades.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/cyber-scams-two-decades.html</guid>
+    <pubDate>Tue, 30 Sep 2026 00:00:00 GMT</pubDate>
+    <description>How a fake lottery email in 2007 sparked my curiosity about cybersecurity, and why I now worry more about AI-powered scams than ever before.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Security</category>
+    <category>Phishing</category>
+    <category>Social Engineering</category>
+    <category>AI/ML</category>
+    <category>Cybersecurity</category>
+    <category>Scams</category>
+    <content:encoded><![CDATA[<img src="https://iamrawtion.github.io/images/blog-images/cyber-scams-two-decades/cyber-scams-header.jpg" alt="Cybersecurity and online scams" style="width:100%;border-radius:8px;margin-bottom:2rem;"><p>Back in 2007, I had just finished high school. Yahoo Mail was my primary email account and the idea of winning a million dollars was enough to make my day. Little did I know that one suspicious email would begin a nearly two-decade fascination with cybersecurity, social engineering, and the surprisingly creative ways people try to steal your money.</p><p>From a fake million-dollar lottery and brute-forcing my own bank statements, to gift card scams impersonating a college director, a CEO phishing attack on a friend in IT, and the 2024 Arup case where a finance employee was deceived into transferring US$25 million via an AI-generated video conference — the technology changed dramatically. The manipulation never did.</p><p>Urgency, authority, fear, and trust are what these scams exploit. They worked in 2007 and they work in 2026. The difference is that today the voice on the phone might be AI, and the face on the video call might not be your boss.</p>]]></content:encoded>
+  </item>
   <item>
     <title>CutiePi: From a Digital Photo Album to My Home Network Monitor</title>
     <link>https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html</link>
