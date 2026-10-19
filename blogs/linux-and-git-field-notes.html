@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <title>Linux and Git Field Notes | Roshan Nagekar</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
+  <meta name="description" content="A collection of Linux and Git commands from my notes. Covers pdftk, ps, du, wget, ISO creation, GCC, svn2git, git tagging, branch merging, and more.">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/rhce-preparation.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/acm-icpc-3.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Linux and Git Field Notes">
+  <meta property="og:description" content="A collection of Linux and Git commands from my notes. Covers pdftk, ps, du, wget, ISO creation, GCC, svn2git, git tagging, branch merging, and more.">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2012-11-23">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="Linux">
+  <meta property="article:tag" content="Linux">
+  <meta property="article:tag" content="Git">
+  <meta property="article:tag" content="SVN">
+  <meta property="article:tag" content="Bash">
+  <meta property="article:tag" content="DevOps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Linux and Git Field Notes">
+  <meta name="twitter:description" content="A collection of Linux and Git commands from my notes. Covers pdftk, ps, du, wget, ISO creation, GCC, svn2git, git tagging, branch merging, and more.">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="3 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="Linux">
+  <meta name="author" content="Roshan Nagekar">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
+  <link rel="manifest" href="https://iamrawtion.github.io/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Linux and Git Field Notes","description":"A collection of Linux and Git commands from my notes. Covers pdftk, ps, du, wget, ISO creation, GCC, svn2git, git tagging, branch merging, and more.","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-11-23","url":"https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html","keywords":"Linux, Git, SVN, Bash, DevOps","wordCount":646,"timeRequired":"PT3M","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Linux and Git Field Notes","item":"https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html"}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/linux.html" style="color:var(--primary-color);">Linux</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">Linux and Git Field Notes</span>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <a href="../categories/linux.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">Linux</a>
+            <a href="../tags/linux.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Linux</a><a href="../tags/git.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Git</a><a href="../tags/svn.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">SVN</a><a href="../tags/bash.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Bash</a><a href="../tags/devops.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">DevOps</a>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Linux and Git Field Notes</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            <time datetime="2012-11-23">November 23, 2012</time>
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            3 min read
+          </p>
+        </header>
+
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#pdf-packages-dropbox-and-process-management" style="color:var(--primary-color); text-decoration:none;">PDF, Packages, Dropbox, and Process Management</a></li>
+        <li style="margin-bottom:0.35rem;"><a href="#create-iso-files-from-the-terminal" style="color:var(--primary-color); text-decoration:none;">Create ISO Files from the Terminal</a></li>
+        <li style="margin-bottom:0.35rem;"><a href="#gcc-preprocessed-output-object-code-and-assembly" style="color:var(--primary-color); text-decoration:none;">GCC: Preprocessed Output, Object Code, and Assembly</a></li>
+        <li style="margin-bottom:0.35rem;"><a href="#svn-and-git-branch-history-commit-counts-merging" style="color:var(--primary-color); text-decoration:none;">SVN and Git: Branch History, Commit Counts, Merging</a></li>
+        <li style="margin-bottom:0.35rem;"><a href="#git-tips" style="color:var(--primary-color); text-decoration:none;">Git Tips</a></li>
+        <li style="margin-bottom:0.35rem;"><a href="#miscellaneous" style="color:var(--primary-color); text-decoration:none;">Miscellaneous</a></li>
+      </ul>
+    </nav>
+
+        <div class="blog-post-content markdown-body">
+
+<p><em>A collection of Linux and Git commands from my notes. Rough around the edges — preserved as written.</em></p>
+<hr>
+<h2 id="pdf-packages-dropbox-and-process-management">PDF, Packages, Dropbox, and Process Management</h2>
+<p><strong>Split pages from a PDF</strong> (requires <code>pdftk</code>):</p>
+<pre><code class="language-bash">pdftk old.pdf cat 1-9 26-end output new.pdf</code></pre>
+<p><strong>Export list of manually installed packages:</strong></p>
+<pre><code class="language-bash">aptitude search '!~M ~i' | awk -F " " '{ print "apt-get -y install " $2 }' > aptshell.sh</code></pre>
+<p><strong>Start Dropbox daemon:</strong></p>
+<pre><code class="language-bash">~/.dropbox-dist/dropboxd</code></pre>
+<p><strong>Useful <code>ps</code> commands:</strong></p>
+<pre><code class="language-bash">ps aux                  # all running processes
+ps -A                   # every process on the system
+ps -U root -u root -N   # every process except root
+ps -u vivek             # processes for a specific user
+top                     # dynamic real-time view
+pstree                  # tree view of processes</code></pre>
+<p><strong>Check disk usage by depth:</strong></p>
+<pre><code class="language-bash">du --max-depth=1   # first tier only
+du --max-depth=0   # same as -s, just the total</code></pre>
+<p><strong>Download files with wget:</strong></p>
+<pre><code class="language-bash">wget &lt;url&gt;
+wget &lt;url&gt; -t 5    # retry up to 5 times (useful for broken downloads)</code></pre>
+<hr>
+<h2 id="create-iso-files-from-the-terminal">Create ISO Files from the Terminal</h2>
+<p><strong>From a folder:</strong></p>
+<pre><code class="language-bash">mkisofs -r -o /isofile.iso /folder</code></pre>
+<p><strong>From specific files:</strong></p>
+<pre><code class="language-bash">mkisofs -r -o /isofile.iso /mybigfile
+mkisofs -r -o /isofile.iso *.mp3</code></pre>
+<p><strong>From a CD/DVD drive:</strong></p>
+<pre><code class="language-bash">dd if=/dev/cdrom0 of=isofile.iso</code></pre>
+<hr>
+<h2 id="gcc-preprocessed-output-object-code-and-assembly">GCC: Preprocessed Output, Object Code, and Assembly</h2>
+<p><strong>Generate preprocessed code (with all <code>#include</code> files expanded):</strong></p>
+<pre><code class="language-bash">gcc -E test.c > test.pp</code></pre>
+<p><strong>Compile to object code:</strong></p>
+<pre><code class="language-bash">gcc test.c test2.c -o test.o</code></pre>
+<p><strong>Dump the assembly:</strong></p>
+<pre><code class="language-bash">objdump -d test.o</code></pre>
+<hr>
+<h2 id="svn-and-git-branch-history-commit-counts-merging">SVN and Git: Branch History, Commit Counts, Merging</h2>
+<p><strong>Get full log history for an SVN branch using svn2git:</strong></p>
+<pre><code class="language-bash">mkdir ORACLEPOC
+cd ORACLEPOC
+svn2git svn://&lt;your-svn-server&gt;/&lt;repo&gt;/UI/ORACLEPOC --rootistrunk --verbose
+cd ..</code></pre>
+<p><strong>Count total commits across all branches:</strong></p>
+<pre><code class="language-bash">total=0
+for i in *; do
+  cd $i
+  echo "In $i"
+  total=`expr $total + $(git log | grep "Date:" | wc -l)`
+  cd ..
+done
+echo $total</code></pre>
+<p><strong>Merge two branches from different repositories:</strong></p>
+<pre><code class="language-bash">git remote add MSSQL_2.3 /home/git/MSSQL_2.3
+git pull MSSQL_2.3 master:b
+git merge b
+git branch -d b</code></pre>
+<p><strong>Untrack a directory without deleting it:</strong></p>
+<pre><code class="language-bash">git rm -r --cached &lt;your-directory&gt;</code></pre>
+<hr>
+<h2 id="git-tips">Git Tips</h2>
+<p><strong>Undo a commit and redo it:</strong></p>
+<pre><code class="language-bash">git reset --soft HEAD^   # undo commit, keep changes staged
+# make your edits
+git add .
+git commit -c ORIG_HEAD  # reuse the old commit message</code></pre>
+<p><strong>List all commits for a specific file:</strong></p>
+<pre><code class="language-bash">git log -- &lt;path/to/file&gt;
+git log --stat &lt;path&gt;    # shows impact of each commit</code></pre>
+<p><strong>Tagging and using commit numbers as build numbers:</strong></p>
+<pre><code class="language-bash">git tag -a v2.5 -m 'Version 2.5'
+git describe --tags --long
+# output: v2.5-0-deadbeef
+#          ^    ^ ^
+#          |    | SHA of HEAD
+#          |    number of commits since last tag
+#          last tag</code></pre>
+<p><strong>Remove untracked empty directories:</strong></p>
+<pre><code class="language-bash">git clean -fdn   # dry run first — shows what will be deleted
+git clean -fd    # actually delete</code></pre>
+<p><strong>Create a dummy/empty commit:</strong></p>
+<pre><code class="language-bash">git commit --allow-empty -m 'Dummy commit to create the first tag'</code></pre>
+<p><strong>Rename a tag (prepend a prefix):</strong></p>
+<pre><code class="language-bash"># usage: git tag &lt;new_tag&gt; &lt;old_tag&gt; -f -m &lt;message&gt;
+# -f forces the rename
+git tag "MSSQL_2.30.0" "2.30.0" -f -m "Prepending DB type to existing tag name"</code></pre>
+<p><strong>See files changed per commit (SVN <code>-v</code> equivalent):</strong></p>
+<pre><code class="language-bash">git log --name-status
+git log --name-only
+git log --stat</code></pre>
+<hr>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<p><strong>Show timestamps in bash history:</strong></p>
+<pre><code class="language-bash">export HISTTIMEFORMAT="%F %T "</code></pre>
+<p><strong>Fix missing dependencies in CentOS:</strong></p>
+<pre><code class="language-bash">sudo yum --disableexcludes=main install kernel-headers</code></pre>
+<p><strong>Remove an invalid git remote:</strong></p>
+<pre><code class="language-bash">git remote set-url origin git://github.com/&lt;user&gt;/&lt;repo&gt;.git</code></pre>
+
+        </div>
+
+  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
+    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
+    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
+    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fab fa-twitter"></i> Follow @iamrawtion
+      </a>
+      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fas fa-rss"></i> Subscribe via RSS
+      </a>
+      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+      </a>
+      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+        <i class="fab fa-github"></i> Follow on GitHub
+      </a>
+    </div>
+  </section>
+
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      <a href="../blogs/tech-stuff-to-separate-part-of-pdf-from.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">TECHNICAL STUFF</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2013</p>
+      </a>
+      <a href="../blogs/rhce-preparation.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">RHCE Preparation, How to Prepare for Red Hat Certification.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2012</p>
+      </a>
+      <a href="../blogs/bugzilla-mail-sending-issue.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Bugzilla Mail Sending Issue</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2014</p>
+      </a>
+    </div>
+  </section>
+
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/rhce-preparation.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">RHCE Preparation, How to Prepare for Red Hat Certification.</span>
+    </a>
+    <a href="../blogs/acm-icpc-3.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">ACM ICPC (3)</span>
+    </a>
+  </nav>
+
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <div style="margin-bottom:1.25rem;">
+            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html&via=iamrawtion&text=Linux%20and%20Git%20Field%20Notes" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fab fa-twitter"></i> Share on Twitter
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fab fa-linkedin"></i> Share on LinkedIn
+              </a>
+              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
+              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
+                <i class="fas fa-handshake"></i> Hire me for consulting
+              </a>
+            </div>
+          </div>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    var copyBtn = document.getElementById('copy-link-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        var btn = this;
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          btn.textContent = 'Copied!';
+          setTimeout(function() {
+            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
+          }, 2000);
+        });
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(codeBlock) {
+      var pre = codeBlock.parentNode;
+      pre.style.position = 'relative';
+      var btn = document.createElement('button');
+      btn.textContent = 'Copy';
+      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
+          btn.textContent = 'Copied!';
+          btn.style.background = 'rgba(100,255,218,0.15)';
+          btn.style.color = '#64ffda';
+          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
+        });
+      });
+      pre.appendChild(btn);
+    });
+  </script>
+</body>
+</html>

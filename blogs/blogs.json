@@ -46,7 +46,7 @@
       "Parenting",
       "Technology"
     ],
-    "excerpt": "I installed LineageOS on a spare Android to escape Google's ecosystem. The experiment didn't go as planned — but it found a far better purpose.",
+    "excerpt": "I installed LineageOS on a spare Android to escape Google's ecosystem. The experiment didn't go as planned \u2014 but it found a far better purpose.",
     "author": "Roshan Nagekar",
     "id": "de-google-lineageos-daughters-phone",
     "file": "de-google-lineageos-daughters-phone.md"
@@ -64,13 +64,13 @@
       "MeasureCamp",
       "Tech Event"
     ],
-    "excerpt": "I went to MeasureCamp Delhi 2026 expecting the standard conference deal. It turned out to be an unconference — and I accidentally ended up as a speaker.",
+    "excerpt": "I went to MeasureCamp Delhi 2026 expecting the standard conference deal. It turned out to be an unconference \u2014 and I accidentally ended up as a speaker.",
     "author": "Roshan Nagekar",
     "id": "measurecamp-delhi-where-i-became-a-speaker",
     "file": "measurecamp-delhi-where-i-became-a-speaker.md"
   },
   {
-    "title": "Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students",
+    "title": "Getting Your First DevOps Job Is Harder Now \u2014 Here's What I Tell My Students",
     "date": "2026-09-24",
     "category": "DevOps",
     "tags": [
@@ -137,7 +137,7 @@
       "Icinga",
       "Zabbix"
     ],
-    "excerpt": "A retrospective on Nagios — the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster.",
+    "excerpt": "A retrospective on Nagios \u2014 the tool that taught me to understand servers, not just watch them. From one box in 2012 to a 5,000-server cluster.",
     "author": "Roshan Nagekar",
     "id": "nagios-still-has-my-heart",
     "file": "nagios-still-has-my-heart.md"
@@ -152,7 +152,7 @@
       "DevOps",
       "Documentation"
     ],
-    "excerpt": "Disney reused animation frames to cut costs. I used the same trick with AI to generate my kid's personalized bedtime stories — here's how it worked.",
+    "excerpt": "Disney reused animation frames to cut costs. I used the same trick with AI to generate my kid's personalized bedtime stories \u2014 here's how it worked.",
     "author": "Roshan Nagekar",
     "id": "disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim",
     "file": "disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim.md"
@@ -204,7 +204,7 @@
       "MySQL",
       "DevSecOps"
     ],
-    "excerpt": "I set up a MySQL MCP server using FastMCP and noticed a problem — it doesn't know the difference between an agent I authorized and one that found my endpoint.",
+    "excerpt": "I set up a MySQL MCP server using FastMCP and noticed a problem \u2014 it doesn't know the difference between an agent I authorized and one that found my endpoint.",
     "author": "Roshan Nagekar",
     "id": "credential-bleed-mcp-server-trust",
     "file": "credential-bleed-mcp-server-trust.md"
@@ -280,7 +280,7 @@
     "file": "part-2-the-experiments-that-actually-move-the-number.md"
   },
   {
-    "title": "From Apache Benchmark to A/B Testing, A DevOps Guy’s CRO Journey",
+    "title": "From Apache Benchmark to A/B Testing, A DevOps Guy\u2019s CRO Journey",
     "date": "2026-05-11",
     "category": "DevOps",
     "tags": [
@@ -293,7 +293,7 @@
       "Marketing",
       "Sales"
     ],
-    "excerpt": "When my manager first mentioned A/B testing, I nodded confidently. I knew exactly what it was. Except I didn’t. In my head, “A/B testing” meant Apache...",
+    "excerpt": "When my manager first mentioned A/B testing, I nodded confidently. I knew exactly what it was. Except I didn\u2019t. In my head, \u201cA/B testing\u201d meant Apache...",
     "author": "Roshan Nagekar",
     "id": "from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour",
     "file": "from-apache-benchmark-to-a-b-testing-a-devops-guy-s-cro-jour.md"
@@ -340,7 +340,7 @@
       "Containers",
       "DevOps"
     ],
-    "excerpt": "Learn Docker Compose to manage multi-container applications — covering docker-compose.yml, common commands, and deploying a web app with a database.",
+    "excerpt": "Learn Docker Compose to manage multi-container applications \u2014 covering docker-compose.yml, common commands, and deploying a web app with a database.",
     "author": "Roshan Nagekar",
     "id": "sample-docker-compose-guide",
     "file": "sample-docker-compose-guide.md"
@@ -675,7 +675,7 @@
     "tags": [
       "Devops"
     ],
-    "excerpt": "Attended RootConf 2014 in Bangalore — a conference on DevOps and cloud infrastructure covering Go CI, SELinux, Docker, and modern deployment practices.",
+    "excerpt": "Attended RootConf 2014 in Bangalore \u2014 a conference on DevOps and cloud infrastructure covering Go CI, SELinux, Docker, and modern deployment practices.",
     "author": "Roshan Nagekar",
     "id": "rootconf-2014",
     "file": "rootconf-2014.md"
@@ -1151,6 +1151,22 @@
     "file": "rhce-preparation.md"
   },
   {
+    "title": "Linux and Git Field Notes",
+    "date": "2012-11-23",
+    "category": "Linux",
+    "tags": [
+      "Linux",
+      "Git",
+      "SVN",
+      "Bash",
+      "DevOps"
+    ],
+    "excerpt": "A collection of Linux and Git commands from my notes. Covers pdftk, ps, du, wget, ISO creation, GCC, svn2git, git tagging, branch merging, and more.",
+    "author": "Roshan Nagekar",
+    "id": "linux-and-git-field-notes",
+    "file": "linux-and-git-field-notes.md"
+  },
+  {
     "title": "ACM ICPC (3)",
     "date": "2012-08-30",
     "category": "Programming",
@@ -1263,7 +1279,7 @@
     "file": "acm-icpc-2011.md"
   },
   {
-    "title": "Building WAAS – Workflow as a Service (Peepaal Project)",
+    "title": "Building WAAS \u2013 Workflow as a Service (Peepaal Project)",
     "date": "2011-01-29",
     "category": "Cloud Computing",
     "tags": [
@@ -1274,7 +1290,7 @@
       "PaaS",
       "WaaS"
     ],
-    "excerpt": "Building WAAS — Workflow as a Service — as part of the Peepaal project: a cloud-native platform for automating business workflows using Java and PaaS.",
+    "excerpt": "Building WAAS \u2014 Workflow as a Service \u2014 as part of the Peepaal project: a cloud-native platform for automating business workflows using Java and PaaS.",
     "author": "Roshan Nagekar",
     "id": "building-waas-workflow-as-a-service-peepaal-project",
     "file": "building-waas-workflow-as-a-service-peepaal-project.md"

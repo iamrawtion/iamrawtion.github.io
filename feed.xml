@@ -11900,6 +11900,20 @@ line</p>
 ]]></content:encoded>
   </item>
   <item>
+    <title>Linux and Git Field Notes</title>
+    <link>https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/linux-and-git-field-notes.html</guid>
+    <pubDate>Fri, 23 Nov 2012 00:00:00 GMT</pubDate>
+    <description>A collection of Linux and Git commands from my notes. Covers pdftk, ps, du, wget, ISO creation, GCC, svn2git, git tagging, branch merging, and more.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Linux</category>
+    <category>Git</category>
+    <category>SVN</category>
+    <category>Bash</category>
+    <category>DevOps</category>
+    <content:encoded><![CDATA[<p><em>A collection of Linux and Git commands from my notes. Rough around the edges — preserved as written.</em></p><h2>PDF, Packages, Dropbox, and Process Management</h2><p>Split PDF pages with pdftk, export manually installed packages, manage processes with ps/top/pstree, check disk usage with du --max-depth, and download files with wget.</p><h2>Create ISO Files from the Terminal</h2><p>Use mkisofs to create ISO images from folders, specific files, or rip a CD/DVD with dd.</p><h2>GCC: Preprocessed Output, Object Code, and Assembly</h2><p>Generate preprocessed output with gcc -E, compile to object code, and dump assembly with objdump -d.</p><h2>SVN and Git</h2><p>Convert SVN branches with svn2git, count commits across repositories, merge branches from different remotes, and untrack directories without deleting them.</p><h2>Git Tips</h2><p>Undo commits with git reset --soft, tag releases with git describe, clean untracked directories, rename tags, and view file-level commit history with git log --name-status.</p>]]></content:encoded>
+  </item>
+  <item>
     <title>ACM ICPC (3)</title>
     <link>https://iamrawtion.github.io/blogs/acm-icpc-3.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/acm-icpc-3.html</guid>
