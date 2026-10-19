@@ -11914,6 +11914,20 @@ line</p>
     <content:encoded><![CDATA[<p><em>A collection of Linux and Git commands from my notes. Rough around the edges — preserved as written.</em></p><h2>PDF, Packages, Dropbox, and Process Management</h2><p>Split PDF pages with pdftk, export manually installed packages, manage processes with ps/top/pstree, check disk usage with du --max-depth, and download files with wget.</p><h2>Create ISO Files from the Terminal</h2><p>Use mkisofs to create ISO images from folders, specific files, or rip a CD/DVD with dd.</p><h2>GCC: Preprocessed Output, Object Code, and Assembly</h2><p>Generate preprocessed output with gcc -E, compile to object code, and dump assembly with objdump -d.</p><h2>SVN and Git</h2><p>Convert SVN branches with svn2git, count commits across repositories, merge branches from different remotes, and untrack directories without deleting them.</p><h2>Git Tips</h2><p>Undo commits with git reset --soft, tag releases with git describe, clean untracked directories, rename tags, and view file-level commit history with git log --name-status.</p>]]></content:encoded>
   </item>
   <item>
+    <title>Getting Into DevOps: Notes and Job Research</title>
+    <link>https://iamrawtion.github.io/blogs/getting-into-devops-notes-and-job-research.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/getting-into-devops-notes-and-job-research.html</guid>
+    <pubDate>Thu, 18 Oct 2012 00:00:00 GMT</pubDate>
+    <description>Putting together my notes on what DevOps actually means and what I need to learn. Going through job postings, bookmarking resources, mapping the tool landscape.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>DevOps</category>
+    <category>Linux</category>
+    <category>Chef</category>
+    <category>Puppet</category>
+    <category>Career</category>
+    <content:encoded><![CDATA[<p><em>Putting together my notes on what DevOps actually means and what I need to learn. Going through job postings, bookmarking resources, mapping the tool landscape.</em></p><h2>The Tool List</h2><p>Every job posting I read mentions some combination of these: Git/SVN/Mercurial for version control, Chef/Puppet/Cfengine for config management, Hudson/Jenkins for CI, Nagios/Zenoss/Cacti for monitoring, and Vagrant for local dev environments. Chef and Puppet seem to be the two main ones — started reading through the RightScale Chef tutorial.</p><h2>Where the Community Is</h2><p>DevOps Days, PuppetConf, Velocity Conference for in-person. IRC, serverfault.com, Stack Overflow, Reddit, LinkedIn groups, and vendor mailing lists online.</p><h2>What Companies Are Actually Asking For</h2><p>Linux is non-negotiable — listed as mandatory almost everywhere. Config management (Chef or Puppet), CI tools (Jenkins/Hudson/TeamCity), monitoring (Nagios, Zenoss), scripting (Shell baseline, Ruby and Python common), and increasingly cloud (OpenStack, AWS, Rackspace). ThoughtWorks framed the role as bridging dev and ops around continuous delivery. Ruby/Rails shows up more than expected in DevOps-adjacent roles. Big Data (Hadoop, Hive, Pig) is starting to appear too, though that feels like a different track.</p><h2>Gaps I Need to Close</h2><p>Chef and Puppet hands-on, AWS and OpenStack from zero, Ruby beyond basics, Jenkins end-to-end, and Nagios — it's a hard requirement in most infra roles.</p>]]></content:encoded>
+  </item>
+  <item>
     <title>ACM ICPC (3)</title>
     <link>https://iamrawtion.github.io/blogs/acm-icpc-3.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/acm-icpc-3.html</guid>

@@ -1167,6 +1167,22 @@
     "file": "linux-and-git-field-notes.md"
   },
   {
+    "title": "Getting Into DevOps: Notes and Job Research",
+    "date": "2012-10-18",
+    "category": "DevOps",
+    "tags": [
+      "DevOps",
+      "Linux",
+      "Chef",
+      "Puppet",
+      "Career"
+    ],
+    "excerpt": "Putting together my notes on what DevOps actually means and what I need to learn. Going through job postings, bookmarking resources, mapping the tool landscape.",
+    "author": "Roshan Nagekar",
+    "id": "getting-into-devops-notes-and-job-research",
+    "file": "getting-into-devops-notes-and-job-research.md"
+  },
+  {
     "title": "ACM ICPC (3)",
     "date": "2012-08-30",
     "category": "Programming",
