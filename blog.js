@@ -26,6 +26,7 @@ class BlogManager {
 
             // Sort blogs by date (newest first)
             this.blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+            window.__blogPosts = this.blogs;
 
         } catch (error) {
             console.error('Error loading blogs:', error);
