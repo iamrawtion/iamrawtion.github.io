@@ -138,6 +138,7 @@ body {
 
 .terminal-output-text {
     color: #a9b1d6;
+    white-space: pre-wrap;
 }
 
 .terminal-output-error {

@@ -181,8 +181,9 @@ function addOutput(command, output) {
     if (output !== null) {
         const outputLine = document.createElement('div');
         outputLine.className = 'terminal-output-line';
+        const prompt = isBlogPage ? 'visitor@blog:~/posts$' : 'visitor@portfolio:~$';
         outputLine.innerHTML = `
-            <span class="terminal-output-command">visitor@blog:~$</span> ${command}
+            <span class="terminal-output-command">${prompt}</span> ${command}
             <div class="terminal-output-text">${output}</div>
         `;
         terminalOutput.appendChild(outputLine);
