@@ -1,0 +1,92 @@
+direction: down
+
+# ─── PUBLIC LAYER ───
+internet: Internet {
+  shape: cloud
+}
+
+cloudflare: CDN & Protection Layer {
+  shape: hexagon
+  style.fill: "#fff3e0"
+
+  cdn: CDN / Cache
+  waf: WAF & DDoS Protection
+  failover: Automatic Failover
+}
+
+dns: DNS Service {
+  shape: hexagon
+  style.fill: "#e8f4f8"
+}
+
+# ─── OBJECT STORAGE ───
+s3: Object Storage\n(Static Fallback) {
+  shape: cylinder
+  style.fill: "#fce4ec"
+
+  static: Static Site Assets
+  backup: App Backups
+}
+
+# ─── GATEWAY ───
+gateway: Cloud Server\n(Public Gateway) {
+  style.fill: "#d4e6f1"
+
+  proxy: Reverse Proxy
+  vpn: WireGuard Endpoint
+}
+
+# ─── HOME NETWORK ───
+home: Home Network {
+  style.fill: "#eafaf1"
+  style.stroke-dash: 3
+
+  baremetal: Bare Metal Servers {
+    style.fill: "#fef9e7"
+
+    cluster: Kubernetes Cluster {
+      style.fill: "#fdfefe"
+
+      control: Control Plane\n(3 nodes)
+      workers: Worker Nodes\n(3 nodes)
+      storage: Distributed Storage
+      cni: Container Networking
+
+      monitoring: Monitoring Stack {
+        prom: Prometheus
+        graf: Grafana
+        alerts: Alerting
+      }
+
+      apps: Self-Hosted Apps {
+        ai: AI Experiments
+        tools: Internal Tools
+      }
+
+      control -> workers
+      workers -> storage
+      workers -> cni
+    }
+  }
+}
+
+# ─── CI/CD ───
+cicd: CI/CD Pipeline\n(GitHub Actions) {
+  shape: rectangle
+  style.fill: "#f5eef8"
+}
+
+# ─── CONNECTIONS ───
+internet -> cloudflare.cdn:          "all traffic enters here"
+dns ->      cloudflare:              "subdomains resolve to"
+cloudflare.cdn ->     gateway.proxy: "origin requests\n(normal path)"
+cloudflare.failover -> s3.static:    "origin unreachable →\nserve static automatically" {
+  style.stroke: "#e53935"
+  style.stroke-dash: 4
+}
+
+gateway.proxy ->  home.baremetal.cluster:      "proxied requests\n(over VPN)"
+gateway.vpn ->    home:                        "WireGuard tunnel"
+
+cicd ->           home.baremetal.cluster:      "deploys to"
+cicd ->           s3.backup:                   "syncs static assets\n& backups"

@@ -1,5 +1,35 @@
 [
   {
+    "title": "Inside My Homelab: Architecture, Philosophy, and Why It Exists",
+    "date": "2026-10-31",
+    "category": "DevOps",
+    "tags": ["Homelab", "Kubernetes", "Infrastructure", "DevOps", "Self-Hosted", "Security", "Open Source"],
+    "excerpt": "A proper walkthrough of my homelab — what runs, how it's secured, why it exists, and what I've learned from keeping it alive for years.",
+    "author": "Roshan Nagekar",
+    "id": "inside-my-homelab-architecture-philosophy-and-why-it-exists",
+    "file": "inside-my-homelab-architecture-philosophy-and-why-it-exists.md"
+  },
+  {
+    "title": "My Homelab: The Public Architecture",
+    "date": "2026-10-30",
+    "category": "DevOps",
+    "tags": ["Homelab", "Kubernetes", "Infrastructure", "DevOps", "Self-Hosted", "Architecture"],
+    "excerpt": "A high-level look at how my personal homelab is structured — from the public gateway to the Kubernetes cluster inside my home. No vendor names. Just the shape of the thing.",
+    "author": "Roshan Nagekar",
+    "id": "my-homelab-the-public-architecture",
+    "file": "my-homelab-the-public-architecture.md"
+  },
+  {
+    "title": "Finally Found a Local LLM Setup That Seems to be Promising",
+    "date": "2026-10-29",
+    "category": "DevOps",
+    "tags": ["AI Agents", "LLM", "Ollama", "Homelab", "Open Source", "DevOps"],
+    "excerpt": "After multiple failed attempts with local LLMs, I found a setup that actually works for my homelab — Cindy agent, Ollama, and Qwen3-Coder 30B on an M3 Max. Slow but honest.",
+    "author": "Roshan Nagekar",
+    "id": "finally-found-a-local-llm-setup-that-seems-promising",
+    "file": "finally-found-a-local-llm-setup-that-seems-promising.md"
+  },
+  {
     "title": "From a Million-Dollar Yahoo Lottery to AI Deepfakes: My Two Decades of Encounters with Cyber Scams",
     "date": "2026-09-30",
     "category": "Security",
