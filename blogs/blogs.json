@@ -20,16 +20,6 @@
     "file": "inside-my-homelab-architecture-philosophy-and-why-it-exists.md"
   },
   {
-    "title": "My Homelab: The Public Architecture",
-    "date": "2026-10-30",
-    "category": "DevOps",
-    "tags": ["Homelab", "Kubernetes", "Infrastructure", "DevOps", "Self-Hosted", "Architecture"],
-    "excerpt": "A high-level look at how my personal homelab is structured — from the public gateway to the Kubernetes cluster inside my home. No vendor names. Just the shape of the thing.",
-    "author": "Roshan Nagekar",
-    "id": "my-homelab-the-public-architecture",
-    "file": "my-homelab-the-public-architecture.md"
-  },
-  {
     "title": "Finally Found a Local LLM Setup That Seems to be Promising",
     "date": "2026-10-29",
     "category": "DevOps",
