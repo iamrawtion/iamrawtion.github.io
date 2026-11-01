@@ -1,5 +1,15 @@
 [
   {
+    "title": "PHP2Shell: How a Simple File Editor Nearly Became a Backdoor Into Our Entire Lab",
+    "date": "2026-11-01",
+    "category": "Security",
+    "tags": ["Security", "WordPress", "Kubernetes", "Homelab", "DevSecOps", "PHP", "Hardening"],
+    "excerpt": "A home lab security story — from a WordPress file editor to potential root access on bare metal. How a PHP webshell exploits the application layer where firewalls can't reach, and how we closed the door.",
+    "author": "Roshan Nagekar",
+    "id": "php2shell-wordpress-webshell-homelab",
+    "file": "php2shell-wordpress-webshell-homelab.md"
+  },
+  {
     "title": "Inside My Homelab: Architecture, Philosophy, and Why It Exists",
     "date": "2026-10-31",
     "category": "DevOps",
