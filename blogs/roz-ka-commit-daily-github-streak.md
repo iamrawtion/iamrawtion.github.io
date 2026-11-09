@@ -7,83 +7,115 @@ excerpt: "Roz Ka Commit — one commit, every single day. A 14-day GitHub streak
 author: "Roshan Nagekar"
 ---
 
-## What Is Roz Ka Commit
+## It Started With an Empty Grid
 
-*Roz Ka Commit* is Hindi for "every day's commit" (*roz* means daily). The rule is exactly what the name says: push at least one commit to GitHub, every single day.
+I teach DevOps. Have been doing it for a while now.
 
-That is it. That is the whole challenge.
+Every batch, I teach Git. Every batch, students learn it. They run `git init`. They run `git add`. They commit. They push. They smile.
 
-I started it with around ten of my students. I honestly don't know how it is going to go. But I wanted to try it, and I wanted to try it with them rather than just tell them to do it.
+Then they forget about it.
 
-## Why I Started This
+Weeks pass. Nobody opens GitHub. Then interview season comes. Someone shares their GitHub profile with me. I open it.
 
-I have been teaching DevOps for a while now. Git sits underneath almost everything we cover: CI/CD pipelines, infrastructure as code, GitOps, configuration management. Every one of those starts with a repository and a commit.
+Empty grid. A few green squares. All bunched together, around one assignment deadline.
 
-And yet, again and again, I see the same thing. Students learn Git in a session, run `git init`, `git add`, `git commit`, `git push` a few times, and then don't touch it for weeks. When they finally sit for interviews, their GitHub profile is a mostly empty grid with a few green squares bunched together around the time of some assignment.
+That hurt a little.
 
-Knowing Git commands is not the problem. The problem is that **Git never became a habit**.
+The problem was never Git commands. Everyone knows the commands. The problem was habit. Git never became a habit.
 
-Habits don't come from one long session. They come from small things done every day.
+And habits don't come from one long class. They come from small things. Done daily.
 
-## The Rules (Deliberately Simple)
+So I started something.
 
-For now, I have kept the rules almost embarrassingly simple:
+## Roz Ka Commit
 
-- **One commit a day, minimum.** More is welcome, but one is enough.
-- **Any code counts.** Write it yourself, generate it with an AI or an LLM, copy it from the internet and tweak it. I am not judging the code right now.
-- **Push it to GitHub.** It has to show up on your public profile.
+*Roz* means daily in Hindi. *Roz Ka Commit* means every day's commit.
 
-Some people will say, "If you allow AI or copy-paste, what is the point?"
+The rule is simple. One commit. Every single day. Pushed to GitHub.
 
-The point, at this stage, is not the code. The point is the *workflow*. Opening a terminal. Making a change. Staging it. Writing a commit message. Pushing it. Dealing with the occasional merge conflict or rejected push. Doing that every day until it stops feeling like a task and starts feeling normal.
+That's it. That's the whole challenge.
 
-Once the habit is there, raising the quality bar is easy. Building a habit from nothing is the hard part, so that is where we start.
+Around ten of my students joined. Will it work? I don't know. Honestly, I don't.
 
-## Why It Matters for Job Hunting
+But I wanted to try. And I didn't want to just tell them to do it. I wanted to do it with them.
 
-A GitHub contribution graph is one of the few things on a fresher's profile that is hard to fake over a long period. A resume can say "proficient in Git". A green graph stretching across months *shows* it.
+## The Rules Are Almost Too Easy
 
-When a recruiter or hiring manager opens a profile and sees:
+- One commit a day. Minimum.
+- Any code counts.
+- It must be pushed to GitHub.
 
-- Consistent activity over weeks and months
-- Repositories that grow over time
-- Commit messages that make sense
+Any code means any code. Write it yourself. Ask an AI to write it. Copy it from the internet. I don't care. Not right now.
 
-...it tells a story about the person: they show up, they are consistent, and they are comfortable with the tools engineering teams use every day.
+Someone asked me, "Sir, if AI writes it, what's the point?"
 
-That is the kind of history I want my students to have when they walk into interviews.
+Fair question.
 
-## I Am Doing It Too
+The point is not the code. Not yet. The point is the routine. Open the terminal. Change something. Stage it. Write a commit message. Push. Get a rejected push. Fix it. Push again.
 
-Here is the honest part. I have not been using GitHub for public projects or public repositories for a very long time. Most of my work lives in private repos, internal tooling, or my homelab. My own public contribution graph is nothing to show off.
+Do this every day. Soon it stops feeling like homework. It starts feeling normal.
 
-So I am participating in the streak myself. Same rules. One commit a day.
+Once the habit is there, I can push for better code. That part is easy. Building a habit from zero is the hard part.
 
-It would feel strange to ask students to build a habit I am not building myself. And honestly, I need the push as much as they do. If I miss a day, they will know, and I will hear about it.
+So we start there.
 
-## The Plan: 14 Days, Then 100
+## Why Recruiters Care
 
-We are starting with a **14-day streak**.
+A resume can say anything. "Proficient in Git." Everyone writes that.
 
-Fourteen days is short enough that nobody feels overwhelmed, and long enough to tell whether the habit is forming. If the group completes the 14 days properly, we move to a **100-day streak**.
+A GitHub graph is different. It's hard to fake for months.
 
-Hundred days is where it gets interesting. By then, a daily commit should feel like brushing your teeth: something you just do. And somewhere in those hundred days, I expect the commits to slowly shift from "anything to keep the streak alive" to real projects people care about.
+When a recruiter sees green squares, week after week, it says something. This person shows up. This person is consistent. This person uses the tools real teams use.
 
-## A Few Tips If You Want to Try This
+That's what I want for my students. A history they can show. Not a line on a resume.
 
-If you are thinking of doing something similar, on your own or with a group:
+## Okay, Confession Time
 
-1. **Keep one "streak" repository.** A place for notes, small scripts, daily learnings, TILs. It removes the "what do I commit today?" problem.
-2. **Commit something small early in the day.** Don't leave it for 11:55 PM.
-3. **Write real commit messages.** "update" ten days in a row teaches you nothing. "Add bash script to check disk usage" does.
-4. **Mind the timezone.** GitHub counts contributions by the timezone of the commit. A commit at 12:30 AM might land on a different day than you expect.
-5. **Make sure it counts.** Contributions show on your graph only if the commit email is linked to your GitHub account and the commit is on the default branch (or a merged PR).
-6. **Do it with others.** Having a group that notices when you miss a day is half the motivation.
+I am doing this too.
 
-## Want to Join?
+Here's the truth. I haven't used GitHub for public projects in a very long time. My work sits in private repos. Internal tools. My homelab.
 
-If you are reading this and want to be part of **Roz Ka Commit**, whether you are a student, a working professional who has let your GitHub go quiet like I did, or just someone who wants to build the habit, you are welcome to join.
+My own public graph? Nothing to show off.
 
-Drop me an email at **[roshan4074@gmail.com](mailto:roshan4074@gmail.com)** and I will add you to the group.
+So I'm in. Same rules. One commit a day.
 
-One commit a day. Let's see how far we get.
+It would be strange to ask students to build a habit I'm not building. And I need the push as much as they do.
+
+If I miss a day, they will know. And trust me, they will tell me.
+
+## 14 Days First. Then 100.
+
+We start with 14 days.
+
+Short enough that nobody panics. Long enough to see if the habit sticks.
+
+If everyone finishes the 14 days properly, we go to 100.
+
+That's where it gets interesting. By day 100, a commit should feel like brushing your teeth. You just do it. You don't think.
+
+And somewhere in those 100 days, I hope the commits change. From "anything to save my streak" to "something I actually care about."
+
+Let's see.
+
+## Want to Try This Yourself?
+
+A few things that help:
+
+1. **Keep one streak repo.** Notes. Small scripts. Things you learned today. Now you always have something to commit.
+2. **Commit early.** Not at 11:55 PM. Trust me.
+3. **Write proper commit messages.** "update" ten days in a row teaches nothing. "Add script to check disk usage" does.
+4. **Watch the timezone.** GitHub uses the commit's timezone. A 12:30 AM commit may land on the wrong day.
+5. **Make sure it counts.** Your commit email must be linked to your GitHub account. The commit must be on the default branch, or in a merged PR.
+6. **Do it with friends.** When someone notices you missed a day, you won't miss the next one.
+
+## Join Us
+
+Student? Working professional? Someone whose GitHub went quiet, like mine?
+
+Come join Roz Ka Commit.
+
+Email me at **[roshan4074@gmail.com](mailto:roshan4074@gmail.com)**. I'll add you to the group.
+
+One commit a day. That's all.
+
+Let's see how far we go.
