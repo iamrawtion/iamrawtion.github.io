@@ -7,8 +7,75 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Mon, 09 Nov 2026 14:12:03 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 15:31:20 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Rose Ka Commit: A Daily GitHub Streak With My Students (and Me)</title>
+    <link>https://iamrawtion.github.io/blogs/rose-ka-commit-daily-github-streak.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/rose-ka-commit-daily-github-streak.html</guid>
+    <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+    <description>Rose Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Git</category>
+    <category>GitHub</category>
+    <category>Learning</category>
+    <category>Teaching</category>
+    <category>Career</category>
+    <category>Habits</category>
+    <category>DevOps</category>
+    <content:encoded><![CDATA[<h2>What Is Rose Ka Commit</h2>
+<p><em>Rose Ka Commit</em> means &quot;every day&#39;s commit&quot;. The rule is exactly what the name says: push at least one commit to GitHub, every single day.</p>
+<p>That is it. That is the whole challenge.</p>
+<p>I started it with around ten of my students. I honestly don&#39;t know how it is going to go. But I wanted to try it, and I wanted to try it with them rather than just tell them to do it.</p>
+<h2>Why I Started This</h2>
+<p>I have been teaching DevOps for a while now. Git sits underneath almost everything we cover: CI/CD pipelines, infrastructure as code, GitOps, configuration management. Every one of those starts with a repository and a commit.</p>
+<p>And yet, again and again, I see the same thing. Students learn Git in a session, run <code>git init</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code> a few times, and then don&#39;t touch it for weeks. When they finally sit for interviews, their GitHub profile is a mostly empty grid with a few green squares bunched together around the time of some assignment.</p>
+<p>Knowing Git commands is not the problem. The problem is that <strong>Git never became a habit</strong>.</p>
+<p>Habits don&#39;t come from one long session. They come from small things done every day.</p>
+<h2>The Rules (Deliberately Simple)</h2>
+<p>For now, I have kept the rules almost embarrassingly simple:</p>
+<ul>
+<li><strong>One commit a day, minimum.</strong> More is welcome, but one is enough.</li>
+<li><strong>Any code counts.</strong> Write it yourself, generate it with an AI or an LLM, copy it from the internet and tweak it. I am not judging the code right now.</li>
+<li><strong>Push it to GitHub.</strong> It has to show up on your public profile.</li>
+</ul>
+<p>Some people will say, &quot;If you allow AI or copy-paste, what is the point?&quot;</p>
+<p>The point, at this stage, is not the code. The point is the <em>workflow</em>. Opening a terminal. Making a change. Staging it. Writing a commit message. Pushing it. Dealing with the occasional merge conflict or rejected push. Doing that every day until it stops feeling like a task and starts feeling normal.</p>
+<p>Once the habit is there, raising the quality bar is easy. Building a habit from nothing is the hard part, so that is where we start.</p>
+<h2>Why It Matters for Job Hunting</h2>
+<p>A GitHub contribution graph is one of the few things on a fresher&#39;s profile that is hard to fake over a long period. A resume can say &quot;proficient in Git&quot;. A green graph stretching across months <em>shows</em> it.</p>
+<p>When a recruiter or hiring manager opens a profile and sees:</p>
+<ul>
+<li>Consistent activity over weeks and months</li>
+<li>Repositories that grow over time</li>
+<li>Commit messages that make sense</li>
+</ul>
+<p>...it tells a story about the person: they show up, they are consistent, and they are comfortable with the tools engineering teams use every day.</p>
+<p>That is the kind of history I want my students to have when they walk into interviews.</p>
+<h2>I Am Doing It Too</h2>
+<p>Here is the honest part. I have not been using GitHub for public projects or public repositories for a very long time. Most of my work lives in private repos, internal tooling, or my homelab. My own public contribution graph is nothing to show off.</p>
+<p>So I am participating in the streak myself. Same rules. One commit a day.</p>
+<p>It would feel strange to ask students to build a habit I am not building myself. And honestly, I need the push as much as they do. If I miss a day, they will know, and I will hear about it.</p>
+<h2>The Plan: 14 Days, Then 100</h2>
+<p>We are starting with a <strong>14-day streak</strong>.</p>
+<p>Fourteen days is short enough that nobody feels overwhelmed, and long enough to tell whether the habit is forming. If the group completes the 14 days properly, we move to a <strong>100-day streak</strong>.</p>
+<p>Hundred days is where it gets interesting. By then, a daily commit should feel like brushing your teeth: something you just do. And somewhere in those hundred days, I expect the commits to slowly shift from &quot;anything to keep the streak alive&quot; to real projects people care about.</p>
+<h2>A Few Tips If You Want to Try This</h2>
+<p>If you are thinking of doing something similar, on your own or with a group:</p>
+<ol>
+<li><strong>Keep one &quot;streak&quot; repository.</strong> A place for notes, small scripts, daily learnings, TILs. It removes the &quot;what do I commit today?&quot; problem.</li>
+<li><strong>Commit something small early in the day.</strong> Don&#39;t leave it for 11:55 PM.</li>
+<li><strong>Write real commit messages.</strong> &quot;update&quot; ten days in a row teaches you nothing. &quot;Add bash script to check disk usage&quot; does.</li>
+<li><strong>Mind the timezone.</strong> GitHub counts contributions by the timezone of the commit. A commit at 12:30 AM might land on a different day than you expect.</li>
+<li><strong>Make sure it counts.</strong> Contributions show on your graph only if the commit email is linked to your GitHub account and the commit is on the default branch (or a merged PR).</li>
+<li><strong>Do it with others.</strong> Having a group that notices when you miss a day is half the motivation.</li>
+</ol>
+<h2>Want to Join?</h2>
+<p>If you are reading this and want to be part of <strong>Rose Ka Commit</strong>, whether you are a student, a working professional who has let your GitHub go quiet like I did, or just someone who wants to build the habit, you are welcome to join.</p>
+<p>Drop me an email at <strong><a href="mailto:roshan4074@gmail.com">roshan4074@gmail.com</a></strong> and I will add you to the group.</p>
+<p>One commit a day. Let&#39;s see how far we get.</p>
+]]></content:encoded>
+  </item>
   <item>
     <title>PHP2Shell: How a Simple File Editor Nearly Became a Backdoor Into Our Entire Lab</title>
     <link>https://iamrawtion.github.io/blogs/php2shell-wordpress-webshell-homelab.html</link>
