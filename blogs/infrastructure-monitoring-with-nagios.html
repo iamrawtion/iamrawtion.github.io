@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>Infrastructure Monitoring with Nagios | Roshan Nagekar</title>
+  <title>Infrastructure Monitoring with Nagios: Setup and Best Practices</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="How to set up Nagios for server infrastructure monitoring, covering host and service checks, alert notifications, and SLA uptime tracking.">
+  <meta name="description" content="Setting up Nagios for server infrastructure monitoring: host and service checks, CPU and RAM alerts, notifications and tracking SLA uptime.">
+  <meta name="keywords" content="Nagios setup, Nagios infrastructure monitoring, server monitoring, Nagios alerts, uptime monitoring, SLA monitoring, Nagios tutorial, Configuration Management, CPU, Devops, Infrastructure, Monitoring, Nagios, Open Source, Operations, RAM, Server, SLA, Troubleshooting, Uptime">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/install-cobbler-2610-on-ubuntu-1404.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/software-configuration-management-system.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Infrastructure Monitoring with Nagios">
-  <meta property="og:description" content="How to set up Nagios for server infrastructure monitoring, covering host and service checks, alert notifications, and SLA uptime tracking.">
+  <meta property="og:title" content="Infrastructure Monitoring with Nagios: Setup and Best Practices">
+  <meta property="og:description" content="Setting up Nagios for server infrastructure monitoring: host and service checks, CPU and RAM alerts, notifications and tracking SLA uptime.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2015-10-10">
+  <meta property="article:modified_time" content="2025-11-06">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="DevOps">
   <meta property="article:tag" content="Configuration Management">
   <meta property="article:tag" content="CPU">
-  <meta property="article:tag" content="DevOps">
+  <meta property="article:tag" content="Devops">
   <meta property="article:tag" content="Infrastructure">
   <meta property="article:tag" content="Monitoring">
   <meta property="article:tag" content="Nagios">
@@ -35,8 +37,8 @@
   <meta property="article:tag" content="Uptime">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Infrastructure Monitoring with Nagios">
-  <meta name="twitter:description" content="How to set up Nagios for server infrastructure monitoring, covering host and service checks, alert notifications, and SLA uptime tracking.">
+  <meta name="twitter:title" content="Infrastructure Monitoring with Nagios: Setup and Best Practices">
+  <meta name="twitter:description" content="Setting up Nagios for server infrastructure monitoring: host and service checks, CPU and RAM alerts, notifications and tracking SLA uptime.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="5 min read">
@@ -53,7 +55,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Infrastructure Monitoring with Nagios","description":"How to set up Nagios for server infrastructure monitoring, covering host and service checks, alert notifications, and SLA uptime tracking.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-10-10","url":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html","keywords":"Configuration Management, CPU, Devops, Infrastructure, Monitoring, Nagios, Open Source, Operations, RAM, Server, SLA, Troubleshooting, Uptime","wordCount":986,"timeRequired":"PT5M","articleBody":"Server management is a real pain and the pain keeps getting worse with more and more server getting added to the infrastructure. So how do organizations sustain with huge server farms, datacenters in place? How can super admins promise an SLA of 99.99% uptime with a very low response and resolution time? Quiet obviously the answer is server monitoring solutions. It could have been so tedious for a human to monitor servers 24x7 especially when most of the systems are stable and its only once in a while some manual intervention is needed. So what is it that needs to be really monitored? It really depends from one organization to other. For a web development platform, response time of the page may matter a lot. The kind of traffic, 4xx&#39;s 5xx&#39;s could be a concern too. Disk Space, CPU, Memory, Swap space, particular processes and services running, DB server replication, read writes, no. Of connections, query execution time and many more parameters together. Most of these checks are required by all organizations. Out of the many monitoring tools out there, one of the most used is Nagios. **Nagios is an open source software application that helps in monitoring systems, network and Infrastructure. **Nagios is on top of the **Linux and hence, whatever you could do with **Linux could also be done with **Nagios. The best part of using **Nagios is the plugin based architecture and 100&#39;s and 1000&#39;s of plugins that it supports to literally allow you to monitor anything. Nagios comes with multiple notable features that makes it distinguishing. It uses the standard protocols i.e TCP, UDP, ICMP for monitoring servers across network. You can perform multiple resource checks on any host using the NRPE addon, the checks varies from CPU, Disk RAM and many more. Not just resource checks, you could also add event handlers that perform certain actions when certain events are noticed. Checks are performed at the specified intervals, by default the interval is 5 minutes. There are 2 types of checks, Active - The one that are nags initiated. Passive - The one that are initiated externally. Nagios consists of various objects that needs to be defined and used. 1. Hosts : Hosts are the systems/ servers that need to be monitored in the infrastructure. Nagios also provides the facility to group set of hosts together to give a better monitoring experience. Say you can group all web servers together in a &quot;WebServers&quot; host group. Typically a host definition may look like : &quot;define host{ use linux-box host_name test_host alias CentOS 6 address 5.175.142.66 }&quot; 2. Services : Services are the checks that needs to be performed. There are a wide range of service checks that can be performed on any host. Just like host group, service checks can also be grouped together. E.g you may need to check the CPU utilization of all servers together, you may group it that way. A service definition may look like : &quot;define service{ use generic-service host_name test_host service_description CPU Load check_command check_nrpe!check_load }&quot; 3. Contacts : Contacts are the people who need to be contacted if a notification needs to be sent for any event that occurs. You can configure contacts to send emails, samosas, or even custom messages to any service that allows messaging. Contacts can also be grouped together into a contact group. E.g there is a notification about come process getting shut down on QA server that the Admin may not necessarily be bothered about, in such a case the notification can only be sent to QA group. A contact definition will look like : &quot;[define contact{ name generic-contact service_notification_period 24x7 host_notification_period 24x7 service_notification_options w,u,c,r,f,s host_notification_options d,u,r,f,s service_notification_commands notify-service-by-email host_notification_commands notify-host-by-email register 0 }&quot; 4. Commands : Commands define the exact command that will be executed on the remote hosts while executing a particular check. These are the simplest way to get particular check executed, you may also pass bash commands to perform any particular check. A command definition may look like : &quot;define command{ command_name check_nrpe command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$ }&quot; 5. Time Period : If a downtime is scheduled at a particular time regularly and you don&#39;t want Nagios to send you any alert at these hours, you can achieve this by adding a time period definition. This looks like : &quot;define timeperiod{ timeperiod_name 24x7-except-night-12-2 alias 24x7 Except 00:00 - 02:00 sunday 02:00-23:59 monday 02:00-23:59 tuesday 02:00-23:59 wednesday 02:00-23:59 thursday 02:00-23:59 friday 02:00-23:59 saturday 02:00-23:59 }&quot; You can also set a monitoring schedule for a particular object if you do not want to add it to the existing service/hosts check. This allows you to explicitly look at a particular check. Sometimes writing the defin","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Infrastructure Monitoring with Nagios: Setup and Best Practices","alternativeHeadline":"Infrastructure Monitoring with Nagios","description":"Setting up Nagios for server infrastructure monitoring: host and service checks, CPU and RAM alerts, notifications and tracking SLA uptime.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-10-10","dateModified":"2025-11-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html"},"url":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html","keywords":"Nagios setup, Nagios infrastructure monitoring, server monitoring, Nagios alerts, uptime monitoring, SLA monitoring, Nagios tutorial, Configuration Management, CPU, Devops, Infrastructure, Monitoring, Nagios, Open Source, Operations, RAM, Server, SLA, Troubleshooting, Uptime","wordCount":986,"timeRequired":"PT5M","articleBody":"Server management is a real pain and the pain keeps getting worse with more and more server getting added to the infrastructure. So how do organizations sustain with huge server farms, datacenters in place? How can super admins promise an SLA of 99.99% uptime with a very low response and resolution time? Quiet obviously the answer is server monitoring solutions. It could have been so tedious for a human to monitor servers 24x7 especially when most of the systems are stable and its only once in a while some manual intervention is needed. So what is it that needs to be really monitored? It really depends from one organization to other. For a web development platform, response time of the page may matter a lot. The kind of traffic, 4xx&#39;s 5xx&#39;s could be a concern too. Disk Space, CPU, Memory, Swap space, particular processes and services running, DB server replication, read writes, no. Of connections, query execution time and many more parameters together. Most of these checks are required by all organizations. Out of the many monitoring tools out there, one of the most used is Nagios. **Nagios is an open source software application that helps in monitoring systems, network and Infrastructure. **Nagios is on top of the **Linux and hence, whatever you could do with **Linux could also be done with **Nagios. The best part of using **Nagios is the plugin based architecture and 100&#39;s and 1000&#39;s of plugins that it supports to literally allow you to monitor anything. Nagios comes with multiple notable features that makes it distinguishing. It uses the standard protocols i.e TCP, UDP, ICMP for monitoring servers across network. You can perform multiple resource checks on any host using the NRPE addon, the checks varies from CPU, Disk RAM and many more. Not just resource checks, you could also add event handlers that perform certain actions when certain events are noticed. Checks are performed at the specified intervals, by default the interval is 5 minutes. There are 2 types of checks, Active - The one that are nags initiated. Passive - The one that are initiated externally. Nagios consists of various objects that needs to be defined and used. 1. Hosts : Hosts are the systems/ servers that need to be monitored in the infrastructure. Nagios also provides the facility to group set of hosts together to give a better monitoring experience. Say you can group all web servers together in a &quot;WebServers&quot; host group. Typically a host definition may look like : &quot;define host{ use linux-box host_name test_host alias CentOS 6 address 5.175.142.66 }&quot; 2. Services : Services are the checks that needs to be performed. There are a wide range of service checks that can be performed on any host. Just like host group, service checks can also be grouped together. E.g you may need to check the CPU utilization of all servers together, you may group it that way. A service definition may look like : &quot;define service{ use generic-service host_name test_host service_description CPU Load check_command check_nrpe!check_load }&quot; 3. Contacts : Contacts are the people who need to be contacted if a notification needs to be sent for any event that occurs. You can configure contacts to send emails, samosas, or even custom messages to any service that allows messaging. Contacts can also be grouped together into a contact group. E.g there is a notification about come process getting shut down on QA server that the Admin may not necessarily be bothered about, in such a case the notification can only be sent to QA group. A contact definition will look like : &quot;[define contact{ name generic-contact service_notification_period 24x7 host_notification_period 24x7 service_notification_options w,u,c,r,f,s host_notification_options d,u,r,f,s service_notification_commands notify-service-by-email host_notification_commands notify-host-by-email register 0 }&quot; 4. Commands : Commands define the exact command that will be executed on the remote hosts while executing a particular check. These are the simplest way to get particular check executed, you may also pass bash commands to perform any particular check. A command definition may look like : &quot;define command{ command_name check_nrpe command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$ }&quot; 5. Time Period : If a downtime is scheduled at a particular time regularly and you don&#39;t want Nagios to send you any alert at these hours, you can achieve this by adding a time period definition. This looks like : &quot;define timeperiod{ timeperiod_name 24x7-except-night-12-2 alias 24x7 Except 00:00 - 02:00 sunday 02:00-23:59 monday 02:00-23:59 tuesday 02:00-23:59 wednesday 02:00-23:59 thursday 02:00-23:59 friday 02:00-23:59 saturday 02:00-23:59 }&quot; You can also set a monitoring schedule for a particular object if you do not want to add it to the existing service/hosts check. This allows you to explicitly look at a particular check. Sometimes writing the defin","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Infrastructure Monitoring with Nagios","item":"https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -116,7 +118,7 @@
         </header>
         
         <div class="blog-post-content markdown-body">
-          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBDBAX3PUYseF0KdDIzLl7tj6B7OqrwED_mPhwe8HRN5ff0Js_Ax_N9FDFoSZETkSJ2Hg-btwDwNSrMnbeFBYzsVvr_bny32YcLuv6MrfymQDyoxaDvZrNbIa-Zg2A8TT5ryooQAQAyWI/s1600/13331169795_2457bf011d_m-2.jpg" alt=""></p>
+          <p><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBDBAX3PUYseF0KdDIzLl7tj6B7OqrwED_mPhwe8HRN5ff0Js_Ax_N9FDFoSZETkSJ2Hg-btwDwNSrMnbeFBYzsVvr_bny32YcLuv6MrfymQDyoxaDvZrNbIa-Zg2A8TT5ryooQAQAyWI/s1600/13331169795_2457bf011d_m-2.jpg" alt="Infrastructure Monitoring with Nagios — image 1"></p>
 <p>Server management is a real pain and the pain keeps getting worse with more and more server getting added to the infrastructure.</p>
 <p>So how do organizations sustain with huge server farms, datacenters in place? How can super admins promise an SLA of 99.99% uptime with a very low response and resolution time? Quiet obviously the answer is server monitoring solutions.</p>
 <p>It could have been so tedious for a human to monitor servers 24x7 especially when most of the systems are stable and its only once in a while some manual intervention is needed.</p>
@@ -261,41 +263,23 @@ Happy Monitoring!!
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
       
-      <a href="../blogs/getting-your-first-devops-job-is-harder-now.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Inside My Homelab: Architecture, Philosophy, and Why It Exists</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/the-cv-habit-that-accidentally-saved-my-job.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/finally-found-a-local-llm-setup-that-seems-promising.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">The CV Habit That Accidentally Saved My Job</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Finally Found a Local LLM Setup That Seems to be Promising</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/nagios-still-has-my-heart.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/measurecamp-delhi-where-i-became-a-speaker.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">MeasureCamp Delhi: Where I Became a Speaker Without Meaning To</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
     </div>
@@ -312,21 +296,14 @@ Happy Monitoring!!
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html&via=iamrawtion&text=Infrastructure%20Monitoring%20with%20Nagios" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/infrastructure-monitoring-with-nagios.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -345,36 +322,6 @@ Happy Monitoring!!
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

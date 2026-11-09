@@ -5,29 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>s3cmd to push large files greater than 5GB to Amazon S3 | Roshan Nagekar</title>
+  <title>Upload Files Larger Than 5GB to Amazon S3 with s3cmd | Roshan Nagekar</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="How to upload files larger than 5GB to Amazon S3 using s3cmd multipart uploads and file splitting to work around S3's single-part size limit.">
+  <meta name="description" content="How to upload files over 5GB to Amazon S3 using s3cmd multipart upload and file splitting to get around the S3 single PUT size limit.">
+  <meta name="keywords" content="s3cmd large files, upload file larger than 5GB to S3, S3 multipart upload, s3cmd multipart, Amazon S3 size limit, AWS S3 upload, AWS, Devops, S3, s3cmd">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/software-configuration-management-system.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/hadoop-10.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="s3cmd to push large files greater than 5GB to Amazon S3">
-  <meta property="og:description" content="How to upload files larger than 5GB to Amazon S3 using s3cmd multipart uploads and file splitting to work around S3's single-part size limit.">
+  <meta property="og:title" content="Upload Files Larger Than 5GB to Amazon S3 with s3cmd">
+  <meta property="og:description" content="How to upload files over 5GB to Amazon S3 using s3cmd multipart upload and file splitting to get around the S3 single PUT size limit.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2015-04-23">
+  <meta property="article:modified_time" content="2026-08-17">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="DevOps">
   <meta property="article:tag" content="AWS">
-  <meta property="article:tag" content="DevOps">
+  <meta property="article:tag" content="Devops">
   <meta property="article:tag" content="S3">
   <meta property="article:tag" content="s3cmd">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="s3cmd to push large files greater than 5GB to Amazon S3">
-  <meta name="twitter:description" content="How to upload files larger than 5GB to Amazon S3 using s3cmd multipart uploads and file splitting to work around S3's single-part size limit.">
+  <meta name="twitter:title" content="Upload Files Larger Than 5GB to Amazon S3 with s3cmd">
+  <meta name="twitter:description" content="How to upload files over 5GB to Amazon S3 using s3cmd multipart upload and file splitting to get around the S3 single PUT size limit.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="4 min read">
@@ -44,7 +46,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"s3cmd to push large files greater than 5GB to Amazon S3","description":"How to upload files larger than 5GB to Amazon S3 using s3cmd multipart uploads and file splitting to work around S3's single-part size limit.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-04-23","url":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html","keywords":"AWS, Devops, S3, s3cmd","wordCount":779,"timeRequired":"PT4M","articleBody":"Note: s3cmd is still useful for older setups and cross-platform scripting, but if you&#39;re starting fresh in 2024, the AWS CLI v2 handles multipart uploads natively without any extra tools — see the Modern Alternatives section at the bottom. Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum install s3cmd OR s3cmd Configure s3cmd by vim ~ / .s3cfg &lt;Paste những info add to it and you access-key and secret-key&gt; [Default] access_key = TUOWAAA99023990001 access_token = add_encoding_exts = add_headers = bucket_location = US cache_file = cloudfront_host = cloudfront.amazonaws.com default_mime_type = binary / octet-stream delay_updates = False delete_after = False delete_after_fetch = False delete_removed = False dry_run = False enable_multipart = True encoding = UTF-8 encrypt = False EXPIRY_DATE = expiry_days = expiry_prefix = follow_symlinks = False force = False get_continue = False gpg_command = / usr / bin / gpg gpg_decrypt =% (gpg_command) s -d --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s gpg_encrypt =% (gpg_command) s -c --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s gpg_passphrase = guess_mime_type = True host_base = s3.amazonaws.com host_bucket =% (bucket) s.s3.amazonaws.com human_readable_sizes = False ignore_failed_copy = False invalidate_default_index_on_cf = False invalidate_default_index_root_on_cf = True invalidate_on_cf = False list_md5 = False log_target_prefix = max_delete = -1 mime_type = multipart_chunk_size_mb = 15 preserve_attrs = True progress_meter = True proxy_host = proxy_port = 0 put_continue = False recursive = False recv_chunk = 4096 reduced_redundancy = False restore_days = 1 secret_key = sd / ceP_vbb # eDDDK send_chunk = 4096 server_side_encryption = False simpledb_host = sdb.amazonaws.com skip_existing = False socket_timeout = 300 urlencoding_mode = normal use_https = True use_mime_magic = True verbosity = WARNING website_endpoint = http: //% (bucket) s.s3-their Website% (location) s.amazonaws.com/ website_error = website_index = index.html access_key = YOUR-ACCESS-KEY-HERE You can see how to use s3cmd at: http://s3tools.org/usage Here I came across a typical scenario where I could not upload files greater than 5GB. You could do this to print two Ways: Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version. Splitting Into the large files using small files and then uploading it split command. Original file -rw-r - r--. 1 root root 5.4G Jan 20 06:54 201412.tar.gz Split Command split -b 3G 2014backup.tar.gz &quot;201 412&quot; Post Split -rw-r - r--. 1 root root 23 Apr 06:41 3.0G 201412aa -rw-r - r--. 1 root root 23 Apr 06:43 2.4G 201412ab Upload files những 201 412 * s3cmd put s3: // apache-logs / Saved some time :) Modern Alternatives The file-splitting approach above worked in 2015 when s3cmd&#39;s multipart support was unreliable. In 2024, there are better tools for this job that handle large files natively without manual splitting. AWS CLI v2 multipart upload — if you&#39;re already using the AWS CLI (which you almost certainly are), it handles multipart uploads automatically for files over 8MB. No extra tool to install, no config file to maintain, and it uses your existing IAM credentials. The aws s3 cp command splits and parallelizes large uploads transparently. See the AWS CLI S3 commands documentation for the full reference, including --multipart-threshold and --multipart-chunksize flags if you want to tune the behavior. aws s3 cp 201412.tar.gz s3://apache-logs/ --storage-class STANDARD s5cmd — if you&#39;re doing bulk uploads or syncing large directories, s5cmd is worth knowing about. It&#39;s a Go-based S3 CLI that&#39;s 10-50x faster than s3cmd for bulk operations because it parallelizes aggressively at the object level, not just within a single upload. It&#39;s particularly good for large numbers of small-to-medium files where the per-request overhead adds up. AWS S3 Transfer Acceleration — for cross-region uploads where latency is the bottleneck (uploading from Asia-Pacific to a US-East bucket, for example), S3 Transfer Acceleration routes your upload through AWS&#39;s edge network rather than the public internet. It&#39;s not always faster for same-region uploads, but for intercontinental transfers of large files it can make a meaningful difference. See the S3 Transfer Acceleration documentation for how to enable it on a bucket and what to expect on pricing. For most use cases today: reach for aws s3 cp first, s5cmd if you need bulk throughput, and only fall back to s3cmd if you&#39;re working in an environment where the AWS CLI isn&#39;t available or you need s3cmd&#39;s specif","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Upload Files Larger Than 5GB to Amazon S3 with s3cmd","alternativeHeadline":"s3cmd to push large files greater than 5GB to Amazon S3","description":"How to upload files over 5GB to Amazon S3 using s3cmd multipart upload and file splitting to get around the S3 single PUT size limit.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2015-04-23","dateModified":"2026-08-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html"},"url":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html","keywords":"s3cmd large files, upload file larger than 5GB to S3, S3 multipart upload, s3cmd multipart, Amazon S3 size limit, AWS S3 upload, AWS, Devops, S3, s3cmd","wordCount":779,"timeRequired":"PT4M","articleBody":"Note: s3cmd is still useful for older setups and cross-platform scripting, but if you&#39;re starting fresh in 2024, the AWS CLI v2 handles multipart uploads natively without any extra tools — see the Modern Alternatives section at the bottom. Use command line utility to push s3cmd files on Amazon S3. Install s3cmd from s3tools.org or apt-get install yum install s3cmd OR s3cmd Configure s3cmd by vim ~ / .s3cfg &lt;Paste những info add to it and you access-key and secret-key&gt; [Default] access_key = TUOWAAA99023990001 access_token = add_encoding_exts = add_headers = bucket_location = US cache_file = cloudfront_host = cloudfront.amazonaws.com default_mime_type = binary / octet-stream delay_updates = False delete_after = False delete_after_fetch = False delete_removed = False dry_run = False enable_multipart = True encoding = UTF-8 encrypt = False EXPIRY_DATE = expiry_days = expiry_prefix = follow_symlinks = False force = False get_continue = False gpg_command = / usr / bin / gpg gpg_decrypt =% (gpg_command) s -d --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s gpg_encrypt =% (gpg_command) s -c --verbose --no-use-agent --batch --yes --passphrase-fd% (passphrase_fd) s -o% (output_file) s% (input_file) s gpg_passphrase = guess_mime_type = True host_base = s3.amazonaws.com host_bucket =% (bucket) s.s3.amazonaws.com human_readable_sizes = False ignore_failed_copy = False invalidate_default_index_on_cf = False invalidate_default_index_root_on_cf = True invalidate_on_cf = False list_md5 = False log_target_prefix = max_delete = -1 mime_type = multipart_chunk_size_mb = 15 preserve_attrs = True progress_meter = True proxy_host = proxy_port = 0 put_continue = False recursive = False recv_chunk = 4096 reduced_redundancy = False restore_days = 1 secret_key = sd / ceP_vbb # eDDDK send_chunk = 4096 server_side_encryption = False simpledb_host = sdb.amazonaws.com skip_existing = False socket_timeout = 300 urlencoding_mode = normal use_https = True use_mime_magic = True verbosity = WARNING website_endpoint = http: //% (bucket) s.s3-their Website% (location) s.amazonaws.com/ website_error = website_index = index.html access_key = YOUR-ACCESS-KEY-HERE You can see how to use s3cmd at: http://s3tools.org/usage Here I came across a typical scenario where I could not upload files greater than 5GB. You could do this to print two Ways: Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version. Splitting Into the large files using small files and then uploading it split command. Original file -rw-r - r--. 1 root root 5.4G Jan 20 06:54 201412.tar.gz Split Command split -b 3G 2014backup.tar.gz &quot;201 412&quot; Post Split -rw-r - r--. 1 root root 23 Apr 06:41 3.0G 201412aa -rw-r - r--. 1 root root 23 Apr 06:43 2.4G 201412ab Upload files những 201 412 * s3cmd put s3: // apache-logs / Saved some time :) Modern Alternatives The file-splitting approach above worked in 2015 when s3cmd&#39;s multipart support was unreliable. In 2024, there are better tools for this job that handle large files natively without manual splitting. AWS CLI v2 multipart upload — if you&#39;re already using the AWS CLI (which you almost certainly are), it handles multipart uploads automatically for files over 8MB. No extra tool to install, no config file to maintain, and it uses your existing IAM credentials. The aws s3 cp command splits and parallelizes large uploads transparently. See the AWS CLI S3 commands documentation for the full reference, including --multipart-threshold and --multipart-chunksize flags if you want to tune the behavior. aws s3 cp 201412.tar.gz s3://apache-logs/ --storage-class STANDARD s5cmd — if you&#39;re doing bulk uploads or syncing large directories, s5cmd is worth knowing about. It&#39;s a Go-based S3 CLI that&#39;s 10-50x faster than s3cmd for bulk operations because it parallelizes aggressively at the object level, not just within a single upload. It&#39;s particularly good for large numbers of small-to-medium files where the per-request overhead adds up. AWS S3 Transfer Acceleration — for cross-region uploads where latency is the bottleneck (uploading from Asia-Pacific to a US-East bucket, for example), S3 Transfer Acceleration routes your upload through AWS&#39;s edge network rather than the public internet. It&#39;s not always faster for same-region uploads, but for intercontinental transfers of large files it can make a meaningful difference. See the S3 Transfer Acceleration documentation for how to enable it on a bucket and what to expect on pricing. For most use cases today: reach for aws s3 cp first, s5cmd if you need bulk throughput, and only fall back to s3cmd if you&#39;re working in an environment where the AWS CLI isn&#39;t available or you need s3cmd&#39;s specif","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"s3cmd to push large files greater than 5GB to Amazon S3","item":"https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -105,17 +107,10 @@
             4 min read
           </p>
         </header>
-
-    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
-      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
-        <li style="margin-bottom:0.35rem;"><a href="#201-412-s3cmd-put-s3-apache-logs" style="color:var(--primary-color); text-decoration:none;">201 412 * s3cmd put s3: // apache-logs /</a></li><li style="margin-bottom:0.35rem;"><a href="#modern-alternatives" style="color:var(--primary-color); text-decoration:none;">Modern Alternatives</a></li>
-      </ul>
-    </nav>
-
+        
         <div class="blog-post-content markdown-body">
           <p><strong>Note:</strong> s3cmd is still useful for older setups and cross-platform scripting, but if you&#39;re starting fresh in 2024, the AWS CLI v2 handles multipart uploads natively without any extra tools — see the <a href="#modern-alternatives">Modern Alternatives</a> section at the bottom.</p>
-<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg" alt="Amazon S3 storage buckets illustration"></p>
+<p><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiytS_qdC4bkZ3GJnsF1gN3DhitgRxrj_eHBro4IORJ0vYaPLcMqhiY5RWigr9fxD4TBN4olKNg90diJ83_XdulXfGlJEP0rufmE6E9_8WGmj89mCEtrQayo4zooYDg5VWORHOzNct4uMY/s1600/11711725656_fbe0919b55_m.jpg" alt="Amazon S3 storage buckets illustration"></p>
 <p>Use command line utility to push s3cmd files on Amazon S3.</p>
 <p>Install s3cmd from s3tools.org or</p>
 <pre><code class="language-bash">apt-get install yum install s3cmd OR s3cmd
@@ -193,7 +188,7 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
 <ol>
 <li>Using the --multipart-chunk-size-mb flag: s3cmd put --multipart-chunk-size-mb = 4096 201412.tar.gz s3: // apache-logs / I could not do this since I Had an older version of s3cmd installed and I did not really have time to download and install những version.</li>
 <li>Splitting Into the large files using small files and then uploading it split command.</li>
-</ul>
+</ol>
 <ul>
 <li>Original file</li>
 </ul>
@@ -228,41 +223,23 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
       
-      <a href="../blogs/getting-your-first-devops-job-is-harder-now.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Inside My Homelab: Architecture, Philosophy, and Why It Exists</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/the-cv-habit-that-accidentally-saved-my-job.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/finally-found-a-local-llm-setup-that-seems-promising.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">The CV Habit That Accidentally Saved My Job</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Finally Found a Local LLM Setup That Seems to be Promising</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/nagios-still-has-my-heart.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/measurecamp-delhi-where-i-became-a-speaker.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">MeasureCamp Delhi: Where I Became a Speaker Without Meaning To</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
     </div>
@@ -279,21 +256,14 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html&via=iamrawtion&text=s3cmd%20to%20push%20large%20files%20greater%20than%205GB%20to%20Amazon%20S3" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/s3cmd-to-push-large-files-greater-then.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -312,36 +282,6 @@ You can see how to use s3cmd at: <a href="http://s3tools.org/usage">http://s3too
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

@@ -5,31 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>Introduction to algorithms by MIT | Roshan Nagekar</title>
+  <title>MIT Introduction to Algorithms: Course Notes | Roshan Nagekar</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="Notes from MIT's Introduction to Algorithms covering algorithm analysis, design techniques, sorting algorithms, and computational complexity.">
+  <meta name="description" content="Notes on MIT's Introduction to Algorithms course: algorithm analysis, asymptotic complexity, sorting algorithms and algorithm design techniques.">
+  <meta name="keywords" content="MIT Introduction to Algorithms, algorithm analysis, sorting algorithms, Big O complexity, free algorithms course, Programming, Technology, Open Source">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/acm-icpc-2011-2.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/acm-icpc-2011.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Introduction to algorithms by MIT">
-  <meta property="og:description" content="Notes from MIT's Introduction to Algorithms covering algorithm analysis, design techniques, sorting algorithms, and computational complexity.">
+  <meta property="og:title" content="MIT Introduction to Algorithms: Course Notes">
+  <meta property="og:description" content="Notes on MIT's Introduction to Algorithms course: algorithm analysis, asymptotic complexity, sorting algorithms and algorithm design techniques.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2012-06-08">
+  <meta property="article:modified_time" content="2025-11-06">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="Programming">
   <meta property="article:tag" content="Programming">
   <meta property="article:tag" content="Technology">
   <meta property="article:tag" content="Open Source">
-  <meta property="article:tag" content="Algorithms">
-  <meta property="article:tag" content="Data Structures">
-  <meta property="article:tag" content="Computer Science">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Introduction to algorithms by MIT">
-  <meta name="twitter:description" content="Notes from MIT's Introduction to Algorithms covering algorithm analysis, design techniques, sorting algorithms, and computational complexity.">
+  <meta name="twitter:title" content="MIT Introduction to Algorithms: Course Notes">
+  <meta name="twitter:description" content="Notes on MIT's Introduction to Algorithms course: algorithm analysis, asymptotic complexity, sorting algorithms and algorithm design techniques.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="7 min read">
@@ -46,7 +45,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Introduction to algorithms by MIT","description":"Notes from MIT's Introduction to Algorithms covering algorithm analysis, design techniques, sorting algorithms, and computational complexity.","articleSection":"Programming","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-06-08","url":"https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html","keywords":"Programming, Technology, Open Source","wordCount":1354,"timeRequired":"PT7M","articleBody":"Lecture 1 This blog is an extract from MIT&#39;s Introduction to Algorithm course. First part of the course ids focused on Analysis. Second part is focused on design i.e. before u design algorithms; you have to master and analyze a bunch of algorithms. Analysis is a theoretical study of a computer program performance and resource usage. How to make fast and memory reliable programs? What is more important than performance? 1. correctness 2. simplicity 3. maintainability 4. cost(programmer’s time) 5. stability(robustness) 6. features(functionality) 7. modularity(changes implementation easy) 8. security 9. scalability 10. user friendliness Then, why study algorithm and performance? Some times performance is correlated to user friendliness. Some times there are real time constraints. i.e. the software wont work untilit performs a function for a particular time. Performance measures the line between feasible and infeasible. In real time , if it is not fast enough, its as good as not functional. If it simply uses more memory, its not going to work for you. Algorithms are at the cutting edge of entrepreneurship. If you are thinking of doing something that already exists, performance isn’t that necessary. But, if you are planning to do something’s that’s never done before, than its most important. The reason why performance is at the bottom of the heap is because performance is just like money. What good is a $100 bill for you? Instead you would want to have food worth $100, that should be of some use to you. Performance is something you pay for. E.g you pay for user friendliness, you pay for security, etc. So for this reason, a user may gor for JAVA instead of C for it may be slow, but it gives more functionality like exceptions, Object Orientations,etc. PROBLEM: INSERTION SORT Input: sequence &lt;a1,a2,a3,….,an&gt;of numbers Output permutations&lt;a’1,a’2,a’3,…..,a’n&gt; Such that a’1 &lt;= a’2 &lt;= a’3 &lt;= ….. &lt;= a’n Pseudo code: Insertion_Sort(A,n) //Sorts A[1….n] for j = 2 to n do key = A[j] i = j-1 while i&gt;0 and A[i]&gt;key do A[i+1] = A[i] i=i-1 A[i+1]=key Figure 1 It basically takes array A[] and at any point we are running the outer loop of j from 2 to n and the inner loop that starts with i = j-1 and goes until i = 0 . so we are looking at some element j in the algorithm, and then we pull out here a value called a key and the important thing to note is that there is an invariant that is being maintained by the loop each time through. The invariant is that the LEFT part of the array in the above figure 1 is sorted. And the goal each time through the loop is to add one to the length of the strings that are sorted. And the way we do that is we pull out the key, and we just copy the value up like the arrows shown until we find a place for the key shown and then INSERT it in that place, hence the name INSERTION SORT. Once we have arrays till j sorted we go for j+1. now let us see an example for the same. Example 8 2 4 9 3 2 8 4 9 3 2 4 8 9 3 2 4 8 9 3 2 3 4 8 9 sorted Analysis of this algorithm Running time: Depends on input. (e.g if already sorted, insertion sort has very little to do, cos every time we try to sort it would be like the step number 3 above where 9 is already sorted and was at its correct position so you don’t need to move it. Worst case is if its reverse sorted then there will be a lot of work to do, lot of shuffling to do as well. Depends on the input size. (6 elements less time 10 elements more time) so large number of elements means long time for sorting. So we handle it by: - parameterize things in the input size. generally we want upper bound on running time i.e we want to know that the time is no more than a certain amount reason being that represents a guarantee to the user. E.g if I tell you that there’s aprogram that wont run more than 3 seconds, that gives you real information about how you could use it for example in a real time setting. And if I say there’s a program that goes for at least 3 seconds, it could go for years. That doesn’t give you a guarantee if you are a user. guarantee to the user. Different kinds of analysis : Worst case analysis: this is done usually Where T(n) = maximum time on any input of size n So as we saw running time depends on input that some times the inputs are better like in sort if already sorted less time and if reverse sorted maximum time. So we are looking at the worst case. If T(n) is not for maximum time then T(n) is a relation and not a function, because the time on input size n will depend on which input of size n, I can have many different times. But by putting a maximum at it, turns that relation into a function, cos there’s only one maximum time. Average case analysis: this is done sometimes. Where T(n) = expected time over all inputs of size n What is expected time? Time of every input and average them? Time of every input times of probability that it will be there that it would occur. How do we know the probability time of every i","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"MIT Introduction to Algorithms: Course Notes","alternativeHeadline":"Introduction to algorithms by MIT","description":"Notes on MIT's Introduction to Algorithms course: algorithm analysis, asymptotic complexity, sorting algorithms and algorithm design techniques.","articleSection":"Programming","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2012-06-08","dateModified":"2025-11-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html"},"url":"https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html","keywords":"MIT Introduction to Algorithms, algorithm analysis, sorting algorithms, Big O complexity, free algorithms course, Programming, Technology, Open Source","wordCount":1354,"timeRequired":"PT7M","articleBody":"Lecture 1 This blog is an extract from MIT&#39;s Introduction to Algorithm course. First part of the course ids focused on Analysis. Second part is focused on design i.e. before u design algorithms; you have to master and analyze a bunch of algorithms. Analysis is a theoretical study of a computer program performance and resource usage. How to make fast and memory reliable programs? What is more important than performance? 1. correctness 2. simplicity 3. maintainability 4. cost(programmer’s time) 5. stability(robustness) 6. features(functionality) 7. modularity(changes implementation easy) 8. security 9. scalability 10. user friendliness Then, why study algorithm and performance? Some times performance is correlated to user friendliness. Some times there are real time constraints. i.e. the software wont work untilit performs a function for a particular time. Performance measures the line between feasible and infeasible. In real time , if it is not fast enough, its as good as not functional. If it simply uses more memory, its not going to work for you. Algorithms are at the cutting edge of entrepreneurship. If you are thinking of doing something that already exists, performance isn’t that necessary. But, if you are planning to do something’s that’s never done before, than its most important. The reason why performance is at the bottom of the heap is because performance is just like money. What good is a $100 bill for you? Instead you would want to have food worth $100, that should be of some use to you. Performance is something you pay for. E.g you pay for user friendliness, you pay for security, etc. So for this reason, a user may gor for JAVA instead of C for it may be slow, but it gives more functionality like exceptions, Object Orientations,etc. PROBLEM: INSERTION SORT Input: sequence &lt;a1,a2,a3,….,an&gt;of numbers Output permutations&lt;a’1,a’2,a’3,…..,a’n&gt; Such that a’1 &lt;= a’2 &lt;= a’3 &lt;= ….. &lt;= a’n Pseudo code: Insertion_Sort(A,n) //Sorts A[1….n] for j = 2 to n do key = A[j] i = j-1 while i&gt;0 and A[i]&gt;key do A[i+1] = A[i] i=i-1 A[i+1]=key Figure 1 It basically takes array A[] and at any point we are running the outer loop of j from 2 to n and the inner loop that starts with i = j-1 and goes until i = 0 . so we are looking at some element j in the algorithm, and then we pull out here a value called a key and the important thing to note is that there is an invariant that is being maintained by the loop each time through. The invariant is that the LEFT part of the array in the above figure 1 is sorted. And the goal each time through the loop is to add one to the length of the strings that are sorted. And the way we do that is we pull out the key, and we just copy the value up like the arrows shown until we find a place for the key shown and then INSERT it in that place, hence the name INSERTION SORT. Once we have arrays till j sorted we go for j+1. now let us see an example for the same. Example 8 2 4 9 3 2 8 4 9 3 2 4 8 9 3 2 4 8 9 3 2 3 4 8 9 sorted Analysis of this algorithm Running time: Depends on input. (e.g if already sorted, insertion sort has very little to do, cos every time we try to sort it would be like the step number 3 above where 9 is already sorted and was at its correct position so you don’t need to move it. Worst case is if its reverse sorted then there will be a lot of work to do, lot of shuffling to do as well. Depends on the input size. (6 elements less time 10 elements more time) so large number of elements means long time for sorting. So we handle it by: - parameterize things in the input size. generally we want upper bound on running time i.e we want to know that the time is no more than a certain amount reason being that represents a guarantee to the user. E.g if I tell you that there’s aprogram that wont run more than 3 seconds, that gives you real information about how you could use it for example in a real time setting. And if I say there’s a program that goes for at least 3 seconds, it could go for years. That doesn’t give you a guarantee if you are a user. guarantee to the user. Different kinds of analysis : Worst case analysis: this is done usually Where T(n) = maximum time on any input of size n So as we saw running time depends on input that some times the inputs are better like in sort if already sorted less time and if reverse sorted maximum time. So we are looking at the worst case. If T(n) is not for maximum time then T(n) is a relation and not a function, because the time on input size n will depend on which input of size n, I can have many different times. But by putting a maximum at it, turns that relation into a function, cos there’s only one maximum time. Average case analysis: this is done sometimes. Where T(n) = expected time over all inputs of size n What is expected time? Time of every input and average them? Time of every input times of probability that it will be there that it would occur. How do we know the probability time of every i","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Programming","item":"https://iamrawtion.github.io/categories/programming.html"},{"@type":"ListItem","position":4,"name":"Introduction to algorithms by MIT","item":"https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -110,9 +109,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#first-part-of-the-course-ids-focused-on-analysis-second-part-is" style="color:var(--primary-color); text-decoration:none;">First part of the course ids focused on Analysis. Second part is</a></li><li style="margin-bottom:0.35rem;"><a href="#some-times-performance-is-correlated-to-user-friendliness-some" style="color:var(--primary-color); text-decoration:none;">Some times performance is correlated to user friendliness. Some</a></li><li style="margin-bottom:0.35rem;"><a href="#the-reason-why-performance-is" style="color:var(--primary-color); text-decoration:none;">The reason why performance is</a></li><li style="margin-bottom:0.35rem;"><a href="#so-for-this-reason-a-user" style="color:var(--primary-color); text-decoration:none;">So for this reason, a user</a></li><li style="margin-bottom:0.35rem;"><a href="#output" style="color:var(--primary-color); text-decoration:none;">Output</a></li><li style="margin-bottom:0.35rem;"><a href="#it-basically-takes-array-a-and-at-any-point-we-are" style="color:var(--primary-color); text-decoration:none;">It basically takes array A[] and at any point we are</a></li><li style="margin-bottom:0.35rem;"><a href="#2-4-8-9-3" style="color:var(--primary-color); text-decoration:none;">2 4 8 9 3</a></li><li style="margin-bottom:0.35rem;"><a href="#so-as-we-saw-running-time" style="color:var(--primary-color); text-decoration:none;">So as we saw running time</a></li><li style="margin-bottom:0.35rem;"><a href="#what-is-expected-time-time" style="color:var(--primary-color); text-decoration:none;">What is expected time? Time</a></li><li style="margin-bottom:0.35rem;"><a href="#so-we-need-an-assumption-of" style="color:var(--primary-color); text-decoration:none;">So we need an assumption of</a></li><li style="margin-bottom:0.35rem;"><a href="#because-its-already-done-you" style="color:var(--primary-color); text-decoration:none;">Because its already done. You</a></li><li style="margin-bottom:0.35rem;"><a href="#absolute-speed" style="color:var(--primary-color); text-decoration:none;">Absolute speed</a></li><li style="margin-bottom:0.35rem;"><a href="#is-insertion-sort-fast-moderately" style="color:var(--primary-color); text-decoration:none;">Is insertion sort fast? Moderately</a></li><li style="margin-bottom:0.35rem;"><a href="#merge-sort" style="color:var(--primary-color); text-decoration:none;">MERGE SORT</a></li>
-      </ul>
+      </ol>
     </nav>
         <div class="blog-post-content markdown-body">
           <p>Lecture 1</p>
@@ -191,7 +190,7 @@ A[1….n]</p>
 <p>i=i-1</p>
 <p>A[i+1]=key</p>
 <p>Figure 1</p>
-<p><img src="file:///C:/DOCUME~1/Roshan/LOCALS~1/Temp/msohtml1/01/clip_image002.jpg" alt=""></p>
+<p><img loading="lazy" src="file:///C:/DOCUME~1/Roshan/LOCALS~1/Temp/msohtml1/01/clip_image002.jpg" alt="Introduction to algorithms by MIT — image 1"></p>
 <hr>
 <h2 id="it-basically-takes-array-a-and-at-any-point-we-are">It basically takes array A[] and at any point we are</h2>
 <p>running the outer loop of j from 2 to n and the inner loop that starts with i =
@@ -225,13 +224,13 @@ do as well.</p>
 <p>10 elements more time) so large number of elements means long time for
 sorting. So we handle it by:</p>
 </li>
-</ul>
+</ol>
 <p>-         </p>
 <p>parameterize
 things in the input size.</p>
 <ol start="3">
 <li>generally we want upper</li>
-</ul>
+</ol>
 <p>bound on running time i.e we want to know that the time is no more than  a certain amount reason being that represents
 a guarantee to the user. E.g if I tell you that there’s  aprogram that wont run more than 3 seconds,
 that gives you real information about how you could use it for example in a
@@ -296,7 +295,7 @@ terms thus it becomes q(n^3)</p>
 <pre><code class="language-bash">as n -&gt; ∞ , q(n^2) algorithm always beats a q(n^3) algorithm.
 </code></pre>
 <p>n^2 will be faster than n^3</p>
-<p><img src="file:///C:/DOCUME~1/Roshan/LOCALS~1/Temp/msohtml1/01/clip_image004.jpg" alt=""></p>
+<p><img loading="lazy" src="file:///C:/DOCUME~1/Roshan/LOCALS~1/Temp/msohtml1/01/clip_image004.jpg" alt="Introduction to algorithms by MIT — image 2"></p>
 <p>There will always be a point n0
 where q(n^2) algorithm will be cheaper
 than q(n^3) algorithm</p>
@@ -356,24 +355,6 @@ times
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
@@ -407,21 +388,14 @@ times
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html&via=iamrawtion&text=Introduction%20to%20algorithms%20by%20MIT" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/introduction-to-algorithms-by-mit.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -440,36 +414,6 @@ times
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

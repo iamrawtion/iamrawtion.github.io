@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="language" content="en">
+  <title>Local LLM Setup That Works: Ollama + Qwen3-Coder on M3 Max</title>
+  <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
+  <meta name="description" content="A local LLM setup that actually works: Cindy agent, Ollama and Qwen3-Coder 30B on an Apple M3 Max — an honest review of speed, accuracy and cost savings.">
+  <meta name="keywords" content="local LLM setup, Ollama, Qwen3-Coder 30B, Cindy AI agent, run LLM locally Mac, M3 Max LLM, self-hosted AI coding agent, homelab AI, AI Agents, LLM, Homelab, Open Source, DevOps">
+  <link rel="canonical" href="https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html">
+  <link rel="prev" href="https://iamrawtion.github.io/blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html">
+  <link rel="next" href="https://iamrawtion.github.io/blogs/cyber-scams-two-decades.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Local LLM Setup That Works: Ollama + Qwen3-Coder on M3 Max">
+  <meta property="og:description" content="A local LLM setup that actually works: Cindy agent, Ollama and Qwen3-Coder 30B on an Apple M3 Max — an honest review of speed, accuracy and cost savings.">
+  <meta property="og:url" content="https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html">
+  <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta property="og:site_name" content="Roshan Nagekar">
+  <meta property="article:published_time" content="2026-10-29">
+  <meta property="article:modified_time" content="2026-10-31">
+  <meta property="article:author" content="Roshan Nagekar">
+  <meta property="article:section" content="DevOps">
+  <meta property="article:tag" content="AI Agents">
+  <meta property="article:tag" content="LLM">
+  <meta property="article:tag" content="Ollama">
+  <meta property="article:tag" content="Homelab">
+  <meta property="article:tag" content="Open Source">
+  <meta property="article:tag" content="DevOps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@iamrawtion">
+  <meta name="twitter:title" content="Local LLM Setup That Works: Ollama + Qwen3-Coder on M3 Max">
+  <meta name="twitter:description" content="A local LLM setup that actually works: Cindy agent, Ollama and Qwen3-Coder 30B on an Apple M3 Max — an honest review of speed, accuracy and cost savings.">
+  <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
+  <meta name="twitter:label1" content="Reading time">
+  <meta name="twitter:data1" content="4 min read">
+  <meta name="twitter:label2" content="Category">
+  <meta name="twitter:data2" content="DevOps">
+  <meta name="author" content="Roshan Nagekar">
+  <link rel="alternate" type="application/rss+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/feed.xml">
+  <link rel="search" type="application/opensearchdescription+xml" title="Roshan Nagekar Blog" href="https://iamrawtion.github.io/opensearch.xml">
+  <link rel="manifest" href="https://iamrawtion.github.io/manifest.json">
+  <meta name="theme-color" content="#7aa2f7">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Local LLM Setup That Works: Ollama + Qwen3-Coder on M3 Max","alternativeHeadline":"Finally Found a Local LLM Setup That Seems to be Promising","description":"A local LLM setup that actually works: Cindy agent, Ollama and Qwen3-Coder 30B on an Apple M3 Max — an honest review of speed, accuracy and cost savings.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2026-10-29","dateModified":"2026-10-31","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html"},"url":"https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html","keywords":"local LLM setup, Ollama, Qwen3-Coder 30B, Cindy AI agent, run LLM locally Mac, M3 Max LLM, self-hosted AI coding agent, homelab AI, AI Agents, LLM, Homelab, Open Source, DevOps","wordCount":701,"timeRequired":"PT4M","articleBody":"The Bill Problem I love Claude. I love ChatGPT. I use Gemini too. All three, for work. But at the end of the month, the bills arrive. Like a relative who comes for a day but doesn&#39;t want to leave. For office work, it&#39;s fine. But for my personal stuff? My open source projects, homelab setup, random late-night experiments. Paying for every token felt wrong. Especially when I have good machines with decent hardware. So I wanted a local LLM. On my own machine. No meter running in the background. I tried. Many times. I tried Cline, Openclaw, and a bunch of other tools I don&#39;t even remember now. Every time, same story. Either the tool froze. Or the model told me things that were not true, with such confidence. I felt like talking to an uncle at a wedding about crypto. Honestly, I gave up. More than once. Then Came Cindy I follow the AI Weekly newsletter. The last issue mentioned Cindy. An open-source AI agent that &quot;works out of the box.&quot; I have heard &quot;works out of the box&quot; before so many times that I am no longer amazed to find the box empty now. So I tried it anyway. And this time, something was different. A little about Cindy. It&#39;s open source, Apache 2.0. It runs on your own machine and works with your real files. You can bring your own model, including a local one. That last part was all I needed to hear. Then I read the tagline. &quot;Consider it done.&quot; Wait. I have heard this before. If you did engineering in Pune, you have too. Syntel used &quot;Consider IT Done&quot; for years. Capital IT, of course. Besides, Syntel and Cindy sounds the same too. Cindy&#39;s tagline is &quot;Think it. Consider it done&quot;. So I got it set up. My Setup Machine → MacBook Pro, M3 Max, 48 GB unified memory Model runner → Ollama Model → Qwen3-Coder 30B Agent → Cindy Setup was fairly simple on Mac. Linux is a bit more complex — I am going to do that next: # Step 1: Install Ollama and pull the model ollama pull qwen3-coder:30b Then: Download Cindy from cindy.app. On the login screen, choose Skip Sign-In . This runs local agents. No Cindy account needed. Point Cindy to the local Ollama model. That&#39;s it. What Did I Use It For? I have a homelab. A Kubernetes cluster. A monitoring stack. A few hobby apps. Earlier, I used Claude and ChatGPT to keep an eye on them. Now I asked Cindy simple questions: Which pods are not running? Did anything restart recently? Is my monitoring actually monitoring, or just sitting there looking pretty? It also did some administration jobs — SSHing to bare metals, monitoring processes, setting up cron jobs. Some internet research and documentation work. Yet to try serious programming. And here is the surprising part. It does not make things up. When a pod was down, it said the pod was down. When all was fine, it said all was fine. No imaginary CrashLoopBackOff for extra drama. I don&#39;t know the exact secret sauce. My guess? Cindy behaves like an agent. It checks real output instead of guessing from memory. Whatever it is, somebody engineered it well. Let me not oversell. It is slow. Claude and ChatGPT reply in seconds. A local 30B model takes its time. Sometimes I make chai while it thinks. But I don&#39;t mind. For my homelab, speed is not the goal. Accuracy is. I would rather wait two minutes for a correct answer than get a wrong one in two seconds. Next Stop: Linux Mac is sorted. Next, my Linux machine. Cindy has a proper Linux guide. Ubuntu 22.04 and 24.04 get an official .deb through apt . Arch-based systems get a one-line install, as your normal user. It can be a bit tricky. I am going to try this on Manjaro. Yes, I know Manjaro is not real Arch. Feel free to try this and let me know how it works for you. drafted with ai assist, because practicing what I preach.","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Finally Found a Local LLM Setup That Seems to be Promising","item":"https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html"}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
+</head>
+<body>
+  <div class="terminal-nav">
+    <div class="container">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button close"></span>
+          <span class="terminal-button minimize"></span>
+          <span class="terminal-button maximize"></span>
+        </div>
+        <div class="terminal-title">roshan@blog:~$</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-toggle" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="../about.html"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+      <li><a href="../index.html#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="../blog.html"><i class="fas fa-blog"></i> <span>Blog</span></a></li>
+      <li><a href="../consulting.html"><i class="fas fa-handshake"></i> <span>Hire Me</span></a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav>
+  <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
+    <div class="container" style="max-width:860px;">
+      <nav aria-label="breadcrumb" style="margin-bottom:1.5rem; font-size:0.85rem; color:var(--text-color);">
+        <a href="../index.html" style="color:var(--primary-color);">Home</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../blog.html" style="color:var(--primary-color);">Blog</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <a href="../categories/devops.html" style="color:var(--primary-color);">DevOps</a>
+        <span style="margin:0 0.4rem; opacity:0.5;">›</span>
+        <span style="color:var(--text-color);">Finally Found a Local LLM Setup That Seems to be Promising</span>
+      </nav>
+      <article>
+        <header style="margin-bottom:2rem;">
+          <div style="margin-bottom:0.75rem;">
+            <a href="../categories/devops.html" style="color:var(--accent-color); font-size:0.85rem; font-family:monospace; text-decoration:none;">DevOps</a>
+            <a href="../tags/ai-agents.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">AI Agents</a><a href="../tags/llm.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">LLM</a><a href="../tags/ollama.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Ollama</a><a href="../tags/homelab.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Homelab</a><a href="../tags/open-source.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">Open Source</a><a href="../tags/devops.html" class="tag" style="margin-left:0.4rem; text-decoration:none;">DevOps</a>
+          </div>
+          <h1 style="color:var(--heading-color); font-size:2rem; line-height:1.3; margin-bottom:0.75rem;">Finally Found a Local LLM Setup That Seems to be Promising</h1>
+          <p style="color:var(--text-color); font-size:0.9rem;">
+            <i class="fas fa-calendar" style="color:var(--primary-color);"></i>
+            <time datetime="2026-10-29">October 29, 2026</time>
+            &nbsp;·&nbsp;
+            <i class="fas fa-user" style="color:var(--primary-color);"></i>
+            Roshan Nagekar
+            &nbsp;·&nbsp;
+            <i class="fas fa-clock" style="color:var(--primary-color);"></i>
+            4 min read
+          </p>
+        </header>
+        
+    <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
+      <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#the-bill-problem" style="color:var(--primary-color); text-decoration:none;">The Bill Problem</a></li><li style="margin-bottom:0.35rem;"><a href="#then-came-cindy" style="color:var(--primary-color); text-decoration:none;">Then Came Cindy</a></li><li style="margin-bottom:0.35rem;"><a href="#my-setup" style="color:var(--primary-color); text-decoration:none;">My Setup</a></li><li style="margin-bottom:0.35rem;"><a href="#what-did-i-use-it-for" style="color:var(--primary-color); text-decoration:none;">What Did I Use It For?</a></li><li style="margin-bottom:0.35rem;"><a href="#next-stop-linux" style="color:var(--primary-color); text-decoration:none;">Next Stop: Linux</a></li>
+      </ol>
+    </nav>
+        <div class="blog-post-content markdown-body">
+          <h2 id="the-bill-problem">The Bill Problem</h2>
+<p>I love Claude. I love ChatGPT. I use Gemini too. All three, for work. But at the end of the month, the bills arrive. Like a relative who comes for a day but doesn&#39;t want to leave.</p>
+<p>For office work, it&#39;s fine. But for my personal stuff? My open source projects, homelab setup, random late-night experiments. Paying for every token felt wrong. Especially when I have good machines with decent hardware.</p>
+<p>So I wanted a local LLM. On my own machine. No meter running in the background.</p>
+<p>I tried. Many times. I tried Cline, Openclaw, and a bunch of other tools I don&#39;t even remember now. Every time, same story. Either the tool froze. Or the model told me things that were not true, with such confidence. I felt like talking to an uncle at a wedding about crypto.</p>
+<p>Honestly, I gave up. More than once.</p>
+<h2 id="then-came-cindy">Then Came Cindy</h2>
+<p>I follow the AI Weekly newsletter. The last issue mentioned Cindy. An open-source AI agent that &quot;works out of the box.&quot; I have heard &quot;works out of the box&quot; before so many times that I am no longer amazed to find the box empty now.</p>
+<p>So I tried it anyway. And this time, something was different.</p>
+<p>A little about Cindy. It&#39;s open source, Apache 2.0. It runs on your own machine and works with your real files. You can bring your own model, including a local one. That last part was all I needed to hear.</p>
+<p>Then I read the tagline. &quot;Consider it done.&quot; Wait. I have heard this before. If you did engineering in Pune, you have too. Syntel used &quot;Consider IT Done&quot; for years. Capital IT, of course. Besides, Syntel and Cindy sounds the same too. Cindy&#39;s tagline is &quot;Think it. Consider it done&quot;. So I got it set up.</p>
+<h2 id="my-setup">My Setup</h2>
+<ul>
+<li><strong>Machine</strong> → MacBook Pro, M3 Max, 48 GB unified memory</li>
+<li><strong>Model runner</strong> → Ollama</li>
+<li><strong>Model</strong> → Qwen3-Coder 30B</li>
+<li><strong>Agent</strong> → Cindy</li>
+</ul>
+<p>Setup was fairly simple on Mac. Linux is a bit more complex — I am going to do that next:</p>
+<pre><code class="language-bash"># Step 1: Install Ollama and pull the model
+ollama pull qwen3-coder:30b
+</code></pre>
+<p>Then:</p>
+<ol>
+<li>Download Cindy from cindy.app.</li>
+<li>On the login screen, choose <strong>Skip Sign-In</strong>. This runs local agents. No Cindy account needed.</li>
+<li>Point Cindy to the local Ollama model.</li>
+</ol>
+<p>That&#39;s it.</p>
+<h2 id="what-did-i-use-it-for">What Did I Use It For?</h2>
+<p>I have a homelab. A Kubernetes cluster. A monitoring stack. A few hobby apps. Earlier, I used Claude and ChatGPT to keep an eye on them. Now I asked Cindy simple questions:</p>
+<ul>
+<li>Which pods are not running? Did anything restart recently?</li>
+<li>Is my monitoring actually monitoring, or just sitting there looking pretty?</li>
+<li>It also did some administration jobs — SSHing to bare metals, monitoring processes, setting up cron jobs.</li>
+<li>Some internet research and documentation work. Yet to try serious programming.</li>
+</ul>
+<p>And here is the surprising part. It does not make things up.</p>
+<p>When a pod was down, it said the pod was down. When all was fine, it said all was fine. No imaginary CrashLoopBackOff for extra drama.</p>
+<p>I don&#39;t know the exact secret sauce. My guess? Cindy behaves like an agent. It checks real output instead of guessing from memory. Whatever it is, somebody engineered it well.</p>
+<p>Let me not oversell. It is slow. Claude and ChatGPT reply in seconds. A local 30B model takes its time. Sometimes I make chai while it thinks.</p>
+<p>But I don&#39;t mind. For my homelab, speed is not the goal. Accuracy is. I would rather wait two minutes for a correct answer than get a wrong one in two seconds.</p>
+<h2 id="next-stop-linux">Next Stop: Linux</h2>
+<p>Mac is sorted. Next, my Linux machine. Cindy has a proper Linux guide. Ubuntu 22.04 and 24.04 get an official <code>.deb</code> through <code>apt</code>. Arch-based systems get a one-line install, as your normal user. It can be a bit tricky.</p>
+<p>I am going to try this on Manjaro. Yes, I know Manjaro is not real Arch.</p>
+<p>Feel free to try this and let me know how it works for you.</p>
+<hr>
+<p><em>drafted with ai assist, because practicing what I preach.</em></p>
+
+        </div>
+        
+  <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+    <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
+      
+      <a href="../blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Inside My Homelab: Architecture, Philosophy, and Why It Exists</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/measurecamp-delhi-where-i-became-a-speaker.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">MeasureCamp Delhi: Where I Became a Speaker Without Meaning To</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/getting-your-first-devops-job-is-harder-now.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+    </div>
+  </section>
+        
+  <nav aria-label="Post navigation" style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <a href="../blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">← Newer</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">Inside My Homelab: Architecture, Philosophy, and Why It Exists</span>
+    </a>
+    <a href="../blogs/cyber-scams-two-decades.html" style="flex:1; min-width:160px; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; display:block; text-align:right;">
+      <span style="color:var(--text-color); font-size:0.75rem; opacity:0.7; display:block; margin-bottom:0.3rem;">Older →</span>
+      <span style="color:var(--heading-color); font-size:0.9rem; line-height:1.4;">From a Million-Dollar Yahoo Lottery to AI Deepfakes: My Two Decades of Encounters with Cyber Scams</span>
+    </a>
+  </nav>
+        <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
+          <p style="color:var(--text-color); font-size:0.85rem;">
+            <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
+            <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
+            <a href="../index.html#skills" style="color:var(--primary-color);">Skills</a> ·
+            <a href="../consulting.html" style="color:var(--primary-color);">Consulting</a> ·
+            <a href="../blog.html" style="color:var(--primary-color);">Blog</a> ·
+            <a href="../index.html#contact" style="color:var(--primary-color);">Contact</a>
+          </p>
+        </footer>
+      </article>
+    </div>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
+</body>
+</html>

@@ -160,6 +160,29 @@ Add an entry to `blogs/blogs.json`:
 - `date`: Format as "YYYY-MM-DD"
 - `excerpt`: Keep it under 150 characters
 
+### SEO fields (recommended)
+
+Add these to the same entry. They are used for search engines only — the on-page title and excerpt stay as written.
+
+```json
+  "seoTitle": "Docker Compose Tutorial: docker-compose.yml with Examples",
+  "description": "Docker Compose tutorial for beginners: write a docker-compose.yml, use essential commands and run a web app with a database.",
+  "keywords": ["Docker Compose tutorial", "docker-compose.yml example", "docker compose commands"]
+```
+
+- `seoTitle`: ≤ 60 characters, main search phrase first (what someone would type into Google)
+- `description`: 120–160 characters, a summary rather than the first paragraph; include the main keyword
+- `keywords`: 4–8 long-tail search phrases, more specific than `tags`
+
+### Build the static pages
+
+```bash
+npm install          # first time only
+node generate-feeds.js
+```
+
+This writes `blogs/<id>.html`, tag/category pages, `sitemap.xml` and `feed.xml`. **Without this step, the post is invisible to search engines.** Commit the generated files too.
+
 ---
 
 ## Step 4: Test Locally

@@ -17,20 +17,20 @@ const escape = s => String(s)
 
 const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-// Schema type overrides: HowTo for step-by-step guides, TechArticle for deep technical posts
+// Schema type overrides: TechArticle for step-by-step guides and deep technical posts.
+// (HowTo is avoided: it requires `step` items, and Google no longer shows HowTo rich results.)
 const SCHEMA_TYPE_MAP = {
-  // HowTo — step-by-step procedural guides
-  'install-cobbler-2610-on-ubuntu-1404': 'HowTo',
-  'setting-up-your-own-ftp-server-ubuntu': 'HowTo',
-  'local-drupal-setup': 'HowTo',
-  'build-your-own-private-cloud-with-1': 'HowTo',
-  'build-your-own-private-cloud-with-2': 'HowTo',
-  'install-patched-ruby-interpreter-with': 'HowTo',
-  'one-click-ansible-authorization-for': 'HowTo',
-  'easily-scprsync-through-bastion-host-or': 'HowTo',
-  'sample-docker-compose-guide': 'HowTo',
-  'rhce-preparation': 'HowTo',
-  'data-recovery-with-testdisk': 'HowTo',
+  // Step-by-step procedural guides
+  'install-cobbler-2610-on-ubuntu-1404': 'TechArticle',
+  'setting-up-your-own-ftp-server-ubuntu': 'TechArticle',
+  'local-drupal-setup': 'TechArticle',
+  'build-your-own-private-cloud-with-2': 'TechArticle',
+  'install-patched-ruby-interpreter-with': 'TechArticle',
+  'one-click-ansible-authorization-for': 'TechArticle',
+  'easily-scprsync-through-bastion-host-or': 'TechArticle',
+  'sample-docker-compose-guide': 'TechArticle',
+  'rhce-preparation': 'TechArticle',
+  'data-recovery-with-testdisk': 'TechArticle',
   // TechArticle — in-depth technical explanations
   'credential-bleed-mcp-server-trust': 'TechArticle',
   'source-build-envoy-proxy-on-ubuntu-1804': 'TechArticle',
@@ -66,6 +66,13 @@ const SCHEMA_TYPE_MAP = {
   'disney-did-it-with-cartoons-my-ai-did-it-with-my-kids-bedtim': 'TechArticle',
   'telegram-auto-post-pipeline': 'TechArticle',
   'cro-the-career-stream-nobody-told-you-about': 'TechArticle',
+};
+
+// Retired post URLs -> current post id. Each gets a redirect page at blogs/<old>.html
+// (GitHub Pages has no server-side 301s) so existing links and search results keep working.
+const REDIRECTS = {
+  // Part I's original content was lost; this URL served a duplicate of Part II
+  'build-your-own-private-cloud-with-1': 'build-your-own-private-cloud-with-2',
 };
 
 // --- shared nav/head helpers ---
@@ -163,11 +170,15 @@ function addHeadingIds(html) {
 }
 
 // --- blog post HTML ---
-function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, idx = -1) {
+function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, idx = -1, dateModified = blog.date) {
   const BASE = BASE_URL;
   const url = `${BASE}/blogs/${blog.id}.html`;
-  const desc = blog.excerpt.replace(/"/g, '&quot;').slice(0, 160);
-  const tags = (blog.tags || []).join(', ');
+  // seoTitle/description/keywords in blogs.json override the display title/excerpt for search engines
+  const seoTitle = blog.seoTitle || blog.title;
+  const pageTitle = `${seoTitle} | Roshan Nagekar`.length <= 70 ? `${seoTitle} | Roshan Nagekar` : seoTitle;
+  const desc = escape((blog.description || blog.excerpt).slice(0, 160));
+  const keywordList = [...new Set([...(blog.keywords || []), ...(blog.tags || [])])];
+  const tags = keywordList.join(', ');
 
   // Prev/next by date (allBlogs sorted newest-first; prev = newer, next = older)
   const prevPost = idx > 0 ? allBlogs[idx - 1] : null;
@@ -220,12 +231,15 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
     "@context": "https://schema.org",
     "@type": schemaType,
     "inLanguage": "en",
-    "headline": blog.title,
-    "description": blog.excerpt,
+    "headline": seoTitle.slice(0, 110),
+    "alternativeHeadline": blog.title,
+    "description": blog.description || blog.excerpt,
     "articleSection": blog.category,
     "image": { "@type": "ImageObject", "url": `${BASE}/profile.jpg`, "width": 1200, "height": 630 },
     "author": { "@type": "Person", "name": "Roshan Nagekar", "url": BASE },
     "datePublished": blog.date,
+    "dateModified": dateModified > blog.date ? dateModified : blog.date,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url },
     "url": url,
     "keywords": tags,
     "wordCount": wordCount,
@@ -255,25 +269,27 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>${escape(blog.title)} | Roshan Nagekar</title>
+  <title>${escape(pageTitle)}</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
   <meta name="description" content="${desc}">
+  <meta name="keywords" content="${escape(tags)}">
   <link rel="canonical" href="${url}">
   ${prevLink}
   ${nextLink}
   <meta property="og:type" content="article">
-  <meta property="og:title" content="${escape(blog.title)}">
+  <meta property="og:title" content="${escape(seoTitle)}">
   <meta property="og:description" content="${desc}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${BASE}/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="${blog.date}">
+  <meta property="article:modified_time" content="${dateModified > blog.date ? dateModified : blog.date}">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="${escape(blog.category)}">
   ${(blog.tags || []).map(t => `<meta property="article:tag" content="${escape(t)}">`).join('\n  ')}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="${escape(blog.title)}">
+  <meta name="twitter:title" content="${escape(seoTitle)}">
   <meta name="twitter:description" content="${desc}">
   <meta name="twitter:image" content="${BASE}/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
@@ -645,12 +661,36 @@ for (let i = 0; i < blogs.length; i++) {
   const body = bodyRaw.replace(/^(Some rights reserved|image credits?)[^\n]*\n?/gim, '');
   const wordCount = body.split(/\s+/).filter(Boolean).length;
   const readMinutes = Math.max(1, Math.ceil(wordCount / 200));
-  const bodyHtml = marked(body);
-  const html = blogPostHtml(blog, bodyHtml, blogs, wordCount, readMinutes, i);
+  // The page already has an <h1> (post title), so demote body H1s; give empty-alt images descriptive alt text
+  let imgCount = 0;
+  const bodyHtml = marked(body)
+    .replace(/<(\/?)h1(\s|>)/gi, '<$1h2$2')
+    .replace(/<img([^>]*?)alt=""/gi, (_, attrs) => `<img${attrs}alt="${escape(blog.title)} — image ${++imgCount}"`)
+    .replace(/<img(?![^>]*\bloading=)/gi, '<img loading="lazy"');
+  const html = blogPostHtml(blog, bodyHtml, blogs, wordCount, readMinutes, i, gitLastmod(mdPath));
   fs.writeFileSync(`blogs/${blog.id}.html`, html);
   generated++;
 }
 console.log(`✅ static blog pages — ${generated} HTML files written to blogs/`);
+
+for (const [from, to] of Object.entries(REDIRECTS)) {
+  const target = `${BASE_URL}/blogs/${to}.html`;
+  fs.writeFileSync(`blogs/${from}.html`, `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
+  <link rel="canonical" href="${target}">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0; url=${target}">
+</head>
+<body>
+  <p>This post has moved to <a href="${target}">${target}</a>.</p>
+</body>
+</html>
+`);
+}
+console.log(`✅ redirects — ${Object.keys(REDIRECTS).length} redirect pages written to blogs/`);
 
 // ============================================================
 // category pages
@@ -731,7 +771,11 @@ const itemListJsonLd = JSON.stringify({
   }))
 });
 let blogHtml = fs.readFileSync('blog.html', 'utf8');
-blogHtml = blogHtml.replace(/<!--BLOG_ITEMLIST_JSONLD-->|(\{"@context":"https:\/\/schema\.org","@type":"ItemList"[\s\S]*?\})/, itemListJsonLd);
+// Replace the whole <script> body: a lazy match up to the first "}" left stale entries behind on every run
+blogHtml = blogHtml.replace(
+  /(<script type="application\/ld\+json" id="blog-itemlist-jsonld">)[\s\S]*?(<\/script>)/,
+  (_, open, close) => `${open}\n    ${itemListJsonLd}\n    ${close}`
+);
 fs.writeFileSync('blog.html', blogHtml);
 console.log(`✅ blog.html — ItemList JSON-LD injected (${blogs.length} entries)`);
 

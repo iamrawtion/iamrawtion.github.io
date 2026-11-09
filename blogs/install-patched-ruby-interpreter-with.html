@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247 | Roshan Nagekar</title>
+  <title>Install a Patched Ruby 2.0.0-p247 with rbenv and ruby-build</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard installation.">
+  <meta name="description" content="Install a patched Ruby 2.0.0-p247 with rbenv and ruby-build on CentOS 6.5, fixing the OpenSSL compile errors that break a standard install.">
+  <meta name="keywords" content="rbenv install patched Ruby, ruby-build patch, Ruby 2.0.0-p247, Ruby OpenSSL error, CentOS Ruby install, rbenv, Ruby, RubyOnRails, Troubleshooting">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/continuous-integration-with-jenkins.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/integrating-docker-with-chef.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247">
-  <meta property="og:description" content="How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard installation.">
+  <meta property="og:title" content="Install a Patched Ruby 2.0.0-p247 with rbenv and ruby-build">
+  <meta property="og:description" content="Install a patched Ruby 2.0.0-p247 with rbenv and ruby-build on CentOS 6.5, fixing the OpenSSL compile errors that break a standard install.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2014-06-04">
+  <meta property="article:modified_time" content="2026-08-17">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="Linux">
   <meta property="article:tag" content="Ruby">
@@ -25,8 +27,8 @@
   <meta property="article:tag" content="Troubleshooting">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247">
-  <meta name="twitter:description" content="How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard installation.">
+  <meta name="twitter:title" content="Install a Patched Ruby 2.0.0-p247 with rbenv and ruby-build">
+  <meta name="twitter:description" content="Install a patched Ruby 2.0.0-p247 with rbenv and ruby-build on CentOS 6.5, fixing the OpenSSL compile errors that break a standard install.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="4 min read">
@@ -43,7 +45,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","inLanguage":"en","headline":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","description":"How to install Ruby 2.0.0-p247 using rbenv and ruby-build on CentOS 6.5, including patching for OpenSSL compatibility issues that break the standard...","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-06-04","url":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html","keywords":"Ruby, RubyOnRails, Troubleshooting","wordCount":795,"timeRequired":"PT4M","articleBody":"Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later. #!/bin/sh rm ~/.rbenv/cache/* -rf mkdir /tmp/build wget https://raw.github.com/sstephenson/ruby-build/master/share/ruby-build/2.0.0-p247 cp 2.0.0-p247 /tmp/build/ # download and patch the ruby sources wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz tar xvzf ruby-2.0.0-p247.tar.gz cd ruby-2.0.0-p247 curl https://gist.githubusercontent.com/spkane/8059362/raw/01585dcf6b33254124566f4521a3946e6f26e0a9/ruby-2.0.0-p247-openssl-el65.patch | patch -p1 cd .. tar -cvzf ruby-2.0.0-p247-openssl.tar.gz ruby-2.0.0-p247 # download and patch the ruby-build version definition sed &#39;s|&quot;2.0.0-p247.*|&quot;2.0.0-p247-openssl.tar.gz&quot; &quot;file:///tmp/ruby-build/2.0.0-p247&quot;|&#39; &lt; 2.0.0-p247 &gt; 2.0.0-p247 #install the patched version rbenv install /tmp/build/2.0.0-p247 rbenv rehash Why This Patch Was Needed Ruby 2.0.0-p247 was compiled against OpenSSL 1.0.0, but CentOS 6.5 shipped with OpenSSL 0.9.8e-fips — a significant version gap. The mismatch wasn&#39;t caught at install time; it blew up at runtime when any code called require &#39;openssl&#39; . The interpreter couldn&#39;t load the OpenSSL extension because the shared library it was built against didn&#39;t match what was on the system. The patch itself updates the Ruby build&#39;s OpenSSL detection logic so that when ruby-build compiles Ruby from source, it correctly locates and links against the system&#39;s OpenSSL version. Without the patch, you&#39;d get a clean build followed by a broken runtime — one of those frustrating failures where everything looks fine until it isn&#39;t. rbenv was the version manager of choice here. It intercepts Ruby-related commands via shims — thin wrapper scripts that live in ~/.rbenv/shims/ — and delegate to whatever Ruby version is active for the current project or shell. No root access required, no system Ruby conflicts. Understanding rbenv and ruby-build rbenv itself is intentionally minimal. It doesn&#39;t compile Ruby — it just manages which version is active. The compilation work is handled by ruby-build, a plugin that rbenv uses under the hood when you run rbenv install . When you run rbenv install 2.0.0-p247 , ruby-build reads a version definition file (the one we downloaded and patched in the script above), downloads the Ruby source tarball specified in that file, applies any patches, and compiles it into ~/.rbenv/versions/2.0.0-p247/ . The patched tarball path in the definition file is exactly what we modified with that sed command. For day-to-day use, the key commands are: rbenv global 2.0.0-p247 — sets the default Ruby for the entire user account rbenv local 2.0.0-p247 — writes a .ruby-version file in the current directory, which rbenv reads automatically when you enter that directory rbenv versions — lists every installed Ruby version, marking the active one with an asterisk The .ruby-version file pattern is the important one for DevOps work. Check it into the repo alongside the application code and every developer on the team, plus your CI system, picks up the right Ruby version automatically — as long as they&#39;re using rbenv. No more &quot;works on my machine&quot; Ruby version mismatches. See the ruby-build docs for the full list of installable versions and build options. Verifying the Installation After running the script, confirm that everything worked before wiring the Ruby version into any application: rbenv versions ruby --version ruby -e &quot;require &#39;openssl&#39;; puts OpenSSL::OPENSSL_VERSION&quot; rbenv versions shows all installed versions and which one is currently active. ruby --version confirms the shim is pointing to the right place. The third command is the critical one — it attempts to load the OpenSSL extension at runtime and prints the version string if it succeeds. If require &#39;openssl&#39; raises a LoadError , the patch didn&#39;t take. The most common cause is a path mismatch: the sed command in the script rewrites the tarball URL in the ruby-build definition file, and if the filename in that sed substitution doesn&#39;t exactly match the patched tarball you created, ruby-build will try to download the original unpatched tarball from the internet. Double-check that file:///tmp/ruby-build/2.0.0-p247 points to where you actually put the patched tarball. Modern Alternative: Use a Supported Ruby Version Ruby 2.0.0 hit end-of-life in February 2016. If you&#39;re reading this post to understand how to set up Ruby today, skip the patching entirely and just install a current version: rbenv install 3.3.0 rbenv global 3.3.0 No patching required. Modern Ruby versions are built with OpenSSL 3.x compatibility and the ruby-build definition files are kept up to date. The Ruby downloads page tracks the current stable release. The workflow in this post — ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Install a Patched Ruby 2.0.0-p247 with rbenv and ruby-build","alternativeHeadline":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","description":"Install a patched Ruby 2.0.0-p247 with rbenv and ruby-build on CentOS 6.5, fixing the OpenSSL compile errors that break a standard install.","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2014-06-04","dateModified":"2026-08-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html"},"url":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html","keywords":"rbenv install patched Ruby, ruby-build patch, Ruby 2.0.0-p247, Ruby OpenSSL error, CentOS Ruby install, rbenv, Ruby, RubyOnRails, Troubleshooting","wordCount":795,"timeRequired":"PT4M","articleBody":"Installation of Ruby 2.0.0-p247 recently had some issues with Openssl package for Centos 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later. #!/bin/sh rm ~/.rbenv/cache/* -rf mkdir /tmp/build wget https://raw.github.com/sstephenson/ruby-build/master/share/ruby-build/2.0.0-p247 cp 2.0.0-p247 /tmp/build/ # download and patch the ruby sources wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz tar xvzf ruby-2.0.0-p247.tar.gz cd ruby-2.0.0-p247 curl https://gist.githubusercontent.com/spkane/8059362/raw/01585dcf6b33254124566f4521a3946e6f26e0a9/ruby-2.0.0-p247-openssl-el65.patch | patch -p1 cd .. tar -cvzf ruby-2.0.0-p247-openssl.tar.gz ruby-2.0.0-p247 # download and patch the ruby-build version definition sed &#39;s|&quot;2.0.0-p247.*|&quot;2.0.0-p247-openssl.tar.gz&quot; &quot;file:///tmp/ruby-build/2.0.0-p247&quot;|&#39; &lt; 2.0.0-p247 &gt; 2.0.0-p247 #install the patched version rbenv install /tmp/build/2.0.0-p247 rbenv rehash Why This Patch Was Needed Ruby 2.0.0-p247 was compiled against OpenSSL 1.0.0, but CentOS 6.5 shipped with OpenSSL 0.9.8e-fips — a significant version gap. The mismatch wasn&#39;t caught at install time; it blew up at runtime when any code called require &#39;openssl&#39; . The interpreter couldn&#39;t load the OpenSSL extension because the shared library it was built against didn&#39;t match what was on the system. The patch itself updates the Ruby build&#39;s OpenSSL detection logic so that when ruby-build compiles Ruby from source, it correctly locates and links against the system&#39;s OpenSSL version. Without the patch, you&#39;d get a clean build followed by a broken runtime — one of those frustrating failures where everything looks fine until it isn&#39;t. rbenv was the version manager of choice here. It intercepts Ruby-related commands via shims — thin wrapper scripts that live in ~/.rbenv/shims/ — and delegate to whatever Ruby version is active for the current project or shell. No root access required, no system Ruby conflicts. Understanding rbenv and ruby-build rbenv itself is intentionally minimal. It doesn&#39;t compile Ruby — it just manages which version is active. The compilation work is handled by ruby-build, a plugin that rbenv uses under the hood when you run rbenv install . When you run rbenv install 2.0.0-p247 , ruby-build reads a version definition file (the one we downloaded and patched in the script above), downloads the Ruby source tarball specified in that file, applies any patches, and compiles it into ~/.rbenv/versions/2.0.0-p247/ . The patched tarball path in the definition file is exactly what we modified with that sed command. For day-to-day use, the key commands are: rbenv global 2.0.0-p247 — sets the default Ruby for the entire user account rbenv local 2.0.0-p247 — writes a .ruby-version file in the current directory, which rbenv reads automatically when you enter that directory rbenv versions — lists every installed Ruby version, marking the active one with an asterisk The .ruby-version file pattern is the important one for DevOps work. Check it into the repo alongside the application code and every developer on the team, plus your CI system, picks up the right Ruby version automatically — as long as they&#39;re using rbenv. No more &quot;works on my machine&quot; Ruby version mismatches. See the ruby-build docs for the full list of installable versions and build options. Verifying the Installation After running the script, confirm that everything worked before wiring the Ruby version into any application: rbenv versions ruby --version ruby -e &quot;require &#39;openssl&#39;; puts OpenSSL::OPENSSL_VERSION&quot; rbenv versions shows all installed versions and which one is currently active. ruby --version confirms the shim is pointing to the right place. The third command is the critical one — it attempts to load the OpenSSL extension at runtime and prints the version string if it succeeds. If require &#39;openssl&#39; raises a LoadError , the patch didn&#39;t take. The most common cause is a path mismatch: the sed command in the script rewrites the tarball URL in the ruby-build definition file, and if the filename in that sed substitution doesn&#39;t exactly match the patched tarball you created, ruby-build will try to download the original unpatched tarball from the internet. Double-check that file:///tmp/ruby-build/2.0.0-p247 points to where you actually put the patched tarball. Modern Alternative: Use a Supported Ruby Version Ruby 2.0.0 hit end-of-life in February 2016. If you&#39;re reading this post to understand how to set up Ruby today, skip the patching entirely and just install a current version: rbenv install 3.3.0 rbenv global 3.3.0 No patching required. Modern Ruby versions are built with OpenSSL 3.x compatibility and the ruby-build definition files are kept up to date. The Ruby downloads page tracks the current stable release. The workflow in this post — ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247","item":"https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -107,12 +109,12 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#why-this-patch-was-needed" style="color:var(--primary-color); text-decoration:none;">Why This Patch Was Needed</a></li><li style="margin-bottom:0.35rem;"><a href="#understanding-rbenv-and-ruby-build" style="color:var(--primary-color); text-decoration:none;">Understanding rbenv and ruby-build</a></li><li style="margin-bottom:0.35rem;"><a href="#verifying-the-installation" style="color:var(--primary-color); text-decoration:none;">Verifying the Installation</a></li><li style="margin-bottom:0.35rem;"><a href="#modern-alternative-use-a-supported-ruby-version" style="color:var(--primary-color); text-decoration:none;">Modern Alternative: Use a Supported Ruby Version</a></li>
-      </ul>
+      </ol>
     </nav>
         <div class="blog-post-content markdown-body">
-          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png" alt=""></p>
+          <p><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEga0Alx_xurLkSlyFNsMAu9s6YWkeQnNkA-gSceHCFYeb9x1poZ7tcFzxQh7bzuz_XJWcK95QfD6nUj4SB4CJJu7HiX16rRThsVsHZRJ1SGrJVYCTyptD3JjeCv39tKRsfa16_Vrohr6Xk/s1600/patch.png" alt="Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247 — image 1"></p>
 <p>Installation of <strong>Ruby</strong> 2.0.0-p247 recently had some issues with Openssl package for <strong>Centos</strong> 6.5. I had to patch the version to get it running. Following script was written later that worked to automate the patch later.</p>
 <pre><code>#!/bin/sh
 rm ~/.rbenv/cache/* -rf
@@ -168,42 +170,24 @@ rbenv global 3.3.0
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
       
+      <a href="../blogs/cutiepi-raspberry-pi-tablet.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">CutiePi: From a Digital Photo Album to My Home Network Monitor</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/de-google-lineageos-daughters-phone.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
       <a href="../blogs/install-cobbler-2610-on-ubuntu-1404.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
         <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Install Cobbler 2.6.10 on Ubuntu 14.04</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2016</p>
-      </a>
-      <a href="../blogs/bugzilla-mail-sending-issue.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
-        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Bugzilla Mail Sending Issue</p>
-        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2014</p>
-      </a>
-      <a href="../blogs/checking-open-ports-on-remote-computer.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
-        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Checking Open Ports on a Remote Computer using PortQry</p>
-        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2014</p>
       </a>
     </div>
   </section>
@@ -219,21 +203,14 @@ rbenv global 3.3.0
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html&via=iamrawtion&text=Install%20a%20Patched%20Ruby%20Interpreter%20With%20Rbenv%20and%20Ruby-build%20for%202.0.0-p247" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/install-patched-ruby-interpreter-with.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -252,36 +229,6 @@ rbenv global 3.3.0
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

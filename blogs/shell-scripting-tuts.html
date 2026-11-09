@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>Shell Scripting Tuts | Roshan Nagekar</title>
+  <title>Bash Shell Scripting Tutorial for Linux Beginners | Roshan Nagekar</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="Shell scripting essentials for Linux sysadmins: VIM shortcuts, practical bash tips, and Unix command-line patterns that speed up day-to-day operations.">
+  <meta name="description" content="Bash shell scripting tutorial for Linux beginners: writing and running scripts, variables, VIM shortcuts and command-line patterns for sysadmins.">
+  <meta name="keywords" content="bash scripting tutorial, shell scripting for beginners, Linux shell script, how to run a shell script, VIM shortcuts, sysadmin scripting, Linux, Programming, Automation, Operations">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/shell-scripting-tuts.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/new-relic.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Shell Scripting Tuts">
-  <meta property="og:description" content="Shell scripting essentials for Linux sysadmins: VIM shortcuts, practical bash tips, and Unix command-line patterns that speed up day-to-day operations.">
+  <meta property="og:title" content="Bash Shell Scripting Tutorial for Linux Beginners">
+  <meta property="og:description" content="Bash shell scripting tutorial for Linux beginners: writing and running scripts, variables, VIM shortcuts and command-line patterns for sysadmins.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/shell-scripting-tuts.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2013-08-07">
+  <meta property="article:modified_time" content="2025-11-06">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="Linux">
   <meta property="article:tag" content="Linux">
@@ -26,8 +28,8 @@
   <meta property="article:tag" content="Operations">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Shell Scripting Tuts">
-  <meta name="twitter:description" content="Shell scripting essentials for Linux sysadmins: VIM shortcuts, practical bash tips, and Unix command-line patterns that speed up day-to-day operations.">
+  <meta name="twitter:title" content="Bash Shell Scripting Tutorial for Linux Beginners">
+  <meta name="twitter:description" content="Bash shell scripting tutorial for Linux beginners: writing and running scripts, variables, VIM shortcuts and command-line patterns for sysadmins.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="7 min read">
@@ -44,7 +46,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Shell Scripting Tuts","description":"Shell scripting essentials for Linux sysadmins: VIM shortcuts, practical bash tips, and Unix command-line patterns that speed up day-to-day operations.","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-08-07","url":"https://iamrawtion.github.io/blogs/shell-scripting-tuts.html","keywords":"Linux, Programming, Automation, Operations","wordCount":1356,"timeRequired":"PT7M","articleBody":"VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab with a new filename esc v for marking, d to cut, y to copy, p to paste :wrap to enable wordwrap Shell Scripting Use any scripting editor, i will use VIM After the shell script is complete set execute permission to the script for the script to execute. The permissions can be changed by the command chmod. Syntax is chmod permission your-script name e.g $ chmod +x script $ chmod 755 script 755 sets permission for user (read 4 write 2 execute 1) group and others (read 4 execute 1) 3. Executing your script : There are three ways of executing a script Syntax bash script-name sh script-name ./script-name E.g $ bash script $ sh script $ ./script Note: ./means current directory. But only .(dot) means execute a given command in the current shell without starting a new copy of the shell. The syntax for .(dot) command is . command-name e.g $ . foo This is my 1st shell program clear echo &quot;Knowledge is Power&quot; Anything after &quot;#&quot; is a comment clear - this will clear the screen echo - prints the message The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values. Linux has two types of variables i. System Variables (Maintained by Linux system, seen in caps case) ii. User defined varibales (User defined, small case) Variable declaration n=10 Dont put spaces on either side of the equals sign that should give an error. Variables are case sensitive. While printing the values of the variables use the &#39;$&#39; symbol, e.g echo $n Shell Arithmetic The term expr is used to perform arithmetic operations in shell. Syntax : expr op1 operator op2 e.g $ expr 1 + 3 $ expr 2 - 1 $ expr 10 / 2 $ expr 20 % 3 $ expr 10 * 3 $ echo expr 6 + 3 Note : Backticks is called backtick and this is mean to execute any command in the script e.g echo &quot;today is date`&quot; Exit status By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO zero is success while non zero is not This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0 User input to accept an input from the user, use the command &#39;read&#39; read var1, var2, var3 WildCards There are three wildcards in shell ?, *, [...] ? - will Match a single character will Match a group of characters [...]* - will match a group of characters in the mentioned set e.g [abc]* will look for all the matches starting with a,b and c [!abcd] or [!a-d] everything except a,b,c,d Note: If you want to execute two or more commands in one line, use a semicolon e.g ls; who; date; cal Command line arguments Some commands need arguments to be passed. e.g if you do an rm, you would need to specify the file you want to remove. The specifying of the file is the command line argument to that command. For every shell script there is a command line argument that cane be specified by $ . $0 is the name of the script. $1 is the 1st argument. $2 is the 2nd argument and so on... Redirection of Standard input output Three symbols are used for redirection&#39; , &lt; , &gt;&gt; : command &gt; file : this will write to the file provided &lt; : command &lt; file : take input from the file provided : command &gt;&gt; file : will append input to the file if file already exist Pipes pipe is a utility to connect the output of one program to the input of another program without any temporary file. Pipe is a temporary storage place, where the output of one command is stored, and then passed to the input of another command. Pipes are used to run more than two commands for the same command line. $ ls | more $ who | sort $ who | sort &gt; user_list $ who | wc -l $ ls -l | wc -l $ who | grep raju Filters If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command $ tail +20 &lt; hotel.txt | head -n30 &gt;hlist If Condition if is used for decision making. If a particular condition is true command1 is executed. Syntax if condition then command1 fi condition is comparison between values, comparison can be done using the expr operator or the by cheking the exit status. #!/bin/bash if cat $1 then echo &quot;$1 file found on this lo","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en","headline":"Bash Shell Scripting Tutorial for Linux Beginners","alternativeHeadline":"Shell Scripting Tuts","description":"Bash shell scripting tutorial for Linux beginners: writing and running scripts, variables, VIM shortcuts and command-line patterns for sysadmins.","articleSection":"Linux","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2013-08-07","dateModified":"2025-11-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/shell-scripting-tuts.html"},"url":"https://iamrawtion.github.io/blogs/shell-scripting-tuts.html","keywords":"bash scripting tutorial, shell scripting for beginners, Linux shell script, how to run a shell script, VIM shortcuts, sysadmin scripting, Linux, Programming, Automation, Operations","wordCount":1356,"timeRequired":"PT7M","articleBody":"VIM shortcuts :tabfind open new tab :tabn and tabp for next and previous tabs :tabedit to open a new tab with a new filename esc v for marking, d to cut, y to copy, p to paste :wrap to enable wordwrap Shell Scripting Use any scripting editor, i will use VIM After the shell script is complete set execute permission to the script for the script to execute. The permissions can be changed by the command chmod. Syntax is chmod permission your-script name e.g $ chmod +x script $ chmod 755 script 755 sets permission for user (read 4 write 2 execute 1) group and others (read 4 execute 1) 3. Executing your script : There are three ways of executing a script Syntax bash script-name sh script-name ./script-name E.g $ bash script $ sh script $ ./script Note: ./means current directory. But only .(dot) means execute a given command in the current shell without starting a new copy of the shell. The syntax for .(dot) command is . command-name e.g $ . foo This is my 1st shell program clear echo &quot;Knowledge is Power&quot; Anything after &quot;#&quot; is a comment clear - this will clear the screen echo - prints the message The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values. Linux has two types of variables i. System Variables (Maintained by Linux system, seen in caps case) ii. User defined varibales (User defined, small case) Variable declaration n=10 Dont put spaces on either side of the equals sign that should give an error. Variables are case sensitive. While printing the values of the variables use the &#39;$&#39; symbol, e.g echo $n Shell Arithmetic The term expr is used to perform arithmetic operations in shell. Syntax : expr op1 operator op2 e.g $ expr 1 + 3 $ expr 2 - 1 $ expr 10 / 2 $ expr 20 % 3 $ expr 10 * 3 $ echo expr 6 + 3 Note : Backticks is called backtick and this is mean to execute any command in the script e.g echo &quot;today is date`&quot; Exit status By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO zero is success while non zero is not This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0 User input to accept an input from the user, use the command &#39;read&#39; read var1, var2, var3 WildCards There are three wildcards in shell ?, *, [...] ? - will Match a single character will Match a group of characters [...]* - will match a group of characters in the mentioned set e.g [abc]* will look for all the matches starting with a,b and c [!abcd] or [!a-d] everything except a,b,c,d Note: If you want to execute two or more commands in one line, use a semicolon e.g ls; who; date; cal Command line arguments Some commands need arguments to be passed. e.g if you do an rm, you would need to specify the file you want to remove. The specifying of the file is the command line argument to that command. For every shell script there is a command line argument that cane be specified by $ . $0 is the name of the script. $1 is the 1st argument. $2 is the 2nd argument and so on... Redirection of Standard input output Three symbols are used for redirection&#39; , &lt; , &gt;&gt; : command &gt; file : this will write to the file provided &lt; : command &lt; file : take input from the file provided : command &gt;&gt; file : will append input to the file if file already exist Pipes pipe is a utility to connect the output of one program to the input of another program without any temporary file. Pipe is a temporary storage place, where the output of one command is stored, and then passed to the input of another command. Pipes are used to run more than two commands for the same command line. $ ls | more $ who | sort $ who | sort &gt; user_list $ who | wc -l $ ls -l | wc -l $ who | grep raju Filters If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command $ tail +20 &lt; hotel.txt | head -n30 &gt;hlist If Condition if is used for decision making. If a particular condition is true command1 is executed. Syntax if condition then command1 fi condition is comparison between values, comparison can be done using the expr operator or the by cheking the exit status. #!/bin/bash if cat $1 then echo &quot;$1 file found on this lo","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Linux","item":"https://iamrawtion.github.io/categories/linux.html"},{"@type":"ListItem","position":4,"name":"Shell Scripting Tuts","item":"https://iamrawtion.github.io/blogs/shell-scripting-tuts.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -108,12 +110,12 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
-        <li style="margin-bottom:0.35rem;"><a href="#3-executing-your-script-there-are-three-ways-of-executing-a-script" style="color:var(--primary-color); text-decoration:none;">3. Executing your script : There are three ways of executing a script</a></li><li style="margin-bottom:0.35rem;"><a href="#syntax" style="color:var(--primary-color); text-decoration:none;">Syntax</a></li><li style="margin-bottom:0.35rem;"><a href="#linux-has-two-types-of-variables" style="color:var(--primary-color); text-decoration:none;">Linux has two types of variables</a></li><li style="margin-bottom:0.35rem;"><a href="#variable-declaration" style="color:var(--primary-color); text-decoration:none;">Variable declaration</a></li><li style="margin-bottom:0.35rem;"><a href="#if-a-linux-command-accepts-its-input-from-the-standard-input-and-produces-its-output-on-standard-output-is-know-as-a-filter-a-filter-performs-some-kind-of-process-on-the-input-and-gives-output-for-e-g-suppose-you-have-file-called-39-hotel-txt-39-with-100-lines-data-and-from-39-hotel-txt-39-you-would-like-to-print-contains-from-line-number-20-to-line-number-30-and-store-this-result-to-file-called-39-hlist-39-then-give-command" style="color:var(--primary-color); text-decoration:none;">If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command</a></li><li style="margin-bottom:0.35rem;"><a href="#syntax" style="color:var(--primary-color); text-decoration:none;">Syntax</a></li>
-      </ul>
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
+        <li style="margin-bottom:0.35rem;"><a href="#3-executing-your-script-there-are-three-ways-of-executing-a-script" style="color:var(--primary-color); text-decoration:none;">3. Executing your script : There are three ways of executing a script</a></li><li style="margin-bottom:0.35rem;"><a href="#syntax" style="color:var(--primary-color); text-decoration:none;">Syntax</a></li><li style="margin-bottom:0.35rem;"><a href="#this-is-my-1st-shell-program" style="color:var(--primary-color); text-decoration:none;">This is my 1st shell program</a></li><li style="margin-bottom:0.35rem;"><a href="#linux-has-two-types-of-variables" style="color:var(--primary-color); text-decoration:none;">Linux has two types of variables</a></li><li style="margin-bottom:0.35rem;"><a href="#variable-declaration" style="color:var(--primary-color); text-decoration:none;">Variable declaration</a></li><li style="margin-bottom:0.35rem;"><a href="#if-a-linux-command-accepts-its-input-from-the-standard-input-and-produces-its-output-on-standard-output-is-know-as-a-filter-a-filter-performs-some-kind-of-process-on-the-input-and-gives-output-for-e-g-suppose-you-have-file-called-39-hotel-txt-39-with-100-lines-data-and-from-39-hotel-txt-39-you-would-like-to-print-contains-from-line-number-20-to-line-number-30-and-store-this-result-to-file-called-39-hlist-39-then-give-command" style="color:var(--primary-color); text-decoration:none;">If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &amp;#39;hotel.txt&amp;#39; with 100 lines data, And from &amp;#39;hotel.txt&amp;#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &amp;#39;hlist&amp;#39; then give command</a></li><li style="margin-bottom:0.35rem;"><a href="#syntax" style="color:var(--primary-color); text-decoration:none;">Syntax</a></li>
+      </ol>
     </nav>
         <div class="blog-post-content markdown-body">
-          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg" alt=""></p>
+          <p><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHPsNKxvkPes_NIElZEF3nDv-Ct9eREUoYWitDPXBK470bsB4q3eFauJTxlI1poLagbwlK_aYeG20tg3Jtp1Cqf3VUXvgbDmXBN5-ZjocZcRNGq2wEAhQQeyPJv4aKjDjnJHPtqhTqeQY/s1600/13478258804_044ffdb668_m.jpg" alt="Shell Scripting Tuts — image 1"></p>
 <p>VIM shortcuts
 :tabfind open new tab
 :tabn and tabp for next and previous tabs
@@ -126,7 +128,7 @@ esc v for marking, d to cut, y to copy, p to paste
 </li>
 <li><p>After the shell script is complete set execute permission to the script for the script to execute. The permissions can be changed by the command chmod.</p>
 </li>
-</ul>
+</ol>
 <p>    Syntax is</p>
 <pre><code class="language-bash">    chmod permission your-script name
 </code></pre>
@@ -148,7 +150,7 @@ esc v for marking, d to cut, y to copy, p to paste
 <blockquote>
 <p>Note: ./means current directory. But only .(dot) means execute a given command in the current shell without starting a new copy of the shell. The syntax for .(dot) command is . command-name e.g $ . foo</p>
 </blockquote>
-<h1>This is my 1st shell program</h1>
+<h2 id="this-is-my-1st-shell-program">This is my 1st shell program</h2>
 <p>clear</p>
 <pre><code class="language-bash">echo &quot;Knowledge is Power&quot;
 </code></pre>
@@ -158,7 +160,7 @@ clear - this will clear the screen</p>
 </code></pre>
 <ol start="4">
 <li>The computer memory is divided into small locations and each location is called as a memory address. These memory addresses hold data in them. A programmer can give a name to these memory locations. This is called as variable. These variable can take values.</li>
-</ul>
+</ol>
 <hr>
 <h2 id="linux-has-two-types-of-variables">Linux has two types of variables</h2>
 <p>i. System Variables (Maintained by Linux system, seen in caps case)
@@ -169,7 +171,7 @@ ii. User defined varibales (User defined, small case)</p>
 Dont put spaces on either side of the equals sign that should give an error. Variables are case sensitive. While printing the values of the variables use the &#39;$&#39; symbol, e.g echo $n</p>
 <ol start="5">
 <li>Shell Arithmetic</li>
-</ul>
+</ol>
 <p>The term expr is used to perform arithmetic operations in shell.
 Syntax : expr op1 operator op2
 e.g
@@ -182,19 +184,19 @@ $ echo <code>expr 6 + 3</code></p>
 <p>Note : Backticks <code>is called backtick and this is mean to execute any command in the script e.g echo &quot;today is</code>date`&quot;</p>
 <ol start="6">
 <li>Exit status</li>
-</ul>
+</ol>
 <p>By default in Linux if any command is executed, it would return two types of values, 1. 0 (ZERO) 2. Non ZERO
 zero is success while non zero is not
 This is called as the exit status of the command. By default to find the exist status of any command. Just do a $? will give you the exit status
 e.g In the terminal try removing a file that does not exist rm newfile, Now do an echo $? it should give you a non zero value. Now do an ls and again echo $? it should give you a 0</p>
 <ol start="7">
 <li>User input</li>
-</ul>
+</ol>
 <p>to accept an input from the user, use the command &#39;read&#39;
 read var1, var2, var3</p>
 <ol start="8">
 <li>WildCards</li>
-</ul>
+</ol>
 <p>There are three wildcards in shell
 ?, *, [...]
 ? - will Match a single character</p>
@@ -214,11 +216,11 @@ e.g ls; who; date; cal</p>
 </blockquote>
 <ol start="9">
 <li>Command line arguments</li>
-</ul>
+</ol>
 <p>Some commands need arguments to be passed. e.g if you do an rm, you would need to specify the file you want to remove. The specifying of the file is the command line argument to that command. For every shell script there is a command line argument that cane be specified by $<number>. $0 is the name of the script. $1 is the 1st argument. $2 is the 2nd argument and so on...</p>
 <ol start="10">
 <li>Redirection of Standard input output</li>
-</ul>
+</ol>
 <p>Three symbols are used for redirection&#39;</p>
 <blockquote>
 <p>, &lt; , &gt;&gt;
@@ -230,7 +232,7 @@ e.g ls; who; date; cal</p>
 </blockquote>
 <ol start="11">
 <li>Pipes</li>
-</ul>
+</ol>
 <p>pipe is a utility to connect the output of one program to the input of another program without any temporary file. Pipe is a temporary storage place, where the output of one command is stored, and then passed to the input of another command. Pipes are used to run more than two commands for the same command line.
 $ ls | more
 $ who | sort
@@ -240,12 +242,12 @@ $ ls -l | wc  -l
 $ who | grep raju</p>
 <ol start="12">
 <li>Filters</li>
-</ul>
+</ol>
 <h2 id="if-a-linux-command-accepts-its-input-from-the-standard-input-and-produces-its-output-on-standard-output-is-know-as-a-filter-a-filter-performs-some-kind-of-process-on-the-input-and-gives-output-for-e-g-suppose-you-have-file-called-39-hotel-txt-39-with-100-lines-data-and-from-39-hotel-txt-39-you-would-like-to-print-contains-from-line-number-20-to-line-number-30-and-store-this-result-to-file-called-39-hlist-39-then-give-command">If a Linux command accepts its input from the standard input and produces its output on standard output is know as a filter. A filter performs some kind of process on the input and gives output. For e.g.. Suppose you have file called &#39;hotel.txt&#39; with 100 lines data, And from &#39;hotel.txt&#39; you would like to print contains from line number 20 to line number 30 and store this result to file called &#39;hlist&#39; then give command</h2>
 <p>$ tail +20 &lt; hotel.txt | head -n30 &gt;hlist</p>
 <ol start="13">
 <li>If Condition</li>
-</ul>
+</ol>
 <p>if is used for decision making. If a particular condition is true command1 is executed.</p>
 <hr>
 <h2 id="syntax">Syntax</h2>
@@ -343,13 +345,13 @@ elif [ $ch -eq 3 ]
 <p>fi</p>
 <ol start="14">
 <li>Looping in Shell</li>
-</ul>
+</ol>
 <p>Looping is execution of a particular expression time and again until a particular condition is satisfied.
 bash supports for loops and while loops
 looping needs 1. initializing of a variable, 2. test condition in beginning, 3. body of loop at the end modifies the initialized variable</p>
 <ol start="15">
 <li>For Loop</li>
-</ul>
+</ol>
 <p>Syntax:</p>
 <p>for { variable name } in { list }
 do
@@ -370,7 +372,7 @@ do</p>
 <p>done</p>
 <ol start="16">
 <li>While loops</li>
-</ul>
+</ol>
 <p> Syntax:</p>
 <p>while [ condition ]
   do
@@ -382,42 +384,24 @@ do</p>
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
       
+      <a href="../blogs/cutiepi-raspberry-pi-tablet.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">CutiePi: From a Digital Photo Album to My Home Network Monitor</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
+      <a href="../blogs/de-google-lineageos-daughters-phone.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.</p>
+        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
+      </a>
       <a href="../blogs/install-cobbler-2610-on-ubuntu-1404.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
         <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Install Cobbler 2.6.10 on Ubuntu 14.04</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2016</p>
-      </a>
-      <a href="../blogs/bugzilla-mail-sending-issue.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
-        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Bugzilla Mail Sending Issue</p>
-        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2014</p>
-      </a>
-      <a href="../blogs/install-patched-ruby-interpreter-with.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
-        <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">Linux</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Install a Patched Ruby Interpreter With Rbenv and Ruby-build for 2.0.0-p247</p>
-        <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2014</p>
       </a>
     </div>
   </section>
@@ -433,21 +417,14 @@ do</p>
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/shell-scripting-tuts.html&via=iamrawtion&text=Shell%20Scripting%20Tuts" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/shell-scripting-tuts.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -466,36 +443,6 @@ do</p>
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

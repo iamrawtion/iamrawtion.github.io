@@ -1,0 +1,49 @@
+name: Build Blog Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blogs/*.md'
+      - 'blogs/blogs.json'
+      - 'generate-feeds.js'
+  workflow_dispatch:
+
+concurrency:
+  group: build-blog
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: generate-feeds.js reads git log for sitemap lastmod / dateModified
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Generate static blog pages, feed and sitemap
+        run: node generate-feeds.js
+
+      - name: Commit generated files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blogs/*.html tags categories feed.xml sitemap.xml 404.html blog.html index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "ci: regenerate blog pages, feed and sitemap"
+          git pull --rebase origin main
+          git push

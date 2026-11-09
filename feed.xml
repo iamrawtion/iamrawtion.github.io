@@ -7,13 +7,295 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Tue, 30 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 14:10:58 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>PHP2Shell: How a Simple File Editor Nearly Became a Backdoor Into Our Entire Lab</title>
+    <link>https://iamrawtion.github.io/blogs/php2shell-wordpress-webshell-homelab.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/php2shell-wordpress-webshell-homelab.html</guid>
+    <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
+    <description>A home lab security story — from a WordPress file editor to potential root access on bare metal. How a PHP webshell exploits the application layer where firewalls can't reach, and how we closed the door.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Security</category>
+    <category>WordPress</category>
+    <category>Kubernetes</category>
+    <category>Homelab</category>
+    <category>DevSecOps</category>
+    <category>PHP</category>
+    <category>Hardening</category>
+    <content:encoded><![CDATA[<h2>The Short Version, For Everyone</h2>
+<p>Before we go deep, let me explain this the simple way.</p>
+<p>Imagine you run a school notice board. Anyone in the school can stick a notice on it. Now imagine someone sneaks in a notice that says: <em>&quot;Hey building manager, go open the server room door and leave it unlocked.&quot;</em> The notice board was never meant to do that — but because no one was checking what was being posted, it happened anyway.</p>
+<p>That is PHP2Shell in a nutshell.</p>
+<p>A PHP webshell is a small piece of PHP code — sometimes just one line — that an attacker uploads to your web server. Once it&#39;s there, it acts like a remote control. The attacker types commands into their browser, and your server executes them. Delete files, steal data, pivot to other machines — all from a browser tab.</p>
+<p>The scary part? The server thinks it is just serving a web page. It has no idea it has been compromised.</p>
+<hr>
+<h2>What We Are Running in the Lab</h2>
+<p>My home lab runs a Kubernetes cluster that hosts a handful of self-hosted applications — some for personal use, some shared with a few friends and fellow engineers. A good chunk of them are PHP-based. CMS tools, analytics platforms, survey tools, wiki software — the usual self-hosted stack.</p>
+<p>Every single one of those PHP applications is a potential entry point if not hardened correctly.</p>
+<p>The challenge with PHP applications in a shared cluster is that they often run in adjacent namespaces. One compromised instance is bad. Multiple compromised instances sharing the same cluster network is a different problem entirely.</p>
+<hr>
+<h2>What PHP2Shell Actually Does — The Real Explanation</h2>
+<p>PHP is a server-side language. When you visit a PHP website, your browser sends a request, the server runs PHP code, and sends back HTML. Normal.</p>
+<p>Now imagine an attacker finds a way to upload their own PHP file to your server. WordPress, for example, has a built-in <strong>Plugin and Theme File Editor</strong> in the dashboard. If an attacker gets admin credentials — through a weak password, credential stuffing, or a vulnerable plugin — they can open the file editor and inject a webshell directly into a theme file.</p>
+<p>The simplest webshell looks like this:</p>
+<pre><code class="language-php">&lt;?php system($_GET[&#39;cmd&#39;]); ?&gt;
+</code></pre>
+<p>That&#39;s it. One line. Save it to any PHP file on the server, then visit:</p>
+<pre><code>https://yoursite.com/wp-content/themes/yourtheme/functions.php?cmd=id
+</code></pre>
+<p>The server responds with:</p>
+<pre><code>uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</code></pre>
+<p>You now have remote code execution on the web server. The attacker is in.</p>
+<hr>
+<h2>The OSI Layer Perspective — Why This Is So Dangerous</h2>
+<p>Security people talk about the OSI model — the seven-layer framework that describes how network communication works. Most people think of security as a firewall problem (Layer 3/4). PHP2Shell operates at <strong>Layer 7 — the Application Layer</strong> — the very top. And that is what makes it uniquely dangerous.</p>
+<p>Here is why it matters:</p>
+<pre><code>Layer 7 - Application   ← PHP webshell lives HERE (looks like normal web traffic)
+Layer 6 - Presentation
+Layer 5 - Session
+Layer 4 - Transport     ← Firewall blocks ports here
+Layer 3 - Network       ← IP filtering, VPN tunnels here
+Layer 2 - Data Link
+Layer 1 - Physical      ← Bare metal servers, cables, hypervisors
+</code></pre>
+<p>Your firewall at Layer 3/4 sees HTTPS traffic on port 443. It lets it through — that is exactly what it is supposed to do. Your VPN operates at Layer 3. Your OS-level firewall operates at Layer 3/4. <strong>None of them can distinguish a legitimate web request from a webshell command.</strong></p>
+<p>The attacker slides in through the front door, dressed as a normal visitor.</p>
+<p>Once inside the container via the webshell, the attack path could look like this:</p>
+<ol>
+<li><strong>Layer 7</strong> — Webshell uploaded via a PHP application&#39;s file editor</li>
+<li><strong>Container escape</strong> — Exploit a misconfigured pod security context or mounted host path to break out of the container</li>
+<li><strong>Node compromise</strong> — Land on the Kubernetes worker node as root</li>
+<li><strong>Cluster pivot</strong> — Access the Kubernetes API, read secrets, move laterally to other pods and namespaces</li>
+<li><strong>Layer 1</strong> — Reach the hypervisors. At this point, every VM, every disk, every backup is exposed</li>
+</ol>
+<p>From one line of PHP to bare metal access. That is the blast radius.</p>
+<p>In a shared cluster where PHP applications sit next to namespaces running databases, secrets, and internal tooling — all on the same cluster network — a single compromised pod is a risk to everything else.</p>
+<hr>
+<h2>Our Lab&#39;s Security Posture — Many Layers, But Not Bulletproof</h2>
+<p>I covered the homelab security setup in the <a href="/blogs/?post=inside-my-homelab-architecture-philosophy-and-why-it-exists">previous post in this series</a>. The short version: there are multiple layers in place — a CDN and WAF in front, VPN-gated administrative access, OS-level firewalls on every node, intrusion prevention, centralised log monitoring.</p>
+<p>By any standard, this is a well-defended home lab. Most people running PHP applications at home have none of this.</p>
+<hr>
+<h2>Why None of That Was Enough</h2>
+<p>Here is the uncomfortable truth: <strong>all of those protections operate below Layer 7</strong>.</p>
+<p>The CDN and WAF filter known bad actors. The router firewall blocks unexpected ports. VPN gates all administrative access. Intrusion prevention stops brute force. Log monitoring catches anomalous behaviour — after the fact.</p>
+<p>But when a legitimate HTTP/HTTPS request carrying a webshell command arrives at port 443, every single one of those controls waves it through. Because to them, it looks exactly like a normal web request.</p>
+<p>This is the fundamental nature of application-layer vulnerabilities. You cannot firewall your way out of a PHP2Shell attack. You have to patch it at the application layer itself.</p>
+<p>And that is exactly what we had to do.</p>
+<hr>
+<h2>The Fix — Patching at the Application Layer</h2>
+<h3>WordPress: Disabling the File Editor</h3>
+<p>The root problem with WordPress was the built-in <strong>Theme and Plugin File Editor</strong>. By default, any WordPress admin user can open this editor in the dashboard and modify PHP files directly on the server. No FTP, no deployment pipeline, no audit trail. Just a browser and an admin password.</p>
+<p>We disabled this across all WordPress instances by injecting two PHP constants into <code>wp-config.php</code>:</p>
+<pre><code class="language-php">define(&#39;DISALLOW_FILE_EDIT&#39;, true);
+define(&#39;DISALLOW_FILE_MODS&#39;, true);
+</code></pre>
+<ul>
+<li><code>DISALLOW_FILE_EDIT</code> — Removes the file editor from the WordPress dashboard entirely. Even if an attacker has admin credentials, there is no editor to abuse.</li>
+<li><code>DISALLOW_FILE_MODS</code> — Goes further. Disables all file modification from the dashboard, including plugin and theme installation. The filesystem becomes read-only from WordPress&#39;s perspective.</li>
+</ul>
+<p>Because the homelab manages deployments as code, this change was applied consistently across all WordPress instances at once — one of the practical advantages of treating infrastructure as code.</p>
+<h3>Other PHP Applications: Pinning Image Tags</h3>
+<p>For other PHP applications in the cluster, the issue was different but related: some were running on <strong>floating image tags</strong>. Floating tags — things like <code>latest</code>, or a major version label without a patch number — mean the container image can silently change on the next pull.</p>
+<p>An attacker who compromises a container registry, or who finds a vulnerability in a newer version of an image, could exploit it without you knowing the image had changed underneath you.</p>
+<p>We audited all PHP-based deployments and pinned every one to an explicit version tag. If something needs to update, it is a deliberate change in version control — not a silent drift.</p>
+<hr>
+<h2>The Collateral Damage — Sites That Went Down</h2>
+<p>This vulnerability did not stay theoretical. During the period when protections were not yet in place, some of the PHP-based sites hosted in the lab experienced availability issues. The combination of unpatched file-write access and an actively probed environment led to instability in certain parts of the cluster.</p>
+<p>Some sites were taken offline temporarily. Pods entered crash loops. Databases became inconsistent. It took deliberate remediation — not just configuration fixes, but restarts, database checks, and full configuration review — to bring things back to a stable state.</p>
+<p>This is the real cost of an application-layer vulnerability in a multi-tenant environment. One exploited entry point does not just affect one site. When your applications share a cluster, a compromised pod is a risk to every other workload running alongside it.</p>
+<hr>
+<h2>What We Learned</h2>
+<ol>
+<li><p><strong>Defence in depth is necessary but not sufficient.</strong> Having a WAF, VPN, firewalls, and log monitoring is excellent. But if your application has a file-write vulnerability, those layers are bypassed entirely.</p>
+</li>
+<li><p><strong>Floating image tags are a security risk.</strong> If you do not control exactly what version of an image is running, you do not fully control what code is on your server.</p>
+</li>
+<li><p><strong>Least privilege applies to applications too.</strong> A CMS should never need to write PHP files at runtime. Disabling that capability removes an entire class of attack.</p>
+</li>
+<li><p><strong>Multi-tenancy amplifies risk.</strong> In a single-site setup, a compromise is bad. In a shared Kubernetes cluster with multiple workloads, it is potentially catastrophic.</p>
+</li>
+<li><p><strong>The OSI model is not just for networking.</strong> Think about your security controls at every layer — not just at the firewall.</p>
+</li>
+</ol>
+<hr>
+<h2>For Student Readers — The One-Line Summary</h2>
+<p>A PHP webshell is a tiny script that turns a web server into a remote-controlled computer. WordPress&#39;s file editor was the unlocked door. We locked it. But we only had to lock it because someone was already trying the handle.</p>
+<p>Always patch the application layer. Firewalls cannot read PHP.</p>
+<hr>
+<p><em>Home Lab — Security Hardening Series</em></p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Inside My Homelab: Architecture, Philosophy, and Why It Exists</title>
+    <link>https://iamrawtion.github.io/blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html</guid>
+    <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <description>A proper walkthrough of my homelab — what runs, how it's secured, why it exists, and what I've learned from keeping it alive for years.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>Homelab</category>
+    <category>Kubernetes</category>
+    <category>Infrastructure</category>
+    <category>DevOps</category>
+    <category>Self-Hosted</category>
+    <category>Security</category>
+    <category>Open Source</category>
+    <content:encoded><![CDATA[<h2>Why a Homelab</h2>
+<p>I have been running this thing for years now. Not because I need it for work. Not because it saves me money. Honestly, on pure accounting, it probably costs more than just using managed services.</p>
+<p>I run it because it breaks. And every time it breaks, I learn something I could not have learned any other way.</p>
+<p>That is the honest answer.</p>
+<h2>The Bill That Started It</h2>
+<p>Before the homelab, I hosted things on cloud. VMs, managed databases, a few small apps. Nothing extravagant. But cloud bills have a way of growing silently. You spin something up to try it, forget to tear it down, and three months later you are staring at a line item you do not recognise. Multiply that across a few services and a few experiments and the number gets uncomfortable fast.</p>
+<p>The worst part is not the amount. It is that you do not notice until the bill arrives. By then the thing has been running for weeks.</p>
+<p>Now I pay for electricity and internet. Both of which I need anyway — the homelab is just a bonus load on top. The incremental cost of running six servers at home is a fraction of what a comparable cloud setup would cost. And there are no surprise line items. The electricity bill does not suddenly spike because I forgot to stop a VM.</p>
+<p>This is not a recommendation to shut down your cloud account. Managed services are genuinely good and for many things the right answer. But for a learning environment where you spin up and tear down constantly, owning the hardware pays for itself faster than you&#39;d think.</p>
+<h2>What Actually Runs Here</h2>
+<p>Let me be upfront. There are no critical applications here. Nothing production. No customer data. No business-critical workloads.</p>
+<p>What runs here:</p>
+<ul>
+<li><strong>DevOps tools</strong> I want to understand before recommending them to others. If I write about K8sGPT or Botkube, it is because I ran it here first.</li>
+<li><strong>Open source projects</strong> I am evaluating, contributing to, or just curious about.</li>
+<li><strong>Local LLMs</strong> for practice. Ollama with a few models. I test prompts, agents, tool integrations — all without sending data to external APIs.</li>
+<li><strong>Monitoring and logging tools.</strong> More on this below. There are a lot of them.</li>
+<li><strong>A few hobby apps.</strong> Things I built, things I found interesting, things that run quietly in the background.</li>
+</ul>
+<p>A handful of friends and fellow engineers also have access. Not as users of any app specifically — more as a shared learning environment. Someone wants to explore Grafana dashboards, or test a Kubernetes deployment, or see how Prometheus scraping works in practice. This homelab is that place.</p>
+<h2>The Architecture</h2>
+<p><img src="/diagrams/homelab.svg" alt="Homelab Architecture"></p>
+<p>Starting from the top.</p>
+<h3>CDN and Protection Layer</h3>
+<p>All public traffic passes through a CDN and protection layer first. This handles caching, WAF, and DDoS protection. It also does something I appreciate: automatic failover. If the cluster goes down, the CDN detects the origin is unreachable and serves a static version of the site directly from object storage. No manual intervention needed. As far as anyone visiting the blog is concerned, nothing happened.</p>
+<h3>DNS</h3>
+<p>A managed DNS service handles all subdomain routing. This is the one layer I treat as genuinely load-bearing. Everything else can be rebuilt. If DNS is wrong, everything looks broken even when it is not.</p>
+<p>Most subdomains are private — only reachable over VPN. A very small number of things are public-facing, and even those sit behind the CDN.</p>
+<h3>The Public Gateway</h3>
+<p>One small cloud server. It does two things and nothing else.</p>
+<p>A reverse proxy that terminates TLS and routes traffic inward. Nothing inside the home network is directly reachable from the internet. Everything goes through here.</p>
+<p>A WireGuard endpoint for my own remote access. When I am not home, I connect through WireGuard and from there I can reach everything — dashboards, the cluster API, internal tools, everything.</p>
+<p>The gateway does not run any applications. It is a dumb, hardened router.</p>
+<h3>Home Network and Bare Metal</h3>
+<p>Inside the home network, bare metal servers running a Kubernetes cluster. Three control plane nodes, three workers. Overkill for hobby workloads. That is the point — I want to run the same topology that production environments use, so when something fails I experience what production teams experience.</p>
+<p>The cluster uses distributed storage for persistent volumes. This is the layer that causes the most interesting problems. Distributed storage on commodity home hardware is not boring. I have learned a lot from it going wrong at inconvenient times.</p>
+<h3>Object Storage</h3>
+<p>A backup and fallback layer. The CI/CD pipeline syncs static builds and database backups here on every deploy. Two jobs: feed the CDN failover, and be the recovery point if something goes truly wrong.</p>
+<h3>CI/CD</h3>
+<p>GitHub Actions. Push code, pipeline runs, things deploy. I keep this deliberately boring. The homelab itself is complex enough — the deployment pipeline should not be.</p>
+<h2>Reliability</h2>
+<p>The homelab goes down occasionally. Almost always for one reason: the local internet provider. Power is not an issue — there is a backup power supply in place. The cluster itself is fairly stable.</p>
+<p>When it does go down, the static fallback kicks in automatically via the CDN. Most people do not notice.</p>
+<p>I do not chase five nines here. It is a homelab. The goal is learning, not uptime SLAs.</p>
+<h2>Security</h2>
+<p>This is the part I probably over-engineer relative to what actually runs here. But security tooling is also something I want to understand deeply, so the homelab is where I practice it.</p>
+<p>Layers in place:</p>
+<ul>
+<li><strong>CDN and WAF</strong> — WAF, DDoS protection, and rate limiting before anything reaches my network</li>
+<li><strong>Router-level firewall</strong> — hardware firewall rules at the network boundary</li>
+<li><strong>OS-level firewall</strong> — iptables rules on every machine</li>
+<li><strong>Intrusion prevention</strong> — fail2ban equivalent running on exposed services, banning IPs after repeated failed attempts</li>
+<li><strong>Hardened OS</strong> — each machine goes through a baseline hardening process. Unnecessary services disabled, SSH configuration locked down, unattended upgrades enabled.</li>
+<li><strong>WireGuard VPN</strong> — nearly everything internal is only reachable over VPN. No open ports for internal tools.</li>
+</ul>
+<p>The attack surface is intentionally small. Almost nothing is publicly reachable. The things that are publicly reachable sit behind the CDN and the reverse proxy, with no direct path into the home network.</p>
+<p>I run security scanning tools here too — both to monitor the homelab itself and to learn how they work before writing about them.</p>
+<h2>Monitoring and Alerting</h2>
+<p>There are a lot of monitoring tools here. Probably too many. But again, that is the point.</p>
+<p>The monitoring stack covers:</p>
+<ul>
+<li><strong>Metrics</strong> — Prometheus scraping everything, Grafana dashboards for visualization</li>
+<li><strong>Logs</strong> — centralized log aggregation, searchable</li>
+<li><strong>Alerting</strong> — rules for pod failures, node pressure, storage issues, certificate expiry, unusual traffic patterns</li>
+<li><strong>Notifications</strong> — alerts go to Discord and Telegram. Both, because I am more likely to see one or the other depending on where I am. If something breaks at 2am, I find out at 2am.</li>
+<li><strong>AI-assisted diagnostics</strong> — tools like K8sGPT and HolmesGPT running here, part of the AI tools series I am writing</li>
+</ul>
+<p>The monitoring monitors itself too. If Prometheus goes down, something tells me Prometheus went down. At some point you have to stop, but I have not found that point yet.</p>
+<h2>Local LLMs</h2>
+<p>I run Ollama with a few models locally — on the cluster and on a dedicated machine. The use case is practice. Testing prompts, building agents, trying integrations — all without sending data to external APIs and without running up a bill for every experiment.</p>
+<p>This is the foundation for the AI tools series I am writing. Every tool I test in that series runs against this local setup first before I write about it.</p>
+<h2>What This Series Covers</h2>
+<p>This post is the map. Future posts zoom into individual layers:</p>
+<ul>
+<li><strong>Monitoring deep dive</strong> — what I actually watch, how alerts are structured, what has woken me up</li>
+<li><strong>Security tooling</strong> — what is installed, how it is configured, what it has caught</li>
+<li><strong>AI in the homelab</strong> — the full series on K8sGPT, Botkube, HolmesGPT, and more</li>
+<li><strong>Local LLM setup</strong> — Ollama, models, agent integrations</li>
+<li><strong>The WireGuard setup</strong> — how remote access works end to end</li>
+<li><strong>Self-hosted apps</strong> — what runs, why, and what I learned from each</li>
+<li><strong>The D2 diagram pipeline</strong> — how this architecture diagram is generated automatically from code</li>
+</ul>
+<p>Follow the <code>Homelab</code> tag to find everything in the series.</p>
+<hr>
+<p><em>drafted with ai assist, because practicing what I preach.</em></p>
+]]></content:encoded>
+  </item>
+  <item>
+    <title>Finally Found a Local LLM Setup That Seems to be Promising</title>
+    <link>https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/finally-found-a-local-llm-setup-that-seems-promising.html</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <description>After multiple failed attempts with local LLMs, I found a setup that actually works for my homelab — Cindy agent, Ollama, and Qwen3-Coder 30B on an M3 Max. Slow but honest.</description>
+    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
+    <category>AI Agents</category>
+    <category>LLM</category>
+    <category>Ollama</category>
+    <category>Homelab</category>
+    <category>Open Source</category>
+    <category>DevOps</category>
+    <content:encoded><![CDATA[<h2>The Bill Problem</h2>
+<p>I love Claude. I love ChatGPT. I use Gemini too. All three, for work. But at the end of the month, the bills arrive. Like a relative who comes for a day but doesn&#39;t want to leave.</p>
+<p>For office work, it&#39;s fine. But for my personal stuff? My open source projects, homelab setup, random late-night experiments. Paying for every token felt wrong. Especially when I have good machines with decent hardware.</p>
+<p>So I wanted a local LLM. On my own machine. No meter running in the background.</p>
+<p>I tried. Many times. I tried Cline, Openclaw, and a bunch of other tools I don&#39;t even remember now. Every time, same story. Either the tool froze. Or the model told me things that were not true, with such confidence. I felt like talking to an uncle at a wedding about crypto.</p>
+<p>Honestly, I gave up. More than once.</p>
+<h2>Then Came Cindy</h2>
+<p>I follow the AI Weekly newsletter. The last issue mentioned Cindy. An open-source AI agent that &quot;works out of the box.&quot; I have heard &quot;works out of the box&quot; before so many times that I am no longer amazed to find the box empty now.</p>
+<p>So I tried it anyway. And this time, something was different.</p>
+<p>A little about Cindy. It&#39;s open source, Apache 2.0. It runs on your own machine and works with your real files. You can bring your own model, including a local one. That last part was all I needed to hear.</p>
+<p>Then I read the tagline. &quot;Consider it done.&quot; Wait. I have heard this before. If you did engineering in Pune, you have too. Syntel used &quot;Consider IT Done&quot; for years. Capital IT, of course. Besides, Syntel and Cindy sounds the same too. Cindy&#39;s tagline is &quot;Think it. Consider it done&quot;. So I got it set up.</p>
+<h2>My Setup</h2>
+<ul>
+<li><strong>Machine</strong> → MacBook Pro, M3 Max, 48 GB unified memory</li>
+<li><strong>Model runner</strong> → Ollama</li>
+<li><strong>Model</strong> → Qwen3-Coder 30B</li>
+<li><strong>Agent</strong> → Cindy</li>
+</ul>
+<p>Setup was fairly simple on Mac. Linux is a bit more complex — I am going to do that next:</p>
+<pre><code class="language-bash"># Step 1: Install Ollama and pull the model
+ollama pull qwen3-coder:30b
+</code></pre>
+<p>Then:</p>
+<ol>
+<li>Download Cindy from cindy.app.</li>
+<li>On the login screen, choose <strong>Skip Sign-In</strong>. This runs local agents. No Cindy account needed.</li>
+<li>Point Cindy to the local Ollama model.</li>
+</ol>
+<p>That&#39;s it.</p>
+<h2>What Did I Use It For?</h2>
+<p>I have a homelab. A Kubernetes cluster. A monitoring stack. A few hobby apps. Earlier, I used Claude and ChatGPT to keep an eye on them. Now I asked Cindy simple questions:</p>
+<ul>
+<li>Which pods are not running? Did anything restart recently?</li>
+<li>Is my monitoring actually monitoring, or just sitting there looking pretty?</li>
+<li>It also did some administration jobs — SSHing to bare metals, monitoring processes, setting up cron jobs.</li>
+<li>Some internet research and documentation work. Yet to try serious programming.</li>
+</ul>
+<p>And here is the surprising part. It does not make things up.</p>
+<p>When a pod was down, it said the pod was down. When all was fine, it said all was fine. No imaginary CrashLoopBackOff for extra drama.</p>
+<p>I don&#39;t know the exact secret sauce. My guess? Cindy behaves like an agent. It checks real output instead of guessing from memory. Whatever it is, somebody engineered it well.</p>
+<p>Let me not oversell. It is slow. Claude and ChatGPT reply in seconds. A local 30B model takes its time. Sometimes I make chai while it thinks.</p>
+<p>But I don&#39;t mind. For my homelab, speed is not the goal. Accuracy is. I would rather wait two minutes for a correct answer than get a wrong one in two seconds.</p>
+<h2>Next Stop: Linux</h2>
+<p>Mac is sorted. Next, my Linux machine. Cindy has a proper Linux guide. Ubuntu 22.04 and 24.04 get an official <code>.deb</code> through <code>apt</code>. Arch-based systems get a one-line install, as your normal user. It can be a bit tricky.</p>
+<p>I am going to try this on Manjaro. Yes, I know Manjaro is not real Arch.</p>
+<p>Feel free to try this and let me know how it works for you.</p>
+<hr>
+<p><em>drafted with ai assist, because practicing what I preach.</em></p>
+]]></content:encoded>
+  </item>
   <item>
     <title>From a Million-Dollar Yahoo Lottery to AI Deepfakes: My Two Decades of Encounters with Cyber Scams</title>
     <link>https://iamrawtion.github.io/blogs/cyber-scams-two-decades.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/cyber-scams-two-decades.html</guid>
-    <pubDate>Tue, 30 Sep 2026 00:00:00 GMT</pubDate>
+    <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
     <description>How a fake lottery email in 2007 sparked my curiosity about cybersecurity, and why I now worry more about AI-powered scams than ever before.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Security</category>
@@ -22,16 +304,86 @@
     <category>AI/ML</category>
     <category>Cybersecurity</category>
     <category>Scams</category>
-    <content:encoded><![CDATA[<img src="https://iamrawtion.github.io/images/blog-images/cyber-scams-two-decades/cyber-scams-header.jpg" alt="Cybersecurity and online scams" style="width:100%;border-radius:8px;margin-bottom:2rem;"><p>Back in 2007, I had just finished high school. Yahoo Mail was my primary email account and the idea of winning a million dollars was enough to make my day. Little did I know that one suspicious email would begin a nearly two-decade fascination with cybersecurity, social engineering, and the surprisingly creative ways people try to steal your money.</p><p>From a fake million-dollar lottery and brute-forcing my own bank statements, to gift card scams impersonating a college director, a CEO phishing attack on a friend in IT, and the 2024 Arup case where a finance employee was deceived into transferring US$25 million via an AI-generated video conference — the technology changed dramatically. The manipulation never did.</p><p>Urgency, authority, fear, and trust are what these scams exploit. They worked in 2007 and they work in 2026. The difference is that today the voice on the phone might be AI, and the face on the video call might not be your boss.</p>]]></content:encoded>
+    <content:encoded><![CDATA[<p><img src="/images/blog-images/cyber-scams-two-decades/cyber-scams-header.jpg" alt="Cybersecurity and online scams"></p>
+<p>Back in 2007, I had just finished high school. Yahoo Mail was my primary email account and the idea of winning a million dollars was enough to make my day.</p>
+<p>Little did I know that one suspicious email would begin a nearly two-decade fascination with cybersecurity, social engineering, and the surprisingly creative ways people try to steal your money.</p>
+<h2>The Million-Dollar Lottery That Started It All</h2>
+<p>An email landed in my inbox: my Yahoo address had won a million dollars.</p>
+<p>For a teenager who had just finished high school, that was an unimaginable amount. I replied asking how to claim it. They asked for my PAN card to process the reward. I sent a scanned copy.</p>
+<p>A few days later they sent an official-looking reward letter — with my name, my details, and my photograph cropped straight from the PAN card and pasted in.</p>
+<p>That was my first real red flag. If a legitimate institution were processing a million-dollar payout, wouldn&#39;t they ask for a photograph separately rather than copy-pasting from a government document?</p>
+<p>I copied a sentence from their email into Google. Same message, word for word, in discussions about lottery scams. My million dollars had never existed.</p>
+<p>They sent a few follow-up emails warning my winnings would expire. I ignored them. But one thing stayed with me: they now had a copy of my PAN card. I decided to report it if I ever spotted misuse. Fortunately, I never did.</p>
+<p><strong>The lesson:</strong> urgency, extraordinary rewards, and requests for identity documents are warning signs worth investigating before you respond.</p>
+<h2>Password Security, the Hard Way</h2>
+<p>Not long after, I received a prank email promising to calculate compatibility with my girlfriend. I clicked, entered a name, and a laughing cartoon appeared. The name had been emailed to whoever sent the prank.</p>
+<p>I panicked — and then did something I definitely wouldn&#39;t recommend today. I guessed my friend&#39;s Yahoo password using personal details I knew about him, found the embarrassing email in his inbox, and deleted it.</p>
+<p>It was wrong, even if I was a teenager escaping a prank. But it was my first real encounter with how weak passwords expose private information.</p>
+<p>A few years later, I needed old bank statements for a loan application. Every PDF was password-protected, and the password was my account number — which I no longer had. So I taught myself to write a Bash script using a Linux brute-force tool against my own files. Several hours on an ordinary desktop PC later, I had the account number.</p>
+<p>Both incidents taught the same thing: <strong>password protection is only as strong as the password itself.</strong> A predictable value derived from known information isn&#39;t meaningful protection.</p>
+<h2>Scams That Don&#39;t Need a Single Line of Code</h2>
+<p><img src="/images/blog-images/cyber-scams-two-decades/phishing-email.jpg" alt="Phishing and social engineering attempts"></p>
+<p>Over the years I watched scams move from email to online marketplaces, social media, and WhatsApp. None of the most effective ones required technical skill.</p>
+<p><strong>The OLX fake payment.</strong> I listed something for sale and immediately received a call from an unusually eager buyer. They sent a payment link and asked me to click it to receive money. I didn&#39;t. But many people did.</p>
+<p><strong>The fake Army officer.</strong> A common rental scam: someone posing as an Indian Army officer contacts a landlord, agrees to every condition, then claims to have accidentally transferred ₹30,000 instead of the agreed ₹3,000. An SMS appears to confirm it. They call in a panic asking for the ₹27,000 &quot;extra&quot; back immediately. The original transfer never happened. The landlord sends real money chasing a fake one.</p>
+<p><strong>Social media impersonation.</strong> A fraudster downloads someone&#39;s profile photo, creates a second account with the same name, and sends friend requests to their contacts. Once accepted, they ask for urgent money. Sometimes they compromise the real account and message directly from it — making the deception almost impossible to detect.</p>
+<p>I started posting warnings about these on my WhatsApp status. What surprised me was how many elderly relatives and acquaintances called asking how to enable MFA on their accounts. Those conversations probably mattered more than any security presentation I&#39;ve given.</p>
+<h2>Email Spoofing, Authority Scams, and the Gift Card Director</h2>
+<p>During an internship, I was learning to configure Mutt, a command-line email client. I accidentally sent a message to myself with the wrong From address. It arrived. Curious, I tried sending one with <code>bill.gates@microsoft.com</code> as the sender. That arrived too, in spam.</p>
+<p>That experiment explained something I&#39;d wondered about since 2007: why did that lottery email ask me to reply to a completely different address? Because the From address was fabricated. The displayed sender isn&#39;t proof of origin.</p>
+<blockquote>
+<p><strong>Technical explanation</strong></p>
+<p><strong>SMTP has no built-in sender verification.</strong> The <code>From:</code> header is just a text field — the protocol never checks that it matches who you actually are. It is like writing any return address you want on a physical envelope. The post office delivers it based on routing information, not what you wrote as the return address.</p>
+<p>When I configured Mutt with <code>bill.gates@microsoft.com</code> as the From address, the receiving mail server accepted it because my sending server was legitimate and had proper DNS records. There was no mechanism in place to say &quot;this email claiming to be from microsoft.com did not originate from Microsoft&#39;s servers.&quot;</p>
+<p>Three standards exist specifically to close this gap:</p>
+<ul>
+<li><strong>SPF</strong> — a DNS record listing which IP addresses are authorised to send email for a domain. The receiving server checks whether your sending IP is on that list.</li>
+<li><strong>DKIM</strong> — a cryptographic signature added to the email by the legitimate sending server. The receiving server verifies it using a public key published in DNS. You cannot forge this without the private key.</li>
+<li><strong>DMARC</strong> — a policy that tells receiving servers what to do when SPF or DKIM fail: <code>none</code> (log only), <code>quarantine</code> (send to spam), or <code>reject</code> (block entirely).</li>
+</ul>
+<p>The message landed in spam rather than being blocked outright because the receiving server had basic heuristics — the sending IP had no relationship to microsoft.com — but no strict DMARC rejection policy was enforced at the time.</p>
+<p>This also explains the lottery email&#39;s Reply-To trick. The scammer set a spoofed <code>From:</code> to look official, but pointed <code>Reply-To:</code> at an address they actually controlled. They could receive replies without ever owning the domain they were impersonating.</p>
+</blockquote>
+<p>Years later, teaching as a visiting professor, I received an email appearing to come from my college&#39;s director. Urgent request: purchase Apple or Amazon gift cards immediately for an important transaction and claim reimbursement later.</p>
+<p>The story made no sense. Educational institutions don&#39;t work that way. I didn&#39;t buy the gift cards.</p>
+<p>The pattern — authority, urgency, an unusual request that bypasses normal channels — is one of the most reliable signals that something is wrong.</p>
+<h2>When the Voice on the Phone Is AI</h2>
+<p><img src="/images/blog-images/cyber-scams-two-decades/ai-deepfake.jpg" alt="AI deepfake and voice cloning technology"></p>
+<p>My friend works in IT. He received what appeared to be an email from his CEO asking him to urgently purchase gift cards for a business transaction. He completed it. The money was gone before he understood what had happened.</p>
+<p>Working in IT doesn&#39;t make someone immune to social engineering. Fraudsters target human behavior — our tendency to respond quickly to authority, especially when a request sounds urgent.</p>
+<p>But that was still just email. What concerns me far more is what comes next.</p>
+<p>A CEO who appears in interviews, podcasts, and webinars has hours of publicly available voice recordings. AI tools can now generate convincing voice clones from that material. In 2024, a finance employee at the engineering firm Arup was deceived into transferring approximately HK$200 million — around US$25 million — after a video conference in which the &quot;CFO&quot; and several colleagues appeared on screen. They were entirely AI-generated.</p>
+<p>We spent years telling people: don&#39;t trust suspicious emails, call and verify. But what do you do when the voice on the phone sounds exactly like your boss? What do you do when you can see your boss&#39;s face in a video call?</p>
+<p>The other version of this that frightens me more is personal. We all upload videos to Instagram, Facebook, and WhatsApp. Our voices and faces are out there. A scammer could use that material to impersonate not your CEO — but your child, your spouse, your parent. Imagine a phone call from your son&#39;s voice, sounding frightened, asking for money urgently. That is not science fiction. It is happening.</p>
+<p>Digital arrest scams are a related threat: fraudsters impersonating police officers, placing victims on video calls for hours, threatening criminal consequences unless money is transferred immediately. There is no legitimate process in India where police place someone under &quot;digital arrest&quot; over a video call and demand payment. But add a convincing AI-generated uniform and a fabricated police station background, and the terror that induces is real.</p>
+<h2>What Nearly Two Decades Taught Me</h2>
+<p>The technology changed dramatically. The manipulation didn&#39;t.</p>
+<p>A teenager might respond to the promise of a million dollars. A landlord might trust someone claiming to be an Army officer. An employee might obey an urgent request from a supposed CEO. A parent might transfer money after hearing their child&#39;s frightened voice.</p>
+<p>The scam that works in 2026 is still exploiting the same things the 2007 lottery email exploited: excitement, fear, trust, and urgency.</p>
+<p>A few habits that genuinely help:</p>
+<ul>
+<li><strong>Verify financial requests through an independent channel.</strong> If someone unexpectedly asks for money, call them back on a number you already have — not the one they gave you.</li>
+<li><strong>Never trust a payment SMS alone.</strong> Check your actual bank balance before believing a transfer happened.</li>
+<li><strong>Enable MFA on email, banking, and social media.</strong> Authenticator apps are stronger than SMS codes.</li>
+<li><strong>Use unique passwords.</strong> A password from one breach shouldn&#39;t unlock your other accounts.</li>
+<li><strong>Create a family verification phrase.</strong> Agree on a private question that proves identity during an unexpected emergency call.</li>
+<li><strong>Report fraud quickly.</strong> In India, call 1930 or report at cybercrime.gov.in.</li>
+</ul>
+<p>And if you encounter a scam or fall for one: talk about it. Share it. The person who hears your story might recognize the same pattern before it costs them something.</p>
+<h2>The Next Scam May Not Look Like One</h2>
+<p>That first lottery email was easy to spot once I looked carefully. Badly written, poorly executed, copy-pasted photograph.</p>
+<p>Today a scammer might write a perfectly convincing message in your language, impersonate your closest friend using their social media photos and voice, or appear on a video call looking and sounding exactly like someone you trust.</p>
+<p>The most dangerous part is that the obvious warning signs we spent years learning to identify may simply not be there.</p>
+<p>And to think — all of this started because a teenager with a Yahoo email address thought he&#39;d won a million dollars.</p>
+]]></content:encoded>
   </item>
   <item>
     <title>CutiePi: From a Digital Photo Album to My Home Network Monitor</title>
     <link>https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/cutiepi-raspberry-pi-tablet.html</guid>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 GMT</pubDate>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     <description>How a Raspberry Pi tablet became a digital photo album for my daughter, an ad blocker for my home, and a handy little network monitoring device.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-    <category>Linux</category>
     <category>Raspberry Pi</category>
     <category>HomeServer</category>
     <category>Pi-hole</category>
@@ -39,23 +391,284 @@
     <category>Docker</category>
     <category>Networking</category>
     <category>Open Source</category>
-    <content:encoded><![CDATA[<img src="https://iamrawtion.github.io/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-board.jpg" alt="CutiePi Raspberry Pi tablet hardware" style="width:100%;border-radius:8px;margin-bottom:2rem;"><p>About five or six years ago, I bought my first Raspberry Pi. Why? Well, I didn't really have a reason. I'd been hearing quite a bit about Raspberry Pi and how this tiny computer could be used for practically anything. Being a tech enthusiast, I was curious to see what all the excitement was about.</p><p>So I ordered one. A few days later, it arrived, and I was quite excited to get started. There was just one problem — I had absolutely no idea what I was going to do with it.</p><p>I connected it to a monitor, installed Ubuntu, played around with it, and once I'd satisfied my curiosity, switched it off. Into the drawer it went.</p><h2>Enter CutiePi: A Raspberry Pi With a Screen!</h2><p>A few years later, I came across CutiePi — a Raspberry Pi-based tablet with its own touchscreen and preinstalled OS. I ordered one, still without a particular use case in mind.</p><h2>Project 1: A Digital Photo Album for My Daughter</h2><p>When CutiePi arrived, I turned it into a digital photo frame running a 24/7 slideshow of my daughter's photos. It became a continuously running photo album in our home. Four years later, she loves sitting in front of it, watching photographs of herself as a baby.</p><h2>Project 2: Pi-hole — Network-Wide Ad Blocking</h2><p>I installed Pi-hole using Docker. Now CutiePi quietly blocks advertising and tracking domains across my entire home network while the slideshow runs.</p><h2>Project 3: Speedtest Tracker + Grafana</h2><p>I added Speedtest Tracker and Grafana to monitor my home internet performance over time — tracking speeds, latency, and outages with historical dashboards.</p><p>One device. Three completely different jobs. And the most satisfying part is still that photo album.</p>]]></content:encoded>
+    <content:encoded><![CDATA[<p><img src="/images/blog-images/cutiepi-raspberry-pi-tablet/cutiepi-board.jpg" alt="CutiePi hardware — Raspberry Pi tablet PCB detail"></p>
+<h2>My First Raspberry Pi: A Solution Looking for a Problem</h2>
+<p>About five or six years ago, I bought my first Raspberry Pi.</p>
+<p>Why? Well, I didn&#39;t really have a reason.</p>
+<p>I&#39;d been hearing quite a bit about Raspberry Pi and how this tiny computer could be used for practically anything. Being a tech enthusiast, I was curious to see what all the excitement was about.</p>
+<p>So I ordered one.</p>
+<p>A few days later, this tiny computer arrived at my doorstep, and I was quite excited to get started.</p>
+<p>There was just one problem.</p>
+<p>I had absolutely no idea what I was going to do with it.</p>
+<p>I connected it to a monitor, installed Ubuntu and experimented with a couple of other operating systems available for Raspberry Pi. I used it like a miniature desktop computer, explored its capabilities, and generally played around with it.</p>
+<p>And once I&#39;d satisfied my curiosity, I switched it off.</p>
+<p>Into the drawer it went.</p>
+<p>I don&#39;t even remember what eventually happened to that Raspberry Pi. I might have given it to one of my students, or perhaps it&#39;s still sitting in a drawer somewhere.</p>
+<p>Either way, that was the end of my first Raspberry Pi adventure.</p>
+<p>At least until I discovered CutiePi.</p>
+<h2>Enter CutiePi: A Raspberry Pi With a Screen!</h2>
+<p><img src="/images/blog-images/cutiepi-raspberry-pi-tablet/raspberry-pi-tablet.jpg" alt="CutiePi tablet - compact Raspberry Pi device"></p>
+<p>A few years later, I came across an advertisement for CutiePi on one of the Telegram channels I followed.</p>
+<p>For those unfamiliar with it, CutiePi is a Raspberry Pi-based tablet. Instead of buying a Raspberry Pi and connecting it to an external monitor, keyboard, and other accessories, you get a compact, portable device with its own touchscreen.</p>
+<p>And it looks cute! The name pretty much justifies the product.</p>
+<p>Since I&#39;d already experimented with Raspberry Pi, I was curious to see how a tablet version would work.</p>
+<p>This time, there was another advantage. CutiePi came with its own operating system and applications preinstalled. I didn&#39;t have to spend time figuring out which operating system to install or getting the basic hardware working.</p>
+<p>I could simply turn it on and start using it.</p>
+<p>So I ordered one.</p>
+<p>Of course, I still didn&#39;t have a particularly good use case in mind.</p>
+<p>Apparently, I hadn&#39;t learned much from my first Raspberry Pi purchase!</p>
+<h2>Project 1: A Digital Photo Album for My Daughter</h2>
+<p><img src="/images/blog-images/cutiepi-raspberry-pi-tablet/daughter-photos.jpg" alt="Childhood photos slideshow on a small screen"></p>
+<p>When CutiePi arrived, my first impression was that it looked like a small tablet PC.</p>
+<p>And that gave me an idea.</p>
+<p>My daughter had recently been born, and like most new parents, we had accumulated a ridiculous number of photographs. Every smile, every funny expression, every little milestone — everything had been captured.</p>
+<p>Most of these photographs were simply sitting on our phones or in digital storage.</p>
+<p>Why not put them on CutiePi and turn it into a digital photo frame?</p>
+<p>So that&#39;s exactly what I did.</p>
+<p>I transferred my daughter&#39;s photographs to the device, configured a slideshow, and left it running.</p>
+<p>Suddenly, CutiePi had a purpose!</p>
+<p>It became a continuously running digital photo album in our home. Whenever friends or relatives visited, they could see photographs of our daughter scrolling across the screen.</p>
+<p>It was particularly nice because those memories were no longer hidden away in a photo gallery that we rarely opened. They were right there in front of us, throughout the day.</p>
+<p>And the slideshow kept running, 24 hours a day, seven days a week.</p>
+<h3>Four Years Later, She Loves It Even More</h3>
+<p>My daughter is now four years old, and she absolutely loves watching that slideshow.</p>
+<p>She&#39;ll sit in front of CutiePi and watch photographs of herself as a baby. All those little memories that we captured when she was born are now something she gets to experience herself.</p>
+<p>It&#39;s quite funny watching her react to her own baby photographs.</p>
+<p>What started as a simple Raspberry Pi experiment has become a little window into her childhood.</p>
+<p>And of all the things I&#39;ve done with this device, this is probably my favorite.</p>
+<p>But being a tech enthusiast, I couldn&#39;t possibly leave a perfectly capable computer running just a photo slideshow forever.</p>
+<p>Surely, it could do something more!</p>
+<h2>Project 2: Pi-hole — Getting Rid of Advertisements Across My Home Network</h2>
+<p><img src="/images/blog-images/cutiepi-raspberry-pi-tablet/pi-hole-network.jpg" alt="Home network diagram showing Pi-hole DNS filtering"></p>
+<p>My next experiment was Pi-hole.</p>
+<p>Pi-hole is an open-source, network-wide advertisement blocker. Instead of installing an ad-blocking extension on every browser or device, you can configure Pi-hole as the DNS server for your home network.</p>
+<p>Whenever a device tries to resolve a domain name, Pi-hole checks whether that domain is on its blocklists. If it&#39;s associated with advertising or tracking, Pi-hole blocks the request.</p>
+<p>The nice thing about this approach is that it works across multiple devices on the same network. Phones, laptops, tablets, smart TVs, and other devices can all benefit from it without needing individual ad-blocking extensions.</p>
+<p>Of course, it doesn&#39;t block every advertisement. YouTube advertisements, for example, are a different challenge because of how YouTube delivers its content.</p>
+<p>But for a lot of everyday browsing, Pi-hole can make a noticeable difference.</p>
+<p>And since CutiePi is essentially a Raspberry Pi running Linux, I could install Pi-hole using Docker and have it run in the background.</p>
+<p>Now my little photo album was doing two jobs simultaneously.</p>
+<p>It displayed photographs of my daughter while quietly blocking unwanted advertising across my home network.</p>
+<p>Not bad for a device that I&#39;d initially purchased just because it looked cute!</p>
+<h2>Project 3: Monitoring My Home Internet With Speedtest Tracker and Grafana</h2>
+<p><img src="/images/blog-images/cutiepi-raspberry-pi-tablet/grafana-dashboard.jpg" alt="Grafana dashboard showing network performance metrics"></p>
+<p>The third use case came from a problem I occasionally faced at home.</p>
+<p>My internet connection would sometimes go down, and if I wasn&#39;t at home, I wouldn&#39;t necessarily know when it happened or how long it had been unavailable.</p>
+<p>And when you&#39;re running your own home infrastructure, having visibility into your internet connection is quite useful.</p>
+<p>I wanted to know how my connection was performing over time, whether there were frequent interruptions, and whether I was actually getting the speeds I was paying for.</p>
+<p>So I installed Speedtest Tracker on CutiePi.</p>
+<p>It periodically runs internet speed tests and records the results, allowing me to track download speeds, upload speeds, and latency.</p>
+<p>But simply collecting data wasn&#39;t enough. I wanted a dashboard.</p>
+<p>And that meant Grafana!</p>
+<p>I configured Grafana to visualize the monitoring data, giving me a dashboard to check how my home internet was performing.</p>
+<p>Now, instead of relying on the occasional manual speed test, I could look at historical data and identify patterns.</p>
+<ul>
+<li>Was my internet connection slowing down at particular times of the day?</li>
+<li>Were there periods when speed tests failed?</li>
+<li>Was the connection performing consistently?</li>
+</ul>
+<p>All useful information, especially when troubleshooting internet issues.</p>
+<p>One important distinction: a failed speed test doesn&#39;t always mean the internet was down. It could also indicate a problem with the test server or the monitoring device itself. But keeping historical records still makes troubleshooting considerably easier.</p>
+<p>And just like that, CutiePi had become my little home network monitoring station.</p>
+<h2>One Device, Three Completely Different Jobs</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Digital photo album</td>
+<td>24/7 slideshow of my daughter&#39;s childhood photos</td>
+</tr>
+<tr>
+<td>Pi-hole</td>
+<td>Network-wide DNS filtering to block ads and trackers</td>
+</tr>
+<tr>
+<td>Speedtest Tracker + Grafana</td>
+<td>Internet performance monitoring with historical dashboards</td>
+</tr>
+</tbody></table>
+<p>What&#39;s interesting is that these three applications serve completely different purposes.</p>
+<p>One is personal, one improves the experience of using the internet at home, and the third helps me monitor my network.</p>
+<p>And they&#39;re all running on the same little device.</p>
+<h2>Why I Haven&#39;t Upgraded It</h2>
+<p>My CutiePi is an older model, and its hardware is fairly limited by today&#39;s standards.</p>
+<p>I have no intention of overwhelming it with additional applications or turning it into a miniature production server.</p>
+<p>I&#39;ve also come across information about newer CutiePi hardware and upgrade options. It&#39;s tempting to explore those, particularly because upgrading a Raspberry Pi-based device can open up new possibilities.</p>
+<p>But I haven&#39;t seriously considered upgrading mine yet.</p>
+<p>Why? Because everything is working!</p>
+<p>The photo album runs, Pi-hole does its job, and my internet monitoring dashboard gives me the information I need.</p>
+<p>I&#39;ve spent enough time working with servers and infrastructure to appreciate the value of leaving a stable system alone.</p>
+<p>There&#39;s always another service to install, another container to deploy, or another dashboard to configure. But at some point, you have to ask yourself whether you actually need any of it.</p>
+<p>In this case, I don&#39;t.</p>
+<p>My little CutiePi has found its purpose, and I&#39;m quite happy with what it&#39;s doing.</p>
+<h2>A Small Project I&#39;d Recommend Exploring</h2>
+<p>One of the things I like about Raspberry Pi projects is that you don&#39;t necessarily need a complicated use case to get started.</p>
+<p>My first Raspberry Pi ended up in a drawer because I purchased it without knowing what I wanted to do with it.</p>
+<p>CutiePi could easily have suffered the same fate.</p>
+<p>Instead, I started with something incredibly simple: displaying photographs. That gave the device a reason to stay switched on. Once it was already running, adding a few lightweight background services made sense.</p>
+<p>If you&#39;re interested in experimenting with Raspberry Pi, a digital photo album, Pi-hole, or a basic network monitoring dashboard are all interesting projects to explore. You don&#39;t necessarily need a CutiePi either — an ordinary Raspberry Pi can handle similar tasks with the appropriate hardware.</p>
+<p>And if you have children at home, turning an old Raspberry Pi into a digital photo album might be one of the simplest and most enjoyable projects you can build.</p>
+<h2>The Best Part Has Nothing to Do With Technology</h2>
+<p>After all the experimentation with Docker, Pi-hole, speed tests, and Grafana, the most satisfying part of this project is still the original photo album.</p>
+<p>My daughter is four now.</p>
+<p>She occasionally sits in front of CutiePi, watching photographs of herself from when she was just a baby. Memories that she was too young to remember are now right there on a little screen, continuously scrolling in front of her.</p>
+<p>And every time I see her enjoying those photographs, I&#39;m reminded that sometimes the simplest application of technology is also the most meaningful.</p>
+<p>I bought CutiePi because I was curious about Raspberry Pi. I kept it running because it became part of our home.</p>
+<p>And as long as it&#39;s doing these three jobs without complaining, I have absolutely no intention of touching it.</p>
+<p>After all, if it ain&#39;t broke, don&#39;t fix it!</p>
+]]></content:encoded>
   </item>
   <item>
     <title>I Tried to De-Google My Phone. My Four-Year-Old Daughter Ended Up Using It.</title>
     <link>https://iamrawtion.github.io/blogs/de-google-lineageos-daughters-phone.html</link>
     <guid isPermaLink="true">https://iamrawtion.github.io/blogs/de-google-lineageos-daughters-phone.html</guid>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 GMT</pubDate>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
     <description>I installed LineageOS on a spare Android to escape Google's ecosystem. The experiment didn't go as planned — but it found a far better purpose.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-    <category>Linux</category>
     <category>Android</category>
     <category>LineageOS</category>
     <category>Open Source</category>
     <category>Privacy</category>
     <category>Parenting</category>
     <category>Technology</category>
-    <content:encoded><![CDATA[<img src="https://iamrawtion.github.io/images/blog-images/de-google-lineageos-daughters-phone/lineageos-header.jpg" alt="LineageOS custom ROM on an Android phone" style="width:100%;border-radius:8px;margin-bottom:2rem;"><p>I've been trying to de-Google my digital life for quite some time now. Not that I have anything particularly against Google, but I wanted to see how much of my daily digital life I could manage without depending on a single company for practically everything.</p><p>Email, maps, browsers, app stores, cloud storage, YouTube — you name it, and Google probably has a service for it.</p><p>Being a tech enthusiast, I thought experimenting with a custom Android ROM would be a good place to start. And that's how I ended up installing LineageOS on one of my spare Android phones.</p><p>For those unfamiliar with it, LineageOS is a free, open-source operating system based on Android. It gives you more control over your phone and, importantly for my experiment, doesn't require you to install Google's apps and services.</p><p>Perfect! Or so I thought.</p><h2>De-Googling Is Easier Said Than Done</h2><p>I installed LineageOS, configured the phone, and loaded it with all the applications I thought I would need. No Google apps, no Play Store, and no unnecessary software.</p><p>I wasn't brave enough to immediately make it my primary phone. Instead, I started using it as a secondary device to see whether I could actually survive without Google's ecosystem.</p><p>It didn't take very long to discover a few problems. First, there were certain applications I needed that weren't easily available without the Play Store. Then there was Google Maps — I travel quite a bit, and reliable navigation is something I simply cannot compromise on.</p><p>Eventually, I realized that while LineageOS was perfectly capable of running my phone, my everyday requirements still tied me to certain Google services. I had a perfectly functional Android phone running LineageOS, but I couldn't realistically use it as my primary device. And I didn't want it to end up forgotten in a drawer.</p><h2>Then My Four-Year-Old Daughter Gave Me an Idea</h2><p>Around this time, my daughter was four years old. Her school had already introduced computers and basic technology as part of its curriculum. I realized that keeping her completely away from technology wasn't necessarily the right approach either — but the question was <em>how</em> to introduce her to it without giving her unrestricted access to everything that comes with a smartphone.</p><p>And suddenly, my LineageOS experiment had a new purpose. What if I turned this spare phone into a device specifically designed for her? Not a regular smartphone with parental controls added afterward, but a phone with only the applications I actually wanted her to use.</p><h2>Building Her First Android Phone</h2><p>I installed just four apps: Thunderbird for email, WhatsApp to stay connected with me, LightTube (an open-source YouTube alternative without ads), and Spotify for music. No Play Store, no browser, no games.</p><h2>The Experiment Continues</h2><p>I started this experiment because I wanted to use less Google. I continued it because I wanted my daughter to use technology more thoughtfully. Sometimes a failed tech experiment finds a much better use case than the one you originally had in mind.</p>]]></content:encoded>
+    <content:encoded><![CDATA[<p><img src="/images/blog-images/de-google-lineageos-daughters-phone/lineageos-header.jpg" alt="LineageOS custom ROM on an Android phone"></p>
+<h2>It All Started With My Attempt to Escape Google</h2>
+<p>I&#39;ve been trying to de-Google my digital life for quite some time now. Not that I have anything particularly against Google, but I wanted to see how much of my daily digital life I could manage without depending on a single company for practically everything.</p>
+<p>Email, maps, browsers, app stores, cloud storage, YouTube — you name it, and Google probably has a service for it.</p>
+<p>Being a tech enthusiast, I thought experimenting with a custom Android ROM would be a good place to start. And that&#39;s how I ended up installing LineageOS on one of my spare Android phones.</p>
+<p>For those unfamiliar with it, LineageOS is a free, open-source operating system based on Android. It gives you more control over your phone and, importantly for my experiment, doesn&#39;t require you to install Google&#39;s apps and services.</p>
+<p>Perfect! Or so I thought.</p>
+<h2>De-Googling Is Easier Said Than Done</h2>
+<p>I installed LineageOS, configured the phone, and loaded it with all the applications I thought I would need. No Google apps, no Play Store, and no unnecessary software.</p>
+<p>Everything looked great.</p>
+<p>But I wasn&#39;t brave enough to immediately make it my primary phone. Instead, I started using it as a secondary device to see whether I could actually survive without Google&#39;s ecosystem.</p>
+<p>It didn&#39;t take very long to discover a few problems.</p>
+<p>First, there were certain applications I needed that weren&#39;t easily available without the Play Store. There are alternative app stores and ways to install Android applications, but not everything works as conveniently as you&#39;d expect.</p>
+<p>Then there was Google Maps.</p>
+<p>I travel quite a bit, and reliable navigation is something I simply cannot compromise on. I experimented with alternative mapping applications, but in my experience, they weren&#39;t always as accurate or convenient for the places I needed to visit.</p>
+<p>I could certainly live without Google Photos or Gmail, but Google Maps? That was a much harder relationship to end.</p>
+<p>Eventually, I realized that while LineageOS was perfectly capable of running my phone, my everyday requirements still tied me to certain Google services.</p>
+<p>So the experiment reached an awkward stage.</p>
+<p>I had a perfectly functional Android phone running LineageOS, but I couldn&#39;t realistically use it as my primary device.</p>
+<p>And I didn&#39;t want it to end up forgotten in a drawer.</p>
+<h2>Then My Four-Year-Old Daughter Gave Me an Idea</h2>
+<p>Around this time, my daughter was four years old.</p>
+<p>I&#39;ve always been quite particular about her exposure to mobile phones. I&#39;m not particularly fond of handing children a smartphone just to keep them occupied, and I try to keep her away from mobile screens as much as possible.</p>
+<p>But there&#39;s another side to this argument.</p>
+<p>Her school had already introduced computers and basic technology as part of its curriculum. She was learning about digital devices, and I realized that keeping her completely away from technology wasn&#39;t necessarily the right approach either.</p>
+<p>After all, she&#39;s growing up in a world where technology is everywhere. Eventually, she&#39;ll need to understand how to use it.</p>
+<p>The question wasn&#39;t whether I should introduce her to technology.</p>
+<p>The question was <em>how</em> I could introduce her to it without giving her unrestricted access to everything that comes with a smartphone.</p>
+<p>And suddenly, my LineageOS experiment had a new purpose.</p>
+<p>What if I turned this spare phone into a device specifically designed for her?</p>
+<p>Not a regular smartphone with parental controls added afterward, but a phone with only the applications I actually wanted her to use.</p>
+<p>No games. No Play Store. No web browser. No endless scrolling through random content.</p>
+<p>Just a handful of applications serving very specific purposes.</p>
+<h2>Building Her First Android Phone</h2>
+<p>I already had LineageOS installed, so most of the hard work was done. All I needed to do was rethink the phone&#39;s purpose and configure it accordingly.</p>
+<p>I wanted to keep things extremely simple.</p>
+<hr>
+<h3>1. Email: Her Own Digital Identity</h3>
+<p><img src="/images/blog-images/de-google-lineageos-daughters-phone/thunderbird-email.jpg" alt="Thunderbird email client on Android"></p>
+<p>My daughter already had her own email address, so I configured an email client on the phone. I believe I used Thunderbird.</p>
+<p>The idea was to give her a basic introduction to email and gradually teach her how digital communication works.</p>
+<hr>
+<h3>2. WhatsApp: Staying Connected With Dad</h3>
+<p><img src="/images/blog-images/de-google-lineageos-daughters-phone/whatsapp-connect.jpg" alt="WhatsApp messaging app on a phone"></p>
+<p>WhatsApp was an obvious choice because that&#39;s how we communicate most of the time.</p>
+<p>Whenever she wants to talk to me, she can use the phone. Rather than giving her a device purely for entertainment, I wanted it to serve a practical purpose.</p>
+<p>Being able to communicate with her parents is a pretty good reason to have a phone.</p>
+<hr>
+<h3>3. LightTube: YouTube Without the Advertisements</h3>
+<p><img src="/images/blog-images/de-google-lineageos-daughters-phone/lighttube-videos.jpg" alt="Child watching videos on a phone without ads"></p>
+<p>This was an interesting one.</p>
+<p>I wanted her to have access to certain YouTube videos, particularly when we&#39;re traveling. But I didn&#39;t want her to be bombarded with advertisements or spend hours jumping from one recommended video to another.</p>
+<p>I also don&#39;t have a paid YouTube subscription.</p>
+<p>So I installed LightTube, an open-source alternative that lets her watch videos without the usual advertisements.</p>
+<p>The idea is simple: she watches videos that I choose for her, rather than endlessly exploring whatever YouTube decides to recommend next.</p>
+<hr>
+<h3>4. Spotify: Because Music Is Important!</h3>
+<p><img src="/images/blog-images/de-google-lineageos-daughters-phone/spotify-music.jpg" alt="Spotify music app on a smartphone"></p>
+<p>Finally, I installed Spotify.</p>
+<p>She loves listening to her favorite songs, and I wanted her to have access to music without having to use my phone every time.</p>
+<p>Nothing particularly complicated here. Just her favorite music, whenever we allow her to listen.</p>
+<hr>
+<p>And that&#39;s pretty much it.</p>
+<p>Four applications, each installed for a specific reason. No unnecessary software, no complicated interface, and no applications installed simply because everyone else has them.</p>
+<h2>What I Deliberately Left Out</h2>
+<table>
+<thead>
+<tr>
+<th>What Was Excluded</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Play Store</td>
+<td>No unrestricted app installations</td>
+</tr>
+<tr>
+<td>Web browser</td>
+<td>No casual web browsing</td>
+</tr>
+<tr>
+<td>Games</td>
+<td>No mobile gaming rabbit hole</td>
+</tr>
+<tr>
+<td>Google apps</td>
+<td>No unnecessary Google services</td>
+</tr>
+</tbody></table>
+<p>This is where LineageOS really started making sense for me.</p>
+<p>When you buy a regular Android phone, it usually comes with an entire ecosystem of preinstalled applications. Even if you uninstall some of them, there&#39;s always something else waiting to grab your attention.</p>
+<p>With this setup, I could start with a relatively clean operating system and install only what was necessary.</p>
+<p>There was no Play Store tempting her to download games. No browser inviting her to explore random websites. And no Google applications that she had absolutely no reason to use.</p>
+<p>Of course, simply removing applications doesn&#39;t make a phone completely childproof. Applications such as WhatsApp and Spotify still need supervision, and alternative video clients aren&#39;t necessarily parental-control tools.</p>
+<p>But at least I had significantly reduced the number of things I needed to worry about.</p>
+<p>More importantly, the phone wasn&#39;t designed to keep her entertained all day. It was designed to give her access to a few things when she actually needed them.</p>
+<h2>She Has a Phone, but That Doesn&#39;t Mean Unlimited Screen Time</h2>
+<p>There&#39;s an important distinction here.</p>
+<p>My daughter is now the primary user of this phone, but that doesn&#39;t mean she carries it around all day or spends hours staring at it.</p>
+<p>Quite the opposite.</p>
+<p>Most of the time, the phone simply sits somewhere until she needs it.</p>
+<p>If she wants to talk to me, she has WhatsApp. If we&#39;re traveling and I want her to watch something for a little while, she has LightTube. If she wants to listen to her favorite songs, there&#39;s Spotify.</p>
+<p>At home, she generally watches television for an hour or two, so there&#39;s no real need for her to spend additional time on the phone.</p>
+<p>And since there are no games or an app store, there&#39;s considerably less incentive for her to keep picking it up every few minutes.</p>
+<p>I&#39;m not trying to make her completely independent with technology at four years old. I&#39;m simply giving her a controlled environment in which she can gradually become familiar with it.</p>
+<h2>An Unexpected Benefit: She&#39;s Learning Android</h2>
+<p>One thing I particularly like about this arrangement is that she&#39;s getting familiar with how a smartphone actually works.</p>
+<p>She learns how to navigate between applications, recognize icons, use basic communication tools, and understand that different applications serve different purposes.</p>
+<p>These might seem like very small things to us, but they&#39;re useful skills for a young child.</p>
+<p>And when her friends eventually start talking about phones, applications, and technology, she won&#39;t be completely unfamiliar with the subject.</p>
+<p>At the same time, I don&#39;t feel the need to introduce her to mobile games, social media, or unrestricted internet browsing simply because other children might have access to them.</p>
+<p>There&#39;s plenty of time for all that later. For now, learning the basics is more than enough.</p>
+<h2>So, Did My De-Googling Experiment Fail?</h2>
+<p>Well, yes and no.</p>
+<p>If the original objective was to completely replace my primary Android phone with LineageOS and eliminate my dependence on Google, I certainly haven&#39;t achieved that.</p>
+<p>I still need Google Maps. I still have applications that depend on Google&#39;s ecosystem. And I haven&#39;t found a convenient alternative for every service I use.</p>
+<p>But something interesting happened along the way.</p>
+<p>The phone that couldn&#39;t meet all my requirements turned out to be perfectly suited to someone with much simpler requirements.</p>
+<p>My daughter doesn&#39;t need Google Maps. She doesn&#39;t need dozens of applications or a browser. She doesn&#39;t need access to an app store.</p>
+<p>She needs a way to communicate with her parents, watch a few selected videos, listen to music, and slowly learn how to use technology.</p>
+<p>And LineageOS gives me a relatively clean foundation for exactly that.</p>
+<p>I originally installed it to gain more control over my own digital life. I ended up using that control to build a simpler digital experience for my daughter.</p>
+<p>Not quite the outcome I expected!</p>
+<h2>The Experiment Continues</h2>
+<p>I don&#39;t know how long this setup will remain sufficient.</p>
+<p>As she grows older, her requirements will change. She&#39;ll probably need educational applications, a browser for schoolwork, and eventually access to other digital tools.</p>
+<p>At that point, I&#39;ll have to reconsider what applications to install and what restrictions make sense for her age.</p>
+<p>For now, though, this little experiment is working for us.</p>
+<p>She has her own phone, she&#39;s learning to use Android, she can communicate with me, and she has access to a few things she enjoys.</p>
+<p>And I have some peace of mind knowing that her phone isn&#39;t filled with games, advertisements, and dozens of applications competing for her attention.</p>
+<p>I started this experiment because I wanted to use less Google. I continued it because I wanted my daughter to use technology more thoughtfully.</p>
+<p>Sometimes a failed tech experiment finds a much better use case than the one you originally had in mind.</p>
+<p>Let&#39;s see how this one evolves as she grows up.</p>
+]]></content:encoded>
   </item>
   <item>
     <title>MeasureCamp Delhi: Where I Became a Speaker Without Meaning To</title>
@@ -64,14 +677,54 @@
     <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
     <description>I went to MeasureCamp Delhi 2026 expecting the standard conference deal. It turned out to be an unconference — and I accidentally ended up as a speaker.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-    <category>DevOps</category>
     <category>Analytics</category>
     <category>Conference</category>
     <category>CRO</category>
     <category>A/B Testing</category>
     <category>AI Agents</category>
     <category>MeasureCamp</category>
-    <content:encoded><![CDATA[<img src="https://iamrawtion.github.io/images/blog-images/measurecamp-delhi-2026/measurecamp-cover.jpg" alt="MeasureCamp Delhi 2026" style="width:100%;border-radius:8px;margin-bottom:2rem;"><p>Last week I went to MeasureCamp Delhi 2026. This was their 200th event and indeed a special one. Before going, I had a simple picture in my head. Rows of chairs. A stage. Some speakers talking. The standard conference deal we have all attended at least fifty times in our careers.</p><p>I was wrong indeed.</p><p>MeasureCamp is an "unconference." No fixed agenda. The event starts, sponsors get their thank you, and then they show you a big blank board with time slots and room numbers. If you want to speak on something, you write it on a small card, stick it on the board, and you are now a speaker. No approval committee. No forms. No pitching your company.</p><p>My colleague Rohan Deshpande and I went there just to attend. But after the opening session we looked at the board, looked at each other, and thought — why not? We put up a session on how AI has been sneaking into troubleshooting and CRO workflows. About 15–20 people joined. The questions came fast. We walked away with speaker mementos without preparing a single slide.</p><p>If you work anywhere near analytics, data, or experimentation, go once. Go with zero expectations. That is honestly the whole point.</p>]]></content:encoded>
+    <category>Tech Event</category>
+    <content:encoded><![CDATA[<p><img src="/images/blog-images/measurecamp-delhi-2026/measurecamp-cover.jpg" alt="MeasureCamp Delhi 2026"></p>
+<p>Last week I went to MeasureCamp Delhi 2026. This was their 200th event and indeed a special one. Before going, I had a simple picture in my head. Rows of chairs. A stage. Some speakers talking. Us nodding along. Chai/Coffee in between. Maybe a goodie bag at the end. People looking to sell their product every now and then. Group of students clicking selfies all over. The standard conference deal we have all attended at least fifty times in our careers.</p>
+<p>I was wrong indeed.</p>
+<h2>What Is an Unconference?</h2>
+<p>MeasureCamp is something called an &quot;unconference.&quot; When I heard the word for the first time, I thought maybe they forgot to plan the conference part. It was on purpose though. There is no fixed agenda. The event starts with a short intro, sponsors get their thank you, and then they show you a big blank board with time slots and room numbers. That board is the real hero of the day. Here is a picture:</p>
+<p><img src="/images/blog-images/measurecamp-delhi-2026/measurecamp-board.jpg" alt="The MeasureCamp session board — topics posted by attendees across seven rooms"></p>
+<p>I remember pre-covid days, I did something similar. As a meetup organizer at DevOps Pune and after getting some inspiration from Seattle meetup groups, I started working on Lean Coffee format of meetups since we were getting a lot of marketing pitches back then. Here is what Lean Coffee is — definition copied as-is from their site:</p>
+<blockquote>
+<p>Lean Coffee is a structured, but agenda-less meeting. Participants gather, build an agenda, and begin talking. Conversations are directed and productive because the agenda for the meeting was democratically generated.</p>
+</blockquote>
+<p>So I now assumed this Unconference was probably the same, with a new name. But again, I was wrong.</p>
+<p>Here is what happens. If you want to speak on something, you write it on a small card, stick it on the board, and boom, you are now a speaker. No approval committee. No forms. No &quot;we will get back to you.&quot; If people like your topic, they walk in. If they don&#39;t, you get a very empty room and a good lesson in humility.</p>
+<p>Only one rule was strict. No pitching your company. Sponsors already pay for that privilege, so the rest of us just talk shop, not sales. Once that rule was set, every conversation in the building felt honest. Nobody was secretly selling you a subscription while pretending to chat.</p>
+<p>Wow! It sounded good and scary at the same time.</p>
+<p><strong>Good, because:</strong></p>
+<ul>
+<li>This was different. A different learning experience is always good.</li>
+<li>No marketing pitches. As an organizer, I know how bad this can get.</li>
+<li>I could choose who and what I want to listen to.</li>
+<li>So many good topics being displayed and so much to learn.</li>
+</ul>
+<p><strong>Scary because:</strong></p>
+<ul>
+<li>Embarrassment of not having any audience if you end up becoming a speaker.</li>
+<li>Fear of missing out on good speakers if multiple good events go in parallel.</li>
+</ul>
+<h2>How I Accidentally Became a Speaker</h2>
+<p>My colleague Rohan Deshpande and I went there just to attend, representing Convert.com, nothing more. No plan to speak, no slides, nothing prepared. But after the opening session, we looked at the board, looked at each other, and thought, why not? We put up a session on how AI has been sneaking into troubleshooting and internal workflows at CRO and A/B testing companies. Basically the stuff we have been quietly doing for months.</p>
+<p>We kept it in a very informal discussion format. In fact, I sat down with the attendees just facing them. More like a group chat than a lecture. About 15 to 20 people joined. And the questions came fast. Do you actually trust AI&#39;s calls or are you just being brave? Where is this going for testing platforms? Personalisation, traffic tracking, integrations with tools people already use daily. People were genuinely curious, not just polite.</p>
+<p>Best part of the whole day, honestly. We did not plan to speak, did not prepare a single slide, and still walked away with speaker mementos. Somehow that felt more earned than if we had rehearsed it for a week.</p>
+<h2>The Day Itself</h2>
+<p>This time the turnout was around 120 plus people. I think they expected more, but Delhi was also hosting the BRICS summit that same day, so a lot of people probably got stuck in traffic or security barricades instead of analytics discussions. Still, seven breakout rooms ran side by side the whole day, and people moved between rooms freely, following their curiosity, not any fixed schedule.</p>
+<p>I also sat in on a few sessions myself. One on attribution problems in ads and CRO. One on moving from GA4 to Amplitude. One on data governance and AI. And one with a title that stuck with me — &quot;How Data Lie.&quot; Every session was run by someone actually doing the work, not someone presenting a fancy case study made for likes.</p>
+<p><img src="/images/blog-images/measurecamp-delhi-2026/measurecamp-session.jpg" alt="MeasureCamp Delhi speaker session in progress"></p>
+<p>But if I am honest, no single session was the best part. The people were. I met folks from Amplitude, founders running their own analytics platforms, and CRO experts who have worked with some really big consumer brands. Normally this kind of networking takes weeks of cold emails and LinkedIn requests that nobody replies to. Here it happened in five minutes near the coffee counter.</p>
+<h2>A Thank You to the Organisers</h2>
+<p>This was also the 200th MeasureCamp Delhi event, which is no small number. A big thank you to the organisers and volunteers who pulled this off. Running an unconference sounds easy on paper — &quot;just let people talk&quot; — but making that chaos actually work smoothly takes real effort. They did a solid job.</p>
+<p>Thank you so much: <strong>Tanmay Garg</strong>, <strong>Priya Dhiman</strong>, <strong>Anuj B.</strong>, <strong>Abhishek Deswal</strong> — and sorry if I missed anyone.</p>
+<h2>Go Once. Go With Zero Expectations.</h2>
+<p>If you work anywhere near analytics, data, or experimentation, and you have never been to a MeasureCamp, go once. Go with zero expectations. That is honestly the whole point.</p>
+]]></content:encoded>
   </item>
   <item>
     <title>Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</title>
@@ -279,8 +932,8 @@
     <category>AI/ML</category>
     <category>DevOps</category>
     <category>Documentation</category>
-    <content:encoded><![CDATA[<p><img src="https://media.licdn.com/dms/image/v2/D4D12AQFsiPhnNL8Zqw/article-cover_image-shrink_720_1280/B4DaA3JVSZGkAQ-/0/1787631594671?e=1791417600&v=beta&t=tZKbZ6PU8KGfioYNuJQSZC4LrlDEKYoScQ6u6quHo40" alt=""></p>
-<p>I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame, across completely different characters and different movies. Different faces, different worlds, same underlying motion. It worked for years. Nobody noticed, or nobody cared, because the backgrounds and story kept changing enough to sell it. Here is the <a href="https://www.youtube.com/watch?v=FQnXhVJhqjg&t=22s">video</a> I am talking about. This was deliberate for many reasons as you read more about it, you will know. Some reasons, I understood were, nostalgia, saving time or maybe laziness too.</p>
+    <content:encoded><![CDATA[<p><img src="https://media.licdn.com/dms/image/v2/D4D12AQFsiPhnNL8Zqw/article-cover_image-shrink_720_1280/B4DaA3JVSZGkAQ-/0/1787631594671?e=1791417600&amp;v=beta&amp;t=tZKbZ6PU8KGfioYNuJQSZC4LrlDEKYoScQ6u6quHo40" alt=""></p>
+<p>I saw a video a while back about old Disney animation and how they fooled viewers in the last couple of years. Same character movements, reused frame by frame, across completely different characters and different movies. Different faces, different worlds, same underlying motion. It worked for years. Nobody noticed, or nobody cared, because the backgrounds and story kept changing enough to sell it. Here is the <a href="https://www.youtube.com/watch?v=FQnXhVJhqjg&amp;t=22s">video</a> I am talking about. This was deliberate for many reasons as you read more about it, you will know. Some reasons, I understood were, nostalgia, saving time or maybe laziness too.</p>
 <p>I didn&#39;t think much of it until I saw the same thing happening with AI.</p>
 <p>I was working on generating some images recently. I kept feeding new context, new prompts, expecting newer results. The first couple of images were just fine. Then I started noticing a pattern of same poses, same layouts, same compositions repeating underneath a different backdrop. Not identical, but close enough that it felt like the AI found something that worked and decided to stop being creative.</p>
 <p>I told myself, okay, maybe that&#39;s fine for images. Then I tested it on something that mattered more.</p>
@@ -308,7 +961,7 @@
     <category>AI/ML</category>
     <category>DevOps</category>
     <category>Documentation</category>
-    <content:encoded><![CDATA[<p><img src="https://media.licdn.com/dms/image/v2/D4D12AQHeV-rLfe973A/article-cover_image-shrink_720_1280/B4DZ_V6cnZHEAQ-/0/1786000304165?e=1791417600&v=beta&t=SXnvYnxcECyQkb-UvrjLyATdQytY-hlt4N3jfoezGAg" alt=""></p>
+    <content:encoded><![CDATA[<p><img src="https://media.licdn.com/dms/image/v2/D4D12AQHeV-rLfe973A/article-cover_image-shrink_720_1280/B4DZ_V6cnZHEAQ-/0/1786000304165?e=1791417600&amp;v=beta&amp;t=SXnvYnxcECyQkb-UvrjLyATdQytY-hlt4N3jfoezGAg" alt=""></p>
 <p>&quot;Documenting the documentation.&quot;</p>
 <p>Yes, I know how that sounds. Documentation about documentation about documentation. Somewhere an intern is crying. Actually that&#39;s the phrase that hit me mid-conversation yesterday.</p>
 <p>In DevOps we talk about monitoring the monitoring system. You don&#39;t just set up alerts and walk away. You watch the watcher too, because if your monitoring breaks silently, you find out the hard way. We handle it mostly by using a 3rd party monitoring Saas tool or a completely different monitoring tool that is on a different infra to monitor our monitoring. Many a times, we also setup multiple monitoring tools to monitor each other.</p>
@@ -5157,7 +5810,7 @@ sudo service apache2 restart
 sudo cobbler check
 </code></pre>
 <h2>Access web-ui cobbler</h2>
-<p>http: // <ip_address> / cobbler_web /</p>
+<p>http: // &lt;ip_address&gt; / cobbler_web /</p>
 <p>username / password: <strong>cobbler</strong> / cobbler</p>
 <p>You are ready !!</p>
 <h2>What Is Cobbler and Why Use It?</h2>
@@ -8383,7 +9036,7 @@ created. Right click on it and click on Launch Instance.</p>
 <li>On you browser go to localhost/drupal this should prompt you for drupal install</li>
 </ol>
 <h2>Database type: mysql</h2>
-<p>Database name: <drupal_db_name>
+<p>Database name: &lt;drupal_db_name&gt;
 Database username: root
 Database password:blank
 Save configuration.</p>
@@ -8496,106 +9149,9 @@ drush config-set system.performance js.preprocess 0
 <pre><code class="language-bash">ftp &lt;your_ip_addres&gt;
 Username: &lt;for_ur_machine&gt;
 </code></pre>
-<p>Password: <for_ur_machine>
+<p>Password: &lt;for_ur_machine&gt;
  logged in</p>
 <p>all the transfer operations can now be performed</p>
-]]></content:encoded>
-  </item>
-  <item>
-    <title>Build your own private cloud with Ubuntu - I</title>
-    <link>https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-1.html</link>
-    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-1.html</guid>
-    <pubDate>Sun, 30 Jun 2013 00:00:00 GMT</pubDate>
-    <description>Part 1 of building a private cloud with Ubuntu: setting up MAAS for bare-metal provisioning so you can deploy and manage physical servers like cloud...</description>
-    <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
-    <category>Cloud Computing</category>
-    <category>ubuntu</category>
-    <category>Provisioning</category>
-    <category>Virtualization</category>
-    <content:encoded><![CDATA[<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9h_yuYjfB-wTAvOKz71c_IGxnCp5xenpcW_cPm4GgnkQkEeOG1UbGZ-LOpcGQ4jJs-tLh1SDT-rbcHfMBwunut5edkvZ99EXfW7BbBPr4s18fd3ci-0DMfssijOg6ijpucXqVN1el31c/s1600/5527495896_4c39148366_m.jpg" alt=""></p>
-<p>Continuing from...</p>
-<h3><a href="http://roshannagekar.blogspot.in/2013/06/build-your-own-private-cloud-with.html">Build your own private cloud with Ubuntu - I</a></h3>
-<p>Create node for your MAAS server. You must have atleast 2 nodes before going ahead with juju setup. Go to the webpage for maas server and Click on Add nodes.</p>
-<p>We left all the other information fields there blank except for the MAC-ADDRESS. You can get the mac address of your computer by ipconfig on windows and ifconfig on <strong>Ubuntu</strong> - Ubuntu users can do:</p>
-<pre><code class="language-bash">ifconfig | grep hwadrs
-</code></pre>
-<h2>Then we went to</h2>
-<p><a href="http://maas.ubuntu.com/docs/juju-quick-start.html">http://maas.ubuntu.com/docs/juju-quick-start.html</a></p>
-<p>Thereafter we created ~/.juju/environments.yaml
-vim ~/.juju/environments.yaml
-Added the following details to this file</p>
-<pre><code class="language-yaml">juju: environments
-environments:
-  maas:
-    type: maas
-    maas-server: &#39;http://localhost:5240&#39;
-    maas-oauth: &#39;${maas-api-key}&#39;
-    admin-secret: &#39;nothing&#39;
-</code></pre>
-<p>Got an error default-series: missing</p>
-<p>Added this line to the above file
-    default-series: &#39;precise&#39;
-Error Gone</p>
-<p>juju status
-New error
-Juju INFO Connecting to environment... Unhandled error in Deferred: Unhandled Error</p>
-<hr>
-<h2>Investigated, result</h2>
-<p>Juju packages needs to be installed from ppa:juju/pkg</p>
-<p>Went to</p>
-<p><a href="https://juju.ubuntu.com/docs/">https://juju.ubuntu.com/docs/</a></p>
-<p>removed existing juju</p>
-<pre><code class="language-bash">sudo apt-get update
-            sudo apt-get install juju-core (error no package)
-</code></pre>
-<pre><code class="language-bash">sudo add-apt-repository ppa:juju/devel
-            sudo apt-get update &amp;&amp; sudo apt-get install juju-core
-</code></pre>
-<p>Configuring Juju
-juju generate-config -w   
-previously written environment.yml was moved and the changes were added to the new yml file.</p>
-<p>error: environment has no access-key or secret-key</p>
-<p>changed default: amazon to default: maas
-juju bootsrap
-error:no tools</p>
-<pre><code class="language-bash">sudo juju -v sync-tools
-</code></pre>
-<h2>roshan@ubuntu-cloud:~$ sudo juju bootstrap</h2>
-<p>error: cannot start bootstrap instance: cannot run instances: gomaasapi: got error back from server: 409 CONFLICT</p>
-<p>CONFLICT from maas means that it doesn&#39;t have any nodes available for juju to acquire (juju bootstrap needs to boot a node).
-It&#39;s not the best error unfortunately, juju needs fixing to show all the text. You need the server edition of 12.04</p>
-<p>Nodes were disconnected for sometime...
-Next article should have the addition of nodes...</p>
-<h2>Why Private Cloud Still Makes Sense in 2024</h2>
-<p>Public cloud providers like AWS, GCP, and Azure dominate the conversation around infrastructure, and for good reason — they offer virtually unlimited scale, global availability, and a managed-everything model that lets small teams move fast. But private cloud is far from obsolete. For many organizations, it remains the more sensible choice, and here is why.</p>
-<p><strong>Cost at scale.</strong> The economics of public cloud flip around the 200-node mark. Below that threshold, the operational overhead of running your own hardware typically outweighs the monthly bill savings. Above it, the math reverses sharply. A bare-metal node you own and operate costs a fixed amount amortized over three to five years; an equivalent cloud VM carries an ongoing per-hour charge that compounds. Large enterprises and research institutions running steady-state workloads — not variable, bursty ones — consistently find on-premises infrastructure cheaper at sustained scale.</p>
-<p><strong>Data sovereignty and compliance.</strong> Regulations such as GDPR in Europe and HIPAA in the United States impose strict requirements on where data lives and who can access it. Multi-tenant public cloud environments can satisfy these requirements, but doing so often requires premium tiers, additional contractual agreements, and complex network architectures. A private cloud gives you unambiguous control: the data physically stays on your hardware, in your facility, subject to your access policies. For healthcare providers, financial institutions, and government agencies, this is not optional — it is a hard requirement.</p>
-<p><strong>Latency-sensitive workloads.</strong> Real-time trading systems, industrial control systems, and low-latency media processing cannot tolerate the variable round-trip times inherent in traversing the public internet to a cloud provider&#39;s data center. Co-locating compute with data — which a private cloud enables — can shave milliseconds that matter enormously in these contexts.</p>
-<p><strong>Hybrid scenarios.</strong> Private cloud does not have to mean cloud-free. A common pattern is to run steady-state workloads on-premises while bursting to public cloud during demand spikes. MAAS integrates well with this model: it provisions the on-premises layer, and tools like Juju or Terraform handle the hybrid orchestration layer on top.</p>
-<h2>MAAS in 2024: What&#39;s Changed</h2>
-<p>MAAS has matured considerably since the early 2013 days described in this post. Version 3.x introduced several features that make it competitive with more complex provisioning stacks.</p>
-<p><strong>Kubernetes integration</strong> is now a first-class concern. MAAS 3.x can serve as the bare-metal provisioning layer for Charmed Kubernetes deployments, with better lifecycle hooks for machine commissioning and decommissioning that align with Kubernetes node join/drain workflows.</p>
-<p><strong>LXD VM support</strong> allows MAAS to provision not just physical machines but also LXD virtual machines running on MAAS-managed hosts. This is useful for mixed fleets where you want hardware-level control over some nodes but need the flexibility of VMs for others — all managed through a single MAAS interface.</p>
-<p><strong>Improved UI and API.</strong> The web interface has been significantly redesigned for clarity, and the REST API has stabilized enough to support robust automation. Infrastructure-as-code pipelines can drive MAAS via its API without resorting to manual click-through.</p>
-<p>For current documentation and release notes, see <a href="https://maas.io/docs">https://maas.io/docs</a>.</p>
-<h2>Alternatives to MAAS</h2>
-<p>MAAS is one tool in a broader ecosystem. Depending on your requirements, one of these alternatives may be a better fit.</p>
-<p><strong>OpenStack</strong> is the go-to choice when you need a full IaaS stack — compute, networking (Neutron), block storage (Cinder), and object storage (Swift) — that closely mirrors what public cloud providers offer. It is significantly more complex to deploy and operate than MAAS, but it gives you tenant isolation, self-service provisioning, and a rich API surface. Use it when you need multi-tenant cloud functionality at scale.</p>
-<p><strong>Proxmox VE</strong> is a hypervisor management platform built on KVM and LXC. It is far simpler to get running than either MAAS or OpenStack, and its web UI is approachable for teams without a dedicated infrastructure engineer. The trade-off is that it is fundamentally a hypervisor manager rather than a bare-metal provisioner — it does not handle PXE booting physical machines into arbitrary OS configurations the way MAAS does. Use it when your workloads are VM-based and your cluster is small to medium sized.</p>
-<p><strong>Harvester</strong> is a newer entry in the hyperconverged infrastructure (HCI) space. Built on Kubernetes, Longhorn storage, and KubeVirt, it lets you run VMs directly on a Kubernetes-native platform. If your target destination is Kubernetes and you want a single platform that handles both VMs and containers, Harvester is worth evaluating. It integrates directly with Rancher for multi-cluster management.</p>
-<p><strong>When to use MAAS:</strong> You need to provision diverse bare-metal hardware into heterogeneous operating systems at scale, and you want a lightweight tool that stays out of the way beyond provisioning.</p>
-<h2>Adding Kubernetes on Top</h2>
-<p>One of the most compelling use cases for MAAS is as the foundation for a bare-metal Kubernetes cluster. Rather than running Kubernetes on VMs (which adds a hypervisor layer and its associated overhead), you can use MAAS to provision physical nodes directly into Ubuntu, then install Kubernetes on top.</p>
-<p><strong>MicroK8s</strong> is the simplest path. Once MAAS has commissioned and deployed your nodes, you install MicroK8s on each one:</p>
-<pre><code class="language-bash">sudo snap install microk8s --classic
-microk8s add-node  # run on the control plane to get the join command
-</code></pre>
-<p>Worker nodes join the cluster with a single command output by <code>add-node</code>. MicroK8s handles the rest, including an optional built-in load balancer and storage add-ons.</p>
-<p><strong>k3s</strong> is a lightweight Kubernetes distribution from Rancher that works equally well on MAAS-provisioned nodes. It is particularly suited to edge deployments or clusters where resource overhead needs to be minimal:</p>
-<pre><code class="language-bash">curl -sfL https://get.k3s.io | sh -   # on the server node
-curl -sfL https://get.k3s.io | K3S_URL=https://&lt;server&gt;:6443 K3S_TOKEN=&lt;token&gt; sh -  # on agents
-</code></pre>
-<p>The result is a production-capable Kubernetes cluster running on hardware you own and control, provisioned and lifecycle-managed by MAAS. When a node needs to be replaced, MAAS handles re-imaging; when Kubernetes needs a new node, MAAS provides it. The combination gives you the automation of cloud-style infrastructure without the recurring cost or data sovereignty concerns of a public cloud deployment.</p>
 ]]></content:encoded>
   </item>
   <item>
@@ -8722,10 +9278,8 @@ int main()
 
  
 </code></pre>
-<pre><code>
-</code></pre>
-<pre><code>
-</code></pre>
+<pre><code></code></pre>
+<pre><code></code></pre>
 <pre><code>test.pp
 </code></pre>
 <pre><code>
@@ -10549,10 +11103,8 @@ int main()
 
 }
 </code></pre>
-<pre><code>
-</code></pre>
-<pre><code>
-</code></pre>
+<pre><code></code></pre>
+<pre><code></code></pre>
 <pre><code>test2.c
 </code></pre>
 <pre><code>#include &lt;stdio.h&gt;
@@ -11061,10 +11613,8 @@ Disassembly of section .fini:
 
  80484f7: c3                    ret     
 </code></pre>
-<pre><code>
-</code></pre>
-<pre><code>
-</code></pre>
+<pre><code></code></pre>
+<pre><code></code></pre>
 ]]></content:encoded>
   </item>
   <item>
@@ -11266,7 +11816,7 @@ Earlier many companies used Excel sheet for this purpose which was a headache fo
 <p>Founded in 1997, MentorNet now boasts 30,000mentor/protégé relationships that encourage and inspire students considering careers in STEM (science, technology, engineering, and math).</p>
 <p>Students gain valuable career advice, encouragement and support from professionals who lend their expertise by helping to educate and inspire young professionals.</p>
 <p>Protégés are matched in one-on-one email relationships with mentors—from industry, academia, and government—who have relevant experience in the appropriate technology, engineering, and scientific fields.</p>
-<p>Check out MentorNet&#39;s newly redesigned website at <a href="http://www.mentornet.net/">http://www.mentornet.net/</a> and this short video for <a href="//www.youtube.com/watch?v=ClLjv9UzwTo&feature=plcp">protégés</a>, which will walk you through the steps of creating a profile and connecting with others in the MentorNet community. </p>
+<p>Check out MentorNet&#39;s newly redesigned website at <a href="http://www.mentornet.net/">http://www.mentornet.net/</a> and this short video for <a href="//www.youtube.com/watch?v=ClLjv9UzwTo&amp;feature=plcp">protégés</a>, which will walk you through the steps of creating a profile and connecting with others in the MentorNet community. </p>
 <p>ACM Student Members can participate as protégés if they are undergraduates, graduates, post-doctoral students, or untenured faculty. For more information, go to:<a href="http://www.acm.org/membership/membership/student/mentornet">http://www.acm.org/membership/membership/student/mentornet</a>.</p>
 <h2>Why Mentorship Matters More Than Courses</h2>
 <p>There is a ceiling to what structured learning can do for you. A course can teach you a concept, a tutorial can show you a pattern, and a textbook can give you foundations. What none of them can do is look at your specific situation and tell you what is actually wrong.</p>
@@ -11911,7 +12461,134 @@ line</p>
     <category>SVN</category>
     <category>Bash</category>
     <category>DevOps</category>
-    <content:encoded><![CDATA[<p><em>A collection of Linux and Git commands from my notes. Rough around the edges — preserved as written.</em></p><h2>PDF, Packages, Dropbox, and Process Management</h2><p>Split PDF pages with pdftk, export manually installed packages, manage processes with ps/top/pstree, check disk usage with du --max-depth, and download files with wget.</p><h2>Create ISO Files from the Terminal</h2><p>Use mkisofs to create ISO images from folders, specific files, or rip a CD/DVD with dd.</p><h2>GCC: Preprocessed Output, Object Code, and Assembly</h2><p>Generate preprocessed output with gcc -E, compile to object code, and dump assembly with objdump -d.</p><h2>SVN and Git</h2><p>Convert SVN branches with svn2git, count commits across repositories, merge branches from different remotes, and untrack directories without deleting them.</p><h2>Git Tips</h2><p>Undo commits with git reset --soft, tag releases with git describe, clean untracked directories, rename tags, and view file-level commit history with git log --name-status.</p>]]></content:encoded>
+    <content:encoded><![CDATA[<p><em>A collection of Linux and Git commands from my notes. Rough around the edges — preserved as written.</em></p>
+<hr>
+<h2>PDF, Packages, Dropbox, and Process Management</h2>
+<p><strong>Split pages from a PDF</strong> (requires <code>pdftk</code>):</p>
+<pre><code class="language-bash">pdftk old.pdf cat 1-9 26-end output new.pdf
+</code></pre>
+<p><strong>Export list of manually installed packages:</strong></p>
+<pre><code class="language-bash">aptitude search &#39;!~M ~i&#39; | awk -F &quot; &quot; &#39;{ print &quot;apt-get -y install &quot; $2 }&#39; &gt; aptshell.sh
+</code></pre>
+<p><strong>Start Dropbox daemon:</strong></p>
+<pre><code class="language-bash">~/.dropbox-dist/dropboxd
+</code></pre>
+<p><strong>Useful <code>ps</code> commands:</strong></p>
+<pre><code class="language-bash">ps aux                  # all running processes
+ps -A                   # every process on the system
+ps -U root -u root -N   # every process except root
+ps -u vivek             # processes for a specific user
+top                     # dynamic real-time view
+pstree                  # tree view of processes
+</code></pre>
+<p><strong>Check disk usage by depth:</strong></p>
+<pre><code class="language-bash">du --max-depth=1   # first tier only
+du --max-depth=0   # same as -s, just the total
+</code></pre>
+<p><strong>Download files with wget:</strong></p>
+<pre><code class="language-bash">wget &lt;url&gt;
+wget &lt;url&gt; -t 5    # retry up to 5 times (useful for broken downloads)
+</code></pre>
+<hr>
+<h2>Create ISO Files from the Terminal</h2>
+<p><strong>From a folder:</strong></p>
+<pre><code class="language-bash">mkisofs -r -o /isofile.iso /folder
+</code></pre>
+<p><strong>From specific files:</strong></p>
+<pre><code class="language-bash">mkisofs -r -o /isofile.iso /mybigfile
+mkisofs -r -o /isofile.iso *.mp3
+</code></pre>
+<p><strong>From a CD/DVD drive:</strong></p>
+<pre><code class="language-bash">dd if=/dev/cdrom0 of=isofile.iso
+</code></pre>
+<hr>
+<h2>GCC: Preprocessed Output, Object Code, and Assembly</h2>
+<p><strong>Generate preprocessed code (with all <code>#include</code> files expanded):</strong></p>
+<pre><code class="language-bash">gcc -E test.c &gt; test.pp
+</code></pre>
+<p><strong>Compile to object code:</strong></p>
+<pre><code class="language-bash">gcc test.c test2.c -o test.o
+</code></pre>
+<p><strong>Dump the assembly:</strong></p>
+<pre><code class="language-bash">objdump -d test.o
+</code></pre>
+<hr>
+<h2>SVN and Git: Branch History, Commit Counts, Merging</h2>
+<p><strong>Get full log history for an SVN branch using svn2git:</strong></p>
+<pre><code class="language-bash">mkdir ORACLEPOC
+cd ORACLEPOC
+svn2git svn://&lt;your-svn-server&gt;/&lt;repo&gt;/UI/ORACLEPOC --rootistrunk --verbose
+cd ..
+</code></pre>
+<p><strong>Count total commits across all branches:</strong></p>
+<pre><code class="language-bash">total=0
+for i in *; do
+  cd $i
+  echo &quot;In $i&quot;
+  total=`expr $total + $(git log | grep &quot;Date:&quot; | wc -l)`
+  cd ..
+done
+echo $total
+</code></pre>
+<p><strong>Merge two branches from different repositories:</strong></p>
+<pre><code class="language-bash">git remote add MSSQL_2.3 /home/git/MSSQL_2.3
+git pull MSSQL_2.3 master:b
+git merge b
+git branch -d b
+</code></pre>
+<p><strong>Untrack a directory without deleting it:</strong></p>
+<pre><code class="language-bash">git rm -r --cached &lt;your-directory&gt;
+</code></pre>
+<hr>
+<h2>Git Tips</h2>
+<p><strong>Undo a commit and redo it:</strong></p>
+<pre><code class="language-bash">git reset --soft HEAD^   # undo commit, keep changes staged
+# make your edits
+git add .
+git commit -c ORIG_HEAD  # reuse the old commit message
+</code></pre>
+<p><strong>List all commits for a specific file:</strong></p>
+<pre><code class="language-bash">git log -- &lt;path/to/file&gt;
+git log --stat &lt;path&gt;    # shows impact of each commit
+</code></pre>
+<p><strong>Tagging and using commit numbers as build numbers:</strong></p>
+<pre><code class="language-bash">git tag -a v2.5 -m &#39;Version 2.5&#39;
+git describe --tags --long
+# output: v2.5-0-deadbeef
+#          ^    ^ ^
+#          |    | SHA of HEAD
+#          |    number of commits since last tag
+#          last tag
+</code></pre>
+<p><strong>Remove untracked empty directories:</strong></p>
+<pre><code class="language-bash">git clean -fdn   # dry run first — shows what will be deleted
+git clean -fd    # actually delete
+</code></pre>
+<p><strong>Create a dummy/empty commit:</strong></p>
+<pre><code class="language-bash">git commit --allow-empty -m &#39;Dummy commit to create the first tag&#39;
+</code></pre>
+<p><strong>Rename a tag (prepend a prefix):</strong></p>
+<pre><code class="language-bash"># usage: git tag &lt;new_tag&gt; &lt;old_tag&gt; -f -m &lt;message&gt;
+# -f forces the rename
+git tag &quot;MSSQL_2.30.0&quot; &quot;2.30.0&quot; -f -m &quot;Prepending DB type to existing tag name&quot;
+</code></pre>
+<p><strong>See files changed per commit (SVN <code>-v</code> equivalent):</strong></p>
+<pre><code class="language-bash">git log --name-status
+git log --name-only
+git log --stat
+</code></pre>
+<hr>
+<h2>Miscellaneous</h2>
+<p><strong>Show timestamps in bash history:</strong></p>
+<pre><code class="language-bash">export HISTTIMEFORMAT=&quot;%F %T &quot;
+</code></pre>
+<p><strong>Fix missing dependencies in CentOS:</strong></p>
+<pre><code class="language-bash">sudo yum --disableexcludes=main install kernel-headers
+</code></pre>
+<p><strong>Remove an invalid git remote:</strong></p>
+<pre><code class="language-bash">git remote set-url origin git://github.com/&lt;user&gt;/&lt;repo&gt;.git
+</code></pre>
+]]></content:encoded>
   </item>
   <item>
     <title>Getting Into DevOps: Notes and Job Research</title>
@@ -11925,7 +12602,75 @@ line</p>
     <category>Chef</category>
     <category>Puppet</category>
     <category>Career</category>
-    <content:encoded><![CDATA[<p><em>Putting together my notes on what DevOps actually means and what I need to learn. Going through job postings, bookmarking resources, mapping the tool landscape.</em></p><h2>The Tool List</h2><p>Every job posting I read mentions some combination of these: Git/SVN/Mercurial for version control, Chef/Puppet/Cfengine for config management, Hudson/Jenkins for CI, Nagios/Zenoss/Cacti for monitoring, and Vagrant for local dev environments. Chef and Puppet seem to be the two main ones — started reading through the RightScale Chef tutorial.</p><h2>Where the Community Is</h2><p>DevOps Days, PuppetConf, Velocity Conference for in-person. IRC, serverfault.com, Stack Overflow, Reddit, LinkedIn groups, and vendor mailing lists online.</p><h2>What Companies Are Actually Asking For</h2><p>Linux is non-negotiable — listed as mandatory almost everywhere. Config management (Chef or Puppet), CI tools (Jenkins/Hudson/TeamCity), monitoring (Nagios, Zenoss), scripting (Shell baseline, Ruby and Python common), and increasingly cloud (OpenStack, AWS, Rackspace). ThoughtWorks framed the role as bridging dev and ops around continuous delivery. Ruby/Rails shows up more than expected in DevOps-adjacent roles. Big Data (Hadoop, Hive, Pig) is starting to appear too, though that feels like a different track.</p><h2>Gaps I Need to Close</h2><p>Chef and Puppet hands-on, AWS and OpenStack from zero, Ruby beyond basics, Jenkins end-to-end, and Nagios — it's a hard requirement in most infra roles.</p>]]></content:encoded>
+    <content:encoded><![CDATA[<p><em>Putting together my notes on what DevOps actually means and what I need to learn. Going through job postings, bookmarking resources, mapping the tool landscape.</em></p>
+<hr>
+<h2>The Tool List</h2>
+<p>Every job posting I read mentions some combination of these. Building a list of things to get familiar with:</p>
+<p><strong>Version control:</strong>
+Git, SVN, Mercurial — Git seems to be winning, but SVN still shows up a lot.</p>
+<p><strong>Configuration management:</strong>
+Puppet / Puppet Enterprise, Chef, Cfengine, MCollective — these keep appearing together. Chef and Puppet seem to be the two main ones. Started reading through this RightScale Chef tutorial: <a href="http://support.rightscale.com/12-Guides/Chef_Cookbooks_Developer_Guide/02-Getting_Started/02-Beginner_Chef_Tutorial">http://support.rightscale.com/12-Guides/Chef_Cookbooks_Developer_Guide/02-Getting_Started/02-Beginner_Chef_Tutorial</a></p>
+<p><strong>Testing / CI:</strong>
+Cucumber, Hudson/Jenkins — Hudson and Jenkins seem to be the same project that split. Need to understand this better.</p>
+<p><strong>Monitoring:</strong>
+Ganglia/Cacti/Munin, Nagios, Zenoss — monitoring keeps showing up as a hard requirement, not just a nice-to-have.</p>
+<p><strong>Other:</strong>
+Vagrant — useful for local dev environments, need to try this.</p>
+<hr>
+<h2>Where the Community Is</h2>
+<p>If I&#39;m going to learn this stuff, I need to be where the practitioners are. Keeping a list:</p>
+<p><strong>In-person:</strong></p>
+<ul>
+<li>DevOps Days</li>
+<li>PuppetConf</li>
+<li>Velocity Conference</li>
+</ul>
+<p><strong>Online:</strong></p>
+<ul>
+<li>IRC</li>
+<li>serverfault.com and Stack Overflow for Q&amp;A</li>
+<li>Reddit, Slashdot for news</li>
+<li>LinkedIn groups</li>
+<li>Vendor and open source mailing lists</li>
+<li>Blogs and Twitter — need to find the right people to follow</li>
+</ul>
+<hr>
+<h2>What Companies Are Actually Asking For</h2>
+<p>Going through job postings to understand what the market looks like. A few patterns:</p>
+<p><strong>The core DevOps / Linux infrastructure role</strong> shows up consistently with:</p>
+<ul>
+<li>Linux is non-negotiable — listed as mandatory almost everywhere</li>
+<li>Config management: Chef or Puppet, sometimes both</li>
+<li>CI tools: Jenkins/Hudson/TeamCity/Go</li>
+<li>Monitoring: Nagios, Zenoss, Cacti</li>
+<li>Scripting: Shell is baseline, Ruby and Python come up a lot</li>
+<li>Cloud: OpenStack, AWS, Rackspace — not always required but increasingly mentioned</li>
+<li>Virtualisation: VMware/vSphere, Xen, KVM, VirtualBox</li>
+</ul>
+<p>The interesting ones describe the role as bridging dev and ops — understanding what developers need and building the infrastructure and tooling around that. ThoughtWorks had a posting that framed it this way: understand client needs across ops and dev, build solutions around continuous delivery, infrastructure strategy, and release management. Hands-on, not just advisory.</p>
+<p><strong>SCM and build tools</strong> keep appearing together:</p>
+<ul>
+<li>SCM: Git, SVN, Mercurial, Perforce</li>
+<li>Build: Ant, Rake, NAnt</li>
+<li>These feel like basics I should already have — partial check on Git and SVN from last year&#39;s notes.</li>
+</ul>
+<p><strong>Ruby / Rails comes up more than I expected</strong> in DevOps-adjacent roles. Some postings want config management (Chef is Ruby-based) plus actual Rails development ability. Not purely infra — they want someone who can also build and ship code.</p>
+<p><strong>Big Data is starting to appear</strong> — Hadoop, Hive, Pig, HBase, Oozie. Mostly in separate Data Engineering roles but sometimes bundled into broader &quot;infrastructure + data&quot; descriptions. Java and Python listed as required. This feels like a different track.</p>
+<hr>
+<h2>Gaps I Need to Close</h2>
+<p>Honest list of what I don&#39;t know well enough yet:</p>
+<ul>
+<li><strong>Chef</strong> — need to actually work through a cookbook end to end, not just read about it</li>
+<li><strong>Puppet</strong> — same</li>
+<li><strong>Cloud platforms</strong> — AWS and OpenStack keep appearing; zero hands-on experience so far</li>
+<li><strong>Ruby</strong> — shows up constantly, both for Chef and for Rails-adjacent roles; need to get past basics</li>
+<li><strong>CI pipelines</strong> — understand the concept but haven&#39;t set up Jenkins end to end</li>
+<li><strong>Monitoring stack</strong> — Nagios especially; it&#39;s listed as a hard requirement in most infra roles</li>
+</ul>
+<p>The virtualisation piece feels more manageable — have used VirtualBox and VMware, just need to get comfortable with KVM/Xen terminology.</p>
+<hr>
+<p><em>The picture forming is: Linux + scripting + config management (Chef/Puppet) + CI + monitoring is the core stack. Cloud is becoming a differentiator. The &quot;DevOps&quot; label is being applied to a pretty wide range of roles right now — some are pure infra, some want a developer who also understands ops, some want both.</em></p>
+]]></content:encoded>
   </item>
   <item>
     <title>ACM ICPC (3)</title>

@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>Sken.ai DevSecOps walkthrough | Roshan Nagekar</title>
+  <title>Sken.ai Walkthrough: SAST and DAST Scanning for DevSecOps</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps...">
+  <meta name="description" content="Hands-on Sken.ai walkthrough: running SAST, DAST and vulnerability scans for continuous application security testing in a DevSecOps workflow.">
+  <meta name="keywords" content="Sken.ai, SAST and DAST, application security testing, DevSecOps tools, vulnerability scanning, continuous security testing, DevSecOps, Security, DevOps, Automation">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/sample-docker-compose-guide.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/skenais-role-in-devsecops-cicd-pipeline.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Sken.ai DevSecOps walkthrough">
-  <meta property="og:description" content="A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps...">
+  <meta property="og:title" content="Sken.ai Walkthrough: SAST and DAST Scanning for DevSecOps">
+  <meta property="og:description" content="Hands-on Sken.ai walkthrough: running SAST, DAST and vulnerability scans for continuous application security testing in a DevSecOps workflow.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2021-01-22">
+  <meta property="article:modified_time" content="2025-11-06">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="DevOps">
   <meta property="article:tag" content="DevSecOps">
@@ -26,8 +28,8 @@
   <meta property="article:tag" content="Automation">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Sken.ai DevSecOps walkthrough">
-  <meta name="twitter:description" content="A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps...">
+  <meta name="twitter:title" content="Sken.ai Walkthrough: SAST and DAST Scanning for DevSecOps">
+  <meta name="twitter:description" content="Hands-on Sken.ai walkthrough: running SAST, DAST and vulnerability scans for continuous application security testing in a DevSecOps workflow.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="14 min read">
@@ -44,7 +46,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Sken.ai DevSecOps walkthrough","description":"A hands-on walkthrough of Sken.ai, a continuous application security testing tool that performs SAST, DAST, and vulnerability scanning in a DevSecOps...","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","url":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html","keywords":"DevSecOps, Security, DevOps, Automation","wordCount":2789,"timeRequired":"PT14M","articleBody":"Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing. It is a new and automated DevSecOps tool that provides multi-language scanning features in one place. It provides comprehensive Saas based continuous application testing software developers and DevOps , without the need for any security expertise. It helps to Find and fix all types of application security issues within your DevOps CI/CD cycle. It provides a SAAS orchestration layer that integrates continuous application security testing into your DevOps CI/CD workflow automating the use of any open source security scanners across all scan types; SAST, DAST, SCA, MAST, container scanning, license compliance, and secrets detection. What will you learn from this article/blog:- How to provide security in your CICD pipeline? What is SAST/DAST/SCA/MAST and how it works? How sken.ai works? Which features and scanners sken.ai provides? What vulnerability scanning and penetration testing is? List of Top IDE’s used by developers provided by DevOps ? List of version control tools provided by DevOps ? List of Top **CI/CD pipeline tools provided by **DevOps? What web application security scanner is? Who will need this tool:- There are lots of open-source application security testing tools available in the market. So it&#39;s very hard and confusing to select what exactly we need. Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production. Sken.ai provides automated scanning features and Generally, it is used to find out the bugs at early stages of the development of software (coding stage). With this code review, the quality of the software gets improved and the bugs/errors in the program code decrease. The Code Review Tools automates the review process which in turn minimizes the reviewing task of the code. It provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers. What does Sken.ai contain:- Here are some detailed points that I have discussed about the Sken.ai. It helps to scan every application in any language from any **CI/CD Platform (such as **Jenkins, Bamboo, etc). It uses all scan types SAST, DAST, SCA, Secrets, and more to scan at the coding time or the runtime. As I said before it enables security by simply adding a 2-line code snippet into CICD to enable the complete range of tests. It provides open-source scanners packaged and managed, There&#39;s No need to set up, install or update scanners. It selects &amp; auto-discover scanners as per scanning context. Sken.ai performs the most comprehensive security scanning and testing of applications during the CI/CD process. This includes not only static source code analysis (SAST) and software composition analysis (SCA), but also dynamic security testing (DAST) to uncover run-time security holes as well. This ensures that all the common avenues hackers use to execute security breaches are discovered before going to production. By providing the relevant scan type at the right stage in the **DevOps and **CI/CD stage, Sken.ai covers more vulnerability and compliance holes than anyone&#39;s capability alone. It uses all major development languages &amp; frameworks including Java , PHP, Python , Microsoft .NET, NodeJS, Ruby , GO, and more. Sken.ai applies machine learning and data science to normalize and prioritize all the application security issues found across testing categories. It provides AI-Based Analysis, and it reduces noise up to 97%. It Aggregated scan findings View and filter findings across multiple scans. It tracks bugs through code changes and provides standard risk ratings across all scan types. DevOps and AppSec teams can manage their entire bug fix and mitigation processes with Sken.ai, including prioritization and risk scoring, bug verification, task assignment through resolution. It is Intelligent &amp; prioritized to fix critical findings first. It helps users to Manage findings from the Sken.ai portal. Here are some Open Source Scanners included in Sken.ai internally: SCA: OWASP Dependency Leaks. SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint. DAST: OWASP ZAP Secrets: Gitleaks, Trufflehog. Static application security testing (SAST), or static analysis, is a testing methodology that analyzes source code to find security vulnerabilities that make your organization’s applications susceptible to attack. SAST scans an application before the code is compiled. It’s also known as white box testing. SAST ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Sken.ai Walkthrough: SAST and DAST Scanning for DevSecOps","alternativeHeadline":"Sken.ai DevSecOps walkthrough","description":"Hands-on Sken.ai walkthrough: running SAST, DAST and vulnerability scans for continuous application security testing in a DevSecOps workflow.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2021-01-22","dateModified":"2025-11-06","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html"},"url":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html","keywords":"Sken.ai, SAST and DAST, application security testing, DevSecOps tools, vulnerability scanning, continuous security testing, DevSecOps, Security, DevOps, Automation","wordCount":2789,"timeRequired":"PT14M","articleBody":"Sken.ai Introduction:- Sken.ai is a Continuous Application Security Testing and vulnerability scanning tool. It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing. It is a new and automated DevSecOps tool that provides multi-language scanning features in one place. It provides comprehensive Saas based continuous application testing software developers and DevOps , without the need for any security expertise. It helps to Find and fix all types of application security issues within your DevOps CI/CD cycle. It provides a SAAS orchestration layer that integrates continuous application security testing into your DevOps CI/CD workflow automating the use of any open source security scanners across all scan types; SAST, DAST, SCA, MAST, container scanning, license compliance, and secrets detection. What will you learn from this article/blog:- How to provide security in your CICD pipeline? What is SAST/DAST/SCA/MAST and how it works? How sken.ai works? Which features and scanners sken.ai provides? What vulnerability scanning and penetration testing is? List of Top IDE’s used by developers provided by DevOps ? List of version control tools provided by DevOps ? List of Top **CI/CD pipeline tools provided by **DevOps? What web application security scanner is? Who will need this tool:- There are lots of open-source application security testing tools available in the market. So it&#39;s very hard and confusing to select what exactly we need. Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production. Sken.ai provides automated scanning features and Generally, it is used to find out the bugs at early stages of the development of software (coding stage). With this code review, the quality of the software gets improved and the bugs/errors in the program code decrease. The Code Review Tools automates the review process which in turn minimizes the reviewing task of the code. It provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers. What does Sken.ai contain:- Here are some detailed points that I have discussed about the Sken.ai. It helps to scan every application in any language from any **CI/CD Platform (such as **Jenkins, Bamboo, etc). It uses all scan types SAST, DAST, SCA, Secrets, and more to scan at the coding time or the runtime. As I said before it enables security by simply adding a 2-line code snippet into CICD to enable the complete range of tests. It provides open-source scanners packaged and managed, There&#39;s No need to set up, install or update scanners. It selects &amp; auto-discover scanners as per scanning context. Sken.ai performs the most comprehensive security scanning and testing of applications during the CI/CD process. This includes not only static source code analysis (SAST) and software composition analysis (SCA), but also dynamic security testing (DAST) to uncover run-time security holes as well. This ensures that all the common avenues hackers use to execute security breaches are discovered before going to production. By providing the relevant scan type at the right stage in the **DevOps and **CI/CD stage, Sken.ai covers more vulnerability and compliance holes than anyone&#39;s capability alone. It uses all major development languages &amp; frameworks including Java , PHP, Python , Microsoft .NET, NodeJS, Ruby , GO, and more. Sken.ai applies machine learning and data science to normalize and prioritize all the application security issues found across testing categories. It provides AI-Based Analysis, and it reduces noise up to 97%. It Aggregated scan findings View and filter findings across multiple scans. It tracks bugs through code changes and provides standard risk ratings across all scan types. DevOps and AppSec teams can manage their entire bug fix and mitigation processes with Sken.ai, including prioritization and risk scoring, bug verification, task assignment through resolution. It is Intelligent &amp; prioritized to fix critical findings first. It helps users to Manage findings from the Sken.ai portal. Here are some Open Source Scanners included in Sken.ai internally: SCA: OWASP Dependency Leaks. SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint. DAST: OWASP ZAP Secrets: Gitleaks, Trufflehog. Static application security testing (SAST), or static analysis, is a testing methodology that analyzes source code to find security vulnerabilities that make your organization’s applications susceptible to attack. SAST scans an application before the code is compiled. It’s also known as white box testing. SAST ","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Sken.ai DevSecOps walkthrough","item":"https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -124,7 +126,7 @@ It helps in static code analysis, Source code analysis, code review, code comple
 <li>List of version control tools provided by <strong>DevOps</strong>?</li>
 <li>List of Top **CI/CD pipeline tools provided by **DevOps?</li>
 <li>What web application security scanner is?</li>
-</ul>
+</ol>
 <p>Who will need this tool:-</p>
 <p>    There are lots of open-source application security testing tools available in the market. So it&#39;s very hard and confusing to select what exactly we need. Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production.</p>
 <p>Sken.ai provides automated scanning features and Generally, it is used to find out the bugs at early stages of the development of software (coding stage).</p>
@@ -157,7 +159,7 @@ It helps users to Manage findings from the Sken.ai portal.</p>
 <li>SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint.</li>
 <li>DAST: OWASP ZAP</li>
 <li>Secrets: Gitleaks, Trufflehog.</li>
-</ul>
+</ol>
 <p>Static application security testing (SAST), or static analysis, is a testing methodology that analyzes source code to find security vulnerabilities that make your organization’s applications susceptible to attack.</p>
 <p>SAST scans an application before the code is compiled.
 It’s also known as white box testing.
@@ -189,7 +191,7 @@ Sken.ai application developers are notified of security vulnerabilities as they 
 <ol>
 <li>Security as Code (SaC).</li>
 <li>Infrastructure as Code (IaC).</li>
-</ul>
+</ol>
 <p> </p>
 <p>Cybercriminals take no prisoners. According to cybersecurity experts, SecDevOps, or the process of integrating secure development best practices and methodologies into the development and deployment processes, is the best way to do just that. </p>
 <p>Here automation comes further there are many open-source plugins and security tools are available to provide and scan our application for security tests before the development state goes to production.</p>
@@ -222,7 +224,7 @@ Here are the OWASP top 10 security threats that your website/application might f
 </li>
 <li><p>Can generate reports of the results, etc.</p>
 </li>
-</ul>
+</ol>
 <p> </p>
 <p>A penetration test, also known as a pen test, is a simulated cyberattack against your computer system to check for exploitable vulnerabilities.</p>
 <p>In the context of web application security, penetration testing is commonly used to augment a web application firewall (WAF).</p>
@@ -247,7 +249,7 @@ Here are the OWASP top 10 security threats that your website/application might f
 <li><a href="https://www.hcltechsw.com/products/appscan">AppSc</a>an</li>
 <li><a href="https://www.checkmarx.com/">Checkmar</a>x</li>
 <li><a href="https://snyk.io/">Syn</a>k</li>
-</ul>
+</ol>
 <ul>
 <li>SAST Scanning Tools:-</li>
 </ul>
@@ -264,7 +266,7 @@ Here are the OWASP top 10 security threats that your website/application might f
 <li><a href="https://www.ripstech.com/">RIPS (Re-Inforce Programming Security)</a></li>
 <li><a href="https://pypi.org/project/flawfinder/">Flawfinder</a></li>
 <li><a href="https://pypi.org/project/bandit/">Bandit</a></li>
-</ul>
+</ol>
 <ul>
 <li>Combine Scanning (SAST/DAST/SCA) tools and alternative to sken.ai tools:-</li>
 </ul>
@@ -309,7 +311,7 @@ Here are the OWASP top 10 security threats that your website/application might f
 <li><a href="https://www.openwall.com/john/">JOHN THE RIPPER</a></li>
 <li><a href="https://suricata-ids.org/">Suricata</a></li>
 <li><a href="https://www.graplsecurity.com/">Grapl</a></li>
-</ul>
+</ol>
 <ul>
 <li>Cloud Security Scanning Tools:-</li>
 </ul>
@@ -322,7 +324,7 @@ Here are the OWASP top 10 security threats that your website/application might f
 <li><a href="https://suricata-ids.org/">Suricata</a></li>
 <li><a href="https://www.graplsecurity.com/">Grapl</a></li>
 <li><a href="https://www.wireshark.org/">Wireshark</a></li>
-</ul>
+</ol>
 <ul>
 <li>Ruby on Rails application scaling tools:-</li>
 </ul>
@@ -331,13 +333,13 @@ Here are the OWASP top 10 security threats that your website/application might f
 <li><a href="https://codeclimate.com/">Code Climate</a></li>
 <li><a href="https://github.com/rubysec/bundler-audit">bundler-audit</a></li>
 <li><a href="https://www.codacy.com/">codacy</a></li>
-</ul>
+</ol>
 <ul>
 <li>SCA Scanning Tools:-</li>
 </ul>
 <ol>
 <li>OWASP Dependency Leaks.</li>
-</ul>
+</ol>
 <p>How is it different than other tools in market:-</p>
 <p>    I have used the <a href="https://bit.ly/2XfPgkZ">sken.a</a>i scanning tool, I have mentioned some features which I liked, </p>
 <ol>
@@ -347,13 +349,13 @@ Here are the OWASP top 10 security threats that your website/application might f
 </li>
 <li><p>This includes code level scanners like SAST, SCA, Secrets, License, Test/Deploy level scanners like DAST, Containers, <strong>API</strong>, Serverless, etc. It is extremely difficult for mid-markets to operationalize scanning with these multiple types of scanners.</p>
 </li>
-</ul>
+</ol>
 <p>The mid-markets need a product that:</p>
 <ol>
 <li>Provides app security with no required app-security expertise.</li>
 <li>Is affordable yet manageable.</li>
 <li>Supports comprehensive scanning across the application, yet simple to understand and use.</li>
-</ul>
+</ol>
 <p>Sken tackles each one of the requirements of the mid-markets. There are three pillars in Sken, and they correspond and tackle these three core requirements of the mid-markets. </p>
 <ul>
 <li>Sken provides a product that can be used by DevOps with no app security experience.</li>
@@ -381,7 +383,7 @@ Here are the OWASP top 10 security threats that your website/application might f
 </li>
 <li><p><strong>API</strong>, etc.</p>
 </li>
-</ul>
+</ol>
 <p>It provides free scanning forever for single users, Unlimited tests on open source projects, 300 tests per month across all apps on private projects, Priority Scoring, and Continuous Monitoring. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers.</p>
 <p>Why should you use Sken.ai:- Because of the number of different features sken.ai provides, It helps in static code analysis, Source code analysis, code review, code complexity, and penetration testing free of cost. As it is a freemium (with about 300 free scans per month) it is the best choice for beginners and small project developers.</p>
 <p>What are the integrations possible in sken.ai:- Sken.ai integrates with the CICD pipeline with 3 simple steps. 1. Add Sken.ai in CICD. 2. Write sken.yml as you need. 3. Review issues in the Sken.ai portal. It uses automated open-source scanners providing tools like SCA, SAST, DAST, Secrets management, and many more. Those are included:-</p>
@@ -390,51 +392,33 @@ Here are the OWASP top 10 security threats that your website/application might f
 <li>SAST: Find-Sec-Bugs, NodeJScan, Brakeman, Bandit, Gosec, PHPCodeSniffer, ES Lint, TSLint.</li>
 <li>DAST: OWASP ZAP</li>
 <li>Secrets: Gitleaks, Trufflehog.</li>
-</ul>
+</ol>
 <p>Here is the demo of sken integration with **jenkins and **travis-ci:-</p>
 <ol>
 <li>Jenkins integrate with sken:- <a href="https://drive.google.com/file/d/1OxpziWQZ6lEZ4Q6c7WYWAw3DTNf9qLd6/view?usp=sharing">https://drive.google.com/file/d/1OxpziWQZ6lEZ4Q6c7WYWAw3DTNf9qLd6/view?usp=sharing</a></li>
 <li>Travis CI integrate with sken:-</li>
-</ul>
+</ol>
 <p><a href="https://drive.google.com/file/d/1-zEbJ0rwzkR_vpvDkBvTXY4MwRXZcOFX/view?usp=sharing">https://drive.google.com/file/d/1-zEbJ0rwzkR_vpvDkBvTXY4MwRXZcOFX/view?usp=sharing</a></p>
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
       
-      <a href="../blogs/getting-your-first-devops-job-is-harder-now.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Inside My Homelab: Architecture, Philosophy, and Why It Exists</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/the-cv-habit-that-accidentally-saved-my-job.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/finally-found-a-local-llm-setup-that-seems-promising.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">The CV Habit That Accidentally Saved My Job</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Finally Found a Local LLM Setup That Seems to be Promising</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/nagios-still-has-my-heart.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/measurecamp-delhi-where-i-became-a-speaker.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">MeasureCamp Delhi: Where I Became a Speaker Without Meaning To</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
     </div>
@@ -451,21 +435,14 @@ Here are the OWASP top 10 security threats that your website/application might f
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html&via=iamrawtion&text=Sken.ai%20DevSecOps%20walkthrough" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/skenai-devsecops-walkthrough.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -484,36 +461,6 @@ Here are the OWASP top 10 security threats that your website/application might f
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>AWS Tagger | Roshan Nagekar</title>
+  <title>AWS Tagging Strategy: Bulk Tag AWS Resources for Cost Allocation</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="How to bulk-tag AWS resources for cost allocation, compliance, and governance using a tagging strategy that scales across EC2, S3, RDS, and other services.">
+  <meta name="description" content="Why an AWS tagging strategy matters for cost allocation, automation, ownership and compliance — and how to bulk-tag existing AWS resources.">
+  <meta name="keywords" content="AWS tagging strategy, bulk tag AWS resources, AWS cost allocation tags, AWS resource tagging best practices, AWS governance, tag EC2 instances, AWS, Bulk tagging, Cloud Computing, Standard, Tags">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/aws-tagger.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/one-click-ansible-authorization-for.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/devsecops-pune-meetup-1.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="AWS Tagger">
-  <meta property="og:description" content="How to bulk-tag AWS resources for cost allocation, compliance, and governance using a tagging strategy that scales across EC2, S3, RDS, and other services.">
+  <meta property="og:title" content="AWS Tagging Strategy: Bulk Tag AWS Resources for Cost Allocation">
+  <meta property="og:description" content="Why an AWS tagging strategy matters for cost allocation, automation, ownership and compliance — and how to bulk-tag existing AWS resources.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/aws-tagger.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2019-01-20">
+  <meta property="article:modified_time" content="2026-08-17">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="Cloud Computing">
   <meta property="article:tag" content="AWS">
@@ -25,14 +27,10 @@
   <meta property="article:tag" content="Cloud Computing">
   <meta property="article:tag" content="Standard">
   <meta property="article:tag" content="Tags">
-  <meta property="article:tag" content="Cost Management">
-  <meta property="article:tag" content="EC2">
-  <meta property="article:tag" content="RDS">
-  <meta property="article:tag" content="DevOps">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="AWS Tagger">
-  <meta name="twitter:description" content="How to bulk-tag AWS resources for cost allocation, compliance, and governance using a tagging strategy that scales across EC2, S3, RDS, and other services.">
+  <meta name="twitter:title" content="AWS Tagging Strategy: Bulk Tag AWS Resources for Cost Allocation">
+  <meta name="twitter:description" content="Why an AWS tagging strategy matters for cost allocation, automation, ownership and compliance — and how to bulk-tag existing AWS resources.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="6 min read">
@@ -49,7 +47,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"AWS Tagger","description":"How to bulk-tag AWS resources for cost allocation, compliance, and governance using a tagging strategy that scales across EC2, S3, RDS, and other services.","articleSection":"Cloud Computing","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-01-20","url":"https://iamrawtion.github.io/blogs/aws-tagger.html","keywords":"AWS, Bulk tagging, Cloud Computing, Standard, Tags","wordCount":1150,"timeRequired":"PT6M","articleBody":"Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us identify resources but it can also do multiple other wonders that one might have never thought about. We don&#39;t tag resources in cloud for many reasons, laziness being the topmost reason. Lets see why tagging is important: Identification and Isolation: Tagging allows identification of resources as to what purpose a specific resource may have been created for. It also allows you to separate resources from each other. e.g. separating different environments. Automation: When you tag resources with certain values you can ensure that your automation scripts only addresses certain intended resources and not all. e.g execute security patches on certain systems that need to be compliant. Costing: You can identify based on tags as to which resource is costly and also make business decisions based on the results received. Define ownership: You can also understand based on proper tags as to who are the stakeholders for a certain resource or group of resources. Versioning: Sometimes when you need certain resources to be preserved based on its state, you may also versionize them based on tagging. Although AWS provides versioning mechanism for a few services, it may not be applicable to all of them. In many organizations although the importance of tagging is understood a lot later. Until then its too late to start tagging and it becomes almost always a manual process to tag all the resources. Or you may need to write complex programs to identify systems and tag them as per your requirement. Thankfully, AWS Tagger comes to rescue if you have a requirement to tag your AWS resources. You may also bulk tag them to avoid a lot of manual work. So how do we do this. Its a 3 step process to Bulk tag resources: Collection : This is a simple process. Here all you need to do is, collect all the resources in a file. Hereafter you may process this data. AWS Tagger heavily depends of resource ID&#39;s of all the resources you create. Resource ID&#39;s are further used to implement all the tags. To get the resource ID&#39;s for all the resources, simply login to your AWS account and navigate to https://resources.console.aws.amazon.com/r/tags . On this page, you are given a field to enter the region for the resource you want to choose and all choose the types of resource. Choose &quot;All resource types&quot; here and click on &quot;Find Resources&quot; button. Click on the &quot;Download&quot; button to download the CSV data generated. Identification and filtering: I recommend this step particularly to filter the data so that AWS Tagger can act on individual resources. Here you may use your excel skills to separate data based on resource types. Tagging: Once the resources are separated, you may start executing **AWS Tagger scripts as per the documentation provided on their **Github page. AWS Tagging Best Practices Getting the tooling right is only half the problem. The other half is agreeing on a tag schema and then actually enforcing it. Without enforcement, you&#39;ll have some resources tagged correctly, some tagged inconsistently, and some not tagged at all — which defeats the entire purpose. Mandatory tags — these should be required on every resource, enforced at creation time: Environment : prod / staging / dev / sandbox — the single most important tag for filtering, automation, and access control Owner : team or individual email — so you know who to call when something breaks or an unexpected bill arrives CostCenter : for billing allocation to the right business unit or project Project : the initiative or product this resource belongs to Optional but recommended : ManagedBy : terraform / ansible / cloudformation / manual — invaluable when you need to know whether a resource is safe to modify through the console or must go through a pipeline Version : for resources tied to a specific deployment or release ExpiresOn : for temporary resources — especially useful in sandbox accounts where resources routinely get created for testing and then forgotten The value of mandatory tags only materializes if they&#39;re actually enforced. A tag policy document that lives in a wiki but doesn&#39;t prevent untagged resources from being created is decoration. AWS Config managed rules can flag untagged or incorrectly tagged resources, and Service Control Policies (SCPs) via AWS Organizations can deny resource creation entirely if required tags are missing. Enforcing Tags at Creation Time The most effective approach is to prevent untagged resources from being created in the first place, rather than trying to clean up after the fact. Here&#39;s an SCP that denies EC2 instance creation unless the Environment tag is present: { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Deny&quot;, &quot;Action&quot;: [&quot;ec2:RunInstances&quot;], &quot;Resource&quot;: &quot;arn:aws:ec2:*:*:inst","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"AWS Tagging Strategy: Bulk Tag AWS Resources for Cost Allocation","alternativeHeadline":"AWS Tagger","description":"Why an AWS tagging strategy matters for cost allocation, automation, ownership and compliance — and how to bulk-tag existing AWS resources.","articleSection":"Cloud Computing","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-01-20","dateModified":"2026-08-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/aws-tagger.html"},"url":"https://iamrawtion.github.io/blogs/aws-tagger.html","keywords":"AWS tagging strategy, bulk tag AWS resources, AWS cost allocation tags, AWS resource tagging best practices, AWS governance, tag EC2 instances, AWS, Bulk tagging, Cloud Computing, Standard, Tags","wordCount":1150,"timeRequired":"PT6M","articleBody":"Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us identify resources but it can also do multiple other wonders that one might have never thought about. We don&#39;t tag resources in cloud for many reasons, laziness being the topmost reason. Lets see why tagging is important: Identification and Isolation: Tagging allows identification of resources as to what purpose a specific resource may have been created for. It also allows you to separate resources from each other. e.g. separating different environments. Automation: When you tag resources with certain values you can ensure that your automation scripts only addresses certain intended resources and not all. e.g execute security patches on certain systems that need to be compliant. Costing: You can identify based on tags as to which resource is costly and also make business decisions based on the results received. Define ownership: You can also understand based on proper tags as to who are the stakeholders for a certain resource or group of resources. Versioning: Sometimes when you need certain resources to be preserved based on its state, you may also versionize them based on tagging. Although AWS provides versioning mechanism for a few services, it may not be applicable to all of them. In many organizations although the importance of tagging is understood a lot later. Until then its too late to start tagging and it becomes almost always a manual process to tag all the resources. Or you may need to write complex programs to identify systems and tag them as per your requirement. Thankfully, AWS Tagger comes to rescue if you have a requirement to tag your AWS resources. You may also bulk tag them to avoid a lot of manual work. So how do we do this. Its a 3 step process to Bulk tag resources: Collection : This is a simple process. Here all you need to do is, collect all the resources in a file. Hereafter you may process this data. AWS Tagger heavily depends of resource ID&#39;s of all the resources you create. Resource ID&#39;s are further used to implement all the tags. To get the resource ID&#39;s for all the resources, simply login to your AWS account and navigate to https://resources.console.aws.amazon.com/r/tags . On this page, you are given a field to enter the region for the resource you want to choose and all choose the types of resource. Choose &quot;All resource types&quot; here and click on &quot;Find Resources&quot; button. Click on the &quot;Download&quot; button to download the CSV data generated. Identification and filtering: I recommend this step particularly to filter the data so that AWS Tagger can act on individual resources. Here you may use your excel skills to separate data based on resource types. Tagging: Once the resources are separated, you may start executing **AWS Tagger scripts as per the documentation provided on their **Github page. AWS Tagging Best Practices Getting the tooling right is only half the problem. The other half is agreeing on a tag schema and then actually enforcing it. Without enforcement, you&#39;ll have some resources tagged correctly, some tagged inconsistently, and some not tagged at all — which defeats the entire purpose. Mandatory tags — these should be required on every resource, enforced at creation time: Environment : prod / staging / dev / sandbox — the single most important tag for filtering, automation, and access control Owner : team or individual email — so you know who to call when something breaks or an unexpected bill arrives CostCenter : for billing allocation to the right business unit or project Project : the initiative or product this resource belongs to Optional but recommended : ManagedBy : terraform / ansible / cloudformation / manual — invaluable when you need to know whether a resource is safe to modify through the console or must go through a pipeline Version : for resources tied to a specific deployment or release ExpiresOn : for temporary resources — especially useful in sandbox accounts where resources routinely get created for testing and then forgotten The value of mandatory tags only materializes if they&#39;re actually enforced. A tag policy document that lives in a wiki but doesn&#39;t prevent untagged resources from being created is decoration. AWS Config managed rules can flag untagged or incorrectly tagged resources, and Service Control Policies (SCPs) via AWS Organizations can deny resource creation entirely if required tags are missing. Enforcing Tags at Creation Time The most effective approach is to prevent untagged resources from being created in the first place, rather than trying to clean up after the fact. Here&#39;s an SCP that denies EC2 instance creation unless the Environment tag is present: { &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Effect&quot;: &quot;Deny&quot;, &quot;Action&quot;: [&quot;ec2:RunInstances&quot;], &quot;Resource&quot;: &quot;arn:aws:ec2:*:*:inst","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"Cloud Computing","item":"https://iamrawtion.github.io/categories/cloud-computing.html"},{"@type":"ListItem","position":4,"name":"AWS Tagger","item":"https://iamrawtion.github.io/blogs/aws-tagger.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -113,12 +111,12 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#aws-tagging-best-practices" style="color:var(--primary-color); text-decoration:none;">AWS Tagging Best Practices</a></li><li style="margin-bottom:0.35rem;"><a href="#enforcing-tags-at-creation-time" style="color:var(--primary-color); text-decoration:none;">Enforcing Tags at Creation Time</a></li><li style="margin-bottom:0.35rem;"><a href="#modern-alternatives-to-aws-tagger" style="color:var(--primary-color); text-decoration:none;">Modern Alternatives to AWS Tagger</a></li>
-      </ul>
+      </ol>
     </nav>
         <div class="blog-post-content markdown-body">
-          <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSkdewqis72w1XkzPA-m8lxPsaI_kyWYWLc4OJOuWbxorWek9ji6RIGq4lsjRQ0S1fvr2YcJg5EgHuXgK0sz7Wlcc9TMwmiTWpcTkuHsLP0vjS94X1ZE-g0u_oxJjvsq7r9-mxub2PS8Q/s1600/3814523970_56b2af4d12_z.jpg" alt=""></p>
+          <p><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSkdewqis72w1XkzPA-m8lxPsaI_kyWYWLc4OJOuWbxorWek9ji6RIGq4lsjRQ0S1fvr2YcJg5EgHuXgK0sz7Wlcc9TMwmiTWpcTkuHsLP0vjS94X1ZE-g0u_oxJjvsq7r9-mxub2PS8Q/s1600/3814523970_56b2af4d12_z.jpg" alt="AWS Tagger — image 1"></p>
 <p>Tagging in AWS is often not considered useful by many users. Tagging of resources in cloud and DC not only helps us identify resources but it can also do multiple other wonders that one might have never thought about. We don&#39;t tag resources in cloud for many reasons, laziness being the topmost reason.</p>
 <p>Lets see why tagging is important:</p>
 <ol>
@@ -127,7 +125,7 @@
 <li>Costing: You can identify based on tags as to which resource is costly and also make business decisions based on the results received.</li>
 <li>Define ownership: You can also understand based on proper tags as to who are the stakeholders for a certain resource or group of resources.</li>
 <li>Versioning: Sometimes when you need certain resources to be preserved based on its state, you may also versionize them based on tagging. Although AWS provides versioning mechanism for a few services, it may not be applicable to all of them.</li>
-</ul>
+</ol>
 <p>In many organizations although the importance of tagging is understood a lot later.
 Until then its too late to start tagging and it becomes almost always a manual process to tag all the resources.</p>
 <p>Or you may need to write complex programs to identify systems and tag them as per your requirement.
@@ -137,7 +135,7 @@ So how do we do this.</p>
 <p>Its a 3 step process to Bulk tag resources:</p>
 <ol>
 <li></li>
-</ul>
+</ol>
 <p>Collection : This is a simple process.
 Here all you need to do is, collect all the resources in a file.
 Hereafter you may process this data.</p>
@@ -150,7 +148,7 @@ Click on the &quot;Download&quot; button to download the CSV data generated.</p>
 <ol start="2">
 <li>Identification and filtering: I recommend this step particularly to filter the data so that AWS Tagger can act on individual resources. Here you may use your excel skills to separate data based on resource types.</li>
 <li>Tagging: Once the resources are separated, you may start executing **AWS Tagger scripts as per the <a href="https://github.com/washingtonpost/aws-tagger/blob/master/README.md">documentation</a> provided on their **Github page.</li>
-</ul>
+</ol>
 <h2 id="aws-tagging-best-practices">AWS Tagging Best Practices</h2>
 <p>Getting the tooling right is only half the problem. The other half is agreeing on a tag schema and then actually enforcing it. Without enforcement, you&#39;ll have some resources tagged correctly, some tagged inconsistently, and some not tagged at all — which defeats the entire purpose.</p>
 <p><strong>Mandatory tags</strong> — these should be required on every resource, enforced at creation time:</p>
@@ -210,24 +208,6 @@ Click on the &quot;Download&quot; button to download the CSV data generated.</p>
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
@@ -261,21 +241,14 @@ Click on the &quot;Download&quot; button to download the CSV data generated.</p>
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/aws-tagger.html&via=iamrawtion&text=AWS%20Tagger" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/aws-tagger.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -294,36 +267,6 @@ Click on the &quot;Download&quot; button to download the CSV data generated.</p>
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>

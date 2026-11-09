@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="language" content="en">
-  <title>Source build Envoy proxy on Ubuntu 18.04 | Roshan Nagekar</title>
+  <title>Build Envoy Proxy from Source on Ubuntu 18.04 with Bazel</title>
   <!-- begin Convert Experiences code--><script type="text/javascript" src="//cdn-4.convertexperiments.com/v1/js/10041607-100414373.js?environment=production"></script><!-- end Convert Experiences code -->
-  <meta name="description" content="Step-by-step guide to compiling Envoy proxy from source on Ubuntu 18.04 using Bazel, including all required build dependencies and configuration steps.">
+  <meta name="description" content="Step-by-step guide to building Envoy proxy from source on Ubuntu 18.04 with Bazel, including build dependencies, compiler setup and common errors.">
+  <meta name="keywords" content="build Envoy from source, Envoy proxy Ubuntu, Bazel build Envoy, Envoy proxy install, Ubuntu 18.04, service mesh proxy, envoy, load balancer, proxy, source build, ubuntu">
   <link rel="canonical" href="https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html">
   <link rel="prev" href="https://iamrawtion.github.io/blogs/easily-scprsync-through-bastion-host-or.html">
   <link rel="next" href="https://iamrawtion.github.io/blogs/devsecops-pune-meetup-3.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Source build Envoy proxy on Ubuntu 18.04">
-  <meta property="og:description" content="Step-by-step guide to compiling Envoy proxy from source on Ubuntu 18.04 using Bazel, including all required build dependencies and configuration steps.">
+  <meta property="og:title" content="Build Envoy Proxy from Source on Ubuntu 18.04 with Bazel">
+  <meta property="og:description" content="Step-by-step guide to building Envoy proxy from source on Ubuntu 18.04 with Bazel, including build dependencies, compiler setup and common errors.">
   <meta property="og:url" content="https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html">
   <meta property="og:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta property="og:site_name" content="Roshan Nagekar">
   <meta property="article:published_time" content="2019-02-20">
+  <meta property="article:modified_time" content="2026-08-17">
   <meta property="article:author" content="Roshan Nagekar">
   <meta property="article:section" content="DevOps">
   <meta property="article:tag" content="envoy">
@@ -27,8 +29,8 @@
   <meta property="article:tag" content="ubuntu">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@iamrawtion">
-  <meta name="twitter:title" content="Source build Envoy proxy on Ubuntu 18.04">
-  <meta name="twitter:description" content="Step-by-step guide to compiling Envoy proxy from source on Ubuntu 18.04 using Bazel, including all required build dependencies and configuration steps.">
+  <meta name="twitter:title" content="Build Envoy Proxy from Source on Ubuntu 18.04 with Bazel">
+  <meta name="twitter:description" content="Step-by-step guide to building Envoy proxy from source on Ubuntu 18.04 with Bazel, including build dependencies, compiler setup and common errors.">
   <meta name="twitter:image" content="https://iamrawtion.github.io/profile.jpg">
   <meta name="twitter:label1" content="Reading time">
   <meta name="twitter:data1" content="5 min read">
@@ -45,7 +47,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Source build Envoy proxy on Ubuntu 18.04","description":"Step-by-step guide to compiling Envoy proxy from source on Ubuntu 18.04 using Bazel, including all required build dependencies and configuration steps.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","url":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html","keywords":"envoy, load balancer, proxy, source build, ubuntu","wordCount":846,"timeRequired":"PT5M","articleBody":"sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&quot; | sudo tee /etc/apt/sources.list.d/bazel.list curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add - sudo apt-get update &amp;&amp; sudo apt-get install bazel wget https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz tar -xvf go1.11.5.linux-amd64.tar.gz sudo chown -R root:root ./go sudo mv go /usr/local echo &quot;export GOPATH=$HOME/go&quot; &gt;&gt; ~/.profile echo &quot;export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin&quot; &gt;&gt; ~/.profile git clone https://github.com/envoyproxy/envoy.git cd envoy/ bazel build --package_path %workspace%:/home/&lt;user&gt;/envoy/ //source/exe:envoy-static RELAX, ITS GOING TO TAKE LONG TIME To generate the example configurations run the following from the root of the repo: mkdir -p generated/configs bazel build //configs:example_configs RELAX, ITS GOING TO TAKE LONG TIME I wrote an **Ansible playbook too for this. I will publish it later on **Github Why Build Envoy from Source? Most teams never need to do this. If you&#39;re running Envoy in production, you&#39;re almost certainly pulling it from the official Docker images or getting it injected as a sidecar by a service mesh like Istio. That&#39;s the right call for the vast majority of deployments — official images are tested, signed, and updated with security patches. Source builds are for specific situations: You need to apply a patch that hasn&#39;t made it into a release yet. Maybe you hit a bug and there&#39;s a fix in main but the next release is weeks away. You&#39;re targeting an architecture or OS where Envoy doesn&#39;t publish official binaries. You&#39;re contributing to Envoy and need a development build with debug symbols. You want to understand the build system before submitting a PR. If none of those apply to you, use the Docker image. Seriously. What Takes So Long The first build took me around 75 minutes on a reasonably spec&#39;d machine, and that surprised me until I understood what Bazel was actually doing. Envoy has no pre-compiled dependencies. Bazel downloads and builds everything from source: gRPC, BoringSSL (Google&#39;s OpenSSL fork), Protobuf, abseil-cpp, libevent, and more. Each of those has its own dependency tree. On a first build, you&#39;re compiling several hundred thousand lines of C++ with no shortcuts. The good news: subsequent builds are much faster. Bazel caches every build artifact in ~/.cache/bazel/ , keyed by content hash. If you change one file in Envoy&#39;s HTTP filter code, Bazel only recompiles the affected translation units and re-links the binary. Incremental rebuilds on a warm cache typically run in a few minutes. On CI, the trick is persisting ~/.cache/bazel between runs. Most CI platforms support artifact caching keyed by a hash of your dependency lockfiles. A warm Bazel cache on CI cuts Envoy rebuild time from 60+ minutes to under 10. Faster Alternative: Use the Official Docker Image For anything that isn&#39;t a source build scenario, this is the right starting point: docker pull envoyproxy/envoy:v1.29-latest docker run --rm -it \\ -p 9901:9901 \\ -p 10000:10000 \\ -v $(pwd)/envoy.yaml:/etc/envoy/envoy.yaml \\ envoyproxy/envoy:v1.29-latest You&#39;ll need a minimal envoy.yaml to get anything running. Here&#39;s the smallest useful config — an admin endpoint and a single listener that proxies HTTP: admin: address: socket_address: address: 0.0.0.0 port_value: 9901 static_resources: listeners: - name: listener_0 address: socket_address: address: 0.0.0.0 port_value: 10000 filter_chains: - filters: - name: envoy.filters.network.http_connection_manager typed_config: &quot;@type&quot;: type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: backend domains: [&quot;*&quot;] routes: - match: prefix: &quot;/&quot; route: cluster: service_backend http_filters: - name: envoy.filters.http.router typed_config: &quot;@type&quot;: type.googleapis.com/envoy.extensions.filters.http.router.v3.Router clusters: - name: service_backend connect_timeout: 0.25s type: LOGICAL_DNS load_assignment: cluster_name: service_backend endpoints: - lb_endpoints: - endpoint: address: socket_address: address: example.com port_value: 80 Port 9901 is the admin endpoint. Hit http://localhost:9901/stats and you get a wall of metrics. http://localhost:9901/ready returns 200 when Envoy is healthy — that&#39;s your health check endpoint for load balancers. Verifying the Build Once the Bazel build finishes, confirm the binary actually works before doing anything else with it: ./bazel-bin/source/exe/envoy-static --version ./bazel-bin/source/exe/envoy-static -c generated/configs/google_com_proxy.v2.yaml The --version output should print the Envoy version string plus the build label. If th","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","inLanguage":"en","headline":"Build Envoy Proxy from Source on Ubuntu 18.04 with Bazel","alternativeHeadline":"Source build Envoy proxy on Ubuntu 18.04","description":"Step-by-step guide to building Envoy proxy from source on Ubuntu 18.04 with Bazel, including build dependencies, compiler setup and common errors.","articleSection":"DevOps","image":{"@type":"ImageObject","url":"https://iamrawtion.github.io/profile.jpg","width":1200,"height":630},"author":{"@type":"Person","name":"Roshan Nagekar","url":"https://iamrawtion.github.io"},"datePublished":"2019-02-20","dateModified":"2026-08-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html"},"url":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html","keywords":"build Envoy from source, Envoy proxy Ubuntu, Bazel build Envoy, Envoy proxy install, Ubuntu 18.04, service mesh proxy, envoy, load balancer, proxy, source build, ubuntu","wordCount":846,"timeRequired":"PT5M","articleBody":"sudo apt-get update sudo apt-get install openjdk-8-jdk build-essential autoconf libtool cmake ninja-build echo &quot;deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8&quot; | sudo tee /etc/apt/sources.list.d/bazel.list curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add - sudo apt-get update &amp;&amp; sudo apt-get install bazel wget https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz tar -xvf go1.11.5.linux-amd64.tar.gz sudo chown -R root:root ./go sudo mv go /usr/local echo &quot;export GOPATH=$HOME/go&quot; &gt;&gt; ~/.profile echo &quot;export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin&quot; &gt;&gt; ~/.profile git clone https://github.com/envoyproxy/envoy.git cd envoy/ bazel build --package_path %workspace%:/home/&lt;user&gt;/envoy/ //source/exe:envoy-static RELAX, ITS GOING TO TAKE LONG TIME To generate the example configurations run the following from the root of the repo: mkdir -p generated/configs bazel build //configs:example_configs RELAX, ITS GOING TO TAKE LONG TIME I wrote an **Ansible playbook too for this. I will publish it later on **Github Why Build Envoy from Source? Most teams never need to do this. If you&#39;re running Envoy in production, you&#39;re almost certainly pulling it from the official Docker images or getting it injected as a sidecar by a service mesh like Istio. That&#39;s the right call for the vast majority of deployments — official images are tested, signed, and updated with security patches. Source builds are for specific situations: You need to apply a patch that hasn&#39;t made it into a release yet. Maybe you hit a bug and there&#39;s a fix in main but the next release is weeks away. You&#39;re targeting an architecture or OS where Envoy doesn&#39;t publish official binaries. You&#39;re contributing to Envoy and need a development build with debug symbols. You want to understand the build system before submitting a PR. If none of those apply to you, use the Docker image. Seriously. What Takes So Long The first build took me around 75 minutes on a reasonably spec&#39;d machine, and that surprised me until I understood what Bazel was actually doing. Envoy has no pre-compiled dependencies. Bazel downloads and builds everything from source: gRPC, BoringSSL (Google&#39;s OpenSSL fork), Protobuf, abseil-cpp, libevent, and more. Each of those has its own dependency tree. On a first build, you&#39;re compiling several hundred thousand lines of C++ with no shortcuts. The good news: subsequent builds are much faster. Bazel caches every build artifact in ~/.cache/bazel/ , keyed by content hash. If you change one file in Envoy&#39;s HTTP filter code, Bazel only recompiles the affected translation units and re-links the binary. Incremental rebuilds on a warm cache typically run in a few minutes. On CI, the trick is persisting ~/.cache/bazel between runs. Most CI platforms support artifact caching keyed by a hash of your dependency lockfiles. A warm Bazel cache on CI cuts Envoy rebuild time from 60+ minutes to under 10. Faster Alternative: Use the Official Docker Image For anything that isn&#39;t a source build scenario, this is the right starting point: docker pull envoyproxy/envoy:v1.29-latest docker run --rm -it \\ -p 9901:9901 \\ -p 10000:10000 \\ -v $(pwd)/envoy.yaml:/etc/envoy/envoy.yaml \\ envoyproxy/envoy:v1.29-latest You&#39;ll need a minimal envoy.yaml to get anything running. Here&#39;s the smallest useful config — an admin endpoint and a single listener that proxies HTTP: admin: address: socket_address: address: 0.0.0.0 port_value: 9901 static_resources: listeners: - name: listener_0 address: socket_address: address: 0.0.0.0 port_value: 10000 filter_chains: - filters: - name: envoy.filters.network.http_connection_manager typed_config: &quot;@type&quot;: type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager stat_prefix: ingress_http route_config: name: local_route virtual_hosts: - name: backend domains: [&quot;*&quot;] routes: - match: prefix: &quot;/&quot; route: cluster: service_backend http_filters: - name: envoy.filters.http.router typed_config: &quot;@type&quot;: type.googleapis.com/envoy.extensions.filters.http.router.v3.Router clusters: - name: service_backend connect_timeout: 0.25s type: LOGICAL_DNS load_assignment: cluster_name: service_backend endpoints: - lb_endpoints: - endpoint: address: socket_address: address: example.com port_value: 80 Port 9901 is the admin endpoint. Hit http://localhost:9901/stats and you get a wall of metrics. http://localhost:9901/ready returns 200 when Envoy is healthy — that&#39;s your health check endpoint for load balancers. Verifying the Build Once the Bazel build finishes, confirm the binary actually works before doing anything else with it: ./bazel-bin/source/exe/envoy-static --version ./bazel-bin/source/exe/envoy-static -c generated/configs/google_com_proxy.v2.yaml The --version output should print the Envoy version string plus the build label. If th","publisher":{"@type":"Person","name":"Roshan Nagekar"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://iamrawtion.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://iamrawtion.github.io/blog.html"},{"@type":"ListItem","position":3,"name":"DevOps","item":"https://iamrawtion.github.io/categories/devops.html"},{"@type":"ListItem","position":4,"name":"Source build Envoy proxy on Ubuntu 18.04","item":"https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html"}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HYR51YD9W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
@@ -109,9 +111,9 @@
         
     <nav aria-label="Table of contents" style="margin-bottom:2rem; padding:1.25rem 1.5rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; font-size:0.9rem;">
       <p style="color:var(--text-color); font-size:0.78rem; font-family:monospace; margin:0 0 0.75rem; opacity:0.7;">TABLE OF CONTENTS</p>
-      <ul style="margin:0; padding-left:0; list-style:none; color:var(--text-color);">
+      <ol style="margin:0; padding-left:1.25rem; color:var(--text-color);">
         <li style="margin-bottom:0.35rem;"><a href="#relax-its-going-to-take-long-time" style="color:var(--primary-color); text-decoration:none;">RELAX, ITS GOING TO TAKE LONG TIME</a></li><li style="margin-bottom:0.35rem;"><a href="#relax-its-going-to-take-long-time" style="color:var(--primary-color); text-decoration:none;">RELAX, ITS GOING TO TAKE LONG TIME</a></li><li style="margin-bottom:0.35rem;"><a href="#why-build-envoy-from-source" style="color:var(--primary-color); text-decoration:none;">Why Build Envoy from Source?</a></li><li style="margin-bottom:0.35rem;"><a href="#what-takes-so-long" style="color:var(--primary-color); text-decoration:none;">What Takes So Long</a></li><li style="margin-bottom:0.35rem;"><a href="#faster-alternative-use-the-official-docker-image" style="color:var(--primary-color); text-decoration:none;">Faster Alternative: Use the Official Docker Image</a></li><li style="margin-bottom:0.35rem;"><a href="#verifying-the-build" style="color:var(--primary-color); text-decoration:none;">Verifying the Build</a></li><li style="margin-bottom:0.35rem;"><a href="#when-to-use-a-service-mesh-instead" style="color:var(--primary-color); text-decoration:none;">When to Use a Service Mesh Instead</a></li>
-      </ul>
+      </ol>
     </nav>
         <div class="blog-post-content markdown-body">
           <pre><code class="language-bash">sudo apt-get update
@@ -221,41 +223,23 @@ static_resources:
 
         </div>
         
-  <section style="margin-top:3rem; padding:1.5rem; background:linear-gradient(135deg, rgba(122,162,247,0.08), rgba(100,255,218,0.05)); border:1px solid #414868; border-radius:8px;">
-    <p style="color:var(--heading-color); font-size:1rem; font-weight:600; margin:0 0 0.4rem;">Enjoyed this post?</p>
-    <p style="color:var(--text-color); font-size:0.9rem; margin:0 0 1rem;">I write about DevOps, cloud, and occasionally CRO. Follow along on Twitter for more.</p>
-    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a href="https://twitter.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--primary-color); color:var(--bg-color); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-twitter"></i> Follow @iamrawtion
-      </a>
-      <a href="https://iamrawtion.github.io/feed.xml" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#f7a261; border:1px solid rgba(247,162,97,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fas fa-rss"></i> Subscribe via RSS
-      </a>
-      <a href="https://www.linkedin.com/in/roshannagekar/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#7aa2f7; border:1px solid rgba(122,162,247,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-      </a>
-      <a href="https://github.com/iamrawtion" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1.25rem; background:var(--bg-darker); color:#c0caf5; border:1px solid rgba(192,202,245,0.3); border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        <i class="fab fa-github"></i> Follow on GitHub
-      </a>
-    </div>
-  </section>
   <section style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
     <h3 style="color:var(--heading-color); margin-bottom:1.25rem; font-size:1.1rem;">Related Posts</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem;">
       
-      <a href="../blogs/getting-your-first-devops-job-is-harder-now.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Inside My Homelab: Architecture, Philosophy, and Why It Exists</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/the-cv-habit-that-accidentally-saved-my-job.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/finally-found-a-local-llm-setup-that-seems-promising.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">The CV Habit That Accidentally Saved My Job</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Finally Found a Local LLM Setup That Seems to be Promising</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
-      <a href="../blogs/nagios-still-has-my-heart.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
+      <a href="../blogs/measurecamp-delhi-where-i-became-a-speaker.html" style="display:block; padding:1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; text-decoration:none; transition:border-color 0.2s;">
         <span style="color:var(--accent-color); font-size:0.75rem; font-family:monospace;">DevOps</span>
-        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">Why Nagios Still Has My Heart (Even Though I Use Prometheus Now)</p>
+        <p style="color:var(--heading-color); font-size:0.9rem; margin:0.4rem 0 0; line-height:1.4;">MeasureCamp Delhi: Where I Became a Speaker Without Meaning To</p>
         <p style="color:var(--text-color); font-size:0.78rem; margin-top:0.4rem;">2026</p>
       </a>
     </div>
@@ -272,21 +256,14 @@ static_resources:
     </a>
   </nav>
         <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #414868;">
-          <div style="margin-bottom:1.25rem;">
-            <p style="color:var(--text-color); margin-bottom:0.75rem; font-size:0.95rem;">Found this useful? Share it:</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://twitter.com/intent/tweet?url=https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html&via=iamrawtion&text=Source%20build%20Envoy%20proxy%20on%20Ubuntu%2018.04" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-twitter"></i> Share on Twitter
-              </a>
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://iamrawtion.github.io/blogs/source-build-envoy-proxy-on-ubuntu-1804.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--primary-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fab fa-linkedin"></i> Share on LinkedIn
-              </a>
-              <button id="copy-link-btn" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); font-size:0.85rem; cursor:pointer; font-family:inherit; transition:border-color 0.2s;"><i class="fas fa-link"></i> Copy link</button>
-              <a href="../consulting.html" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; background:var(--bg-darker); border:1px solid #414868; border-radius:6px; color:var(--text-color); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s;">
-                <i class="fas fa-handshake"></i> Hire me for consulting
-              </a>
-            </div>
-          </div>
+          <p style="color:var(--text-color); margin-bottom:1rem;">
+            Found this useful?
+            <a href="https://twitter.com/iamrawtion" target="_blank" style="color:var(--primary-color);">Share on Twitter</a>
+            &nbsp;·&nbsp;
+            <a href="../consulting.html" style="color:var(--primary-color);">Hire me for consulting</a>
+            &nbsp;·&nbsp;
+            <a href="../blog.html" style="color:var(--primary-color);">All posts</a>
+          </p>
           <p style="color:var(--text-color); font-size:0.85rem;">
             <a href="../index.html" style="color:var(--primary-color);">Home</a> ·
             <a href="../index.html#experience" style="color:var(--primary-color);">Experience</a> ·
@@ -305,36 +282,6 @@ static_resources:
     const toggle = document.getElementById('nav-toggle');
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
-    var copyBtn = document.getElementById('copy-link-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        var btn = this;
-        navigator.clipboard.writeText(window.location.href).then(function() {
-          btn.textContent = 'Copied!';
-          setTimeout(function() {
-            btn.innerHTML = '<i class="fas fa-link"></i> Copy link';
-          }, 2000);
-        });
-      });
-    }
-  </script>
-  <script>
-    document.querySelectorAll('pre code').forEach(function(codeBlock) {
-      var pre = codeBlock.parentNode;
-      pre.style.position = 'relative';
-      var btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;padding:0.2rem 0.6rem;background:rgba(122,162,247,0.15);color:#7aa2f7;border:1px solid rgba(122,162,247,0.3);border-radius:4px;font-size:0.72rem;cursor:pointer;font-family:monospace;transition:background 0.2s;';
-      btn.addEventListener('click', function() {
-        navigator.clipboard.writeText(codeBlock.textContent).then(function() {
-          btn.textContent = 'Copied!';
-          btn.style.background = 'rgba(100,255,218,0.15)';
-          btn.style.color = '#64ffda';
-          setTimeout(function() { btn.textContent = 'Copy'; btn.style.background = 'rgba(122,162,247,0.15)'; btn.style.color = '#7aa2f7'; }, 2000);
-        });
-      });
-      pre.appendChild(btn);
-    });
   </script>
 </body>
 </html>
