@@ -1,14 +1,14 @@
 [
   {
-    "title": "Rose Ka Commit: A Daily GitHub Streak With My Students (and Me)",
+    "title": "Roz Ka Commit: A Daily GitHub Streak With My Students (and Me)",
     "date": "2026-11-09",
     "category": "DevOps",
     "tags": ["Git", "GitHub", "Learning", "Teaching", "Career", "Habits", "DevOps"],
-    "excerpt": "Rose Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days.",
+    "excerpt": "Roz Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days.",
     "author": "Roshan Nagekar",
-    "id": "rose-ka-commit-daily-github-streak",
-    "file": "rose-ka-commit-daily-github-streak.md",
-    "seoTitle": "Rose Ka Commit: A Daily GitHub Commit Streak Challenge",
+    "id": "roz-ka-commit-daily-github-streak",
+    "file": "roz-ka-commit-daily-github-streak.md",
+    "seoTitle": "Roz Ka Commit: A Daily GitHub Commit Streak Challenge",
     "description": "A daily GitHub commit streak for DevOps students: one commit a day for 14 days, then 100, to build a consistent GitHub history recruiters can see.",
     "keywords": ["GitHub streak challenge", "daily commit challenge", "100 days of code GitHub", "GitHub contribution graph", "GitHub for job hunting", "Git habit for students", "DevOps students GitHub"]
   },

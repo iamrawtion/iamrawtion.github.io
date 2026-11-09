@@ -1,15 +1,15 @@
 ---
-title: "Rose Ka Commit: A Daily GitHub Streak With My Students (and Me)"
+title: "Roz Ka Commit: A Daily GitHub Streak With My Students (and Me)"
 date: "2026-11-09"
 category: "DevOps"
 tags: ["Git", "GitHub", "Learning", "Teaching", "Career", "Habits", "DevOps"]
-excerpt: "Rose Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days."
+excerpt: "Roz Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days."
 author: "Roshan Nagekar"
 ---
 
-## What Is Rose Ka Commit
+## What Is Roz Ka Commit
 
-*Rose Ka Commit* means "every day's commit". The rule is exactly what the name says: push at least one commit to GitHub, every single day.
+*Roz Ka Commit* is Hindi for "every day's commit" (*roz* means daily). The rule is exactly what the name says: push at least one commit to GitHub, every single day.
 
 That is it. That is the whole challenge.
 
@@ -82,7 +82,7 @@ If you are thinking of doing something similar, on your own or with a group:
 
 ## Want to Join?
 
-If you are reading this and want to be part of **Rose Ka Commit**, whether you are a student, a working professional who has let your GitHub go quiet like I did, or just someone who wants to build the habit, you are welcome to join.
+If you are reading this and want to be part of **Roz Ka Commit**, whether you are a student, a working professional who has let your GitHub go quiet like I did, or just someone who wants to build the habit, you are welcome to join.
 
 Drop me an email at **[roshan4074@gmail.com](mailto:roshan4074@gmail.com)** and I will add you to the group.
 

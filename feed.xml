@@ -7,14 +7,14 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Mon, 09 Nov 2026 15:31:39 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 15:44:32 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Rose Ka Commit: A Daily GitHub Streak With My Students (and Me)</title>
-    <link>https://iamrawtion.github.io/blogs/rose-ka-commit-daily-github-streak.html</link>
-    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/rose-ka-commit-daily-github-streak.html</guid>
+    <title>Roz Ka Commit: A Daily GitHub Streak With My Students (and Me)</title>
+    <link>https://iamrawtion.github.io/blogs/roz-ka-commit-daily-github-streak.html</link>
+    <guid isPermaLink="true">https://iamrawtion.github.io/blogs/roz-ka-commit-daily-github-streak.html</guid>
     <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
-    <description>Rose Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days.</description>
+    <description>Roz Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days.</description>
     <author>iamrawtion@gmail.com (Roshan Nagekar)</author>
     <category>Git</category>
     <category>GitHub</category>
@@ -23,8 +23,8 @@
     <category>Career</category>
     <category>Habits</category>
     <category>DevOps</category>
-    <content:encoded><![CDATA[<h2>What Is Rose Ka Commit</h2>
-<p><em>Rose Ka Commit</em> means &quot;every day&#39;s commit&quot;. The rule is exactly what the name says: push at least one commit to GitHub, every single day.</p>
+    <content:encoded><![CDATA[<h2>What Is Roz Ka Commit</h2>
+<p><em>Roz Ka Commit</em> is Hindi for &quot;every day&#39;s commit&quot; (<em>roz</em> means daily). The rule is exactly what the name says: push at least one commit to GitHub, every single day.</p>
 <p>That is it. That is the whole challenge.</p>
 <p>I started it with around ten of my students. I honestly don&#39;t know how it is going to go. But I wanted to try it, and I wanted to try it with them rather than just tell them to do it.</p>
 <h2>Why I Started This</h2>
@@ -71,7 +71,7 @@
 <li><strong>Do it with others.</strong> Having a group that notices when you miss a day is half the motivation.</li>
 </ol>
 <h2>Want to Join?</h2>
-<p>If you are reading this and want to be part of <strong>Rose Ka Commit</strong>, whether you are a student, a working professional who has let your GitHub go quiet like I did, or just someone who wants to build the habit, you are welcome to join.</p>
+<p>If you are reading this and want to be part of <strong>Roz Ka Commit</strong>, whether you are a student, a working professional who has let your GitHub go quiet like I did, or just someone who wants to build the habit, you are welcome to join.</p>
 <p>Drop me an email at <strong><a href="mailto:roshan4074@gmail.com">roshan4074@gmail.com</a></strong> and I will add you to the group.</p>
 <p>One commit a day. Let&#39;s see how far we get.</p>
 ]]></content:encoded>

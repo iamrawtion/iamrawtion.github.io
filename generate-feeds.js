@@ -73,6 +73,8 @@ const SCHEMA_TYPE_MAP = {
 const REDIRECTS = {
   // Part I's original content was lost; this URL served a duplicate of Part II
   'build-your-own-private-cloud-with-1': 'build-your-own-private-cloud-with-2',
+  // Renamed: "Rose" was a typo for "Roz" (Hindi for daily)
+  'rose-ka-commit-daily-github-streak': 'roz-ka-commit-daily-github-streak',
 };
 
 // --- shared nav/head helpers ---
