@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+</script>
 <head>
   <meta charset="UTF-8">
   <title>Redirecting…</title>
@@ -8,6 +14,8 @@
   <meta http-equiv="refresh" content="0; url=https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><span>☀️</span></button>
   <p>This post has moved to <a href="https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html">https://iamrawtion.github.io/blogs/build-your-own-private-cloud-with-2.html</a>.</p>
+  <script src="/theme-toggle.js"></script>
 </body>
 </html>

@@ -313,3 +313,30 @@ if (!isBlogPage) {
         });
     }
 }
+
+// ─── Theme toggle ─────────────────────────────────────────────────────────────
+
+function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    const icon = btn.querySelector('span');
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        icon.textContent = theme === 'light' ? '🌙' : '☀️';
+        localStorage.setItem('theme', theme);
+    }
+
+    btn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+
+    // Sync icon with whatever theme was applied by the inline script
+    const saved = localStorage.getItem('theme') || 'dark';
+    icon.textContent = saved === 'light' ? '🌙' : '☀️';
+}
+
+initThemeToggle();
+

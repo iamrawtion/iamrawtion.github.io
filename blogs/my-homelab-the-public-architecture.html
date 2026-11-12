@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+</script>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0; url=/blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html">
@@ -7,6 +13,8 @@
   <title>Redirecting...</title>
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><span>☀️</span></button>
   <p>Redirecting... <a href="/blogs/inside-my-homelab-architecture-philosophy-and-why-it-exists.html">Click here if not redirected</a></p>
+  <script src="/theme-toggle.js"></script>
 </body>
 </html>

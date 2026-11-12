@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,6 +57,7 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><span>☀️</span></button>
   <div class="terminal-nav">
     <div class="container">
       <div class="terminal-header">
@@ -2549,5 +2556,6 @@ Disassembly of section .fini:
     const nav = document.getElementById('nav-links');
     if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('active'));
   </script>
+  <script src="/theme-toggle.js"></script>
 </body>
 </html>

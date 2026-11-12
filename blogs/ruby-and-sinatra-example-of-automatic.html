@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,6 +58,7 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><span>☀️</span></button>
   <div class="terminal-nav">
     <div class="container">
       <div class="terminal-header">
@@ -237,7 +244,8 @@ Password: <input type="password" name="paswd" /><br/>
          Open Terminal<br/>
          Type **ssh** [username]@[ip_address](ENTER)<br/>
          Type 'mutt' press enter and check you inbox
-      </body>
+        <script src="/theme-toggle.js"></script>
+</body>
     </head>
 </html><p>May be modified further as well....</p>
 
