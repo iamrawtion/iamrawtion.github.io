@@ -266,6 +266,12 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
 
   return `<!DOCTYPE html>
 <html lang="en">
+<script>
+    (function() {
+        var t = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -315,6 +321,7 @@ function blogPostHtml(blog, bodyHtml, allBlogs, wordCount = 0, readMinutes = 1, 
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0HYR51YD9W');</script>
 </head>
 <body>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><span>☀️</span></button>
 ${sharedNav('../')}
   <main class="blog-post-page" style="margin-top:80px; padding: 2rem 0;">
     <div class="container" style="max-width:860px;">
@@ -375,6 +382,7 @@ ${sharedNav('../')}
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 ${sharedNavScript()}
+  <script src="/theme-toggle.js"></script>
 </body>
 </html>`;
 }

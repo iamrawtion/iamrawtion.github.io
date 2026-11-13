@@ -108,6 +108,16 @@ A few things that help:
 5. **Make sure it counts.** Your commit email must be linked to your GitHub account. The commit must be on the default branch, or in a merged PR.
 6. **Do it with friends.** When someone notices you missed a day, you won't miss the next one.
 
+## Tracking Progress
+
+One of my students, Pranav, built a live tracker for the challenge.
+
+It shows everyone's streak, their last commit, and whether they're keeping up. No hiding. No "I'll do it tomorrow." Everything is public.
+
+You can see it here: **[pranavcodes1.github.io/roz-ka-commit](https://pranavcodes1.github.io/roz-ka-commit/)**
+
+That page alone changed something. When people can see each other's streaks, they don't want to be the one with a gap.
+
 ## Join Us
 
 Student? Working professional? Someone whose GitHub went quiet, like mine?
