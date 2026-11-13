@@ -7,7 +7,7 @@
     <language>en-us</language>
     <managingEditor>iamrawtion@gmail.com (Roshan Nagekar)</managingEditor>
     <webMaster>iamrawtion@gmail.com (Roshan Nagekar)</webMaster>
-    <lastBuildDate>Mon, 09 Nov 2026 16:03:18 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 17:39:09 GMT</lastBuildDate>
     <atom:link href="https://iamrawtion.github.io/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>Roz Ka Commit: A Daily GitHub Streak With My Students (and Me)</title>
@@ -81,6 +81,11 @@
 <li><strong>Make sure it counts.</strong> Your commit email must be linked to your GitHub account. The commit must be on the default branch, or in a merged PR.</li>
 <li><strong>Do it with friends.</strong> When someone notices you missed a day, you won&#39;t miss the next one.</li>
 </ol>
+<h2>Tracking Progress</h2>
+<p>One of my students, Pranav, built a live tracker for the challenge.</p>
+<p>It shows everyone&#39;s streak, their last commit, and whether they&#39;re keeping up. No hiding. No &quot;I&#39;ll do it tomorrow.&quot; Everything is public.</p>
+<p>You can see it here: <strong><a href="https://pranavcodes1.github.io/roz-ka-commit/">pranavcodes1.github.io/roz-ka-commit</a></strong></p>
+<p>That page alone changed something. When people can see each other&#39;s streaks, they don&#39;t want to be the one with a gap.</p>
 <h2>Join Us</h2>
 <p>Student? Working professional? Someone whose GitHub went quiet, like mine?</p>
 <p>Come join Roz Ka Commit.</p>
