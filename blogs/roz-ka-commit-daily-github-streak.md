@@ -2,7 +2,7 @@
 title: "Roz Ka Commit: A Daily GitHub Streak With My Students (and Me)"
 date: "2026-11-09"
 category: "DevOps"
-tags: ["Git", "GitHub", "Learning", "Teaching", "Career", "Habits", "DevOps"]
+tags: ["Git", "GitHub", "Learning", "Teaching", "Career", "Habits", "DevOps", "AI Tools", "GitHub Copilot", "Coding Habits", "Student Projects"]
 excerpt: "Roz Ka Commit — one commit, every single day. A 14-day GitHub streak I started with around ten of my students, and joined myself. If it works, we go to 100 days."
 author: "Roshan Nagekar"
 ---

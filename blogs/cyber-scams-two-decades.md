@@ -2,7 +2,7 @@
 title: "From a Million-Dollar Yahoo Lottery to AI Deepfakes: My Two Decades of Encounters with Cyber Scams"
 date: "2026-09-30"
 category: "Security"
-tags: ["Security", "Phishing", "Social Engineering", "AI/ML", "Cybersecurity", "Scams"]
+tags: ["Security", "Phishing", "Social Engineering", "AI/ML", "Cybersecurity", "Scams", "AI Deepfakes", "AI Phishing", "Generative AI Risk", "Voice Cloning", "AI-powered attacks"]
 excerpt: "How a fake lottery email in 2007 sparked my curiosity about cybersecurity, and why I now worry more about AI-powered scams than ever before."
 author: "Roshan Nagekar"
 ---

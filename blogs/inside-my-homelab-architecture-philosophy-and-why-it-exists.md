@@ -2,7 +2,7 @@
 title: "Inside My Homelab: Architecture, Philosophy, and Why It Exists"
 date: "2026-10-31"
 category: "DevOps"
-tags: ["Homelab", "Kubernetes", "Infrastructure", "DevOps", "Self-Hosted", "Security", "Open Source"]
+tags: ["Homelab", "Kubernetes", "Infrastructure", "DevOps", "Self-Hosted", "Security", "Open Source", "AI Homelab", "Local LLM", "Self-Hosted AI", "Proxmox"]
 excerpt: "A proper walkthrough of my homelab — what runs, how it's secured, why it exists, and what I've learned from keeping it alive for years."
 author: "Roshan Nagekar"
 ---

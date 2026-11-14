@@ -2,7 +2,7 @@
 title: "Getting Your First DevOps Job Is Harder Now — Here's What I Tell My Students"
 date: "2026-09-24"
 category: "DevOps"
-tags: ["DevOps", "Career", "Job Hunting", "Junior Engineers", "GitHub", "CI/CD", "Cloud"]
+tags: ["DevOps", "Career", "Job Hunting", "Junior Engineers", "GitHub", "CI/CD", "Cloud", "AI Tools", "AI in DevOps", "GitHub Copilot", "ChatGPT for developers"]
 excerpt: "After 14 years in DevOps and 4-5 years teaching it at university, I've watched the junior job market get genuinely harder. Here's what I keep telling my students about standing out when everyone's CV looks the same."
 author: "Roshan Nagekar"
 ---

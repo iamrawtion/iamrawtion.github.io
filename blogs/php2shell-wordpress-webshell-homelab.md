@@ -2,7 +2,7 @@
 title: "PHP2Shell: How a Simple File Editor Nearly Became a Backdoor Into Our Entire Lab"
 date: "2026-11-01"
 category: "Security"
-tags: ["Security", "WordPress", "Kubernetes", "Homelab", "DevSecOps", "PHP", "Hardening"]
+tags: ["Security", "WordPress", "Kubernetes", "Homelab", "DevSecOps", "PHP", "Hardening", "AI Security", "LLM Security", "Threat Modeling", "Zero Trust"]
 excerpt: "A home lab security story — from a WordPress file editor to potential root access on bare metal. How a PHP webshell exploits the application layer where firewalls can't reach, and how we closed the door."
 author: "Roshan Nagekar"
 ---

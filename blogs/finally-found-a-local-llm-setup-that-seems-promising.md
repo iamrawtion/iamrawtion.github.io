@@ -2,7 +2,7 @@
 title: "Finally Found a Local LLM Setup That Seems to be Promising"
 date: "2026-10-29"
 category: "DevOps"
-tags: ["AI Agents", "LLM", "Ollama", "Homelab", "Open Source", "DevOps"]
+tags: ["AI Agents", "LLM", "Ollama", "Homelab", "Open Source", "DevOps", "Local AI", "Private LLM", "Qwen", "Self-Hosted LLM", "AI on Mac", "Offline AI", "Claude Code", "AI Coding Assistant"]
 excerpt: "After multiple failed attempts with local LLMs, I found a setup that actually works for my homelab — Cindy agent, Ollama, and Qwen3-Coder 30B on an M3 Max. Slow but honest."
 author: "Roshan Nagekar"
 ---

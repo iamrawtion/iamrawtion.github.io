@@ -2,7 +2,7 @@
 title: "MeasureCamp Delhi: Where I Became a Speaker Without Meaning To"
 date: "2026-09-24"
 category: "DevOps"
-tags: ["Analytics", "Conference", "CRO", "A/B Testing", "AI Agents", "MeasureCamp", "Tech Event"]
+tags: ["Analytics", "Conference", "CRO", "A/B Testing", "AI Agents", "MeasureCamp", "Tech Event", "AI Analytics", "GA4", "AI-driven CRO", "Machine Learning in Marketing"]
 excerpt: "I went to MeasureCamp Delhi 2026 expecting the standard conference deal. Rows of chairs, a stage, goodie bags. I was wrong — and it turned out to be one of the best tech events I've attended."
 author: "Roshan Nagekar"
 ---
